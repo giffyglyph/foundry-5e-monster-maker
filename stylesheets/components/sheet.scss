@@ -1,0 +1,84 @@
+$sheet--header--bg: #676a7d;
+$sheet--body--bg: #b3b5c3;
+
+.gg5e-sheet {
+    background: black;
+    font-family: 'Source Sans Pro';
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .sheet__body {
+        flex-grow: 1;
+        background: white;
+        border-radius: 1rem;
+        padding: 0.25rem;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .sheet__tabs__body {
+        display: flex;
+        flex-grow: 1;
+        overflow: hidden;
+        position: relative;
+
+        .sheet__tab {
+            background: mix($sheet--header--bg, white, 35%);
+            padding: 1rem;
+
+            > * + * {
+                margin-top: 0.5rem;
+            }
+        };
+    }
+
+    .sheet__tab {
+        flex-grow: 1;
+        overflow-y: auto;
+        display: none;
+        
+        &.active {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .sheet__footer {
+        margin-top: 0.5rem;
+    }
+
+    .sheet__id {
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        .id,
+        .name {
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: '';
+                background: $sheet--header--bg;
+                width: 6px;
+                display: inline-block;
+                height: 6px;
+                border-radius: 1rem;
+                margin-right: 0.4rem;
+            }
+        }
+
+        .id {
+        }
+
+        .name {
+            font-size: smaller;
+        }
+    }
+
+    .sheet__tabs__nav {
+        display: none;
+    }
+}

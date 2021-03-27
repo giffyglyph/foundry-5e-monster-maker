@@ -1,0 +1,37 @@
+{
+  "name": "giffyglyphs-5e-monster-maker",
+  "title": "Giffyglyph's 5e Monster Maker",
+  "description": "Create monsters fast using monster levels and templates.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Giffyglyph",
+      "email": "giffyglyph@gmail.com",
+      "url": "https://www.giffyglyph.com"
+    }
+  ],
+  "scripts": [],
+  "esmodules": ["gg5e_mm.js"],
+  "styles": ["gg5e_mm.css"],
+  "system": "dnd5e",
+  "packs": [
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "dnd5e",
+      "type": "system"
+    }
+  ],
+  "minimumCoreVersion": "0.7.6",
+  "compatibleCoreVersion": "0.7.9",
+  "url": "https://patreon.com/giffyglyph",
+  "manifest": "",
+  "download": ""
+}

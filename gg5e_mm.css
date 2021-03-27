@@ -1,0 +1,445 @@
+@font-face {
+  font-family: 'Londrina Solid';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/LondrinaSolid-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Londrina Solid';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/LondrinaSolid-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Londrina Solid';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/LondrinaSolid-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Londrina Solid';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/LondrinaSolid-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../giffyglyphs-5e-monster-maker/fonts/SourceSansPro-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic; }
+
+.gg5e-sheet {
+  background: black;
+  font-family: 'Source Sans Pro';
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+  .gg5e-sheet .sheet__body {
+    flex-grow: 1;
+    background: white;
+    border-radius: 1rem;
+    padding: 0.25rem;
+    display: flex;
+    overflow: hidden; }
+  .gg5e-sheet .sheet__tabs__body {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    position: relative; }
+    .gg5e-sheet .sheet__tabs__body .sheet__tab {
+      background: #cacbd2;
+      padding: 1rem; }
+      .gg5e-sheet .sheet__tabs__body .sheet__tab > * + * {
+        margin-top: 0.5rem; }
+  .gg5e-sheet .sheet__tab {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: none; }
+    .gg5e-sheet .sheet__tab.active {
+      display: flex;
+      flex-direction: column; }
+  .gg5e-sheet .sheet__footer {
+    margin-top: 0.5rem; }
+  .gg5e-sheet .sheet__id {
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold; }
+    .gg5e-sheet .sheet__id .id,
+    .gg5e-sheet .sheet__id .name {
+      display: flex;
+      align-items: center; }
+      .gg5e-sheet .sheet__id .id::before,
+      .gg5e-sheet .sheet__id .name::before {
+        content: '';
+        background: #676a7d;
+        width: 6px;
+        display: inline-block;
+        height: 6px;
+        border-radius: 1rem;
+        margin-right: 0.4rem; }
+    .gg5e-sheet .sheet__id .name {
+      font-size: smaller; }
+  .gg5e-sheet .sheet__tabs__nav {
+    display: none; }
+
+.gg5e-sheet .monster {
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  background: #676a7d;
+  flex-grow: 1;
+  overflow: hidden; }
+  .gg5e-sheet .monster .monster__header {
+    background: #676a7d;
+    color: white;
+    display: grid;
+    grid-template-columns: 3.8rem 1fr auto;
+    grid-column-gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.75rem 0.75rem 0 0; }
+    .gg5e-sheet .monster .monster__header .monster__image {
+      grid-row: 1 / span 2; }
+      .gg5e-sheet .monster .monster__header .monster__image img {
+        background: black;
+        border-radius: 0.25rem;
+        border: 0;
+        display: block; }
+    .gg5e-sheet .monster .monster__header .monster__name {
+      font-size: 2.5rem;
+      letter-spacing: 0.5px;
+      font-family: 'Londrina Solid';
+      padding-bottom: 0.25rem; }
+    .gg5e-sheet .monster .monster__header .monster__tags {
+      grid-row: 2;
+      grid-column: 2;
+      font-weight: 600;
+      font-size: larger; }
+    .gg5e-sheet .monster .monster__header .monster__name,
+    .gg5e-sheet .monster .monster__header .monster__tags {
+      line-height: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .gg5e-sheet .monster .monster__header .monster__level {
+      grid-row: 1 / span 2;
+      grid-column: 3;
+      background: #393b45;
+      margin: -1rem 0rem -2rem 0;
+      padding: 0.5rem;
+      text-align: center;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+      clip-path: polygon(0% 0%, 0% 100%, 50% 85%, 100% 100%, 100% 0%);
+      z-index: 3;
+      line-height: 1.2;
+      font-size: larger;
+      font-weight: 600;
+      padding-bottom: 1.25rem; }
+    .gg5e-sheet .monster .monster__header:not(:last-child) {
+      padding-bottom: 2rem; }
+      .gg5e-sheet .monster .monster__header:not(:last-child) + * {
+        margin-top: -1rem;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem; }
+  .gg5e-sheet .monster .monster__blocks {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-column-gap: 0.25rem;
+    padding-top: 0.5rem; }
+    .gg5e-sheet .monster .monster__blocks .monster__block {
+      background: white;
+      border-radius: 0.75rem;
+      text-align: center;
+      padding: 1.25rem 0.5rem 0.5rem;
+      position: relative; }
+      .gg5e-sheet .monster .monster__blocks .monster__block .block__header {
+        text-transform: uppercase;
+        color: #676a7d;
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+        position: relative; }
+        .gg5e-sheet .monster .monster__blocks .monster__block .block__header i {
+          position: absolute;
+          height: 1rem;
+          width: 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: grey;
+          border-radius: 1rem; }
+      .gg5e-sheet .monster .monster__blocks .monster__block .block__icon {
+        position: absolute;
+        height: 2rem;
+        width: 2rem;
+        left: calc(50% - 1rem);
+        background: #676a7d;
+        top: -1rem;
+        border-radius: 1rem;
+        padding: 0.25rem; }
+        .gg5e-sheet .monster .monster__blocks .monster__block .block__icon img {
+          border: none;
+          border-radius: 0; }
+      .gg5e-sheet .monster .monster__blocks .monster__block .block__body {
+        font-family: 'Londrina Solid';
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        position: relative; }
+      .gg5e-sheet .monster .monster__blocks .monster__block.hit-points {
+        grid-column: 1 / span 3; }
+      .gg5e-sheet .monster .monster__blocks .monster__block.dcs {
+        grid-column: 6 / span 2; }
+  .gg5e-sheet .monster .monster__details {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem; }
+    .gg5e-sheet .monster .monster__details dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-column-gap: 1rem;
+      grid-row-gap: 0.25rem;
+      margin: 0; }
+      .gg5e-sheet .monster .monster__details dl dt {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #676a7d; }
+      .gg5e-sheet .monster .monster__details dl dd {
+        padding: 0;
+        margin: 0; }
+    .gg5e-sheet .monster .monster__details .fa-fw {
+      margin-right: 0.25rem; }
+  .gg5e-sheet .monster .monster__attributes {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 0.25rem;
+    margin-bottom: 1.25rem; }
+    .gg5e-sheet .monster .monster__attributes + dl {
+      border-top: 1px dotted #b3b5be;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1rem; }
+    .gg5e-sheet .monster .monster__attributes .monster__attribute {
+      background: #e1e1e7;
+      border-radius: 0.75rem;
+      text-align: center;
+      padding: 0.5rem 0.25rem; }
+      .gg5e-sheet .monster .monster__attributes .monster__attribute .title {
+        text-transform: uppercase;
+        color: #505261;
+        font-weight: bold;
+        margin: -0.25rem -0.25rem 0.25rem; }
+      .gg5e-sheet .monster .monster__attributes .monster__attribute .value {
+        font-size: 1.5rem;
+        font-weight: normal;
+        font-family: 'Londrina Solid';
+        letter-spacing: 2px; }
+      .gg5e-sheet .monster .monster__attributes .monster__attribute .save {
+        position: relative;
+        z-index: 1;
+        margin-bottom: -1rem;
+        height: 2rem;
+        margin-top: 0.25rem;
+        font-weight: bold;
+        font-size: larger;
+        padding-top: 0.125rem;
+        color: white; }
+        .gg5e-sheet .monster .monster__attributes .monster__attribute .save::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 2rem;
+          height: 100%;
+          left: calc(50% - 1rem);
+          background: #76798a;
+          clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
+          z-index: -1; }
+  .gg5e-sheet .monster .monster__trait .title {
+    display: inline; }
+    .gg5e-sheet .monster .monster__trait .title:after {
+      content: ':'; }
+  .gg5e-sheet .monster .monster__trait .value,
+  .gg5e-sheet .monster .monster__trait .value > :first-child {
+    display: inline; }
+  .gg5e-sheet .monster .monster__action .title .tags {
+    font-weight: normal;
+    font-style: italic; }
+    .gg5e-sheet .monster .monster__action .title .tags::before {
+      content: '('; }
+    .gg5e-sheet .monster .monster__action .title .tags::after {
+      content: ')'; }
+  .gg5e-sheet .monster .monster__trait,
+  .gg5e-sheet .monster .monster__action {
+    padding: 1rem;
+    padding-left: 2rem;
+    position: relative; }
+    .gg5e-sheet .monster .monster__trait::before,
+    .gg5e-sheet .monster .monster__action::before {
+      content: '';
+      background: #676a7d;
+      position: absolute;
+      left: 0.75rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 1rem;
+      top: 1.25rem; }
+    .gg5e-sheet .monster .monster__trait .title,
+    .gg5e-sheet .monster .monster__action .title {
+      font-weight: bold; }
+    .gg5e-sheet .monster .monster__trait + *,
+    .gg5e-sheet .monster .monster__action + * {
+      border-top: 1px dotted #b3b5be; }
+    .gg5e-sheet .monster .monster__trait:not(:first-child),
+    .gg5e-sheet .monster .monster__action:not(:first-child) {
+      padding-top: 0.5rem; }
+      .gg5e-sheet .monster .monster__trait:not(:first-child)::before,
+      .gg5e-sheet .monster .monster__action:not(:first-child)::before {
+        top: 0.75rem; }
+    .gg5e-sheet .monster .monster__trait:not(:last-child),
+    .gg5e-sheet .monster .monster__action:not(:last-child) {
+      padding-bottom: 0.5rem; }
+    .gg5e-sheet .monster .monster__trait.common::before, .gg5e-sheet .monster .monster__trait.uncommon::before, .gg5e-sheet .monster .monster__trait.rare::before,
+    .gg5e-sheet .monster .monster__action.common::before,
+    .gg5e-sheet .monster .monster__action.uncommon::before,
+    .gg5e-sheet .monster .monster__action.rare::before {
+      clip-path: polygon(0% 0%, 0% 100%, 45% 100%, 45% 0%, 55% 0%, 55% 100%, 100% 100%, 100% 0%); }
+    .gg5e-sheet .monster .monster__trait.common::before,
+    .gg5e-sheet .monster .monster__action.common::before {
+      background: #23bd4b; }
+    .gg5e-sheet .monster .monster__trait.uncommon::before,
+    .gg5e-sheet .monster .monster__action.uncommon::before {
+      background: #d4ac19;
+      transform: rotate(45deg); }
+    .gg5e-sheet .monster .monster__trait.rare::before,
+    .gg5e-sheet .monster .monster__action.rare::before {
+      background: #c51c1c;
+      transform: rotate(90deg); }
+
+.gg5e-sheet .panel .panel__header {
+  background: #676a7d;
+  color: white;
+  padding: 0.5rem 1rem 1.5rem;
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 1rem 1rem 0 0;
+  position: relative; }
+
+.gg5e-sheet .panel .panel__body {
+  background: white;
+  margin-top: -1rem;
+  border-radius: 1rem;
+  position: relative; }
+
+.gg5e-sheet .panel.panel--collapsible .panel__header {
+  padding-right: 3rem;
+  cursor: pointer; }
+  .gg5e-sheet .panel.panel--collapsible .panel__header::after {
+    content: "\f077";
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    position: absolute;
+    right: 0.25rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0.25rem;
+    background: #505261;
+    border-radius: 1rem; }
+
+.gg5e-sheet .panel.panel--collapsible.collapsed .panel__header {
+  padding-bottom: 0.5rem;
+  border-radius: 1rem; }
+  .gg5e-sheet .panel.panel--collapsible.collapsed .panel__header::after {
+    content: "\f078"; }
+
+.gg5e-sheet .panel.panel--collapsible.collapsed .panel__body {
+  display: none; }
+
+.window-gg5e-mm {
+  border-radius: 0 0 1rem 1rem;
+  width: 540px !important; }
+  .window-gg5e-mm .window-header {
+    border-bottom: none; }
+  .window-gg5e-mm .window-content {
+    background: none;
+    padding: 0;
+    border-radius: 1rem; }
