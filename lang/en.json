@@ -73,6 +73,7 @@
 
     "gg5e_mm.monster.options.description.title": "Description",
     "gg5e_mm.monster.options.description.name": "Name",
+    "gg5e_mm.monster.options.description.image": "Image",
     "gg5e_mm.monster.options.description.size": "Size",
     "gg5e_mm.monster.options.description.type": "Type",
     "gg5e_mm.monster.options.description.tags": "Tags",

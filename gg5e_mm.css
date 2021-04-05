@@ -839,6 +839,15 @@
     .gg5e-mm-window--monster .pane--edit .pane__body {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
+    .gg5e-mm-window--monster .pane--edit .form-group--image img {
+      background: black;
+      border-radius: 0.75rem;
+      width: 4.2rem;
+      margin: 0.25rem auto 0.25rem 0.5rem;
+      border: none;
+      display: block; }
+      .gg5e-mm-window--monster .pane--edit .form-group--image img:hover {
+        cursor: pointer; }
     .gg5e-mm-window--monster .pane--edit .accordion-section__body {
       padding: 0; }
     .gg5e-mm-window--monster .pane--edit .fieldset-rank .target-players,
