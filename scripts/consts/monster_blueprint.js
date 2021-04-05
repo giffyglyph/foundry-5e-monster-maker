@@ -1,7 +1,10 @@
 export const MONSTER_BLUEPRINT = {
     description: {
         size: "large",
-        type: "humanoid",
+        type: {
+            category: "humanoid",
+            custom: null
+        },
         tags: "tag1, tag2, tag3"
     },
     combat: {
