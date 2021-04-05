@@ -14,6 +14,7 @@ export default class Frankenstein {
             level: this.parseLevel(blueprint.combat.level),
             rank: this.parseRank(blueprint.combat.rank),
             role: this.parseRole(blueprint.combat.role),
+            phase: this.parsePhase(blueprint.combat.rank)
         }
         monster.hit_points = this.parseHitPoints(blueprint);
         monster.armor_class = this.parseArmorClass(blueprint);
@@ -46,6 +47,14 @@ export default class Frankenstein {
 
     static parseLevel(level) {
         return game.i18n.format('gg5e_mm.monster.view.level', { level: level });
+    }
+
+    static parsePhase(rank) {
+        if (rank.modifiers.has_phases && rank.modifiers.phases.maximum > 1) {
+            return game.i18n.format('gg5e_mm.monster.view.phase', rank.modifiers.phases);
+        } else {
+            return null;
+        }
     }
 
     static parseRank(rank) {
