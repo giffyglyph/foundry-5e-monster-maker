@@ -1,129 +1,8 @@
-<div class="gg5e-sheet gg5e-sheet--monster {{cssClass}}">
+<div class="gg5e-mm-sheet {{cssClass}}">
     <div class="sheet__body">
-        <form class="monster" autocomplete="off">
-            <div class="monster__header">
-                <div class="monster__image"><img src="{{actor.img}}"></div>
-                <div class="monster__name">Mortanius</div>
-                <div class="monster__tags">Medium humanoid, chaotic evil</div>
-                <div class="monster__level">
-                    <div class="level">Level 5</div>
-                    <div class="rank">Elite</div>
-                    <div class="role">Controller</div>
-                </div>
-            </div>
-            <div class="sheet__tabs__body">
-                <div class="sheet__tab monster__tab--front" data-group="primary" data-tab="front">
-                    <div class="monster__blocks">
-                        <div class="monster__block hit-points">
-                            <div class="block__icon"><img src="modules/giffyglyphs-5e-monster-maker/images/icons/heart-beats.svg"/></div>
-                            <div class="block__header">Hit Points</div>
-                            <div class="block__body">12 / 126</div>
-                        </div>
-                        <div class="monster__block">
-                            <div class="block__icon"><img src="modules/giffyglyphs-5e-monster-maker/images/icons/shield.svg"/></div>
-                            <div class="block__header">AC</div>
-                            <div class="block__body">16</div>
-                        </div>
-                        <div class="monster__block">
-                            <div class="block__icon"><img src="modules/giffyglyphs-5e-monster-maker/images/icons/sharp-axe.svg"/></div>
-                            <div class="block__header">Attack</div>
-                            <div class="block__body">+7</div>
-                        </div>
-                        <div class="monster__block dcs">
-                            <div class="block__icon"><img src="modules/giffyglyphs-5e-monster-maker/images/icons/gold-shell.svg"/></div>
-                            <div class="block__header">Spell DCs</div>
-                            <div class="block__body">15 / 12</div>
-                        </div>
-                        <div class="monster__block">
-                            <div class="block__icon"><img src="modules/giffyglyphs-5e-monster-maker/images/icons/fluffy-flame.svg"/></div>
-                            <div class="block__header">Damage</div>
-                            <div class="block__body">11</div>
-                        </div>
-                    </div>
-                    <div class="monster__details">
-                        <div class="monster__attributes">
-                            <div class="monster__attribute">
-                                <div class="title">Str</div>
-                                <div class="value">+0</div>
-                                <div class="save">+2</div>
-                            </div>
-                            <div class="monster__attribute">
-                                <div class="title">Dex</div>
-                                <div class="value">+1</div>
-                                <div class="save">+2</div>
-                            </div>
-                            <div class="monster__attribute">
-                                <div class="title">Con</div>
-                                <div class="value">+3</div>
-                                <div class="save">+5</div>
-                            </div>
-                            <div class="monster__attribute">
-                                <div class="title">Int</div>
-                                <div class="value">+4</div>
-                                <div class="save">+8</div>
-                            </div>
-                            <div class="monster__attribute">
-                                <div class="title">Wis</div>
-                                <div class="value">+1</div>
-                                <div class="save">+2</div>
-                            </div>
-                            <div class="monster__attribute">
-                                <div class="title">Cha</div>
-                                <div class="value">+3</div>
-                                <div class="save">+5</div>
-                            </div>
-                        </div>
-                        <dl>
-                            <dt><i class="fas fa-lightbulb fa-fw"></i> Skills</dt>
-                            <dd>Initiative +7, Perception +4, Stealth +4</dd>
-                            <dt><i class="fas fa-shoe-prints fa-fw"></i> Speed</dt>
-                            <dd>30 ft</dd>
-                            <dt><i class="fas fa-times fa-fw"></i> Damage Immunities</dt>
-                            <dd>Necrotic</dd>
-                            <dt><i class="fas fa-times fa-fw"></i> Condition Immunities</dt>
-                            <dd>Blinded</dd>
-                            <dt><i class="fas fa-eye fa-fw"></i> Senses</dt>
-                            <dd>Darkvision 60 ft</dd>
-                            <dt><i class="fas fa-comment fa-fw"></i> Languages</dt>
-                            <dd>Common, Draconic, Deep Speech</dd>
-                        </dl>
-                    </div>
-                    <div class="panel panel--collapsible monster__traits">
-                        <div class="panel__header">Traits</div>
-                        <div class="panel__body">
-                            <div class="monster__trait">
-                                <div class="title">Paragon Action</div>
-                                <div class="value">You may take one Paragon Action per round to either move or perform an action.</div>
-                            </div>
-                            <div class="monster__trait">
-                                <div class="title">Escape</div>
-                                <div class="value">When you would be reduced to 0 hit points outside of your lair, you instead escape and flee to your lair. You remain there, paralysed and resting, until you recover at least 50% of your hit points.</div>
-                            </div>
-                            <div class="monster__trait">
-                                <div class="title">Knockback</div>
-                                <div class="value">Once per turn, when you hit a creature with an attack, you can knock the creature up to 15 ft away from you.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel--collapsible monster__actions">
-                        <div class="panel__header">Actions</div>
-                        <div class="panel__body">
-                            <div class="monster__action common">
-                                <div class="title">Scythe <span class="tags">common</span></div>
-                                <div class="value">Melee 10 ft: +9 vs AC. Hit: 15 slashing damage.</div>
-                            </div>
-                            <div class="monster__action uncommon">
-                                <div class="title">Grim Harvest <span class="tags">uncommon, multiattack 2</span></div>
-                                <div class="value">Melee 10 ft: +9 vs AC. Hit: 7 necrotic damage.</div>
-                            </div>
-                            <div class="monster__action rare">
-                                <div class="title">Frozen Soul <span class="tags">rare</span></div>
-                                <div class="value">Ranged 60 ft: DC 17 vs Constitution. Hit: The target is Restrained until the end of its next turn.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <form class="gg5e-mm-panes" autocomplete="off">
+            {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_view.html" }}
+            {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_options.html" }}
         </form>
     </div>
     <div class="sheet__footer">
@@ -131,12 +10,8 @@
             <span class="id">{{actor._id}}</span>
             <span class="name">Giffyglyph's 5e Monster Maker</span>
         </div>
-        <nav class="sheet__tabs__nav" data-group="primary">
-            <button type="button" class="active" data-tab="front">A</button>
-            {{#if data.descriptions.secondary.main}}
-                <button type="button" data-tab="back">B</button>
-            {{/if}}
-            <button type="button" data-action="edit"><i class="fas fa-edit"></i></button>
+        <nav class="sheet__controls" data-group="primary">
+            <button type="button" class="toggle-mode--edit"><i class="fas fa-cogs"></i></button>
         </nav>
     </div>
 </div>

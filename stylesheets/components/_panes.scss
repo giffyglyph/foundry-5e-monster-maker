@@ -1,0 +1,31 @@
+.gg5e-mm-panes {
+    display: flex;
+    width: 100%;
+
+    .pane {
+        background: white;
+        padding: 0.25rem;
+        overflow: hidden;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1rem;
+    }
+
+    .pane__header {
+        background: $sheet--header--bg;
+        color: white;
+        padding: 1rem 1rem 2rem;
+        border-radius: 0.75rem 0.75rem 0 0;
+        flex-shrink: 0;
+    }
+
+    .pane__body {
+        background: $sheet--body--bg;
+        margin-top: -1rem;
+        border-radius: 1rem 1rem 0.75rem 0.75rem;
+        padding: 1rem;
+        overflow-y: auto;
+        flex-grow: 1;
+    }
+}

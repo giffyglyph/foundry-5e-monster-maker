@@ -1,7 +1,4 @@
-$sheet--header--bg: #676a7d;
-$sheet--body--bg: #b3b5c3;
-
-.gg5e-sheet {
+.gg5e-mm-sheet {
     background: black;
     font-family: 'Source Sans Pro';
     padding: 0.5rem;
@@ -11,42 +8,15 @@ $sheet--body--bg: #b3b5c3;
 
     .sheet__body {
         flex-grow: 1;
-        background: white;
         border-radius: 1rem;
-        padding: 0.25rem;
         display: flex;
         overflow: hidden;
-    }
-
-    .sheet__tabs__body {
-        display: flex;
-        flex-grow: 1;
-        overflow: hidden;
-        position: relative;
-
-        .sheet__tab {
-            background: mix($sheet--header--bg, white, 35%);
-            padding: 1rem;
-
-            > * + * {
-                margin-top: 0.5rem;
-            }
-        };
-    }
-
-    .sheet__tab {
-        flex-grow: 1;
-        overflow-y: auto;
-        display: none;
-        
-        &.active {
-            display: flex;
-            flex-direction: column;
-        }
     }
 
     .sheet__footer {
         margin-top: 0.5rem;
+        display: flex;
+        justify-content: space-between;
     }
 
     .sheet__id {
@@ -70,15 +40,32 @@ $sheet--body--bg: #b3b5c3;
             }
         }
 
-        .id {
-        }
-
         .name {
             font-size: smaller;
         }
     }
 
-    .sheet__tabs__nav {
-        display: none;
+    .sheet__controls {
+        display: flex;
+
+        button {
+            background: $sheet--body--bg;
+            border: none;
+            box-shadow: none;
+            height: 2rem;
+            width: 2rem;
+            padding: 0;
+            border-radius: 1rem;
+            margin: 0;
+            cursor: pointer;
+
+            i {
+                margin: 0;
+            }
+
+            + * {
+                margin-left: 0.25rem;
+            }
+        }
     }
 }

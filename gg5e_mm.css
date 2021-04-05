@@ -94,317 +94,631 @@
   font-weight: 900;
   font-style: italic; }
 
-.gg5e-sheet {
+.gg5e-mm-sheet {
   background: black;
   font-family: 'Source Sans Pro';
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden; }
-  .gg5e-sheet .sheet__body {
+  .gg5e-mm-sheet .sheet__body {
     flex-grow: 1;
-    background: white;
     border-radius: 1rem;
-    padding: 0.25rem;
     display: flex;
     overflow: hidden; }
-  .gg5e-sheet .sheet__tabs__body {
+  .gg5e-mm-sheet .sheet__footer {
+    margin-top: 0.5rem;
     display: flex;
-    flex-grow: 1;
-    overflow: hidden;
-    position: relative; }
-    .gg5e-sheet .sheet__tabs__body .sheet__tab {
-      background: #cacbd2;
-      padding: 1rem; }
-      .gg5e-sheet .sheet__tabs__body .sheet__tab > * + * {
-        margin-top: 0.5rem; }
-  .gg5e-sheet .sheet__tab {
-    flex-grow: 1;
-    overflow-y: auto;
-    display: none; }
-    .gg5e-sheet .sheet__tab.active {
-      display: flex;
-      flex-direction: column; }
-  .gg5e-sheet .sheet__footer {
-    margin-top: 0.5rem; }
-  .gg5e-sheet .sheet__id {
+    justify-content: space-between; }
+  .gg5e-mm-sheet .sheet__id {
     color: white;
     text-transform: uppercase;
     font-weight: bold; }
-    .gg5e-sheet .sheet__id .id,
-    .gg5e-sheet .sheet__id .name {
+    .gg5e-mm-sheet .sheet__id .id,
+    .gg5e-mm-sheet .sheet__id .name {
       display: flex;
       align-items: center; }
-      .gg5e-sheet .sheet__id .id::before,
-      .gg5e-sheet .sheet__id .name::before {
+      .gg5e-mm-sheet .sheet__id .id::before,
+      .gg5e-mm-sheet .sheet__id .name::before {
         content: '';
-        background: #676a7d;
+        background: #54576b;
         width: 6px;
         display: inline-block;
         height: 6px;
         border-radius: 1rem;
         margin-right: 0.4rem; }
-    .gg5e-sheet .sheet__id .name {
+    .gg5e-mm-sheet .sheet__id .name {
       font-size: smaller; }
-  .gg5e-sheet .sheet__tabs__nav {
-    display: none; }
+  .gg5e-mm-sheet .sheet__controls {
+    display: flex; }
+    .gg5e-mm-sheet .sheet__controls button {
+      background: #bbbcc4;
+      border: none;
+      box-shadow: none;
+      height: 2rem;
+      width: 2rem;
+      padding: 0;
+      border-radius: 1rem;
+      margin: 0;
+      cursor: pointer; }
+      .gg5e-mm-sheet .sheet__controls button i {
+        margin: 0; }
+      .gg5e-mm-sheet .sheet__controls button + * {
+        margin-left: 0.25rem; }
 
-.gg5e-sheet .monster {
+.gg5e-mm-panes {
+  display: flex;
+  width: 100%; }
+  .gg5e-mm-panes .pane {
+    background: white;
+    padding: 0.25rem;
+    overflow: hidden;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem; }
+  .gg5e-mm-panes .pane__header {
+    background: #54576b;
+    color: white;
+    padding: 1rem 1rem 2rem;
+    border-radius: 0.75rem 0.75rem 0 0;
+    flex-shrink: 0; }
+  .gg5e-mm-panes .pane__body {
+    background: #bbbcc4;
+    margin-top: -1rem;
+    border-radius: 1rem 1rem 0.75rem 0.75rem;
+    padding: 1rem;
+    overflow-y: auto;
+    flex-grow: 1; }
+
+.gg5e-mm-form .form-group {
+  margin: 0;
+  position: relative;
+  align-items: normal; }
+  .gg5e-mm-form .form-group:not(:last-child) {
+    border-bottom: 1px solid #d6d7dc; }
+  .gg5e-mm-form .form-group .form-group__header {
+    flex-shrink: 0;
+    margin: 0;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    box-sizing: border-box;
+    border-right: 1px solid #d6d7dc;
+    background: #ebebed;
+    line-height: 1;
+    min-height: 2rem;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  .gg5e-mm-form .form-group .form-group__body {
+    flex-shrink: 0;
+    flex: 4;
+    min-height: 2rem; }
+    .gg5e-mm-form .form-group .form-group__body input,
+    .gg5e-mm-form .form-group .form-group__body select {
+      display: block;
+      width: 100%;
+      padding: .5rem .75rem;
+      line-height: 1;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 0;
+      border-radius: 0;
+      margin: 0;
+      height: auto;
+      height: 2rem; }
+      .gg5e-mm-form .form-group .form-group__body input + input,
+      .gg5e-mm-form .form-group .form-group__body input + select,
+      .gg5e-mm-form .form-group .form-group__body select + input,
+      .gg5e-mm-form .form-group .form-group__body select + select {
+        border-top: 1px solid #d6d7dc; }
+      .gg5e-mm-form .form-group .form-group__body input:focus,
+      .gg5e-mm-form .form-group .form-group__body select:focus {
+        outline: 2px solid #9c04ce;
+        box-shadow: none; }
+    .gg5e-mm-form .form-group .form-group__body select {
+      padding-left: 0.5rem; }
+    .gg5e-mm-form .form-group .form-group__body input[type="checkbox"] {
+      height: 1.5rem;
+      width: 1.5rem;
+      margin-left: 0.5rem;
+      margin-top: 0.25rem; }
+      .gg5e-mm-form .form-group .form-group__body input[type="checkbox"]:hover {
+        cursor: pointer; }
+      .gg5e-mm-form .form-group .form-group__body input[type="checkbox"]:focus {
+        outline: none; }
+  .gg5e-mm-form .form-group .form-group__options {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 2rem;
+    display: flex;
+    align-items: center; }
+    .gg5e-mm-form .form-group .form-group__options button {
+      background: none;
+      border: none;
+      height: 2rem;
+      width: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.25; }
+      .gg5e-mm-form .form-group .form-group__options button i {
+        margin: 0; }
+      .gg5e-mm-form .form-group .form-group__options button:hover, .gg5e-mm-form .form-group .form-group__options button:focus {
+        opacity: 1;
+        color: #9c04ce;
+        box-shadow: none;
+        cursor: pointer; }
+
+.gg5e-mm-form .form-fieldset .form-fieldset__header {
+  border-right: none;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 0.25rem 1rem 0.25rem 2rem;
+  background: #dadadf;
+  min-height: auto;
+  line-height: 1.3;
+  border-bottom: 1px solid #bbbcc4;
+  position: relative;
+  font-weight: bold; }
+  .gg5e-mm-form .form-fieldset .form-fieldset__header::after {
+    content: "";
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    position: absolute;
+    left: 0.45rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0.45rem;
+    background: #bbbcc4;
+    color: white;
+    border-radius: 1rem;
+    font-size: smaller; }
+
+.gg5e-mm-form .form-fieldset:not(:first-child) {
+  border-top: 1px solid #bbbcc4; }
+
+.gg5e-mm-monster {
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  background: #676a7d;
+  background: #54576b;
   flex-grow: 1;
   overflow: hidden; }
-  .gg5e-sheet .monster .monster__header {
-    background: #676a7d;
-    color: white;
+  .gg5e-mm-monster .monster__header {
     display: grid;
     grid-template-columns: 3.8rem 1fr auto;
-    grid-column-gap: 0.5rem;
-    padding: 1rem;
-    border-radius: 0.75rem 0.75rem 0 0; }
-    .gg5e-sheet .monster .monster__header .monster__image {
+    grid-column-gap: 0.5rem; }
+    .gg5e-mm-monster .monster__header .monster__image {
       grid-row: 1 / span 2; }
-      .gg5e-sheet .monster .monster__header .monster__image img {
+      .gg5e-mm-monster .monster__header .monster__image img {
         background: black;
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
         border: 0;
         display: block; }
-    .gg5e-sheet .monster .monster__header .monster__name {
+    .gg5e-mm-monster .monster__header .monster__name {
       font-size: 2.5rem;
       letter-spacing: 0.5px;
       font-family: 'Londrina Solid';
       padding-bottom: 0.25rem; }
-    .gg5e-sheet .monster .monster__header .monster__tags {
+    .gg5e-mm-monster .monster__header .monster__description {
       grid-row: 2;
       grid-column: 2;
       font-weight: 600;
       font-size: larger; }
-    .gg5e-sheet .monster .monster__header .monster__name,
-    .gg5e-sheet .monster .monster__header .monster__tags {
+    .gg5e-mm-monster .monster__header .monster__name,
+    .gg5e-mm-monster .monster__header .monster__description {
       line-height: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap; }
-    .gg5e-sheet .monster .monster__header .monster__level {
+    .gg5e-mm-monster .monster__header .monster__level {
       grid-row: 1 / span 2;
       grid-column: 3;
-      background: #393b45;
-      margin: -1rem 0rem -2rem 0;
-      padding: 0.5rem;
       text-align: center;
-      border-radius: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
       font-weight: 500;
-      clip-path: polygon(0% 0%, 0% 100%, 50% 85%, 100% 100%, 100% 0%);
       z-index: 3;
       line-height: 1.2;
       font-size: larger;
       font-weight: 600;
-      padding-bottom: 1.25rem; }
-    .gg5e-sheet .monster .monster__header:not(:last-child) {
-      padding-bottom: 2rem; }
-      .gg5e-sheet .monster .monster__header:not(:last-child) + * {
-        margin-top: -1rem;
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem; }
-  .gg5e-sheet .monster .monster__blocks {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-column-gap: 0.25rem;
-    padding-top: 0.5rem; }
-    .gg5e-sheet .monster .monster__blocks .monster__block {
-      background: white;
-      border-radius: 0.75rem;
-      text-align: center;
-      padding: 1.25rem 0.5rem 0.5rem;
-      position: relative; }
-      .gg5e-sheet .monster .monster__blocks .monster__block .block__header {
-        text-transform: uppercase;
-        color: #676a7d;
-        font-weight: bold;
-        margin-bottom: 0.25rem;
-        position: relative; }
-        .gg5e-sheet .monster .monster__blocks .monster__block .block__header i {
-          position: absolute;
-          height: 1rem;
-          width: 1rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: grey;
-          border-radius: 1rem; }
-      .gg5e-sheet .monster .monster__blocks .monster__block .block__icon {
-        position: absolute;
-        height: 2rem;
-        width: 2rem;
-        left: calc(50% - 1rem);
-        background: #676a7d;
-        top: -1rem;
+      width: 6rem;
+      position: relative;
+      margin-top: -1rem;
+      margin-bottom: -1rem; }
+      .gg5e-mm-monster .monster__header .monster__level .level,
+      .gg5e-mm-monster .monster__header .monster__level .rank,
+      .gg5e-mm-monster .monster__header .monster__level .role {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .gg5e-mm-monster .monster__header .monster__level .phase {
+        background: #bbbcc4;
+        color: #272932;
+        padding: 0 0.5rem;
         border-radius: 1rem;
-        padding: 0.25rem; }
-        .gg5e-sheet .monster .monster__blocks .monster__block .block__icon img {
-          border: none;
-          border-radius: 0; }
-      .gg5e-sheet .monster .monster__blocks .monster__block .block__body {
-        font-family: 'Londrina Solid';
-        font-size: 1.5rem;
-        letter-spacing: 2px;
-        position: relative; }
-      .gg5e-sheet .monster .monster__blocks .monster__block.hit-points {
-        grid-column: 1 / span 3; }
-      .gg5e-sheet .monster .monster__blocks .monster__block.dcs {
-        grid-column: 6 / span 2; }
-  .gg5e-sheet .monster .monster__details {
-    background: white;
-    padding: 1rem;
-    border-radius: 1rem; }
-    .gg5e-sheet .monster .monster__details dl {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      grid-column-gap: 1rem;
-      grid-row-gap: 0.25rem;
-      margin: 0; }
-      .gg5e-sheet .monster .monster__details dl dt {
-        text-transform: uppercase;
+        text-align: center;
+        font-size: 11px;
         font-weight: bold;
-        color: #676a7d; }
-      .gg5e-sheet .monster .monster__details dl dd {
-        padding: 0;
-        margin: 0; }
-    .gg5e-sheet .monster .monster__details .fa-fw {
+        text-transform: uppercase;
+        margin: 0.25rem auto 0; }
+  .gg5e-mm-monster .monster__body > * + * {
+    margin-top: 1rem; }
+  .gg5e-mm-monster .monster__blocks .monster__blocks__row {
+    display: flex; }
+    .gg5e-mm-monster .monster__blocks .monster__blocks__row > * + * {
+      margin-left: 0.25rem; }
+    .gg5e-mm-monster .monster__blocks .monster__blocks__row + .monster__blocks__row {
+      margin-top: 0.25rem; }
+  .gg5e-mm-monster .monster__blocks .monster__block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0.75rem 0.75rem 1.5rem 1.5rem; }
+    .gg5e-mm-monster .monster__blocks .monster__block .block__title {
+      text-transform: uppercase;
+      color: white;
+      font-weight: bold;
+      position: relative;
+      background: #767989;
+      padding: 0.25rem 0.25rem 1.25rem;
+      text-align: center; }
+      .gg5e-mm-monster .monster__blocks .monster__block .block__title + .block__body {
+        margin-top: -1rem;
+        position: relative;
+        border-top-left-radius: 0.75rem;
+        border-top-right-radius: 0.75rem; }
+    .gg5e-mm-monster .monster__blocks .monster__block .block__body {
+      background: white;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+      padding: 0.5rem 0.25rem; }
+    .gg5e-mm-monster .monster__blocks .monster__block .block__values {
+      font-family: 'Londrina Solid';
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      position: relative;
+      text-align: center; }
+      .gg5e-mm-monster .monster__blocks .monster__block .block__values i {
+        color: #54576b; }
+    .gg5e-mm-monster .monster__blocks .monster__block .block__title,
+    .gg5e-mm-monster .monster__blocks .monster__block .block__values,
+    .gg5e-mm-monster .monster__blocks .monster__block .block__footer {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+    .gg5e-mm-monster .monster__blocks .monster__block .block__footer {
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      font-size: smaller;
+      font-weight: bold;
+      color: #848695; }
+  .gg5e-mm-monster .monster__blocks .hit-points,
+  .gg5e-mm-monster .monster__blocks .attack-dcs {
+    flex-grow: 1; }
+  .gg5e-mm-monster .monster__blocks .ac,
+  .gg5e-mm-monster .monster__blocks .perception,
+  .gg5e-mm-monster .monster__blocks .attack,
+  .gg5e-mm-monster .monster__blocks .damage {
+    width: 8rem;
+    flex-shrink: 0; }
+  .gg5e-mm-monster .monster__blocks .hit-points .block__values,
+  .gg5e-mm-monster .monster__blocks .hit-points .block__footer,
+  .gg5e-mm-monster .monster__blocks .attack-dcs .block__values,
+  .gg5e-mm-monster .monster__blocks .attack-dcs .block__footer {
+    display: flex;
+    justify-content: space-between; }
+    .gg5e-mm-monster .monster__blocks .hit-points .block__values span,
+    .gg5e-mm-monster .monster__blocks .hit-points .block__footer span,
+    .gg5e-mm-monster .monster__blocks .attack-dcs .block__values span,
+    .gg5e-mm-monster .monster__blocks .attack-dcs .block__footer span {
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+  .gg5e-mm-monster .monster__blocks .hit-points .temporary-hp i,
+  .gg5e-mm-monster .monster__blocks .attack-dcs .temporary-hp i {
+    font-size: smaller; }
+  .gg5e-mm-monster .monster__blocks .hit-points .temporary-hp i {
+    font-size: smaller; }
+  .gg5e-mm-monster .monster__blocks .damage .block__footer {
+    text-transform: none; }
+  .gg5e-mm-monster .monster__abilities {
+    padding-top: 1rem;
+    border-top: 2px solid #a0a1ac; }
+  .gg5e-mm-monster .monster__attributes {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 0.25rem;
+    margin: 0; }
+    .gg5e-mm-monster .monster__attributes dt {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #54576b; }
+    .gg5e-mm-monster .monster__attributes dd {
+      padding: 0;
+      margin: 0; }
+    .gg5e-mm-monster .monster__attributes .fa-fw {
       margin-right: 0.25rem; }
-  .gg5e-sheet .monster .monster__attributes {
+  .gg5e-mm-monster .monster__modifiers {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 0.25rem;
-    margin-bottom: 1.25rem; }
-    .gg5e-sheet .monster .monster__attributes + dl {
-      border-top: 1px dotted #b3b5be;
+    grid-column-gap: 0.25rem; }
+    .gg5e-mm-monster .monster__modifiers + .monster__attributes {
+      margin-top: 0.75rem;
+      border-top: 1px dotted #bbbcc4;
+      padding-top: 1rem;
       margin-left: -1rem;
       margin-right: -1rem;
       padding-left: 1rem;
-      padding-right: 1rem;
-      padding-top: 1rem; }
-    .gg5e-sheet .monster .monster__attributes .monster__attribute {
-      background: #e1e1e7;
-      border-radius: 0.75rem;
-      text-align: center;
-      padding: 0.5rem 0.25rem; }
-      .gg5e-sheet .monster .monster__attributes .monster__attribute .title {
-        text-transform: uppercase;
-        color: #505261;
-        font-weight: bold;
-        margin: -0.25rem -0.25rem 0.25rem; }
-      .gg5e-sheet .monster .monster__attributes .monster__attribute .value {
-        font-size: 1.5rem;
-        font-weight: normal;
-        font-family: 'Londrina Solid';
-        letter-spacing: 2px; }
-      .gg5e-sheet .monster .monster__attributes .monster__attribute .save {
-        position: relative;
-        z-index: 1;
-        margin-bottom: -1rem;
-        height: 2rem;
-        margin-top: 0.25rem;
-        font-weight: bold;
-        font-size: larger;
-        padding-top: 0.125rem;
-        color: white; }
-        .gg5e-sheet .monster .monster__attributes .monster__attribute .save::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          width: 2rem;
-          height: 100%;
-          left: calc(50% - 1rem);
-          background: #76798a;
-          clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
-          z-index: -1; }
-  .gg5e-sheet .monster .monster__trait .title {
+      padding-right: 1rem; }
+  .gg5e-mm-monster .monster__modifier {
+    text-align: center;
+    overflow: hidden; }
+    .gg5e-mm-monster .monster__modifier .title {
+      text-transform: uppercase;
+      color: white;
+      font-weight: bold;
+      position: relative;
+      padding: 0.25rem 0.25rem 1.25rem;
+      background: #767989;
+      border-radius: 0.75rem 0.75rem 0 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      .gg5e-mm-monster .monster__modifier .title + .value {
+        margin-top: -1rem;
+        position: relative; }
+    .gg5e-mm-monster .monster__modifier .value {
+      background: #dddde1;
+      height: 4.3rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.75rem;
+      font-weight: normal;
+      font-family: 'Londrina Solid';
+      letter-spacing: 2px;
+      padding-bottom: 1.25rem;
+      border-radius: 100%;
+      border-radius: 0.75rem 0.75rem 1.5rem 1.5rem; }
+    .gg5e-mm-monster .monster__modifier .save {
+      position: relative;
+      z-index: 1;
+      height: 2.5rem;
+      margin-top: -1.5rem;
+      font-weight: bold;
+      font-size: 1.25rem;
+      padding-bottom: 0.5rem;
+      color: white;
+      display: flex;
+      justify-content: center;
+      letter-spacing: 1px;
+      align-items: center; }
+      .gg5e-mm-monster .monster__modifier .save::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 2.5rem;
+        height: 100%;
+        left: calc(50% - 1.25rem);
+        background: #3e404e;
+        clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
+        z-index: -1; }
+  .gg5e-mm-monster .monster__trait .title {
     display: inline; }
-    .gg5e-sheet .monster .monster__trait .title:after {
+    .gg5e-mm-monster .monster__trait .title:after {
       content: ':'; }
-  .gg5e-sheet .monster .monster__trait .value,
-  .gg5e-sheet .monster .monster__trait .value > :first-child {
+  .gg5e-mm-monster .monster__trait .value,
+  .gg5e-mm-monster .monster__trait .value > :first-child {
     display: inline; }
-  .gg5e-sheet .monster .monster__action .title .tags {
+  .gg5e-mm-monster .monster__action .title .tags {
     font-weight: normal;
     font-style: italic; }
-    .gg5e-sheet .monster .monster__action .title .tags::before {
+    .gg5e-mm-monster .monster__action .title .tags::before {
       content: '('; }
-    .gg5e-sheet .monster .monster__action .title .tags::after {
+    .gg5e-mm-monster .monster__action .title .tags::after {
       content: ')'; }
-  .gg5e-sheet .monster .monster__trait,
-  .gg5e-sheet .monster .monster__action {
+  .gg5e-mm-monster .monster__trait,
+  .gg5e-mm-monster .monster__action {
     padding: 1rem;
     padding-left: 2rem;
     position: relative; }
-    .gg5e-sheet .monster .monster__trait::before,
-    .gg5e-sheet .monster .monster__action::before {
+    .gg5e-mm-monster .monster__trait::before,
+    .gg5e-mm-monster .monster__action::before {
       content: '';
-      background: #676a7d;
+      background: #54576b;
       position: absolute;
       left: 0.75rem;
       width: 0.75rem;
       height: 0.75rem;
       border-radius: 1rem;
       top: 1.25rem; }
-    .gg5e-sheet .monster .monster__trait .title,
-    .gg5e-sheet .monster .monster__action .title {
+    .gg5e-mm-monster .monster__trait .title,
+    .gg5e-mm-monster .monster__action .title {
       font-weight: bold; }
-    .gg5e-sheet .monster .monster__trait + *,
-    .gg5e-sheet .monster .monster__action + * {
-      border-top: 1px dotted #b3b5be; }
-    .gg5e-sheet .monster .monster__trait:not(:first-child),
-    .gg5e-sheet .monster .monster__action:not(:first-child) {
+    .gg5e-mm-monster .monster__trait + *,
+    .gg5e-mm-monster .monster__action + * {
+      border-top: 1px dotted #aaabb5; }
+    .gg5e-mm-monster .monster__trait:not(:first-child),
+    .gg5e-mm-monster .monster__action:not(:first-child) {
       padding-top: 0.5rem; }
-      .gg5e-sheet .monster .monster__trait:not(:first-child)::before,
-      .gg5e-sheet .monster .monster__action:not(:first-child)::before {
+      .gg5e-mm-monster .monster__trait:not(:first-child)::before,
+      .gg5e-mm-monster .monster__action:not(:first-child)::before {
         top: 0.75rem; }
-    .gg5e-sheet .monster .monster__trait:not(:last-child),
-    .gg5e-sheet .monster .monster__action:not(:last-child) {
+    .gg5e-mm-monster .monster__trait:not(:last-child),
+    .gg5e-mm-monster .monster__action:not(:last-child) {
       padding-bottom: 0.5rem; }
-    .gg5e-sheet .monster .monster__trait.common::before, .gg5e-sheet .monster .monster__trait.uncommon::before, .gg5e-sheet .monster .monster__trait.rare::before,
-    .gg5e-sheet .monster .monster__action.common::before,
-    .gg5e-sheet .monster .monster__action.uncommon::before,
-    .gg5e-sheet .monster .monster__action.rare::before {
+    .gg5e-mm-monster .monster__trait.common::before, .gg5e-mm-monster .monster__trait.uncommon::before, .gg5e-mm-monster .monster__trait.rare::before,
+    .gg5e-mm-monster .monster__action.common::before,
+    .gg5e-mm-monster .monster__action.uncommon::before,
+    .gg5e-mm-monster .monster__action.rare::before {
       clip-path: polygon(0% 0%, 0% 100%, 45% 100%, 45% 0%, 55% 0%, 55% 100%, 100% 100%, 100% 0%); }
-    .gg5e-sheet .monster .monster__trait.common::before,
-    .gg5e-sheet .monster .monster__action.common::before {
+    .gg5e-mm-monster .monster__trait.common::before,
+    .gg5e-mm-monster .monster__action.common::before {
       background: #23bd4b; }
-    .gg5e-sheet .monster .monster__trait.uncommon::before,
-    .gg5e-sheet .monster .monster__action.uncommon::before {
+    .gg5e-mm-monster .monster__trait.uncommon::before,
+    .gg5e-mm-monster .monster__action.uncommon::before {
       background: #d4ac19;
       transform: rotate(45deg); }
-    .gg5e-sheet .monster .monster__trait.rare::before,
-    .gg5e-sheet .monster .monster__action.rare::before {
+    .gg5e-mm-monster .monster__trait.rare::before,
+    .gg5e-mm-monster .monster__action.rare::before {
       background: #c51c1c;
       transform: rotate(90deg); }
 
-.gg5e-sheet .panel .panel__header {
-  background: #676a7d;
+.gg5e-mm-accordion .accordion-section__header {
+  background: #767989;
+  color: white;
+  padding: 0.25rem 1rem 1.25rem;
+  font-weight: bold;
+  border-radius: 0;
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase; }
+  .gg5e-mm-accordion .accordion-section__header::after {
+    content: "\f078";
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+    position: absolute;
+    left: 0.25rem;
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0.25rem;
+    background: #54576b;
+    color: white;
+    border-radius: 1rem;
+    font-size: smaller; }
+
+.gg5e-mm-accordion .accordion-section__body {
+  background: white;
+  margin-top: -1rem;
+  border-radius: 0;
+  position: relative;
+  padding: 1rem;
+  overflow: hidden; }
+
+.gg5e-mm-accordion .accordion-buttons {
+  padding: 0.5rem;
+  border-top: 1px solid #d6d7dc;
+  background: #ebebed;
+  text-align: right; }
+  .gg5e-mm-accordion .accordion-buttons button {
+    background: #272932;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    line-height: 1;
+    font-family: inherit; }
+    .gg5e-mm-accordion .accordion-buttons button i {
+      background: white;
+      color: #272932;
+      border-radius: 1rem;
+      height: 1rem;
+      width: 1rem;
+      margin-left: -0.25rem;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center; }
+    .gg5e-mm-accordion .accordion-buttons button:hover, .gg5e-mm-accordion .accordion-buttons button:focus {
+      cursor: pointer;
+      background: #9c04ce;
+      box-shadow: none; }
+      .gg5e-mm-accordion .accordion-buttons button:hover i, .gg5e-mm-accordion .accordion-buttons button:focus i {
+        color: #9c04ce; }
+
+.gg5e-mm-accordion .accordion-section:first-of-type .accordion-section__header {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem; }
+
+.gg5e-mm-accordion .accordion-section:not(:first-of-type) {
+  border-top: 1px solid #54576b; }
+
+.gg5e-mm-accordion .accordion-section:last-child .accordion-section__body {
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem; }
+
+.gg5e-mm-accordion .accordion-section.opened .accordion-section__header {
+  background: #8904b5; }
+  .gg5e-mm-accordion .accordion-section.opened .accordion-section__header::after {
+    background: #af04e7; }
+
+.gg5e-mm-accordion .accordion-section.opened .accordion-section__body {
+  border-top: 1px solid #50026a; }
+
+.gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header {
+  padding-bottom: 0.25rem; }
+  .gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header::after {
+    content: "\f054"; }
+  .gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header:hover {
+    background: #8904b5; }
+    .gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header:hover::after {
+      background: #af04e7; }
+
+.gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__body {
+  display: none; }
+
+.gg5e-mm-accordion .accordion-section:not(.opened):last-child .accordion-section__header {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem; }
+
+.gg5e-mm-panel .panel__header {
+  background: #54576b;
   color: white;
   padding: 0.5rem 1rem 1.5rem;
   font-size: larger;
   font-weight: bold;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: 0.75rem 0.75rem 0 0;
   position: relative; }
+  .gg5e-mm-panel .panel__header + .panel__body {
+    margin-top: -1rem; }
 
-.gg5e-sheet .panel .panel__body {
+.gg5e-mm-panel .panel__body {
   background: white;
-  margin-top: -1rem;
-  border-radius: 1rem;
-  position: relative; }
+  border-radius: 0.75rem 0.75rem 1.5rem 1.5rem;
+  position: relative;
+  padding: 1rem; }
 
-.gg5e-sheet .panel.panel--collapsible .panel__header {
+.gg5e-mm-panel.panel--collapsible .panel__header {
   padding-right: 3rem;
   cursor: pointer; }
-  .gg5e-sheet .panel.panel--collapsible .panel__header::after {
+  .gg5e-mm-panel.panel--collapsible .panel__header::after {
     content: "\f077";
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
@@ -422,24 +736,153 @@
     justify-content: center;
     align-items: center;
     top: 0.25rem;
-    background: #505261;
+    background: #3e404e;
     border-radius: 1rem; }
 
-.gg5e-sheet .panel.panel--collapsible.collapsed .panel__header {
+.gg5e-mm-panel.panel--collapsible.closed .panel__header {
   padding-bottom: 0.5rem;
-  border-radius: 1rem; }
-  .gg5e-sheet .panel.panel--collapsible.collapsed .panel__header::after {
+  border-radius: 0.75rem; }
+  .gg5e-mm-panel.panel--collapsible.closed .panel__header::after {
     content: "\f078"; }
 
-.gg5e-sheet .panel.panel--collapsible.collapsed .panel__body {
+.gg5e-mm-panel.panel--collapsible.closed .panel__body {
   display: none; }
 
-.window-gg5e-mm {
-  border-radius: 0 0 1rem 1rem;
-  width: 540px !important; }
-  .window-gg5e-mm .window-header {
+.gg5e-mm-well .well__header {
+  padding: 1rem 1rem 2rem;
+  border-radius: 0.75rem 0.75rem 0 0;
+  background: #767989; }
+  .gg5e-mm-well .well__header + .well__body {
+    margin-top: -1rem; }
+
+.gg5e-mm-well .well__body {
+  padding: 1rem;
+  border-radius: 1rem;
+  background: white; }
+
+.gg5e-mm-window {
+  border-radius: 0 0 1rem 1rem; }
+  .gg5e-mm-window .window-header {
     border-bottom: none; }
-  .window-gg5e-mm .window-content {
+    .gg5e-mm-window .window-header.resizable ~ .window-resizable-handle {
+      background: #54576b;
+      color: black;
+      border: none;
+      box-shadow: none;
+      height: 2rem;
+      width: 2rem;
+      padding: 0;
+      border-radius: 1rem;
+      right: 0.5rem;
+      bottom: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: larger;
+      cursor: pointer; }
+    .gg5e-mm-window .window-header.resizable ~ .window-content .sheet__footer {
+      padding-right: 2.25rem; }
+  .gg5e-mm-window.minimized .window-header ~ .window-resizable-handle {
+    display: none; }
+  .gg5e-mm-window .window-content {
     background: none;
     padding: 0;
     border-radius: 1rem; }
+
+.gg5e-mm-window--monster {
+  width: 540px !important; }
+  .gg5e-mm-window--monster .pane--view .pane__header {
+    position: relative;
+    overflow: hidden; }
+    .gg5e-mm-window--monster .pane--view .pane__header::before {
+      background: #3e404e;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 9.5rem;
+      content: '';
+      display: block;
+      clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 25% 0%); }
+    .gg5e-mm-window--monster .pane--view .pane__header .monster__name {
+      padding-right: 1rem; }
+    .gg5e-mm-window--monster .pane--view .pane__header .monster__description {
+      padding-right: 1.5rem; }
+  .gg5e-mm-window--monster .pane--view .pane__body {
+    position: relative; }
+  .gg5e-mm-window--monster .pane--edit {
+    display: none;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
+    .gg5e-mm-window--monster .pane--edit .pane__header {
+      display: flex;
+      font-size: 2rem;
+      text-align: center;
+      font-family: 'Londrina Solid';
+      align-items: center;
+      padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
+      border-top-left-radius: 0; }
+      .gg5e-mm-window--monster .pane--edit .pane__header .pane__icon {
+        height: 3rem;
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #272932;
+        border-radius: 0.5rem;
+        margin-right: 1rem;
+        font-size: 1.5rem; }
+    .gg5e-mm-window--monster .pane--edit .pane__body {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }
+    .gg5e-mm-window--monster .pane--edit .accordion-section__body {
+      padding: 0; }
+    .gg5e-mm-window--monster .pane--edit .fieldset-rank .target-players,
+    .gg5e-mm-window--monster .pane--edit .fieldset-rank .phases {
+      display: none; }
+    .gg5e-mm-window--monster .pane--edit .fieldset-rank:not(.rank-custom) .form-group:not(.type) {
+      display: none; }
+    .gg5e-mm-window--monster .pane--edit .fieldset-rank.scale-with-players .form-group.target-players {
+      display: flex; }
+    .gg5e-mm-window--monster .pane--edit .fieldset-rank.show-phases .form-group.phases {
+      display: flex; }
+    .gg5e-mm-window--monster .pane--edit .fieldset-rank .phases .form-group__body {
+      display: flex;
+      align-items: center; }
+      .gg5e-mm-window--monster .pane--edit .fieldset-rank .phases .form-group__body input {
+        width: 100%;
+        flex-grow: 1; }
+        .gg5e-mm-window--monster .pane--edit .fieldset-rank .phases .form-group__body input:first-child {
+          margin-right: 0.5rem; }
+        .gg5e-mm-window--monster .pane--edit .fieldset-rank .phases .form-group__body input:last-child {
+          margin-left: 0.5rem; }
+    .gg5e-mm-window--monster .pane--edit .fieldset-role:not(.role-custom) .form-group:not(.type) {
+      display: none; }
+    .gg5e-mm-window--monster .pane--edit .form-group--modifier .form-group__body {
+      display: flex; }
+      .gg5e-mm-window--monster .pane--edit .form-group--modifier .form-group__body .checkbox {
+        display: inline-flex;
+        font-size: inherit;
+        white-space: nowrap;
+        height: auto;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0.5rem; }
+        .gg5e-mm-window--monster .pane--edit .form-group--modifier .form-group__body .checkbox:hover {
+          cursor: pointer; }
+        .gg5e-mm-window--monster .pane--edit .form-group--modifier .form-group__body .checkbox input {
+          margin: 0;
+          top: 0;
+          display: inline-block;
+          margin-right: 0.25rem; }
+  .gg5e-mm-window--monster.expanded {
+    width: 980px !important; }
+    .gg5e-mm-window--monster.expanded .gg5e-mm-panes {
+      display: grid;
+      grid-template-columns: 524px 1fr; }
+    .gg5e-mm-window--monster.expanded .pane--edit {
+      display: flex; }

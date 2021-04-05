@@ -1,9 +1,16 @@
 // Common modules
 
+@import 'abstracts/colors';
 @import 'abstracts/fonts';
 
 @import 'components/sheet';
-@import 'components/sheet-monster';
-@import 'components/sheet-panel';
+@import 'components/panes';
+@import 'components/form';
+@import 'components/monster';
+@import 'components/accordion';
+@import 'components/panel';
+@import 'components/well';
 
-@import 'windows/window-gg5e-mm';
+@import 'components/window';
+
+@import 'windows/monster';
