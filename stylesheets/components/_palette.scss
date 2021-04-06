@@ -1,0 +1,120 @@
+.gg5e-mm-palette {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: black;
+    padding: 1rem;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+    width: 30rem;
+
+    .color {
+        height: 2.5rem;
+    }
+
+    .primary-base {
+        background: $primary-base;
+    }
+
+    .primary-shade-1 {
+        background: $primary-shade-1;
+    }
+
+    .primary-shade-2 {
+        background: $primary-shade-2;
+    }
+
+    .primary-shade-3 {
+        background: $primary-shade-3;
+    }
+
+    .primary-shade-4 {
+        background: $primary-shade-4;
+    }
+
+    .primary-tone-1 {
+        background: $primary-tone-1;
+    }
+
+    .primary-tone-2 {
+        background: $primary-tone-2;
+    }
+
+    .primary-tone-3 {
+        background: $primary-tone-3;
+    }
+
+    .primary-tone-4 {
+        background: $primary-tone-4;
+    }
+
+    .primary-tint-1 {
+        background: $primary-tint-1;
+    }
+
+    .primary-tint-2 {
+        background: $primary-tint-2;
+    }
+
+    .primary-tint-3 {
+        background: $primary-tint-3;
+    }
+
+    .primary-tint-4 {
+        background: $primary-tint-4;
+    }
+
+    .secondary-base {
+        background: $secondary-base;
+    }
+
+    .secondary-shade-1 {
+        background: $secondary-shade-1;
+    }
+
+    .secondary-shade-2 {
+        background: $secondary-shade-2;
+    }
+
+    .secondary-shade-3 {
+        background: $secondary-shade-3;
+    }
+
+    .secondary-shade-4 {
+        background: $secondary-shade-4;
+    }
+
+    .secondary-tone-1 {
+        background: $secondary-tone-1;
+    }
+
+    .secondary-tone-2 {
+        background: $secondary-tone-2;
+    }
+
+    .secondary-tone-3 {
+        background: $secondary-tone-3;
+    }
+
+    .secondary-tone-4 {
+        background: $secondary-tone-4;
+    }
+
+    .secondary-tint-1 {
+        background: $secondary-tint-1;
+    }
+
+    .secondary-tint-2 {
+        background: $secondary-tint-2;
+    }
+
+    .secondary-tint-3 {
+        background: $secondary-tint-3;
+    }
+
+    .secondary-tint-4 {
+        background: $secondary-tint-4;
+    }
+}

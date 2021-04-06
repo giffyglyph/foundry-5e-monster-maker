@@ -1,22 +1,29 @@
 .gg5e-mm-monster {
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: column;
-    background: $sheet--header--bg;
-    flex-grow: 1;
-    overflow: hidden;
 
     .monster__header {
         display: grid;
-        grid-template-columns: 3.8rem 1fr auto;
+        grid-template-columns: 1fr 3.9rem;
         grid-column-gap: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background: $primary-shade-2;
+        border-bottom: 2px solid $primary-shade-3;
+
+        + .monster__body {
+            margin-top: 0;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
 
         .monster__image {
             grid-row: 1 / span 2;
+            grid-column: 2;
+            position: relative;
 
             img {
                 background: black;
-                border-radius: 0.5rem;
+                border-radius: 0.75rem;
                 border: 0;
                 display: block;
             }
@@ -26,67 +33,69 @@
             font-size: 2.5rem;
             letter-spacing: 0.5px;
             font-family: 'Londrina Solid';
-            padding-bottom: 0.25rem;
+            line-height: 1.1;
         }
 
         .monster__description {
-            grid-row: 2;
-            grid-column: 2;
             font-weight: 600;
             font-size: larger;
+            grid-column: 1;
         }
 
         .monster__name,
         .monster__description {
-            line-height: 1;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        .monster__level {
-            grid-row: 1 / span 2;
-            grid-column: 3;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            font-weight: 500;
-            z-index: 3;
-            line-height: 1.2;
-            font-size: larger;
+        .monster__combat {
+            grid-column: 1 / span 2;
             font-weight: 600;
-            width: 6rem;
             position: relative;
-            margin-top: -1rem;
-            margin-bottom: -1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: larger;
+            border-top: 1px solid $primary-shade-4;
+            margin: 0.5rem -1rem -0.5rem;
+            padding: 0.5rem 1rem;
 
             .level,
             .rank,
-            .role {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .role,
+            .phase {
+                display: inline-block;
+
+                i {
+                    margin-right: 0.25rem;
+                }
+
+                &:not(:first-child) {
+                    margin-left: 0.25rem;
+
+                    &::before {
+                        content: '•';
+                        color: $primary-shade-4;
+                        margin-right: 0.25rem;
+                    }
+                }
             }
 
-            .phase {
-                background: $sheet--body--bg;
-                color: darken($sheet--header--bg, 20%);
-                padding: 0 0.5rem;
-                border-radius: 1rem;
-                text-align: center;
-                font-size: 11px;
-                font-weight: bold;
-                text-transform: uppercase;
-                margin: 0.25rem auto 0;
+            .rank .stars {
+
+                i:not(:first-child) {
+                    margin-left: -20px;
+                    filter: drop-shadow(0 0 2px $primary-shade-3);
+                }
             }
         }
     }
 
     .monster__body {
+        background: $primary-tint-2;
 
         > * + * {
-            margin-top: 1rem;
+            margin-top: 0.25rem;
         }
     }
 
@@ -104,121 +113,36 @@
             }
         }
 
-        .monster__block {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border-radius: 0.75rem 0.75rem 1.5rem 1.5rem;
-
-            .block__title {
-                text-transform: uppercase;
-                color: white;
-                font-weight: bold;
-                position: relative;
-                background: mix($sheet--header--bg, white, 80%);
-                padding: 0.25rem 0.25rem 1.25rem;
-                text-align: center;
-
-                + .block__body {
-                    margin-top: -1rem;
-                    position: relative;
-                    border-top-left-radius: 0.75rem;
-                    border-top-right-radius: 0.75rem;
-                }
-            }
-
-            .block__body {
-                background: white;
-                flex-grow: 1;
-                display: flex;
-                flex-direction: column;
-                text-align: center;
-                overflow: hidden;
-                padding: 0.5rem 0.25rem;
-            }
-
-            .block__values {
-                font-family: 'Londrina Solid';
-                font-size: 1.5rem;
-                letter-spacing: 2px;
-                position: relative;
-                text-align: center;
-
-                i {
-                    color: $sheet--header--bg;
-                }
-            }
-
-            .block__title,
-            .block__values,
-            .block__footer {
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            .block__footer {
-                margin-top: 0.25rem;
-                text-transform: uppercase;
-                font-size: smaller;
-                font-weight: bold;
-                color: darken($sheet--body--bg, 20%);
-            }
-        }
+        + * {
+            margin-top: 0.5rem;
+        }        
 
         .hit-points,
         .attack-dcs {
             flex-grow: 1;
+            width: 100%;
         }
 
-        .ac,
         .perception,
-        .attack,
-        .damage {
-            width: 8rem;
+        .ac {
+            width: 6rem;
             flex-shrink: 0;
         }
 
-        .hit-points,
-        .attack-dcs {
-
-            .block__values,
-            .block__footer {
-                display: flex;
-                justify-content: space-between;
-
-                span {
-                    width: 100%;
-                    text-align: center;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-            }
-
-            .temporary-hp i {
-                font-size: smaller;
-            }
-        }
-
-        .hit-points {
-
-            .temporary-hp i {
-                font-size: smaller;
-            }
-        }
-
+        .attack,
         .damage {
-
-            .block__footer {
-                text-transform: none;
-            }
+            width: 8.5rem;
+            flex-shrink: 0;
         }
     }
 
     .monster__abilities {
-        padding-top: 1rem;
-        border-top: 2px solid darken($sheet--body--bg, 10%);
+        
+        .panel__header {
+            text-transform: uppercase;
+            text-align: center;
+            padding-left: 3rem;
+        }
     }
 
     .monster__attributes {
@@ -231,7 +155,7 @@
         dt {
             text-transform: uppercase;
             font-weight: bold;
-            color: $sheet--header--bg;
+            color: $primary-base;
         }
 
         dd {
@@ -248,10 +172,11 @@
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-column-gap: 0.25rem;
+        filter: drop-shadow(0 1px 0 $primary-shade-1);
 
         + .monster__attributes {
             margin-top: 0.75rem;
-            border-top: 1px dotted $sheet--body--bg;
+            border-top: 1px dotted $primary-tint-3;
             padding-top: 1rem;
             margin-left: -1rem;
             margin-right: -1rem;
@@ -266,11 +191,11 @@
 
         .title {
             text-transform: uppercase;
-            color: white;
+            color: $primary-tone-1;
             font-weight: bold;
             position: relative;
-            padding: 0.25rem 0.25rem 1.25rem;
-            background: mix($sheet--header--bg, white, 80%);
+            padding: 0.25rem 0.25rem 0.75rem;
+            background: $primary-tint-4;
             border-radius: 0.75rem 0.75rem 0 0;
             white-space: nowrap;
             overflow: hidden;
@@ -283,7 +208,7 @@
         }
 
         .value {
-            background: mix($sheet--header--bg, white, 20%);
+            background: $primary-tint-4;
             height: 4.3rem;
             width: 100%;
             display: flex;
@@ -319,112 +244,10 @@
                 width: 2.5rem;
                 height: 100%;
                 left: calc(50% - 1.25rem);
-                background: darken($sheet--header--bg, 10%);
+                background: $primary-tone-1;
                 clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
                 z-index: -1;
             }
         }
     }
-
-    .monster__trait {
-
-        .title {
-            display: inline;
-
-            &:after {
-                content: ':';
-            }
-        }
-
-        .value,
-        .value > :first-child {
-            display: inline;
-        }
-    }
-
-    .monster__action {
-
-        .title {
-
-            .tags {
-                font-weight: normal;
-                font-style: italic;
-
-                &::before {
-                    content: '(';
-                }
-
-                &::after {
-                    content: ')';
-                }
-            }
-        }        
-    }
-
-    .monster__trait,
-    .monster__action {
-        padding: 1rem;
-        padding-left: 2rem;
-        position: relative;
-
-        &::before {
-            content: '';
-            background: $sheet--header--bg;
-            position: absolute;
-            left: 0.75rem;
-            width: 0.75rem;
-            height: 0.75rem;
-            border-radius: 1rem;
-            top: 1.25rem;
-        }
-
-        .title {
-            font-weight: bold;
-        }
-
-        + * {
-            border-top: 1px dotted mix($sheet--header--bg, white, 50%);
-        }
-
-        &:not(:first-child) {
-            padding-top: 0.5rem;
-
-            &::before {
-                top: 0.75rem;
-            }
-        }
-
-        &:not(:last-child) {
-            padding-bottom: 0.5rem;
-        }
-
-        &.common::before,
-        &.uncommon::before,
-        &.rare::before {
-            clip-path: polygon(0% 0%, 0% 100%, 45% 100%, 45% 0%, 55% 0%, 55% 100%, 100% 100%, 100% 0%);
-        }
-
-        &.common {
-
-            &::before {
-                background: #23bd4b;
-            }
-        }
-
-        &.uncommon {
-
-            &::before {
-                background: #d4ac19;
-                transform: rotate(45deg);
-            }
-        }
-
-        &.rare {
-
-            &::before {
-                background: #c51c1c;
-                transform: rotate(90deg);
-            }
-        }
-    }   
 }

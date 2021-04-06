@@ -23,6 +23,7 @@
         color: white;
         text-transform: uppercase;
         font-weight: bold;
+        line-height: 1;
 
         .id,
         .name {
@@ -31,7 +32,7 @@
 
             &::before {
                 content: '';
-                background: $sheet--header--bg;
+                background: white;
                 width: 6px;
                 display: inline-block;
                 height: 6px;
@@ -39,17 +40,13 @@
                 margin-right: 0.4rem;
             }
         }
-
-        .name {
-            font-size: smaller;
-        }
     }
 
     .sheet__controls {
         display: flex;
 
         button {
-            background: $sheet--body--bg;
+            background: white;
             border: none;
             box-shadow: none;
             height: 2rem;

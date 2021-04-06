@@ -1,7 +1,8 @@
 .gg5e-mm-panel {
+    filter: drop-shadow(0 1px 0 $primary-shade-3);
 
     .panel__header {
-        background: $sheet--header--bg;
+        background: $primary-shade-1;
         color: white;
         padding: 0.5rem 1rem 1.5rem;
         font-size: larger;
@@ -16,7 +17,7 @@
 
     .panel__body {
         background: white;
-        border-radius: 0.75rem 0.75rem 1.5rem 1.5rem;
+        border-radius: 0.75rem;
         position: relative;
         padding: 1rem;
     }
@@ -45,7 +46,6 @@
                 justify-content: center;
                 align-items: center;
                 top: 0.25rem;
-                background: darken($sheet--header--bg, 10%);
                 border-radius: 1rem;
             }
         }

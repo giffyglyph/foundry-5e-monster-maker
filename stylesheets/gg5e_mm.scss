@@ -3,12 +3,15 @@
 @import 'abstracts/colors';
 @import 'abstracts/fonts';
 
-@import 'components/sheet';
+@import 'components/accordion';
+@import 'components/block';
 @import 'components/panes';
+@import 'components/palette';
 @import 'components/form';
 @import 'components/monster';
-@import 'components/accordion';
+@import 'components/monster-options';
 @import 'components/panel';
+@import 'components/sheet';
 @import 'components/well';
 
 @import 'components/window';

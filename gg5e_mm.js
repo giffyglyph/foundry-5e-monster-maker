@@ -21,6 +21,9 @@ Hooks.once("init", function() {
 	Handlebars.registerHelper('eq', function(a, b) {
 		return a === b;
 	});
+	Handlebars.registerHelper('strlen', function(str) {
+		return String(str).length;
+	});
 	Handlebars.registerHelper('persistAccordion', function(index, options) {
 		let html = options.fn(this);
 		if (index !== null) {
@@ -42,6 +45,12 @@ Hooks.once("init", function() {
 			html = html.replace(/input /g, "input type='hidden'");
 		}
 		return html;
+	});
+	Handlebars.registerHelper('repeat', function(n, block) {
+		var accum = '';
+		for(var i = 0; i < n; ++i)
+			accum += block.fn(i);
+		return accum;
 	});
 
 	preloadHandlebarsTemplates();

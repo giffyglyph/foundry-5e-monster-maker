@@ -13,15 +13,15 @@
     }
 
     .pane__header {
-        background: $sheet--header--bg;
+        background: black;
         color: white;
-        padding: 1rem 1rem 2rem;
+        padding: 0.5rem 1rem 1.5rem;
         border-radius: 0.75rem 0.75rem 0 0;
         flex-shrink: 0;
     }
 
     .pane__body {
-        background: $sheet--body--bg;
+        background: white;
         margin-top: -1rem;
         border-radius: 1rem 1rem 0.75rem 0.75rem;
         padding: 1rem;

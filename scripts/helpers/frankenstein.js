@@ -60,14 +60,23 @@ export default class Frankenstein {
     static parseRank(rank) {
         const name = (rank.type == "custom") ? rank.custom_name : game.i18n.format(`gg5e_mm.monster.common.rank.${rank.type}`);
         if (rank.modifiers.scale_with_players && rank.modifiers.target_players != 1) {
-            return game.i18n.format(`gg5e_mm.monster.view.rank.vs`, { name: name, players: rank.modifiers.target_players });
+            return {
+                name: game.i18n.format(`gg5e_mm.monster.view.rank.vs`, { name: name, players: rank.modifiers.target_players }),
+                threat: rank.modifiers.threat
+            };
         } else {
-            return name;
+            return {
+                name: name,
+                threat: rank.modifiers.threat
+            };
         }
     }
 
     static parseRole(role) {
-        return (role.type == "custom") ? role.custom_name : game.i18n.format(`gg5e_mm.monster.common.role.${role.type}`);
+        return {
+            name: (role.type == "custom") ? role.custom_name : game.i18n.format(`gg5e_mm.monster.common.role.${role.type}`),
+            icon: role.modifiers.icon
+        };
     }
 
     static getProficiencyBonus(level) {
@@ -96,7 +105,7 @@ export default class Frankenstein {
         if (blueprint.hit_points.maximum.override) {
             return {
                 current: Math.min(blueprint.hit_points.current, blueprint.hit_points.maximum.modifier),
-                temporary: blueprint.hit_points.temporary,
+                temporary: Math.max(blueprint.hit_points.temporary, 0),
                 maximum: blueprint.hit_points.maximum.modifier
             };
         } else {
@@ -111,7 +120,7 @@ export default class Frankenstein {
             const maximumHitPoints = Math.max(Math.ceil(playerDamagePerRound * 4 * hp_modifier + blueprint.hit_points.maximum.modifier), 1);
             return {
                 current: Math.min(blueprint.hit_points.current, maximumHitPoints),
-                temporary: blueprint.hit_points.temporary,
+                temporary: Math.max(blueprint.hit_points.temporary, 0),
                 maximum: maximumHitPoints
             };
         }

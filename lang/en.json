@@ -62,12 +62,12 @@
     "gg5e_mm.monster.view.hit_points.title": "Hit Points",
     "gg5e_mm.monster.view.hit_points.current": "Current",
     "gg5e_mm.monster.view.hit_points.maximum": "Maximum",
-    "gg5e_mm.monster.view.hit_points.temporary": "{amount} temporary",
+    "gg5e_mm.monster.view.hit_points.temporary": "Temporary",
     "gg5e_mm.monster.view.level": "Level {level}",
     "gg5e_mm.monster.view.rank.vs": "{name} vs {players}",
     "gg5e_mm.monster.view.perception.title": "Perception",
     "gg5e_mm.monster.view.perception.passive": "Passive",
-    "gg5e_mm.monster.view.phase": "Phase {current} of {maximum}",
+    "gg5e_mm.monster.view.phase": "{current} of {maximum}",
 
     "gg5e_mm.monster.options.title": "Options",
 
@@ -95,6 +95,8 @@
     "gg5e_mm.monster.options.combat.phase.title": "Phase",
     "gg5e_mm.monster.options.combat.phase.of": "of",
     "gg5e_mm.monster.options.combat.role": "Role",
+    "gg5e_mm.monster.options.combat.threat": "Threat",
+    "gg5e_mm.monster.options.combat.icon": "Icon",
 
     "gg5e_mm.monster.options.hit_points.title": "Hit Points",
     "gg5e_mm.monster.options.hit_points.current": "Current",

@@ -1,16 +1,19 @@
 .gg5e-mm-accordion {
+    filter: drop-shadow(0 1px 0 $primary-shade-3);
 
     .accordion-section__header {
-        background: mix($sheet--header--bg, white, 80%);
+        background: $primary-shade-1;
         color: white;
-        padding: 0.25rem 1rem 1.25rem;
+        padding: 0rem 1rem 0;
+        line-height: 2rem;
         font-weight: bold;
         border-radius: 0;
         position: relative;
-        padding-left: 2rem;
+        padding-left: 2.25rem;
         cursor: pointer;
         display: flex;
         align-items: center;
+        font-size: larger;
         justify-content: space-between;
         text-transform: uppercase;
 
@@ -26,13 +29,13 @@
             line-height: 1;
             position: absolute;
             left: 0.25rem;
-            width: 1.2rem;
-            height: 1.2rem;
+            width: 1.5rem;
+            height: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
             top: 0.25rem;
-            background: $sheet--header--bg;
+            background: $primary-tint-1;
             color: white;
             border-radius: 1rem;
             font-size: smaller;
@@ -41,55 +44,10 @@
 
     .accordion-section__body {
         background: white;
-        margin-top: -1rem;
         border-radius: 0;
         position: relative;
         padding: 1rem;
         overflow: hidden;
-    }
-
-    .accordion-buttons {
-        padding: 0.5rem;
-        border-top: 1px solid mix($sheet--body--bg, white, 60%);
-        background: mix($sheet--body--bg, white, 30%);
-        text-align: right;
-
-        button {
-            background: darken($sheet--header--bg, 20%);
-            color: white;
-            border: none;
-            padding: 0.25rem 0.5rem;
-            border-radius: 1rem;
-            font-weight: 600;
-            display: inline-block;
-            width: auto;
-            height: auto;
-            line-height: 1;
-            font-family: inherit;
-
-            i {
-                background: white;
-                color: darken($sheet--header--bg, 20%);
-                border-radius: 1rem;
-                height: 1rem;
-                width: 1rem;
-                margin-left: -0.25rem;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            &:hover,
-            &:focus {
-                cursor: pointer;
-                background: $sheet--highlight;
-                box-shadow: none;
-
-                i {
-                    color: $sheet--highlight;
-                }
-            }
-        }
     }
 
     .accordion-section {
@@ -100,7 +58,7 @@
         }
         
         &:not(:first-of-type) {
-            border-top: 1px solid $sheet--header--bg;
+            border-top: 1px solid $primary-shade-2;
         }
 
         &:last-child .accordion-section__body {
@@ -109,34 +67,34 @@
         }
 
         &.opened {
+            border-top-color: $secondary-shade-1;
 
             .accordion-section__header {
-                background: darken($sheet--highlight, 5%);
+                background: $secondary-base;
 
                 &::after {
-                    background: lighten($sheet--highlight, 5%);
+                    background: $secondary-tint-2;
                 }
             }
             
             .accordion-section__body {
-                border-top: 1px solid darken($sheet--highlight, 20%);
+                border-top: 1px solid $secondary-shade-2;
             }
         }
 
         &:not(.opened) {
 
             .accordion-section__header {
-                padding-bottom: 0.25rem;
     
                 &::after {
                     content: "\f054";
                 }
 
                 &:hover {
-                    background: darken($sheet--highlight, 5%);
+                    background: $secondary-base;
 
                     &::after {
-                        background: lighten($sheet--highlight, 5%);
+                        background: $secondary-tint-2;
                     }
                 }
             }
