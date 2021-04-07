@@ -101,11 +101,16 @@
                 <div class="gg5e-mm-block damage">
                     <div class="block__title">{{localize 'gg5e_mm.monster.view.damage'}}</div>
                     <div class="block__contents">
-                        <div class="block__content">
+                        <div class="block__content static">
                             <div class="block__value length-{{strlen data.gg5e_mm.monster.damage_per_action.value}}"><i class="fas fa-fire"></i> {{data.gg5e_mm.monster.damage_per_action.value}}</div>
-                            <div class="block__description">{{data.gg5e_mm.monster.damage_per_action.dice}}</div>
+                        </div>
+                        <div class="block__content random">
+                            <div class="block__value length-{{strlen data.gg5e_mm.monster.damage_per_action.dice}}"><i class="fas fa-dice"></i> <span class="roll">{{data.gg5e_mm.monster.damage_per_action.dice}}</span></div>
                         </div>
                     </div>
+                    {{#if data.gg5e_mm.monster.damage_per_action.type}}
+                        <div class="block__footer">{{data.gg5e_mm.monster.damage_per_action.type}}</div>
+                    {{/if}}
                 </div>
             </div>
         </div>

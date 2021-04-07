@@ -203,7 +203,8 @@ export default class Frankenstein {
         }
         return {
             value: static_damage,
-            dice: blueprint.damage_per_action.use_dice ? this.getDamagePerActionDice(static_damage, blueprint.damage_per_action.die_size, blueprint.damage_per_action.maximum_dice) : null
+            dice: blueprint.damage_per_action.use_dice ? this.getDamagePerActionDice(static_damage, blueprint.damage_per_action.die_size, blueprint.damage_per_action.maximum_dice) : "—",
+            type: blueprint.damage_per_action.type
         };
     }
 
@@ -215,7 +216,7 @@ export default class Frankenstein {
         if (dice > 0) {
             return dice + "d" + die + ((modifier != 0) ? (" " + ((modifier > 0) ? "+ " : "− ") + Math.abs(modifier)) : "");
         } else {
-            return null;
+            return "—";
         }
     }
 

@@ -129,10 +129,26 @@
             flex-shrink: 0;
         }
 
-        .attack,
-        .damage {
-            width: 8.5rem;
+        .attack {
+            width: 6.5rem;
             flex-shrink: 0;
+        }
+
+        .damage {
+            width: 12.25rem;
+            flex-shrink: 0;
+
+            .random {
+                letter-spacing: 0;
+
+                .roll {
+                    white-space: normal;
+                    line-height: 0.875;
+                    font-style: 1rem;
+                    text-align: left;
+                    letter-spacing: 0;
+                }
+            }
         }
     }
 

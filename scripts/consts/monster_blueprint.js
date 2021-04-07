@@ -57,9 +57,9 @@ export const MONSTER_BLUEPRINT = {
     damage_per_action: {
         modifier: null,
         override: false,
-        use_dice: false,
         dice_size: 4,
-        maximum_dice: 0
+        maximum_dice: 0,
+        type: null
     },
     ability_modifiers: {
         ranking: ["str", "dex", "con", "int", "wis", "cha"],

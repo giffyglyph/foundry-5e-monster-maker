@@ -70,6 +70,7 @@
     "gg5e_mm.monster.view.phase": "{current} of {maximum}",
 
     "gg5e_mm.monster.options.title": "Options",
+    "gg5e_mm.monster.options.is_fixed": "Is fixed",
 
     "gg5e_mm.monster.options.description.title": "Description",
     "gg5e_mm.monster.options.description.name": "Name",
@@ -103,33 +104,27 @@
     "gg5e_mm.monster.options.hit_points.temporary": "Temporary",
     "gg5e_mm.monster.options.hit_points.maximum": "Maximum",
     "gg5e_mm.monster.options.hit_points.modifier": "Modifier",
-    "gg5e_mm.monster.options.hit_points.override": "Override",
 
     "gg5e_mm.monster.options.armor_class.title": "Armor Class",
     "gg5e_mm.monster.options.armor_class.modifier": "Modifier",
-    "gg5e_mm.monster.options.armor_class.override": "Override",
     "gg5e_mm.monster.options.armor_class.type": "Type",
 
     "gg5e_mm.monster.options.passive_perception.title": "Passive Perception",
     "gg5e_mm.monster.options.passive_perception.modifier": "Modifier",
-    "gg5e_mm.monster.options.passive_perception.override": "Override",
 
     "gg5e_mm.monster.options.attack_bonus.title": "Attack Bonus",
     "gg5e_mm.monster.options.attack_bonus.modifier": "Modifier",
-    "gg5e_mm.monster.options.attack_bonus.override": "Override",
     "gg5e_mm.monster.options.attack_bonus.type": "Type",
 
     "gg5e_mm.monster.options.attack_dcs.title": "Attack DCs",
     "gg5e_mm.monster.options.attack_dcs.primary": "Primary",
     "gg5e_mm.monster.options.attack_dcs.secondary": "Secondary",
     "gg5e_mm.monster.options.attack_dcs.modifier": "Modifier",
-    "gg5e_mm.monster.options.attack_dcs.override": "Override",
     "gg5e_mm.monster.options.attack_dcs.type": "Type",
 
     "gg5e_mm.monster.options.damage.title": "Damage per Action",
     "gg5e_mm.monster.options.damage.modifier": "Modifier",
-    "gg5e_mm.monster.options.damage.override": "Override",
-    "gg5e_mm.monster.options.damage.use_dice": "Use Dice",
+    "gg5e_mm.monster.options.damage.type": "Type",
     "gg5e_mm.monster.options.damage.dice_size": "Die Size",
     "gg5e_mm.monster.options.damage.maximum_dice": "Maximum Dice",
 

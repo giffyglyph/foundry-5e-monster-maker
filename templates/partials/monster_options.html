@@ -149,7 +149,7 @@
                                 <div class="form-group xp">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.threat'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.rank.modifiers.threat" type="number" value="{{data.gg5e_mm.blueprint.combat.rank.modifiers.threat}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.rank.modifiers.threat" type="number" min="1" value="{{data.gg5e_mm.blueprint.combat.rank.modifiers.threat}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group scale-with-players">
@@ -173,7 +173,7 @@
                                 <div class="form-group phases">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.phase.title'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.rank.modifiers.phases.current" type="number" min="1" value="{{data.gg5e_mm.blueprint.combat.rank.modifiers.phases.current}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.rank.modifiers.phases.current" type="number" min="1" max="{{data.gg5e_mm.blueprint.combat.rank.modifiers.phases.maximum}}" value="{{data.gg5e_mm.blueprint.combat.rank.modifiers.phases.current}}"/>
                                         <span>{{localize 'gg5e_mm.monster.options.combat.phase.of'}}</span>
                                         <input name="data.gg5e_mm.blueprint.combat.rank.modifiers.phases.maximum" type="number" min="1" value="{{data.gg5e_mm.blueprint.combat.rank.modifiers.phases.maximum}}"/>
                                     </div>
@@ -209,37 +209,37 @@
                                 <div class="form-group hit-points">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.hit_points'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.hit_points" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.hit_points}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.hit_points" type="number" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.hit_points}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group armor-class">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.armor_class'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.armor_class" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.armor_class}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.armor_class" type="number" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.armor_class}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group saving-throws">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.saving_throws'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.saving_throws" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.saving_throws}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.saving_throws" type="number" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.saving_throws}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group attack-bonus">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.attack_bonus'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.attack_bonus" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.attack_bonus}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.attack_bonus" type="number" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.attack_bonus}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group attack-dcs">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.attack_dcs'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.attack_dcs" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.attack_dcs}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.attack_dcs" type="number" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.attack_dcs}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group damage-per-action">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.damage_per_action'}}</label>
                                     <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.damage_per_action" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.damage_per_action}}"/>
+                                        <input name="data.gg5e_mm.blueprint.combat.role.modifiers.damage_per_action" type="number" value="{{data.gg5e_mm.blueprint.combat.role.modifiers.damage_per_action}}"/>
                                     </div>
                                 </div>
                                 <div class="form-group icon">
@@ -258,13 +258,13 @@
                         <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.hit_points.current'}}</label>
                             <div class="form-group__body">
-                                <input name="data.gg5e_mm.blueprint.hit_points.current" type="number" value="{{data.gg5e_mm.blueprint.hit_points.current}}"/>
+                                <input name="data.gg5e_mm.blueprint.hit_points.current" type="number" min="0" value="{{data.gg5e_mm.blueprint.hit_points.current}}"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.hit_points.temporary'}}</label>
                             <div class="form-group__body">
-                                <input name="data.gg5e_mm.blueprint.hit_points.temporary" type="number" value="{{data.gg5e_mm.blueprint.hit_points.temporary}}"/>
+                                <input name="data.gg5e_mm.blueprint.hit_points.temporary" type="number" min="0" value="{{data.gg5e_mm.blueprint.hit_points.temporary}}"/>
                             </div>
                         </div>
                         <div class="form-fieldset">
@@ -275,7 +275,7 @@
                                     <div class="form-group__body">
                                         <input name="data.gg5e_mm.blueprint.hit_points.maximum.modifier" type="number" value="{{data.gg5e_mm.blueprint.hit_points.maximum.modifier}}"/>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="data.gg5e_mm.blueprint.hit_points.maximum.override" {{#if data.gg5e_mm.blueprint.hit_points.maximum.override}}checked{{/if}}/> Is Fixed
+                                            <input type="checkbox" name="data.gg5e_mm.blueprint.hit_points.maximum.override" {{#if data.gg5e_mm.blueprint.hit_points.maximum.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                         </label>
                                     </div>
                                 </div>
@@ -286,19 +286,19 @@
                 <div class="accordion-section" data-section="armor">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.armor_class.title'}}</div>
                     <div class="accordion-section__body">
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.armor_class.type'}}</label>
+                            <div class="form-group__body">
+                                <input name="data.gg5e_mm.blueprint.armor_class.type" value="{{data.gg5e_mm.blueprint.armor_class.type}}"/>
+                            </div>
+                        </div>
                         <div class="form-group form-group--modifier">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.armor_class.modifier'}}</label>
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.armor_class.modifier" type="number" value="{{data.gg5e_mm.blueprint.armor_class.modifier}}"/>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.armor_class.override" {{#if data.gg5e_mm.blueprint.armor_class.override}}checked{{/if}}/> Is Fixed
+                                    <input type="checkbox" name="data.gg5e_mm.blueprint.armor_class.override" {{#if data.gg5e_mm.blueprint.armor_class.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                 </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.armor_class.type'}}</label>
-                            <div class="form-group__body">
-                                <input name="data.gg5e_mm.blueprint.armor_class.type" value="{{data.gg5e_mm.blueprint.armor_class.type}}"/>
                             </div>
                         </div>
                     </div>
@@ -311,7 +311,7 @@
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.passive_perception.modifier" type="number" value="{{data.gg5e_mm.blueprint.passive_perception.modifier}}"/>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.passive_perception.override" {{#if data.gg5e_mm.blueprint.passive_perception.override}}checked{{/if}}/> Is Fixed
+                                    <input type="checkbox" name="data.gg5e_mm.blueprint.passive_perception.override" {{#if data.gg5e_mm.blueprint.passive_perception.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                 </label>
                             </div>
                         </div>
@@ -320,19 +320,19 @@
                 <div class="accordion-section" data-section="attack-bonus">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.attack_bonus.title'}}</div>
                     <div class="accordion-section__body">
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_bonus.type'}}</label>
+                            <div class="form-group__body">
+                                <input name="data.gg5e_mm.blueprint.attack_bonus.type" value="{{data.gg5e_mm.blueprint.attack_bonus.type}}"/>
+                            </div>
+                        </div>
                         <div class="form-group form-group--modifier">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_bonus.modifier'}}</label>
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.attack_bonus.modifier" type="number" value="{{data.gg5e_mm.blueprint.attack_bonus.modifier}}"/>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.attack_bonus.override" {{#if data.gg5e_mm.blueprint.attack_bonus.override}}checked{{/if}}/> Is Fixed
+                                    <input type="checkbox" name="data.gg5e_mm.blueprint.attack_bonus.override" {{#if data.gg5e_mm.blueprint.attack_bonus.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                 </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_bonus.type'}}</label>
-                            <div class="form-group__body">
-                                <input name="data.gg5e_mm.blueprint.attack_bonus.type" value="{{data.gg5e_mm.blueprint.attack_bonus.type}}"/>
                             </div>
                         </div>
                     </div>
@@ -343,19 +343,19 @@
                         <div class="form-fieldset">
                             <div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.attack_dcs.primary'}}</div>
                             <div class="form-fieldset__body">
+                                <div class="form-group">
+                                    <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</label>
+                                    <div class="form-group__body">
+                                        <input name="data.gg5e_mm.blueprint.attack_dcs.primary.type" value="{{data.gg5e_mm.blueprint.attack_dcs.primary.type}}"/>
+                                    </div>
+                                </div>
                                 <div class="form-group form-group--modifier">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.modifier'}}</label>
                                     <div class="form-group__body">
                                         <input name="data.gg5e_mm.blueprint.attack_dcs.primary.modifier" type="number" value="{{data.gg5e_mm.blueprint.attack_dcs.primary.modifier}}"/>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="data.gg5e_mm.blueprint.attack_dcs.primary.override" {{#if data.gg5e_mm.blueprint.attack_dcs.primary.override}}checked{{/if}}/> Is Fixed
+                                            <input type="checkbox" name="data.gg5e_mm.blueprint.attack_dcs.primary.override" {{#if data.gg5e_mm.blueprint.attack_dcs.primary.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                         </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</label>
-                                    <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.attack_dcs.primary.type" value="{{data.gg5e_mm.blueprint.attack_dcs.primary.type}}"/>
                                     </div>
                                 </div>
                             </div>
@@ -363,19 +363,19 @@
                         <div class="form-fieldset">
                             <div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.attack_dcs.secondary'}}</div>
                             <div class="form-fieldset__body">
+                                <div class="form-group">
+                                    <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</label>
+                                    <div class="form-group__body">
+                                        <input name="data.gg5e_mm.blueprint.attack_dcs.secondary.type" value="{{data.gg5e_mm.blueprint.attack_dcs.secondary.type}}"/>
+                                    </div>
+                                </div>
                                 <div class="form-group form-group--modifier">
                                     <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.modifier'}}</label>
                                     <div class="form-group__body">
                                         <input name="data.gg5e_mm.blueprint.attack_dcs.secondary.modifier" type="number" value="{{data.gg5e_mm.blueprint.attack_dcs.secondary.modifier}}"/>
                                         <label class="checkbox">
-                                            <input type="checkbox" name="data.gg5e_mm.blueprint.attack_dcs.secondary.override" {{#if data.gg5e_mm.blueprint.attack_dcs.secondary.override}}checked{{/if}}/> Is Fixed
+                                            <input type="checkbox" name="data.gg5e_mm.blueprint.attack_dcs.secondary.override" {{#if data.gg5e_mm.blueprint.attack_dcs.secondary.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                         </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</label>
-                                    <div class="form-group__body">
-                                        <input name="data.gg5e_mm.blueprint.attack_dcs.secondary.type" value="{{data.gg5e_mm.blueprint.attack_dcs.secondary.type}}"/>
                                     </div>
                                 </div>
                             </div>
@@ -385,19 +385,10 @@
                 <div class="accordion-section" data-section="damage-per-action">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage.title'}}</div>
                     <div class="accordion-section__body">
-                        <div class="form-group form-group--modifier">
-                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.modifier'}}</label>
-                            <div class="form-group__body">
-                                <input name="data.gg5e_mm.blueprint.damage_per_action.modifier" type="number" value="{{data.gg5e_mm.blueprint.damage_per_action.modifier}}"/>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.damage_per_action.override" {{#if data.gg5e_mm.blueprint.damage_per_action.override}}checked{{/if}}/> Is Fixed
-                                </label>
-                            </div>
-                        </div>
                         <div class="form-group">
-                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.use_dice'}}</label>
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.type'}}</label>
                             <div class="form-group__body">
-                                <input type="checkbox" name="data.gg5e_mm.blueprint.damage_per_action.use_dice" {{#if data.gg5e_mm.blueprint.damage_per_action.use_dice}}checked{{/if}}/>
+                                <input name="data.gg5e_mm.blueprint.damage_per_action.type" value="{{data.gg5e_mm.blueprint.damage_per_action.type}}"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -420,6 +411,15 @@
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.maximum_dice'}}</label>
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.damage_per_action.maximum_dice" type="number" placeholder="0" value="{{data.gg5e_mm.blueprint.damage_per_action.maximum_dice}}"/>
+                            </div>
+                        </div>
+                        <div class="form-group form-group--modifier">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.modifier'}}</label>
+                            <div class="form-group__body">
+                                <input name="data.gg5e_mm.blueprint.damage_per_action.modifier" type="number" value="{{data.gg5e_mm.blueprint.damage_per_action.modifier}}"/>
+                                <label class="checkbox">
+                                    <input type="checkbox" name="data.gg5e_mm.blueprint.damage_per_action.override" {{#if data.gg5e_mm.blueprint.damage_per_action.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -497,7 +497,7 @@
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.ability_modifiers.modifiers" value="{{data.gg5e_mm.blueprint.ability_modifiers.modifiers}}"/>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.ability_modifiers.override" {{#if data.gg5e_mm.blueprint.ability_modifiers.override}}checked{{/if}}/> Is Fixed
+                                    <input type="checkbox" name="data.gg5e_mm.blueprint.ability_modifiers.override" {{#if data.gg5e_mm.blueprint.ability_modifiers.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                 </label>
                             </div>
                         </div>
@@ -587,7 +587,7 @@
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.saving_throws.modifiers" value="{{data.gg5e_mm.blueprint.saving_throws.modifiers}}"/>
                                 <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.saving_throws.override" {{#if data.gg5e_mm.blueprint.saving_throws.override}}checked{{/if}}/> Is Fixed
+                                    <input type="checkbox" name="data.gg5e_mm.blueprint.saving_throws.override" {{#if data.gg5e_mm.blueprint.saving_throws.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
                                 </label>
                             </div>
                         </div>

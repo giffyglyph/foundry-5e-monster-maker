@@ -193,6 +193,16 @@
     display: flex;
     text-align: center;
     overflow: hidden; }
+  .gg5e-mm-block .block__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 0.5rem;
+    font-size: smaller;
+    font-weight: 600;
+    color: #487997; }
   .gg5e-mm-block .block__content {
     flex-grow: 1;
     width: 100%;
@@ -221,7 +231,8 @@
       font-size: 1.15rem; }
   .gg5e-mm-block .block__title,
   .gg5e-mm-block .block__value,
-  .gg5e-mm-block .block__description {
+  .gg5e-mm-block .block__description,
+  .gg5e-mm-block .block__footer {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
@@ -537,10 +548,21 @@
   width: 6rem;
   flex-shrink: 0; }
 
-.gg5e-mm-monster .monster__blocks .attack,
-.gg5e-mm-monster .monster__blocks .damage {
-  width: 8.5rem;
+.gg5e-mm-monster .monster__blocks .attack {
+  width: 6.5rem;
   flex-shrink: 0; }
+
+.gg5e-mm-monster .monster__blocks .damage {
+  width: 12.25rem;
+  flex-shrink: 0; }
+  .gg5e-mm-monster .monster__blocks .damage .random {
+    letter-spacing: 0; }
+    .gg5e-mm-monster .monster__blocks .damage .random .roll {
+      white-space: normal;
+      line-height: 0.875;
+      font-style: 1rem;
+      text-align: left;
+      letter-spacing: 0; }
 
 .gg5e-mm-monster .monster__abilities .panel__header {
   text-transform: uppercase;
@@ -864,7 +886,7 @@
   width: 540px !important; }
   .gg5e-mm-window--monster .pane--edit {
     display: none;
-    margin-top: 3.55rem;
+    margin-top: 3.57rem;
     margin-bottom: 1rem;
     padding-left: 0;
     border-top-left-radius: 0;
