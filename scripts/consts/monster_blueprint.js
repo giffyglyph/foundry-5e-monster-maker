@@ -1,11 +1,12 @@
 export const MONSTER_BLUEPRINT = {
     description: {
-        size: "large",
+        size: "medium",
         type: {
             category: "humanoid",
             custom: null
         },
-        tags: "tag1, tag2, tag3"
+        tags: null,
+        alignment: "unaligned"
     },
     combat: {
         level: 10,

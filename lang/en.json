@@ -1,6 +1,17 @@
 {
     "gg5e_mm.sheet.monster.label": "Giffyglyph's 5e Monster Maker",
 
+    "gg5e_mm.monster.common.alignment.lawful_good": "Lawful good",
+    "gg5e_mm.monster.common.alignment.neutral_good": "Neutral good",
+    "gg5e_mm.monster.common.alignment.chaotic_good": "Chaotic good",
+    "gg5e_mm.monster.common.alignment.lawful_neutral": "Lawful neutal",
+    "gg5e_mm.monster.common.alignment.neutral": "Neutral",
+    "gg5e_mm.monster.common.alignment.chaotic_neutral": "Chaotic neutral",
+    "gg5e_mm.monster.common.alignment.lawful_evil": "Lawful evil",
+    "gg5e_mm.monster.common.alignment.neutral_evil": "Neutral evil",
+    "gg5e_mm.monster.common.alignment.chaotic_evil": "Chaotic evil",
+    "gg5e_mm.monster.common.alignment.unaligned": "Unaligned",
+
     "gg5e_mm.monster.common.ability.str.code": "Str",
     "gg5e_mm.monster.common.ability.str.name": "Strength",
     "gg5e_mm.monster.common.ability.dex.code": "Dex",
@@ -78,6 +89,7 @@
     "gg5e_mm.monster.options.description.size": "Size",
     "gg5e_mm.monster.options.description.type": "Type",
     "gg5e_mm.monster.options.description.tags": "Tags",
+    "gg5e_mm.monster.options.description.alignment": "Alignment",
 
     "gg5e_mm.monster.options.combat.title": "Combat",
     "gg5e_mm.monster.options.combat.level": "Level",

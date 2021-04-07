@@ -38,11 +38,12 @@ export default class Frankenstein {
         } else {
             parts.push(game.i18n.format(`gg5e_mm.monster.common.type.${description.type.category}`).toLowerCase());
         }
-        let filteredTags = description.tags.split(",").map(x => x.trim()).filter(x => x.length > 0).sort();
+        console.log(description);
+        let filteredTags = description.tags ? description.tags.split(",").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
         if (filteredTags.length > 0) {
             parts.push(`(${filteredTags.join(", ")})`);
         }
-        return parts.join(' ');
+        return `${parts.join(' ')}, ${game.i18n.format(`gg5e_mm.monster.common.alignment.${description.alignment}`).toLowerCase()}`;
     }
 
     static parseLevel(level) {

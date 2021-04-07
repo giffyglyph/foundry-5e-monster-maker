@@ -70,6 +70,25 @@
                                 <input name="data.gg5e_mm.blueprint.description.tags" value="{{data.gg5e_mm.blueprint.description.tags}}"/>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.description.alignment'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.description.alignment">
+                                    {{#select data.gg5e_mm.blueprint.description.alignment}}
+                                        <option value="lawful_good">{{localize 'gg5e_mm.monster.common.alignment.lawful_good'}}</option>
+                                        <option value="neutral_good">{{localize 'gg5e_mm.monster.common.alignment.neutral_good'}}</option>
+                                        <option value="chaotic_good">{{localize 'gg5e_mm.monster.common.alignment.chaotic_good'}}</option>
+                                        <option value="lawful_neutral">{{localize 'gg5e_mm.monster.common.alignment.lawful_neutral'}}</option>
+                                        <option value="neutral">{{localize 'gg5e_mm.monster.common.alignment.neutral'}}</option>
+                                        <option value="chaotic_neutral">{{localize 'gg5e_mm.monster.common.alignment.chaotic_neutral'}}</option>
+                                        <option value="lawful_evil">{{localize 'gg5e_mm.monster.common.alignment.lawful_evil'}}</option>
+                                        <option value="neutral_evil">{{localize 'gg5e_mm.monster.common.alignment.neutral_evil'}}</option>
+                                        <option value="chaotic_evil">{{localize 'gg5e_mm.monster.common.alignment.chaotic_evil'}}</option>
+                                        <option value="unaligned">{{localize 'gg5e_mm.monster.common.alignment.unaligned'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-section" data-section="combat">
