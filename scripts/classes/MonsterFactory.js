@@ -59,6 +59,9 @@ const MonsterFactory = (function() {
 				),
 				speeds: _parseSpeeds(
 					blueprint.data.speeds
+				),
+				senses: _parseSenses(
+					blueprint.data.senses
 				)
 			}
 		};
@@ -341,6 +344,22 @@ const MonsterFactory = (function() {
 				parts.push((parts.length == 0) ? description : description.toLowerCase());
 			}
 		});
+		return parts.join(", ");
+    }
+
+	function _parseSenses(senses) {
+		let parts = [];
+		["blindsight", "darkvision", "tremorsense", "truesight"].forEach(function(type) {
+			if (senses[type]) {
+				let description = game.i18n.format(`gg5e_mm.monster.common.senses.${type}`);
+				description += ` ${game.i18n.format(`gg5e_mm.monster.view.senses.${senses.unit}`, { distance: senses[type] })}`;
+				parts.push((parts.length == 0) ? description : description.toLowerCase());
+			}
+		});
+		let others = senses.other ? senses.other.split(",").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
+        if (others.length > 0) {
+            parts.push(others);
+        }
 		return parts.join(", ");
     }
 

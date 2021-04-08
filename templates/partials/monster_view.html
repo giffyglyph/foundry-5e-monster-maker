@@ -162,8 +162,10 @@
                         <dd>Necrotic</dd>
                         <dt><i class="fas fa-times fa-fw"></i> Condition Immunities</dt>
                         <dd>Blinded</dd>
-                        <dt><i class="fas fa-eye fa-fw"></i> Senses</dt>
-                        <dd>Darkvision 60 ft</dd>
+                        {{#if data.gg5e_mm.monster.data.senses}}
+                            <dt><i class="fas fa-eye fa-fw"></i> Senses</dt>
+                            <dd>{{data.gg5e_mm.monster.data.senses}}</dd>
+                        {{/if}}
                         <dt><i class="fas fa-comment fa-fw"></i> Languages</dt>
                         <dd>Common, Draconic, Deep Speech</dd>
                     </dl>

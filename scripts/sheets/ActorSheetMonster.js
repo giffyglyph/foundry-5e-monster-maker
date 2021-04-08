@@ -71,18 +71,6 @@ export default class ActorSheetMonster extends ActorSheet {
 		});
 	}
 
-// 	_moveDown(event) {
-// 		const li = event.currentTarget.closest('.ability-ranking');
-// 		if(li.nextElementSibling) {
-//     		li.parentNode.insertBefore(li.nextElementSibling, li);
-// 		}
-// 		const rankings = [];
-// 		event.currentTarget.closest(".accordion-section__body").querySelectorAll("[name='data.gg5e_mm.blueprint.data.ability_modifiers.ranking']").forEach(x => rankings.push(x.value));
-// 		this.actor.update({
-// 			[`data.gg5e_mm.blueprint.data.ability_modifiers.ranking`]: rankings
-// 		});
-// 	}
-
 	_toggleModeEdit(event) {
 		const li = event.currentTarget.closest(".gg5e-mm-window");
 		li.classList.toggle("expanded");

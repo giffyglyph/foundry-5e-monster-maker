@@ -84,6 +84,14 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
             swim: null,
             units: "feet",
             can_hover: false
+        },
+        senses: {
+            blindsight: null,
+            darkvision: null,
+            tremorsense: null,
+            truesight: null,
+            units: null,
+            other: null
         }
     }
 }

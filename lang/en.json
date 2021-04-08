@@ -65,6 +65,17 @@
     "gg5e_mm.monster.common.speeds.units.miles.code": "mi",
     "gg5e_mm.monster.common.speeds.can_hover": "Can Hover",
 
+    "gg5e_mm.monster.common.senses.blindsight": "Blindsight",
+    "gg5e_mm.monster.common.senses.darkvision": "Darkvision",
+    "gg5e_mm.monster.common.senses.tremorsense": "Tremorsense",
+    "gg5e_mm.monster.common.senses.truesight": "Truesight",
+    "gg5e_mm.monster.common.senses.units.title": "Units",
+    "gg5e_mm.monster.common.senses.units.feet.name": "Feet",
+    "gg5e_mm.monster.common.senses.units.feet.code": "ft",
+    "gg5e_mm.monster.common.senses.units.miles.name": "Miles",
+    "gg5e_mm.monster.common.senses.units.miles.code": "mi",
+    "gg5e_mm.monster.common.senses.other": "Other",
+
     "gg5e_mm.monster.common.type.aberration": "Aberration",
     "gg5e_mm.monster.common.type.beast": "Beast",
     "gg5e_mm.monster.common.type.celestial": "Celestial",
@@ -100,6 +111,9 @@
 
     "gg5e_mm.monster.view.speeds.feet": "{distance} ft",
     "gg5e_mm.monster.view.speeds.miles": "{distance} mi",
+
+    "gg5e_mm.monster.view.senses.feet": "{distance} ft",
+    "gg5e_mm.monster.view.senses.miles": "{distance} mi",
 
     "gg5e_mm.monster.options.title": "Options",
     "gg5e_mm.monster.options.is_fixed": "Is fixed",
