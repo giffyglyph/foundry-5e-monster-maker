@@ -145,4 +145,46 @@
             }
         }
     }
+
+    .ability-ranking,
+    .save-ranking {
+        display: flex;
+        line-height: 2rem;
+
+        &:not(:first-child) {
+            border-top: 1px solid $secondary-tint-3;
+        }
+
+        .value {
+            flex-grow: 1;
+            padding: 0 0.5rem;
+
+            i {
+                width: 1.5rem;
+                line-height: 1.5rem;
+                display: inline-block;
+                margin-right: 0.25rem;
+                justify-content: center;
+                align-items: center;
+                background: $secondary-tint-4;
+                border-radius: 1rem;
+                color: $secondary-shade-1;
+            }
+        }
+
+        .move-down,
+        .move-up {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            width: 2rem;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: none;
+                color: $secondary-base;
+            }
+        }
+    }
 }

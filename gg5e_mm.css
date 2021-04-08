@@ -109,7 +109,6 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    font-size: larger;
     justify-content: space-between;
     text-transform: uppercase; }
     .gg5e-mm-accordion .accordion-section__header::after {
@@ -426,7 +425,7 @@
   font-weight: bold;
   color: #452614; }
   .gg5e-mm-form .form-fieldset .form-fieldset__header::after {
-    content: "";
+    content: "\f07c";
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
@@ -443,10 +442,8 @@
     justify-content: center;
     align-items: center;
     top: 0.6rem;
-    background: #efdfd6;
-    color: white;
-    border-radius: 1rem;
-    font-size: smaller; }
+    color: #ad6032;
+    font-size: larger; }
 
 .gg5e-mm-form .form-fieldset:not(:first-child) {
   border-top: 1px solid #cea084; }
@@ -471,7 +468,7 @@
     .gg5e-mm-monster .monster__header .monster__image img {
       background: black;
       border-radius: 0.75rem;
-      border: 0;
+      border: 2px solid #0a1923;
       display: block; }
   .gg5e-mm-monster .monster__header .monster__name {
     font-size: 2.5rem;
@@ -742,6 +739,45 @@
       top: 0;
       display: inline-block;
       margin-right: 0.25rem; }
+
+.gg5e-mm-monster-options .ability-ranking,
+.gg5e-mm-monster-options .save-ranking {
+  display: flex;
+  line-height: 2rem; }
+  .gg5e-mm-monster-options .ability-ranking:not(:first-child),
+  .gg5e-mm-monster-options .save-ranking:not(:first-child) {
+    border-top: 1px solid #debfad; }
+  .gg5e-mm-monster-options .ability-ranking .value,
+  .gg5e-mm-monster-options .save-ranking .value {
+    flex-grow: 1;
+    padding: 0 0.5rem; }
+    .gg5e-mm-monster-options .ability-ranking .value i,
+    .gg5e-mm-monster-options .save-ranking .value i {
+      width: 1.5rem;
+      line-height: 1.5rem;
+      display: inline-block;
+      margin-right: 0.25rem;
+      justify-content: center;
+      align-items: center;
+      background: #efdfd6;
+      border-radius: 1rem;
+      color: #8a4d28; }
+  .gg5e-mm-monster-options .ability-ranking .move-down,
+  .gg5e-mm-monster-options .ability-ranking .move-up,
+  .gg5e-mm-monster-options .save-ranking .move-down,
+  .gg5e-mm-monster-options .save-ranking .move-up {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 2rem; }
+    .gg5e-mm-monster-options .ability-ranking .move-down:hover,
+    .gg5e-mm-monster-options .ability-ranking .move-up:hover,
+    .gg5e-mm-monster-options .save-ranking .move-down:hover,
+    .gg5e-mm-monster-options .save-ranking .move-up:hover {
+      cursor: pointer;
+      box-shadow: none;
+      color: #ad6032; }
 
 .gg5e-mm-panel {
   filter: drop-shadow(0 1px 0 #143345); }

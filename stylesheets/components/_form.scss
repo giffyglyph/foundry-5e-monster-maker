@@ -123,7 +123,7 @@
             color: $secondary-shade-3;
 
             &::after {
-                content: "";
+                content: "\f07c";
                 -webkit-font-smoothing: antialiased;
                 font-family: "Font Awesome 5 Free";
                 font-weight: 900;
@@ -140,10 +140,8 @@
                 justify-content: center;
                 align-items: center;
                 top: 0.6rem;
-                background: $secondary-tint-4;
-                color: white;
-                border-radius: 1rem;
-                font-size: smaller;
+                color: $secondary-base;
+                font-size: larger;
             }
         }
 
