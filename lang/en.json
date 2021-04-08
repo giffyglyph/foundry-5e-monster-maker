@@ -53,6 +53,18 @@
     "gg5e_mm.monster.common.size.huge": "Huge",
     "gg5e_mm.monster.common.size.gargantuan": "Gargantuan",
 
+    "gg5e_mm.monster.common.speeds.walk": "Walk",
+    "gg5e_mm.monster.common.speeds.burrow": "Burrow",
+    "gg5e_mm.monster.common.speeds.climb": "Climb",
+    "gg5e_mm.monster.common.speeds.swim": "Swim",
+    "gg5e_mm.monster.common.speeds.fly": "Fly",
+    "gg5e_mm.monster.common.speeds.units.title": "Units",
+    "gg5e_mm.monster.common.speeds.units.feet.name": "Feet",
+    "gg5e_mm.monster.common.speeds.units.feet.code": "ft",
+    "gg5e_mm.monster.common.speeds.units.miles.name": "Miles",
+    "gg5e_mm.monster.common.speeds.units.miles.code": "mi",
+    "gg5e_mm.monster.common.speeds.can_hover": "Can Hover",
+
     "gg5e_mm.monster.common.type.aberration": "Aberration",
     "gg5e_mm.monster.common.type.beast": "Beast",
     "gg5e_mm.monster.common.type.celestial": "Celestial",
@@ -85,6 +97,9 @@
     "gg5e_mm.monster.view.perception.title": "Perception",
     "gg5e_mm.monster.view.perception.passive": "Passive",
     "gg5e_mm.monster.view.phase": "{current} of {maximum}",
+
+    "gg5e_mm.monster.view.speeds.feet": "{distance} ft",
+    "gg5e_mm.monster.view.speeds.miles": "{distance} mi",
 
     "gg5e_mm.monster.options.title": "Options",
     "gg5e_mm.monster.options.is_fixed": "Is fixed",

@@ -56,6 +56,9 @@ const MonsterFactory = (function() {
 					blueprint.data.saving_throws,
 					blueprint.data.combat.rank.modifiers,
 					blueprint.data.combat.role.modifiers
+				),
+				speeds: _parseSpeeds(
+					blueprint.data.speeds
 				)
 			}
 		};
@@ -324,6 +327,21 @@ const MonsterFactory = (function() {
             });
         }
         return levelSavingThrows;
+    }
+
+	function _parseSpeeds(speeds) {
+		let parts = [];
+		["walk", "burrow", "climb", "fly", "swim"].forEach(function(type) {
+			if (speeds[type]) {
+				let description = game.i18n.format(`gg5e_mm.monster.common.speeds.${type}`);
+				description += ` ${game.i18n.format(`gg5e_mm.monster.view.speeds.${speeds.unit}`, { distance: speeds[type] })}`;
+				if (type == "fly" && speeds.can_hover) {
+					description += ` (${game.i18n.format(`gg5e_mm.monster.common.speeds.can_hover`).toLowerCase()})`;
+				}
+				parts.push((parts.length == 0) ? description : description.toLowerCase());
+			}
+		});
+		return parts.join(", ");
     }
 
 	return {

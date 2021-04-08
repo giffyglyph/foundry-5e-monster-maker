@@ -154,8 +154,10 @@
                     <dl class="monster__attributes">
                         <dt><i class="fas fa-lightbulb fa-fw"></i> Skills</dt>
                         <dd>Initiative +7, Perception +4, Stealth +4</dd>
-                        <dt><i class="fas fa-shoe-prints fa-fw"></i> Speed</dt>
-                        <dd>30 ft</dd>
+                        {{#if data.gg5e_mm.monster.data.speeds}}
+                            <dt><i class="fas fa-shoe-prints fa-fw"></i> Speed</dt>
+                            <dd>{{data.gg5e_mm.monster.data.speeds}}</dd>
+                        {{/if}}
                         <dt><i class="fas fa-times fa-fw"></i> Damage Immunities</dt>
                         <dd>Necrotic</dd>
                         <dt><i class="fas fa-times fa-fw"></i> Condition Immunities</dt>

@@ -75,6 +75,15 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
             ranking: ["str", "dex", "con", "int", "wis", "cha"],
             modifiers: null,
             override: false
+        },
+        speeds: {
+            walk: null,
+            burrow: null,
+            climb: null,
+            fly: null,
+            swim: null,
+            units: "feet",
+            can_hover: false
         }
     }
 }
