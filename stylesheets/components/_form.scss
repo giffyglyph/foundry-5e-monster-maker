@@ -23,12 +23,13 @@
             overflow: hidden;
             text-overflow: ellipsis;
             color: $secondary-shade-4;
+            width: 8rem;
+            flex: unset;
         }
 
         .form-group__body {
-            flex-shrink: 0;
-            flex: 4;
             min-height: 2rem;
+            overflow: hidden;
 
             input,
             select {

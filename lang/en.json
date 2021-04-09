@@ -92,6 +92,33 @@
     "gg5e_mm.monster.common.type.undead": "Undead",
     "gg5e_mm.monster.common.type.custom": "Custom",
 
+    "gg5e_mm.monster.common.languages.aarakocra": "Aarakocra",
+    "gg5e_mm.monster.common.languages.abyssal": "Abyssal",
+    "gg5e_mm.monster.common.languages.aquan": "Aquan",
+    "gg5e_mm.monster.common.languages.auran": "Auran",
+    "gg5e_mm.monster.common.languages.celestial": "Celestial",
+    "gg5e_mm.monster.common.languages.common": "Common",
+    "gg5e_mm.monster.common.languages.deep_speech": "Deep Speech",
+    "gg5e_mm.monster.common.languages.draconic": "Draconic",
+    "gg5e_mm.monster.common.languages.druidic": "Druidic",
+    "gg5e_mm.monster.common.languages.dwarvish": "Dwarvish",
+    "gg5e_mm.monster.common.languages.elvish": "Elvish",
+    "gg5e_mm.monster.common.languages.giant": "Giant",
+    "gg5e_mm.monster.common.languages.gith": "Gith",
+    "gg5e_mm.monster.common.languages.gnoll": "Gnoll",
+    "gg5e_mm.monster.common.languages.gnomish": "Gnomish",
+    "gg5e_mm.monster.common.languages.goblin": "Goblin",
+    "gg5e_mm.monster.common.languages.halfling": "Halfling",
+    "gg5e_mm.monster.common.languages.ignan": "Ignan",
+    "gg5e_mm.monster.common.languages.infernal": "Infernal",
+    "gg5e_mm.monster.common.languages.orc": "Orc",
+    "gg5e_mm.monster.common.languages.primordial": "Primordial",
+    "gg5e_mm.monster.common.languages.sylvan": "Sylvan",
+    "gg5e_mm.monster.common.languages.terran": "Terran",
+    "gg5e_mm.monster.common.languages.thieves_cant": "Thieves' Cant",
+    "gg5e_mm.monster.common.languages.undercommon": "Undercommon",
+    "gg5e_mm.monster.common.languages.other": "Other",
+
     "gg5e_mm.monster.view.abilities.title": "Abilities",
     "gg5e_mm.monster.view.armor_class": "Armor Class",
     "gg5e_mm.monster.view.attack_bonus": "Attack Bonus",
@@ -108,12 +135,11 @@
     "gg5e_mm.monster.view.perception.title": "Perception",
     "gg5e_mm.monster.view.perception.passive": "Passive",
     "gg5e_mm.monster.view.phase": "{current} of {maximum}",
-
     "gg5e_mm.monster.view.speeds.feet": "{distance} ft",
     "gg5e_mm.monster.view.speeds.miles": "{distance} mi",
-
     "gg5e_mm.monster.view.senses.feet": "{distance} ft",
     "gg5e_mm.monster.view.senses.miles": "{distance} mi",
+
 
     "gg5e_mm.monster.options.title": "Options",
     "gg5e_mm.monster.options.is_fixed": "Is fixed",
@@ -184,5 +210,13 @@
     "gg5e_mm.monster.options.saving_throws.method.sync": "Sync with ability modifiers",
     "gg5e_mm.monster.options.saving_throws.method.custom": "Custom ranking",
     "gg5e_mm.monster.options.saving_throws.ranking": "Ranking",
-    "gg5e_mm.monster.options.saving_throws.modifiers": "Modifiers"
+    "gg5e_mm.monster.options.saving_throws.modifiers": "Modifiers",
+
+    "gg5e_mm.monster.options.speeds.title": "Speeds",
+
+    "gg5e_mm.monster.options.senses.title": "Senses",
+
+    "gg5e_mm.monster.options.languages.title": "Languages",
+    "gg5e_mm.monster.options.languages.options": "Options",
+    "gg5e_mm.monster.options.languages.other": "Other"
 }

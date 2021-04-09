@@ -351,11 +351,12 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #23130a; }
+    color: #23130a;
+    width: 8rem;
+    flex: unset; }
   .gg5e-mm-form .form-group .form-group__body {
-    flex-shrink: 0;
-    flex: 4;
-    min-height: 2rem; }
+    min-height: 2rem;
+    overflow: hidden; }
     .gg5e-mm-form .form-group .form-group__body input,
     .gg5e-mm-form .form-group .form-group__body select {
       display: block;
@@ -739,6 +740,27 @@
       top: 0;
       display: inline-block;
       margin-right: 0.25rem; }
+
+.gg5e-mm-monster-options .form-group--languages .form-group__body {
+  column-count: 2;
+  padding: 0.5rem; }
+  .gg5e-mm-monster-options .form-group--languages .form-group__body .checkbox {
+    display: flex;
+    font-size: inherit;
+    white-space: nowrap;
+    height: auto;
+    align-items: center;
+    padding: 0;
+    line-height: 20px; }
+    .gg5e-mm-monster-options .form-group--languages .form-group__body .checkbox:hover {
+      cursor: pointer; }
+    .gg5e-mm-monster-options .form-group--languages .form-group__body .checkbox input {
+      margin: 0;
+      top: 0;
+      display: inline-block;
+      margin-right: 0.25rem;
+      height: 1rem;
+      width: 1rem; }
 
 .gg5e-mm-monster-options .ability-ranking,
 .gg5e-mm-monster-options .save-ranking {

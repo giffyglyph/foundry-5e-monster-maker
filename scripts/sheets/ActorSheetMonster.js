@@ -91,18 +91,6 @@ export default class ActorSheetMonster extends ActorSheet {
 
   _updateObject(event, form) {
 
-	// let requiredStrings = [
-	// 	"name",
-	// 	"data.gg5e_mm.blueprint.data.combat.rank.custom_name",
-	// 	"data.gg5e_mm.blueprint.data.combat.role.custom_name"
-	// ];
-
-	// requiredStrings.forEach(function(str) {
-	// 	if (form[str].trim().length == 0) {
-	// 		form[str] = "???";
-	// 	}
-	// });
-
 	if (form["data.gg5e_mm.blueprint.data.saving_throws.method"] === "sync") {
 		form["data.gg5e_mm.blueprint.data.saving_throws.ranking"] = form["data.gg5e_mm.blueprint.data.ability_modifiers.ranking"];
 	}

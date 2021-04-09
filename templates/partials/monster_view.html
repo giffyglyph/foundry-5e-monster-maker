@@ -166,8 +166,10 @@
                             <dt><i class="fas fa-eye fa-fw"></i> Senses</dt>
                             <dd>{{data.gg5e_mm.monster.data.senses}}</dd>
                         {{/if}}
-                        <dt><i class="fas fa-comment fa-fw"></i> Languages</dt>
-                        <dd>Common, Draconic, Deep Speech</dd>
+                        {{#if data.gg5e_mm.monster.data.languages}}
+                            <dt><i class="fas fa-comment fa-fw"></i> Languages</dt>
+                            <dd>{{data.gg5e_mm.monster.data.languages}}</dd>
+                        {{/if}}
                     </dl>
                 </div>
             </div>

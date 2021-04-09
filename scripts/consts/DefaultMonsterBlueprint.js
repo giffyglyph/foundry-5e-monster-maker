@@ -92,6 +92,34 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
             truesight: null,
             units: null,
             other: null
+        },
+        languages: {
+            aarakocra: false,
+            abyssal: false,
+            aquan: false,
+            auran: false,
+            celestial: false,
+            common: false,
+            deep_speech: false,
+            draconic: false,
+            druidic: false,
+            dwarvish: false,
+            elvish: false,
+            giant: false,
+            gith: false,
+            gnoll: false,
+            gnomish: false,
+            goblin: false,
+            halfling: false,
+            ignan: false,
+            infernal: false,
+            orc: false,
+            primordial: false,
+            sylvan: false,
+            terran: false,
+            thieves_cant: false,
+            undercommon: false,
+            other: null
         }
     }
 }

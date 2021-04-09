@@ -1,4 +1,5 @@
 import Dice from "./Dice.js";
+import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
 
 const MonsterFactory = (function() {
 
@@ -62,6 +63,9 @@ const MonsterFactory = (function() {
 				),
 				senses: _parseSenses(
 					blueprint.data.senses
+				),
+				languages: _parseLanguages(
+					blueprint.data.languages
 				)
 			}
 		};
@@ -362,6 +366,20 @@ const MonsterFactory = (function() {
         }
 		return parts.join(", ");
     }
+
+	function _parseLanguages(languages) {
+		let parts = [];
+		DEFAULT_LANGUAGES.forEach(function(language) {
+			if (languages[language]) {
+				parts.push(game.i18n.format(`gg5e_mm.monster.common.languages.${language}`));
+			}
+		});
+		let others = languages.other ? languages.other.split(",").map(x => x.trim()).filter(x => x.length > 0) : "";
+        if (others.length > 0) {
+            parts.push(others);
+        }
+		return parts.sort().join(", ");
+	}
 
 	return {
 		createEntity: createEntity
