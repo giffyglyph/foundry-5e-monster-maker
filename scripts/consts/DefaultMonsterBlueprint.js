@@ -190,6 +190,26 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
             stunned: false,
             unconcious: false,
             other: null
+        },
+        skills: {
+            acrobatics: null,
+            animal_handling: null,
+            arcana: null,
+            athletics: null,
+            deception: null,
+            history: null,
+            insight: null,
+            intimidation: null,
+            investigation: null,
+            medicine: null,
+            nature: null,
+            perception: null,
+            performance: null,
+            persuasion: null,
+            religion: null,
+            sleight_of_hand: null,
+            stealth: null,
+            survival: null
         }
     }
 }

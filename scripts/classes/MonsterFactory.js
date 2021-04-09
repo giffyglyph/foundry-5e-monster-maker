@@ -2,10 +2,15 @@ import Dice from "./Dice.js";
 import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
 import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
 import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
+import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
 
 const MonsterFactory = (function() {
 
 	function createEntity(blueprint) {
+		let abilityModifiers = _parseAbilityModifiers(
+			blueprint.data.combat.level,
+			blueprint.data.ability_modifiers
+		);
 		
 		return {
 			vid: blueprint.vid,
@@ -50,10 +55,7 @@ const MonsterFactory = (function() {
 					blueprint.data.combat.rank.modifiers,
 					blueprint.data.combat.role.modifiers
 				),
-				ability_modifiers: _parseAbilityModifiers(
-					blueprint.data.combat.level,
-					blueprint.data.ability_modifiers
-				),
+				ability_modifiers: abilityModifiers,
 				saving_throws: _parseSavingThrows(
 					blueprint.data.combat.level,
 					blueprint.data.saving_throws,
@@ -66,7 +68,8 @@ const MonsterFactory = (function() {
 				damage_resistances: _parseDamageResistances(blueprint.data.damage_resistances),
 				damage_immunities: _parseDamageImmunities(blueprint.data.damage_immunities),
 				damage_vulnerabilities: _parseDamageVulnerabilities(blueprint.data.damage_vulnerabilities),
-				condition_immunities: _parseConditionImmunities(blueprint.data.condition_immunities)
+				condition_immunities: _parseConditionImmunities(blueprint.data.condition_immunities),
+				skills: _parseSkills(blueprint.data.combat.level, blueprint.data.skills, abilityModifiers)
 			}
 		};
 	}
@@ -434,6 +437,32 @@ const MonsterFactory = (function() {
         if (others.length > 0) {
             parts.push(others);
         }
+		return parts.sort().join(", ");
+	}
+
+	function _parseSkills(level, skills, abilityModifiers) {
+		const proficiencyBonus = _getProficiencyBonus(level);
+		let parts = [];
+		DEFAULT_SKILLS.forEach(function(skill) {
+			if (skills[skill.name]) {
+				let description = game.i18n.format(`gg5e_mm.monster.common.skill.${skill.name}`);
+				description += ` (${game.i18n.format(`gg5e_mm.monster.common.ability.${skill.ability}.code`)})`;
+				let bonus = abilityModifiers[skill.ability];
+				switch (skills[skill.name]) {
+					case "half-proficient":
+						bonus += Math.floor(proficiencyBonus / 2);
+						break;
+					case "proficient":
+						bonus += proficiencyBonus;
+						break;
+					case "expert":
+						bonus += proficiencyBonus * 2;
+						break;
+				}
+				description += ` ${bonus >= 0 ? `+${bonus}` : bonus}`;
+				parts.push(description);
+			}
+		});
 		return parts.sort().join(", ");
 	}
 

@@ -640,7 +640,7 @@
                 <div class="accordion-section" data-section="languages">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.languages.title'}}</div>
                     <div class="accordion-section__body">
-                        <div class="form-group form-group--languages">
+                        <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.languages.options'}}</label>
                             <div class="form-group__body">
                                 <div class="checkboxes">
@@ -733,7 +733,7 @@
                 <div class="accordion-section" data-section="damage-resistances">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_resistances.title'}}</div>
                     <div class="accordion-section__body">
-                        <div class="form-group form-group--languages">
+                        <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_resistances.options'}}</label>
                             <div class="form-group__body">
                                 <div class="checkboxes">
@@ -793,7 +793,7 @@
                 <div class="accordion-section" data-section="damage-vulnerabilities">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.title'}}</div>
                     <div class="accordion-section__body">
-                        <div class="form-group form-group--languages">
+                        <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.options'}}</label>
                             <div class="form-group__body">
                                 <div class="checkboxes">
@@ -853,7 +853,7 @@
                 <div class="accordion-section" data-section="damage-immunities">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_immunities.title'}}</div>
                     <div class="accordion-section__body">
-                        <div class="form-group form-group--languages">
+                        <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_immunities.options'}}</label>
                             <div class="form-group__body">
                                 <div class="checkboxes">
@@ -913,7 +913,7 @@
                 <div class="accordion-section" data-section="condition-immunities">
                     <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.condition_immunities.title'}}</div>
                     <div class="accordion-section__body">
-                        <div class="form-group form-group--languages">
+                        <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.condition_immunities.options'}}</label>
                             <div class="form-group__body">
                                 <div class="checkboxes">
@@ -969,9 +969,248 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_immunities.other'}}</label>
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.condition_immunities.other'}}</label>
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.data.condition_immunities.other" value="{{data.gg5e_mm.blueprint.data.condition_immunities.other}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-section" data-section="skills">
+                    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.skills.title'}}</div>
+                    <div class="accordion-section__body">
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.acrobatics'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.acrobatics">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.acrobatics}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.animal_handling'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.animal_handling">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.animal_handling}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.arcana'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.arcana">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.arcana}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.athletics'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.athletics">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.athletics}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.deception'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.deception">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.deception}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.history'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.history">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.history}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.insight'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.insight">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.insight}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.intimidation'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.intimidation">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.intimidation}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.investigation'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.investigation">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.investigation}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.medicine'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.medicine">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.medicine}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.nature'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.nature">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.nature}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.perception'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.perception">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.perception}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.performance'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.performance">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.performance}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.persuasion'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.persuasion">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.persuasion}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.religion'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.religion">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.religion}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.sleight_of_hand'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.sleight_of_hand">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.sleight_of_hand}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.stealth'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.stealth">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.stealth}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.survival'}}</label>
+                            <div class="form-group__body">
+                                <select name="data.gg5e_mm.blueprint.data.skills.survival">
+                                    {{#select data.gg5e_mm.blueprint.data.skills.survival}}
+                                        <option value="">{{localize 'gg5e_mm.monster.common.proficiency.none'}}</option>
+                                        <option value="half-proficient">{{localize 'gg5e_mm.monster.common.proficiency.half'}}</option>
+                                        <option value="proficient">{{localize 'gg5e_mm.monster.common.proficiency.full'}}</option>
+                                        <option value="expert">{{localize 'gg5e_mm.monster.common.proficiency.double'}}</option>
+                                    {{/select}}
+                                </select>
                             </div>
                         </div>
                     </div>

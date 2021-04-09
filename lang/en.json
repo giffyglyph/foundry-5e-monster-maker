@@ -153,6 +153,30 @@
     "gg5e_mm.monster.common.condition.unconcious": "Unconcious",
     "gg5e_mm.monster.common.condition.other": "Other",
 
+    "gg5e_mm.monster.common.skill.acrobatics": "Acrobatics",
+    "gg5e_mm.monster.common.skill.animal_handling": "Animal Handling",
+    "gg5e_mm.monster.common.skill.arcana": "Arcana",
+    "gg5e_mm.monster.common.skill.athletics": "Athletics",
+    "gg5e_mm.monster.common.skill.deception": "Deception",
+    "gg5e_mm.monster.common.skill.history": "History",
+    "gg5e_mm.monster.common.skill.insight": "Insight",
+    "gg5e_mm.monster.common.skill.intimidation": "Intimidation",
+    "gg5e_mm.monster.common.skill.investigation": "Investigation",
+    "gg5e_mm.monster.common.skill.medicine": "Medicine",
+    "gg5e_mm.monster.common.skill.nature": "Nature",
+    "gg5e_mm.monster.common.skill.perception": "Perception",
+    "gg5e_mm.monster.common.skill.performance": "Performance",
+    "gg5e_mm.monster.common.skill.persuasion": "Persuasion",
+    "gg5e_mm.monster.common.skill.religion": "Religion",
+    "gg5e_mm.monster.common.skill.sleight_of_hand": "Sleight of Hand",
+    "gg5e_mm.monster.common.skill.stealth": "Stealth",
+    "gg5e_mm.monster.common.skill.survival": "Survival",
+
+    "gg5e_mm.monster.common.proficiency.none": "—",
+    "gg5e_mm.monster.common.proficiency.half": "Half-proficient",
+    "gg5e_mm.monster.common.proficiency.full": "Proficient",
+    "gg5e_mm.monster.common.proficiency.double": "Expert",
+
     "gg5e_mm.monster.view.abilities.title": "Abilities",
     "gg5e_mm.monster.view.armor_class": "Armor Class",
     "gg5e_mm.monster.view.attack_bonus": "Attack Bonus",
@@ -268,5 +292,7 @@
 
     "gg5e_mm.monster.options.condition_immunities.title": "Condition Immunities",
     "gg5e_mm.monster.options.condition_immunities.options": "Options",
-    "gg5e_mm.monster.options.condition_immunities.other": "Other"
+    "gg5e_mm.monster.options.condition_immunities.other": "Other",
+
+    "gg5e_mm.monster.options.skills.title": "Skills"
 }

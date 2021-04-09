@@ -152,8 +152,10 @@
                         </div>
                     </div>
                     <dl class="monster__attributes">
-                        <dt><i class="fas fa-lightbulb fa-fw"></i> Skills</dt>
-                        <dd>Initiative +7, Perception +4, Stealth +4</dd>
+                        {{#if data.gg5e_mm.monster.data.skills}}
+                            <dt><i class="fas fa-lightbulb fa-fw"></i> Skills</dt>
+                            <dd>{{data.gg5e_mm.monster.data.skills}}</dd>
+                        {{/if}}
                         {{#if data.gg5e_mm.monster.data.speeds}}
                             <dt><i class="fas fa-shoe-prints fa-fw"></i> Speed</dt>
                             <dd>{{data.gg5e_mm.monster.data.speeds}}</dd>
