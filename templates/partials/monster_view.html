@@ -158,10 +158,22 @@
                             <dt><i class="fas fa-shoe-prints fa-fw"></i> Speed</dt>
                             <dd>{{data.gg5e_mm.monster.data.speeds}}</dd>
                         {{/if}}
-                        <dt><i class="fas fa-times fa-fw"></i> Damage Immunities</dt>
-                        <dd>Necrotic</dd>
-                        <dt><i class="fas fa-times fa-fw"></i> Condition Immunities</dt>
-                        <dd>Blinded</dd>
+                        {{#if data.gg5e_mm.monster.data.damage_immunities}}
+                            <dt><i class="fas fa-check-double fa-fw"></i> Damage Immunities</dt>
+                            <dd>{{data.gg5e_mm.monster.data.damage_immunities}}</dd>
+                        {{/if}}
+                        {{#if data.gg5e_mm.monster.data.damage_resistances}}
+                            <dt><i class="fas fa-check fa-fw"></i> Damage Resistances</dt>
+                            <dd>{{data.gg5e_mm.monster.data.damage_resistances}}</dd>
+                        {{/if}}
+                        {{#if data.gg5e_mm.monster.data.damage_vulnerabilities}}
+                            <dt><i class="fas fa-times fa-fw"></i> Damage Vulnerabilities</dt>
+                            <dd>{{data.gg5e_mm.monster.data.damage_vulnerabilities}}</dd>
+                        {{/if}}
+                        {{#if data.gg5e_mm.monster.data.condition_immunities}}
+                            <dt><i class="fas fa-check-double fa-fw"></i> Condition Immunities</dt>
+                            <dd>{{data.gg5e_mm.monster.data.condition_immunities}}</dd>
+                        {{/if}}
                         {{#if data.gg5e_mm.monster.data.senses}}
                             <dt><i class="fas fa-eye fa-fw"></i> Senses</dt>
                             <dd>{{data.gg5e_mm.monster.data.senses}}</dd>

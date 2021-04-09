@@ -1,5 +1,7 @@
 import Dice from "./Dice.js";
 import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
+import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
+import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
 
 const MonsterFactory = (function() {
 
@@ -58,15 +60,13 @@ const MonsterFactory = (function() {
 					blueprint.data.combat.rank.modifiers,
 					blueprint.data.combat.role.modifiers
 				),
-				speeds: _parseSpeeds(
-					blueprint.data.speeds
-				),
-				senses: _parseSenses(
-					blueprint.data.senses
-				),
-				languages: _parseLanguages(
-					blueprint.data.languages
-				)
+				speeds: _parseSpeeds(blueprint.data.speeds),
+				senses: _parseSenses(blueprint.data.senses),
+				languages: _parseLanguages(blueprint.data.languages),
+				damage_resistances: _parseDamageResistances(blueprint.data.damage_resistances),
+				damage_immunities: _parseDamageImmunities(blueprint.data.damage_immunities),
+				damage_vulnerabilities: _parseDamageVulnerabilities(blueprint.data.damage_vulnerabilities),
+				condition_immunities: _parseConditionImmunities(blueprint.data.condition_immunities)
 			}
 		};
 	}
@@ -375,6 +375,62 @@ const MonsterFactory = (function() {
 			}
 		});
 		let others = languages.other ? languages.other.split(",").map(x => x.trim()).filter(x => x.length > 0) : "";
+        if (others.length > 0) {
+            parts.push(others);
+        }
+		return parts.sort().join(", ");
+	}
+
+	function _parseDamageResistances(damageResistances) {
+		let parts = [];
+		DEFAULT_DAMAGE_TYPES.forEach(function(damage) {
+			if (damageResistances[damage]) {
+				parts.push(game.i18n.format(`gg5e_mm.monster.common.damage.${damage}`));
+			}
+		});
+		let others = damageResistances.other ? damageResistances.other.split(",").map(x => x.trim()).filter(x => x.length > 0) : "";
+        if (others.length > 0) {
+            parts.push(others);
+        }
+		return parts.sort().join(", ");
+	}
+
+	function _parseDamageVulnerabilities(damageVulnerabilities) {
+		let parts = [];
+		DEFAULT_DAMAGE_TYPES.forEach(function(damage) {
+			if (damageVulnerabilities[damage]) {
+				parts.push(game.i18n.format(`gg5e_mm.monster.common.damage.${damage}`));
+			}
+		});
+		let others = damageVulnerabilities.other ? damageVulnerabilities.other.split(",").map(x => x.trim()).filter(x => x.length > 0) : "";
+        if (others.length > 0) {
+            parts.push(others);
+        }
+		return parts.sort().join(", ");
+	}
+
+	function _parseDamageImmunities(damageImmunities) {
+		let parts = [];
+		DEFAULT_DAMAGE_TYPES.forEach(function(damage) {
+			if (damageImmunities[damage]) {
+				parts.push(game.i18n.format(`gg5e_mm.monster.common.damage.${damage}`));
+			}
+		});
+		let others = damageImmunities.other ? damageImmunities.other.split(",").map(x => x.trim()).filter(x => x.length > 0) : "";
+        if (others.length > 0) {
+            parts.push(others);
+        }
+		return parts.sort().join(", ");
+	}
+
+	function _parseConditionImmunities(conditionImmunities) {
+		let parts = [];
+		DEFAULT_CONDITIONS.forEach(function(condition) {
+			if (conditionImmunities[condition]) {
+				parts.push(game.i18n.format(`gg5e_mm.monster.common.condition.${condition}`));
+			}
+		});
+		let others = conditionImmunities.other ? conditionImmunities.other.split(",").map(x => x.trim()).filter(x => x.length > 0) : "";
         if (others.length > 0) {
             parts.push(others);
         }

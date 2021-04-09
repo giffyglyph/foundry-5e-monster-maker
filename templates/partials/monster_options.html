@@ -643,87 +643,335 @@
                         <div class="form-group form-group--languages">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.languages.options'}}</label>
                             <div class="form-group__body">
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.aarakocra" {{#if data.gg5e_mm.blueprint.data.languages.aarakocra}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.aarakocra'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.abyssal" {{#if data.gg5e_mm.blueprint.data.languages.abyssal}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.abyssal'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.aquan" {{#if data.gg5e_mm.blueprint.data.languages.aquan}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.aquan'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.auran" {{#if data.gg5e_mm.blueprint.data.languages.auran}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.auran'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.celestial" {{#if data.gg5e_mm.blueprint.data.languages.celestial}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.celestial'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.common" {{#if data.gg5e_mm.blueprint.data.languages.common}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.common'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.deep_speech" {{#if data.gg5e_mm.blueprint.data.languages.deep_speech}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.deep_speech'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.draconic" {{#if data.gg5e_mm.blueprint.data.languages.draconic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.draconic'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.druidic" {{#if data.gg5e_mm.blueprint.data.languages.druidic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.druidic'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.dwarvish" {{#if data.gg5e_mm.blueprint.data.languages.dwarvish}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.dwarvish'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.elvish" {{#if data.gg5e_mm.blueprint.data.languages.elvish}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.elvish'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.giant" {{#if data.gg5e_mm.blueprint.data.languages.giant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.giant'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.gith" {{#if data.gg5e_mm.blueprint.data.languages.gith}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.gith'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.gnoll" {{#if data.gg5e_mm.blueprint.data.languages.gnoll}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.gnoll'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.gnomish" {{#if data.gg5e_mm.blueprint.data.languages.gnomish}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.gnomish'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.goblin" {{#if data.gg5e_mm.blueprint.data.languages.goblin}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.goblin'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.halfling" {{#if data.gg5e_mm.blueprint.data.languages.halfling}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.halfling'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.ignan" {{#if data.gg5e_mm.blueprint.data.languages.ignan}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.ignan'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.infernal" {{#if data.gg5e_mm.blueprint.data.languages.infernal}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.infernal'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.orc" {{#if data.gg5e_mm.blueprint.data.languages.orc}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.orc'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.primordial" {{#if data.gg5e_mm.blueprint.data.languages.primordial}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.primordial'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.sylvan" {{#if data.gg5e_mm.blueprint.data.languages.sylvan}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.sylvan'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.terran" {{#if data.gg5e_mm.blueprint.data.languages.terran}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.terran'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.thieves_cant" {{#if data.gg5e_mm.blueprint.data.languages.thieves_cant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.thieves_cant'}}
-                                </label>
-                                <label class="checkbox">
-                                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.undercommon" {{#if data.gg5e_mm.blueprint.data.languages.undercommon}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.undercommon'}}
-                                </label>
+                                <div class="checkboxes">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.aarakocra" {{#if data.gg5e_mm.blueprint.data.languages.aarakocra}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.aarakocra'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.abyssal" {{#if data.gg5e_mm.blueprint.data.languages.abyssal}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.abyssal'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.aquan" {{#if data.gg5e_mm.blueprint.data.languages.aquan}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.aquan'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.auran" {{#if data.gg5e_mm.blueprint.data.languages.auran}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.auran'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.celestial" {{#if data.gg5e_mm.blueprint.data.languages.celestial}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.celestial'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.common" {{#if data.gg5e_mm.blueprint.data.languages.common}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.common'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.deep_speech" {{#if data.gg5e_mm.blueprint.data.languages.deep_speech}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.deep_speech'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.draconic" {{#if data.gg5e_mm.blueprint.data.languages.draconic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.draconic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.druidic" {{#if data.gg5e_mm.blueprint.data.languages.druidic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.druidic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.dwarvish" {{#if data.gg5e_mm.blueprint.data.languages.dwarvish}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.dwarvish'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.elvish" {{#if data.gg5e_mm.blueprint.data.languages.elvish}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.elvish'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.giant" {{#if data.gg5e_mm.blueprint.data.languages.giant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.giant'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.gith" {{#if data.gg5e_mm.blueprint.data.languages.gith}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.gith'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.gnoll" {{#if data.gg5e_mm.blueprint.data.languages.gnoll}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.gnoll'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.gnomish" {{#if data.gg5e_mm.blueprint.data.languages.gnomish}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.gnomish'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.goblin" {{#if data.gg5e_mm.blueprint.data.languages.goblin}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.goblin'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.halfling" {{#if data.gg5e_mm.blueprint.data.languages.halfling}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.halfling'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.ignan" {{#if data.gg5e_mm.blueprint.data.languages.ignan}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.ignan'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.infernal" {{#if data.gg5e_mm.blueprint.data.languages.infernal}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.infernal'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.orc" {{#if data.gg5e_mm.blueprint.data.languages.orc}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.orc'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.primordial" {{#if data.gg5e_mm.blueprint.data.languages.primordial}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.primordial'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.sylvan" {{#if data.gg5e_mm.blueprint.data.languages.sylvan}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.sylvan'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.terran" {{#if data.gg5e_mm.blueprint.data.languages.terran}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.terran'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.thieves_cant" {{#if data.gg5e_mm.blueprint.data.languages.thieves_cant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.thieves_cant'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.languages.undercommon" {{#if data.gg5e_mm.blueprint.data.languages.undercommon}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.languages.undercommon'}}
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-group__header">{{localize 'gg5e_mm.monster.options.languages.other'}}</label>
                             <div class="form-group__body">
                                 <input name="data.gg5e_mm.blueprint.data.languages.other" value="{{data.gg5e_mm.blueprint.data.languages.other}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-section" data-section="damage-resistances">
+                    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_resistances.title'}}</div>
+                    <div class="accordion-section__body">
+                        <div class="form-group form-group--languages">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_resistances.options'}}</label>
+                            <div class="form-group__body">
+                                <div class="checkboxes">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.acid" {{#if data.gg5e_mm.blueprint.data.damage_resistances.acid}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.acid'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.bludgeoning" {{#if data.gg5e_mm.blueprint.data.damage_resistances.bludgeoning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.bludgeoning'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.cold" {{#if data.gg5e_mm.blueprint.data.damage_resistances.cold}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.cold'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.fire" {{#if data.gg5e_mm.blueprint.data.damage_resistances.fire}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.fire'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.force" {{#if data.gg5e_mm.blueprint.data.damage_resistances.force}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.force'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.lightning" {{#if data.gg5e_mm.blueprint.data.damage_resistances.lightning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.lightning'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.necrotic" {{#if data.gg5e_mm.blueprint.data.damage_resistances.necrotic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.necrotic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.non_magical_physical" {{#if data.gg5e_mm.blueprint.data.damage_resistances.non_magical_physical}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.non_magical_physical'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.piercing" {{#if data.gg5e_mm.blueprint.data.damage_resistances.piercing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.piercing'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.poison" {{#if data.gg5e_mm.blueprint.data.damage_resistances.poison}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.poison'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.psychic" {{#if data.gg5e_mm.blueprint.data.damage_resistances.psychic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.psychic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.radiant" {{#if data.gg5e_mm.blueprint.data.damage_resistances.radiant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.radiant'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.slashing" {{#if data.gg5e_mm.blueprint.data.damage_resistances.slashing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.slashing'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_resistances.thunder" {{#if data.gg5e_mm.blueprint.data.damage_resistances.thunder}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.thunder'}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_resistances.other'}}</label>
+                            <div class="form-group__body">
+                                <input name="data.gg5e_mm.blueprint.data.damage_resistances.other" value="{{data.gg5e_mm.blueprint.data.damage_resistances.other}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-section" data-section="damage-vulnerabilities">
+                    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.title'}}</div>
+                    <div class="accordion-section__body">
+                        <div class="form-group form-group--languages">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.options'}}</label>
+                            <div class="form-group__body">
+                                <div class="checkboxes">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.acid" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.acid}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.acid'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.bludgeoning" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.bludgeoning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.bludgeoning'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.cold" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.cold}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.cold'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.fire" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.fire}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.fire'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.force" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.force}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.force'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.lightning" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.lightning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.lightning'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.necrotic" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.necrotic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.necrotic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.non_magical_physical" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.non_magical_physical}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.non_magical_physical'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.piercing" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.piercing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.piercing'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.poison" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.poison}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.poison'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.psychic" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.psychic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.psychic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.radiant" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.radiant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.radiant'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.slashing" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.slashing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.slashing'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.thunder" {{#if data.gg5e_mm.blueprint.data.damage_vulnerabilities.thunder}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.thunder'}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.other'}}</label>
+                            <div class="form-group__body">
+                                <input name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.other" value="{{data.gg5e_mm.blueprint.data.damage_vulnerabilities.other}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-section" data-section="damage-immunities">
+                    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_immunities.title'}}</div>
+                    <div class="accordion-section__body">
+                        <div class="form-group form-group--languages">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_immunities.options'}}</label>
+                            <div class="form-group__body">
+                                <div class="checkboxes">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.acid" {{#if data.gg5e_mm.blueprint.data.damage_immunities.acid}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.acid'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.bludgeoning" {{#if data.gg5e_mm.blueprint.data.damage_immunities.bludgeoning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.bludgeoning'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.cold" {{#if data.gg5e_mm.blueprint.data.damage_immunities.cold}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.cold'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.fire" {{#if data.gg5e_mm.blueprint.data.damage_immunities.fire}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.fire'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.force" {{#if data.gg5e_mm.blueprint.data.damage_immunities.force}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.force'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.lightning" {{#if data.gg5e_mm.blueprint.data.damage_immunities.lightning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.lightning'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.necrotic" {{#if data.gg5e_mm.blueprint.data.damage_immunities.necrotic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.necrotic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.non_magical_physical" {{#if data.gg5e_mm.blueprint.data.damage_immunities.non_magical_physical}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.non_magical_physical'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.piercing" {{#if data.gg5e_mm.blueprint.data.damage_immunities.piercing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.piercing'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.poison" {{#if data.gg5e_mm.blueprint.data.damage_immunities.poison}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.poison'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.psychic" {{#if data.gg5e_mm.blueprint.data.damage_immunities.psychic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.psychic'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.radiant" {{#if data.gg5e_mm.blueprint.data.damage_immunities.radiant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.radiant'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.slashing" {{#if data.gg5e_mm.blueprint.data.damage_immunities.slashing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.slashing'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.thunder" {{#if data.gg5e_mm.blueprint.data.damage_immunities.thunder}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.thunder'}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_immunities.other'}}</label>
+                            <div class="form-group__body">
+                                <input name="data.gg5e_mm.blueprint.data.damage_immunities.other" value="{{data.gg5e_mm.blueprint.data.damage_immunities.other}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-section" data-section="condition-immunities">
+                    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.condition_immunities.title'}}</div>
+                    <div class="accordion-section__body">
+                        <div class="form-group form-group--languages">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.condition_immunities.options'}}</label>
+                            <div class="form-group__body">
+                                <div class="checkboxes">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.blinded" {{#if data.gg5e_mm.blueprint.data.condition_immunities.blinded}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.blinded'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.charmed" {{#if data.gg5e_mm.blueprint.data.condition_immunities.charmed}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.charmed'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.deafened" {{#if data.gg5e_mm.blueprint.data.condition_immunities.deafened}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.deafened'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.diseased" {{#if data.gg5e_mm.blueprint.data.condition_immunities.diseased}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.diseased'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.exhaustion" {{#if data.gg5e_mm.blueprint.data.condition_immunities.exhaustion}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.exhaustion'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.frightened" {{#if data.gg5e_mm.blueprint.data.condition_immunities.frightened}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.frightened'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.grappled" {{#if data.gg5e_mm.blueprint.data.condition_immunities.grappled}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.grappled'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.incapacitated" {{#if data.gg5e_mm.blueprint.data.condition_immunities.incapacitated}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.incapacitated'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.invisible" {{#if data.gg5e_mm.blueprint.data.condition_immunities.invisible}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.invisible'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.paralyzed" {{#if data.gg5e_mm.blueprint.data.condition_immunities.paralyzed}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.paralyzed'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.petrified" {{#if data.gg5e_mm.blueprint.data.condition_immunities.petrified}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.petrified'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.poisoned" {{#if data.gg5e_mm.blueprint.data.condition_immunities.poisoned}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.poisoned'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.prone" {{#if data.gg5e_mm.blueprint.data.condition_immunities.prone}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.prone'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.restrained" {{#if data.gg5e_mm.blueprint.data.condition_immunities.restrained}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.restrained'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.stunned" {{#if data.gg5e_mm.blueprint.data.condition_immunities.stunned}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.stunned'}}
+                                    </label>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.unconcious" {{#if data.gg5e_mm.blueprint.data.condition_immunities.unconcious}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.unconcious'}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_immunities.other'}}</label>
+                            <div class="form-group__body">
+                                <input name="data.gg5e_mm.blueprint.data.condition_immunities.other" value="{{data.gg5e_mm.blueprint.data.condition_immunities.other}}"/>
                             </div>
                         </div>
                     </div>

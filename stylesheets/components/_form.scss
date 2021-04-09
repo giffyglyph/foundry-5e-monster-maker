@@ -106,6 +106,37 @@
                 }
             }
         }
+
+        .checkboxes {
+            padding: 0.5rem;
+    
+            .checkbox {
+                display: inline-flex;
+                width: 100%;
+                font-size: inherit;
+                height: auto;
+                align-items: flex-start;
+                padding: 0;
+                line-height: 1rem;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+                
+                input {
+                    margin: 0;
+                    top: 0;
+                    display: inline-block;
+                    margin-right: 0.25rem;
+                    height: 1rem;
+                    width: 1rem;
+                }
+    
+                &:not(:last-child) {
+                    margin-bottom: 0.25rem;
+                }
+            }
+        }
     }
 
     .form-fieldset {

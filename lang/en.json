@@ -119,6 +119,40 @@
     "gg5e_mm.monster.common.languages.undercommon": "Undercommon",
     "gg5e_mm.monster.common.languages.other": "Other",
 
+    "gg5e_mm.monster.common.damage.acid": "Acid",
+    "gg5e_mm.monster.common.damage.bludgeoning": "Bludgeoning",
+    "gg5e_mm.monster.common.damage.cold": "Cold",
+    "gg5e_mm.monster.common.damage.fire": "Fire",
+    "gg5e_mm.monster.common.damage.force": "Force",
+    "gg5e_mm.monster.common.damage.lightning": "Lightning",
+    "gg5e_mm.monster.common.damage.necrotic": "Necrotic",
+    "gg5e_mm.monster.common.damage.non_magical_physical": "Non-Magical Physical",
+    "gg5e_mm.monster.common.damage.piercing": "Piercing",
+    "gg5e_mm.monster.common.damage.poison": "Poison",
+    "gg5e_mm.monster.common.damage.psychic": "Psychic",
+    "gg5e_mm.monster.common.damage.radiant": "Radiant",
+    "gg5e_mm.monster.common.damage.slashing": "Slashing",
+    "gg5e_mm.monster.common.damage.thunder": "Thunder",
+    "gg5e_mm.monster.common.damage.other": "Other",
+
+    "gg5e_mm.monster.common.condition.blinded": "Blinded",
+    "gg5e_mm.monster.common.condition.charmed": "Charmed",
+    "gg5e_mm.monster.common.condition.deafened": "Deafened",
+    "gg5e_mm.monster.common.condition.diseased": "Diseased",
+    "gg5e_mm.monster.common.condition.exhaustion": "Exhaustion",
+    "gg5e_mm.monster.common.condition.frightened": "Frightened",
+    "gg5e_mm.monster.common.condition.grappled": "Grappled",
+    "gg5e_mm.monster.common.condition.incapacitated": "Incapacitated",
+    "gg5e_mm.monster.common.condition.invisible": "Invisible",
+    "gg5e_mm.monster.common.condition.paralyzed": "Paralyzed",
+    "gg5e_mm.monster.common.condition.petrified": "Petrified",
+    "gg5e_mm.monster.common.condition.poisoned": "Poisoned",
+    "gg5e_mm.monster.common.condition.prone": "Prone",
+    "gg5e_mm.monster.common.condition.restrained": "Restrained",
+    "gg5e_mm.monster.common.condition.stunned": "Stunned",
+    "gg5e_mm.monster.common.condition.unconcious": "Unconcious",
+    "gg5e_mm.monster.common.condition.other": "Other",
+
     "gg5e_mm.monster.view.abilities.title": "Abilities",
     "gg5e_mm.monster.view.armor_class": "Armor Class",
     "gg5e_mm.monster.view.attack_bonus": "Attack Bonus",
@@ -218,5 +252,21 @@
 
     "gg5e_mm.monster.options.languages.title": "Languages",
     "gg5e_mm.monster.options.languages.options": "Options",
-    "gg5e_mm.monster.options.languages.other": "Other"
+    "gg5e_mm.monster.options.languages.other": "Other",
+
+    "gg5e_mm.monster.options.damage_immunities.title": "Damage Immunities",
+    "gg5e_mm.monster.options.damage_immunities.options": "Options",
+    "gg5e_mm.monster.options.damage_immunities.other": "Other",
+
+    "gg5e_mm.monster.options.damage_resistances.title": "Damage Resistances",
+    "gg5e_mm.monster.options.damage_resistances.options": "Options",
+    "gg5e_mm.monster.options.damage_resistances.other": "Other",
+
+    "gg5e_mm.monster.options.damage_vulnerabilities.title": "Damage Vulnerabilities",
+    "gg5e_mm.monster.options.damage_vulnerabilities.options": "Options",
+    "gg5e_mm.monster.options.damage_vulnerabilities.other": "Other",
+
+    "gg5e_mm.monster.options.condition_immunities.title": "Condition Immunities",
+    "gg5e_mm.monster.options.condition_immunities.options": "Options",
+    "gg5e_mm.monster.options.condition_immunities.other": "Other"
 }

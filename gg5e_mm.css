@@ -412,6 +412,27 @@
         color: white;
         box-shadow: none;
         cursor: pointer; }
+  .gg5e-mm-form .form-group .checkboxes {
+    padding: 0.5rem; }
+    .gg5e-mm-form .form-group .checkboxes .checkbox {
+      display: inline-flex;
+      width: 100%;
+      font-size: inherit;
+      height: auto;
+      align-items: flex-start;
+      padding: 0;
+      line-height: 1rem; }
+      .gg5e-mm-form .form-group .checkboxes .checkbox:hover {
+        cursor: pointer; }
+      .gg5e-mm-form .form-group .checkboxes .checkbox input {
+        margin: 0;
+        top: 0;
+        display: inline-block;
+        margin-right: 0.25rem;
+        height: 1rem;
+        width: 1rem; }
+      .gg5e-mm-form .form-group .checkboxes .checkbox:not(:last-child) {
+        margin-bottom: 0.25rem; }
 
 .gg5e-mm-form .form-fieldset .form-fieldset__header {
   border-right: none;
@@ -740,27 +761,6 @@
       top: 0;
       display: inline-block;
       margin-right: 0.25rem; }
-
-.gg5e-mm-monster-options .form-group--languages .form-group__body {
-  column-count: 2;
-  padding: 0.5rem; }
-  .gg5e-mm-monster-options .form-group--languages .form-group__body .checkbox {
-    display: flex;
-    font-size: inherit;
-    white-space: nowrap;
-    height: auto;
-    align-items: center;
-    padding: 0;
-    line-height: 20px; }
-    .gg5e-mm-monster-options .form-group--languages .form-group__body .checkbox:hover {
-      cursor: pointer; }
-    .gg5e-mm-monster-options .form-group--languages .form-group__body .checkbox input {
-      margin: 0;
-      top: 0;
-      display: inline-block;
-      margin-right: 0.25rem;
-      height: 1rem;
-      width: 1rem; }
 
 .gg5e-mm-monster-options .ability-ranking,
 .gg5e-mm-monster-options .save-ranking {
