@@ -46,11 +46,29 @@ const Gui = (function() {
 	async function preloadHandlebarsTemplates() {
 
 		return loadTemplates([
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_ability_ranking.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_modals.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_save_ranking.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_options.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_view.html"
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/modals.html",		  
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_abilities.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_armor_class.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_attack_bonus.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_attack_dcs.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_combat.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_condition_immunities.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_immunities.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_resistances.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_vulnerabilities.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_description.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_hit_points.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_languages.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_perception.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_saving_throws.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_senses.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_skills.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_speeds.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/view.html"
 		]);
 	};
 

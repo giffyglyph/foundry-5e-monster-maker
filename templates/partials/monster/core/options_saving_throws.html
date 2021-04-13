@@ -1,0 +1,68 @@
+<div class="accordion-section" data-section="saving_throws">
+    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.saving_throws.title'}}</div>
+    <div class="accordion-section__body">
+        <div class="form-group">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.saving_throws.method.title'}}</span>
+                <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_ranks">
+                    <i class="fas fa-question"></i>
+                </button>
+            </div>
+            <div class="form-group__body">
+                <select name="data.gg5e_mm.blueprint.data.saving_throws.method">
+                    {{#select data.gg5e_mm.blueprint.data.saving_throws.method}}
+                        <option value="sync">{{localize 'gg5e_mm.monster.options.saving_throws.method.sync'}}</option>
+                        <option value="ranking">{{localize 'gg5e_mm.monster.options.saving_throws.method.custom'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+        {{#if (eq data.gg5e_mm.blueprint.data.saving_throws.method 'ranking')}}
+            <div class="form-group">
+                <div class="form-group__header">
+                    <span class="form-group__title">Ranking</span>
+                </div>
+                <div class="form-group__body save_rankings">
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
+                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
+                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[0]
+                    }}
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
+                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
+                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[1]
+                    }}
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
+                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
+                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[2]
+                    }}
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
+                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
+                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[3]
+                    }}
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
+                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
+                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[4]
+                    }}
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
+                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
+                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[5]
+                    }}
+                </div>
+            </div>
+        {{/if}}
+        <div class="form-group form-group--modifier">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.saving_throws.modifiers'}}</span>
+                <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_modifiers">
+                    <i class="fas fa-question"></i>
+                </button>
+            </div>
+            <div class="form-group__body">
+                <input name="data.gg5e_mm.blueprint.data.saving_throws.modifiers" value="{{data.gg5e_mm.blueprint.data.saving_throws.modifiers}}"/>
+                <label class="checkbox">
+                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.saving_throws.override" {{#if data.gg5e_mm.blueprint.data.saving_throws.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

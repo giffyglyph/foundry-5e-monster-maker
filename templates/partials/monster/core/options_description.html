@@ -1,0 +1,99 @@
+<div class="accordion-section" data-section="description">
+    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.description.title'}}</div>
+    <div class="accordion-section__body">
+        <div class="form-group">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.name'}}</span>
+            </div>
+            <div class="form-group__body">
+                <input name="name" value="{{data.gg5e_mm.blueprint.data.description.name}}"/>
+            </div>
+        </div>
+        <div class="form-group form-group--image">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.image'}}</span>
+            </div>
+            <div class="form-group__body">
+                <img src="{{data.gg5e_mm.blueprint.data.description.image}}" data-edit="img">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.size'}}</span>
+            </div>
+            <div class="form-group__body">
+                <select name="data.gg5e_mm.blueprint.data.description.size">
+                    {{#select data.gg5e_mm.blueprint.data.description.size}}
+                        <option value="tiny">{{localize 'gg5e_mm.monster.common.size.tiny'}}</option>
+                        <option value="small">{{localize 'gg5e_mm.monster.common.size.small'}}</option>
+                        <option value="medium">{{localize 'gg5e_mm.monster.common.size.medium'}}</option>
+                        <option value="large">{{localize 'gg5e_mm.monster.common.size.large'}}</option>
+                        <option value="huge">{{localize 'gg5e_mm.monster.common.size.huge'}}</option>
+                        <option value="gargantuan">{{localize 'gg5e_mm.monster.common.size.gargantuan'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.type'}}</span>
+            </div>
+            <div class="form-group__body">
+                <select name="data.gg5e_mm.blueprint.data.description.type.category">
+                    {{#select data.gg5e_mm.blueprint.data.description.type.category}}
+                        <option value="aberration">{{localize 'gg5e_mm.monster.common.type.aberration'}}</option>
+                        <option value="beast">{{localize 'gg5e_mm.monster.common.type.beast'}}</option>
+                        <option value="celestial">{{localize 'gg5e_mm.monster.common.type.celestial'}}</option>
+                        <option value="construct">{{localize 'gg5e_mm.monster.common.type.construct'}}</option>
+                        <option value="dragon">{{localize 'gg5e_mm.monster.common.type.dragon'}}</option>
+                        <option value="elemental">{{localize 'gg5e_mm.monster.common.type.elemental'}}</option>
+                        <option value="fey">{{localize 'gg5e_mm.monster.common.type.fey'}}</option>
+                        <option value="fiend">{{localize 'gg5e_mm.monster.common.type.fiend'}}</option>
+                        <option value="giant">{{localize 'gg5e_mm.monster.common.type.giant'}}</option>
+                        <option value="humanoid">{{localize 'gg5e_mm.monster.common.type.humanoid'}}</option>
+                        <option value="monstrosity">{{localize 'gg5e_mm.monster.common.type.monstrosity'}}</option>
+                        <option value="ooze">{{localize 'gg5e_mm.monster.common.type.ooze'}}</option>
+                        <option value="plant">{{localize 'gg5e_mm.monster.common.type.plant'}}</option>
+                        <option value="undead">{{localize 'gg5e_mm.monster.common.type.undead'}}</option>
+                        <option value="custom">{{localize 'gg5e_mm.monster.common.type.custom'}}</option>
+                    {{/select}}
+                </select>
+                {{#toggleCustom data.gg5e_mm.blueprint.data.description.type.category}}
+                    <input name="data.gg5e_mm.blueprint.data.description.type.custom" value="{{data.gg5e_mm.blueprint.data.description.type.custom}}"/>
+                {{/toggleCustom}}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.tags'}}</span>
+                <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_tags">
+                    <i class="fas fa-question"></i>
+                </button>
+            </div>
+            <div class="form-group__body">
+                <input name="data.gg5e_mm.blueprint.data.description.tags" value="{{data.gg5e_mm.blueprint.data.description.tags}}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.alignment'}}</span>
+            </div>
+            <div class="form-group__body">
+                <select name="data.gg5e_mm.blueprint.data.description.alignment">
+                    {{#select data.gg5e_mm.blueprint.data.description.alignment}}
+                        <option value="lawful_good">{{localize 'gg5e_mm.monster.common.alignment.lawful_good'}}</option>
+                        <option value="neutral_good">{{localize 'gg5e_mm.monster.common.alignment.neutral_good'}}</option>
+                        <option value="chaotic_good">{{localize 'gg5e_mm.monster.common.alignment.chaotic_good'}}</option>
+                        <option value="lawful_neutral">{{localize 'gg5e_mm.monster.common.alignment.lawful_neutral'}}</option>
+                        <option value="neutral">{{localize 'gg5e_mm.monster.common.alignment.neutral'}}</option>
+                        <option value="chaotic_neutral">{{localize 'gg5e_mm.monster.common.alignment.chaotic_neutral'}}</option>
+                        <option value="lawful_evil">{{localize 'gg5e_mm.monster.common.alignment.lawful_evil'}}</option>
+                        <option value="neutral_evil">{{localize 'gg5e_mm.monster.common.alignment.neutral_evil'}}</option>
+                        <option value="chaotic_evil">{{localize 'gg5e_mm.monster.common.alignment.chaotic_evil'}}</option>
+                        <option value="unaligned">{{localize 'gg5e_mm.monster.common.alignment.unaligned'}}</option>
+                    {{/select}}
+                </select>
+            </div>
+        </div>
+    </div>
+</div>

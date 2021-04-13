@@ -1,0 +1,53 @@
+<div class="accordion-section" data-section="ability_modifiers">
+    <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.ability_modifiers.title'}}</div>
+    <div class="accordion-section__body">
+        <div class="form-group">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.ability_modifiers.ranking'}}</span>
+                <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_ranks">
+                    <i class="fas fa-question"></i>
+                </button>
+            </div>
+            <div class="form-group__body ability-rankings">
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
+                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
+                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[0]
+                }}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
+                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
+                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[1]
+                }}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
+                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
+                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[2]
+                }}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
+                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
+                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[3]
+                }}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
+                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
+                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[4]
+                }}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
+                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
+                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[5]
+                }}
+            </div>
+        </div>
+        <div class="form-group form-group--modifier">
+            <div class="form-group__header">
+                <span class="form-group__title">{{localize 'gg5e_mm.monster.options.ability_modifiers.modifiers'}}</span>
+                <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_modifiers">
+                    <i class="fas fa-question"></i>
+                </button>
+            </div>
+            <div class="form-group__body">
+                <input name="data.gg5e_mm.blueprint.data.ability_modifiers.modifiers" value="{{data.gg5e_mm.blueprint.data.ability_modifiers.modifiers}}"/>
+                <label class="checkbox">
+                    <input type="checkbox" name="data.gg5e_mm.blueprint.data.ability_modifiers.override" {{#if data.gg5e_mm.blueprint.data.ability_modifiers.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
