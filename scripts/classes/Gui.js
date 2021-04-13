@@ -47,7 +47,13 @@ const Gui = (function() {
 
 		return loadTemplates([
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/condition_immunity.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_immunity.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_resistance.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_vulnerability.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/language.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/skill.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/modals.html",		  
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_abilities.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_armor_class.html",
@@ -97,6 +103,13 @@ const Gui = (function() {
 		Handlebars.registerHelper('repeat', function(n, block) {
 			var accum = '';
 			for(var i = 0; i < n; ++i)
+				accum += block.fn(i);
+			return accum;
+		});
+
+		Handlebars.registerHelper('for', function(from, to, incr, block) {
+			var accum = '';
+			for(var i = from; i < to; i += incr)
 				accum += block.fn(i);
 			return accum;
 		});

@@ -1,0 +1,7 @@
+<label class="checkbox">
+    <input
+        type="checkbox"
+        name="data.gg5e_mm.blueprint.data.damage_immunities.{{damage}}"
+        {{#if (lookup ../data.gg5e_mm.blueprint.data.damage_immunities damage)}}checked{{/if}}
+    /> {{localize (concat 'gg5e_mm.monster.common.damage.' damage)}}
+</label>

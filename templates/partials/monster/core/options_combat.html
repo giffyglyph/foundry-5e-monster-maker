@@ -19,11 +19,9 @@
                     <div class="form-group__body">
                         <select name="data.gg5e_mm.blueprint.data.combat.rank.type">
                             {{#select data.gg5e_mm.blueprint.data.combat.rank.type}}
-                                <option value="minion">{{localize 'gg5e_mm.monster.common.rank.minion'}}</option>
-                                <option value="standard">{{localize 'gg5e_mm.monster.common.rank.standard'}}</option>
-                                <option value="elite">{{localize 'gg5e_mm.monster.common.rank.elite'}}</option>
-                                <option value="solo">{{localize 'gg5e_mm.monster.common.rank.solo'}}</option>
-                                <option value="custom">{{localize 'gg5e_mm.monster.common.rank.custom'}}</option>
+                                {{#each data.gg5e_mm.enums.ranks}}
+                                    <option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.rank.' .)}}</option>
+                                {{/each}}
                             {{/select}}
                         </select>
                     </div>
@@ -146,14 +144,9 @@
                     <div class="form-group__body">
                         <select name="data.gg5e_mm.blueprint.data.combat.role.type">
                             {{#select data.gg5e_mm.blueprint.data.combat.role.type}}
-                                <option value="controller">{{localize 'gg5e_mm.monster.common.role.controller'}}</option>
-                                <option value="defender">{{localize 'gg5e_mm.monster.common.role.defender'}}</option>
-                                <option value="lurker">{{localize 'gg5e_mm.monster.common.role.lurker'}}</option>
-                                <option value="striker">{{localize 'gg5e_mm.monster.common.role.striker'}}</option>
-                                <option value="supporter">{{localize 'gg5e_mm.monster.common.role.supporter'}}</option>
-                                <option value="scout">{{localize 'gg5e_mm.monster.common.role.scout'}}</option>
-                                <option value="sniper">{{localize 'gg5e_mm.monster.common.role.sniper'}}</option>
-                                <option value="custom">{{localize 'gg5e_mm.monster.common.role.custom'}}</option>
+                                {{#each data.gg5e_mm.enums.roles}}
+                                    <option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.role.' .)}}</option>
+                                {{/each}}
                             {{/select}}
                         </select>
                     </div>

@@ -4,9 +4,6 @@
         <div class="form-group">
             <div class="form-group__header">
                 <span class="form-group__title">{{localize 'gg5e_mm.monster.options.saving_throws.method.title'}}</span>
-                <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_ranks">
-                    <i class="fas fa-question"></i>
-                </button>
             </div>
             <div class="form-group__body">
                 <select name="data.gg5e_mm.blueprint.data.saving_throws.method">
@@ -21,32 +18,17 @@
             <div class="form-group">
                 <div class="form-group__header">
                     <span class="form-group__title">Ranking</span>
+                    <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_ranks">
+                        <i class="fas fa-question"></i>
+                    </button>
                 </div>
                 <div class="form-group__body save_rankings">
-                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
-                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
-                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[0]
-                    }}
-                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
-                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
-                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[1]
-                    }}
-                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
-                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
-                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[2]
-                    }}
-                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
-                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
-                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[3]
-                    }}
-                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
-                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
-                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[4]
-                    }}
-                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
-                        name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
-                        value=data.gg5e_mm.blueprint.data.saving_throws.ranking.[5]
-                    }}
+                    {{#repeat 6}}
+                        {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html"
+                            name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
+                            value=(lookup ../data.gg5e_mm.blueprint.data.saving_throws.ranking .)
+                        }}
+                    {{/repeat}}
                 </div>
             </div>
         {{/if}}

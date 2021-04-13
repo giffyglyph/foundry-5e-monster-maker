@@ -7,48 +7,12 @@
             </div>
             <div class="form-group__body">
                 <div class="checkboxes">
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.acid" {{#if data.gg5e_mm.blueprint.data.damage_immunities.acid}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.acid'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.bludgeoning" {{#if data.gg5e_mm.blueprint.data.damage_immunities.bludgeoning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.bludgeoning'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.cold" {{#if data.gg5e_mm.blueprint.data.damage_immunities.cold}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.cold'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.fire" {{#if data.gg5e_mm.blueprint.data.damage_immunities.fire}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.fire'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.force" {{#if data.gg5e_mm.blueprint.data.damage_immunities.force}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.force'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.lightning" {{#if data.gg5e_mm.blueprint.data.damage_immunities.lightning}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.lightning'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.necrotic" {{#if data.gg5e_mm.blueprint.data.damage_immunities.necrotic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.necrotic'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.non_magical_physical" {{#if data.gg5e_mm.blueprint.data.damage_immunities.non_magical_physical}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.non_magical_physical'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.piercing" {{#if data.gg5e_mm.blueprint.data.damage_immunities.piercing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.piercing'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.poison" {{#if data.gg5e_mm.blueprint.data.damage_immunities.poison}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.poison'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.psychic" {{#if data.gg5e_mm.blueprint.data.damage_immunities.psychic}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.psychic'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.radiant" {{#if data.gg5e_mm.blueprint.data.damage_immunities.radiant}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.radiant'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.slashing" {{#if data.gg5e_mm.blueprint.data.damage_immunities.slashing}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.slashing'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.damage_immunities.thunder" {{#if data.gg5e_mm.blueprint.data.damage_immunities.thunder}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.damage.thunder'}}
-                    </label>
+                    {{#each data.gg5e_mm.enums.damage_types}}
+                        {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_immunity.html"
+                            damage=.
+                            isEnabled=(lookup ../data.gg5e_mm.blueprint.data.damage_immunities .)
+                        }}
+                    {{/each}}
                 </div>
             </div>
         </div>

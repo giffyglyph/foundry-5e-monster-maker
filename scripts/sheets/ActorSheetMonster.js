@@ -1,6 +1,13 @@
 import Blueprint from "../classes/Blueprint.js";
 import Gui from "../classes/Gui.js";
 import Factory from "../classes/Factory.js";
+import { DEFAULT_ABILITIES } from "../consts/DefaultAbilities.js";
+import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
+import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
+import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
+import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
+import { MONSTER_RANKS } from "../consts/MonsterRanks.js";
+import { MONSTER_ROLES } from "../consts/MonsterRoles.js";
 
 export default class ActorSheetMonster extends ActorSheet {
 
@@ -28,9 +35,19 @@ export default class ActorSheetMonster extends ActorSheet {
 			this._getActorData(data.actor)
 		);
 		let monster = Factory.createEntity(blueprint);
+		let enums = {
+			abilities: DEFAULT_ABILITIES,
+			conditions: DEFAULT_CONDITIONS,
+			damage_types: DEFAULT_DAMAGE_TYPES,
+			languages: DEFAULT_LANGUAGES,
+			skills: DEFAULT_SKILLS.map((x) => x.name),
+			ranks: Object.keys(MONSTER_RANKS),
+			roles: Object.keys(MONSTER_ROLES)
+		};
 
 		// Pass monster/gui data to sheet
 		data.data.gg5e_mm = {
+			enums: enums,
 			gui: gui,
 			blueprint: blueprint,
 			monster: monster

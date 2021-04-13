@@ -9,30 +9,12 @@
                 </button>
             </div>
             <div class="form-group__body ability-rankings">
-                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
-                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
-                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[0]
-                }}
-                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
-                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
-                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[1]
-                }}
-                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
-                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
-                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[2]
-                }}
-                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
-                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
-                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[3]
-                }}
-                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
-                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
-                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[4]
-                }}
-                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
-                    name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
-                    value=data.gg5e_mm.blueprint.data.ability_modifiers.ranking.[5]
-                }}
+                {{#repeat 6}}
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html"
+                        name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
+                        value=(lookup ../data.gg5e_mm.blueprint.data.ability_modifiers.ranking .)
+                    }}
+                {{/repeat}}
             </div>
         </div>
         <div class="form-group form-group--modifier">

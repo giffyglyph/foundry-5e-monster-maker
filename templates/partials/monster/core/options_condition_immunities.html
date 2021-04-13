@@ -7,54 +7,12 @@
             </div>
             <div class="form-group__body">
                 <div class="checkboxes">
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.blinded" {{#if data.gg5e_mm.blueprint.data.condition_immunities.blinded}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.blinded'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.charmed" {{#if data.gg5e_mm.blueprint.data.condition_immunities.charmed}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.charmed'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.deafened" {{#if data.gg5e_mm.blueprint.data.condition_immunities.deafened}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.deafened'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.diseased" {{#if data.gg5e_mm.blueprint.data.condition_immunities.diseased}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.diseased'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.exhaustion" {{#if data.gg5e_mm.blueprint.data.condition_immunities.exhaustion}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.exhaustion'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.frightened" {{#if data.gg5e_mm.blueprint.data.condition_immunities.frightened}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.frightened'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.grappled" {{#if data.gg5e_mm.blueprint.data.condition_immunities.grappled}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.grappled'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.incapacitated" {{#if data.gg5e_mm.blueprint.data.condition_immunities.incapacitated}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.incapacitated'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.invisible" {{#if data.gg5e_mm.blueprint.data.condition_immunities.invisible}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.invisible'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.paralyzed" {{#if data.gg5e_mm.blueprint.data.condition_immunities.paralyzed}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.paralyzed'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.petrified" {{#if data.gg5e_mm.blueprint.data.condition_immunities.petrified}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.petrified'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.poisoned" {{#if data.gg5e_mm.blueprint.data.condition_immunities.poisoned}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.poisoned'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.prone" {{#if data.gg5e_mm.blueprint.data.condition_immunities.prone}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.prone'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.restrained" {{#if data.gg5e_mm.blueprint.data.condition_immunities.restrained}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.restrained'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.stunned" {{#if data.gg5e_mm.blueprint.data.condition_immunities.stunned}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.stunned'}}
-                    </label>
-                    <label class="checkbox">
-                        <input type="checkbox" name="data.gg5e_mm.blueprint.data.condition_immunities.unconcious" {{#if data.gg5e_mm.blueprint.data.condition_immunities.unconcious}}checked{{/if}}/> {{localize 'gg5e_mm.monster.common.condition.unconcious'}}
-                    </label>
+                    {{#each data.gg5e_mm.enums.conditions}}
+                        {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/condition_immunity.html"
+                            condition=.
+                            isEnabled=(lookup ../data.gg5e_mm.blueprint.data.condition_immunities .)
+                        }}
+                    {{/each}}
                 </div>
             </div>
         </div>
