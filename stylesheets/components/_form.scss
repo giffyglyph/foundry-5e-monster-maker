@@ -19,12 +19,12 @@
             line-height: 1;
             min-height: 2rem;
             text-align: right;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
             color: $secondary-shade-4;
             width: 8rem;
             flex: unset;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .form-group__body {

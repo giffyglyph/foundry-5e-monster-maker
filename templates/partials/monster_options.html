@@ -10,19 +10,25 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.description.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.description.name'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.name'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="name" value="{{data.gg5e_mm.blueprint.data.description.name}}"/>
                         </div>
                     </div>
                     <div class="form-group form-group--image">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.description.image'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.image'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <img src="{{data.gg5e_mm.blueprint.data.description.image}}" data-edit="img">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.description.size'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.size'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.description.size">
                                 {{#select data.gg5e_mm.blueprint.data.description.size}}
@@ -37,7 +43,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.description.type'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.type'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.description.type.category">
                                 {{#select data.gg5e_mm.blueprint.data.description.type.category}}
@@ -64,13 +72,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.description.tags'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.tags'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_tags">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.description.tags" value="{{data.gg5e_mm.blueprint.data.description.tags}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.description.alignment'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.alignment'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.description.alignment">
                                 {{#select data.gg5e_mm.blueprint.data.description.alignment}}
@@ -94,7 +109,9 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.combat.title'}}</div>
                 <div class="accordion-section__body rank--{{data.gg5e_mm.blueprint.data.combat.rank.type}} role--{{data.gg5e_mm.blueprint.data.combat.role.type}}">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.level'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.level'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.combat.level" type="number" value="{{data.gg5e_mm.blueprint.data.combat.level}}"/>
                         </div>
@@ -103,7 +120,9 @@
                         <div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.combat.rank'}}</div>
                         <div class="form-fieldset__body">
                             <div class="form-group type">
-                                <label class="form-group__header">Type</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">Type</span>
+                                </div>
                                 <div class="form-group__body">
                                     <select name="data.gg5e_mm.blueprint.data.combat.rank.type">
                                         {{#select data.gg5e_mm.blueprint.data.combat.rank.type}}
@@ -117,79 +136,105 @@
                                 </div>
                             </div>
                             <div class="form-group name">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.custom_name'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.custom_name'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.custom_name" value="{{data.gg5e_mm.blueprint.data.combat.rank.custom_name}}"/>
                                 </div>
                             </div>
                             <div class="form-group hit-points">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.hit_points'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.hit_points'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.hit_points" type="number" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.hit_points}}"/>
                                 </div>
                             </div>
                             <div class="form-group armor-class">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.armor_class'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.armor_class'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.armor_class" type="number" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.armor_class}}"/>
                                 </div>
                             </div>
                             <div class="form-group saving-throws">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.saving_throws'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.saving_throws'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.saving_throws" type="number" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.saving_throws}}"/>
                                 </div>
                             </div>
                             <div class="form-group attack-bonus">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.attack_bonus'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.attack_bonus'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.attack_bonus" type="number" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.attack_bonus}}"/>
                                 </div>
                             </div>
                             <div class="form-group attack-dcs">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.attack_dcs'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.attack_dcs'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.attack_dcs" type="number" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.attack_dcs}}"/>
                                 </div>
                             </div>
                             <div class="form-group damage-per-action">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.damage_per_action'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.damage_per_action'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.damage_per_action" type="number" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.damage_per_action}}"/>
                                 </div>
                             </div>
                             <div class="form-group xp">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.xp'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.xp'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.xp" type="number" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.xp}}"/>
                                 </div>
                             </div>
                             <div class="form-group xp">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.threat'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.threat'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.threat" type="number" min="1" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.threat}}"/>
                                 </div>
                             </div>
                             <div class="form-group scale-with-players">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.scale_with_players'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.scale_with_players'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input type="checkbox" name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.scale_with_players" {{#if data.gg5e_mm.blueprint.data.combat.rank.modifiers.scale_with_players}}checked{{/if}}/>
                                 </div>
                             </div>
                             <div class="form-group target-players">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.players'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.players'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.target_players" type="number" min="1" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.target_players}}"/>
                                 </div>
                             </div>
                             <div class="form-group has-phases">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.has_phases'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.has_phases'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input type="checkbox" name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.has_phases" {{#if data.gg5e_mm.blueprint.data.combat.rank.modifiers.has_phases}}checked{{/if}}/>
                                 </div>
                             </div>
                             <div class="form-group phases">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.phase.title'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.phase.title'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.rank.modifiers.phases.current" type="number" min="1" max="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.phases.maximum}}" value="{{data.gg5e_mm.blueprint.data.combat.rank.modifiers.phases.current}}"/>
                                     <span>{{localize 'gg5e_mm.monster.options.combat.phase.of'}}</span>
@@ -202,7 +247,9 @@
                         <div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.combat.role'}}</div>
                         <div class="form-fieldset__body">
                             <div class="form-group type">
-                                <label class="form-group__header">Type</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">Type</span>
+                                </div>
                                 <div class="form-group__body">
                                     <select name="data.gg5e_mm.blueprint.data.combat.role.type">
                                         {{#select data.gg5e_mm.blueprint.data.combat.role.type}}
@@ -219,49 +266,65 @@
                                 </div>
                             </div>
                             <div class="form-group name">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.custom_name'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.custom_name'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.custom_name" value="{{data.gg5e_mm.blueprint.data.combat.role.custom_name}}"/>
                                 </div>
                             </div>
                             <div class="form-group hit-points">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.hit_points'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.hit_points'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.modifiers.hit_points" type="number" value="{{data.gg5e_mm.blueprint.data.combat.role.modifiers.hit_points}}"/>
                                 </div>
                             </div>
                             <div class="form-group armor-class">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.armor_class'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.armor_class'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.modifiers.armor_class" type="number" value="{{data.gg5e_mm.blueprint.data.combat.role.modifiers.armor_class}}"/>
                                 </div>
                             </div>
                             <div class="form-group saving-throws">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.saving_throws'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.saving_throws'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.modifiers.saving_throws" type="number" value="{{data.gg5e_mm.blueprint.data.combat.role.modifiers.saving_throws}}"/>
                                 </div>
                             </div>
                             <div class="form-group attack-bonus">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.attack_bonus'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.attack_bonus'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.modifiers.attack_bonus" type="number" value="{{data.gg5e_mm.blueprint.data.combat.role.modifiers.attack_bonus}}"/>
                                 </div>
                             </div>
                             <div class="form-group attack-dcs">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.attack_dcs'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.attack_dcs'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.modifiers.attack_dcs" type="number" value="{{data.gg5e_mm.blueprint.data.combat.role.modifiers.attack_dcs}}"/>
                                 </div>
                             </div>
                             <div class="form-group damage-per-action">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.damage_per_action'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.damage_per_action'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.modifiers.damage_per_action" type="number" value="{{data.gg5e_mm.blueprint.data.combat.role.modifiers.damage_per_action}}"/>
                                 </div>
                             </div>
                             <div class="form-group icon">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.combat.icon'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.combat.icon'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.combat.role.modifiers.icon" value="{{data.gg5e_mm.blueprint.data.combat.role.modifiers.icon}}"/>
                                 </div>
@@ -274,13 +337,17 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.hit_points.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.hit_points.current'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.hit_points.current'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.hit_points.current" type="number" min="0" value="{{data.gg5e_mm.blueprint.data.hit_points.current}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.hit_points.temporary'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.hit_points.temporary'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.hit_points.temporary" type="number" min="0" value="{{data.gg5e_mm.blueprint.data.hit_points.temporary}}"/>
                         </div>
@@ -289,7 +356,12 @@
                         <div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.hit_points.maximum'}}</div>
                         <div class="form-fieldset__body">
                             <div class="form-group form-group--modifier">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.hit_points.modifier'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.hit_points.modifier'}}</span>
+                                    <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+                                        <i class="fas fa-question"></i>
+                                    </button>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.hit_points.maximum.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.hit_points.maximum.modifier}}"/>
                                     <label class="checkbox">
@@ -305,13 +377,20 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.armor_class.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.armor_class.type'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.armor_class.type'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.armor_class.type" value="{{data.gg5e_mm.blueprint.data.armor_class.type}}"/>
                         </div>
                     </div>
                     <div class="form-group form-group--modifier">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.armor_class.modifier'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.armor_class.modifier'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.armor_class.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.armor_class.modifier}}"/>
                             <label class="checkbox">
@@ -325,7 +404,12 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.passive_perception.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group form-group--modifier">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.passive_perception.modifier'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.passive_perception.modifier'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.passive_perception.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.passive_perception.modifier}}"/>
                             <label class="checkbox">
@@ -339,13 +423,20 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.attack_bonus.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_bonus.type'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.attack_bonus.type'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.attack_bonus.type" value="{{data.gg5e_mm.blueprint.data.attack_bonus.type}}"/>
                         </div>
                     </div>
                     <div class="form-group form-group--modifier">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_bonus.modifier'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.attack_bonus.modifier'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.attack_bonus.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.attack_bonus.modifier}}"/>
                             <label class="checkbox">
@@ -362,13 +453,20 @@
                         <div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.attack_dcs.primary'}}</div>
                         <div class="form-fieldset__body">
                             <div class="form-group">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.attack_dcs.primary.type" value="{{data.gg5e_mm.blueprint.data.attack_dcs.primary.type}}"/>
                                 </div>
                             </div>
                             <div class="form-group form-group--modifier">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.modifier'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.attack_dcs.modifier'}}</span>
+                                    <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+                                        <i class="fas fa-question"></i>
+                                    </button>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.attack_dcs.primary.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.attack_dcs.primary.modifier}}"/>
                                     <label class="checkbox">
@@ -382,13 +480,20 @@
                         <div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.attack_dcs.secondary'}}</div>
                         <div class="form-fieldset__body">
                             <div class="form-group">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.attack_dcs.type'}}</span>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.attack_dcs.secondary.type" value="{{data.gg5e_mm.blueprint.data.attack_dcs.secondary.type}}"/>
                                 </div>
                             </div>
                             <div class="form-group form-group--modifier">
-                                <label class="form-group__header">{{localize 'gg5e_mm.monster.options.attack_dcs.modifier'}}</label>
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gg5e_mm.monster.options.attack_dcs.modifier'}}</span>
+                                    <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+                                        <i class="fas fa-question"></i>
+                                    </button>
+                                </div>
                                 <div class="form-group__body">
                                     <input name="data.gg5e_mm.blueprint.data.attack_dcs.secondary.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.attack_dcs.secondary.modifier}}"/>
                                     <label class="checkbox">
@@ -404,13 +509,17 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.type'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage.type'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.damage_per_action.type" value="{{data.gg5e_mm.blueprint.data.damage_per_action.type}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.dice_size'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage.dice_size'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.damage_per_action.die_size">
                                 {{#select data.gg5e_mm.blueprint.data.damage_per_action.die_size}}
@@ -426,13 +535,20 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.maximum_dice'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage.maximum_dice'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.damage_per_action.maximum_dice" type="number" placeholder="0" value="{{data.gg5e_mm.blueprint.data.damage_per_action.maximum_dice}}"/>
                         </div>
                     </div>
                     <div class="form-group form-group--modifier">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage.modifier'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage.modifier'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.damage_per_action.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.damage_per_action.modifier}}"/>
                             <label class="checkbox">
@@ -446,7 +562,12 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.ability_modifiers.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.ability_modifiers.ranking'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.ability_modifiers.ranking'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_ranks">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body ability-rankings">
                             {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_ability_ranking.html"
                                 name="data.gg5e_mm.blueprint.data.ability_modifiers.ranking"
@@ -475,7 +596,12 @@
                         </div>
                     </div>
                     <div class="form-group form-group--modifier">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.ability_modifiers.modifiers'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.ability_modifiers.modifiers'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_modifiers">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.ability_modifiers.modifiers" value="{{data.gg5e_mm.blueprint.data.ability_modifiers.modifiers}}"/>
                             <label class="checkbox">
@@ -489,7 +615,12 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.saving_throws.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.saving_throws.method.title'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.saving_throws.method.title'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_ranks">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.saving_throws.method">
                                 {{#select data.gg5e_mm.blueprint.data.saving_throws.method}}
@@ -501,7 +632,9 @@
                     </div>
                     {{#if (eq data.gg5e_mm.blueprint.data.saving_throws.method 'ranking')}}
                         <div class="form-group">
-                            <label class="form-group__header">Ranking</label>
+                            <div class="form-group__header">
+                                <span class="form-group__title">Ranking</span>
+                            </div>
                             <div class="form-group__body save_rankings">
                                 {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_save_ranking.html"
                                     name="data.gg5e_mm.blueprint.data.saving_throws.ranking"
@@ -531,7 +664,12 @@
                         </div>
                     {{/if}}
                     <div class="form-group form-group--modifier">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.saving_throws.modifiers'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.saving_throws.modifiers'}}</span>
+                            <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ability_modifiers">
+                                <i class="fas fa-question"></i>
+                            </button>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.saving_throws.modifiers" value="{{data.gg5e_mm.blueprint.data.saving_throws.modifiers}}"/>
                             <label class="checkbox">
@@ -545,25 +683,33 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.speeds.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.speeds.walk'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.speeds.walk'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.speeds.walk" type="number" value="{{data.gg5e_mm.blueprint.data.speeds.walk}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.speeds.burrow'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.speeds.burrow'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.speeds.burrow" type="number" value="{{data.gg5e_mm.blueprint.data.speeds.burrow}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.speeds.climb'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.speeds.climb'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.speeds.climb" type="number" value="{{data.gg5e_mm.blueprint.data.speeds.climb}}"/>
                         </div>
                     </div>
                     <div class="form-group form-group--modifier">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.speeds.fly'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.speeds.fly'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.speeds.fly" type="number" value="{{data.gg5e_mm.blueprint.data.speeds.fly}}"/>
                             <label class="checkbox">
@@ -572,13 +718,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.speeds.swim'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.speeds.swim'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.speeds.swim" type="number" value="{{data.gg5e_mm.blueprint.data.speeds.swim}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.speeds.units.title'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.speeds.units.title'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.speeds.unit">
                                 {{#select data.gg5e_mm.blueprint.data.speeds.unit}}
@@ -594,31 +744,41 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.senses.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.senses.blindsight'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.blindsight'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.senses.blindsight" type="number" value="{{data.gg5e_mm.blueprint.data.senses.blindsight}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.senses.darkvision'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.darkvision'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.senses.darkvision" type="number" value="{{data.gg5e_mm.blueprint.data.senses.darkvision}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.senses.tremorsense'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.tremorsense'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.senses.tremorsense" type="number" value="{{data.gg5e_mm.blueprint.data.senses.tremorsense}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.senses.truesight'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.truesight'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.senses.truesight" type="number" value="{{data.gg5e_mm.blueprint.data.senses.truesight}}"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.senses.units.title'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.units.title'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.senses.unit">
                                 {{#select data.gg5e_mm.blueprint.data.senses.unit}}
@@ -629,7 +789,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.senses.other'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.other'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.senses.other" value="{{data.gg5e_mm.blueprint.data.senses.other}}"/>
                         </div>
@@ -640,7 +802,9 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.languages.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.languages.options'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.languages.options'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <div class="checkboxes">
                                 <label class="checkbox">
@@ -722,7 +886,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.languages.other'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.languages.other'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.languages.other" value="{{data.gg5e_mm.blueprint.data.languages.other}}"/>
                         </div>
@@ -733,7 +899,9 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_resistances.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_resistances.options'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage_resistances.options'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <div class="checkboxes">
                                 <label class="checkbox">
@@ -782,7 +950,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_resistances.other'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage_resistances.other'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.damage_resistances.other" value="{{data.gg5e_mm.blueprint.data.damage_resistances.other}}"/>
                         </div>
@@ -793,7 +963,9 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.options'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.options'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <div class="checkboxes">
                                 <label class="checkbox">
@@ -842,7 +1014,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.other'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage_vulnerabilities.other'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.damage_vulnerabilities.other" value="{{data.gg5e_mm.blueprint.data.damage_vulnerabilities.other}}"/>
                         </div>
@@ -853,7 +1027,9 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.damage_immunities.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_immunities.options'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage_immunities.options'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <div class="checkboxes">
                                 <label class="checkbox">
@@ -902,7 +1078,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.damage_immunities.other'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.damage_immunities.other'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.damage_immunities.other" value="{{data.gg5e_mm.blueprint.data.damage_immunities.other}}"/>
                         </div>
@@ -913,7 +1091,9 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.condition_immunities.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.condition_immunities.options'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.condition_immunities.options'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <div class="checkboxes">
                                 <label class="checkbox">
@@ -968,7 +1148,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.options.condition_immunities.other'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.options.condition_immunities.other'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <input name="data.gg5e_mm.blueprint.data.condition_immunities.other" value="{{data.gg5e_mm.blueprint.data.condition_immunities.other}}"/>
                         </div>
@@ -979,7 +1161,9 @@
                 <div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.skills.title'}}</div>
                 <div class="accordion-section__body">
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.acrobatics'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.acrobatics'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.acrobatics">
                                 {{#select data.gg5e_mm.blueprint.data.skills.acrobatics}}
@@ -992,7 +1176,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.animal_handling'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.animal_handling'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.animal_handling">
                                 {{#select data.gg5e_mm.blueprint.data.skills.animal_handling}}
@@ -1005,7 +1191,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.arcana'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.arcana'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.arcana">
                                 {{#select data.gg5e_mm.blueprint.data.skills.arcana}}
@@ -1018,7 +1206,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.athletics'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.athletics'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.athletics">
                                 {{#select data.gg5e_mm.blueprint.data.skills.athletics}}
@@ -1031,7 +1221,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.deception'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.deception'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.deception">
                                 {{#select data.gg5e_mm.blueprint.data.skills.deception}}
@@ -1044,7 +1236,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.history'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.history'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.history">
                                 {{#select data.gg5e_mm.blueprint.data.skills.history}}
@@ -1057,7 +1251,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.insight'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.insight'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.insight">
                                 {{#select data.gg5e_mm.blueprint.data.skills.insight}}
@@ -1070,7 +1266,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.intimidation'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.intimidation'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.intimidation">
                                 {{#select data.gg5e_mm.blueprint.data.skills.intimidation}}
@@ -1083,7 +1281,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.investigation'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.investigation'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.investigation">
                                 {{#select data.gg5e_mm.blueprint.data.skills.investigation}}
@@ -1096,7 +1296,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.medicine'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.medicine'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.medicine">
                                 {{#select data.gg5e_mm.blueprint.data.skills.medicine}}
@@ -1109,7 +1311,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.nature'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.nature'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.nature">
                                 {{#select data.gg5e_mm.blueprint.data.skills.nature}}
@@ -1122,7 +1326,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.perception'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.perception'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.perception">
                                 {{#select data.gg5e_mm.blueprint.data.skills.perception}}
@@ -1135,7 +1341,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.performance'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.performance'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.performance">
                                 {{#select data.gg5e_mm.blueprint.data.skills.performance}}
@@ -1148,7 +1356,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.persuasion'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.persuasion'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.persuasion">
                                 {{#select data.gg5e_mm.blueprint.data.skills.persuasion}}
@@ -1161,7 +1371,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.religion'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.religion'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.religion">
                                 {{#select data.gg5e_mm.blueprint.data.skills.religion}}
@@ -1174,7 +1386,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.sleight_of_hand'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.sleight_of_hand'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.sleight_of_hand">
                                 {{#select data.gg5e_mm.blueprint.data.skills.sleight_of_hand}}
@@ -1187,7 +1401,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.stealth'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.stealth'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.stealth">
                                 {{#select data.gg5e_mm.blueprint.data.skills.stealth}}
@@ -1200,7 +1416,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-group__header">{{localize 'gg5e_mm.monster.common.skill.survival'}}</label>
+                        <div class="form-group__header">
+                            <span class="form-group__title">{{localize 'gg5e_mm.monster.common.skill.survival'}}</span>
+                        </div>
                         <div class="form-group__body">
                             <select name="data.gg5e_mm.blueprint.data.skills.survival">
                                 {{#select data.gg5e_mm.blueprint.data.skills.survival}}

@@ -1,0 +1,127 @@
+.modal {
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(black, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: larger;
+
+    &:not(.open) {
+        display: none;
+    }
+
+    .modal__dialog {
+        width: 27rem;
+        box-shadow: 0 2px 10px 0 $primary-shade-3;
+        border-radius: 0.75rem;
+        overflow: hidden;
+    }
+    
+    .modal__header {
+        background: $primary-base;
+        text-align: center;
+        padding: 0.5rem 2rem 1.5rem;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: larger;
+        position: relative;
+        font-weight: 600;
+
+        .modal__close {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+            color: $primary-base;
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            width: 1.4rem;
+            height: 1.4rem;
+            background: $primary-shade-1;
+            border-radius: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                cursor: pointer;
+                background: $primary-shade-2;
+                color: white;
+                box-shadow: none;
+            }
+
+            i {
+                margin: 0;
+            }
+        }
+
+        + .modal__body {
+            margin-top: -1rem;
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+        }
+    }
+
+    .modal__body {
+        background: white;
+        position: relative;
+        padding: 2rem;
+
+        > :first-child {
+            margin-top: 0;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+        pre {
+            white-space: normal;
+            font-family: inherit;
+            font-weight: bold;
+            background: mix($primary-tone-1, white, 15%);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+
+            &.text--center {
+                text-align: center;
+            }
+        }
+
+        hr {
+            margin: 1rem 0;
+            border-color: mix($primary-tone-1, white, 15%);
+            border-bottom: none;
+        }
+    }
+
+    .modal__footer {
+        background: mix($primary-tone-1, white, 15%);
+        padding: 1rem 2rem;
+
+        .modal__button {
+            background: $primary-base;
+            color: white;
+            border-radius: 0.75rem;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            padding: 0.25rem 2rem;
+
+            &:hover {
+                cursor: pointer;
+                background: $primary-tint-1;
+                color: white;
+                box-shadow: none;
+            }
+        }
+    }
+}

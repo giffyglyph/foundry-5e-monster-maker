@@ -154,6 +154,8 @@
       border-bottom: 1px solid #683a1e; }
       .gg5e-mm-accordion .accordion-section.opened .accordion-section__header::after {
         background: #cea084; }
+    .gg5e-mm-accordion .accordion-section.opened + .opened {
+      border-top-color: #683a1e; }
   .gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header::after {
     content: "\f054"; }
   .gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header:hover {
@@ -347,12 +349,12 @@
     line-height: 1;
     min-height: 2rem;
     text-align: right;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color: #23130a;
     width: 8rem;
-    flex: unset; }
+    flex: unset;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
   .gg5e-mm-form .form-group .form-group__body {
     min-height: 2rem;
     overflow: hidden; }
@@ -468,6 +470,101 @@
 
 .gg5e-mm-form .form-fieldset:not(:first-child) {
   border-top: 1px solid #cea084; }
+
+.modal {
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: larger; }
+  .modal:not(.open) {
+    display: none; }
+  .modal .modal__dialog {
+    width: 27rem;
+    box-shadow: 0 2px 10px 0 #143345;
+    border-radius: 0.75rem;
+    overflow: hidden; }
+  .modal .modal__header {
+    background: #327fad;
+    text-align: center;
+    padding: 0.5rem 2rem 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: larger;
+    position: relative;
+    font-weight: 600; }
+    .modal .modal__header .modal__close {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      color: #327fad;
+      position: absolute;
+      right: 0.5rem;
+      top: 0.5rem;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: #28668a;
+      border-radius: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .modal .modal__header .modal__close:hover {
+        cursor: pointer;
+        background: #1e4c68;
+        color: white;
+        box-shadow: none; }
+      .modal .modal__header .modal__close i {
+        margin: 0; }
+    .modal .modal__header + .modal__body {
+      margin-top: -1rem;
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem; }
+  .modal .modal__body {
+    background: white;
+    position: relative;
+    padding: 2rem; }
+    .modal .modal__body > :first-child {
+      margin-top: 0; }
+    .modal .modal__body > :last-child {
+      margin-bottom: 0; }
+    .modal .modal__body pre {
+      white-space: normal;
+      font-family: inherit;
+      font-weight: bold;
+      background: #e4ebef;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem; }
+      .modal .modal__body pre.text--center {
+        text-align: center; }
+    .modal .modal__body hr {
+      margin: 1rem 0;
+      border-color: #e4ebef;
+      border-bottom: none; }
+  .modal .modal__footer {
+    background: #e4ebef;
+    padding: 1rem 2rem; }
+    .modal .modal__footer .modal__button {
+      background: #327fad;
+      color: white;
+      border-radius: 0.75rem;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      padding: 0.25rem 2rem; }
+      .modal .modal__footer .modal__button:hover {
+        cursor: pointer;
+        background: #5b99bd;
+        color: white;
+        box-shadow: none; }
 
 .gg5e-mm-monster .monster__header {
   display: grid;
@@ -703,6 +800,28 @@
   border-bottom-left-radius: 0;
   background: #84b2ce; }
 
+.gg5e-mm-monster-options .button--help {
+  background: none;
+  width: 1rem;
+  border: none;
+  padding: 0;
+  font-size: 10px;
+  line-height: inherit;
+  margin: 0;
+  height: 1rem;
+  background: #debfad;
+  color: white;
+  border-radius: 1rem;
+  text-align: center;
+  margin-left: 0.25rem;
+  flex-shrink: 0; }
+  .gg5e-mm-monster-options .button--help:hover {
+    cursor: pointer;
+    box-shadow: none;
+    background: #ad6032; }
+  .gg5e-mm-monster-options .button--help i {
+    margin: 0; }
+
 .gg5e-mm-monster-options .form-group--image img {
   background: black;
   border-radius: 0.75rem;
@@ -853,7 +972,8 @@
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   .gg5e-mm-sheet .sheet__body {
     flex-grow: 1;
     border-radius: 1rem;

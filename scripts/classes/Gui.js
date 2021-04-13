@@ -7,6 +7,8 @@ const Gui = (function() {
 		html.find('.gg5e-mm-panel.panel--collapsible .panel__header').click((e) => _togglePanelCollapse(e));
 		html.find('button.move-up').click((e) => _moveUp(e));
 		html.find('button.move-down').click((e) => _moveDown(e));
+		html.find('button[data-action="open-modal"]').click((e) => _openModal(e));
+		html.find('button[data-action="close-modal"]').click((e) => _closeModal(e));
     }
 
 	function setAccordions(html, accordions) {
@@ -45,6 +47,7 @@ const Gui = (function() {
 
 		return loadTemplates([
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_ability_ranking.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_modals.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_save_ranking.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_options.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster_view.html"
@@ -79,6 +82,19 @@ const Gui = (function() {
 				accum += block.fn(i);
 			return accum;
 		});
+	}
+
+	function _openModal(event) {
+		const button = event.currentTarget.closest("button");
+		const modal = $(button).closest(".gg5e-mm-window").find(`#${button.dataset.modal}`)
+		if (modal) {
+			modal.addClass("open");
+		}
+	}
+
+	function _closeModal(event) {
+		const modal = event.currentTarget.closest(".modal");
+		modal.classList.remove("open");
 	}
 
     function _togglePanelCollapse(event) {

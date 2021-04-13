@@ -76,6 +76,10 @@
                     background: $secondary-tint-2;
                 }
             }
+
+            + .opened {
+                border-top-color: $secondary-shade-2;
+            }
         }
 
         &:not(.opened) {
