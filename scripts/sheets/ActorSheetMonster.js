@@ -8,7 +8,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		return mergeObject(
 			super.defaultOptions,
 			{
-				classes: ["gg5e-mm-window gg5e-mm-window--monster expanded"],
+				classes: ["gg5e-mm-window gg5e-mm-window--monster"],
 				height: 900,
 				width: 540,
 				template: 'modules/giffyglyphs-5e-monster-maker/templates/sheets/monster.html',
@@ -45,12 +45,20 @@ export default class ActorSheetMonster extends ActorSheet {
 		html.find('.toggle-mode--edit').click(this._toggleModeEdit.bind(this));
 		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+
+		let guiData = this.object.data.data.gg5e_mm ? this.object.data.data.gg5e_mm.gui : Gui.prepareGui(this._getDefaultGui());
+		Gui.setAccordions(html, guiData.data.accordions);
+		Gui.setPanels(html, guiData.data.panels);
+		Gui.setScrollbars(html, guiData.data.scrollbars);
 	}
 
 	_getActorData(actor) {
 		return {
 			data: {
-				name: actor.name
+				description: {
+					name: actor.name,
+					image: actor.img
+				}
 			}
 		}
 	}
@@ -58,7 +66,7 @@ export default class ActorSheetMonster extends ActorSheet {
 	_updateAbilityRanking(event) {
 		const rankings = [];
 		event.currentTarget.closest(".accordion-section__body").querySelectorAll("[name='data.gg5e_mm.blueprint.data.ability_modifiers.ranking']").forEach(x => rankings.push(x.value));
-		this.actor.update({
+		this._updateObject(event, {
 			[`data.gg5e_mm.blueprint.data.ability_modifiers.ranking`]: rankings
 		});
 	}
@@ -66,7 +74,7 @@ export default class ActorSheetMonster extends ActorSheet {
 	_updateSaveRanking(event) {
 		const rankings = [];
 		event.currentTarget.closest(".accordion-section__body").querySelectorAll("[name='data.gg5e_mm.blueprint.data.saving_throws.ranking']").forEach(x => rankings.push(x.value));
-		this.actor.update({
+		this._updateObject(event, {
 			[`data.gg5e_mm.blueprint.data.saving_throws.ranking`]: rankings
 		});
 	}
@@ -83,16 +91,39 @@ export default class ActorSheetMonster extends ActorSheet {
 					accordion_builder: 0
 				},
 				panels: {
-					panel_abilities: true
+					panel_abilities: "opened"
+				},
+				scrollbars: {
+					monster_body: {
+						x: 0,
+						y: 0
+					},
+					options_body: {
+						x: 0,
+						y: 0
+					}
 				}
 			}
 		}
 	}
 
   _updateObject(event, form) {
+	if (event.currentTarget) {
+		let window = event.currentTarget.closest(".gg5e-mm-window");
+		form["data.gg5e_mm.gui.data.scrollbars.monster_body.y"] = window.querySelector("#monster-body").scrollTop;
+		form["data.gg5e_mm.gui.data.scrollbars.options_body.y"] = window.querySelector("#options-body").scrollTop;
+	}
 
-	if (form["data.gg5e_mm.blueprint.data.saving_throws.method"] === "sync") {
+	if (form["data.gg5e_mm.blueprint.data.saving_throws.method"] && form["data.gg5e_mm.blueprint.data.saving_throws.method"] === "sync") {
 		form["data.gg5e_mm.blueprint.data.saving_throws.ranking"] = form["data.gg5e_mm.blueprint.data.ability_modifiers.ranking"];
+	}
+
+	if (form["data.gg5e_mm.blueprint.data.description.name"]) {
+		form["name"] = form["data.gg5e_mm.blueprint.data.description.name"];
+	}
+
+	if (form["data.gg5e_mm.blueprint.data.description.image"]) {
+		form["img"] = form["data.gg5e_mm.blueprint.data.description.image"];
 	}
 
 	if (event.currentTarget && event.currentTarget.name) {

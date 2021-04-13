@@ -16,7 +16,8 @@ const MonsterFactory = (function() {
 			vid: blueprint.vid,
 			type: blueprint.type,
 			data: {
-				name: _parseName(blueprint.data.name),
+				name: _parseName(blueprint.data.description.name),
+				image: _parseImage(blueprint.data.description.image),
 				description: _parseDescription(blueprint.data.description),
 				combat: {
 					level: _parseLevel(blueprint.data.combat.level),
@@ -119,6 +120,10 @@ const MonsterFactory = (function() {
 
 	function _parseName(name) {
 		return (name && name.trim().length > 0) ? name.trim() : "???";
+	}
+
+	function _parseImage(image) {
+		return image;
 	}
 
 	function _parseDescription(description) {

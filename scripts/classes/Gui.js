@@ -9,6 +9,34 @@ const Gui = (function() {
 		html.find('button.move-down').click((e) => _moveDown(e));
     }
 
+	function setAccordions(html, accordions) {
+		if (accordions) {
+			for (const [key, value] of Object.entries(accordions)) {
+				let accordion = html.find(`#${key.replace("_", "-")}`);
+				value.split(",").forEach((x) => accordion.find(`[data-section='${x.trim()}']`).addClass("opened"));
+			}
+		}
+	}
+
+	function setPanels(html, panels) {
+		if (panels) {
+			for (const [key, value] of Object.entries(panels)) {
+				if (value === "closed") {
+					html.find(`#${key.replace("_", "-")}`).addClass("closed");
+				}
+			}
+		}
+	}
+
+	function setScrollbars(html, scrollbars) {
+		if (scrollbars) {
+			for (const [key, value] of Object.entries(scrollbars)) {
+				html.find(`#${key.replace("_", "-")}`).scrollLeft(value.x);
+				html.find(`#${key.replace("_", "-")}`).scrollTop(value.y);
+			}
+		}
+	}
+
 	function prepareGui(...data) {
 		return $.extend(true, {}, DEFAULT_GUI, ...data);
 	}
@@ -37,23 +65,6 @@ const Gui = (function() {
 			return String(str).length;
 		});
 
-		Handlebars.registerHelper('persistAccordion', function(index, options) {
-			let html = options.fn(this);
-			if (index !== null) {
-				let regexp = new RegExp(`accordion-section" data-section="${index}"`, 'gi');
-				html = html.replace(regexp, `accordion-section opened" data-section="${index}"`);
-			}
-			return html;
-		});
-
-		Handlebars.registerHelper('persistPanel', function(isOpen, options) {
-			let html = options.fn(this);
-			if (!isOpen || isOpen === "false") {
-				html = html.replace(/panel--collapsible/g, "panel--collapsible closed");
-			}
-			return html;
-		});
-
 		Handlebars.registerHelper('toggleCustom', function(showCustom, options) {
 			let html = options.fn(this);
 			if (showCustom !== "custom") {
@@ -71,37 +82,45 @@ const Gui = (function() {
 	}
 
     function _togglePanelCollapse(event) {
-		const li = event.currentTarget.closest(".gg5e-mm-panel");
-		const panelId = li.id.replace(/-/g, '_');
-		const isOpen = !li.classList.contains("closed");
-		$(li).closest(".gg5e-mm-window").find(`input[name='data.gg5e_mm.gui.data.panels.${panelId}']`).val(!isOpen).trigger("change");
+		const panel = event.currentTarget.closest(".gg5e-mm-panel");
+		const panelId = panel.id.replace(/-/g, '_');
+		const newState = panel.classList.contains("closed") ? "opened" : "closed";
+		$(panel).closest(".gg5e-mm-window").find(`input[name='data.gg5e_mm.gui.data.panels.${panelId}']`).val(newState).trigger("change");
 	}
 
 	function _toggleAccordionCollapse(event) {
-		const li = event.currentTarget.closest(".accordion-section");
 		const accordion = event.currentTarget.closest(".gg5e-mm-accordion");
 		const accordionId = accordion.id.replace(/-/g, '_');
-		const index = (li.classList.contains("opened") ? null : li.getAttribute("data-section"));
-		$(li).closest(".gg5e-mm-window").find(`input[name='data.gg5e_mm.gui.data.accordions.${accordionId}']`).val(index).trigger("change");
+		const section = event.currentTarget.closest(".accordion-section");
+		let index = "";
+		if (accordion.getAttribute("data-accordion-mode") == "single") {
+			index = section.classList.contains("opened") ? "" : section.getAttribute("data-section");
+		} else {
+			section.classList.toggle("opened");
+			index = [...accordion.querySelectorAll(".accordion-section.opened")].map((x) => x.getAttribute("data-section")).join(",");
+		}
+		$(accordion).closest(".gg5e-mm-window").find(`input[name='data.gg5e_mm.gui.data.accordions.${accordionId}']`).val(index).trigger("change");
 	}
 
 	function _moveUp(event) {
-		console.log("OIAJWD");
 		const li = event.currentTarget.closest('.move-parent');
-		if(li.previousElementSibling) {
+		if (li.previousElementSibling) {
     		li.parentNode.insertBefore(li, li.previousElementSibling);
 		}
 	}
 
 	function _moveDown(event) {
 		const li = event.currentTarget.closest('.move-parent');
-		if(li.nextElementSibling) {
+		if (li.nextElementSibling) {
     		li.parentNode.insertBefore(li.nextElementSibling, li);
 		}
 	}
 
 	return {
 		activateListeners: activateListeners,
+		setAccordions: setAccordions,
+		setPanels: setPanels,
+		setScrollbars: setScrollbars,
 		prepareGui: prepareGui,
 		preloadHandlebarsTemplates: preloadHandlebarsTemplates,
 		registerHandlebarsHelpers: registerHandlebarsHelpers

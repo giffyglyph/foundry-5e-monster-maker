@@ -70,14 +70,11 @@
 
             .accordion-section__header {
                 background: $secondary-base;
+                border-bottom: 1px solid $secondary-shade-2;
 
                 &::after {
                     background: $secondary-tint-2;
                 }
-            }
-            
-            .accordion-section__body {
-                border-top: 1px solid $secondary-shade-2;
             }
         }
 

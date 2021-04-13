@@ -150,11 +150,10 @@
   .gg5e-mm-accordion .accordion-section.opened {
     border-top-color: #8a4d28; }
     .gg5e-mm-accordion .accordion-section.opened .accordion-section__header {
-      background: #ad6032; }
+      background: #ad6032;
+      border-bottom: 1px solid #683a1e; }
       .gg5e-mm-accordion .accordion-section.opened .accordion-section__header::after {
         background: #cea084; }
-    .gg5e-mm-accordion .accordion-section.opened .accordion-section__body {
-      border-top: 1px solid #683a1e; }
   .gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header::after {
     content: "\f054"; }
   .gg5e-mm-accordion .accordion-section:not(.opened) .accordion-section__header:hover {
