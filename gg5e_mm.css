@@ -687,18 +687,39 @@
 .gg5e-mm-monster .monster__attributes {
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-column-gap: 1rem;
+  grid-column-gap: 0.35rem;
   grid-row-gap: 0.25rem;
   margin: 0; }
   .gg5e-mm-monster .monster__attributes dt {
     text-transform: uppercase;
     font-weight: bold;
-    color: #327fad; }
+    color: #327fad;
+    font-size: smaller;
+    text-align: right;
+    line-height: 18px;
+    position: relative; }
+    .gg5e-mm-monster .monster__attributes dt::after {
+      content: '';
+      width: 4px;
+      height: 100%;
+      position: absolute;
+      right: 7px;
+      top: 0;
+      background: #327fad;
+      border-radius: 4px; }
   .gg5e-mm-monster .monster__attributes dd {
     padding: 0;
     margin: 0; }
   .gg5e-mm-monster .monster__attributes .fa-fw {
-    margin-right: 0.25rem; }
+    margin-left: 0.25rem;
+    background: #327fad;
+    color: white;
+    line-height: 18px;
+    width: 18px;
+    position: relative;
+    z-index: 1;
+    border-radius: 1rem;
+    font-size: 12px; }
 
 .gg5e-mm-monster .monster__modifiers {
   display: grid;
