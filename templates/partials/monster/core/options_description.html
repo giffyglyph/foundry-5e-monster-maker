@@ -24,12 +24,9 @@
             <div class="form-group__body">
                 <select name="data.gg5e_mm.blueprint.data.description.size">
                     {{#select data.gg5e_mm.blueprint.data.description.size}}
-                        <option value="tiny">{{localize 'gg5e_mm.monster.common.size.tiny'}}</option>
-                        <option value="small">{{localize 'gg5e_mm.monster.common.size.small'}}</option>
-                        <option value="medium">{{localize 'gg5e_mm.monster.common.size.medium'}}</option>
-                        <option value="large">{{localize 'gg5e_mm.monster.common.size.large'}}</option>
-                        <option value="huge">{{localize 'gg5e_mm.monster.common.size.huge'}}</option>
-                        <option value="gargantuan">{{localize 'gg5e_mm.monster.common.size.gargantuan'}}</option>
+                        {{#each data.gg5e_mm.enums.sizes}}
+                            <option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.size.' .)}}</option>
+                        {{/each}}
                     {{/select}}
                 </select>
             </div>
@@ -41,20 +38,9 @@
             <div class="form-group__body">
                 <select name="data.gg5e_mm.blueprint.data.description.type.category">
                     {{#select data.gg5e_mm.blueprint.data.description.type.category}}
-                        <option value="aberration">{{localize 'gg5e_mm.monster.common.type.aberration'}}</option>
-                        <option value="beast">{{localize 'gg5e_mm.monster.common.type.beast'}}</option>
-                        <option value="celestial">{{localize 'gg5e_mm.monster.common.type.celestial'}}</option>
-                        <option value="construct">{{localize 'gg5e_mm.monster.common.type.construct'}}</option>
-                        <option value="dragon">{{localize 'gg5e_mm.monster.common.type.dragon'}}</option>
-                        <option value="elemental">{{localize 'gg5e_mm.monster.common.type.elemental'}}</option>
-                        <option value="fey">{{localize 'gg5e_mm.monster.common.type.fey'}}</option>
-                        <option value="fiend">{{localize 'gg5e_mm.monster.common.type.fiend'}}</option>
-                        <option value="giant">{{localize 'gg5e_mm.monster.common.type.giant'}}</option>
-                        <option value="humanoid">{{localize 'gg5e_mm.monster.common.type.humanoid'}}</option>
-                        <option value="monstrosity">{{localize 'gg5e_mm.monster.common.type.monstrosity'}}</option>
-                        <option value="ooze">{{localize 'gg5e_mm.monster.common.type.ooze'}}</option>
-                        <option value="plant">{{localize 'gg5e_mm.monster.common.type.plant'}}</option>
-                        <option value="undead">{{localize 'gg5e_mm.monster.common.type.undead'}}</option>
+                        {{#each data.gg5e_mm.enums.categories}}
+                            <option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.type.' .)}}</option>
+                        {{/each}}
                         <option value="custom">{{localize 'gg5e_mm.monster.common.type.custom'}}</option>
                     {{/select}}
                 </select>
@@ -81,16 +67,9 @@
             <div class="form-group__body">
                 <select name="data.gg5e_mm.blueprint.data.description.alignment">
                     {{#select data.gg5e_mm.blueprint.data.description.alignment}}
-                        <option value="lawful_good">{{localize 'gg5e_mm.monster.common.alignment.lawful_good'}}</option>
-                        <option value="neutral_good">{{localize 'gg5e_mm.monster.common.alignment.neutral_good'}}</option>
-                        <option value="chaotic_good">{{localize 'gg5e_mm.monster.common.alignment.chaotic_good'}}</option>
-                        <option value="lawful_neutral">{{localize 'gg5e_mm.monster.common.alignment.lawful_neutral'}}</option>
-                        <option value="neutral">{{localize 'gg5e_mm.monster.common.alignment.neutral'}}</option>
-                        <option value="chaotic_neutral">{{localize 'gg5e_mm.monster.common.alignment.chaotic_neutral'}}</option>
-                        <option value="lawful_evil">{{localize 'gg5e_mm.monster.common.alignment.lawful_evil'}}</option>
-                        <option value="neutral_evil">{{localize 'gg5e_mm.monster.common.alignment.neutral_evil'}}</option>
-                        <option value="chaotic_evil">{{localize 'gg5e_mm.monster.common.alignment.chaotic_evil'}}</option>
-                        <option value="unaligned">{{localize 'gg5e_mm.monster.common.alignment.unaligned'}}</option>
+                        {{#each data.gg5e_mm.enums.alignments}}
+                            <option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.alignment.' .)}}</option>
+                        {{/each}}
                     {{/select}}
                 </select>
             </div>

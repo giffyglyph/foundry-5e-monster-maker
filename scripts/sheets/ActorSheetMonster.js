@@ -2,9 +2,12 @@ import Blueprint from "../classes/Blueprint.js";
 import Gui from "../classes/Gui.js";
 import Factory from "../classes/Factory.js";
 import { DEFAULT_ABILITIES } from "../consts/DefaultAbilities.js";
+import { DEFAULT_ALIGNMENTS } from "../consts/DefaultAlignments.js";
+import { DEFAULT_CATEGORIES } from "../consts/DefaultCategories.js";
 import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
 import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
 import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
+import { DEFAULT_SIZES } from "../consts/DefaultSizes.js";
 import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
 import { MONSTER_RANKS } from "../consts/MonsterRanks.js";
 import { MONSTER_ROLES } from "../consts/MonsterRoles.js";
@@ -37,9 +40,12 @@ export default class ActorSheetMonster extends ActorSheet {
 		let monster = Factory.createEntity(blueprint);
 		let enums = {
 			abilities: DEFAULT_ABILITIES,
+			alignments: DEFAULT_ALIGNMENTS,
+			categories: DEFAULT_CATEGORIES,
 			conditions: DEFAULT_CONDITIONS,
 			damage_types: DEFAULT_DAMAGE_TYPES,
 			languages: DEFAULT_LANGUAGES,
+			sizes: DEFAULT_SIZES,
 			skills: DEFAULT_SKILLS.map((x) => x.name),
 			ranks: Object.keys(MONSTER_RANKS),
 			roles: Object.keys(MONSTER_ROLES)
