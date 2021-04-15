@@ -448,10 +448,10 @@
   font-weight: bold;
   color: #452614; }
   .gg5e-mm-form .form-fieldset .form-fieldset__header::after {
-    content: "\f07c";
+    content: "\f07b";
     -webkit-font-smoothing: antialiased;
     font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    font-weight: 400;
     display: inline-block;
     font-style: normal;
     font-variant: normal;
@@ -710,7 +710,12 @@
   .gg5e-mm-monster .monster__attributes dd {
     padding: 0;
     margin: 0; }
-  .gg5e-mm-monster .monster__attributes .fa-fw {
+    .gg5e-mm-monster .monster__attributes dd span:not(:last-child)::after {
+      content: ', '; }
+  .gg5e-mm-monster .monster__attributes .attribute__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 0.25rem;
     background: #327fad;
     color: white;
@@ -719,7 +724,11 @@
     position: relative;
     z-index: 1;
     border-radius: 1rem;
-    font-size: 12px; }
+    font-size: 12px;
+    height: 18px;
+    border: 1px solid #327fad;
+    box-sizing: border-box;
+    overflow: hidden; }
 
 .gg5e-mm-monster .monster__modifiers {
   display: grid;

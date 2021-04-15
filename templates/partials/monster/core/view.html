@@ -5,22 +5,22 @@
         <div class="monster__image"><img src="{{data.gg5e_mm.monster.data.image}}"></div>
         <div class="monster__combat">
             <div class="level">
-                <i class="fas fa-crown"></i> {{data.gg5e_mm.monster.data.combat.level}}
+                <i class="fas fa-crown"></i> {{data.gg5e_mm.monster.data.level}}
             </div>
             <div class="rank">
                 <span class="stars">
-                    {{#repeat data.gg5e_mm.monster.data.combat.rank.threat}}
+                    {{#repeat data.gg5e_mm.monster.data.rank.threat}}
                         <i class="fas fa-star"></i>
                     {{/repeat}}
-                </span> {{data.gg5e_mm.monster.data.combat.rank.name}}
+                </span> {{data.gg5e_mm.monster.data.rank.name}}
             </div>
-            {{#if data.gg5e_mm.monster.data.combat.phase}}
+            {{#if data.gg5e_mm.monster.data.phase}}
                 <div class="phase">
-                    <i class="fas fa-clock"></i> {{data.gg5e_mm.monster.data.combat.phase}}
+                    <i class="fas fa-clock"></i> {{data.gg5e_mm.monster.data.phase}}
                 </div>
             {{/if}}
             <div class="role">
-                <i class="{{data.gg5e_mm.monster.data.combat.role.icon}}"></i> {{data.gg5e_mm.monster.data.combat.role.name}}
+                <i class="{{data.gg5e_mm.monster.data.role.icon}}"></i> {{data.gg5e_mm.monster.data.role.name}}
             </div>
         </div>
     </div>
@@ -39,7 +39,9 @@
                             <div class="block__description">{{localize 'gg5e_mm.monster.view.hit_points.current'}}</div>
                         </div>
                         <div class="block__content">
-                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.maximum}}"><i class="fas fa-heartbeat"></i> {{data.gg5e_mm.monster.data.hit_points.maximum}}</div>
+                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.maximum.value}}" title="{{{parseSources data.gg5e_mm.monster.data.hit_points.maximum.sources}}}">
+                                <i class="fas fa-heartbeat"></i> {{data.gg5e_mm.monster.data.hit_points.maximum.value}}
+                            </div>
                             <div class="block__description">{{localize 'gg5e_mm.monster.view.hit_points.maximum'}}</div>
                         </div>
                     </div>
@@ -48,7 +50,9 @@
                     <div class="block__title">{{localize 'gg5e_mm.monster.view.armor_class'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.armor_class.value}}"><i class="fas fa-shield-alt"></i> {{data.gg5e_mm.monster.data.armor_class.value}}</div>
+                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.armor_class.value}}" title="{{{parseSources data.gg5e_mm.monster.data.armor_class.sources}}}">
+                                <i class="fas fa-shield-alt"></i> {{data.gg5e_mm.monster.data.armor_class.value}}
+                            </div>
                             <div class="block__description">
                                 {{#if data.gg5e_mm.monster.data.armor_class.type}}
                                     {{data.gg5e_mm.monster.data.armor_class.type}}
@@ -63,7 +67,9 @@
                     <div class="block__title">{{localize 'gg5e_mm.monster.view.perception.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.passive_perception}}"><i class="fas fa-eye"></i> {{data.gg5e_mm.monster.data.passive_perception}}</div>
+                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.passive_perception.value}}" title="{{{parseSources data.gg5e_mm.monster.data.passive_perception.sources}}}">
+                                <i class="fas fa-eye"></i> {{data.gg5e_mm.monster.data.passive_perception.value}}
+                            </div>
                             <div class="block__description">{{localize 'gg5e_mm.monster.view.perception.passive'}}</div>
                         </div>
                     </div>
@@ -74,7 +80,9 @@
                     <div class="block__title">{{localize 'gg5e_mm.monster.view.attack_bonus'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <div class="block__value length-{{strlen (numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true)}}"><i class="fas fa-crosshairs"></i> {{numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true}}</div>
+                            <div class="block__value length-{{strlen (numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true)}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_bonus.sources}}}">
+                                <i class="fas fa-crosshairs"></i> {{numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true}}
+                            </div>
                             <div class="block__description">
                                 {{#if data.gg5e_mm.monster.data.attack_bonus.type}}
                                     {{data.gg5e_mm.monster.data.attack_bonus.type}}
@@ -89,7 +97,9 @@
                     <div class="block__title">{{localize 'gg5e_mm.monster.view.attack_dcs.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.primary.value}}"><i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.primary.value}}</div>
+                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.primary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.primary.sources}}}">
+                                <i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.primary.value}}
+                            </div>
                             <div class="block__description">
                                 {{#if data.gg5e_mm.monster.data.attack_dcs.primary.type}}
                                     {{data.gg5e_mm.monster.data.attack_dcs.primary.type}}
@@ -99,7 +109,9 @@
                             </div>
                         </div>
                         <div class="block__content">
-                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.secondary.value}}"><i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.secondary.value}}</div>
+                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.secondary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.secondary.sources}}}">
+                                <i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.secondary.value}}
+                            </div>
                             <div class="block__description">
                                 {{#if data.gg5e_mm.monster.data.attack_dcs.secondary.type}}
                                     {{data.gg5e_mm.monster.data.attack_dcs.secondary.type}}
@@ -114,7 +126,9 @@
                     <div class="block__title">{{localize 'gg5e_mm.monster.view.damage'}}</div>
                     <div class="block__contents">
                         <div class="block__content static">
-                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.damage_per_action.value}}"><i class="fas fa-fire"></i> {{data.gg5e_mm.monster.data.damage_per_action.value}}</div>
+                            <div class="block__value length-{{strlen data.gg5e_mm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gg5e_mm.monster.data.damage_per_action.sources}}}">
+                                <i class="fas fa-fire"></i> {{data.gg5e_mm.monster.data.damage_per_action.value}}
+                            </div>
                             {{#unless data.gg5e_mm.monster.data.damage_per_action.type}}
                                 <div class="block__description">Static</div>
                             {{/unless}}
@@ -139,67 +153,166 @@
                 <div class="monster__modifiers">
                     <div class="monster__modifier">
                         <div class="title">{{localize 'gg5e_mm.monster.common.ability.str.code'}}</div>
-                        <div class="value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.str sign=true}}</div>
-                        <div class="save">{{numberFormat data.gg5e_mm.monster.data.saving_throws.str sign=true}}</div>
+                        <div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.str.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.ability_modifiers.str.value sign=true}}
+                        </div>
+                        <div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.str.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.saving_throws.str.value sign=true}}
+                        </div>
                     </div>
                     <div class="monster__modifier">
                         <div class="title">{{localize 'gg5e_mm.monster.common.ability.dex.code'}}</div>
-                        <div class="value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.dex sign=true}}</div>
-                        <div class="save">{{numberFormat data.gg5e_mm.monster.data.saving_throws.dex sign=true}}</div>
+                        <div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.dex.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.ability_modifiers.dex.value sign=true}}
+                        </div>
+                        <div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.dex.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.saving_throws.dex.value sign=true}}
+                        </div>
                     </div>
                     <div class="monster__modifier">
                         <div class="title">{{localize 'gg5e_mm.monster.common.ability.con.code'}}</div>
-                        <div class="value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.con sign=true}}</div>
-                        <div class="save">{{numberFormat data.gg5e_mm.monster.data.saving_throws.con sign=true}}</div>
+                        <div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.con.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.ability_modifiers.con.value sign=true}}
+                        </div>
+                        <div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.con.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.saving_throws.con.value sign=true}}
+                        </div>
                     </div>
                     <div class="monster__modifier">
                         <div class="title">{{localize 'gg5e_mm.monster.common.ability.int.code'}}</div>
-                        <div class="value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.int sign=true}}</div>
-                        <div class="save">{{numberFormat data.gg5e_mm.monster.data.saving_throws.int sign=true}}</div>
+                        <div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.int.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.ability_modifiers.int.value sign=true}}
+                        </div>
+                        <div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.int.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.saving_throws.int.value sign=true}}
+                        </div>
                     </div>
                     <div class="monster__modifier">
                         <div class="title">{{localize 'gg5e_mm.monster.common.ability.wis.code'}}</div>
-                        <div class="value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.wis sign=true}}</div>
-                        <div class="save">{{numberFormat data.gg5e_mm.monster.data.saving_throws.wis sign=true}}</div>
+                        <div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.wis.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.ability_modifiers.wis.value sign=true}}
+                        </div>
+                        <div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.wis.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.saving_throws.wis.value sign=true}}
+                        </div>
                     </div>
                     <div class="monster__modifier">
                         <div class="title">{{localize 'gg5e_mm.monster.common.ability.cha.code'}}</div>
-                        <div class="value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.cha sign=true}}</div>
-                        <div class="save">{{numberFormat data.gg5e_mm.monster.data.saving_throws.cha sign=true}}</div>
+                        <div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.cha.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.ability_modifiers.cha.value sign=true}}
+                        </div>
+                        <div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.cha.sources}}}">
+                            {{numberFormat data.gg5e_mm.monster.data.saving_throws.cha.value sign=true}}
+                        </div>
                     </div>
                 </div>
                 <dl class="monster__attributes">
+                    {{#if data.gg5e_mm.monster.data.proficiency_bonus}}
+                        <dt>
+                            <span class="attribute__title">Proficiency Bonus</span>
+                            <span class="attribute__icon"><i class="fas fa-bolt fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            <span title="{{{parseSources data.gg5e_mm.monster.data.proficiency_bonus.sources}}}">{{numberFormat data.gg5e_mm.monster.data.proficiency_bonus.value sign=true}}</span>
+                        </dd>
+                    {{/if}}
                     {{#if data.gg5e_mm.monster.data.skills}}
-                        <dt>Skills <i class="fas fa-lightbulb fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.skills}}</dd>
+                        <dt>
+                            <span class="attribute__title">Skills</span>
+                            <span class="attribute__icon"><i class="fas fa-lightbulb fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.skills as | skill |}}
+                                <span title="{{{parseSources skill.sources}}}">{{skill.title}} {{numberFormat skill.value sign=true}}</span>
+                            {{/each}}
+                        </dd>
                     {{/if}}
                     {{#if data.gg5e_mm.monster.data.speeds}}
-                        <dt>Movement <i class="fas fa-shoe-prints fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.speeds}}</dd>
+                        <dt>
+                            <span class="attribute__title">Movement</span>
+                            <span class="attribute__icon"><i class="fas fa-shoe-prints fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.speeds as | speed |}}
+                                <span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.speeds.' speed.unit) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
+                            {{/each}}
+                        </dd>
                     {{/if}}
                     {{#if data.gg5e_mm.monster.data.damage_immunities}}
-                        <dt>Damage Immunities <i class="fas fa-check-double fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.damage_immunities}}</dd>
+                        <dt>
+                            <span class="attribute__title">Damage Immunities</span>
+                            <span class="attribute__icon"><i class="fas fa-star fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.damage_immunities}}
+                                <span>{{this}}</span>
+                            {{/each}}
+                        </dd>
                     {{/if}}
                     {{#if data.gg5e_mm.monster.data.damage_resistances}}
-                        <dt>Damage Resistances <i class="fas fa-check fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.damage_resistances}}</dd>
+                        <dt>
+                            <span class="attribute__title">Damage Resistances</span>
+                            <span class="attribute__icon"><i class="fas fa-star-half-alt fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.damage_resistances}}
+                                <span>{{this}}</span>
+                            {{/each}}
+                        </dd>
                     {{/if}}
                     {{#if data.gg5e_mm.monster.data.damage_vulnerabilities}}
-                        <dt>Damage Vulnerabilities <i class="fas fa-times fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.damage_vulnerabilities}}</dd>
+                        <dt>
+                            <span class="attribute__title">Damage Vulnerabilities</span>
+                            <span class="attribute__icon"><i class="far fa-star fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.damage_vulnerabilities}}
+                                <span>{{this}}</span>
+                            {{/each}}
+                        </dd>
                     {{/if}}
                     {{#if data.gg5e_mm.monster.data.condition_immunities}}
-                        <dt>Condition Immunities <i class="fas fa-check-double fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.condition_immunities}}</dd>
+                        <dt>
+                            <span class="attribute__title">Condition Immunities</span>
+                            <span class="attribute__icon"><i class="fas fa-shield-alt fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.condition_immunities}}
+                                <span>{{this}}</span>
+                            {{/each}}
+                        </dd>
                     {{/if}}
                     {{#if data.gg5e_mm.monster.data.senses}}
-                        <dt>Senses <i class="fas fa-eye fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.senses}}</dd>
+                        <dt>
+                            <span class="attribute__title">Senses</span>
+                            <span class="attribute__icon"><i class="fas fa-eye fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.senses as | sense |}}
+                                <span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gg5e_mm.monster.view.senses.' sense.unit) distance=sense.value}}{{/if}}</span>
+                            {{/each}}
+                        </dd>
                     {{/if}}
                     {{#if data.gg5e_mm.monster.data.languages}}
-                        <dt>Languages <i class="fas fa-comment fa-fw"></i></dt>
-                        <dd>{{data.gg5e_mm.monster.data.languages}}</dd>
+                        <dt>
+                            <span class="attribute__title">Languages</span>
+                            <span class="attribute__icon"><i class="fas fa-comment fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            {{#each data.gg5e_mm.monster.data.languages}}
+                                <span>{{this}}</span>
+                            {{/each}}
+                        </dd>
+                    {{/if}}
+                    {{#if data.gg5e_mm.monster.data.challenge_rating}}
+                        <dt>
+                            <span class="attribute__title">Challenge Rating</span>
+                            <span class="attribute__icon"><i class="fas fa-skull fa-fw"></i></span>
+                        </dt>
+                        <dd>
+                            <span title="{{{parseSources data.gg5e_mm.monster.data.challenge_rating.sources}}}">CR {{data.gg5e_mm.monster.data.challenge_rating.value}}</span>
+                            <span title="{{{parseSources data.gg5e_mm.monster.data.xp.sources}}}">{{numberFormat data.gg5e_mm.monster.data.xp.value}} XP</span>
+                        </dd>
                     {{/if}}
                 </dl>
             </div>

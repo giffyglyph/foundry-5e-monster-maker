@@ -11,7 +11,6 @@
     "gg5e_mm.monster.common.alignment.neutral_evil": "Neutral evil",
     "gg5e_mm.monster.common.alignment.chaotic_evil": "Chaotic evil",
     "gg5e_mm.monster.common.alignment.unaligned": "Unaligned",
-
     "gg5e_mm.monster.common.ability.str.code": "Str",
     "gg5e_mm.monster.common.ability.str.name": "Strength",
     "gg5e_mm.monster.common.ability.str.icon": "fas fa-dumbbell",
@@ -30,13 +29,11 @@
     "gg5e_mm.monster.common.ability.cha.code": "Cha",
     "gg5e_mm.monster.common.ability.cha.name": "Charisma",
     "gg5e_mm.monster.common.ability.cha.icon": "fas fa-theater-masks",
-
     "gg5e_mm.monster.common.rank.minion": "Minion",
     "gg5e_mm.monster.common.rank.standard": "Standard",
     "gg5e_mm.monster.common.rank.elite": "Elite",
     "gg5e_mm.monster.common.rank.solo": "Solo",
     "gg5e_mm.monster.common.rank.custom": "Custom",
-
     "gg5e_mm.monster.common.role.controller": "Controller",
     "gg5e_mm.monster.common.role.defender": "Defender",
     "gg5e_mm.monster.common.role.lurker": "Lurker",
@@ -45,14 +42,12 @@
     "gg5e_mm.monster.common.role.sniper": "Sniper",
     "gg5e_mm.monster.common.role.supporter": "Supporter",
     "gg5e_mm.monster.common.role.custom": "Custom",
-
     "gg5e_mm.monster.common.size.tiny": "Tiny",
     "gg5e_mm.monster.common.size.small": "Small",
     "gg5e_mm.monster.common.size.medium": "Medium",
     "gg5e_mm.monster.common.size.large": "Large",
     "gg5e_mm.monster.common.size.huge": "Huge",
     "gg5e_mm.monster.common.size.gargantuan": "Gargantuan",
-
     "gg5e_mm.monster.common.speeds.walk": "Walk",
     "gg5e_mm.monster.common.speeds.burrow": "Burrow",
     "gg5e_mm.monster.common.speeds.climb": "Climb",
@@ -64,7 +59,7 @@
     "gg5e_mm.monster.common.speeds.units.miles.name": "Miles",
     "gg5e_mm.monster.common.speeds.units.miles.code": "mi",
     "gg5e_mm.monster.common.speeds.can_hover": "Can Hover",
-
+    "gg5e_mm.monster.common.speeds.other": "Other",
     "gg5e_mm.monster.common.senses.blindsight": "Blindsight",
     "gg5e_mm.monster.common.senses.darkvision": "Darkvision",
     "gg5e_mm.monster.common.senses.tremorsense": "Tremorsense",
@@ -75,7 +70,6 @@
     "gg5e_mm.monster.common.senses.units.miles.name": "Miles",
     "gg5e_mm.monster.common.senses.units.miles.code": "mi",
     "gg5e_mm.monster.common.senses.other": "Other",
-
     "gg5e_mm.monster.common.type.aberration": "Aberration",
     "gg5e_mm.monster.common.type.beast": "Beast",
     "gg5e_mm.monster.common.type.celestial": "Celestial",
@@ -91,7 +85,6 @@
     "gg5e_mm.monster.common.type.plant": "Plant",
     "gg5e_mm.monster.common.type.undead": "Undead",
     "gg5e_mm.monster.common.type.custom": "Custom",
-
     "gg5e_mm.monster.common.languages.aarakocra": "Aarakocra",
     "gg5e_mm.monster.common.languages.abyssal": "Abyssal",
     "gg5e_mm.monster.common.languages.aquan": "Aquan",
@@ -118,7 +111,6 @@
     "gg5e_mm.monster.common.languages.thieves_cant": "Thieves' Cant",
     "gg5e_mm.monster.common.languages.undercommon": "Undercommon",
     "gg5e_mm.monster.common.languages.other": "Other",
-
     "gg5e_mm.monster.common.damage.acid": "Acid",
     "gg5e_mm.monster.common.damage.bludgeoning": "Bludgeoning",
     "gg5e_mm.monster.common.damage.cold": "Cold",
@@ -134,7 +126,6 @@
     "gg5e_mm.monster.common.damage.slashing": "Slashing",
     "gg5e_mm.monster.common.damage.thunder": "Thunder",
     "gg5e_mm.monster.common.damage.other": "Other",
-
     "gg5e_mm.monster.common.condition.blinded": "Blinded",
     "gg5e_mm.monster.common.condition.charmed": "Charmed",
     "gg5e_mm.monster.common.condition.deafened": "Deafened",
@@ -152,7 +143,6 @@
     "gg5e_mm.monster.common.condition.stunned": "Stunned",
     "gg5e_mm.monster.common.condition.unconcious": "Unconcious",
     "gg5e_mm.monster.common.condition.other": "Other",
-
     "gg5e_mm.monster.common.skill.acrobatics": "Acrobatics",
     "gg5e_mm.monster.common.skill.animal_handling": "Animal Handling",
     "gg5e_mm.monster.common.skill.arcana": "Arcana",
@@ -171,7 +161,6 @@
     "gg5e_mm.monster.common.skill.sleight_of_hand": "Sleight of Hand",
     "gg5e_mm.monster.common.skill.stealth": "Stealth",
     "gg5e_mm.monster.common.skill.survival": "Survival",
-
     "gg5e_mm.monster.common.proficiency.none": "—",
     "gg5e_mm.monster.common.proficiency.half": "Half-proficient",
     "gg5e_mm.monster.common.proficiency.full": "Proficient",
@@ -198,10 +187,8 @@
     "gg5e_mm.monster.view.senses.feet": "{distance} ft",
     "gg5e_mm.monster.view.senses.miles": "{distance} mi",
 
-
     "gg5e_mm.monster.options.title": "Options",
     "gg5e_mm.monster.options.is_fixed": "Is fixed",
-
     "gg5e_mm.monster.options.description.title": "Description",
     "gg5e_mm.monster.options.description.name": "Name",
     "gg5e_mm.monster.options.description.image": "Image",
@@ -209,7 +196,6 @@
     "gg5e_mm.monster.options.description.type": "Type",
     "gg5e_mm.monster.options.description.tags": "Tags",
     "gg5e_mm.monster.options.description.alignment": "Alignment",
-
     "gg5e_mm.monster.options.combat.title": "Combat",
     "gg5e_mm.monster.options.combat.level": "Level",
     "gg5e_mm.monster.options.combat.rank": "Rank",
@@ -229,70 +215,60 @@
     "gg5e_mm.monster.options.combat.role": "Role",
     "gg5e_mm.monster.options.combat.threat": "Threat",
     "gg5e_mm.monster.options.combat.icon": "Icon",
-
     "gg5e_mm.monster.options.hit_points.title": "Hit Points",
     "gg5e_mm.monster.options.hit_points.current": "Current",
     "gg5e_mm.monster.options.hit_points.temporary": "Temporary",
     "gg5e_mm.monster.options.hit_points.maximum": "Maximum",
     "gg5e_mm.monster.options.hit_points.modifier": "Modifier",
-
     "gg5e_mm.monster.options.armor_class.title": "Armor Class",
     "gg5e_mm.monster.options.armor_class.modifier": "Modifier",
     "gg5e_mm.monster.options.armor_class.type": "Type",
-
     "gg5e_mm.monster.options.passive_perception.title": "Passive Perception",
     "gg5e_mm.monster.options.passive_perception.modifier": "Modifier",
-
     "gg5e_mm.monster.options.attack_bonus.title": "Attack Bonus",
     "gg5e_mm.monster.options.attack_bonus.modifier": "Modifier",
     "gg5e_mm.monster.options.attack_bonus.type": "Type",
-
     "gg5e_mm.monster.options.attack_dcs.title": "Attack DCs",
     "gg5e_mm.monster.options.attack_dcs.primary": "Primary",
     "gg5e_mm.monster.options.attack_dcs.secondary": "Secondary",
     "gg5e_mm.monster.options.attack_dcs.modifier": "Modifier",
     "gg5e_mm.monster.options.attack_dcs.type": "Type",
-
     "gg5e_mm.monster.options.damage.title": "Damage per Action",
     "gg5e_mm.monster.options.damage.modifier": "Modifier",
     "gg5e_mm.monster.options.damage.type": "Type",
     "gg5e_mm.monster.options.damage.dice_size": "Die Size",
     "gg5e_mm.monster.options.damage.maximum_dice": "Maximum Dice",
-
     "gg5e_mm.monster.options.ability_modifiers.title": "Ability Modifiers",
     "gg5e_mm.monster.options.ability_modifiers.ranking": "Ranking",
     "gg5e_mm.monster.options.ability_modifiers.modifiers": "Modifiers",
-
     "gg5e_mm.monster.options.saving_throws.title": "Saving Throws",
     "gg5e_mm.monster.options.saving_throws.method.title": "Method",
     "gg5e_mm.monster.options.saving_throws.method.sync": "Sync with ability modifiers",
     "gg5e_mm.monster.options.saving_throws.method.custom": "Custom ranking",
     "gg5e_mm.monster.options.saving_throws.ranking": "Ranking",
     "gg5e_mm.monster.options.saving_throws.modifiers": "Modifiers",
-
+    "gg5e_mm.monster.options.proficiency_bonus.title": "Proficiency Bonus",
+    "gg5e_mm.monster.options.proficiency_bonus.modifier": "Modifier",
     "gg5e_mm.monster.options.speeds.title": "Speeds",
-
     "gg5e_mm.monster.options.senses.title": "Senses",
-
     "gg5e_mm.monster.options.languages.title": "Languages",
     "gg5e_mm.monster.options.languages.options": "Options",
     "gg5e_mm.monster.options.languages.other": "Other",
-
     "gg5e_mm.monster.options.damage_immunities.title": "Damage Immunities",
     "gg5e_mm.monster.options.damage_immunities.options": "Options",
     "gg5e_mm.monster.options.damage_immunities.other": "Other",
-
     "gg5e_mm.monster.options.damage_resistances.title": "Damage Resistances",
     "gg5e_mm.monster.options.damage_resistances.options": "Options",
     "gg5e_mm.monster.options.damage_resistances.other": "Other",
-
     "gg5e_mm.monster.options.damage_vulnerabilities.title": "Damage Vulnerabilities",
     "gg5e_mm.monster.options.damage_vulnerabilities.options": "Options",
     "gg5e_mm.monster.options.damage_vulnerabilities.other": "Other",
-
     "gg5e_mm.monster.options.condition_immunities.title": "Condition Immunities",
     "gg5e_mm.monster.options.condition_immunities.options": "Options",
     "gg5e_mm.monster.options.condition_immunities.other": "Other",
-
-    "gg5e_mm.monster.options.skills.title": "Skills"
+    "gg5e_mm.monster.options.skills.title": "Skills",
+    "gg5e_mm.monster.options.challenge_rating.title": "Challenge Rating",
+    "gg5e_mm.monster.options.challenge_rating.modifier": "Modifier",
+    "gg5e_mm.monster.options.xp.title": "XP",
+    "gg5e_mm.monster.options.xp.modifier": "Modifier"
 }

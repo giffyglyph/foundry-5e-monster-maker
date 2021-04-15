@@ -76,6 +76,10 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
             modifiers: null,
             override: false
         },
+        proficiency_bonus: {
+            modifier: null,
+            override: false
+        },
         speeds: {
             walk: null,
             burrow: null,
@@ -210,6 +214,14 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
             sleight_of_hand: null,
             stealth: null,
             survival: null
-        }
+        },
+        challenge_rating: {
+            modifier: null,
+            override: false
+        },
+        xp: {
+            modifier: null,
+            override: false
+        },
     }
 }

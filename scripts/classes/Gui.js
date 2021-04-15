@@ -61,6 +61,7 @@ const Gui = (function() {
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_attack_dcs.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_combat.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_condition_immunities.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_cr.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_immunities.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_resistances.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_vulnerabilities.html",
@@ -69,10 +70,12 @@ const Gui = (function() {
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_hit_points.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_languages.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_perception.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_proficiency.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_saving_throws.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_senses.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_skills.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_speeds.html",
+		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_xp.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options.html",
 		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/view.html"
 		]);
@@ -112,6 +115,12 @@ const Gui = (function() {
 			for(var i = from; i < to; i += incr)
 				accum += block.fn(i);
 			return accum;
+		});
+
+		Handlebars.registerHelper('parseSources', function(sources) {
+			return sources.map((x) => {
+				return `${isNaN(x.value) ? x.value : ((x.value >= 0) ? `+${x.value}` : `−${Math.abs(x.value)}`)} from ${x.source}`
+			}).join(",&#010;");
 		});
 	}
 
