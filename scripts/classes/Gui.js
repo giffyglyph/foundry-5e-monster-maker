@@ -8,7 +8,7 @@ const Gui = (function() {
 		html.find('button.move-up').click((e) => _moveUp(e));
 		html.find('button.move-down').click((e) => _moveDown(e));
 		html.find('button[data-action="open-modal"]').click((e) => _openModal(e));
-		html.find('button[data-action="close-modal"]').click((e) => _closeModal(e));
+		html.find('button[data-action="close-modal"]').click((e) => closeModal(e));
     }
 
 	function setAccordions(html, accordions) {
@@ -132,7 +132,7 @@ const Gui = (function() {
 		}
 	}
 
-	function _closeModal(event) {
+	function closeModal(event) {
 		const modal = event.currentTarget.closest(".modal");
 		modal.classList.remove("open");
 	}
@@ -179,7 +179,8 @@ const Gui = (function() {
 		setScrollbars: setScrollbars,
 		prepareGui: prepareGui,
 		preloadHandlebarsTemplates: preloadHandlebarsTemplates,
-		registerHandlebarsHelpers: registerHandlebarsHelpers
+		registerHandlebarsHelpers: registerHandlebarsHelpers,
+		closeModal: closeModal
 	};
 })();
 

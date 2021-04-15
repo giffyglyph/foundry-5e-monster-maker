@@ -50,7 +50,9 @@
         color: white;
         border-radius: 1rem;
         text-align: center;
-        margin-left: 0.25rem;
+        margin-left: -0.25rem;
+        float: left;
+        margin-right: 0.5rem;
         flex-shrink: 0;
 
         &:hover {

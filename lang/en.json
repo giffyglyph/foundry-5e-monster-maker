@@ -187,7 +187,7 @@
     "gg5e_mm.monster.view.senses.feet": "{distance} ft",
     "gg5e_mm.monster.view.senses.miles": "{distance} mi",
 
-    "gg5e_mm.monster.options.title": "Options",
+    "gg5e_mm.monster.options.title": "Configuration",
     "gg5e_mm.monster.options.is_fixed": "Is fixed",
     "gg5e_mm.monster.options.description.title": "Description",
     "gg5e_mm.monster.options.description.name": "Name",
@@ -270,5 +270,23 @@
     "gg5e_mm.monster.options.challenge_rating.title": "Challenge Rating",
     "gg5e_mm.monster.options.challenge_rating.modifier": "Modifier",
     "gg5e_mm.monster.options.xp.title": "XP",
-    "gg5e_mm.monster.options.xp.modifier": "Modifier"
+    "gg5e_mm.monster.options.xp.modifier": "Modifier",
+
+    "gg5e_mm.modal.basic_attack.title": "Basic Attack",
+    "gg5e_mm.modal.basic_attack.modifier": "Attack Bonus",
+    "gg5e_mm.modal.basic_attack.bonus": "Situational Bonus?",
+    "gg5e_mm.modal.basic_attack.roll_mode.title": "Roll Mode",
+    "gg5e_mm.modal.basic_attack.roll_mode.roll": "Public Roll",
+    "gg5e_mm.modal.basic_attack.roll_mode.gmroll": "Private GM Roll",
+    "gg5e_mm.modal.basic_attack.roll_mode.blindroll": "Blind GM Roll",
+    "gg5e_mm.modal.basic_attack.roll_mode.selfroll": "Self Roll",
+
+    "gg5e_mm.modal.basic_damage.title": "Deal Damage",
+    "gg5e_mm.modal.basic_damage.modifier": "Damage",
+    "gg5e_mm.modal.basic_damage.bonus": "Situational Bonus?",
+    "gg5e_mm.modal.basic_damage.roll_mode.title": "Roll Mode",
+    "gg5e_mm.modal.basic_damage.roll_mode.roll": "Public Roll",
+    "gg5e_mm.modal.basic_damage.roll_mode.gmroll": "Private GM Roll",
+    "gg5e_mm.modal.basic_damage.roll_mode.blindroll": "Blind GM Roll",
+    "gg5e_mm.modal.basic_damage.roll_mode.selfroll": "Self Roll"
 }

@@ -68,6 +68,8 @@ export default class ActorSheetMonster extends ActorSheet {
 		html.find('.toggle-mode--edit').click(this._toggleModeEdit.bind(this));
 		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+		html.find('#modal_basic_attack .modal__footer button').click(this._rollBasicAttack.bind(this));
+		html.find('#modal_basic_random_damage .modal__footer button, #modal_basic_static_damage .modal__footer button').click(this._rollBasicDamage.bind(this));
 
 		let guiData = this.object.data.data.gg5e_mm ? this.object.data.data.gg5e_mm.gui : Gui.prepareGui(this._getDefaultGui());
 		Gui.setAccordions(html, guiData.data.accordions);
@@ -130,44 +132,127 @@ export default class ActorSheetMonster extends ActorSheet {
 		}
 	}
 
-  _updateObject(event, form) {
-	if (event.currentTarget) {
-		let window = event.currentTarget.closest(".gg5e-mm-window");
-		form["data.gg5e_mm.gui.data.scrollbars.monster_body.y"] = window.querySelector("#monster-body").scrollTop;
-		form["data.gg5e_mm.gui.data.scrollbars.options_body.y"] = window.querySelector("#options-body").scrollTop;
-	}
+	_makeARoll(event, message) {
+		const li = event.currentTarget.closest("button");
+		const modal = event.currentTarget.closest(".modal");
+		const advantage = li.dataset.action;
+		const modifier = modal.querySelector("[name='modifier']").value;
+		const bonus = modal.querySelector("[name='bonus']").value;
+		const mode = modal.querySelector("[name='mode']").value;
 
-	if (form["data.gg5e_mm.blueprint.data.saving_throws.method"] && form["data.gg5e_mm.blueprint.data.saving_throws.method"] === "sync") {
-		form["data.gg5e_mm.blueprint.data.saving_throws.ranking"] = form["data.gg5e_mm.blueprint.data.ability_modifiers.ranking"];
-	}
-
-	if (form["data.gg5e_mm.blueprint.data.description.name"]) {
-		form["name"] = form["data.gg5e_mm.blueprint.data.description.name"];
-	}
-
-	if (form["data.gg5e_mm.blueprint.data.description.image"]) {
-		form["img"] = form["data.gg5e_mm.blueprint.data.description.image"];
-	}
-
-	if (event.currentTarget && event.currentTarget.name) {
-		switch (event.currentTarget.name) {
-			case "data.gg5e_mm.blueprint.data.combat.rank.type":
-				for (const key in form) {
-					if (/\.rank\.modifiers/.test(key)) delete form[key];
-				}
-				form["data.gg5e_mm.blueprint.data.combat.rank.custom_name"] = null;
-				form["data.gg5e_mm.blueprint.data.combat.rank.modifiers"] = null;
-				break;
-			case "data.gg5e_mm.blueprint.data.combat.role.type":
-				for (const key in form) {
-					if (/\.role\.modifiers/.test(key)) delete form[key];
-				}
-				form["data.gg5e_mm.blueprint.data.combat.role.custom_name"] = null;
-				form["data.gg5e_mm.blueprint.data.combat.role.modifiers"] = null;
-				break;
+		try {
+			const rollParts = [];
+			const messageParts = [message];
+			switch (advantage) {
+				case "roll-advantage":
+					rollParts.push("2d20kh");
+					messageParts.push("(advantage)");
+					break;
+				case "roll-disadvantage":
+					rollParts.push("2d20kl");
+					messageParts.push("(disadvantage)");
+					break;
+				default: 
+					rollParts.push("1d20");
+					break;
+			}
+			rollParts.push(modifier);
+			if (bonus) {
+				rollParts.push(bonus);
+			}
+			const roll = new Roll(rollParts.join(" + ")).roll();
+			roll.toMessage({
+				speaker: ChatMessage.getSpeaker({actor: this.actor}),
+				flavor: messageParts.join(" "),
+				messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
+				rollMode: mode
+			});
+		} catch(err) {
+			console.log(err);
+			return;
 		}
+
+		Gui.closeModal(event);
 	}
 
-    super._updateObject(event, form);
-  }
+	_rollBasicAttack(event) {
+		this._makeARoll(event, "Attack vs AC");
+	}
+
+	_rollBasicDamage(event) {
+		const li = event.currentTarget.closest("button");
+		const modal = event.currentTarget.closest(".modal");
+		const critical = li.dataset.action;
+		const modifier = modal.querySelector("[name='modifier']").value;
+		const bonus = modal.querySelector("[name='bonus']").value;
+		const mode = modal.querySelector("[name='mode']").value;
+
+		try {
+			const rollParts = [];
+			const messageParts = ["Damage"];
+			switch (critical) {
+				case "roll-critical":
+					rollParts.push(modifier);
+					messageParts.push("(critical)");
+					break;
+			}
+			rollParts.push(modifier);
+			if (bonus) {
+				rollParts.push(bonus);
+			}
+			const roll = new Roll(rollParts.join(" + ")).roll();
+			roll.toMessage({
+				speaker: ChatMessage.getSpeaker({actor: this.actor}),
+				flavor: messageParts.join(" "),
+				messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
+				rollMode: mode
+			});
+		} catch(err) {
+			console.log(err);
+			return;
+		}
+
+		Gui.closeModal(event);
+	}
+
+  	_updateObject(event, form) {
+		if (event.currentTarget) {
+			let window = event.currentTarget.closest(".gg5e-mm-window");
+			form["data.gg5e_mm.gui.data.scrollbars.monster_body.y"] = window.querySelector("#monster-body").scrollTop;
+			form["data.gg5e_mm.gui.data.scrollbars.options_body.y"] = window.querySelector("#options-body").scrollTop;
+		}
+
+		if (form["data.gg5e_mm.blueprint.data.saving_throws.method"] && form["data.gg5e_mm.blueprint.data.saving_throws.method"] === "sync") {
+			form["data.gg5e_mm.blueprint.data.saving_throws.ranking"] = form["data.gg5e_mm.blueprint.data.ability_modifiers.ranking"];
+		}
+
+		if (form["data.gg5e_mm.blueprint.data.description.name"]) {
+			form["name"] = form["data.gg5e_mm.blueprint.data.description.name"];
+		}
+
+		if (form["data.gg5e_mm.blueprint.data.description.image"]) {
+			form["img"] = form["data.gg5e_mm.blueprint.data.description.image"];
+		}
+
+		if (event.currentTarget && event.currentTarget.name) {
+			switch (event.currentTarget.name) {
+				case "data.gg5e_mm.blueprint.data.combat.rank.type":
+					for (const key in form) {
+						if (/\.rank\.modifiers/.test(key)) delete form[key];
+					}
+					form["data.gg5e_mm.blueprint.data.combat.rank.custom_name"] = null;
+					form["data.gg5e_mm.blueprint.data.combat.rank.modifiers"] = null;
+					break;
+				case "data.gg5e_mm.blueprint.data.combat.role.type":
+					for (const key in form) {
+						if (/\.role\.modifiers/.test(key)) delete form[key];
+					}
+					form["data.gg5e_mm.blueprint.data.combat.role.custom_name"] = null;
+					form["data.gg5e_mm.blueprint.data.combat.role.modifiers"] = null;
+					break;
+			}
+		}
+
+		super._updateObject(event, form);
+	}
 }
