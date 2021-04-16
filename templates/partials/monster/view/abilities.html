@@ -3,60 +3,13 @@
 	<div class="panel__header">{{localize 'gg5e_mm.monster.view.abilities.title'}}</div>
 	<div class="panel__body">
 		<div class="monster__modifiers">
-			<div class="monster__modifier">
-				<div class="title">{{localize 'gg5e_mm.monster.common.ability.str.code'}}</div>
-				<div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.str.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.str.value sign=true}}
-				</div>
-				<div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.str.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.saving_throws.str.value sign=true}}
-				</div>
-			</div>
-			<div class="monster__modifier">
-				<div class="title">{{localize 'gg5e_mm.monster.common.ability.dex.code'}}</div>
-				<div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.dex.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.dex.value sign=true}}
-				</div>
-				<div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.dex.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.saving_throws.dex.value sign=true}}
-				</div>
-			</div>
-			<div class="monster__modifier">
-				<div class="title">{{localize 'gg5e_mm.monster.common.ability.con.code'}}</div>
-				<div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.con.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.con.value sign=true}}
-				</div>
-				<div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.con.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.saving_throws.con.value sign=true}}
-				</div>
-			</div>
-			<div class="monster__modifier">
-				<div class="title">{{localize 'gg5e_mm.monster.common.ability.int.code'}}</div>
-				<div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.int.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.int.value sign=true}}
-				</div>
-				<div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.int.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.saving_throws.int.value sign=true}}
-				</div>
-			</div>
-			<div class="monster__modifier">
-				<div class="title">{{localize 'gg5e_mm.monster.common.ability.wis.code'}}</div>
-				<div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.wis.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.wis.value sign=true}}
-				</div>
-				<div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.wis.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.saving_throws.wis.value sign=true}}
-				</div>
-			</div>
-			<div class="monster__modifier">
-				<div class="title">{{localize 'gg5e_mm.monster.common.ability.cha.code'}}</div>
-				<div class="value" title="{{{parseSources data.gg5e_mm.monster.data.ability_modifiers.cha.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.cha.value sign=true}}
-				</div>
-				<div class="save" title="{{{parseSources data.gg5e_mm.monster.data.saving_throws.cha.sources}}}">
-					{{numberFormat data.gg5e_mm.monster.data.saving_throws.cha.value sign=true}}
-				</div>
-			</div>
+			{{#each data.gg5e_mm.enums.abilities}}
+				{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_modifier.html"
+					ability=.
+					modifier=(lookup ../data.gg5e_mm.monster.data.ability_modifiers .)
+					save=(lookup ../data.gg5e_mm.monster.data.saving_throws .)
+				}}
+			{{/each}}
 		</div>
 		<dl class="monster__attributes">
 			{{#if data.gg5e_mm.monster.data.proficiency_bonus}}

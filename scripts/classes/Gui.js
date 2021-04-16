@@ -52,6 +52,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_resistance.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_vulnerability.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/language.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_modifier.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/skill.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_modifiers.html",
