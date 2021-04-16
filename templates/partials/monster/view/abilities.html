@@ -14,7 +14,7 @@
 		<dl class="monster__attributes">
 			{{#if data.gg5e_mm.monster.data.proficiency_bonus}}
 				<dt>
-					<span class="attribute__title">Proficiency Bonus</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.proficiency_bonus'}}</span>
 					<span class="attribute__icon"><i class="fas fa-bolt fa-fw"></i></span>
 				</dt>
 				<dd>
@@ -23,7 +23,7 @@
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.skills}}
 				<dt>
-					<span class="attribute__title">Skills</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.skills'}}</span>
 					<span class="attribute__icon"><i class="fas fa-lightbulb fa-fw"></i></span>
 				</dt>
 				<dd>
@@ -34,18 +34,18 @@
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.speeds}}
 				<dt>
-					<span class="attribute__title">Movement</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.speeds.title'}}</span>
 					<span class="attribute__icon"><i class="fas fa-shoe-prints fa-fw"></i></span>
 				</dt>
 				<dd>
 					{{#each data.gg5e_mm.monster.data.speeds as | speed |}}
-						<span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.speeds.' speed.unit) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
+						<span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.abilities.speeds.' speed.unit) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
 					{{/each}}
 				</dd>
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.damage_immunities}}
 				<dt>
-					<span class="attribute__title">Damage Immunities</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.damage_immunities'}}</span>
 					<span class="attribute__icon"><i class="fas fa-star fa-fw"></i></span>
 				</dt>
 				<dd>
@@ -56,7 +56,7 @@
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.damage_resistances}}
 				<dt>
-					<span class="attribute__title">Damage Resistances</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.damage_resistances'}}</span>
 					<span class="attribute__icon"><i class="fas fa-star-half-alt fa-fw"></i></span>
 				</dt>
 				<dd>
@@ -67,7 +67,7 @@
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.damage_vulnerabilities}}
 				<dt>
-					<span class="attribute__title">Damage Vulnerabilities</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.damage_vulnerabilities'}}</span>
 					<span class="attribute__icon"><i class="far fa-star fa-fw"></i></span>
 				</dt>
 				<dd>
@@ -78,7 +78,7 @@
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.condition_immunities}}
 				<dt>
-					<span class="attribute__title">Condition Immunities</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.condition_immunities'}}</span>
 					<span class="attribute__icon"><i class="fas fa-shield-alt fa-fw"></i></span>
 				</dt>
 				<dd>
@@ -89,18 +89,18 @@
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.senses}}
 				<dt>
-					<span class="attribute__title">Senses</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.senses.title'}}</span>
 					<span class="attribute__icon"><i class="fas fa-eye fa-fw"></i></span>
 				</dt>
 				<dd>
 					{{#each data.gg5e_mm.monster.data.senses as | sense |}}
-						<span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gg5e_mm.monster.view.senses.' sense.unit) distance=sense.value}}{{/if}}</span>
+						<span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gg5e_mm.monster.view.abilities.senses.' sense.unit) distance=sense.value}}{{/if}}</span>
 					{{/each}}
 				</dd>
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.languages}}
 				<dt>
-					<span class="attribute__title">Languages</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.languages'}}</span>
 					<span class="attribute__icon"><i class="fas fa-comment fa-fw"></i></span>
 				</dt>
 				<dd>
@@ -111,7 +111,7 @@
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.challenge_rating}}
 				<dt>
-					<span class="attribute__title">Challenge Rating</span>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.challenge_rating'}}</span>
 					<span class="attribute__icon"><i class="fas fa-skull fa-fw"></i></span>
 				</dt>
 				<dd>

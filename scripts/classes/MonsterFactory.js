@@ -78,7 +78,7 @@ const MonsterFactory = (function() {
 	}
 	
 	function _parseLevel(level) {
-		return game.i18n.format('gg5e_mm.monster.view.level', { level: level });
+		return game.i18n.format('gg5e_mm.monster.view.combat.level', { level: level });
 	}
 
 	function _parseRank(rank) {
@@ -87,10 +87,7 @@ const MonsterFactory = (function() {
 			name = "???";
 		}
 		if (rank.modifiers.scale_with_players && rank.modifiers.target_players != 1) {
-			name = game.i18n.format(
-				`gg5e_mm.monster.view.rank.vs`,
-				{ name: name, players: rank.modifiers.target_players }
-			);
+			name = game.i18n.format(`gg5e_mm.monster.view.combat.rank.vs`, { name: name, players: rank.modifiers.target_players });
 		}
 		return {
 			name: name,
@@ -100,7 +97,7 @@ const MonsterFactory = (function() {
 
 	function _parsePhase(rank) {
 		if (rank.modifiers.has_phases && rank.modifiers.phases.maximum > 1) {
-			return game.i18n.format('gg5e_mm.monster.view.phase', rank.modifiers.phases);
+			return game.i18n.format('gg5e_mm.monster.view.combat.phase', rank.modifiers.phases);
 		} else {
 			return null;
 		}
