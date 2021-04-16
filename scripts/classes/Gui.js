@@ -127,7 +127,7 @@ const Gui = (function() {
 
 		Handlebars.registerHelper('parseSources', function(sources) {
 			return sources.map((x) => {
-				return `${isNaN(x.value) ? x.value : ((x.value >= 0) ? `+${x.value}` : `−${Math.abs(x.value)}`)} from ${x.source}`
+				return game.i18n.format('gg5e_mm.monster.source.from', { value: x.value, source: x.source });
 			}).join(",&#010;");
 		});
 	}

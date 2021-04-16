@@ -115,6 +115,7 @@ const MonsterFactory = (function() {
 		const maximumHp = derivedAttributes.maximumHitPoints;
 		maximumHp.applyModifier(hitPoints.maximum.modifier, hitPoints.maximum.override);
 		maximumHp.setMinimumValue(1);
+		maximumHp.ceil();
 
 		return {
 			current: Math.min(hitPoints.current, maximumHp.getValue()),
@@ -127,6 +128,7 @@ const MonsterFactory = (function() {
 		const ac = derivedAttributes.armorClass;
 		ac.applyModifier(armorClass.modifier, armorClass.override);
 		ac.setMinimumValue(1);
+		ac.ceil();
 
 		return $.extend(ac, { type: armorClass.type });
 	}
@@ -135,6 +137,7 @@ const MonsterFactory = (function() {
 		const ab = derivedAttributes.attackBonus;
 		ab.applyModifier(attackBonus.modifier, attackBonus.override);
 		ab.setMinimumValue(1);
+		ab.ceil();
 
 		return $.extend(ab, { type: attackBonus.type });
 	}
@@ -143,8 +146,10 @@ const MonsterFactory = (function() {
 		const dcs = derivedAttributes.attackDcs;
 		dcs.primary.applyModifier(attackDcs.primary.modifier, attackDcs.primary.override);
 		dcs.primary.setMinimumValue(0);
+		dcs.primary.ceil();
 		dcs.secondary.applyModifier(attackDcs.secondary.modifier, attackDcs.secondary.override);
 		dcs.secondary.setMinimumValue(0);
+		dcs.secondary.ceil();
 
 		return {
 			primary: $.extend(dcs.primary, { type: attackDcs.primary.type }),
@@ -156,6 +161,7 @@ const MonsterFactory = (function() {
 		const damage = derivedAttributes.damagePerAction;
 		damage.applyModifier(damagePerAction.modifier, damagePerAction.override);
 		damage.setMinimumValue(1);
+		damage.ceil();
 
 		const dice = Dice.getDiceRoll(damage.value, damagePerAction.die_size, damagePerAction.maximum_dice);
 
@@ -183,6 +189,10 @@ const MonsterFactory = (function() {
 			});
 		}
 
+		for (const am in ams) {
+			ams[am].ceil();
+		}
+
 		return ams;
 	}
 
@@ -204,15 +214,19 @@ const MonsterFactory = (function() {
 			});
 		}
 
+		for (const st in sts) {
+			sts[st].ceil();
+		}
+
 		return sts;
 	}
 
 	function _parseProficiency(derivedAttributes, proficiencyBonus) {
 		const prof = new DerivedAttribute();
-		prof.setValue(derivedAttributes.averageProficiencyBonus);
-		prof.addSource(derivedAttributes.averageProficiencyBonus, "base");
+		prof.setValue(derivedAttributes.averageProficiencyBonus, game.i18n.format('gg5e_mm.monster.source.base'));
 		prof.applyModifier(proficiencyBonus.modifier, proficiencyBonus.override);
 		prof.setMinimumValue(1);
+		prof.ceil();
 
 		return prof;
 	}
@@ -227,22 +241,21 @@ const MonsterFactory = (function() {
 				switch (monsterSkills[defaultSkill.name]) {
 					case "half-proficient":
 						proficiencyModifier = Math.floor(proficiencyBonus / 2);
-						proficiencyType = "half-proficiency";
+						proficiencyType = game.i18n.format('gg5e_mm.monster.source.half_proficiency');
 						break;
 					case "proficient":
 						proficiencyModifier = proficiencyBonus;
-						proficiencyType = "proficiency";
+						proficiencyType = game.i18n.format('gg5e_mm.monster.source.proficiency');
 						break;
 					case "expert":
 						proficiencyModifier = proficiencyBonus * 2;
-						proficiencyType = "expertise";
+						proficiencyType = game.i18n.format('gg5e_mm.monster.source.expertise');
 						break;
 				}
 
 				const skill = new DerivedAttribute();
-				skill.setValue(baseModifier + proficiencyModifier);
-				skill.addSource(baseModifier, "ability modifier");
-				skill.addSource(proficiencyModifier, proficiencyType);
+				skill.add(baseModifier, game.i18n.format('gg5e_mm.monster.source.ability_modifier'));
+				skill.add(proficiencyModifier, proficiencyType);
 
 				skills.push($.extend(skill, {
 					code: defaultSkill.name,
@@ -311,21 +324,19 @@ const MonsterFactory = (function() {
 	function _parsePassivePerception(skills, abilityModifiers, passivePerception) {
 		const basePerc = 10;
 		const percep = new DerivedAttribute();
-		percep.setValue(basePerc);
-		percep.addSource(basePerc, "base");
+		percep.add(basePerc, game.i18n.format('gg5e_mm.monster.source.base'));
 
 		if (skills.find((x) => x.code == "perception")) {
 			const skillPerc = skills.find((x) => x.code == "perception").getValue();
-			percep.addValue(skillPerc);
-			percep.addSource(skillPerc, "perception");
+			percep.add(skillPerc, game.i18n.format('gg5e_mm.monster.source.perception'));
 		} else {
 			const wisPerc = abilityModifiers["wis"].getValue();
-			percep.addValue(wisPerc);
-			percep.addSource(wisPerc, "WIS");
+			percep.add(wisPerc, game.i18n.format('gg5e_mm.monster.source.wis'));
 		}
 		
 		percep.applyModifier(passivePerception.modifier, passivePerception.override);
 		percep.setMinimumValue(1);
+		percep.ceil();
 
 		return percep;
 	}
@@ -349,6 +360,7 @@ const MonsterFactory = (function() {
 		const xp = derivedAttributes.xp;
 		xp.applyModifier(xpModifier.modifier, xpModifier.override);
 		xp.setMinimumValue(0);
+		xp.ceil();
 
 		return xp;
 	}

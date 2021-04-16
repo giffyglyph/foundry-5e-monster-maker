@@ -6,23 +6,51 @@ class DerivedAttribute {
 		this.has_modifier = false;
 	}
 
-	getValue() {
-		return this.value;
+	add(value, source) {
+		if (value != 0) {
+			this.value += value;
+			this.sources.push({ value: (value >= 0) ? `+${value}` : `−${Math.abs(value)}`, source: source});
+		}
 	}
 
-	setValue(value) {
-		this.value = value;
+	multiply(value, source) {
+		if (value != 1) {
+			this.value *= value;
+			this.sources.push({ value: `×${value}`, source: source});
+		}
 	}
 
-	addValue(value) {
-		this.value += value;
+	divide(value, source) {
+		if (value != 1) {
+			this.value /= value;
+			this.sources.push({ value: `÷${value}`, source: source});
+		}
+	}
+
+	ceil() {
+		this.value = Math.ceil(this.value);
+	}
+
+	floor() {
+		this.value = Math.floor(this.value);
 	}
 
 	setMinimumValue(value) {
 		if (this.value < value) {
 			this.value = value;
-			this.setSource(1, "minimum allowed");
+			this.setSource(1, game.i18n.format('gg5e_mm.monster.source.minimum_allowed'));
 		};
+	}
+
+	getValue() {
+		return this.value;
+	}
+
+	setValue(value, source) {
+		this.value = 0;
+		this.sources = [];
+		this.has_modifier = false;
+		this.add(value, source);
 	}
 
 	getSources() {
@@ -33,12 +61,8 @@ class DerivedAttribute {
 		this.sources = sources;
 	}
 
-	setSource(value, source) {
-		this.sources = [{ value: value, source: source}];
-	}
-
-	addSource(value, source) {
-		this.sources.push({ value: value, source: source});
+	getHasModifiers() {
+		return this.has_modifier;
 	}
 
 	setHasModifier(hasModifier) {
@@ -48,12 +72,10 @@ class DerivedAttribute {
 	applyModifier(modifier, isFixed) {
 		if (typeof modifier === "number") {
 			if (isFixed) {
-				this.value = modifier;
-				this.setSource(modifier, "fixed modifier");
+				this.setValue(modifier, game.i18n.format('gg5e_mm.monster.source.fixed_modifier'));
 				this.has_modifier = true;
 			} else if (modifier != 0) {
-				this.value += modifier;
-				this.addSource(modifier, "relative modifier");
+				this.add(modifier, game.i18n.format('gg5e_mm.monster.source.relative_modifier'));
 				this.has_modifier = true;
 			}
 		}
