@@ -85,8 +85,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/view.html"
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html"
 		]);
 	};
 
