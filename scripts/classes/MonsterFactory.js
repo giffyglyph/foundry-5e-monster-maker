@@ -175,14 +175,16 @@ const MonsterFactory = (function() {
 			ams[x] = derivedAttributes.abilityModifiers[ranking];
 		});
 
-		const modifiers = abilityModifiers.modifiers.split(",").map(x => x.split("="));
-		modifiers.forEach(function(modifier) {
-			const ability = modifier[0].trim().toLowerCase();
-			const value = Number(modifier[1]);
-			if (DEFAULT_ABILITIES.includes(ability)) {
-				ams[ability].applyModifier(value, abilityModifiers.override);
-			}
-		});
+		if (abilityModifiers.modifiers) {
+			const modifiers = abilityModifiers.modifiers.split(",").map(x => x.split("="));
+			modifiers.forEach(function(modifier) {
+				const ability = modifier[0].trim().toLowerCase();
+				const value = Number(modifier[1]);
+				if (DEFAULT_ABILITIES.includes(ability)) {
+					ams[ability].applyModifier(value, abilityModifiers.override);
+				}
+			});
+		}
 
         return ams;
     }
@@ -194,14 +196,16 @@ const MonsterFactory = (function() {
 			sts[x] = derivedAttributes.savingThrows[ranking];
 		});
 
-		const modifiers = savingThrows.modifiers.split(",").map(x => x.split("="));
-		modifiers.forEach(function(modifier) {
-			const ability = modifier[0].trim().toLowerCase();
-			const value = Number(modifier[1]);
-			if (DEFAULT_ABILITIES.includes(ability)) {
-				sts[ability].applyModifier(value, savingThrows.override);
-			}
-		});
+		if (savingThrows.modifiers) {
+			const modifiers = savingThrows.modifiers.split(",").map(x => x.split("="));
+			modifiers.forEach(function(modifier) {
+				const ability = modifier[0].trim().toLowerCase();
+				const value = Number(modifier[1]);
+				if (DEFAULT_ABILITIES.includes(ability)) {
+					sts[ability].applyModifier(value, savingThrows.override);
+				}
+			});
+		}
 
         return sts;
     }
