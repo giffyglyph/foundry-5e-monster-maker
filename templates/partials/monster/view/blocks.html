@@ -1,0 +1,123 @@
+<div class="monster__blocks">
+	<div class="monster__blocks__row">
+		<div class="gg5e-mm-block hit-points">
+			<div class="block__title">{{localize 'gg5e_mm.monster.view.hit_points.title'}}</div>
+			<div class="block__contents">
+				<div class="block__content">
+					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.temporary}}"><i class="far fa-heart"></i> {{data.gg5e_mm.monster.data.hit_points.temporary}}</div>
+					<div class="block__description">{{localize 'gg5e_mm.monster.view.hit_points.temporary'}}</div>
+				</div>
+				<div class="block__content">
+					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.current}}"><i class="fas fa-heart"></i> {{data.gg5e_mm.monster.data.hit_points.current}}</div>
+					<div class="block__description">{{localize 'gg5e_mm.monster.view.hit_points.current'}}</div>
+				</div>
+				<div class="block__content">
+					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.maximum.value}}" title="{{{parseSources data.gg5e_mm.monster.data.hit_points.maximum.sources}}}">
+						<i class="fas fa-heartbeat"></i> {{data.gg5e_mm.monster.data.hit_points.maximum.value}}
+					</div>
+					<div class="block__description">{{localize 'gg5e_mm.monster.view.hit_points.maximum'}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="gg5e-mm-block ac">
+			<div class="block__title">{{localize 'gg5e_mm.monster.view.armor_class'}}</div>
+			<div class="block__contents">
+				<div class="block__content">
+					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.armor_class.value}}" title="{{{parseSources data.gg5e_mm.monster.data.armor_class.sources}}}">
+						<i class="fas fa-shield-alt"></i> {{data.gg5e_mm.monster.data.armor_class.value}}
+					</div>
+					<div class="block__description">
+						{{#if data.gg5e_mm.monster.data.armor_class.type}}
+							{{data.gg5e_mm.monster.data.armor_class.type}}
+						{{else}}
+							AC
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gg5e-mm-block perception">
+			<div class="block__title">{{localize 'gg5e_mm.monster.view.perception.title'}}</div>
+			<div class="block__contents">
+				<div class="block__content">
+					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.passive_perception.value}}" title="{{{parseSources data.gg5e_mm.monster.data.passive_perception.sources}}}">
+						<i class="fas fa-eye"></i> {{data.gg5e_mm.monster.data.passive_perception.value}}
+					</div>
+					<div class="block__description">{{localize 'gg5e_mm.monster.view.perception.passive'}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="monster__blocks__row">
+		<div class="gg5e-mm-block attack">
+			<div class="block__title">{{localize 'gg5e_mm.monster.view.attack_bonus'}}</div>
+			<div class="block__contents">
+				<div class="block__content">
+					<button class="block__value button--text length-{{strlen (numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true)}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_bonus.sources}}}" data-action="open-modal" data-modal="modal_basic_attack">
+						<i class="fas fa-crosshairs"></i> {{numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true}}
+					</button>
+					<div class="block__description">
+						{{#if data.gg5e_mm.monster.data.attack_bonus.type}}
+							{{data.gg5e_mm.monster.data.attack_bonus.type}}
+						{{else}}
+							vs. AC
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gg5e-mm-block attack-dcs">
+			<div class="block__title">{{localize 'gg5e_mm.monster.view.attack_dcs.title'}}</div>
+			<div class="block__contents">
+				<div class="block__content">
+					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.primary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.primary.sources}}}">
+						<i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.primary.value}}
+					</div>
+					<div class="block__description">
+						{{#if data.gg5e_mm.monster.data.attack_dcs.primary.type}}
+							{{data.gg5e_mm.monster.data.attack_dcs.primary.type}}
+						{{else}}
+							{{localize 'gg5e_mm.monster.view.attack_dcs.primary'}}
+						{{/if}}
+					</div>
+				</div>
+				<div class="block__content">
+					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.secondary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.secondary.sources}}}">
+						<i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.secondary.value}}
+					</div>
+					<div class="block__description">
+						{{#if data.gg5e_mm.monster.data.attack_dcs.secondary.type}}
+							{{data.gg5e_mm.monster.data.attack_dcs.secondary.type}}
+						{{else}}
+							{{localize 'gg5e_mm.monster.view.attack_dcs.secondary'}}
+						{{/if}}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gg5e-mm-block damage">
+			<div class="block__title">{{localize 'gg5e_mm.monster.view.damage'}}</div>
+			<div class="block__contents">
+				<div class="block__content static">
+					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gg5e_mm.monster.data.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_basic_static_damage">
+						<i class="fas fa-fire"></i> {{data.gg5e_mm.monster.data.damage_per_action.value}}
+					</button>
+					{{#unless data.gg5e_mm.monster.data.damage_per_action.type}}
+						<div class="block__description">Static</div>
+					{{/unless}}
+				</div>
+				<div class="block__content random">
+					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.dice}}" data-action="open-modal" data-modal="modal_basic_random_damage">
+						<i class="fas fa-dice"></i> <span class="roll">{{data.gg5e_mm.monster.data.damage_per_action.dice}}</span>
+					</button>
+					{{#unless data.gg5e_mm.monster.data.damage_per_action.type}}
+						<div class="block__description">Random</div>
+					{{/unless}}
+				</div>
+			</div>
+			{{#if data.gg5e_mm.monster.data.damage_per_action.type}}
+				<div class="block__footer">{{data.gg5e_mm.monster.data.damage_per_action.type}}</div>
+			{{/if}}
+		</div>
+	</div>
+</div>

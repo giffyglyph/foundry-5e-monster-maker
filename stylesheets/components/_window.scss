@@ -1,42 +1,42 @@
 .gg5e-mm-window {
-    border-radius: 0 0 1rem 1rem;
+	border-radius: 0 0 1rem 1rem;
 
-    .window-header {
-        border-bottom: none;
+	.window-header {
+		border-bottom: none;
 
-        &.resizable {
+		&.resizable {
 
-            ~ .window-resizable-handle {
-                background: white;
-                color: black;
-                border: none;
-                box-shadow: none;
-                height: 2rem;
-                width: 2rem;
-                padding: 0;
-                border-radius: 1rem;
-                right: 0.5rem;
-                bottom: 0.5rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: larger;
-                cursor: pointer;
-            }
+			~ .window-resizable-handle {
+				background: white;
+				color: black;
+				border: none;
+				box-shadow: none;
+				height: 2rem;
+				width: 2rem;
+				padding: 0;
+				border-radius: 1rem;
+				right: 0.5rem;
+				bottom: 0.5rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: larger;
+				cursor: pointer;
+			}
 
-            ~ .window-content .sheet__footer {
-                padding-right: 2.25rem;
-            }
-        }
-    }
+			~ .window-content .sheet__footer {
+				padding-right: 2.25rem;
+			}
+		}
+	}
 
-    &.minimized .window-header ~ .window-resizable-handle {
-        display: none;
-    }
+	&.minimized .window-header ~ .window-resizable-handle {
+		display: none;
+	}
 
-    .window-content {
-        background: none;
-        padding: 0;
-        border-radius: 1rem;
-    }
+	.window-content {
+		background: none;
+		padding: 0;
+		border-radius: 1rem;
+	}
 }

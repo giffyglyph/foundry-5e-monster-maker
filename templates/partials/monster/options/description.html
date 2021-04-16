@@ -1,0 +1,78 @@
+<div class="accordion-section" data-section="description">
+	<div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.description.title'}}</div>
+	<div class="accordion-section__body">
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.name'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="name" value="{{data.gg5e_mm.blueprint.data.description.name}}"/>
+			</div>
+		</div>
+		<div class="form-group form-group--image">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.image'}}</span>
+			</div>
+			<div class="form-group__body">
+				<img src="{{data.gg5e_mm.blueprint.data.description.image}}" data-edit="img">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.size'}}</span>
+			</div>
+			<div class="form-group__body">
+				<select name="data.gg5e_mm.blueprint.data.description.size">
+					{{#select data.gg5e_mm.blueprint.data.description.size}}
+						{{#each data.gg5e_mm.enums.sizes}}
+							<option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.size.' .)}}</option>
+						{{/each}}
+					{{/select}}
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.type'}}</span>
+			</div>
+			<div class="form-group__body">
+				<select name="data.gg5e_mm.blueprint.data.description.type.category">
+					{{#select data.gg5e_mm.blueprint.data.description.type.category}}
+						{{#each data.gg5e_mm.enums.categories}}
+							<option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.type.' .)}}</option>
+						{{/each}}
+						<option value="custom">{{localize 'gg5e_mm.monster.common.type.custom'}}</option>
+					{{/select}}
+				</select>
+				{{#toggleCustom data.gg5e_mm.blueprint.data.description.type.category}}
+					<input name="data.gg5e_mm.blueprint.data.description.type.custom" value="{{data.gg5e_mm.blueprint.data.description.type.custom}}"/>
+				{{/toggleCustom}}
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.tags'}}</span>
+				<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_tags">
+					<i class="fas fa-question"></i>
+				</button>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.description.tags" value="{{data.gg5e_mm.blueprint.data.description.tags}}"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.alignment'}}</span>
+			</div>
+			<div class="form-group__body">
+				<select name="data.gg5e_mm.blueprint.data.description.alignment">
+					{{#select data.gg5e_mm.blueprint.data.description.alignment}}
+						{{#each data.gg5e_mm.enums.alignments}}
+							<option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.alignment.' .)}}</option>
+						{{/each}}
+					{{/select}}
+				</select>
+			</div>
+		</div>
+	</div>
+</div>

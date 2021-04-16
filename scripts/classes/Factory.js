@@ -2,19 +2,19 @@ import MonsterFactory from './MonsterFactory.js';
 
 const Factory = (function() {
 
-    function createEntity(blueprint) {
+	function createEntity(blueprint) {
 
-        switch(blueprint.type) {
-            case "monster":
-                return MonsterFactory.createEntity(blueprint);
-                break;
-            default:
-                throw `Blueprint type [${blueprint.type}] is not supported.`; 
-                break;
-        }
-    }
+		switch(blueprint.type) {
+			case "monster":
+				return MonsterFactory.createEntity(blueprint);
+				break;
+			default:
+				throw `Blueprint type [${blueprint.type}] is not supported.`; 
+				break;
+		}
+	}
 
-    return {
+	return {
 		createEntity: createEntity
 	};
 })();

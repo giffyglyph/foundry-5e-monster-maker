@@ -2,14 +2,14 @@ import { DEFAULT_GUI } from "../consts/DefaultGui.js";
 
 const Gui = (function() {
 
-    function activateListeners(html) {
-        html.find('.gg5e-mm-accordion .accordion-section__header').click((e) => _toggleAccordionCollapse(e));
+	function activateListeners(html) {
+		html.find('.gg5e-mm-accordion .accordion-section__header').click((e) => _toggleAccordionCollapse(e));
 		html.find('.gg5e-mm-panel.panel--collapsible .panel__header').click((e) => _togglePanelCollapse(e));
 		html.find('button.move-up').click((e) => _moveUp(e));
 		html.find('button.move-down').click((e) => _moveDown(e));
 		html.find('button[data-action="open-modal"]').click((e) => _openModal(e));
 		html.find('button[data-action="close-modal"]').click((e) => closeModal(e));
-    }
+	}
 
 	function setAccordions(html, accordions) {
 		if (accordions) {
@@ -46,38 +46,46 @@ const Gui = (function() {
 	async function preloadHandlebarsTemplates() {
 
 		return loadTemplates([
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/condition_immunity.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_immunity.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_resistance.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_vulnerability.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/language.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/skill.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/modals.html",		  
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_abilities.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_armor_class.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_attack_bonus.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_attack_dcs.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_combat.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_condition_immunities.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_cr.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_immunities.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_resistances.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage_vulnerabilities.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_damage.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_description.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_hit_points.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_languages.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_perception.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_proficiency.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_saving_throws.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_senses.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_skills.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_speeds.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options_xp.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options.html",
-		  "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/view.html"
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/condition_immunity.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_immunity.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_resistance.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_vulnerability.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/language.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/skill.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_modifiers.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_ranks.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_random_damage.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_static_damage.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifiers.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/tags.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/abilities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_bonus.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_dcs.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/condition_immunities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/cr.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_immunities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_resistances.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_vulnerabilities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/languages.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/perception.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/proficiency.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/saving_throws.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/senses.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/skills.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/speeds.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/view.html"
 		]);
 	};
 
@@ -137,7 +145,7 @@ const Gui = (function() {
 		modal.classList.remove("open");
 	}
 
-    function _togglePanelCollapse(event) {
+	function _togglePanelCollapse(event) {
 		const panel = event.currentTarget.closest(".gg5e-mm-panel");
 		const panelId = panel.id.replace(/-/g, '_');
 		const newState = panel.classList.contains("closed") ? "opened" : "closed";
@@ -161,14 +169,14 @@ const Gui = (function() {
 	function _moveUp(event) {
 		const li = event.currentTarget.closest('.move-parent');
 		if (li.previousElementSibling) {
-    		li.parentNode.insertBefore(li, li.previousElementSibling);
+			li.parentNode.insertBefore(li, li.previousElementSibling);
 		}
 	}
 
 	function _moveDown(event) {
 		const li = event.currentTarget.closest('.move-parent');
 		if (li.nextElementSibling) {
-    		li.parentNode.insertBefore(li.nextElementSibling, li);
+			li.parentNode.insertBefore(li.nextElementSibling, li);
 		}
 	}
 

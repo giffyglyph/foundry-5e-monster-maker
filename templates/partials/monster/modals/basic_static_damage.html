@@ -1,0 +1,45 @@
+<div class="modal" id="modal_basic_static_damage">
+	<div class="modal__dialog">
+		<div class="modal__header">
+			<span class="modal__title">{{localize 'gg5e_mm.modal.basic_damage.title'}}</span>
+			<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+		</div>
+		<div class="modal__body">
+			<div class="gg5e-mm-form form--modal form--horizontal">
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_damage.modifier'}}</span>
+					</div>
+					<div class="form-group__body">
+						<input name="modifier" value="{{data.gg5e_mm.monster.data.damage_per_action.value}}" disabled/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_damage.bonus'}}</span>
+					</div>
+					<div class="form-group__body">
+						<input name="bonus" type="text" placeholder="e.g. +1d4"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_damage.roll_mode.title'}}</span>
+					</div>
+					<div class="form-group__body">
+						<select name="mode">
+							<option value="roll" selected="">{{localize 'gg5e_mm.modal.basic_damage.roll_mode.roll'}}</option>
+							<option value="gmroll">{{localize 'gg5e_mm.modal.basic_damage.roll_mode.gmroll'}}</option>
+							<option value="blindroll">{{localize 'gg5e_mm.modal.basic_damage.roll_mode.blindroll'}}</option>
+							<option value="selfroll">{{localize 'gg5e_mm.modal.basic_damage.roll_mode.selfroll'}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal__footer">
+			<button class="modal__button" data-action="roll-normal">Normal</button>
+			<button class="modal__button" data-action="roll-critical">Critical</button>
+		</div>
+	</div>
+</div>

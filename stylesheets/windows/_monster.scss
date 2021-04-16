@@ -1,25 +1,25 @@
 .gg5e-mm-window--monster {
-    width: 540px !important;
+	width: 540px !important;
 
-    .pane--edit {
-        display: none;
-        margin-top: 3.57rem;
-        margin-bottom: 1rem;
-        padding-left: 0;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+	.pane--edit {
+		display: none;
+		margin-top: 3.57rem;
+		margin-bottom: 1rem;
+		padding-left: 0;
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
 
-    &.expanded {
-        width: 980px !important;
+	&.expanded {
+		width: 980px !important;
 
-        .gg5e-mm-panes {
-            display: grid;
-            grid-template-columns: 524px 1fr;
-        }
+		.gg5e-mm-panes {
+			display: grid;
+			grid-template-columns: 524px 1fr;
+		}
 
-        .pane--edit {
-            display: flex;
-        }
-    }
+		.pane--edit {
+			display: flex;
+		}
+	}
 }

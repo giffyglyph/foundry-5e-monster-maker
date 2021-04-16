@@ -1,0 +1,58 @@
+<div class="accordion-section" data-section="senses">
+	<div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.senses.title'}}</div>
+	<div class="accordion-section__body">
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.blindsight'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.senses.blindsight" type="number" value="{{data.gg5e_mm.blueprint.data.senses.blindsight}}"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.darkvision'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.senses.darkvision" type="number" value="{{data.gg5e_mm.blueprint.data.senses.darkvision}}"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.tremorsense'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.senses.tremorsense" type="number" value="{{data.gg5e_mm.blueprint.data.senses.tremorsense}}"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.truesight'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.senses.truesight" type="number" value="{{data.gg5e_mm.blueprint.data.senses.truesight}}"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.units.title'}}</span>
+			</div>
+			<div class="form-group__body">
+				<select name="data.gg5e_mm.blueprint.data.senses.unit">
+					{{#select data.gg5e_mm.blueprint.data.senses.unit}}
+						<option value="feet">{{localize 'gg5e_mm.monster.common.senses.units.feet.name'}}</option>
+						<option value="miles">{{localize 'gg5e_mm.monster.common.senses.units.miles.name'}}</option>
+					{{/select}}
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.common.senses.other'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.senses.other" value="{{data.gg5e_mm.blueprint.data.senses.other}}"/>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,219 +1,219 @@
 .gg5e-mm-monster-options {
 
-    .options__header {
-        display: flex;
-        font-size: 2rem;
-        text-align: center;
-        font-family: 'Londrina Solid';
-        align-items: center;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        border-top-left-radius: 0;
-        border-bottom-right-radius: 0;
-        background: $primary-shade-2;
-        border-bottom: 2px solid $primary-shade-4;
+	.options__header {
+		display: flex;
+		font-size: 2rem;
+		text-align: center;
+		font-family: 'Londrina Solid';
+		align-items: center;
+		padding-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		border-top-left-radius: 0;
+		border-bottom-right-radius: 0;
+		background: $primary-shade-2;
+		border-bottom: 2px solid $primary-shade-4;
 
-        .pane__icon {
-            height: 3rem;
-            width: 3rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: $primary-shade-4;
-            border-radius: 0.75rem;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-        }
+		.pane__icon {
+			height: 3rem;
+			width: 3rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: $primary-shade-4;
+			border-radius: 0.75rem;
+			margin-right: 1rem;
+			font-size: 1.5rem;
+		}
 
-        + .options__body {
-            margin-top: 0;
-        }
-    }
+		+ .options__body {
+			margin-top: 0;
+		}
+	}
 
-    .options__body {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        border-bottom-left-radius: 0;
-        background: $primary-tint-2;
-    }
+	.options__body {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		border-bottom-left-radius: 0;
+		background: $primary-tint-2;
+	}
 
-    .button--help {
-        background: none;
-        width: 1rem;
-        border: none;
-        padding: 0;
-        font-size: 10px;
-        line-height: inherit;
-        margin: 0;
-        height: 1rem;
-        background: $secondary-tint-3;
-        color: white;
-        border-radius: 1rem;
-        text-align: center;
-        margin-left: -0.25rem;
-        float: left;
-        margin-right: 0.5rem;
-        flex-shrink: 0;
+	.button--help {
+		background: none;
+		width: 1rem;
+		border: none;
+		padding: 0;
+		font-size: 10px;
+		line-height: inherit;
+		margin: 0;
+		height: 1rem;
+		background: $secondary-tint-3;
+		color: white;
+		border-radius: 1rem;
+		text-align: center;
+		margin-left: -0.25rem;
+		float: left;
+		margin-right: 0.5rem;
+		flex-shrink: 0;
 
-        &:hover {
-            cursor: pointer;
-            box-shadow: none;
-            background: $secondary-base;
-        }
+		&:hover {
+			cursor: pointer;
+			box-shadow: none;
+			background: $secondary-base;
+		}
 
-        i {
-            margin: 0;
-        }
-    }
+		i {
+			margin: 0;
+		}
+	}
 
-    .form-group--image {
+	.form-group--image {
 
-        img {
-            background: black;
-            border-radius: 0.75rem;
-            width: 4.2rem;
-            margin: 0.25rem auto 0.25rem 0.5rem;
-            border: none;
-            display: block;
+		img {
+			background: black;
+			border-radius: 0.75rem;
+			width: 4.2rem;
+			margin: 0.25rem auto 0.25rem 0.5rem;
+			border: none;
+			display: block;
 
-            &:hover {
-                cursor: pointer;
-            }
-        }
-    }
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
 
-    .accordion-section__body {
-        padding: 0;
-    }
+	.accordion-section__body {
+		padding: 0;
+	}
 
-    .fieldset-rank {
+	.fieldset-rank {
 
-        .target-players,
-        .phases {
-            display: none;
-        }
+		.target-players,
+		.phases {
+			display: none;
+		}
 
-        &:not(.rank-custom) {
+		&:not(.rank-custom) {
 
-            .form-group:not(.type) {
-                display: none;
-            }
-        }
+			.form-group:not(.type) {
+				display: none;
+			}
+		}
 
-        &.scale-with-players {
+		&.scale-with-players {
 
-            .form-group.target-players {
-                display: flex;
-            }
-        }
+			.form-group.target-players {
+				display: flex;
+			}
+		}
 
-        &.show-phases {
+		&.show-phases {
 
-            .form-group.phases {
-                display: flex;
-            }
-        }
+			.form-group.phases {
+				display: flex;
+			}
+		}
 
-        .phases {
+		.phases {
 
-            .form-group__body {
-                display: flex;
-                align-items: center;
+			.form-group__body {
+				display: flex;
+				align-items: center;
 
-                input {
-                    width: 100%;
-                    flex-grow: 1;
+				input {
+					width: 100%;
+					flex-grow: 1;
 
-                    &:first-child {
-                        margin-right: 0.5rem;
-                    }
+					&:first-child {
+						margin-right: 0.5rem;
+					}
 
-                    &:last-child {
-                        margin-left: 0.5rem;
-                    }
-                }
-            }
-        }
-    }
+					&:last-child {
+						margin-left: 0.5rem;
+					}
+				}
+			}
+		}
+	}
 
-    .fieldset-role {
+	.fieldset-role {
 
-        &:not(.role-custom) {
+		&:not(.role-custom) {
 
-            .form-group:not(.type) {
-                display: none;
-            }
-        }
-    }
+			.form-group:not(.type) {
+				display: none;
+			}
+		}
+	}
 
-    .form-group--modifier {
+	.form-group--modifier {
 
-        .form-group__body {
-            display: flex;
+		.form-group__body {
+			display: flex;
 
-            .checkbox {
-                display: inline-flex;
-                font-size: inherit;
-                white-space: nowrap;
-                height: auto;
-                justify-content: center;
-                align-items: center;
-                padding: 0 0.5rem;
+			.checkbox {
+				display: inline-flex;
+				font-size: inherit;
+				white-space: nowrap;
+				height: auto;
+				justify-content: center;
+				align-items: center;
+				padding: 0 0.5rem;
 
-                &:hover {
-                    cursor: pointer;
-                }
+				&:hover {
+					cursor: pointer;
+				}
 
-                
-                input {
-                    margin: 0;
-                    top: 0;
-                    display: inline-block;
-                    margin-right: 0.25rem;
-                }
-            }
-        }
-    }
+				
+				input {
+					margin: 0;
+					top: 0;
+					display: inline-block;
+					margin-right: 0.25rem;
+				}
+			}
+		}
+	}
 
-    .ability-ranking,
-    .save-ranking {
-        display: flex;
-        line-height: 2rem;
+	.ability-ranking,
+	.save-ranking {
+		display: flex;
+		line-height: 2rem;
 
-        &:not(:first-child) {
-            border-top: 1px solid $secondary-tint-3;
-        }
+		&:not(:first-child) {
+			border-top: 1px solid $secondary-tint-3;
+		}
 
-        .value {
-            flex-grow: 1;
-            padding: 0 0.5rem;
+		.value {
+			flex-grow: 1;
+			padding: 0 0.5rem;
 
-            i {
-                width: 1.5rem;
-                line-height: 1.5rem;
-                display: inline-block;
-                margin-right: 0.25rem;
-                justify-content: center;
-                align-items: center;
-                background: $secondary-tint-4;
-                border-radius: 1rem;
-                color: $secondary-shade-1;
-            }
-        }
+			i {
+				width: 1.5rem;
+				line-height: 1.5rem;
+				display: inline-block;
+				margin-right: 0.25rem;
+				justify-content: center;
+				align-items: center;
+				background: $secondary-tint-4;
+				border-radius: 1rem;
+				color: $secondary-shade-1;
+			}
+		}
 
-        .move-down,
-        .move-up {
-            background: none;
-            border: none;
-            padding: 0;
-            margin: 0;
-            width: 2rem;
+		.move-down,
+		.move-up {
+			background: none;
+			border: none;
+			padding: 0;
+			margin: 0;
+			width: 2rem;
 
-            &:hover {
-                cursor: pointer;
-                box-shadow: none;
-                color: $secondary-base;
-            }
-        }
-    }
+			&:hover {
+				cursor: pointer;
+				box-shadow: none;
+				color: $secondary-base;
+			}
+		}
+	}
 }

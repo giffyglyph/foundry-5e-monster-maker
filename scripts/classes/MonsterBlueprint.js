@@ -4,10 +4,10 @@ import { MONSTER_ROLES } from "../consts/MonsterRoles.js";
 
 const MonsterBlueprint = (function() {
 
-    function prepareBlueprint(type, ...data) {
-        let blueprint = $.extend(true, {}, DEFAULT_MONSTER_BLUEPRINT, ...data);
+	function prepareBlueprint(type, ...data) {
+		let blueprint = $.extend(true, {}, DEFAULT_MONSTER_BLUEPRINT, ...data);
 
-        if (blueprint.data.combat.rank.modifiers == null) {
+		if (blueprint.data.combat.rank.modifiers == null) {
 			blueprint.data.combat.rank.modifiers = MONSTER_RANKS[blueprint.data.combat.rank.type];
 		}
 
@@ -15,11 +15,11 @@ const MonsterBlueprint = (function() {
 			blueprint.data.combat.role.modifiers = MONSTER_ROLES[blueprint.data.combat.role.type];
 		}
 
-        blueprint.type = type;
-        return blueprint;
-    }
+		blueprint.type = type;
+		return blueprint;
+	}
 
-    return {
+	return {
 		prepareBlueprint: prepareBlueprint
 	};
 })();

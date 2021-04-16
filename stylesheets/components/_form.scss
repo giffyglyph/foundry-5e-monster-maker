@@ -1,250 +1,250 @@
 .gg5e-mm-form {
 
-    &.form--modal {
+	&.form--modal {
 
-        .form-group + * {
-            margin-top: 1rem;
-        }
+		.form-group + * {
+			margin-top: 1rem;
+		}
 
-        .form-group__header {
-            margin: 0;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
+		.form-group__header {
+			margin: 0;
+			font-weight: 600;
+			margin-bottom: 0.25rem;
+		}
 
-        .form-group__body {
+		.form-group__body {
 
-            input,
-            select {
-                background: none;
-                border: 2px solid mix($primary-tone-1, white, 15%);
-                border-radius: 0.75rem;
-                display: block;
-                width: 100%;
-                padding: 0 .75rem;
-                line-height: 1;
-                margin: 0;
-                height: 2.25rem;
+			input,
+			select {
+				background: none;
+				border: 2px solid mix($primary-tone-1, white, 15%);
+				border-radius: 0.75rem;
+				display: block;
+				width: 100%;
+				padding: 0 .75rem;
+				line-height: 1;
+				margin: 0;
+				height: 2.25rem;
 
-                &:disabled {
-                    background: mix($primary-tone-1, white, 15%);
-                }
-            }
+				&:disabled {
+					background: mix($primary-tone-1, white, 15%);
+				}
+			}
 
-            select {
-                padding-left: 0.5rem;
-            }
-        }
-    }
+			select {
+				padding-left: 0.5rem;
+			}
+		}
+	}
 
-    &.form--horizontal {
-        
-        .form-group {
-            display: flex;
+	&.form--horizontal {
+		
+		.form-group {
+			display: flex;
 
-            + * {
-                margin-top: 0.5rem;
-            }
-        }
+			+ * {
+				margin-top: 0.5rem;
+			}
+		}
 
-        .form-group__header {
-            width: 10rem;
-            line-height: 2;
-            margin: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            flex-shrink: 0;
-        }
+		.form-group__header {
+			width: 10rem;
+			line-height: 2;
+			margin: 0;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			flex-shrink: 0;
+		}
 
-        .form-group__body {
-            flex-grow: 1;
-            margin-left: 1rem;
-        }
-    }
+		.form-group__body {
+			flex-grow: 1;
+			margin-left: 1rem;
+		}
+	}
 
-    &.form--options {
+	&.form--options {
 
-        .form-group {
-            margin: 0;
-            position: relative;
-            align-items: normal;
+		.form-group {
+			margin: 0;
+			position: relative;
+			align-items: normal;
 
-            &:not(:last-child) {
-                border-bottom: 1px solid $secondary-tint-3;
-            }
+			&:not(:last-child) {
+				border-bottom: 1px solid $secondary-tint-3;
+			}
 
-            .form-group__header {
-                flex-shrink: 0;
-                margin: 0;
-                font-weight: bold;
-                padding: 0.5rem 0.75rem;
-                box-sizing: border-box;
-                background: $secondary-tint-4;
-                line-height: 1;
-                min-height: 2rem;
-                text-align: right;
-                color: $secondary-shade-4;
-                width: 8rem;
-                flex: unset;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
+			.form-group__header {
+				flex-shrink: 0;
+				margin: 0;
+				font-weight: bold;
+				padding: 0.5rem 0.75rem;
+				box-sizing: border-box;
+				background: $secondary-tint-4;
+				line-height: 1;
+				min-height: 2rem;
+				text-align: right;
+				color: $secondary-shade-4;
+				width: 8rem;
+				flex: unset;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 
-            .form-group__body {
-                min-height: 2rem;
-                overflow: hidden;
+			.form-group__body {
+				min-height: 2rem;
+				overflow: hidden;
 
-                input,
-                select {
-                    display: block;
-                    width: 100%;
-                    padding: 0 .75rem;
-                    line-height: 1;
-                    background-color: #fff;
-                    background-clip: padding-box;
-                    border: 0;
-                    border-radius: 0;
-                    margin: 0;
-                    height: 2rem;
+				input,
+				select {
+					display: block;
+					width: 100%;
+					padding: 0 .75rem;
+					line-height: 1;
+					background-color: #fff;
+					background-clip: padding-box;
+					border: 0;
+					border-radius: 0;
+					margin: 0;
+					height: 2rem;
 
-                    + input,
-                    + select {
-                        border-top: 1px solid $secondary-tint-3;
-                    }
+					+ input,
+					+ select {
+						border-top: 1px solid $secondary-tint-3;
+					}
 
-                    &:focus {
-                        outline: 2px solid white;
-                        box-shadow: none;
-                    }
-                }
+					&:focus {
+						outline: 2px solid white;
+						box-shadow: none;
+					}
+				}
 
-                select {
-                    padding-left: 0.5rem;
-                }
+				select {
+					padding-left: 0.5rem;
+				}
 
-                input[type="checkbox"] {
-                    height: 1.5rem;
-                    width: 1.5rem;
-                    margin-left: 0.5rem;
-                    margin-top: 0.25rem;
+				input[type="checkbox"] {
+					height: 1.5rem;
+					width: 1.5rem;
+					margin-left: 0.5rem;
+					margin-top: 0.25rem;
 
-                    &:hover {
-                        cursor: pointer;
-                    }
+					&:hover {
+						cursor: pointer;
+					}
 
-                    &:focus {
-                        outline: none;
-                    }
-                }
-            }
+					&:focus {
+						outline: none;
+					}
+				}
+			}
 
-            .form-group__options {
-                position: absolute;
-                right: 0;
-                top: 0;
-                height: 2rem;
-                display: flex;
-                align-items: center;
+			.form-group__options {
+				position: absolute;
+				right: 0;
+				top: 0;
+				height: 2rem;
+				display: flex;
+				align-items: center;
 
-                button {
-                    background: none;
-                    border: none;
-                    height: 2rem;
-                    width: 2rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    opacity: 0.25;
+				button {
+					background: none;
+					border: none;
+					height: 2rem;
+					width: 2rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					opacity: 0.25;
 
-                    i {
-                        margin: 0;
-                    }
+					i {
+						margin: 0;
+					}
 
-                    &:hover,
-                    &:focus {
-                        opacity: 1;
-                        color: white;
-                        box-shadow: none;
-                        cursor: pointer;
-                    }
-                }
-            }
+					&:hover,
+					&:focus {
+						opacity: 1;
+						color: white;
+						box-shadow: none;
+						cursor: pointer;
+					}
+				}
+			}
 
-            .checkboxes {
-                padding: 0.5rem;
-        
-                .checkbox {
-                    display: inline-flex;
-                    width: 100%;
-                    font-size: inherit;
-                    height: auto;
-                    align-items: flex-start;
-                    padding: 0;
-                    line-height: 1rem;
-        
-                    &:hover {
-                        cursor: pointer;
-                    }
-                    
-                    input {
-                        margin: 0;
-                        top: 0;
-                        display: inline-block;
-                        margin-right: 0.25rem;
-                        height: 1rem;
-                        width: 1rem;
-                    }
-        
-                    &:not(:last-child) {
-                        margin-bottom: 0.25rem;
-                    }
-                }
-            }
-        }
+			.checkboxes {
+				padding: 0.5rem;
+		
+				.checkbox {
+					display: inline-flex;
+					width: 100%;
+					font-size: inherit;
+					height: auto;
+					align-items: flex-start;
+					padding: 0;
+					line-height: 1rem;
+		
+					&:hover {
+						cursor: pointer;
+					}
+					
+					input {
+						margin: 0;
+						top: 0;
+						display: inline-block;
+						margin-right: 0.25rem;
+						height: 1rem;
+						width: 1rem;
+					}
+		
+					&:not(:last-child) {
+						margin-bottom: 0.25rem;
+					}
+				}
+			}
+		}
 
-        .form-fieldset {
+		.form-fieldset {
 
-            .form-fieldset__header {
-                border-right: none;
-                text-align: left;
-                text-transform: uppercase;
-                padding: 0 1rem 0 2rem;
-                background: $secondary-tint-3;
-                min-height: auto;
-                line-height: 2rem;
-                border-bottom: 1px solid $secondary-tint-3;
-                position: relative;
-                font-weight: bold;
-                color: $secondary-shade-3;
+			.form-fieldset__header {
+				border-right: none;
+				text-align: left;
+				text-transform: uppercase;
+				padding: 0 1rem 0 2rem;
+				background: $secondary-tint-3;
+				min-height: auto;
+				line-height: 2rem;
+				border-bottom: 1px solid $secondary-tint-3;
+				position: relative;
+				font-weight: bold;
+				color: $secondary-shade-3;
 
-                &::after {
-                    content: "\f07b";
-                    -webkit-font-smoothing: antialiased;
-                    font-family: "Font Awesome 5 Free";
-                    font-weight: 400;
-                    display: inline-block;
-                    font-style: normal;
-                    font-variant: normal;
-                    text-rendering: auto;
-                    line-height: 1;
-                    position: absolute;
-                    left: 0.6rem;
-                    width: 0.8rem;
-                    height: 0.8rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    top: 0.6rem;
-                    color: $secondary-base;
-                    font-size: larger;
-                }
-            }
+				&::after {
+					content: "\f07b";
+					-webkit-font-smoothing: antialiased;
+					font-family: "Font Awesome 5 Free";
+					font-weight: 400;
+					display: inline-block;
+					font-style: normal;
+					font-variant: normal;
+					text-rendering: auto;
+					line-height: 1;
+					position: absolute;
+					left: 0.6rem;
+					width: 0.8rem;
+					height: 0.8rem;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					top: 0.6rem;
+					color: $secondary-base;
+					font-size: larger;
+				}
+			}
 
-            &:not(:first-child) {
-                border-top: 1px solid $secondary-tint-2;
-            }
-        }
-    }
+			&:not(:first-child) {
+				border-top: 1px solid $secondary-tint-2;
+			}
+		}
+	}
 }

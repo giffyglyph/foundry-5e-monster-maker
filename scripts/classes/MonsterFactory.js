@@ -60,34 +60,34 @@ const MonsterFactory = (function() {
 	}
 
 	function _parseDescription(description) {
-        const parts = [];
-        parts.push(game.i18n.format(`gg5e_mm.monster.common.size.${description.size}`));
-        if (description.type.category === "custom") {
-            if (description.type.custom.trim().length > 0) {
-                parts.push(description.type.custom);
-            }
-        } else {
-            parts.push(game.i18n.format(`gg5e_mm.monster.common.type.${description.type.category}`).toLowerCase());
-        }
-        const tags = description.tags ? description.tags.split(",").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
-        if (tags.length > 0) {
-            parts.push(`(${tags.join(", ")})`);
-        }
+		const parts = [];
+		parts.push(game.i18n.format(`gg5e_mm.monster.common.size.${description.size}`));
+		if (description.type.category === "custom") {
+			if (description.type.custom.trim().length > 0) {
+				parts.push(description.type.custom);
+			}
+		} else {
+			parts.push(game.i18n.format(`gg5e_mm.monster.common.type.${description.type.category}`).toLowerCase());
+		}
+		const tags = description.tags ? description.tags.split(",").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
+		if (tags.length > 0) {
+			parts.push(`(${tags.join(", ")})`);
+		}
 		const alignment = game.i18n.format(`gg5e_mm.monster.common.alignment.${description.alignment}`).toLowerCase();
-        return `${parts.join(' ')}, ${alignment}`;
-    }
+		return `${parts.join(' ')}, ${alignment}`;
+	}
 	
 	function _parseLevel(level) {
-        return game.i18n.format('gg5e_mm.monster.view.level', { level: level });
-    }
+		return game.i18n.format('gg5e_mm.monster.view.level', { level: level });
+	}
 
-    function _parseRank(rank) {
-        let name = (rank.type == "custom") ? rank.custom_name : game.i18n.format(`gg5e_mm.monster.common.rank.${rank.type}`);
+	function _parseRank(rank) {
+		let name = (rank.type == "custom") ? rank.custom_name : game.i18n.format(`gg5e_mm.monster.common.rank.${rank.type}`);
 		if (!name || name.trim().length == 0 ) {
 			name = "???";
 		}
-        if (rank.modifiers.scale_with_players && rank.modifiers.target_players != 1) {
-            name = game.i18n.format(
+		if (rank.modifiers.scale_with_players && rank.modifiers.target_players != 1) {
+			name = game.i18n.format(
 				`gg5e_mm.monster.view.rank.vs`,
 				{ name: name, players: rank.modifiers.target_players }
 			);
@@ -95,24 +95,24 @@ const MonsterFactory = (function() {
 		return {
 			name: name,
 			threat: rank.modifiers.threat
-        };
-    }
+		};
+	}
 
 	function _parsePhase(rank) {
-        if (rank.modifiers.has_phases && rank.modifiers.phases.maximum > 1) {
-            return game.i18n.format('gg5e_mm.monster.view.phase', rank.modifiers.phases);
-        } else {
-            return null;
-        }
-    }
+		if (rank.modifiers.has_phases && rank.modifiers.phases.maximum > 1) {
+			return game.i18n.format('gg5e_mm.monster.view.phase', rank.modifiers.phases);
+		} else {
+			return null;
+		}
+	}
 
-    function _parseRole(role) {
+	function _parseRole(role) {
 		const name = (role.type == "custom") ? role.custom_name : game.i18n.format(`gg5e_mm.monster.common.role.${role.type}`);
-        return {
-            name: (!name || name.trim().length == 0 ) ? "???" : name,
-            icon: role.modifiers.icon
-        };
-    }
+		return {
+			name: (!name || name.trim().length == 0 ) ? "???" : name,
+			icon: role.modifiers.icon
+		};
+	}
 
 	function _parseHitPoints(derivedAttributes, hitPoints) {
 		const maximumHp = derivedAttributes.maximumHitPoints;
@@ -124,7 +124,7 @@ const MonsterFactory = (function() {
 			temporary: Math.max(hitPoints.temporary, 0),
 			maximum: maximumHp
 		};
-    }
+	}
 
 	function _parseArmorClass(derivedAttributes, armorClass) {
 		const ac = derivedAttributes.armorClass;
@@ -132,7 +132,7 @@ const MonsterFactory = (function() {
 		ac.setMinimumValue(1);
 
 		return $.extend(ac, { type: armorClass.type });
-    }
+	}
 
 	function _parseAttackBonus(derivedAttributes, attackBonus) {
 		const ab = derivedAttributes.attackBonus;
@@ -140,20 +140,20 @@ const MonsterFactory = (function() {
 		ab.setMinimumValue(1);
 
 		return $.extend(ab, { type: attackBonus.type });
-    }
+	}
 
 	function _parseAttackDcs(derivedAttributes, attackDcs) {
-        const dcs = derivedAttributes.attackDcs;
+		const dcs = derivedAttributes.attackDcs;
 		dcs.primary.applyModifier(attackDcs.primary.modifier, attackDcs.primary.override);
 		dcs.primary.setMinimumValue(0);
 		dcs.secondary.applyModifier(attackDcs.secondary.modifier, attackDcs.secondary.override);
 		dcs.secondary.setMinimumValue(0);
 
-        return {
-            primary: $.extend(dcs.primary, { type: attackDcs.primary.type }),
-            secondary: $.extend(dcs.secondary, { type: attackDcs.secondary.type })
-        };
-    }
+		return {
+			primary: $.extend(dcs.primary, { type: attackDcs.primary.type }),
+			secondary: $.extend(dcs.secondary, { type: attackDcs.secondary.type })
+		};
+	}
 
 	function _parseDamagePerAction(derivedAttributes, damagePerAction) {
 		const damage = derivedAttributes.damagePerAction;
@@ -162,11 +162,11 @@ const MonsterFactory = (function() {
 
 		const dice = Dice.getDiceRoll(damage.value, damagePerAction.die_size, damagePerAction.maximum_dice);
 
-        return $.extend(damage, {
+		return $.extend(damage, {
 			dice: dice ? dice : "—",
 			type: damagePerAction.type
 		});
-    }
+	}
 
 	function _parseAbilityModifiers(derivedAttributes, abilityModifiers) {
 		const ams = {};
@@ -186,8 +186,8 @@ const MonsterFactory = (function() {
 			});
 		}
 
-        return ams;
-    }
+		return ams;
+	}
 
 	function _parseSavingThrows(derivedAttributes, savingThrows) {
 		const sts = {};
@@ -207,8 +207,8 @@ const MonsterFactory = (function() {
 			});
 		}
 
-        return sts;
-    }
+		return sts;
+	}
 
 	function _parseProficiency(derivedAttributes, proficiencyBonus) {
 		const prof = new DerivedAttribute();
@@ -217,8 +217,8 @@ const MonsterFactory = (function() {
 		prof.applyModifier(proficiencyBonus.modifier, proficiencyBonus.override);
 		prof.setMinimumValue(1);
 
-        return prof;
-    }
+		return prof;
+	}
 
 	function _parseSkills(proficiencyBonus, abilityModifiers, monsterSkills) {
 		let skills = [];
@@ -284,7 +284,7 @@ const MonsterFactory = (function() {
 		}
 
 		return speeds;
-    }
+	}
 
 	function _parseSenses(monsterSenses) {
 		const senses = [];
@@ -309,7 +309,7 @@ const MonsterFactory = (function() {
 		}
 
 		return senses;
-    }
+	}
 
 	function _parsePassivePerception(skills, abilityModifiers, passivePerception) {
 		const basePerc = 10;
@@ -330,8 +330,8 @@ const MonsterFactory = (function() {
 		percep.applyModifier(passivePerception.modifier, passivePerception.override);
 		percep.setMinimumValue(1);
 
-        return percep;
-    }
+		return percep;
+	}
 
 	function _parseCollection(collection, options, key) {
 		let output = [];

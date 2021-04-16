@@ -1,7 +1,7 @@
 export const DEFAULT_SPEEDS = [
-    "walk",
-    "burrow",
-    "climb",
-    "fly",
-    "swim"
+	"walk",
+	"burrow",
+	"climb",
+	"fly",
+	"swim"
 ];

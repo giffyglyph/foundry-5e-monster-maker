@@ -1,0 +1,40 @@
+<div class="accordion-section" data-section="hit_points">
+	<div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.hit_points.title'}}</div>
+	<div class="accordion-section__body">
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.hit_points.current'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.hit_points.current" type="number" min="0" value="{{data.gg5e_mm.blueprint.data.hit_points.current}}"/>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="form-group__header">
+				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.hit_points.temporary'}}</span>
+			</div>
+			<div class="form-group__body">
+				<input name="data.gg5e_mm.blueprint.data.hit_points.temporary" type="number" min="0" value="{{data.gg5e_mm.blueprint.data.hit_points.temporary}}"/>
+			</div>
+		</div>
+		<div class="form-fieldset">
+			<div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.hit_points.maximum'}}</div>
+			<div class="form-fieldset__body">
+				<div class="form-group form-group--modifier">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.monster.options.hit_points.modifier'}}</span>
+						<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
+							<i class="fas fa-question"></i>
+						</button>
+					</div>
+					<div class="form-group__body">
+						<input name="data.gg5e_mm.blueprint.data.hit_points.maximum.modifier" type="number" value="{{data.gg5e_mm.blueprint.data.hit_points.maximum.modifier}}"/>
+						<label class="checkbox">
+							<input type="checkbox" name="data.gg5e_mm.blueprint.data.hit_points.maximum.override" {{#if data.gg5e_mm.blueprint.data.hit_points.maximum.override}}checked{{/if}}/> {{localize 'gg5e_mm.monster.options.is_fixed'}}
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

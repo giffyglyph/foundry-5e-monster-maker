@@ -1,69 +1,69 @@
 .gg5e-mm-sheet {
-    background: black;
-    font-family: 'Source Sans Pro';
-    padding: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
+	background: black;
+	font-family: 'Source Sans Pro';
+	padding: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
 
-    .sheet__body {
-        flex-grow: 1;
-        border-radius: 1rem;
-        display: flex;
-        overflow: hidden;
-    }
+	.sheet__body {
+		flex-grow: 1;
+		border-radius: 1rem;
+		display: flex;
+		overflow: hidden;
+	}
 
-    .sheet__footer {
-        margin-top: 0.5rem;
-        display: flex;
-        justify-content: space-between;
-    }
+	.sheet__footer {
+		margin-top: 0.5rem;
+		display: flex;
+		justify-content: space-between;
+	}
 
-    .sheet__id {
-        color: white;
-        text-transform: uppercase;
-        font-weight: bold;
-        line-height: 1;
+	.sheet__id {
+		color: white;
+		text-transform: uppercase;
+		font-weight: bold;
+		line-height: 1;
 
-        .id,
-        .name {
-            display: flex;
-            align-items: center;
+		.id,
+		.name {
+			display: flex;
+			align-items: center;
 
-            &::before {
-                content: '';
-                background: white;
-                width: 6px;
-                display: inline-block;
-                height: 6px;
-                border-radius: 1rem;
-                margin-right: 0.4rem;
-            }
-        }
-    }
+			&::before {
+				content: '';
+				background: white;
+				width: 6px;
+				display: inline-block;
+				height: 6px;
+				border-radius: 1rem;
+				margin-right: 0.4rem;
+			}
+		}
+	}
 
-    .sheet__controls {
-        display: flex;
+	.sheet__controls {
+		display: flex;
 
-        button {
-            background: white;
-            border: none;
-            box-shadow: none;
-            height: 2rem;
-            width: 2rem;
-            padding: 0;
-            border-radius: 1rem;
-            margin: 0;
-            cursor: pointer;
+		button {
+			background: white;
+			border: none;
+			box-shadow: none;
+			height: 2rem;
+			width: 2rem;
+			padding: 0;
+			border-radius: 1rem;
+			margin: 0;
+			cursor: pointer;
 
-            i {
-                margin: 0;
-            }
+			i {
+				margin: 0;
+			}
 
-            + * {
-                margin-left: 0.25rem;
-            }
-        }
-    }
+			+ * {
+				margin-left: 0.25rem;
+			}
+		}
+	}
 }

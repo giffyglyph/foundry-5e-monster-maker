@@ -1,20 +1,65 @@
 <div class="gg5e-mm-sheet {{cssClass}}">
-    <div class="sheet__body">
-        <form class="gg5e-mm-panes" autocomplete="off">
-            {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/view.html" }}
-            {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/options.html" }}
-        </form>
-    </div>
-    <div class="sheet__footer">
-        <div class="sheet__id">
-            <span class="id">{{actor._id}}</span>
-            <span class="name">Giffyglyph's 5e Monster Maker</span>
-        </div>
-        <nav class="sheet__controls" data-group="primary">
-            <button type="button" class="toggle-mode--edit"><i class="fas fa-cogs"></i></button>
-        </nav>
-    </div>
-    <div class="sheet__modals">
-        {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/core/modals.html" }}
-    </div>
+	<div class="sheet__body">
+		<form class="gg5e-mm-panes" autocomplete="off">
+			<div class="pane pane--view gg5e-mm-monster">
+				<div class="pane__header monster__header">
+					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html" }}
+				</div>
+				<div class="pane__body monster__body" id="monster-body">
+					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html" }}
+					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html" }}
+				</div>
+			</div>
+			<div class="pane pane--edit gg5e-mm-monster-options">
+				<div class="pane__header options__header">
+					<div class="pane__icon"><i class="fas fa-cogs"></i></div>
+					<div class="pane__title">{{localize 'gg5e_mm.monster.options.title'}}</div>
+				</div>
+				<div class="pane__body options__body" id="options-body">
+					<div class="gg5e-mm-accordion gg5e-mm-form form--options" id="accordion-builder">
+						<input type="hidden" name="data.gg5e_mm.gui.data.accordions.accordion_builder" value="{{data.gg5e_mm.gui.data.accordions.accordion_builder}}"/>
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/perception.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_bonus.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_dcs.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/abilities.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/saving_throws.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/proficiency.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/speeds.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/senses.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/languages.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_immunities.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_resistances.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_vulnerabilities.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/condition_immunities.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/skills.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/cr.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html" }}
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="sheet__footer">
+		<div class="sheet__id">
+			<span class="id">{{actor._id}}</span>
+			<span class="name">Giffyglyph's 5e Monster Maker</span>
+		</div>
+		<nav class="sheet__controls" data-group="primary">
+			<button type="button" class="toggle-mode--edit"><i class="fas fa-cogs"></i></button>
+		</nav>
+	</div>
+	<div class="sheet__modals">
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_modifiers.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_ranks.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_random_damage.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_static_damage.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifiers.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/tags.html" }}
+	</div>
 </div>

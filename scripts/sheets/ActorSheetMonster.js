@@ -27,8 +27,8 @@ export default class ActorSheetMonster extends ActorSheet {
 		);
 	}
 
-    getData() {
-        const data = super.getData();
+	getData() {
+		const data = super.getData();
 
 		// Prepare essential monster/gui data
 		let gui = Gui.prepareGui(this._getDefaultGui(), data.data.gg5e_mm ? data.data.gg5e_mm.gui : null);
@@ -59,8 +59,8 @@ export default class ActorSheetMonster extends ActorSheet {
 			monster: monster
 		};
 
-        return data;
-    }
+		return data;
+	}
 
 	activateListeners(html) {
 		super.activateListeners(html);
