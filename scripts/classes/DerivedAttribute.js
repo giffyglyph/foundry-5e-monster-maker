@@ -27,6 +27,11 @@ class DerivedAttribute {
 		}
 	}
 
+	set(value, source) {
+		this.value = value;
+		this.sources.push({ value: `=${value}`, source: source});
+	}
+
 	ceil() {
 		this.value = Math.ceil(this.value);
 	}
@@ -37,8 +42,7 @@ class DerivedAttribute {
 
 	setMinimumValue(value) {
 		if (this.value < value) {
-			this.value = value;
-			this.setSource(1, game.i18n.format('gg5e_mm.monster.source.minimum_allowed'));
+			this.set(value, game.i18n.format('gg5e_mm.monster.source.minimum_allowed'));
 		};
 	}
 
