@@ -1,46 +1,47 @@
-<div class="modal" id="modal_basic_attack">
+<div class="gg5e-mm-modal modal--basic-attack" id="modal_basic_attack">
 	<div class="modal__dialog">
+		<div class="modal__icon"><i class="fas fa-crosshairs"></i></div>
 		<div class="modal__header">
-			<span class="modal__title">{{localize 'gg5e_mm.modal.basic_attack.title'}}</span>
+			<div class="modal__title">{{localize 'gg5e_mm.modal.basic_attack.title'}}</div>
 			<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 		</div>
 		<div class="modal__body">
-			<div class="gg5e-mm-form form--modal form--horizontal">
-				<div class="form-group">
-					<div class="form-group__header">
-						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_attack.modifier'}}</span>
-					</div>
-					<div class="form-group__body">
-						<input name="modifier" type="number" value="{{data.gg5e_mm.monster.data.attack_bonus.value}}" disabled/>
-					</div>
-				</div>
+			<form class="gg5e-mm-form form--modal form--horizontal">
 				<div class="form-group">
 					<div class="form-group__header">
 						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_attack.bonus'}}</span>
 					</div>
 					<div class="form-group__body">
-						<input name="bonus" type="text" placeholder="e.g. +1d4"/>
+						<input name="bonus" value="{{numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true}}" readonly/>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="form-group__header">
-						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_attack.roll_mode.title'}}</span>
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.common.modifiers.title'}}</span>
+					</div>
+					<div class="form-group__body">
+						<input name="modifiers" type="text" placeholder="{{localize 'gg5e_mm.modal.common.modifiers.placeholder'}}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.common.roll_mode.title'}}</span>
 					</div>
 					<div class="form-group__body">
 						<select name="mode">
-							<option value="roll" selected="">{{localize 'gg5e_mm.modal.basic_attack.roll_mode.roll'}}</option>
-							<option value="gmroll">{{localize 'gg5e_mm.modal.basic_attack.roll_mode.gmroll'}}</option>
-							<option value="blindroll">{{localize 'gg5e_mm.modal.basic_attack.roll_mode.blindroll'}}</option>
-							<option value="selfroll">{{localize 'gg5e_mm.modal.basic_attack.roll_mode.selfroll'}}</option>
+							<option value="roll" selected="">{{localize 'gg5e_mm.modal.common.roll_mode.roll'}}</option>
+							<option value="gmroll">{{localize 'gg5e_mm.modal.common.roll_mode.gmroll'}}</option>
+							<option value="blindroll">{{localize 'gg5e_mm.modal.common.roll_mode.blindroll'}}</option>
+							<option value="selfroll">{{localize 'gg5e_mm.modal.common.roll_mode.selfroll'}}</option>
 						</select>
 					</div>
 				</div>
-			</div>
+			</form>
 		</div>
 		<div class="modal__footer">
-			<button class="modal__button" data-action="roll-disadvantage">Disadvantage</button>
-			<button class="modal__button" data-action="roll-normal">Normal</button>
-			<button class="modal__button" data-action="roll-advantage">Advantage</button>
+			<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gg5e_mm.modal.common.button.roll'}}</button>
+			<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gg5e_mm.modal.common.button.disadvantage'}}</button>
+			<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gg5e_mm.modal.common.button.advantage'}}</button>
 		</div>
 	</div>
 </div>

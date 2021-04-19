@@ -1,6 +1,9 @@
 import Blueprint from "../classes/Blueprint.js";
-import Gui from "../classes/Gui.js";
 import Factory from "../classes/Factory.js";
+import Gui from "../classes/Gui.js";
+import ModalBasicAttack from "../modals/ModalBasicAttack.js";
+import ModalRandomDamage from "../modals/ModalRandomDamage.js";
+import ModalStaticDamage from "../modals/ModalStaticDamage.js";
 import { DEFAULT_ABILITIES } from "../consts/DefaultAbilities.js";
 import { DEFAULT_ALIGNMENTS } from "../consts/DefaultAlignments.js";
 import { DEFAULT_CATEGORIES } from "../consts/DefaultCategories.js";
@@ -68,8 +71,8 @@ export default class ActorSheetMonster extends ActorSheet {
 		html.find('.toggle-mode--edit').click(this._toggleModeEdit.bind(this));
 		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
-		html.find('#modal_basic_attack .modal__footer button').click(this._rollBasicAttack.bind(this));
-		html.find('#modal_basic_random_damage .modal__footer button, #modal_basic_static_damage .modal__footer button').click(this._rollBasicDamage.bind(this));
+
+		[ModalBasicAttack, ModalRandomDamage, ModalStaticDamage].forEach((x) => x.activateListeners(html, this.actor, this.id));
 
 		let guiData = this.object.data.data.gg5e_mm ? this.object.data.data.gg5e_mm.gui : Gui.prepareGui(this._getDefaultGui());
 		Gui.setAccordions(html, guiData.data.accordions);
@@ -130,89 +133,6 @@ export default class ActorSheetMonster extends ActorSheet {
 				}
 			}
 		}
-	}
-
-	_makeARoll(event, message) {
-		const li = event.currentTarget.closest("button");
-		const modal = event.currentTarget.closest(".modal");
-		const advantage = li.dataset.action;
-		const modifier = modal.querySelector("[name='modifier']").value;
-		const bonus = modal.querySelector("[name='bonus']").value;
-		const mode = modal.querySelector("[name='mode']").value;
-
-		try {
-			const rollParts = [];
-			const messageParts = [message];
-			switch (advantage) {
-				case "roll-advantage":
-					rollParts.push("2d20kh");
-					messageParts.push("(advantage)");
-					break;
-				case "roll-disadvantage":
-					rollParts.push("2d20kl");
-					messageParts.push("(disadvantage)");
-					break;
-				default: 
-					rollParts.push("1d20");
-					break;
-			}
-			rollParts.push(modifier);
-			if (bonus) {
-				rollParts.push(bonus);
-			}
-			const roll = new Roll(rollParts.join(" + ")).roll();
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({actor: this.actor}),
-				flavor: messageParts.join(" "),
-				messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
-				rollMode: mode
-			});
-		} catch(err) {
-			console.log(err);
-			return;
-		}
-
-		Gui.closeModal(event);
-	}
-
-	_rollBasicAttack(event) {
-		this._makeARoll(event, "Attack vs AC");
-	}
-
-	_rollBasicDamage(event) {
-		const li = event.currentTarget.closest("button");
-		const modal = event.currentTarget.closest(".modal");
-		const critical = li.dataset.action;
-		const modifier = modal.querySelector("[name='modifier']").value;
-		const bonus = modal.querySelector("[name='bonus']").value;
-		const mode = modal.querySelector("[name='mode']").value;
-
-		try {
-			const rollParts = [];
-			const messageParts = ["Damage"];
-			switch (critical) {
-				case "roll-critical":
-					rollParts.push(modifier);
-					messageParts.push("(critical)");
-					break;
-			}
-			rollParts.push(modifier);
-			if (bonus) {
-				rollParts.push(bonus);
-			}
-			const roll = new Roll(rollParts.join(" + ")).roll();
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({actor: this.actor}),
-				flavor: messageParts.join(" "),
-				messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
-				rollMode: mode
-			});
-		} catch(err) {
-			console.log(err);
-			return;
-		}
-
-		Gui.closeModal(event);
 	}
 
   	_updateObject(event, form) {

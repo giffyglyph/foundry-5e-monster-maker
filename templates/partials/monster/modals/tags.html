@@ -1,19 +1,21 @@
-<div class="modal" id="modal_tags">
+<div class="gg5e-mm-modal" id="modal_tags">
 	<div class="modal__dialog">
+		<div class="modal__icon"><i class="fas fa-tag"></i></div>
 		<div class="modal__header">
-			<span class="modal__title">Monster Tags</span>
+			<div class="modal__title">{{localize 'gg5e_mm.modal.info.tags.title'}}</div>
 			<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 		</div>
 		<div class="modal__body">
-			<p>Create <i>tags</i> to define categories and sub-types for your monster—ancestries, power sources, elements, factions, affiliations, etc.</p>
-			<hr/>
-			<p>You can create multiple tags by separating each with a comma—for example:</p>
+			<p>{{{localize 'gg5e_mm.modal.info.tags.p.1'}}}</p>
+			<p>{{localize 'gg5e_mm.modal.info.tags.p.2'}}</p>
 			<pre class="text--center">
-				val1, second value, thirdValue
+				{{localize 'gg5e_mm.modal.info.tags.pre.1'}}
 			</pre>
 		</div>
 		<div class="modal__footer">
-			<button class="modal__button" data-action="close-modal">Ok</button>
+			<button class="modal__button" data-action="close-modal">
+				<i class="fas fa-check"></i> {{localize 'gg5e_mm.modal.common.button.ok'}}
+			</button>
 		</div>
 	</div>
 </div>

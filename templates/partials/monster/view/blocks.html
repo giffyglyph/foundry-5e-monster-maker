@@ -111,7 +111,7 @@
 			<div class="block__title">{{localize 'gg5e_mm.monster.view.blocks.damage.title'}}</div>
 			<div class="block__contents">
 				<div class="block__content static">
-					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gg5e_mm.monster.data.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_basic_static_damage">
+					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gg5e_mm.monster.data.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_static_damage">
 						<i class="fas fa-fire"></i> {{data.gg5e_mm.monster.data.damage_per_action.value}}
 					</button>
 					{{#unless data.gg5e_mm.monster.data.damage_per_action.type}}
@@ -121,7 +121,7 @@
 					{{/unless}}
 				</div>
 				<div class="block__content random">
-					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.dice}}" data-action="open-modal" data-modal="modal_basic_random_damage">
+					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.dice}}" data-action="open-modal" data-modal="modal_random_damage">
 						<i class="fas fa-dice"></i> <span class="roll">{{data.gg5e_mm.monster.data.damage_per_action.dice}}</span>
 					</button>
 					{{#unless data.gg5e_mm.monster.data.damage_per_action.type}}

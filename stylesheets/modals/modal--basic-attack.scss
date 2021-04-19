@@ -1,0 +1,18 @@
+.gg5e-mm-modal.modal--basic-attack {
+
+    .modal__footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 0.25rem;
+        grid-row-gap: 0.5rem;
+
+        button {
+            margin: 0;
+        }
+
+        button:first-child {
+            grid-column: 1 / span 2;
+        }
+    }
+
+}

@@ -2,8 +2,16 @@
 
 	&.form--modal {
 
-		.form-group + * {
-			margin-top: 1rem;
+		.form-group {
+			margin: 0;
+
+			> * {
+				flex: 0 1 auto;
+			}
+
+			+ * {
+				margin-top: 1rem;
+			}
 		}
 
 		.form-group__header {
@@ -26,9 +34,21 @@
 				margin: 0;
 				height: 2.25rem;
 
-				&:disabled {
-					background: mix($primary-tone-1, white, 15%);
+				&::placeholder {
+					color: mix($primary-tone-1, white, 40%);
 				}
+
+				&:focus {
+					box-shadow: none;
+					border-color: $primary-tint-1;
+				}
+			}
+
+			input:disabled,
+			select:disabled,
+			input:read-only {
+				background: mix($primary-tone-1, white, 15%);
+				border-color: mix($primary-tone-1, white, 15%);
 			}
 
 			select {
@@ -48,7 +68,7 @@
 		}
 
 		.form-group__header {
-			width: 10rem;
+			width: 8rem;
 			line-height: 2;
 			margin: 0;
 			white-space: nowrap;

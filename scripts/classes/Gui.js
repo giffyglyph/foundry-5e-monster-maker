@@ -55,12 +55,12 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_modifier.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/skill.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_modifiers.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_ranks.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_random_damage.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_static_damage.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifiers.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifying_abilities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ranked_abilities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/tags.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/abilities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html",
@@ -141,7 +141,7 @@ const Gui = (function() {
 	}
 
 	function closeModal(event) {
-		const modal = event.currentTarget.closest(".modal");
+		const modal = event.currentTarget.closest(".gg5e-mm-modal");
 		modal.classList.remove("open");
 	}
 
