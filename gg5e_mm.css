@@ -371,21 +371,73 @@
   border-color: #e4ebef; }
 
 .gg5e-mm-form.form--modal .form-group__body select {
-  padding-left: 0.5rem; }
+  padding-left: 0.5rem;
+  font-size: inherit; }
+
+.gg5e-mm-form.form--modal .form-group__body .radios--grid {
+  display: grid;
+  grid-column-gap: 0.25rem;
+  grid-row-gap: 0.25rem; }
+  .gg5e-mm-form.form--modal .form-group__body .radios--grid .radio {
+    display: flex;
+    text-align: center;
+    overflow: hidden;
+    align-items: center; }
+    .gg5e-mm-form.form--modal .form-group__body .radios--grid .radio > span {
+      border: 2px solid #e4ebef;
+      border-radius: 0.75rem;
+      display: block;
+      flex-grow: 1; }
+    .gg5e-mm-form.form--modal .form-group__body .radios--grid .radio i {
+      color: #327fad; }
+    .gg5e-mm-form.form--modal .form-group__body .radios--grid .radio input {
+      display: none; }
+      .gg5e-mm-form.form--modal .form-group__body .radios--grid .radio input:checked ~ span {
+        background: #d6e5ef;
+        border-color: #d6e5ef; }
+    .gg5e-mm-form.form--modal .form-group__body .radios--grid .radio:hover input:not(:checked) ~ span {
+      background: #ad6032;
+      border-color: #ad6032;
+      color: white; }
+      .gg5e-mm-form.form--modal .form-group__body .radios--grid .radio:hover input:not(:checked) ~ span i {
+        color: white; }
+
+.gg5e-mm-form.form--modal .form-group__body .radio {
+  display: flex;
+  cursor: pointer;
+  align-items: center; }
+  .gg5e-mm-form.form--modal .form-group__body .radio span {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; }
+
+.gg5e-mm-form.form--modal .form-group__body input[type="radio"] {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: -0.25rem;
+  margin-right: 0.35rem;
+  flex-shrink: 0; }
+  .gg5e-mm-form.form--modal .form-group__body input[type="radio"]:hover {
+    cursor: pointer; }
+  .gg5e-mm-form.form--modal .form-group__body input[type="radio"]:focus {
+    outline: none; }
 
 .gg5e-mm-form.form--horizontal .form-group {
-  display: flex; }
+  display: flex;
+  flex-wrap: nowrap; }
   .gg5e-mm-form.form--horizontal .form-group + * {
     margin-top: 0.5rem; }
 
 .gg5e-mm-form.form--horizontal .form-group__header {
-  width: 8rem;
+  width: 7rem;
   line-height: 2;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  flex-shrink: 0; }
+  flex-shrink: 0;
+  padding-top: 2px;
+  align-self: flex-start; }
 
 .gg5e-mm-form.form--horizontal .form-group__body {
   flex-grow: 1;
@@ -546,7 +598,7 @@
   .gg5e-mm-modal:not(.open) {
     display: none; }
   .gg5e-mm-modal .modal__dialog {
-    width: 27rem;
+    width: 29rem;
     box-shadow: 0 3px 0 0 black;
     border-radius: 0 0 1rem 1rem;
     overflow: hidden; }
@@ -624,7 +676,7 @@
       border-color: #e4ebef;
       border-bottom: none; }
   .gg5e-mm-modal .modal__footer {
-    border-top: 1px solid #e4ebef;
+    border-top: 1px dotted #e4ebef;
     background: white;
     padding: 1rem 2rem calc(2rem + 3px);
     display: flex;
@@ -1187,15 +1239,54 @@
     padding: 0;
     border-radius: 1rem; }
 
-.gg5e-mm-modal.modal--basic-attack .modal__footer {
+.gg5e-mm-modal.modal--basic-attack-ac .modal__footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 0.25rem;
   grid-row-gap: 0.5rem; }
-  .gg5e-mm-modal.modal--basic-attack .modal__footer button {
+  .gg5e-mm-modal.modal--basic-attack-ac .modal__footer button {
     margin: 0; }
-  .gg5e-mm-modal.modal--basic-attack .modal__footer button:first-child {
-    grid-column: 1 / span 2; }
+    .gg5e-mm-modal.modal--basic-attack-ac .modal__footer button:first-child {
+      grid-column: 1 / span 2; }
+
+.gg5e-mm-modal.modal--basic-attack-save .attacks {
+  grid-template-columns: repeat(2, 1fr); }
+  .gg5e-mm-modal.modal--basic-attack-save .attacks .attack > span {
+    padding: 0.5rem; }
+  .gg5e-mm-modal.modal--basic-attack-save .attacks .attack__title,
+  .gg5e-mm-modal.modal--basic-attack-save .attacks .attack__dc {
+    display: block;
+    line-height: 1; }
+  .gg5e-mm-modal.modal--basic-attack-save .attacks .attack__dc {
+    font-size: larger;
+    font-weight: bold; }
+  .gg5e-mm-modal.modal--basic-attack-save .attacks .attack__title {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 0.25rem; }
+
+.gg5e-mm-modal.modal--basic-attack-save .defences {
+  grid-template-columns: repeat(3, 1fr); }
+  .gg5e-mm-modal.modal--basic-attack-save .defences .defence {
+    text-transform: uppercase; }
+    .gg5e-mm-modal.modal--basic-attack-save .defences .defence > span {
+      padding: 0.25rem; }
+
+.gg5e-mm-modal.modal--basic-damage .damages {
+  grid-template-columns: repeat(2, 1fr); }
+  .gg5e-mm-modal.modal--basic-damage .damages .damage > span {
+    padding: 0.5rem; }
+  .gg5e-mm-modal.modal--basic-damage .damages .damage__title,
+  .gg5e-mm-modal.modal--basic-damage .damages .damage__value {
+    display: block;
+    line-height: 1; }
+  .gg5e-mm-modal.modal--basic-damage .damages .damage__value {
+    font-size: larger;
+    font-weight: bold; }
+  .gg5e-mm-modal.modal--basic-damage .damages .damage__title {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 0.25rem; }
 
 .gg5e-mm-window--monster {
   width: 540px !important; }

@@ -65,7 +65,7 @@
 			<div class="block__title">{{localize 'gg5e_mm.monster.view.blocks.attack_bonus.title'}}</div>
 			<div class="block__contents">
 				<div class="block__content">
-					<button class="block__value button--text length-{{strlen (numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true)}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_bonus.sources}}}" data-action="open-modal" data-modal="modal_basic_attack">
+					<button class="block__value button--text length-{{strlen (numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true)}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_bonus.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_ac">
 						<i class="fas fa-crosshairs"></i> {{numberFormat data.gg5e_mm.monster.data.attack_bonus.value sign=true}}
 					</button>
 					<div class="block__description">
@@ -82,9 +82,9 @@
 			<div class="block__title">{{localize 'gg5e_mm.monster.view.blocks.attack_dcs.title'}}</div>
 			<div class="block__contents">
 				<div class="block__content">
-					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.primary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.primary.sources}}}">
+					<button class="block__value button--text button--primary-dc length-{{strlen data.gg5e_mm.monster.data.attack_dcs.primary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.primary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
 						<i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.primary.value}}
-					</div>
+					</button>
 					<div class="block__description">
 						{{#if data.gg5e_mm.monster.data.attack_dcs.primary.type}}
 							{{data.gg5e_mm.monster.data.attack_dcs.primary.type}}
@@ -94,9 +94,9 @@
 					</div>
 				</div>
 				<div class="block__content">
-					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.attack_dcs.secondary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.secondary.sources}}}">
+					<button class="block__value button--text button--secondary-dc length-{{strlen data.gg5e_mm.monster.data.attack_dcs.secondary.value}}" title="{{{parseSources data.gg5e_mm.monster.data.attack_dcs.secondary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
 						<i class="fas fa-bullseye"></i> {{data.gg5e_mm.monster.data.attack_dcs.secondary.value}}
-					</div>
+					</button>
 					<div class="block__description">
 						{{#if data.gg5e_mm.monster.data.attack_dcs.secondary.type}}
 							{{data.gg5e_mm.monster.data.attack_dcs.secondary.type}}
@@ -111,7 +111,7 @@
 			<div class="block__title">{{localize 'gg5e_mm.monster.view.blocks.damage.title'}}</div>
 			<div class="block__contents">
 				<div class="block__content static">
-					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gg5e_mm.monster.data.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_static_damage">
+					<button class="block__value button--text button--static-damage length-{{strlen data.gg5e_mm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gg5e_mm.monster.data.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_basic_damage">
 						<i class="fas fa-fire"></i> {{data.gg5e_mm.monster.data.damage_per_action.value}}
 					</button>
 					{{#unless data.gg5e_mm.monster.data.damage_per_action.type}}
@@ -121,7 +121,7 @@
 					{{/unless}}
 				</div>
 				<div class="block__content random">
-					<button class="block__value button--text length-{{strlen data.gg5e_mm.monster.data.damage_per_action.dice}}" data-action="open-modal" data-modal="modal_random_damage">
+					<button class="block__value button--text button--random-damage length-{{strlen data.gg5e_mm.monster.data.damage_per_action.dice}}" data-action="open-modal" data-modal="modal_basic_damage">
 						<i class="fas fa-dice"></i> <span class="roll">{{data.gg5e_mm.monster.data.damage_per_action.dice}}</span>
 					</button>
 					{{#unless data.gg5e_mm.monster.data.damage_per_action.type}}

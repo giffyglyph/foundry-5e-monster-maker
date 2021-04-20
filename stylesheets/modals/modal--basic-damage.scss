@@ -1,0 +1,27 @@
+.gg5e-mm-modal.modal--basic-damage {
+
+    .damages {
+        grid-template-columns: repeat(2, 1fr);
+
+        .damage > span {
+            padding: 0.5rem;
+        }
+
+        .damage__title,
+        .damage__value {
+            display: block;
+            line-height: 1;
+        }
+
+        .damage__value {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .damage__title {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+    }
+}

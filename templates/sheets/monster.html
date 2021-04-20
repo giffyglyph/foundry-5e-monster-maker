@@ -18,6 +18,7 @@
 				<div class="pane__body options__body" id="options-body">
 					<form class="gg5e-mm-accordion gg5e-mm-form form--options" id="accordion-builder" autocomplete="off">
 						<input type="hidden" name="data.gg5e_mm.gui.data.accordions.accordion_builder" value="{{data.gg5e_mm.gui.data.accordions.accordion_builder}}"/>
+						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_abilities" value="{{data.gg5e_mm.gui.data.panels.panel_abilities}}"/>
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html" }}
@@ -56,9 +57,9 @@
 	<div class="sheet__modals">
 		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifying_abilities.html" }}
 		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ranked_abilities.html" }}
-		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack.html" }}
-		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_random_damage.html" }}
-		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_static_damage.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack_ac.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack_save.html" }}
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_damage.html" }}
 		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifiers.html" }}
 		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/tags.html" }}
 	</div>

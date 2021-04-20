@@ -1,4 +1,4 @@
-.gg5e-mm-modal.modal--basic-attack {
+.gg5e-mm-modal.modal--basic-attack-ac {
 
     .modal__footer {
         display: grid;
@@ -8,11 +8,10 @@
 
         button {
             margin: 0;
-        }
 
-        button:first-child {
-            grid-column: 1 / span 2;
+            &:first-child {
+                grid-column: 1 / span 2;
+            }
         }
     }
-
 }

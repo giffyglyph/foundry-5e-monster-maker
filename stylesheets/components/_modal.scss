@@ -18,7 +18,7 @@
 	}
 
 	.modal__dialog {
-		width: 27rem;
+		width: 29rem;
 		box-shadow: 0 3px 0 0 black;
 		border-radius: 0 0 1rem 1rem;
 		overflow: hidden;
@@ -124,7 +124,7 @@
 	}
 
 	.modal__footer {
-		border-top: 1px solid mix($primary-tone-1, white, 15%);
+		border-top: 1px dotted mix($primary-tone-1, white, 15%);
 		background: white;
 		padding: 1rem 2rem calc(2rem + 3px);
 		display: flex;

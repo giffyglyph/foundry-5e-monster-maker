@@ -1,11 +1,11 @@
 import Gui from "../classes/Gui.js";
 
-const ModalBasicAttack = (function() {
+const ModalBasicAttackAc = (function() {
 
 	function activateListeners(html, actor, id) {
 		this.actor = actor;
 		this.id = id;
-		html.find('#modal_basic_attack .modal__footer button').click(_submitForm.bind(this));
+		html.find('#modal_basic_attack_ac .modal__footer button').click(_submitForm.bind(this));
 	}
 
     function _submitForm(event) {
@@ -18,15 +18,15 @@ const ModalBasicAttack = (function() {
 		switch (action) {
 			case "roll-advantage":
 				rollParts.push("2d20kh");
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack.message.advantage'));
+				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack_ac.message.advantage'));
 				break;
 			case "roll-disadvantage":
 				rollParts.push("2d20kl");
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack.message.disadvantage'));
+				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack_ac.message.disadvantage'));
 				break;
 			default: 
 				rollParts.push("1d20");
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack.message.plain'));
+				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack_ac.message.plain'));
 				break;
 		}
 		rollParts.push(form.get("bonus"));
@@ -55,4 +55,4 @@ const ModalBasicAttack = (function() {
 	};
 })();
 
-export default ModalBasicAttack;
+export default ModalBasicAttackAc;

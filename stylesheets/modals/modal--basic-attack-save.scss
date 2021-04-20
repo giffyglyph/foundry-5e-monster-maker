@@ -1,0 +1,39 @@
+.gg5e-mm-modal.modal--basic-attack-save {
+
+    .attacks {
+        grid-template-columns: repeat(2, 1fr);
+
+        .attack > span {
+            padding: 0.5rem;
+        }
+
+        .attack__title,
+        .attack__dc {
+            display: block;
+            line-height: 1;
+        }
+
+        .attack__dc {
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .attack__title {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+    }
+
+    .defences {
+        grid-template-columns: repeat(3, 1fr);
+
+        .defence {
+            text-transform: uppercase;
+
+            > span {
+                padding: 0.25rem;
+            }
+        }
+    }
+}

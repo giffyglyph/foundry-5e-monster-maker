@@ -53,6 +53,81 @@
 
 			select {
 				padding-left: 0.5rem;
+				font-size: inherit;
+			}
+
+			.radios--grid {
+				display: grid;
+				grid-column-gap: 0.25rem;
+				grid-row-gap: 0.25rem;
+
+				.radio {
+					display: flex;
+					text-align: center;
+					overflow: hidden;
+					align-items: center;
+
+					> span {
+						border: 2px solid mix($primary-tone-1, white, 15%);
+						border-radius: 0.75rem;
+						display: block;
+						flex-grow: 1;
+					}
+
+					i {
+						color: $primary-base;
+					}
+
+					input {
+						display: none;
+
+						&:checked ~ span {
+							background: $primary-tint-4;
+							border-color: $primary-tint-4;
+						}
+					}
+
+					&:hover {
+
+						input:not(:checked) ~ span {
+							background: $secondary-base;
+							border-color: $secondary-base;
+							color: white;
+	
+							i {
+								color: white;
+							}
+						}
+					}
+				}
+			}
+
+			.radio {
+				display: flex;
+				cursor: pointer;
+				align-items: center;
+
+				span {
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+			}
+
+			input[type="radio"] {
+				height: 1.5rem;
+				width: 1.5rem;
+				margin-top: -0.25rem;
+				margin-right: 0.35rem;
+				flex-shrink: 0;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&:focus {
+					outline: none;
+				}
 			}
 		}
 	}
@@ -61,6 +136,7 @@
 		
 		.form-group {
 			display: flex;
+			flex-wrap: nowrap;
 
 			+ * {
 				margin-top: 0.5rem;
@@ -68,13 +144,15 @@
 		}
 
 		.form-group__header {
-			width: 8rem;
+			width: 7rem;
 			line-height: 2;
 			margin: 0;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			flex-shrink: 0;
+			padding-top: 2px;
+			align-self: flex-start;
 		}
 
 		.form-group__body {

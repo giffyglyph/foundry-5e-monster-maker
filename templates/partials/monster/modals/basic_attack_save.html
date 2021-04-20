@@ -1,0 +1,95 @@
+<div class="gg5e-mm-modal modal--basic-attack-save" id="modal_basic_attack_save">
+	<div class="modal__dialog">
+		<div class="modal__icon"><i class="fas fa-bullseye"></i></div>
+		<div class="modal__header">
+			<div class="modal__title">{{localize 'gg5e_mm.modal.basic_attack_save.title'}}</div>
+			<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+		</div>
+		<div class="modal__body">
+			<form class="gg5e-mm-form form--modal form--horizontal">
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_attack_save.attack'}}</span>
+					</div>
+					<div class="form-group__body">
+						<div class="radios radios--grid attacks">
+							<label class="radio attack">
+								<input type="radio" name="attack" value="primary" class="radio--primary" checked/>
+								<span>
+									<span class="attack__dc">DC {{data.gg5e_mm.monster.data.attack_dcs.primary.value}}</span>
+									<span class="attack__title">{{localize 'gg5e_mm.modal.basic_attack_save.primary'}}</span>
+								</span>
+							</label>
+							<label class="radio attack">
+								<input type="radio" name="attack" value="secondary" class="radio--secondary"/>
+								<span>
+									<span class="attack__dc">DC {{data.gg5e_mm.monster.data.attack_dcs.secondary.value}}</span>
+									<span class="attack__title">{{localize 'gg5e_mm.modal.basic_attack_save.secondary'}}</span>
+								</span>
+							</label>
+							<input type="hidden" name="primary" value="{{data.gg5e_mm.monster.data.attack_dcs.primary.value}}"/>
+							<input type="hidden" name="secondary" value="{{data.gg5e_mm.monster.data.attack_dcs.secondary.value}}"/>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.basic_attack_save.defence'}}</span>
+					</div>
+					<div class="form-group__body">
+						<div class="radios radios--grid defences">
+							<label class="radio defence">
+								<input type="radio" name="defence" value="str" checked/>
+								<span><i class="fas {{localize 'gg5e_mm.monster.common.ability.str.icon'}} fa-fw"></i> {{localize 'gg5e_mm.monster.common.ability.str.code'}}</span>
+							</label>
+							<label class="radio defence">
+								<input type="radio" name="defence" value="dex"/>
+								<span><i class="fas {{localize 'gg5e_mm.monster.common.ability.dex.icon'}} fa-fw"></i> {{localize 'gg5e_mm.monster.common.ability.dex.code'}}</span>
+							</label>
+							<label class="radio defence">
+								<input type="radio" name="defence" value="con"/>
+								<span><i class="fas {{localize 'gg5e_mm.monster.common.ability.con.icon'}} fa-fw"></i> {{localize 'gg5e_mm.monster.common.ability.con.code'}}</span>
+							</label>
+							<label class="radio defence">
+								<input type="radio" name="defence" value="int"/>
+								<span><i class="fas {{localize 'gg5e_mm.monster.common.ability.int.icon'}} fa-fw"></i> {{localize 'gg5e_mm.monster.common.ability.int.code'}}</span>
+							</label>
+							<label class="radio defence">
+								<input type="radio" name="defence" value="wis"/>
+								<span><i class="fas {{localize 'gg5e_mm.monster.common.ability.wis.icon'}} fa-fw"></i> {{localize 'gg5e_mm.monster.common.ability.wis.code'}}</span>
+							</label>
+							<label class="radio defence">
+								<input type="radio" name="defence" value="cha"/>
+								<span><i class="fas {{localize 'gg5e_mm.monster.common.ability.cha.icon'}} fa-fw"></i> {{localize 'gg5e_mm.monster.common.ability.cha.code'}}</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.common.modifiers.title'}}</span>
+					</div>
+					<div class="form-group__body">
+						<input name="modifiers" type="text" placeholder="{{localize 'gg5e_mm.modal.common.modifiers.placeholder'}}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.common.roll_mode.title'}}</span>
+					</div>
+					<div class="form-group__body">
+						<select name="mode">
+							<option value="roll" selected="">{{localize 'gg5e_mm.modal.common.roll_mode.roll'}}</option>
+							<option value="gmroll">{{localize 'gg5e_mm.modal.common.roll_mode.gmroll'}}</option>
+							<option value="blindroll">{{localize 'gg5e_mm.modal.common.roll_mode.blindroll'}}</option>
+							<option value="selfroll">{{localize 'gg5e_mm.modal.common.roll_mode.selfroll'}}</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal__footer">
+			<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gg5e_mm.modal.common.button.roll'}}</button>
+		</div>
+	</div>
+</div>

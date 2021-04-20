@@ -1,9 +1,9 @@
 import Blueprint from "../classes/Blueprint.js";
 import Factory from "../classes/Factory.js";
 import Gui from "../classes/Gui.js";
-import ModalBasicAttack from "../modals/ModalBasicAttack.js";
-import ModalRandomDamage from "../modals/ModalRandomDamage.js";
-import ModalStaticDamage from "../modals/ModalStaticDamage.js";
+import ModalBasicAttackAc from "../modals/ModalBasicAttackAc.js";
+import ModalBasicAttackSave from "../modals/ModalBasicAttackSave.js";
+import ModalBasicDamage from "../modals/ModalBasicDamage.js";
 import { DEFAULT_ABILITIES } from "../consts/DefaultAbilities.js";
 import { DEFAULT_ALIGNMENTS } from "../consts/DefaultAlignments.js";
 import { DEFAULT_CATEGORIES } from "../consts/DefaultCategories.js";
@@ -72,7 +72,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
 
-		[ModalBasicAttack, ModalRandomDamage, ModalStaticDamage].forEach((x) => x.activateListeners(html, this.actor, this.id));
+		[ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage].forEach((x) => x.activateListeners(html, this.actor, this.id));
 
 		let guiData = this.object.data.data.gg5e_mm ? this.object.data.data.gg5e_mm.gui : Gui.prepareGui(this._getDefaultGui());
 		Gui.setAccordions(html, guiData.data.accordions);
