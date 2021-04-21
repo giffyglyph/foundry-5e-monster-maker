@@ -1,0 +1,112 @@
+<div class="gg5e-mm-modal modal--ability-check" id="modal_ability_check">
+	<div class="modal__dialog">
+		<div class="modal__icon"><i class="fas fa-dice-d20"></i></div>
+		<div class="modal__header">
+			<div class="modal__title">{{localize 'gg5e_mm.modal.ability_check.title'}}</div>
+			<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+		</div>
+		<div class="modal__body">
+			<form class="gg5e-mm-form form--modal form--horizontal">
+				<div class="form-group form-group--abilities">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.ability_check.ability_bonus'}}</span>
+					</div>
+					<div class="form-group__body">
+						<div class="radios radios--grid abilities">
+							<label class="radio ability">
+								<input type="radio" class="radio--str" name="ability" value="str" checked/>
+								<input type="hidden" name="ability_str" value="{{data.gg5e_mm.monster.data.ability_modifiers.str.value}}"/>
+								<span>
+									<span class="ability__value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.str.value sign=true}}</span>
+									<span class="ability__name">{{localize 'gg5e_mm.monster.common.ability.str.code'}}</span>
+								</span>
+							</label>
+							<label class="radio ability">
+								<input type="radio" class="radio--dex" name="ability" value="dex"/>
+								<input type="hidden" name="ability_dex" value="{{data.gg5e_mm.monster.data.ability_modifiers.dex.value}}"/>
+								<span>
+									<span class="ability__value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.dex.value sign=true}}</span>
+									<span class="ability__name">{{localize 'gg5e_mm.monster.common.ability.dex.code'}}</span>
+								</span>
+							</label>
+							<label class="radio ability">
+								<input type="radio" class="radio--con" name="ability" value="con"/>
+								<input type="hidden" name="ability_con" value="{{data.gg5e_mm.monster.data.ability_modifiers.con.value}}"/>
+								<span>
+									<span class="ability__value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.con.value sign=true}}</span>
+									<span class="ability__name">{{localize 'gg5e_mm.monster.common.ability.con.code'}}</span>
+								</span>
+							</label>
+							<label class="radio ability">
+								<input type="radio" class="radio--int" name="ability" value="int"/>
+								<input type="hidden" name="ability_int" value="{{data.gg5e_mm.monster.data.ability_modifiers.int.value}}"/>
+								<span>
+									<span class="ability__value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.int.value sign=true}}</span>
+									<span class="ability__name">{{localize 'gg5e_mm.monster.common.ability.int.code'}}</span>
+								</span>
+							</label>
+							<label class="radio ability">
+								<input type="radio" class="radio--wis" name="ability" value="wis"/>
+								<input type="hidden" name="ability_wis" value="{{data.gg5e_mm.monster.data.ability_modifiers.wis.value}}"/>
+								<span>
+									<span class="ability__value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.wis.value sign=true}}</span>
+									<span class="ability__name">{{localize 'gg5e_mm.monster.common.ability.wis.code'}}</span>
+								</span>
+							</label>
+							<label class="radio ability">
+								<input type="radio" class="radio--cha" name="ability" value="cha"/>
+								<input type="hidden" name="ability_cha" value="{{data.gg5e_mm.monster.data.ability_modifiers.cha.value}}"/>
+								<span>
+									<span class="ability__value">{{numberFormat data.gg5e_mm.monster.data.ability_modifiers.cha.value sign=true}}</span>
+									<span class="ability__name">{{localize 'gg5e_mm.monster.common.ability.cha.code'}}</span>
+								</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.ability_check.skill_bonus'}}</span>
+					</div>
+					<div class="form-group__body">
+						<select class="select--skill" name="skill">
+							<option value="" selected="">—</option>
+							{{#each data.gg5e_mm.enums.skills}}
+								<option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.skill.' .)}} {{#if (getSkillProficiency ../data.gg5e_mm.monster.data.skills .)}}({{numberFormat (getSkillProficiency ../data.gg5e_mm.monster.data.skills .) sign=true}}){{/if}}</option>
+							{{/each}}
+						</select>
+						{{#each data.gg5e_mm.enums.skills}}
+							<input type="hidden" name="skill_{{.}}" value="{{getSkillProficiency ../data.gg5e_mm.monster.data.skills .}}"/>
+						{{/each}}
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.common.modifiers.title'}}</span>
+					</div>
+					<div class="form-group__body">
+						<input name="modifiers" type="text" placeholder="{{localize 'gg5e_mm.modal.common.modifiers.placeholder'}}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.modal.common.roll_mode.title'}}</span>
+					</div>
+					<div class="form-group__body">
+						<select name="mode">
+							<option value="roll" selected="">{{localize 'gg5e_mm.modal.common.roll_mode.roll'}}</option>
+							<option value="gmroll">{{localize 'gg5e_mm.modal.common.roll_mode.gmroll'}}</option>
+							<option value="blindroll">{{localize 'gg5e_mm.modal.common.roll_mode.blindroll'}}</option>
+							<option value="selfroll">{{localize 'gg5e_mm.modal.common.roll_mode.selfroll'}}</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal__footer">
+			<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gg5e_mm.modal.common.button.roll'}}</button>
+			<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gg5e_mm.modal.common.button.disadvantage'}}</button>
+			<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gg5e_mm.modal.common.button.advantage'}}</button>
+		</div>
+	</div>
+</div>

@@ -19,7 +19,7 @@ const MonsterFactory = (function() {
 		);
 		const monsterProficiency = _parseProficiency(derivedAttributes, blueprint.data.proficiency_bonus);
 		const monsterAbilityModifiers = _parseAbilityModifiers(derivedAttributes, blueprint.data.ability_modifiers);
-		const monsterSkills = _parseSkills(monsterProficiency.getValue(), monsterAbilityModifiers, blueprint.data.skills);
+		const monsterSkills = _parseSkills(monsterProficiency.getValue(), blueprint.data.skills);
 		
 		return {
 			vid: blueprint.vid,
@@ -231,11 +231,10 @@ const MonsterFactory = (function() {
 		return prof;
 	}
 
-	function _parseSkills(proficiencyBonus, abilityModifiers, monsterSkills) {
+	function _parseSkills(proficiencyBonus, monsterSkills) {
 		let skills = [];
 		DEFAULT_SKILLS.forEach(function(defaultSkill) {
 			if (monsterSkills[defaultSkill.name]) {
-				const baseModifier = abilityModifiers[defaultSkill.ability].getValue();
 				let proficiencyModifier = 0;
 				let proficiencyType = "";
 				switch (monsterSkills[defaultSkill.name]) {
@@ -254,7 +253,6 @@ const MonsterFactory = (function() {
 				}
 
 				const skill = new DerivedAttribute();
-				skill.add(baseModifier, game.i18n.format('gg5e_mm.monster.source.ability_modifier'));
 				skill.add(proficiencyModifier, proficiencyType);
 
 				skills.push($.extend(skill, {

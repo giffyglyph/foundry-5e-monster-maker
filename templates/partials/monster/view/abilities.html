@@ -27,7 +27,7 @@
 				</dt>
 				<dd>
 					{{#each data.gg5e_mm.monster.data.skills as | skill |}}
-						<span title="{{{parseSources skill.sources}}}">{{skill.title}} {{numberFormat skill.value sign=true}}</span>
+						<button class="button--text monster__skill" data-action="open-modal" data-modal="modal_ability_check" data-ability="{{skill.ability}}" data-skill="{{skill.code}}" title="{{{parseSources skill.sources}}}">{{skill.title}} {{numberFormat skill.value sign=true}}</button>
 					{{/each}}
 				</dd>
 			{{/if}}

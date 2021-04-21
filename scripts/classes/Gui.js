@@ -55,6 +55,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_modifier.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/skill.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_check.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack_ac.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack_save.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_damage.html",
@@ -129,6 +130,12 @@ const Gui = (function() {
 			return sources.map((x) => {
 				return game.i18n.format('gg5e_mm.monster.source.from', { value: x.value, source: x.source });
 			}).join(",&#010;");
+		});
+
+		Handlebars.registerHelper('getSkillProficiency', function(skills, code) {
+			console.log(skills, code);
+			const skill = skills.find((x) => x.code == code);
+			return (skill) ? skill.value : 0;
 		});
 	}
 
