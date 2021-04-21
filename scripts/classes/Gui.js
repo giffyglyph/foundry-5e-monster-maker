@@ -62,6 +62,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifiers.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/modifying_abilities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ranked_abilities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/saving_throw.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/tags.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/abilities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html",

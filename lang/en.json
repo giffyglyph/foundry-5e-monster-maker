@@ -341,6 +341,11 @@
     "gg5e_mm.modal.ability_check.message.no_skill.advantage": "{ability} ability check, advantage",
     "gg5e_mm.modal.ability_check.message.no_skill.disadvantage": "{ability} ability check, disadvantage",
     "gg5e_mm.modal.ability_check.message.no_skill.plain": "{ability} ability check",
+    "gg5e_mm.modal.saving_throw.title": "Saving Throw",
+    "gg5e_mm.modal.saving_throw.ability_bonus": "Saving Throw",
+    "gg5e_mm.modal.saving_throw.message.advantage": "{ability} saving throw, advantage",
+    "gg5e_mm.modal.saving_throw.message.disadvantage": "{ability} saving throw, disadvantage",
+    "gg5e_mm.modal.saving_throw.message.plain": "{ability} saving throw",
     
     "gg5e_mm.modal.info.modifiers.title": "Modifying Values",
     "gg5e_mm.modal.info.modifiers.p.1": "To change an automated value (hit points, armor class, attack bonuses, etc), you can apply a positive or negative <i>modifier</i>.",

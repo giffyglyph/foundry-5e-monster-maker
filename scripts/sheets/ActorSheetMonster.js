@@ -5,6 +5,7 @@ import ModalAbilityCheck from "../modals/ModalAbilityCheck.js";
 import ModalBasicAttackAc from "../modals/ModalBasicAttackAc.js";
 import ModalBasicAttackSave from "../modals/ModalBasicAttackSave.js";
 import ModalBasicDamage from "../modals/ModalBasicDamage.js";
+import ModalSavingThrow from "../modals/ModalSavingThrow.js";
 import { DEFAULT_ABILITIES } from "../consts/DefaultAbilities.js";
 import { DEFAULT_ALIGNMENTS } from "../consts/DefaultAlignments.js";
 import { DEFAULT_CATEGORIES } from "../consts/DefaultCategories.js";
@@ -73,7 +74,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
 
-		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage].forEach((x) => {
+		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
 			x.activateListeners(html, this.actor, this.id)
 		});
 

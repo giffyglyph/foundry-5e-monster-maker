@@ -931,6 +931,12 @@
     justify-content: center;
     letter-spacing: 1px;
     align-items: center; }
+    .gg5e-mm-monster .monster__modifier .save button {
+      padding: 0;
+      font-size: inherit;
+      font-family: inherit;
+      color: inherit;
+      font-weight: inherit; }
     .gg5e-mm-monster .monster__modifier .save::before {
       content: '';
       position: absolute;
@@ -941,6 +947,8 @@
       background: #487997;
       clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
       z-index: -1; }
+    .gg5e-mm-monster .monster__modifier .save:hover::before {
+      background: #ad6032; }
 
 .gg5e-mm-monster .monster__skill {
   padding: 0;
@@ -1365,6 +1373,66 @@
     font-size: 12px;
     text-transform: uppercase;
     margin-top: 0.25rem; }
+
+.gg5e-mm-modal.modal--saving-throw .form-group--saves {
+  flex-direction: column;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e4ebef; }
+  .gg5e-mm-modal.modal--saving-throw .form-group--saves .form-group__header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    padding-top: 0; }
+    .gg5e-mm-modal.modal--saving-throw .form-group--saves .form-group__header span {
+      display: flex;
+      line-height: 1; }
+      .gg5e-mm-modal.modal--saving-throw .form-group--saves .form-group__header span::before, .gg5e-mm-modal.modal--saving-throw .form-group--saves .form-group__header span::after {
+        content: '';
+        height: 1px;
+        width: 100%;
+        background: #e4ebef;
+        flex-grow: 1;
+        position: relative;
+        top: 9px; }
+      .gg5e-mm-modal.modal--saving-throw .form-group--saves .form-group__header span::before {
+        margin-right: 0.5rem; }
+      .gg5e-mm-modal.modal--saving-throw .form-group--saves .form-group__header span::after {
+        margin-left: 0.5rem; }
+  .gg5e-mm-modal.modal--saving-throw .form-group--saves .form-group__body {
+    margin-left: 0;
+    width: 100%; }
+
+.gg5e-mm-modal.modal--saving-throw .saves {
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 1px !important; }
+  .gg5e-mm-modal.modal--saving-throw .saves .save {
+    text-transform: uppercase; }
+    .gg5e-mm-modal.modal--saving-throw .saves .save > span {
+      padding: 0.5rem 0.25rem; }
+  .gg5e-mm-modal.modal--saving-throw .saves .save__name,
+  .gg5e-mm-modal.modal--saving-throw .saves .save__value {
+    display: block;
+    line-height: 1; }
+  .gg5e-mm-modal.modal--saving-throw .saves .save__value {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: 'Londrina Solid'; }
+  .gg5e-mm-modal.modal--saving-throw .saves .save__name {
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 0.5rem; }
+
+.gg5e-mm-modal.modal--saving-throw .modal__footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 0.25rem;
+  grid-row-gap: 0.5rem; }
+  .gg5e-mm-modal.modal--saving-throw .modal__footer button {
+    margin: 0; }
+    .gg5e-mm-modal.modal--saving-throw .modal__footer button:first-child {
+      grid-column: 1 / span 2; }
 
 .gg5e-mm-window--monster {
   width: 540px !important; }

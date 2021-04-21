@@ -293,6 +293,14 @@
 			letter-spacing: 1px;
 			align-items: center;
 
+			button {
+				padding: 0;
+				font-size: inherit;
+				font-family: inherit;
+				color: inherit;
+				font-weight: inherit;
+			}
+
 			&::before {
 				content: '';
 				position: absolute;
@@ -303,6 +311,10 @@
 				background: $primary-tone-1;
 				clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
 				z-index: -1;
+			}
+
+			&:hover::before {
+				background: $secondary-base;
 			}
 		}
 	}
