@@ -73,6 +73,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		html.find('.toggle-mode--edit').click(this._toggleModeEdit.bind(this));
 		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+		html.find('.input--thp, .input--hp').change(this._updateConfigurationField.bind(this));
 
 		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
 			x.activateListeners(html, this.actor, this.id)
@@ -93,6 +94,13 @@ export default class ActorSheetMonster extends ActorSheet {
 				}
 			}
 		}
+	}
+
+	_updateConfigurationField(event) {
+		const field = event.currentTarget.closest("input").dataset.field;
+		const input = event.currentTarget.closest(".gg5e-mm-window").querySelector(`input[name='${field}']`);
+		input.value = event.currentTarget.value;
+		input.dispatchEvent(new Event('change'));
 	}
 
 	_updateAbilityRanking(event) {

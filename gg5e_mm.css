@@ -827,6 +827,21 @@
       text-align: left;
       letter-spacing: 0; }
 
+.gg5e-mm-monster .monster__blocks .input--thp,
+.gg5e-mm-monster .monster__blocks .input--hp {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  background: white;
+  border: none; }
+  .gg5e-mm-monster .monster__blocks .input--thp:focus,
+  .gg5e-mm-monster .monster__blocks .input--hp:focus {
+    opacity: 1; }
+
 .gg5e-mm-monster .monster__abilities .panel__header {
   text-transform: uppercase;
   text-align: center;
