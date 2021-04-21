@@ -138,6 +138,23 @@ const Gui = (function() {
 			const skill = skills.find((x) => x.code == code);
 			return (skill) ? skill.value : 0;
 		});
+
+		Handlebars.registerHelper('formatChallengeRating', function(cr) {
+			switch (cr) {
+				case 0.125:
+					return "1/8";
+					break;
+				case 0.25:
+					return "1/4";
+					break;
+				case 0.5:
+					return "1/2";
+					break;
+				default:
+					return cr;
+					break;
+			}
+		});
 	}
 
 	function _openModal(event) {

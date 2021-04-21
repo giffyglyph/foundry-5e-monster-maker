@@ -114,7 +114,7 @@
 					<span class="attribute__icon"><i class="fas fa-skull fa-fw"></i></span>
 				</dt>
 				<dd>
-					<span title="{{{parseSources data.gg5e_mm.monster.data.challenge_rating.sources}}}">CR {{data.gg5e_mm.monster.data.challenge_rating.value}}</span>
+					<span title="{{{parseSources data.gg5e_mm.monster.data.challenge_rating.sources}}}">CR {{formatChallengeRating data.gg5e_mm.monster.data.challenge_rating.value}}</span>
 					<span title="{{{parseSources data.gg5e_mm.monster.data.xp.sources}}}">{{numberFormat data.gg5e_mm.monster.data.xp.value}} XP</span>
 				</dd>
 			{{/if}}
