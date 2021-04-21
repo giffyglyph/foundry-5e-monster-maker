@@ -1,0 +1,149 @@
+.gg5e-mm-modal.modal--about {
+
+    .intro {
+        text-align: center;
+    }
+
+    .contact_links {
+        margin: 1rem -1rem 0;
+        padding: 1rem 1rem 0;
+        border-top: 1px dotted mix($primary-tone-1, white, 35%);
+        text-align: center;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(5, auto) 1fr;
+        grid-column-gap: 0.25rem;
+
+        a {
+            height: 2.4rem;
+            border-radius: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            color: black;
+
+            &:hover {
+                text-shadow: none;
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        .twitch,
+        .discord,
+        .reddit,
+        .twitter,
+        .facebook,
+        .youtube {
+            width: 2.4rem;
+            font-size: 1.5rem;
+        }
+
+        .website {
+            text-transform: uppercase;
+            color: $website-purple;
+
+            &:hover {
+                background: $website-purple;
+                border-color: $website-purple;
+            }
+        };
+
+        .twitch {
+            color: $twitch-purple;
+
+            &:hover {
+                background: $twitch-purple;
+                border-color: $twitch-purple;
+            }
+        }
+
+        .discord {
+            color: $discord-blue;
+
+            &:hover {
+                background: $discord-blue;
+                border-color: $discord-blue;
+            }
+        }
+
+        .reddit {
+            color: $reddit-red;
+
+            &:hover {
+                background: $reddit-red;
+                border-color: $reddit-red;
+            }
+        }
+
+        .twitter {
+            color: $twitter-blue;
+
+            &:hover {
+                background: $twitter-blue;
+                border-color: $twitter-blue;
+            }
+        }
+
+        .facebook {
+            color: $facebook-blue;
+
+            &:hover {
+                background: $facebook-blue;
+                border-color: $facebook-blue;
+            }
+        }
+
+        .youtube {
+            color: $youtube-red;
+
+            &:hover {
+                background: $youtube-red;
+                border-color: $youtube-red;
+            }
+        }
+    }
+
+    .support {
+        padding: 1rem;
+        background: mix($primary-tone-1, white, 15%);
+        margin-top: 1rem;
+        border-radius: 1rem;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .support__title {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .support__links {
+        list-style: none;
+        margin-top: 1rem;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 2px;
+
+        a {
+            width: 100%;
+            background: $patreon-orange;
+            color: white;
+            margin: 0 auto;
+            display: inline-block;
+            border-radius: 0.75rem;
+            padding: 0.5rem 1rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 2px 0 0 darken($patreon-orange, 30%);
+
+            &:hover {
+                background: darken($patreon-orange, 20%);
+                box-shadow: 0 2px 0 0 darken($patreon-orange, 40%);
+                text-decoration: none;
+            }
+        }
+    }
+}

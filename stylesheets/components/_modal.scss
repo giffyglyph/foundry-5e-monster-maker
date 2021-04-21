@@ -7,11 +7,9 @@
 	left: 0;
 	background: rgba($primary-shade-4, 0.85);
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 	font-size: larger;
-	padding-bottom: 2.75rem;
+	padding: 1rem;
+	overflow-y: auto;
 
 	&:not(.open) {
 		display: none;
@@ -22,6 +20,8 @@
 		box-shadow: 0 3px 0 0 black;
 		border-radius: 0 0 1rem 1rem;
 		overflow: hidden;
+		flex-shrink: 0;
+		margin: auto;
 	}
 
 	.modal__icon {
@@ -96,11 +96,11 @@
 		position: relative;
 		padding: 2rem;
 
-		> :first-child {
+		:first-child {
 			margin-top: 0;
 		}
 
-		> :last-child {
+		:last-child {
 			margin-bottom: 0;
 		}
 
@@ -121,13 +121,26 @@
 			border-color: mix($primary-tone-1, white, 15%);
 			border-bottom: none;
 		}
+
+		a {
+			color: $primary-base;
+			font-weight: 600;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+				text-shadow: none;
+			}
+		}
 	}
 
 	.modal__footer {
 		background: mix($primary-tone-1, white, 15%);
-		padding: 2rem 2rem calc(2rem + 3px);
+		padding: 1rem 2rem calc(2rem + 3px);
 		display: flex;
 		justify-content: space-between;
+		margin-top: -1rem;
+		position: relative;
 
 		.modal__button {
 			background: $primary-base;

@@ -51,10 +51,12 @@
 			<span class="name">Giffyglyph's 5e Monster Maker</span>
 		</div>
 		<nav class="sheet__controls" data-group="primary">
+			<button type="button" data-action="open-modal" data-modal="modal_about"><i class="fas fa-question"></i></button>
 			<button type="button" class="toggle-mode--edit"><i class="fas fa-cogs"></i></button>
 		</nav>
 	</div>
 	<div class="sheet__modals">
+		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/about.html" }}
 		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/ability_check.html" }}
 		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack_ac.html" }}
 		{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/modals/basic_attack_save.html" }}
