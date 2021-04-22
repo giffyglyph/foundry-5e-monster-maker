@@ -15,7 +15,9 @@ const Gui = (function() {
 		if (accordions) {
 			for (const [key, value] of Object.entries(accordions)) {
 				let accordion = html.find(`#${key.replace("_", "-")}`);
-				value.split(",").forEach((x) => accordion.find(`[data-section='${x.trim()}']`).addClass("opened"));
+				if (value) {
+					value.split(",").forEach((x) => accordion.find(`[data-section='${x.trim()}']`).addClass("opened"));
+				}
 			}
 		}
 	}

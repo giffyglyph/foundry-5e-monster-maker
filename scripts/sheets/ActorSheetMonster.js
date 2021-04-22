@@ -128,7 +128,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		return {
 			data: {
 				accordions: {
-					accordion_builder: 0
+					accordion_builder: ""
 				},
 				panels: {
 					panel_abilities: "opened"
