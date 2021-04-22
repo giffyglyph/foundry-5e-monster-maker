@@ -1,74 +1,92 @@
 export const DEFAULT_SKILLS = [
 	{
 		name: "acrobatics",
-		ability: "dex"
+		ability: "dex",
+		foundry: "acr"
 	},
 	{
 		name: "animal_handling",
-		ability: "wis"
+		ability: "wis",
+		foundry: "ani"
 	},
 	{
 		name: "arcana",
-		ability: "int"
+		ability: "int",
+		foundry: "arc"
 	},
 	{
 		name: "athletics",
-		ability: "str"
+		ability: "str",
+		foundry: "ath"
 	},
 	{
 		name: "deception",
-		ability: "cha"
+		ability: "cha",
+		foundry: "dec"
 	},
 	{
 		name: "history",
-		ability: "int"
+		ability: "int",
+		foundry: "his"
 	},
 	{
 		name: "insight",
-		ability: "wis"
+		ability: "wis",
+		foundry: "ins"
 	},
 	{
 		name: "intimidation",
-		ability: "cha"
+		ability: "cha",
+		foundry: "itm"
 	},
 	{
 		name: "investigation",
-		ability: "int"
+		ability: "int",
+		foundry: "inv"
 	},
 	{
 		name: "medicine",
-		ability: "wis"
+		ability: "wis",
+		foundry: "med"
 	},
 	{
 		name: "nature",
-		ability: "int"
+		ability: "int",
+		foundry: "nat"
 	},
 	{
 		name: "perception",
-		ability: "wis"
+		ability: "wis",
+		foundry: "prc"
 	},
 	{
 		name: "performance",
-		ability: "cha"
+		ability: "cha",
+		foundry: "prf"
 	},
 	{
 		name: "persuasion",
-		ability: "cha"
+		ability: "cha",
+		foundry: "per"
 	},
 	{
 		name: "religion",
-		ability: "int"
+		ability: "int",
+		foundry: "rel"
 	},
 	{
 		name: "sleight_of_hand",
-		ability: "dex"
+		ability: "dex",
+		foundry: "slt"
 	},
 	{
 		name: "stealth",
-		ability: "dex"
+		ability: "dex",
+		foundry: "ste"
 	},
 	{
 		name: "survival",
-		ability: "wis"
+		ability: "wis",
+		foundry: "sur"
 	}
 ];

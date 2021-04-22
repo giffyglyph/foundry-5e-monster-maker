@@ -14,8 +14,10 @@ import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
 import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
 import { DEFAULT_SIZES } from "../consts/DefaultSizes.js";
 import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
+import { DEFAULT_UNITS } from "../consts/DefaultUnits.js";
 import { MONSTER_RANKS } from "../consts/MonsterRanks.js";
 import { MONSTER_ROLES } from "../consts/MonsterRoles.js";
+import MonsterBlueprint from "../classes/MonsterBlueprint.js";
 
 export default class ActorSheetMonster extends ActorSheet {
 
@@ -34,6 +36,7 @@ export default class ActorSheetMonster extends ActorSheet {
 
 	getData() {
 		const data = super.getData();
+		console.log(data);
 
 		// Prepare essential monster/gui data
 		let gui = Gui.prepareGui(this._getDefaultGui(), data.data.gg5e_mm ? data.data.gg5e_mm.gui : null);
@@ -50,10 +53,11 @@ export default class ActorSheetMonster extends ActorSheet {
 			conditions: DEFAULT_CONDITIONS,
 			damage_types: DEFAULT_DAMAGE_TYPES,
 			languages: DEFAULT_LANGUAGES,
-			sizes: DEFAULT_SIZES,
+			sizes: DEFAULT_SIZES.map((x) => x.name),
 			skills: DEFAULT_SKILLS.map((x) => x.name),
 			ranks: Object.keys(MONSTER_RANKS),
-			roles: Object.keys(MONSTER_ROLES)
+			roles: Object.keys(MONSTER_ROLES),
+			units: DEFAULT_UNITS.map((x) => x.name)
 		};
 
 		// Pass monster/gui data to sheet
@@ -86,14 +90,7 @@ export default class ActorSheetMonster extends ActorSheet {
 	}
 
 	_getActorData(actor) {
-		return {
-			data: {
-				description: {
-					name: actor.name,
-					image: actor.img
-				}
-			}
-		}
+		return MonsterBlueprint.extractBlueprintFromActor(actor);
 	}
 
 	_updateConfigurationField(event) {
@@ -158,14 +155,6 @@ export default class ActorSheetMonster extends ActorSheet {
 			form["data.gg5e_mm.blueprint.data.saving_throws.ranking"] = form["data.gg5e_mm.blueprint.data.ability_modifiers.ranking"];
 		}
 
-		if (form["data.gg5e_mm.blueprint.data.description.name"]) {
-			form["name"] = form["data.gg5e_mm.blueprint.data.description.name"];
-		}
-
-		if (form["data.gg5e_mm.blueprint.data.description.image"]) {
-			form["img"] = form["data.gg5e_mm.blueprint.data.description.image"];
-		}
-
 		if (event.currentTarget && event.currentTarget.name) {
 			switch (event.currentTarget.name) {
 				case "data.gg5e_mm.blueprint.data.combat.rank.type":
@@ -184,6 +173,8 @@ export default class ActorSheetMonster extends ActorSheet {
 					break;
 			}
 		}
+
+		form = MonsterBlueprint.convertBlueprintToActor(form);
 
 		super._updateObject(event, form);
 	}

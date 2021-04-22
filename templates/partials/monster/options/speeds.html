@@ -49,10 +49,11 @@
 				<span class="form-group__title">{{localize 'gg5e_mm.monster.common.speeds.units.title'}}</span>
 			</div>
 			<div class="form-group__body">
-						<option value="feet">{{localize 'gg5e_mm.monster.common.speeds.units.feet.name'}}</option>
-						<option value="miles">{{localize 'gg5e_mm.monster.common.speeds.units.miles.name'}}</option>
 				<select name="data.gg5e_mm.blueprint.data.speeds.units">
 					{{#select data.gg5e_mm.blueprint.data.speeds.units}}
+						{{#each data.gg5e_mm.enums.units}}
+							<option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.speeds.units.' . '.name')}}</option>
+						{{/each}}
 					{{/select}}
 				</select>
 			</div>
