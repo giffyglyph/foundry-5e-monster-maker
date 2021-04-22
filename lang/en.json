@@ -360,8 +360,8 @@
     "gg5e_mm.modal.info.modifiers.li.1": "<strong>Relative:</strong> Increase or decrease the automated value by an amount (i.e. av = av +/- x).",
     "gg5e_mm.modal.info.modifiers.li.2": "<strong>Absolute:</strong> Replace the automated value with a precise value (i.e. av = x).",
     "gg5e_mm.modal.info.modifying_abilities.title": "Modifying Abilities",
-    "gg5e_mm.modal.info.modifying_abilities.p.1": "To customise your monster's ability modifiers and saving throws, you can define a series of comma-separated <i>modifiers</i>:",
-    "gg5e_mm.modal.info.modifying_abilities.pre.1": "e.g. str=1, int=-2, cha=7",
+    "gg5e_mm.modal.info.modifying_abilities.p.1": "To customise your monster's ability modifiers and saving throws, you can define a series of semi-colon-separated <i>modifiers</i>:",
+    "gg5e_mm.modal.info.modifying_abilities.pre.1": "e.g. str=1; int=-2; cha=7",
     "gg5e_mm.modal.info.modifying_abilities.p.2": "These modifiers can be either <i>relative</i> or <i>absolute</i>—use them to adjust (or replace) automated values where appropriate.",
     "gg5e_mm.modal.info.ranked_abilities.title": "Ranked Abilities",
     "gg5e_mm.modal.info.ranked_abilities.p.1": "Ability modifiers and saving throw values are automatically calculated based on your monster's level, rank, and role.",
@@ -370,6 +370,6 @@
     "gg5e_mm.modal.info.ranked_abilities.p.3": "The higher an ability is ranked, the more influence it has on modifiers and saving throws.",
     "gg5e_mm.modal.info.tags.title": "Monster Tags",
     "gg5e_mm.modal.info.tags.p.1": "Create <i>tags</i> to define categories and sub-types for your monster—ancestries, power sources, elements, factions, affiliations, etc.",
-    "gg5e_mm.modal.info.tags.p.2": "You can create multiple tags at once by separating each tag with a comma:",
-    "gg5e_mm.modal.info.tags.pre.1": "e.g. val1, second value, thirdValue"
+    "gg5e_mm.modal.info.tags.p.2": "You can create multiple tags at once by separating each tag with a semi-colon:",
+    "gg5e_mm.modal.info.tags.pre.1": "e.g. val1; second value; thirdValue"
 }

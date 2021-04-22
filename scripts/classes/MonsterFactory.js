@@ -69,7 +69,7 @@ const MonsterFactory = (function() {
 		} else {
 			parts.push(game.i18n.format(`gg5e_mm.monster.common.type.${description.type.category}`).toLowerCase());
 		}
-		const tags = description.tags ? description.tags.split(",").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
+		const tags = description.tags ? description.tags.split(";").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
 		if (tags.length > 0) {
 			parts.push(`(${tags.join(", ")})`);
 		}
@@ -179,7 +179,7 @@ const MonsterFactory = (function() {
 		});
 
 		if (abilityModifiers.modifiers) {
-			const modifiers = abilityModifiers.modifiers.split(",").map(x => x.split("="));
+			const modifiers = abilityModifiers.modifiers.split(";").map(x => x.split("="));
 			modifiers.forEach(function(modifier) {
 				const ability = modifier[0].trim().toLowerCase();
 				const value = Number(modifier[1]);
@@ -204,7 +204,7 @@ const MonsterFactory = (function() {
 		});
 
 		if (savingThrows.modifiers) {
-			const modifiers = savingThrows.modifiers.split(",").map(x => x.split("="));
+			const modifiers = savingThrows.modifiers.split(";").map(x => x.split("="));
 			modifiers.forEach(function(modifier) {
 				const ability = modifier[0].trim().toLowerCase();
 				const value = Number(modifier[1]);
@@ -282,7 +282,7 @@ const MonsterFactory = (function() {
 		});
 
 		if (monsterSpeeds.other) {
-			monsterSpeeds.other.split(",").map(x => x.split("=")).forEach((x) => {;
+			monsterSpeeds.other.split(";").map(x => x.split("=")).forEach((x) => {;
 				speeds.push({
 					title: x[0].trim().toLowerCase(),
 					value: Number(x[1]) ? Number(x[1]) : null,
@@ -307,7 +307,7 @@ const MonsterFactory = (function() {
 		});
 
 		if (monsterSenses.other) {
-			monsterSenses.other.split(",").map(x => x.split("=")).forEach((x) => {
+			monsterSenses.other.split(";").map(x => x.split("=")).forEach((x) => {
 				senses.push({
 					title: x[0].trim().toLowerCase(),
 					value: Number(x[1]) ? Number(x[1]) : null,
@@ -348,7 +348,7 @@ const MonsterFactory = (function() {
 		});
 
 		if (options.other) {
-			options.other.split(",").forEach((x) => output.push(x));
+			options.other.split(";").forEach((x) => output.push(x));
 		}
 		
 		return output;
