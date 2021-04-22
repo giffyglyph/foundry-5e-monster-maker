@@ -6,7 +6,7 @@ export const DEFAULT_DAMAGE_TYPES = [
 	"force",
 	"lightning",
 	"necrotic",
-	"non_magical_physical",
+	"physical",
 	"piercing",
 	"poison",
 	"psychic",

@@ -118,7 +118,7 @@
     "gg5e_mm.monster.common.damage.force": "Force",
     "gg5e_mm.monster.common.damage.lightning": "Lightning",
     "gg5e_mm.monster.common.damage.necrotic": "Necrotic",
-    "gg5e_mm.monster.common.damage.non_magical_physical": "Non-Magical Physical",
+    "gg5e_mm.monster.common.damage.physical": "Non-Magical Physical",
     "gg5e_mm.monster.common.damage.piercing": "Piercing",
     "gg5e_mm.monster.common.damage.poison": "Poison",
     "gg5e_mm.monster.common.damage.psychic": "Psychic",
