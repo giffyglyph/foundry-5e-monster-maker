@@ -118,8 +118,8 @@ const MonsterFactory = (function() {
 		maximumHp.ceil();
 
 		return {
-			current: Math.min(hitPoints.current, maximumHp.getValue()),
-			temporary: Math.max(hitPoints.temporary, 0),
+			current: hitPoints.current,
+			temporary: hitPoints.temporary,
 			maximum: maximumHp
 		};
 	}
