@@ -272,7 +272,7 @@ const MonsterFactory = (function() {
 				const speed = {};
 				speed.title = game.i18n.format(`gg5e_mm.monster.common.speeds.${defaultSpeed}`);
 				speed.value = monsterSpeeds[defaultSpeed];
-				speed.unit = monsterSpeeds.unit;
+				speed.units = monsterSpeeds.units;
 				if (defaultSpeed == "fly" && monsterSpeeds.can_hover) {
 					speed.detail =  game.i18n.format(`gg5e_mm.monster.common.speeds.can_hover`).toLowerCase();
 				}
@@ -286,7 +286,7 @@ const MonsterFactory = (function() {
 				speeds.push({
 					title: x[0].trim().toLowerCase(),
 					value: Number(x[1]) ? Number(x[1]) : null,
-					unit: monsterSpeeds.unit
+					units: monsterSpeeds.units
 				});
 			});
 		}
@@ -301,7 +301,7 @@ const MonsterFactory = (function() {
 				const sense = {};
 				sense.title = game.i18n.format(`gg5e_mm.monster.common.senses.${type}`);
 				sense.value = monsterSenses[type];
-				sense.unit = monsterSenses.unit;
+				sense.units = monsterSenses.units;
 				senses.push(sense);
 			}
 		});
@@ -311,7 +311,7 @@ const MonsterFactory = (function() {
 				senses.push({
 					title: x[0].trim().toLowerCase(),
 					value: Number(x[1]) ? Number(x[1]) : null,
-					unit: monsterSenses.unit
+					units: monsterSenses.units
 				});
 			});
 		}

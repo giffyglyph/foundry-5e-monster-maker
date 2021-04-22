@@ -38,7 +38,7 @@
 				</dt>
 				<dd>
 					{{#each data.gg5e_mm.monster.data.speeds as | speed |}}
-						<span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.abilities.speeds.' speed.unit) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
+						<span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.abilities.speeds.' speed.units) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
 					{{/each}}
 				</dd>
 			{{/if}}
@@ -93,7 +93,7 @@
 				</dt>
 				<dd>
 					{{#each data.gg5e_mm.monster.data.senses as | sense |}}
-						<span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gg5e_mm.monster.view.abilities.senses.' sense.unit) distance=sense.value}}{{/if}}</span>
+						<span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gg5e_mm.monster.view.abilities.senses.' sense.units) distance=sense.value}}{{/if}}</span>
 					{{/each}}
 				</dd>
 			{{/if}}
