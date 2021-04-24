@@ -223,6 +223,9 @@ export default class ActorSheetMonster extends ActorSheet {
 						monster: monster
 					},
 					attributes: {
+						ac: {
+							value: monster.data.armor_class.value
+						},
 						hp: {
 							max: monster.data.hit_points.maximum.value,
 							formula: ""
