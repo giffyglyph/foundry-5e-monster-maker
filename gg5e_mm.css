@@ -827,6 +827,13 @@
       text-align: left;
       letter-spacing: 0; }
 
+.gg5e-mm-monster .monster__blocks .hit-points__temporary:hover,
+.gg5e-mm-monster .monster__blocks .hit-points__current:hover {
+  color: #ad6032; }
+  .gg5e-mm-monster .monster__blocks .hit-points__temporary:hover i,
+  .gg5e-mm-monster .monster__blocks .hit-points__current:hover i {
+    color: #ad6032; }
+
 .gg5e-mm-monster .monster__blocks .input--thp,
 .gg5e-mm-monster .monster__blocks .input--hp {
   position: absolute;
@@ -835,9 +842,12 @@
   height: 100%;
   width: 100%;
   text-align: center;
+  font-size: inherit;
+  font-family: inherit;
   opacity: 0;
-  background: white;
-  border: none; }
+  background: #efdfd6;
+  border: none;
+  border-radius: 0.5rem; }
   .gg5e-mm-monster .monster__blocks .input--thp:focus,
   .gg5e-mm-monster .monster__blocks .input--hp:focus {
     opacity: 1; }

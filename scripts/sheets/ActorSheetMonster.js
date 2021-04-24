@@ -94,10 +94,28 @@ export default class ActorSheetMonster extends ActorSheet {
 	}
 
 	_updateConfigurationField(event) {
-		const field = event.currentTarget.closest("input").dataset.field;
-		const input = event.currentTarget.closest(".gg5e-mm-window").querySelector(`input[name='${field}']`);
-		input.value = event.currentTarget.value;
-		input.dispatchEvent(new Event('change'));
+		const input = event.currentTarget.closest("input");
+		const field = input.dataset.field;
+		const type = input.dataset.type ? input.dataset.type : "text";
+		const output = event.currentTarget.closest(".gg5e-mm-window").querySelector(`input[name='${field}']`);
+
+		switch (type) {
+			case "number":
+				const value = event.currentTarget.value;
+				if (["+", "-"].includes(value[0])) {
+					output.value = Number(output.value) + parseFloat(value);
+				} else if (value[0] === "=") {
+					output.value = Number(value.slice(1));
+				} else {
+					output.value = Number(event.currentTarget.value);
+				}
+				break;
+			default:
+				output.value = event.currentTarget.value;
+				break;
+		}
+
+		output.dispatchEvent(new Event('change'));
 	}
 
 	_updateAbilityRanking(event) {

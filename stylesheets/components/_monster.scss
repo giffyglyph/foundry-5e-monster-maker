@@ -151,6 +151,18 @@
 			}
 		}
 
+		.hit-points__temporary,
+		.hit-points__current {
+
+			&:hover {
+				color: $secondary-base;
+
+				i {
+					color: $secondary-base;
+				}
+			}
+		}
+
 		.input--thp,
 		.input--hp {
 			position: absolute;
@@ -159,9 +171,12 @@
 			height: 100%;
 			width: 100%;
 			text-align: center;
+			font-size: inherit;
+			font-family: inherit;
 			opacity: 0;
-			background: white;
+			background: mix($secondary-base, white, 20%);
 			border: none;
+			border-radius: 0.5rem;
 
 			&:focus {
 				opacity: 1;

@@ -3,25 +3,25 @@
 		<div class="gg5e-mm-block hit-points">
 			<div class="block__title">{{localize 'gg5e_mm.monster.view.blocks.hit_points.title'}}</div>
 			<div class="block__contents">
-				<div class="block__content">
+				<div class="block__content hit-points__temporary">
 					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.temporary}}">
-						<input type="number" class="input--thp" value="{{data.gg5e_mm.monster.data.hit_points.temporary}}" data-field="data.gg5e_mm.blueprint.data.hit_points.temporary"/>
+						<input class="input--thp" data-field="data.gg5e_mm.blueprint.data.hit_points.temporary" data-type="number"/>
 						<i class="far fa-heart"></i> {{data.gg5e_mm.monster.data.hit_points.temporary}}
 					</div>
 					<div class="block__description">
 						{{localize 'gg5e_mm.monster.view.blocks.hit_points.temporary'}}
 					</div>
 				</div>
-				<div class="block__content">
+				<div class="block__content hit-points__current">
 					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.current}}">
-						<input type="number" class="input--hp" value="{{data.gg5e_mm.monster.data.hit_points.current}}" data-field="data.gg5e_mm.blueprint.data.hit_points.current"/>
+						<input class="input--hp" data-field="data.gg5e_mm.blueprint.data.hit_points.current" data-type="number"/>
 						<i class="fas fa-heart"></i> {{data.gg5e_mm.monster.data.hit_points.current}}
 					</div>
 					<div class="block__description">
 						{{localize 'gg5e_mm.monster.view.blocks.hit_points.current'}}
 					</div>
 				</div>
-				<div class="block__content">
+				<div class="block__content hit-points__maximum">
 					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.maximum.value}}" title="{{{parseSources data.gg5e_mm.monster.data.hit_points.maximum.sources}}}">
 						<i class="fas fa-heartbeat"></i> {{data.gg5e_mm.monster.data.hit_points.maximum.value}}
 					</div>
