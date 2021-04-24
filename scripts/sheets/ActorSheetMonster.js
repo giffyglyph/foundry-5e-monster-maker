@@ -173,6 +173,10 @@ export default class ActorSheetMonster extends ActorSheet {
 	}
 
   	_updateObject(event, form) {
+		if (event && event.currentTarget && event.currentTarget.closest(".gg5e-mm-modal") != null) {
+			return null;
+		}
+
 		if (event && event.currentTarget) {
 			let window = event.currentTarget.closest(".gg5e-mm-window");
 			form["data.gg5e_mm.gui.data.scrollbars.monster_body.y"] = window.querySelector("#monster-body").scrollTop;
