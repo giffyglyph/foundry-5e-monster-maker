@@ -102,6 +102,8 @@ const MonsterBlueprint = (function() {
 
 	function convertBlueprintToActor(form) {
 
+		let output = {};
+
 		const mappings = [
 			{ from: "data.gg5e_mm.blueprint.data.description.name", to: "name" },
 			{ from: "data.gg5e_mm.blueprint.data.description.image", to: "img" },
@@ -123,55 +125,56 @@ const MonsterBlueprint = (function() {
 			{ from: "data.gg5e_mm.blueprint.data.damage_vulnerabilities.other", to: "data.traits.dv.custom" },
 			{ from: "data.gg5e_mm.blueprint.data.damage_immunities.other", to: "data.traits.di.custom" },
 			{ from: "data.gg5e_mm.blueprint.data.condition_immunities.other", to: "data.traits.ci.custom" },
-			{ from: "data.gg5e_mm.blueprint.data.languages.other", to: "data.traits.languages.custom" }
+			{ from: "data.gg5e_mm.blueprint.data.languages.other", to: "data.traits.languages.custom" },
+			{ from: "data.gg5e_mm.blueprint.data.initiative.advantage", to: "flags.dnd5e.initiativeAdv" },
 		];
 		mappings.forEach((x) => {
 			if (typeof form[x.from] !== 'undefined') {
-				form[x.to] = form[x.from];
+				output[x.to] = form[x.from];
 			}
 		});
 
 		if (typeof form["data.gg5e_mm.blueprint.data.speeds.units"] !== 'undefined') {
-			form["data.attributes.movement.units"] = DEFAULT_UNITS.find((x) => x.name == form["data.gg5e_mm.blueprint.data.speeds.units"]).foundry;
+			output["data.attributes.movement.units"] = DEFAULT_UNITS.find((x) => x.name == form["data.gg5e_mm.blueprint.data.speeds.units"]).foundry;
 		}
 
 		if (typeof form["data.gg5e_mm.blueprint.data.senses.units"] !== 'undefined') {
-			form["data.attributes.senses.units"] = DEFAULT_UNITS.find((x) => x.name == form["data.gg5e_mm.blueprint.data.senses.units"]).foundry;
+			output["data.attributes.senses.units"] = DEFAULT_UNITS.find((x) => x.name == form["data.gg5e_mm.blueprint.data.senses.units"]).foundry;
 		}
 
 		if (typeof form["data.gg5e_mm.blueprint.data.description.size"] !== 'undefined') {
-			form["data.traits.size"] = DEFAULT_SIZES.find((x) => x.name == form["data.gg5e_mm.blueprint.data.description.size"]).foundry;
+			output["data.traits.size"] = DEFAULT_SIZES.find((x) => x.name == form["data.gg5e_mm.blueprint.data.description.size"]).foundry;
 		}
 
 		DEFAULT_SKILLS.forEach((x) => {
 			if (typeof form[`data.gg5e_mm.blueprint.data.skills.${x.name}`] !== 'undefined') {
 				switch (form[`data.gg5e_mm.blueprint.data.skills.${x.name}`]) {
 					case "half-proficient":
-						form[`data.skills.${x.foundry}.value`] = 0.5;
+						output[`data.skills.${x.foundry}.value`] = 0.5;
 						break;
 					case "proficient":
-						form[`data.skills.${x.foundry}.value`] = 1;
+						output[`data.skills.${x.foundry}.value`] = 1;
 						break;
 					case "expert":
-						form[`data.skills.${x.foundry}.value`] = 2;
+						output[`data.skills.${x.foundry}.value`] = 2;
 						break;
 					default:
-						form[`data.skills.${x.foundry}.value`] = 0;
+						output[`data.skills.${x.foundry}.value`] = 0;
 						break;
 				}
 			}
 		});
 
-		_convertTraits(form, DEFAULT_DAMAGE_TYPES, "damage_resistances", "dr");
-		_convertTraits(form, DEFAULT_DAMAGE_TYPES, "damage_vulnerabilities", "dv");
-		_convertTraits(form, DEFAULT_DAMAGE_TYPES, "damage_immunities", "di");
-		_convertTraits(form, DEFAULT_CONDITIONS, "condition_immunities", "ci");
-		_convertTraits(form, DEFAULT_LANGUAGES, "languages", "languages");
+		_convertTraits(form, output, DEFAULT_DAMAGE_TYPES, "damage_resistances", "dr");
+		_convertTraits(form, output, DEFAULT_DAMAGE_TYPES, "damage_vulnerabilities", "dv");
+		_convertTraits(form, output, DEFAULT_DAMAGE_TYPES, "damage_immunities", "di");
+		_convertTraits(form, output, DEFAULT_CONDITIONS, "condition_immunities", "ci");
+		_convertTraits(form, output, DEFAULT_LANGUAGES, "languages", "languages");
 
-		return form;
+		return output;
 	}
 
-	function _convertTraits(form, values, blueprintField, foundryField) {
+	function _convertTraits(form, output, values, blueprintField, foundryField) {
 		if (typeof form[`data.gg5e_mm.blueprint.data.${blueprintField}.other`] !== 'undefined') {
 			let traits = [];
 			values.forEach((x) => {
@@ -179,7 +182,7 @@ const MonsterBlueprint = (function() {
 					traits.push(x);
 				}
 			});
-			form[`data.traits.${foundryField}.value`] = traits;
+			output[`data.traits.${foundryField}.value`] = traits;
 		}
 	}
 

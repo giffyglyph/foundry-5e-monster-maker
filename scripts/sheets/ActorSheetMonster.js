@@ -21,6 +21,28 @@ import MonsterBlueprint from "../classes/MonsterBlueprint.js";
 
 export default class ActorSheetMonster extends ActorSheet {
 
+	constructor(...args) {
+		super(...args);
+
+		// Prepare gui/blueprint/monster data
+		let gui = Gui.prepareGui(this._getDefaultGui(), this.actor.data.data.gg5e_mm ? this.actor.data.data.gg5e_mm.gui : null);
+		let blueprint = Blueprint.prepareBlueprint(
+			"monster",
+			this.actor.data.data.gg5e_mm ? this.actor.data.data.gg5e_mm.blueprint : null,
+			MonsterBlueprint.extractBlueprintFromActor(this.actor.data)
+		);
+		let form = {
+			data: {
+				gg5e_mm: {
+					gui: gui,
+					blueprint: blueprint
+				}
+			}
+		};
+
+		this._updateObject(null, flattenObject(form));
+	}
+
 	static get defaultOptions() {
 		return mergeObject(
 			super.defaultOptions,
@@ -36,16 +58,7 @@ export default class ActorSheetMonster extends ActorSheet {
 
 	getData() {
 		const data = super.getData();
-		console.log(data);
 
-		// Prepare essential monster/gui data
-		let gui = Gui.prepareGui(this._getDefaultGui(), data.data.gg5e_mm ? data.data.gg5e_mm.gui : null);
-		let blueprint = Blueprint.prepareBlueprint(
-			"monster",
-			data.data.gg5e_mm ? data.data.gg5e_mm.blueprint : null,
-			this._getActorData(data.actor)
-		);
-		let monster = Factory.createEntity(blueprint);
 		let enums = {
 			abilities: DEFAULT_ABILITIES,
 			alignments: DEFAULT_ALIGNMENTS,
@@ -60,13 +73,14 @@ export default class ActorSheetMonster extends ActorSheet {
 			units: DEFAULT_UNITS.map((x) => x.name)
 		};
 
-		// Pass monster/gui data to sheet
-		data.data.gg5e_mm = {
-			enums: enums,
-			gui: gui,
-			blueprint: blueprint,
-			monster: monster
-		};
+		// Pass enums to sheet
+		if (data.data.gg5e_mm) {
+			 data.data.gg5e_mm.enums = enums;
+		} else {
+			data.data.gg5e_mm = {
+				enums: enums
+			};
+		}
 
 		return data;
 	}
@@ -87,10 +101,6 @@ export default class ActorSheetMonster extends ActorSheet {
 		Gui.setAccordions(html, guiData.data.accordions);
 		Gui.setPanels(html, guiData.data.panels);
 		Gui.setScrollbars(html, guiData.data.scrollbars);
-	}
-
-	_getActorData(actor) {
-		return MonsterBlueprint.extractBlueprintFromActor(actor);
 	}
 
 	_updateConfigurationField(event) {
@@ -163,36 +173,62 @@ export default class ActorSheetMonster extends ActorSheet {
 	}
 
   	_updateObject(event, form) {
-		if (event.currentTarget) {
+		if (event && event.currentTarget) {
 			let window = event.currentTarget.closest(".gg5e-mm-window");
 			form["data.gg5e_mm.gui.data.scrollbars.monster_body.y"] = window.querySelector("#monster-body").scrollTop;
 			form["data.gg5e_mm.gui.data.scrollbars.options_body.y"] = window.querySelector("#options-body").scrollTop;
-		}
 
-		if (form["data.gg5e_mm.blueprint.data.saving_throws.method"] && form["data.gg5e_mm.blueprint.data.saving_throws.method"] === "sync") {
-			form["data.gg5e_mm.blueprint.data.saving_throws.ranking"] = form["data.gg5e_mm.blueprint.data.ability_modifiers.ranking"];
-		}
-
-		if (event.currentTarget && event.currentTarget.name) {
-			switch (event.currentTarget.name) {
-				case "data.gg5e_mm.blueprint.data.combat.rank.type":
-					for (const key in form) {
-						if (/\.rank\.modifiers/.test(key)) delete form[key];
-					}
-					form["data.gg5e_mm.blueprint.data.combat.rank.custom_name"] = null;
-					form["data.gg5e_mm.blueprint.data.combat.rank.modifiers"] = null;
-					break;
-				case "data.gg5e_mm.blueprint.data.combat.role.type":
-					for (const key in form) {
-						if (/\.role\.modifiers/.test(key)) delete form[key];
-					}
-					form["data.gg5e_mm.blueprint.data.combat.role.custom_name"] = null;
-					form["data.gg5e_mm.blueprint.data.combat.role.modifiers"] = null;
-					break;
+			if (event.currentTarget.name) {
+				switch (event.currentTarget.name) {
+					case "data.gg5e_mm.blueprint.data.combat.rank.type":
+						for (const key in form) {
+							if (/\.rank\.modifiers/.test(key)) delete form[key];
+						}
+						form["data.gg5e_mm.blueprint.data.combat.rank.custom_name"] = null;
+						form["data.gg5e_mm.blueprint.data.combat.rank.modifiers"] = null;
+						break;
+					case "data.gg5e_mm.blueprint.data.combat.role.type":
+						for (const key in form) {
+							if (/\.role\.modifiers/.test(key)) delete form[key];
+						}
+						form["data.gg5e_mm.blueprint.data.combat.role.custom_name"] = null;
+						form["data.gg5e_mm.blueprint.data.combat.role.modifiers"] = null;
+						break;
+				}
 			}
 		}
 
-		form = MonsterBlueprint.convertBlueprintToActor(form);
+		if (typeof form["data.gg5e_mm.blueprint.data.saving_throws.method"] !== "undefined") {
+			if (form["data.gg5e_mm.blueprint.data.saving_throws.method"] === "sync") {
+				form["data.gg5e_mm.blueprint.data.saving_throws.ranking"] = form["data.gg5e_mm.blueprint.data.ability_modifiers.ranking"];
+			}
+		}
+
+		let expandedForm = expandObject(form);
+		if (typeof expandedForm.data.gg5e_mm.blueprint !== "undefined") {
+			let blueprint = Blueprint.prepareBlueprint(
+				"monster",
+				this.actor.data.data.gg5e_mm ? this.actor.data.data.gg5e_mm.blueprint : {},
+				expandedForm.data.gg5e_mm.blueprint
+			);
+			let monster = Factory.createEntity(blueprint);
+			let monsterData = {
+				data: {
+					gg5e_mm: {
+						monster: monster
+					},
+					attributes: {
+						hp: {
+							max: monster.data.hit_points.maximum.value,
+							formula: ""
+						}
+					}
+				}
+			};
+			form = $.extend(true, form, flattenObject(monsterData));
+		}
+
+		$.extend(true, form, MonsterBlueprint.convertBlueprintToActor(form));
 
 		super._updateObject(event, form);
 	}
