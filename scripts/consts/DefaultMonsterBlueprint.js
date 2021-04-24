@@ -24,6 +24,12 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
 				modifiers: null
 			}
 		},
+		initiative: {
+			ability: "dex",
+			advantage: false,
+			modifier: null,
+			override: false
+		},
 		hit_points: {
 			current: null,
 			temporary: null,
@@ -61,7 +67,7 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
 		damage_per_action: {
 			modifier: null,
 			override: false,
-			dice_size: 4,
+			die_size: 4,
 			maximum_dice: 0,
 			type: null
 		},
@@ -222,6 +228,6 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
 		xp: {
 			modifier: null,
 			override: false
-		},
+		}
 	}
 }
