@@ -181,6 +181,7 @@
     "gg5e_mm.monster.view.abilities.damage_vulnerabilities": "Damage Vulnerabilities",
     "gg5e_mm.monster.view.abilities.languages": "Languages",
     "gg5e_mm.monster.view.abilities.challenge_rating": "Challenge Rating",
+    "gg5e_mm.monster.view.abilities.initiative": "Initiative",
     "gg5e_mm.monster.view.blocks.armor_class.title": "Armor Class",
     "gg5e_mm.monster.view.blocks.armor_class.ac": "AC",
     "gg5e_mm.monster.view.blocks.attack_bonus.title": "Attack Bonus",
@@ -286,6 +287,10 @@
     "gg5e_mm.monster.options.challenge_rating.modifier": "Modifier",
     "gg5e_mm.monster.options.xp.title": "XP",
     "gg5e_mm.monster.options.xp.modifier": "Modifier",
+    "gg5e_mm.monster.options.initiative.title": "Initiative",
+    "gg5e_mm.monster.options.initiative.ability": "Ability",
+    "gg5e_mm.monster.options.initiative.modifier": "Modifier",
+    "gg5e_mm.monster.options.initiative.advantage": "Advantage",
 
     "gg5e_mm.monster.source.base": "base",
     "gg5e_mm.monster.source.rank": "rank",

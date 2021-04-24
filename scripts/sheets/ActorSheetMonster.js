@@ -216,6 +216,7 @@ export default class ActorSheetMonster extends ActorSheet {
 				expandedForm.data.gg5e_mm.blueprint
 			);
 			let monster = Factory.createEntity(blueprint);
+			let actorInit = this.actor.data.data.attributes.init;
 			let monsterData = {
 				data: {
 					gg5e_mm: {
@@ -225,6 +226,9 @@ export default class ActorSheetMonster extends ActorSheet {
 						hp: {
 							max: monster.data.hit_points.maximum.value,
 							formula: ""
+						},
+						init: {
+							value: monster.data.initiative.value - (actorInit.mod + actorInit.prof + (actorInit.bonus - actorInit.value))
 						}
 					}
 				}

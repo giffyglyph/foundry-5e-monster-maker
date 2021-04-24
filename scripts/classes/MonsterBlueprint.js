@@ -69,6 +69,9 @@ const MonsterBlueprint = (function() {
 				},
 				languages: {
 					other: actor.data.traits.languages.custom
+				},
+				initiative: {
+					advantage: actor.flags.dnd5e && actor.flags.dnd5e.initiativeAdv
 				}
 			}
 		};

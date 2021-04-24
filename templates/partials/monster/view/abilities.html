@@ -14,10 +14,19 @@
 			{{#if data.gg5e_mm.monster.data.proficiency_bonus}}
 				<dt>
 					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.proficiency_bonus'}}</span>
-					<span class="attribute__icon"><i class="fas fa-bolt fa-fw"></i></span>
+					<span class="attribute__icon"><i class="fas fa-brain fa-fw"></i></span>
 				</dt>
 				<dd>
 					<span title="{{{parseSources data.gg5e_mm.monster.data.proficiency_bonus.sources}}}">{{numberFormat data.gg5e_mm.monster.data.proficiency_bonus.value sign=true}}</span>
+				</dd>
+			{{/if}}
+			{{#if data.gg5e_mm.monster.data.initiative}}
+				<dt>
+					<span class="attribute__title">{{localize 'gg5e_mm.monster.view.abilities.initiative'}}</span>
+					<span class="attribute__icon"><i class="fas fa-bolt fa-fw"></i></span>
+				</dt>
+				<dd>
+					<span title="{{{parseSources data.gg5e_mm.monster.data.initiative.sources}}}">{{numberFormat data.gg5e_mm.monster.data.initiative.value sign=true}}{{#if data.gg5e_mm.monster.data.initiative.advantage}} (advantage){{/if}}</span>
 				</dd>
 			{{/if}}
 			{{#if data.gg5e_mm.monster.data.skills}}

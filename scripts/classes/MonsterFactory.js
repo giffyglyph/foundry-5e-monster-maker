@@ -40,6 +40,7 @@ const MonsterFactory = (function() {
 				ability_modifiers: monsterAbilityModifiers,
 				saving_throws: _parseSavingThrows(derivedAttributes, blueprint.data.saving_throws),
 				proficiency_bonus: monsterProficiency,
+				initiative: _parseInitiative(monsterAbilityModifiers, blueprint.data.initiative),
 				skills: monsterSkills,
 				speeds: _parseSpeeds(blueprint.data.speeds),
 				senses: _parseSenses(blueprint.data.senses),
@@ -369,6 +370,17 @@ const MonsterFactory = (function() {
 		cr.setMinimumValue(0);
 
 		return cr;
+	}
+
+	function _parseInitiative(monsterAbilityModifiers, initiative) {
+		const init = new DerivedAttribute();
+		init.add(monsterAbilityModifiers[initiative.ability].value, game.i18n.format('gg5e_mm.monster.source.ability_modifier'));
+		init.applyModifier(initiative.modifier, initiative.override);
+		init.ceil();
+
+		return $.extend(init, {
+			advantage: initiative.advantage
+		});
 	}
 
 	return {
