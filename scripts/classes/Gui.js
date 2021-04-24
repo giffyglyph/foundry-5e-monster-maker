@@ -132,14 +132,22 @@ const Gui = (function() {
 		});
 
 		Handlebars.registerHelper('parseSources', function(sources) {
-			return sources.map((x) => {
-				return game.i18n.format('gg5e_mm.monster.source.from', { value: x.value, source: x.source });
-			}).join(",&#010;");
+			if (sources) {
+				return sources.map((x) => {
+					return game.i18n.format('gg5e_mm.monster.source.from', { value: x.value, source: x.source });
+				}).join(",&#010;");
+			} else {
+				return "";
+			}
 		});
 
 		Handlebars.registerHelper('getSkillProficiency', function(skills, code) {
-			const skill = skills.find((x) => x.code == code);
-			return (skill) ? skill.value : 0;
+			if (skills) {
+				const skill = skills.find((x) => x.code == code);
+				return (skill) ? skill.value : 0;
+			} else {
+				return 0;
+			}
 		});
 
 		Handlebars.registerHelper('formatChallengeRating', function(cr) {
