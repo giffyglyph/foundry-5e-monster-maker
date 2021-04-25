@@ -185,18 +185,40 @@ export default class ActorSheetMonster extends ActorSheet {
 			if (event.currentTarget.name) {
 				switch (event.currentTarget.name) {
 					case "data.gg5e_mm.blueprint.data.combat.rank.type":
-						for (const key in form) {
-							if (/\.rank\.modifiers/.test(key)) delete form[key];
-						}
 						form["data.gg5e_mm.blueprint.data.combat.rank.custom_name"] = null;
-						form["data.gg5e_mm.blueprint.data.combat.rank.modifiers"] = null;
+						form = $.extend(true, form, flattenObject({
+							data: {
+								gg5e_mm: {
+									blueprint: {
+										data: {
+											combat: {
+												rank: {
+													modifiers: MONSTER_RANKS[event.currentTarget.value]
+												}
+											}
+										}
+									}
+								}
+							}
+						}));
 						break;
 					case "data.gg5e_mm.blueprint.data.combat.role.type":
-						for (const key in form) {
-							if (/\.role\.modifiers/.test(key)) delete form[key];
-						}
 						form["data.gg5e_mm.blueprint.data.combat.role.custom_name"] = null;
-						form["data.gg5e_mm.blueprint.data.combat.role.modifiers"] = null;
+						form = $.extend(true, form, flattenObject({
+							data: {
+								gg5e_mm: {
+									blueprint: {
+										data: {
+											combat: {
+												role: {
+													modifiers: MONSTER_ROLES[event.currentTarget.value]
+												}
+											}
+										}
+									}
+								}
+							}
+						}));
 						break;
 				}
 			}
