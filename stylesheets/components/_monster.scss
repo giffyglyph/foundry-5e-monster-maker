@@ -381,6 +381,84 @@
 		}
 	}
 
+	.monster__paragon-actions {
+
+		.panel__body {
+			display: grid;
+			grid-template-columns: 1fr 5.5rem 5.5rem;
+			grid-column-gap: 0;
+			align-items: center;
+		}
+
+		.paragon__blurb {
+			padding-right: 1rem;
+			font-size: smaller;
+			height: 49px;
+			line-height: 12px;
+			overflow-y: auto;
+			text-overflow: ellipsis;
+			border-right: 1px solid mix($primary-base, white, 20%);
+			text-align: right;
+			margin-right: 0.5rem;
+		}
+
+		.paragon--used {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			text-align: center;
+			font-size: inherit;
+			font-family: inherit;
+			opacity: 0;
+			background: mix($secondary-base, white, 20%);
+			border: none;
+			border-radius: 0.5rem;
+
+			&:focus {
+				opacity: 1;
+			}
+		}
+
+		.paragon__used,
+		.paragon__maximum {
+			text-align: center;
+		}
+
+		.paragon__value {
+			font-family: 'Londrina Solid';
+			font-size: 1.75rem;
+			line-height: 1.5rem;
+			letter-spacing: 0.5px;
+			position: relative;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			i {
+				margin-right: 0.25rem;
+				color: $primary-shade-2;
+			}
+		}
+
+		.paragon__used .paragon__value:hover {
+			color: $secondary-base;
+
+			i {
+				color: $secondary-base;
+			}
+		}
+
+		.paragon__description {
+			margin-top: 0.25rem;
+			font-size: smaller;
+			font-weight: 600;
+			color: $primary-tone-1;
+		}
+	}
+
 	.button--text {
 		background: none;
 		border: none;

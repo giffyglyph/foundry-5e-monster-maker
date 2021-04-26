@@ -1049,6 +1049,68 @@
   .gg5e-mm-monster .monster__biography .panel__body > :last-child {
     margin-bottom: 0; }
 
+.gg5e-mm-monster .monster__paragon-actions .panel__body {
+  display: grid;
+  grid-template-columns: 1fr 5.5rem 5.5rem;
+  grid-column-gap: 0;
+  align-items: center; }
+
+.gg5e-mm-monster .monster__paragon-actions .paragon__blurb {
+  padding-right: 1rem;
+  font-size: smaller;
+  height: 49px;
+  line-height: 12px;
+  overflow-y: auto;
+  text-overflow: ellipsis;
+  border-right: 1px solid #d6e5ef;
+  text-align: right;
+  margin-right: 0.5rem; }
+
+.gg5e-mm-monster .monster__paragon-actions .paragon--used {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: inherit;
+  font-family: inherit;
+  opacity: 0;
+  background: #efdfd6;
+  border: none;
+  border-radius: 0.5rem; }
+  .gg5e-mm-monster .monster__paragon-actions .paragon--used:focus {
+    opacity: 1; }
+
+.gg5e-mm-monster .monster__paragon-actions .paragon__used,
+.gg5e-mm-monster .monster__paragon-actions .paragon__maximum {
+  text-align: center; }
+
+.gg5e-mm-monster .monster__paragon-actions .paragon__value {
+  font-family: 'Londrina Solid';
+  font-size: 1.75rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.5px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .gg5e-mm-monster .monster__paragon-actions .paragon__value i {
+    margin-right: 0.25rem;
+    color: #1e4c68; }
+
+.gg5e-mm-monster .monster__paragon-actions .paragon__used .paragon__value:hover {
+  color: #ad6032; }
+  .gg5e-mm-monster .monster__paragon-actions .paragon__used .paragon__value:hover i {
+    color: #ad6032; }
+
+.gg5e-mm-monster .monster__paragon-actions .paragon__description {
+  margin-top: 0.25rem;
+  font-size: smaller;
+  font-weight: 600;
+  color: #487997; }
+
 .gg5e-mm-monster .button--text {
   background: none;
   border: none;

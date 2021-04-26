@@ -83,6 +83,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/initiative.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/languages.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/paragon_actions.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/perception.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/proficiency.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/saving_throws.html",
@@ -93,7 +94,8 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/biography.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html"
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/paragon_actions.html",
 		]);
 	};
 

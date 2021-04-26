@@ -52,7 +52,8 @@ const MonsterFactory = (function() {
 				condition_immunities: _parseCollection(DEFAULT_CONDITIONS, blueprint.data.condition_immunities, "condition"),
 				xp: _parseXp(derivedAttributes, blueprint.data.xp),
 				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating),
-				biography: _parseBiography(blueprint.data.biography)
+				biography: _parseBiography(blueprint.data.biography),
+				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions)
 			}
 		};
 	}
@@ -386,6 +387,22 @@ const MonsterFactory = (function() {
 
 	function _parseBiography(biography) {
 		return biography;
+	}
+
+	function _parseParagonActions(rank, paragonActions) {
+		let mx = new DerivedAttribute();
+		let maximum = rank.modifiers.paragon_actions;
+		if (rank.modifiers.scale_with_players) {
+			maximum *= Math.max(0, rank.modifiers.target_players - 1);
+		}
+		mx.add(maximum, game.i18n.format('gg5e_mm.monster.source.rank'));
+		mx.applyModifier(paragonActions.maximum.modifier, paragonActions.maximum.override);
+		mx.ceil();
+
+		return {
+			used: paragonActions.used,
+			maximum: mx
+		};
 	}
 
 	return {

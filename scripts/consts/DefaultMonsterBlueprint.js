@@ -228,6 +228,14 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
 		xp: {
 			modifier: null,
 			override: false
+		},
+		biography: "",
+		paragon_actions: {
+			used: 0,
+			maximum: {
+				modifier: null,
+				override: false
+			}
 		}
 	}
 }

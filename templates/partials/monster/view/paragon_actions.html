@@ -1,0 +1,25 @@
+<div class="gg5e-mm-panel panel--collapsible monster__paragon-actions" id="panel-paragon-actions">
+	<div class="panel__header">{{localize 'gg5e_mm.monster.view.paragon_actions.title'}}</div>
+	<div class="panel__body">
+		<div class="paragon__blurb">
+            {{localize 'gg5e_mm.monster.view.paragon_actions.blurb'}}
+        </div>
+        <div class="paragon__used">
+            <div class="paragon__value">
+                <input class="paragon--used" data-field="data.gg5e_mm.blueprint.data.paragon_actions.used" data-type="number"/>
+                <i class="far fa-clock"></i> {{data.gg5e_mm.monster.data.paragon_actions.used}}
+            </div>
+            <div class="paragon__description">
+                {{localize 'gg5e_mm.monster.view.paragon_actions.used'}}
+            </div>
+        </div>
+        <div class="paragon__maximum">
+            <div class="paragon__value" title="{{{parseSources data.gg5e_mm.monster.data.paragon_actions.maximum.sources}}}">
+                <i class="fas fa-clock"></i> {{data.gg5e_mm.monster.data.paragon_actions.maximum.value}}
+            </div>
+            <div class="paragon__description">
+                {{localize 'gg5e_mm.monster.view.paragon_actions.maximum'}}
+            </div>
+        </div>
+	</div>
+</div>
