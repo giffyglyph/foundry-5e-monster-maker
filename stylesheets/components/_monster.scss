@@ -95,7 +95,7 @@
 		background: $primary-tint-2;
 
 		> * + * {
-			margin-top: 0.25rem;
+			margin-top: 0.5rem;
 		}
 	}
 
@@ -184,7 +184,7 @@
 		}
 	}
 
-	.monster__abilities {
+	.gg5e-mm-panel {
 		
 		.panel__header {
 			text-transform: uppercase;
@@ -362,6 +362,22 @@
 
 		&:not(:last-child)::after {
 			content: ', ';
+		}
+	}
+	
+	.monster__biography {
+
+		.panel__body {
+			white-space: normal;
+			word-break: break-word;
+
+			> :first-child {
+				margin-top: 0;
+			}
+
+			> :last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 

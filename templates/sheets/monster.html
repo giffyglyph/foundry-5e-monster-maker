@@ -8,6 +8,9 @@
 				<div class="pane__body monster__body" id="monster-body">
 					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html" }}
 					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html" }}
+					{{#if data.gg5e_mm.monster.data.biography}}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/biography.html" }}
+					{{/if}}
 				</div>
 			</div>
 			<div class="pane pane--edit gg5e-mm-monster-options">
@@ -19,6 +22,7 @@
 					<form class="gg5e-mm-accordion gg5e-mm-form form--options" id="accordion-builder" autocomplete="off">
 						<input type="hidden" name="data.gg5e_mm.gui.data.accordions.accordion_builder" value="{{data.gg5e_mm.gui.data.accordions.accordion_builder}}"/>
 						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_abilities" value="{{data.gg5e_mm.gui.data.panels.panel_abilities}}"/>
+						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_biography" value="{{data.gg5e_mm.gui.data.panels.panel_biography}}"/>				
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html" }}
@@ -41,6 +45,7 @@
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/skills.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/cr.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/biography.html" }}
 					</form>
 				</div>
 			</div>

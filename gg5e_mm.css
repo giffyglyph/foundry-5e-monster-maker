@@ -504,6 +504,52 @@
         cursor: pointer; }
       .gg5e-mm-form.form--options .form-group .form-group__body input[type="checkbox"]:focus {
         outline: none; }
+    .gg5e-mm-form.form--options .form-group .form-group__body .html-field .editor-content {
+      padding: 1rem;
+      min-height: 4rem;
+      white-space: normal;
+      word-break: break-word; }
+      .gg5e-mm-form.form--options .form-group .form-group__body .html-field .editor-content > :first-child {
+        margin-top: 0; }
+      .gg5e-mm-form.form--options .form-group .form-group__body .html-field .editor-content > :last-child {
+        margin-bottom: 0; }
+    .gg5e-mm-form.form--options .form-group .form-group__body .html-field .editor-edit {
+      top: 1rem;
+      right: 1rem;
+      border-radius: 1rem;
+      background: #ad6032;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      height: 2rem;
+      width: 2rem;
+      line-height: 2rem;
+      text-align: center; }
+    .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox {
+      min-height: 15rem !important; }
+      .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox .tox-toolbar__group {
+        padding: 0; }
+      .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox .tox-tbtn {
+        margin: 0;
+        height: 30px;
+        width: 30px;
+        padding: 0; }
+        .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox .tox-tbtn:hover {
+          background: #debfad;
+          cursor: pointer; }
+      .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox .tox-tbtn[title="Formats"] {
+        width: 90px; }
+    .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox-toolbar-overlord,
+    .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox-toolbar__primary {
+      background: none !important; }
+    .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox-editor-header {
+      background: #f5ece6;
+      padding: 0.25rem; }
+    .gg5e-mm-form.form--options .form-group .form-group__body .html-field .tox-edit-area__iframe {
+      padding: 1rem; }
   .gg5e-mm-form.form--options .form-group .form-group__options {
     position: absolute;
     right: 0;
@@ -789,7 +835,7 @@
 .gg5e-mm-monster .monster__body {
   background: #84b2ce; }
   .gg5e-mm-monster .monster__body > * + * {
-    margin-top: 0.25rem; }
+    margin-top: 0.5rem; }
 
 .gg5e-mm-monster .monster__blocks .monster__blocks__row {
   display: flex; }
@@ -852,7 +898,7 @@
   .gg5e-mm-monster .monster__blocks .input--hp:focus {
     opacity: 1; }
 
-.gg5e-mm-monster .monster__abilities .panel__header {
+.gg5e-mm-monster .gg5e-mm-panel .panel__header {
   text-transform: uppercase;
   text-align: center;
   padding-left: 3rem; }
@@ -994,6 +1040,14 @@
   font-size: inherit; }
   .gg5e-mm-monster .monster__skill:not(:last-child)::after {
     content: ', '; }
+
+.gg5e-mm-monster .monster__biography .panel__body {
+  white-space: normal;
+  word-break: break-word; }
+  .gg5e-mm-monster .monster__biography .panel__body > :first-child {
+    margin-top: 0; }
+  .gg5e-mm-monster .monster__biography .panel__body > :last-child {
+    margin-bottom: 0; }
 
 .gg5e-mm-monster .button--text {
   background: none;

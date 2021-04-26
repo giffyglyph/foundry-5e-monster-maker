@@ -72,7 +72,8 @@ const MonsterBlueprint = (function() {
 				},
 				initiative: {
 					advantage: actor.flags.dnd5e && actor.flags.dnd5e.initiativeAdv
-				}
+				},
+				biography: actor.data.details.biography.value
 			}
 		};
 
@@ -130,6 +131,7 @@ const MonsterBlueprint = (function() {
 			{ from: "data.gg5e_mm.blueprint.data.condition_immunities.other", to: "data.traits.ci.custom" },
 			{ from: "data.gg5e_mm.blueprint.data.languages.other", to: "data.traits.languages.custom" },
 			{ from: "data.gg5e_mm.blueprint.data.initiative.advantage", to: "flags.dnd5e.initiativeAdv" },
+			{ from: "data.gg5e_mm.blueprint.data.biography", to: "data.details.biography.value" }
 		];
 		mappings.forEach((x) => {
 			if (typeof form[x.from] !== 'undefined') {

@@ -201,6 +201,7 @@
     "gg5e_mm.monster.view.combat.level": "Level {level}",
     "gg5e_mm.monster.view.combat.rank.vs": "{name} vs {players}",
     "gg5e_mm.monster.view.combat.phase": "{current} of {maximum}",
+    "gg5e_mm.monster.view.biography.title": "Biography",
 
     "gg5e_mm.monster.options.title": "Configuration",
     "gg5e_mm.monster.options.is_fixed": "Is fixed",
@@ -291,6 +292,7 @@
     "gg5e_mm.monster.options.initiative.ability": "Ability",
     "gg5e_mm.monster.options.initiative.modifier": "Modifier",
     "gg5e_mm.monster.options.initiative.advantage": "Advantage",
+    "gg5e_mm.monster.options.biography.title": "Biography",
 
     "gg5e_mm.monster.source.base": "base",
     "gg5e_mm.monster.source.rank": "rank",

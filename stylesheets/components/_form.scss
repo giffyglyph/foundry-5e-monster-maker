@@ -244,6 +244,79 @@
 						outline: none;
 					}
 				}
+
+				.html-field {
+					
+					.editor-content {
+						padding: 1rem;
+						min-height: 4rem;
+						white-space: normal;
+						word-break: break-word;
+
+						> :first-child {
+							margin-top: 0;
+						}
+
+						> :last-child {
+							margin-bottom: 0;
+						}
+					}
+
+					.editor-edit {
+						top: 1rem;
+						right: 1rem;
+						border-radius: 1rem;
+						background: $secondary-base;
+						border: none;
+						color: white;
+						font-size: 1rem;
+						padding: 0;
+						border: none;
+						box-shadow: none;
+						height: 2rem;
+						width: 2rem;
+						line-height: 2rem;
+						text-align: center;
+					}
+
+					.tox {
+						min-height: 15rem !important;
+
+						.tox-toolbar__group {
+							padding: 0;
+						}
+
+						.tox-tbtn {
+							margin: 0;
+							height: 30px;
+							width: 30px;
+							padding: 0;
+
+							&:hover {
+								background: $secondary-tint-3;
+								cursor: pointer;
+							}
+						}
+
+						.tox-tbtn[title="Formats"] {
+							width: 90px;
+						}
+					}
+
+					.tox-toolbar-overlord,
+					.tox-toolbar__primary {
+						background: none !important;
+					}
+
+					.tox-editor-header {
+						background: mix($secondary-tint-2, white, 20%);
+						padding: 0.25rem;
+					}
+
+					.tox-edit-area__iframe {
+						padding: 1rem;
+					}
+				}
 			}
 
 			.form-group__options {

@@ -71,6 +71,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_bonus.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_dcs.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/biography.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/condition_immunities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/cr.html",
@@ -90,6 +91,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/speeds.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/biography.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html"
 		]);

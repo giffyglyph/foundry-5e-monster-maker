@@ -51,7 +51,8 @@ const MonsterFactory = (function() {
 				damage_vulnerabilities: _parseCollection(DEFAULT_DAMAGE_TYPES, blueprint.data.damage_vulnerabilities, "damage"),
 				condition_immunities: _parseCollection(DEFAULT_CONDITIONS, blueprint.data.condition_immunities, "condition"),
 				xp: _parseXp(derivedAttributes, blueprint.data.xp),
-				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating)
+				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating),
+				biography: _parseBiography(blueprint.data.biography)
 			}
 		};
 	}
@@ -381,6 +382,10 @@ const MonsterFactory = (function() {
 		return $.extend(init, {
 			advantage: initiative.advantage
 		});
+	}
+
+	function _parseBiography(biography) {
+		return biography;
 	}
 
 	return {
