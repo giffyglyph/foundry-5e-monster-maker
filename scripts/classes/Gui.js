@@ -14,7 +14,7 @@ const Gui = (function() {
 	function setAccordions(html, accordions) {
 		if (accordions) {
 			for (const [key, value] of Object.entries(accordions)) {
-				let accordion = html.find(`#${key.replace("_", "-")}`);
+				let accordion = html.find(`#${key.replace(/_/g, "-")}`);
 				if (value) {
 					value.split(",").forEach((x) => accordion.find(`[data-section='${x.trim()}']`).addClass("opened"));
 				}
@@ -26,7 +26,7 @@ const Gui = (function() {
 		if (panels) {
 			for (const [key, value] of Object.entries(panels)) {
 				if (value === "closed") {
-					html.find(`#${key.replace("_", "-")}`).addClass("closed");
+					html.find(`#${key.replace(/_/g, "-")}`).addClass("closed");
 				}
 			}
 		}
@@ -35,8 +35,8 @@ const Gui = (function() {
 	function setScrollbars(html, scrollbars) {
 		if (scrollbars) {
 			for (const [key, value] of Object.entries(scrollbars)) {
-				html.find(`#${key.replace("_", "-")}`).scrollLeft(value.x);
-				html.find(`#${key.replace("_", "-")}`).scrollTop(value.y);
+				html.find(`#${key.replace(/_/g, "-")}`).scrollLeft(value.x);
+				html.find(`#${key.replace(/_/g, "-")}`).scrollTop(value.y);
 			}
 		}
 	}
