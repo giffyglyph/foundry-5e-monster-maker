@@ -1111,13 +1111,15 @@
   font-weight: 600;
   color: #487997; }
 
-.gg5e-mm-monster .monster__legendary-resistances .panel__body {
+.gg5e-mm-monster .monster__legendary-resistances .panel__body,
+.gg5e-mm-monster .monster__legendary-actions .panel__body {
   display: grid;
   grid-template-columns: 1fr 5.5rem 5.5rem;
   grid-column-gap: 0;
   align-items: center; }
 
-.gg5e-mm-monster .monster__legendary-resistances .legendary__blurb {
+.gg5e-mm-monster .monster__legendary-resistances .legendary__blurb,
+.gg5e-mm-monster .monster__legendary-actions .legendary__blurb {
   padding-right: 1rem;
   font-size: smaller;
   height: 49px;
@@ -1128,7 +1130,8 @@
   text-align: right;
   margin-right: 0.5rem; }
 
-.gg5e-mm-monster .monster__legendary-resistances .legendary--current {
+.gg5e-mm-monster .monster__legendary-resistances .legendary--current,
+.gg5e-mm-monster .monster__legendary-actions .legendary--current {
   position: absolute;
   left: 0;
   top: 0;
@@ -1141,14 +1144,18 @@
   background: #efdfd6;
   border: none;
   border-radius: 0.5rem; }
-  .gg5e-mm-monster .monster__legendary-resistances .legendary--current:focus {
+  .gg5e-mm-monster .monster__legendary-resistances .legendary--current:focus,
+  .gg5e-mm-monster .monster__legendary-actions .legendary--current:focus {
     opacity: 1; }
 
 .gg5e-mm-monster .monster__legendary-resistances .legendary__current,
-.gg5e-mm-monster .monster__legendary-resistances .legendary__maximum {
+.gg5e-mm-monster .monster__legendary-resistances .legendary__maximum,
+.gg5e-mm-monster .monster__legendary-actions .legendary__current,
+.gg5e-mm-monster .monster__legendary-actions .legendary__maximum {
   text-align: center; }
 
-.gg5e-mm-monster .monster__legendary-resistances .legendary__value {
+.gg5e-mm-monster .monster__legendary-resistances .legendary__value,
+.gg5e-mm-monster .monster__legendary-actions .legendary__value {
   font-family: 'Londrina Solid';
   font-size: 1.75rem;
   line-height: 1.5rem;
@@ -1158,16 +1165,20 @@
   display: flex;
   justify-content: center;
   align-items: center; }
-  .gg5e-mm-monster .monster__legendary-resistances .legendary__value i {
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__value i,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__value i {
     margin-right: 0.25rem;
     color: #1e4c68; }
 
-.gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover {
+.gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover,
+.gg5e-mm-monster .monster__legendary-actions .legendary__current .legendary__value:hover {
   color: #ad6032; }
-  .gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover i {
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover i,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__current .legendary__value:hover i {
     color: #ad6032; }
 
-.gg5e-mm-monster .monster__legendary-resistances .legendary__description {
+.gg5e-mm-monster .monster__legendary-resistances .legendary__description,
+.gg5e-mm-monster .monster__legendary-actions .legendary__description {
   margin-top: 0.25rem;
   font-size: smaller;
   font-weight: 600;

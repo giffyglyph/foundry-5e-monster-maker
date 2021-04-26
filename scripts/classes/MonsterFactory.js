@@ -54,7 +54,8 @@ const MonsterFactory = (function() {
 				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating),
 				biography: _parseBiography(blueprint.data.biography),
 				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions),
-				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances)
+				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances),
+				legendary_actions: _parseLegendaryResistances(blueprint.data.legendary_actions),
 			}
 		};
 	}
@@ -410,6 +411,13 @@ const MonsterFactory = (function() {
 		return {
 			current: legendaryResistances.current,
 			maximum: legendaryResistances.maximum
+		};
+	}
+
+	function _parseLegendaryActions(legendaryActions) {
+		return {
+			current: legendaryActions.current,
+			maximum: legendaryActions.maximum
 		};
 	}
 

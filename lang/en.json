@@ -210,6 +210,10 @@
     "gg5e_mm.monster.view.legendary_resistances.blurb": "If you would fail a saving throw, you can instead spend 1 legendary resistance to succeed. You regain spent legendary resistances when you finish a long rest.",
     "gg5e_mm.monster.view.legendary_resistances.current": "Current",
     "gg5e_mm.monster.view.legendary_resistances.maximum": "Maximum",
+    "gg5e_mm.monster.view.legendary_actions.title": "Legendary Actions",
+    "gg5e_mm.monster.view.legendary_actions.blurb": "When another creature ends it's turn, you can spend a number of legendary actions to perform one of the actions listed below. You regain spent legendary actions at the start of your turn.",
+    "gg5e_mm.monster.view.legendary_actions.current": "Current",
+    "gg5e_mm.monster.view.legendary_actions.maximum": "Maximum",
 
     "gg5e_mm.monster.options.title": "Configuration",
     "gg5e_mm.monster.options.is_fixed": "Is fixed",
@@ -309,6 +313,9 @@
     "gg5e_mm.monster.options.legendary_resistances.title": "Legendary Resistances",
     "gg5e_mm.monster.options.legendary_resistances.current": "Current",
     "gg5e_mm.monster.options.legendary_resistances.maximum": "Maximum",
+    "gg5e_mm.monster.options.legendary_actions.title": "Legendary Actions",
+    "gg5e_mm.monster.options.legendary_actions.current": "Current",
+    "gg5e_mm.monster.options.legendary_actions.maximum": "Maximum",
 
     "gg5e_mm.monster.source.base": "base",
     "gg5e_mm.monster.source.rank": "rank",
