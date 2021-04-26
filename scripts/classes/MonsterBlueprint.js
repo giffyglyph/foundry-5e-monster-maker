@@ -81,6 +81,10 @@ const MonsterBlueprint = (function() {
 				legendary_actions: {
 					current: actor.data.resources.legact.value,
 					maximum: actor.data.resources.legact.max
+				},
+				lair_actions: {
+					enabled: actor.data.resources.lair.value,
+					initiative: actor.data.resources.lair.initiative
 				}
 			}
 		};
@@ -143,7 +147,9 @@ const MonsterBlueprint = (function() {
 			{ from: "data.gg5e_mm.blueprint.data.legendary_resistances.current", to: "data.resources.legres.value" },
 			{ from: "data.gg5e_mm.blueprint.data.legendary_resistances.maximum", to: "data.resources.legres.max" },
 			{ from: "data.gg5e_mm.blueprint.data.legendary_actions.current", to: "data.resources.legact.value" },
-			{ from: "data.gg5e_mm.blueprint.data.legendary_actions.maximum", to: "data.resources.legact.max" }
+			{ from: "data.gg5e_mm.blueprint.data.legendary_actions.maximum", to: "data.resources.legact.max" },
+			{ from: "data.gg5e_mm.blueprint.data.lair_actions.enabled", to: "data.resources.lair.value" },
+			{ from: "data.gg5e_mm.blueprint.data.lair_actions.initiative", to: "data.resources.lair.initiative" }
 		];
 		mappings.forEach((x) => {
 			if (typeof form[x.from] !== 'undefined') {

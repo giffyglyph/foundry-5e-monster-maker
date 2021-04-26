@@ -17,6 +17,9 @@
 					{{#if data.gg5e_mm.monster.data.legendary_actions.maximum}}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/legendary_actions.html" }}
 					{{/if}}
+					{{#if data.gg5e_mm.monster.data.lair_actions.enabled}}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/lair_actions.html" }}
+					{{/if}}
 					{{#if data.gg5e_mm.monster.data.biography}}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/biography.html" }}
 					{{/if}}
@@ -35,6 +38,7 @@
 						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_paragon_actions" value="{{data.gg5e_mm.gui.data.panels.panel_paragon_actions}}"/>
 						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_legendary_resistances" value="{{data.gg5e_mm.gui.data.panels.panel_legendary_resistances}}"/>
 						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_legendary_actions" value="{{data.gg5e_mm.gui.data.panels.panel_legendary_actions}}"/>
+						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_lair_actions" value="{{data.gg5e_mm.gui.data.panels.panel_lair_actions}}"/>
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html" }}
@@ -60,6 +64,7 @@
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_resistances.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/paragon_actions.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_actions.html" }}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/lair_actions.html" }}
 						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/biography.html" }}
 					</form>
 				</div>

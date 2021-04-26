@@ -55,7 +55,8 @@ const MonsterFactory = (function() {
 				biography: _parseBiography(blueprint.data.biography),
 				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions),
 				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances),
-				legendary_actions: _parseLegendaryResistances(blueprint.data.legendary_actions),
+				legendary_actions: _parseLegendaryActions(blueprint.data.legendary_actions),
+				lair_actions: _parseLairActions(blueprint.data.lair_actions)
 			}
 		};
 	}
@@ -418,6 +419,13 @@ const MonsterFactory = (function() {
 		return {
 			current: legendaryActions.current,
 			maximum: legendaryActions.maximum
+		};
+	}
+
+	function _parseLairActions(lairActions) {
+		return {
+			enabled: lairActions.enabled,
+			initiative: lairActions.initiative
 		};
 	}
 

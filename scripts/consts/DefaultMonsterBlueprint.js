@@ -240,6 +240,10 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
 		legendary_resistances: {
 			current: 0,
 			maximum: null
+		},
+		lair_actions: {
+			enabled: false,
+			initiative: 0
 		}
 	}
 }
