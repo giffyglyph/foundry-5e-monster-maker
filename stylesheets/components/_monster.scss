@@ -402,7 +402,7 @@
 			margin-right: 0.5rem;
 		}
 
-		.paragon--used {
+		.paragon--current {
 			position: absolute;
 			left: 0;
 			top: 0;
@@ -421,7 +421,7 @@
 			}
 		}
 
-		.paragon__used,
+		.paragon__current,
 		.paragon__maximum {
 			text-align: center;
 		}
@@ -443,7 +443,7 @@
 			}
 		}
 
-		.paragon__used .paragon__value:hover {
+		.paragon__current .paragon__value:hover {
 			color: $secondary-base;
 
 			i {
@@ -452,6 +452,84 @@
 		}
 
 		.paragon__description {
+			margin-top: 0.25rem;
+			font-size: smaller;
+			font-weight: 600;
+			color: $primary-tone-1;
+		}
+	}
+
+	.monster__legendary-resistances {
+
+		.panel__body {
+			display: grid;
+			grid-template-columns: 1fr 5.5rem 5.5rem;
+			grid-column-gap: 0;
+			align-items: center;
+		}
+
+		.legendary__blurb {
+			padding-right: 1rem;
+			font-size: smaller;
+			height: 49px;
+			line-height: 12px;
+			overflow-y: auto;
+			text-overflow: ellipsis;
+			border-right: 1px solid mix($primary-base, white, 20%);
+			text-align: right;
+			margin-right: 0.5rem;
+		}
+
+		.legendary--current {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			text-align: center;
+			font-size: inherit;
+			font-family: inherit;
+			opacity: 0;
+			background: mix($secondary-base, white, 20%);
+			border: none;
+			border-radius: 0.5rem;
+
+			&:focus {
+				opacity: 1;
+			}
+		}
+
+		.legendary__current,
+		.legendary__maximum {
+			text-align: center;
+		}
+
+		.legendary__value {
+			font-family: 'Londrina Solid';
+			font-size: 1.75rem;
+			line-height: 1.5rem;
+			letter-spacing: 0.5px;
+			position: relative;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			i {
+				margin-right: 0.25rem;
+				color: $primary-shade-2;
+			}
+		}
+
+		.legendary__current .legendary__value:hover {
+			color: $secondary-base;
+
+			i {
+				color: $secondary-base;
+			}
+		}
+
+		.legendary__description {
 			margin-top: 0.25rem;
 			font-size: smaller;
 			font-weight: 600;

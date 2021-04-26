@@ -53,7 +53,8 @@ const MonsterFactory = (function() {
 				xp: _parseXp(derivedAttributes, blueprint.data.xp),
 				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating),
 				biography: _parseBiography(blueprint.data.biography),
-				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions)
+				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions),
+				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances)
 			}
 		};
 	}
@@ -400,8 +401,15 @@ const MonsterFactory = (function() {
 		mx.ceil();
 
 		return {
-			used: paragonActions.used,
+			current: paragonActions.current,
 			maximum: mx
+		};
+	}
+
+	function _parseLegendaryResistances(legendaryResistances) {
+		return {
+			current: legendaryResistances.current,
+			maximum: legendaryResistances.maximum
 		};
 	}
 

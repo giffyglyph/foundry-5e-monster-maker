@@ -91,7 +91,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		html.find('.toggle-mode--edit').click(this._toggleModeEdit.bind(this));
 		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
-		html.find('.input--thp, .input--hp, .paragon--used').change(this._updateConfigurationField.bind(this));
+		html.find('.input--thp, .input--hp, .paragon--current, .legendary--current').change(this._updateConfigurationField.bind(this));
 
 		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
 			x.activateListeners(html, this.actor, this.id)

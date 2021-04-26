@@ -231,11 +231,15 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
 		},
 		biography: "",
 		paragon_actions: {
-			used: 0,
+			current: 0,
 			maximum: {
 				modifier: null,
 				override: false
 			}
+		},
+		legendary_resistances: {
+			current: 0,
+			maximum: null
 		}
 	}
 }
