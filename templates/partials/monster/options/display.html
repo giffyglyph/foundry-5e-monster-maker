@@ -8,7 +8,7 @@
 			<div class="form-group__body">
                 <select name="data.gg5e_mm.blueprint.data.display.skin">
                     {{#select data.gg5e_mm.blueprint.data.display.skin}}
-                        {{#each data.gg5e_mm.enums.display_skins}}
+                        {{#each data.gg5e_mm.enums.skins}}
                             <option value="{{.}}">{{localize (concat 'gg5e_mm.display.skin.' .)}}</option>
                         {{/each}}
                     {{/select}}
@@ -22,7 +22,7 @@
 			<div class="form-group__body">
 				<select name="data.gg5e_mm.blueprint.data.display.color">
                     {{#select data.gg5e_mm.blueprint.data.display.color}}
-                        {{#each data.gg5e_mm.enums.display_colors}}
+                        {{#each data.gg5e_mm.enums.colors}}
                             <option value="{{.}}">{{localize (concat 'gg5e_mm.display.color.' .)}}</option>
                         {{/each}}
                     {{/select}}

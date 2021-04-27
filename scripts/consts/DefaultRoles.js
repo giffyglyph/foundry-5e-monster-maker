@@ -1,4 +1,4 @@
-export const MONSTER_ROLES = {
+export const DEFAULT_ROLES = {
 	controller: {
 		armor_class: -2,
 		hit_points: 1,

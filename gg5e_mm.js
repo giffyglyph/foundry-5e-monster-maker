@@ -1,4 +1,4 @@
-import Gui from "./scripts/classes/Gui.js";
+import Templates from "./scripts/classes/Templates.js";
 import ActorSheetMonster from './scripts/sheets/ActorSheetMonster.js';
 
 /* -------------------------------------------- */
@@ -13,8 +13,8 @@ Hooks.once("init", function() {
 		label: "gg5e_mm.sheet.monster.label"
 	});
 
-	Gui.registerHandlebarsHelpers();
-	Gui.preloadHandlebarsTemplates();
+	Templates.preloadTemplates();
+	Templates.registerTemplateHelpers();
 
 	console.log(`Giffyglyph's 5e Monster Maker | Initialised`);
 });

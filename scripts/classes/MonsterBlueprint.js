@@ -1,31 +1,21 @@
-import { DEFAULT_MONSTER_BLUEPRINT } from "../consts/DefaultMonsterBlueprint.js";
 import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
 import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
 import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
 import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
 import { DEFAULT_SIZES } from "../consts/DefaultSizes.js";
 import { DEFAULT_UNITS } from "../consts/DefaultUnits.js";
-import { MONSTER_RANKS } from "../consts/MonsterRanks.js";
-import { MONSTER_ROLES } from "../consts/MonsterRoles.js";
+import { DEFAULT_ROLES } from "../consts/DefaultRoles.js";
+import { DEFAULT_RANKS } from "../consts/DefaultRanks.js";
 
 const MonsterBlueprint = (function() {
 
 	function prepareBlueprint(type, ...data) {
-		let blueprint = $.extend(true, {}, DEFAULT_MONSTER_BLUEPRINT, ...data);
-
-		if (blueprint.data.combat.rank.modifiers == null) {
-			blueprint.data.combat.rank.modifiers = MONSTER_RANKS[blueprint.data.combat.rank.type];
-		}
-
-		if (blueprint.data.combat.role.modifiers == null) {
-			blueprint.data.combat.role.modifiers = MONSTER_ROLES[blueprint.data.combat.role.type];
-		}
-
+		let blueprint = $.extend(true, {}, _getDefaultBlueprint(), ...data);
 		blueprint.type = type;
 		return blueprint;
 	}
 
-	function extractBlueprintFromActor(actor) {
+	function getBlueprintFromActor(actor) {
 		let blueprint = {
 			data: {
 				description: {
@@ -116,8 +106,7 @@ const MonsterBlueprint = (function() {
 		return blueprint;
 	}
 
-	function convertBlueprintToActor(form) {
-
+	function getActorFromBlueprint(form) {
 		let output = {};
 
 		const mappings = [
@@ -197,6 +186,262 @@ const MonsterBlueprint = (function() {
 		return output;
 	}
 
+	function _getDefaultBlueprint() {
+		return {
+			vid: 1,
+			type: "monster",
+			data: {
+				description: {
+					size: "medium",
+					type: {
+						category: "humanoid",
+						custom: null
+					},
+					tags: null,
+					alignment: "unaligned"
+				},
+				combat: {
+					level: 10,
+					rank: {
+						type: "standard",
+						custom_name: null,
+						modifiers: DEFAULT_RANKS["standard"]
+					},
+					role: {
+						type: "striker",
+						custom_name: null,
+						modifiers: DEFAULT_ROLES["striker"]
+					}
+				},
+				initiative: {
+					ability: "dex",
+					advantage: false,
+					modifier: null,
+					override: false
+				},
+				hit_points: {
+					current: null,
+					temporary: null,
+					maximum: {
+						modifier: null,
+						override: false
+					}
+				},
+				armor_class: {
+					modifier: null,
+					override: false,
+					type: null
+				},
+				passive_perception: {
+					modifier: null,
+					override: false
+				},
+				attack_bonus: {
+					modifier: null,
+					override: false,
+					type: null
+				},
+				attack_dcs: {
+					primary: {
+						modifier: null,
+						override: false,
+						type: null
+					},
+					secondary: {
+						modifier: null,
+						override: false,
+						type: null
+					}
+				},
+				damage_per_action: {
+					modifier: null,
+					override: false,
+					die_size: 4,
+					maximum_dice: 0,
+					type: null
+				},
+				ability_modifiers: {
+					ranking: ["str", "dex", "con", "int", "wis", "cha"],
+					modifiers: null,
+					override: false,
+				},
+				saving_throws: {
+					method: "sync",
+					ranking: ["str", "dex", "con", "int", "wis", "cha"],
+					modifiers: null,
+					override: false
+				},
+				proficiency_bonus: {
+					modifier: null,
+					override: false
+				},
+				speeds: {
+					walk: null,
+					burrow: null,
+					climb: null,
+					fly: null,
+					swim: null,
+					units: "feet",
+					can_hover: false
+				},
+				senses: {
+					blindsight: null,
+					darkvision: null,
+					tremorsense: null,
+					truesight: null,
+					units: null,
+					other: null
+				},
+				languages: {
+					aarakocra: false,
+					abyssal: false,
+					aquan: false,
+					auran: false,
+					celestial: false,
+					common: false,
+					deep_speech: false,
+					draconic: false,
+					druidic: false,
+					dwarvish: false,
+					elvish: false,
+					giant: false,
+					gith: false,
+					gnoll: false,
+					gnomish: false,
+					goblin: false,
+					halfling: false,
+					ignan: false,
+					infernal: false,
+					orc: false,
+					primordial: false,
+					sylvan: false,
+					terran: false,
+					thieves_cant: false,
+					undercommon: false,
+					other: null
+				},
+				damage_resistances: {
+					acid: false,
+					bludgeoning: false,
+					cold: false,
+					fire: false,
+					force: false,
+					lightning: false,
+					necrotic: false,
+					physical: false,
+					piercing: false,
+					poison: false,
+					psychic: false,
+					radiant: false,
+					slashing: false,
+					thunder: false,
+					other: null
+				},
+				damage_vulnerabilities: {
+					acid: false,
+					bludgeoning: false,
+					cold: false,
+					fire: false,
+					force: false,
+					lightning: false,
+					necrotic: false,
+					physical: false,
+					piercing: false,
+					poison: false,
+					psychic: false,
+					radiant: false,
+					slashing: false,
+					thunder: false,
+					other: null
+				},
+				damage_immunities: {
+					acid: false,
+					bludgeoning: false,
+					cold: false,
+					fire: false,
+					force: false,
+					lightning: false,
+					necrotic: false,
+					non_magical_physical: false,
+					piercing: false,
+					poison: false,
+					psychic: false,
+					radiant: false,
+					slashing: false,
+					thunder: false,
+					other: null
+				},
+				condition_immunities: {
+					blinded: false,
+					charmed: false,
+					deafened: false,
+					diseased: false,
+					exhaustion: false,
+					frightened: false,
+					grappled: false,
+					incapacitated: false,
+					invisible: false,
+					paralyzed: false,
+					petrified: false,
+					poisoned: false,
+					prone: false,
+					restrained: false,
+					stunned: false,
+					unconcious: false,
+					other: null
+				},
+				skills: {
+					acrobatics: null,
+					animal_handling: null,
+					arcana: null,
+					athletics: null,
+					deception: null,
+					history: null,
+					insight: null,
+					intimidation: null,
+					investigation: null,
+					medicine: null,
+					nature: null,
+					perception: null,
+					performance: null,
+					persuasion: null,
+					religion: null,
+					sleight_of_hand: null,
+					stealth: null,
+					survival: null
+				},
+				challenge_rating: {
+					modifier: null,
+					override: false
+				},
+				xp: {
+					modifier: null,
+					override: false
+				},
+				biography: "",
+				paragon_actions: {
+					current: 0,
+					maximum: {
+						modifier: null,
+						override: false
+					}
+				},
+				legendary_resistances: {
+					current: 0,
+					maximum: null
+				},
+				lair_actions: {
+					enabled: false,
+					initiative: 0
+				},
+				display: {
+					skin: "bubble",
+					color: "polo_blue"
+				}
+			}
+		}
+	}
+
 	function _convertTraits(form, output, values, blueprintField, foundryField) {
 		if (typeof form[`data.gg5e_mm.blueprint.data.${blueprintField}.other`] !== 'undefined') {
 			let traits = [];
@@ -211,8 +456,8 @@ const MonsterBlueprint = (function() {
 
 	return {
 		prepareBlueprint: prepareBlueprint,
-		extractBlueprintFromActor: extractBlueprintFromActor,
-		convertBlueprintToActor: convertBlueprintToActor
+		getBlueprintFromActor: getBlueprintFromActor,
+		getActorFromBlueprint: getActorFromBlueprint
 	};
 })();
 

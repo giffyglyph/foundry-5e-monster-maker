@@ -6,20 +6,20 @@ import ModalBasicAttackAc from "../modals/ModalBasicAttackAc.js";
 import ModalBasicAttackSave from "../modals/ModalBasicAttackSave.js";
 import ModalBasicDamage from "../modals/ModalBasicDamage.js";
 import ModalSavingThrow from "../modals/ModalSavingThrow.js";
+import MonsterBlueprint from "../classes/MonsterBlueprint.js";
 import { DEFAULT_ABILITIES } from "../consts/DefaultAbilities.js";
 import { DEFAULT_ALIGNMENTS } from "../consts/DefaultAlignments.js";
 import { DEFAULT_CATEGORIES } from "../consts/DefaultCategories.js";
+import { DEFAULT_COLORS } from "../consts/DefaultColors.js";
 import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
 import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
-import { DEFAULT_DISPLAY_COLORS } from "../consts/DefaultDisplayColors.js";
-import { DEFAULT_DISPLAY_SKINS } from "../consts/DefaultDisplaySkins.js";
 import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
 import { DEFAULT_SIZES } from "../consts/DefaultSizes.js";
 import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
+import { DEFAULT_SKINS } from "../consts/DefaultSkins.js";
 import { DEFAULT_UNITS } from "../consts/DefaultUnits.js";
-import { MONSTER_RANKS } from "../consts/MonsterRanks.js";
-import { MONSTER_ROLES } from "../consts/MonsterRoles.js";
-import MonsterBlueprint from "../classes/MonsterBlueprint.js";
+import { DEFAULT_RANKS } from "../consts/DefaultRanks.js";
+import { DEFAULT_ROLES } from "../consts/DefaultRoles.js";
 
 export default class ActorSheetMonster extends ActorSheet {
 
@@ -31,7 +31,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		let blueprint = Blueprint.prepareBlueprint(
 			"monster",
 			this.actor.data.data.gg5e_mm ? this.actor.data.data.gg5e_mm.blueprint : null,
-			MonsterBlueprint.extractBlueprintFromActor(this.actor.data)
+			MonsterBlueprint.getBlueprintFromActor(this.actor.data)
 		);
 		let form = {
 			data: {
@@ -67,13 +67,13 @@ export default class ActorSheetMonster extends ActorSheet {
 			categories: DEFAULT_CATEGORIES,
 			conditions: DEFAULT_CONDITIONS,
 			damage_types: DEFAULT_DAMAGE_TYPES,
-			display_colors: DEFAULT_DISPLAY_COLORS,
-			display_skins: DEFAULT_DISPLAY_SKINS,
+			colors: DEFAULT_COLORS,
+			skins: DEFAULT_SKINS,
 			languages: DEFAULT_LANGUAGES,
 			sizes: DEFAULT_SIZES.map((x) => x.name),
 			skills: DEFAULT_SKILLS.map((x) => x.name),
-			ranks: Object.keys(MONSTER_RANKS),
-			roles: Object.keys(MONSTER_ROLES),
+			ranks: Object.keys(DEFAULT_RANKS),
+			roles: Object.keys(DEFAULT_ROLES),
 			units: DEFAULT_UNITS.map((x) => x.name)
 		};
 
@@ -271,7 +271,7 @@ export default class ActorSheetMonster extends ActorSheet {
 			form = $.extend(true, form, flattenObject(monsterData));
 		}
 
-		$.extend(true, form, MonsterBlueprint.convertBlueprintToActor(form));
+		$.extend(true, form, MonsterBlueprint.getActorFromBlueprint(form));
 
 		super._updateObject(event, form);
 	}

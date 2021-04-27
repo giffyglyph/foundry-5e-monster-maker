@@ -1,4 +1,4 @@
-export const MONSTER_RANKS = {
+export const DEFAULT_RANKS = {
 	minion: {
 		armor_class: -2,
 		hit_points: 0.2,

@@ -22,7 +22,7 @@ const MonsterFactory = (function() {
 		const monsterSkills = _parseSkills(monsterProficiency.getValue(), blueprint.data.skills);
 		
 		return {
-			vid: blueprint.vid,
+			vid: 1,
 			type: blueprint.type,
 			data: {
 				name: _parseName(blueprint.data.description.name),
