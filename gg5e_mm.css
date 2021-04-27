@@ -139,6 +139,8 @@
     position: relative;
     padding: 1rem;
     overflow: hidden; }
+  .gg5e-mm-accordion .accordion-group:not(:last-child) {
+    margin-bottom: 0.5rem; }
   .gg5e-mm-accordion .accordion-section:first-of-type .accordion-section__header {
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem; }
@@ -1182,6 +1184,29 @@
     font-size: 1.5rem; }
   .gg5e-mm-monster-options .options__header + .options__body {
     margin-top: 0; }
+  .gg5e-mm-monster-options .options__header .pane__title {
+    flex-grow: 1;
+    text-align: left; }
+  .gg5e-mm-monster-options .options__header .options__close-all {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    background: none;
+    border: none;
+    border-radius: 1rem;
+    background: #28668a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; }
+    .gg5e-mm-monster-options .options__header .options__close-all:hover {
+      background: #ad6032;
+      text-shadow: none;
+      box-shadow: none; }
+    .gg5e-mm-monster-options .options__header .options__close-all i {
+      margin: 0; }
 
 .gg5e-mm-monster-options .options__body {
   border-top-left-radius: 0;

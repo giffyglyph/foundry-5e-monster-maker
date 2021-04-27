@@ -28,6 +28,37 @@
 		+ .options__body {
 			margin-top: 0;
 		}
+
+		.pane__title {
+			flex-grow: 1;
+			text-align: left;
+		}
+
+		.options__close-all {
+			flex-shrink: 0;
+			width: 2rem;
+			height: 2rem;
+			margin: 0;
+			background: none;
+			border: none;
+			border-radius: 1rem;
+			background: $primary-shade-1;
+			color: white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+
+			&:hover {
+				background: $secondary-base;
+				text-shadow: none;
+				box-shadow: none;
+			}
+
+			i {
+				margin: 0;
+			}
+		}
 	}
 
 	.options__body {

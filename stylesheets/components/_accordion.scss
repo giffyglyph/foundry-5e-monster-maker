@@ -49,6 +49,13 @@
 		overflow: hidden;
 	}
 
+	.accordion-group {
+
+		&:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+	}
+
 	.accordion-section {
 
 		&:first-of-type .accordion-section__header {

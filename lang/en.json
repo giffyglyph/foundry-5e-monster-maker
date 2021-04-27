@@ -266,7 +266,7 @@
     "gg5e_mm.monster.options.attack_dcs.secondary": "Secondary",
     "gg5e_mm.monster.options.attack_dcs.modifier": "Modifier",
     "gg5e_mm.monster.options.attack_dcs.type": "Type",
-    "gg5e_mm.monster.options.damage.title": "Damage per Action",
+    "gg5e_mm.monster.options.damage.title": "Damage (per Action)",
     "gg5e_mm.monster.options.damage.modifier": "Modifier",
     "gg5e_mm.monster.options.damage.type": "Type",
     "gg5e_mm.monster.options.damage.dice_size": "Die Size",
