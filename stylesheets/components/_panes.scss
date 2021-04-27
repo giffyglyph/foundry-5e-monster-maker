@@ -10,6 +10,12 @@
 		display: flex;
 		flex-direction: column;
 		border-radius: 1rem;
+
+		::-webkit-scrollbar-thumb {
+			border-radius: 1rem;
+			background: $secondary-shade-1;
+			border: none;
+		}
 	}
 
 	.pane__header {
@@ -25,7 +31,7 @@
 		margin-top: -1rem;
 		border-radius: 1rem 1rem 0.75rem 0.75rem;
 		padding: 1rem;
-		overflow-y: auto;
+		overflow-y: overlay;
 		flex-grow: 1;
 	}
 }

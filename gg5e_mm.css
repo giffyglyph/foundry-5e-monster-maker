@@ -255,6 +255,10 @@
     display: flex;
     flex-direction: column;
     border-radius: 1rem; }
+    .gg5e-mm-panes .pane ::-webkit-scrollbar-thumb {
+      border-radius: 1rem;
+      background: #8a4d28;
+      border: none; }
   .gg5e-mm-panes .pane__header {
     background: black;
     color: white;
@@ -266,7 +270,7 @@
     margin-top: -1rem;
     border-radius: 1rem 1rem 0.75rem 0.75rem;
     padding: 1rem;
-    overflow-y: auto;
+    overflow-y: overlay;
     flex-grow: 1; }
 
 .gg5e-mm-palette {
