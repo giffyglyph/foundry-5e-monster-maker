@@ -48,6 +48,10 @@
 				top: 0.25rem;
 				border-radius: 1rem;
 			}
+
+			&:hover {
+				background: $secondary-base;
+			}
 		}
 
 		&.closed {

@@ -1378,6 +1378,8 @@
       align-items: center;
       top: 0.25rem;
       border-radius: 1rem; }
+    .gg5e-mm-panel.panel--collapsible .panel__header:hover {
+      background: #ad6032; }
   .gg5e-mm-panel.panel--collapsible.closed .panel__header {
     padding-bottom: 0.5rem;
     border-radius: 0.75rem; }
