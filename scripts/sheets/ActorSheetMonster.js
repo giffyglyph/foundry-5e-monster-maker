@@ -11,6 +11,8 @@ import { DEFAULT_ALIGNMENTS } from "../consts/DefaultAlignments.js";
 import { DEFAULT_CATEGORIES } from "../consts/DefaultCategories.js";
 import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
 import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
+import { DEFAULT_DISPLAY_COLORS } from "../consts/DefaultDisplayColors.js";
+import { DEFAULT_DISPLAY_SKINS } from "../consts/DefaultDisplaySkins.js";
 import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
 import { DEFAULT_SIZES } from "../consts/DefaultSizes.js";
 import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
@@ -65,6 +67,8 @@ export default class ActorSheetMonster extends ActorSheet {
 			categories: DEFAULT_CATEGORIES,
 			conditions: DEFAULT_CONDITIONS,
 			damage_types: DEFAULT_DAMAGE_TYPES,
+			display_colors: DEFAULT_DISPLAY_COLORS,
+			display_skins: DEFAULT_DISPLAY_SKINS,
 			languages: DEFAULT_LANGUAGES,
 			sizes: DEFAULT_SIZES.map((x) => x.name),
 			skills: DEFAULT_SKILLS.map((x) => x.name),

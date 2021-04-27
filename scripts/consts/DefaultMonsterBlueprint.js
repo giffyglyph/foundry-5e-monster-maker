@@ -244,6 +244,10 @@ export const DEFAULT_MONSTER_BLUEPRINT = {
 		lair_actions: {
 			enabled: false,
 			initiative: 0
+		},
+		display: {
+			skin: "bubble",
+			color: "polo_blue"
 		}
 	}
 }

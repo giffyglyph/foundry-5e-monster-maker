@@ -80,6 +80,7 @@ const Gui = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_vulnerabilities.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/display.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/initiative.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/languages.html",

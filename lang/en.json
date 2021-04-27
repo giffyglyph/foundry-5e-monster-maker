@@ -322,6 +322,9 @@
     "gg5e_mm.monster.options.lair_actions.title": "Lair Actions",
     "gg5e_mm.monster.options.lair_actions.enabled": "Enabled",
     "gg5e_mm.monster.options.lair_actions.initiative": "Initiative",
+    "gg5e_mm.monster.options.display.title": "Display",
+    "gg5e_mm.monster.options.display.skin": "Skin",
+    "gg5e_mm.monster.options.display.color": "Color",
 
     "gg5e_mm.monster.source.base": "base",
     "gg5e_mm.monster.source.rank": "rank",
@@ -407,5 +410,9 @@
     "gg5e_mm.modal.info.tags.title": "Monster Tags",
     "gg5e_mm.modal.info.tags.p.1": "Create <i>tags</i> to define categories and sub-types for your monster—ancestries, power sources, elements, factions, affiliations, etc.",
     "gg5e_mm.modal.info.tags.p.2": "You can create multiple tags at once by separating each tag with a semi-colon:",
-    "gg5e_mm.modal.info.tags.pre.1": "e.g. val1; second value; thirdValue"
+    "gg5e_mm.modal.info.tags.pre.1": "e.g. val1; second value; thirdValue",
+
+    "gg5e_mm.display.skin.bubble": "Bubble",
+
+    "gg5e_mm.display.color.polo_blue": "Polo Blue"
 }
