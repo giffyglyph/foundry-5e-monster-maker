@@ -10,8 +10,8 @@
 		border-radius: 0.75rem 0.75rem 0 0;
 		position: relative;
 
-		+ .panel__body {
-			margin-top: -1rem;
+		&:not(:last-child) {
+			margin-bottom: -1rem;
 		}
 	}
 
@@ -59,14 +59,49 @@
 			.panel__header {
 				padding-bottom: 0.5rem;
 				border-radius: 0.75rem;
+				margin-bottom: 0;
 	
 				&::after {
-					content: "\f078";
+					transform: rotate(-180deg);
+				}
+			}
+		}
+
+		&.collapsing {
+
+			.panel__header {
+				background: $secondary-base;
+				transition: margin 200ms ease-in-out, padding 200ms ease-in-out, border-radius 200ms ease-in-out;
+
+				&::after {
+					transition: transform 200ms ease-in-out;
 				}
 			}
 
-			.panel__body {
-				display: none;
+			&.closed {
+
+				.panel__header {
+					padding-bottom: 1.5rem;
+					margin-bottom: -1rem;
+					border-radius: 0.75rem 0.75rem 0 0;
+				}
+
+				.panel__header::after {
+					transform: rotate(0);
+				}
+			}
+
+			&:not(.closed) {
+
+				.panel__header {
+					padding-bottom: 0.5rem;
+					margin-bottom: 0rem;
+					border-radius: 0.75rem;
+				}
+
+				.panel__header::after {
+					transform: rotate(-180deg);
+				}
 			}
 		}
 	}

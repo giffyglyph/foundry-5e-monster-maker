@@ -27,7 +27,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		super(...args);
 
 		// Prepare gui/blueprint/monster data
-		let gui = Gui.prepareGui(this._getDefaultGui(), this.actor.data.data.gg5e_mm ? this.actor.data.data.gg5e_mm.gui : null);
+		this._gui = new Gui();
 		let blueprint = Blueprint.prepareBlueprint(
 			"monster",
 			this.actor.data.data.gg5e_mm ? this.actor.data.data.gg5e_mm.blueprint : null,
@@ -36,7 +36,6 @@ export default class ActorSheetMonster extends ActorSheet {
 		let form = {
 			data: {
 				gg5e_mm: {
-					gui: gui,
 					blueprint: blueprint
 				}
 			}
@@ -89,53 +88,16 @@ export default class ActorSheetMonster extends ActorSheet {
 		return data;
 	}
 
-	activateListeners(html) {
-		super.activateListeners(html);
-		Gui.activateListeners(html);
-		html.find('.toggle-mode--edit').click(this._toggleModeEdit.bind(this));
-		html.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
-		html.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
-		html.find('.input--thp, .input--hp, .paragon--current, .legendary--current').change(this._updateConfigurationField.bind(this));
-		html.find('.options__close-all').click(this._closeAccordion.bind(this));
+	activateListeners($el) {
+		super.activateListeners($el);
+		this._gui.activateListeners($el);
+		this._gui.applyTo($el);
+		$el.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
+		$el.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
 
 		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
-			x.activateListeners(html, this.actor, this.id)
+			x.activateListeners($el, this.actor, this.id)
 		});
-
-		let guiData = this.object.data.data.gg5e_mm ? this.object.data.data.gg5e_mm.gui : Gui.prepareGui(this._getDefaultGui());
-		Gui.setAccordions(html, guiData.data.accordions);
-		Gui.setPanels(html, guiData.data.panels);
-		Gui.setScrollbars(html, guiData.data.scrollbars);
-	}
-
-	_closeAccordion(event) {
-		const input = event.currentTarget.closest(".gg5e-mm-monster-options").querySelector('input[name="data.gg5e_mm.gui.data.accordions.accordion_builder"]');
-		$(input).val("").trigger("change");
-	}
-
-	_updateConfigurationField(event) {
-		const input = event.currentTarget.closest("input");
-		const field = input.dataset.field;
-		const type = input.dataset.type ? input.dataset.type : "text";
-		const output = event.currentTarget.closest(".gg5e-mm-window").querySelector(`input[name='${field}']`);
-
-		switch (type) {
-			case "number":
-				const value = event.currentTarget.value;
-				if (["+", "-"].includes(value[0])) {
-					output.value = Number(output.value) + parseFloat(value);
-				} else if (value[0] === "=") {
-					output.value = Number(value.slice(1));
-				} else {
-					output.value = Number(event.currentTarget.value);
-				}
-				break;
-			default:
-				output.value = event.currentTarget.value;
-				break;
-		}
-
-		output.dispatchEvent(new Event('change'));
 	}
 
 	_updateAbilityRanking(event) {
@@ -154,83 +116,53 @@ export default class ActorSheetMonster extends ActorSheet {
 		});
 	}
 
-	_toggleModeEdit(event) {
-		const li = event.currentTarget.closest(".gg5e-mm-window");
-		li.classList.toggle("expanded");
-	}
-
-	_getDefaultGui() {
-		return {
-			data: {
-				accordions: {
-					accordion_builder: ""
-				},
-				panels: {
-					panel_abilities: "opened"
-				},
-				scrollbars: {
-					monster_body: {
-						x: 0,
-						y: 0
-					},
-					options_body: {
-						x: 0,
-						y: 0
-					}
-				}
-			}
-		}
-	}
-
-  	_updateObject(event, form) {
+ 	_updateObject(event, form) {
 		if (event && event.currentTarget && event.currentTarget.closest(".gg5e-mm-modal") != null) {
 			return null;
 		}
 
 		if (event && event.currentTarget) {
-			let window = event.currentTarget.closest(".gg5e-mm-window");
-			form["data.gg5e_mm.gui.data.scrollbars.monster_body.y"] = window.querySelector("#monster-body").scrollTop;
-			form["data.gg5e_mm.gui.data.scrollbars.options_body.y"] = window.querySelector("#options-body").scrollTop;
+			this._gui.readFrom(event.currentTarget.closest(".gg5e-mm-window"));
+		}
 
-			if (event.currentTarget.name) {
-				switch (event.currentTarget.name) {
-					case "data.gg5e_mm.blueprint.data.combat.rank.type":
-						form["data.gg5e_mm.blueprint.data.combat.rank.custom_name"] = null;
-						form = $.extend(true, form, flattenObject({
-							data: {
-								gg5e_mm: {
-									blueprint: {
-										data: {
-											combat: {
-												rank: {
-													modifiers: MONSTER_RANKS[event.currentTarget.value]
-												}
+		if (event && event.currentTarget) {
+			switch (event.currentTarget.name) {
+				case "data.gg5e_mm.blueprint.data.combat.rank.type":
+					form["data.gg5e_mm.blueprint.data.combat.rank.custom_name"] = null;
+					form = $.extend(true, form, flattenObject({
+						data: {
+							gg5e_mm: {
+								blueprint: {
+									data: {
+										combat: {
+											rank: {
+												modifiers: DEFAULT_RANKS[event.currentTarget.value]
 											}
 										}
 									}
 								}
 							}
-						}));
-						break;
-					case "data.gg5e_mm.blueprint.data.combat.role.type":
-						form["data.gg5e_mm.blueprint.data.combat.role.custom_name"] = null;
-						form = $.extend(true, form, flattenObject({
-							data: {
-								gg5e_mm: {
-									blueprint: {
-										data: {
-											combat: {
-												role: {
-													modifiers: MONSTER_ROLES[event.currentTarget.value]
-												}
+						}
+					}));
+					break;
+				case "data.gg5e_mm.blueprint.data.combat.role.type":
+					form["data.gg5e_mm.blueprint.data.combat.role.custom_name"] = null;
+					form = $.extend(true, form, flattenObject({
+						data: {
+							gg5e_mm: {
+								blueprint: {
+									data: {
+										combat: {
+											role: {
+												modifiers: DEFAULT_ROLES[event.currentTarget.value]
 											}
 										}
 									}
 								}
 							}
-						}));
-						break;
-				}
+						}
+					}));
+					break;
 			}
 		}
 

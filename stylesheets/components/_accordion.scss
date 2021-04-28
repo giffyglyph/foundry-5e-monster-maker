@@ -47,9 +47,12 @@
 		position: relative;
 		padding: 1rem;
 		overflow: hidden;
+		border-top: 1px solid $secondary-shade-2;
 	}
 
 	.accordion-group {
+		border-radius: 0.75rem;
+		overflow: hidden;
 
 		&:not(:last-child) {
 			margin-bottom: 0.5rem;
@@ -57,35 +60,16 @@
 	}
 
 	.accordion-section {
-
-		&:first-of-type .accordion-section__header {
-			border-top-left-radius: 0.75rem;
-			border-top-right-radius: 0.75rem;
-		}
 		
 		&:not(:first-of-type) {
 			border-top: 1px solid $primary-shade-2;
 		}
 
-		&:last-child .accordion-section__body {
-			border-bottom-left-radius: 0.75rem;
-			border-bottom-right-radius: 0.75rem;
-		}
+		&.opened .accordion-section__header {
+			background: $secondary-base;
 
-		&.opened {
-			border-top-color: $secondary-shade-1;
-
-			.accordion-section__header {
-				background: $secondary-base;
-				border-bottom: 1px solid $secondary-shade-2;
-
-				&::after {
-					background: $secondary-tint-2;
-				}
-			}
-
-			+ .opened {
-				border-top-color: $secondary-shade-2;
+			&::after {
+				background: $secondary-tint-2;
 			}
 		}
 
@@ -94,7 +78,7 @@
 			.accordion-section__header {
 	
 				&::after {
-					content: "\f054";
+					transform: rotate(-90deg);
 				}
 
 				&:hover {
@@ -109,10 +93,31 @@
 			.accordion-section__body {
 				display: none;
 			}
-	
-			&:last-child .accordion-section__header {
-				border-bottom-left-radius: 1rem;
-				border-bottom-right-radius: 1rem;
+		}
+
+		&.collapsing {
+
+			.accordion-section__header {
+				background: $secondary-base;
+
+				&::after {
+					transition: transform 200ms ease-in-out;
+					background: $secondary-tint-2;
+				}
+			}
+
+			&.opened {
+
+				.accordion-section__header::after {
+					transform: rotate(-90deg);
+				}
+			}
+
+			&:not(.opened) {
+
+				.accordion-section__header::after {
+					transform: rotate(0deg);
+				}
 			}
 		}
 	}

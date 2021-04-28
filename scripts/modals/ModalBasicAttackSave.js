@@ -1,5 +1,3 @@
-import Gui from "../classes/Gui.js";
-
 const ModalBasicAttackAc = (function() {
 
 	function activateListeners(html, actor, id) {
@@ -47,7 +45,7 @@ const ModalBasicAttackAc = (function() {
 			console.error(err);
 			return;
 		} finally {
-			Gui.closeModal(event);
+			modal.querySelector("[data-action='close-modal']").click();
 		}
     }
 

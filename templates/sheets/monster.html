@@ -5,7 +5,7 @@
 				<div class="pane__header monster__header">
 					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html" }}
 				</div>
-				<div class="pane__body monster__body" id="monster-body">
+				<div class="pane__body monster__body" data-track-scrollbars="true" id="monster-body">
 					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html" }}
 					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html" }}
 					{{#if data.gg5e_mm.monster.data.legendary_resistances.maximum}}
@@ -29,48 +29,48 @@
 				<div class="pane__header options__header">
 					<div class="pane__icon"><i class="fas fa-cogs"></i></div>
 					<div class="pane__title">{{localize 'gg5e_mm.monster.options.title'}}</div>
-					<button type="button" class="options__close-all"><i class="fas fa-minus"></i></button>
+					<div class="accordion-options">
+						<button type="button" class="options__close-all" data-action="close-accordion" data-accordion="monster-configuration">
+							<i class="fas fa-bars"></i>
+						</button>
+						<button type="button" data-action="expand-window"><i class="fas fa-times"></i></button>
+					</div>
 				</div>
-				<div class="pane__body options__body" id="options-body">
-					<form class="gg5e-mm-accordion gg5e-mm-form form--options" id="accordion-builder" autocomplete="off">
-						<input type="hidden" name="data.gg5e_mm.gui.data.accordions.accordion_builder" value="{{data.gg5e_mm.gui.data.accordions.accordion_builder}}"/>
-						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_abilities" value="{{data.gg5e_mm.gui.data.panels.panel_abilities}}"/>
-						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_biography" value="{{data.gg5e_mm.gui.data.panels.panel_biography}}"/>
-						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_paragon_actions" value="{{data.gg5e_mm.gui.data.panels.panel_paragon_actions}}"/>
-						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_legendary_resistances" value="{{data.gg5e_mm.gui.data.panels.panel_legendary_resistances}}"/>
-						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_legendary_actions" value="{{data.gg5e_mm.gui.data.panels.panel_legendary_actions}}"/>
-						<input type="hidden" name="data.gg5e_mm.gui.data.panels.panel_lair_actions" value="{{data.gg5e_mm.gui.data.panels.panel_lair_actions}}"/>
-						<div class="accordion-group">
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/display.html" }}
-						</div>
-						<div class="accordion-group">
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/abilities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_bonus.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_dcs.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/biography.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/cr.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/condition_immunities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_immunities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_resistances.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_vulnerabilities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/initiative.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/lair_actions.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/languages.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_actions.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_resistances.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/paragon_actions.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/perception.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/proficiency.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/saving_throws.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/senses.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/skills.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/speeds.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html" }}
+				<div class="pane__body options__body" data-track-scrollbars="true" id="options-body">
+					<form class="gg5e-mm-form form--options" autocomplete="off">
+						<div class="gg5e-mm-accordion" id="monster-configuration">
+							<div class="accordion-group">
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/display.html" }}
+							</div>
+							<div class="accordion-group">
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/abilities.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_bonus.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_dcs.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/biography.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/cr.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/condition_immunities.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_immunities.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_resistances.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_vulnerabilities.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/initiative.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/lair_actions.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/languages.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_actions.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_resistances.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/paragon_actions.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/perception.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/proficiency.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/saving_throws.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/senses.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/skills.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/speeds.html" }}
+								{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html" }}
+							</div>
 						</div>
 					</form>
 				</div>
@@ -84,7 +84,7 @@
 		</div>
 		<nav class="sheet__controls" data-group="primary">
 			<button type="button" data-action="open-modal" data-modal="modal_about"><i class="fas fa-question"></i></button>
-			<button type="button" class="toggle-mode--edit"><i class="fas fa-cogs"></i></button>
+			<button type="button" data-action="expand-window"><i class="fas fa-cogs"></i></button>
 		</nav>
 	</div>
 	<div class="sheet__modals">

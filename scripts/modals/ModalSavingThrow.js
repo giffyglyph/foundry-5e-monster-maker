@@ -1,5 +1,3 @@
-import Gui from "../classes/Gui.js";
-
 const ModalSavingThrow = (function() {
 
 	function activateListeners(html, actor, id) {
@@ -61,7 +59,7 @@ const ModalSavingThrow = (function() {
 			console.error(err);
 			return;
 		} finally {
-			Gui.closeModal(event);
+			modal.querySelector("[data-action='close-modal']").click();
 		}
     }
 

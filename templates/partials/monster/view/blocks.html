@@ -5,7 +5,7 @@
 			<div class="block__contents">
 				<div class="block__content hit-points__temporary">
 					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.temporary}}">
-						<input class="input--thp" data-field="data.gg5e_mm.blueprint.data.hit_points.temporary" data-type="number"/>
+						<input class="input--thp" data-action="update-field" data-field="data.gg5e_mm.blueprint.data.hit_points.temporary" data-type="number"/>
 						<i class="far fa-heart"></i> {{data.gg5e_mm.monster.data.hit_points.temporary}}
 					</div>
 					<div class="block__description">
@@ -14,7 +14,7 @@
 				</div>
 				<div class="block__content hit-points__current">
 					<div class="block__value length-{{strlen data.gg5e_mm.monster.data.hit_points.current}}">
-						<input class="input--hp" data-field="data.gg5e_mm.blueprint.data.hit_points.current" data-type="number"/>
+						<input class="input--hp" data-action="update-field" data-field="data.gg5e_mm.blueprint.data.hit_points.current" data-type="number"/>
 						<i class="fas fa-heart"></i> {{data.gg5e_mm.monster.data.hit_points.current}}
 					</div>
 					<div class="block__description">
