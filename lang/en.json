@@ -1,6 +1,8 @@
 {
     "gg5e_mm.sheet.monster.label": "Giffyglyph's 5e Monster Maker",
 
+    "gg5e_mm.monster.errors.invalid_monster": "This monster is invalid. Please check your configuration settings and try again.",
+
     "gg5e_mm.monster.common.alignment.lawful_good": "Lawful good",
     "gg5e_mm.monster.common.alignment.neutral_good": "Neutral good",
     "gg5e_mm.monster.common.alignment.chaotic_good": "Chaotic good",
@@ -324,7 +326,9 @@
     "gg5e_mm.monster.options.lair_actions.initiative": "Initiative",
     "gg5e_mm.monster.options.display.title": "Display",
     "gg5e_mm.monster.options.display.skin": "Skin",
-    "gg5e_mm.monster.options.display.color": "Color",
+    "gg5e_mm.monster.options.display.colors.title": "Colors",
+    "gg5e_mm.monster.options.display.colors.primary": "Primary",
+    "gg5e_mm.monster.options.display.colors.secondary": "Secondary",
 
     "gg5e_mm.monster.source.base": "base",
     "gg5e_mm.monster.source.rank": "rank",
@@ -410,9 +414,5 @@
     "gg5e_mm.modal.info.tags.title": "Monster Tags",
     "gg5e_mm.modal.info.tags.p.1": "Create <i>tags</i> to define categories and sub-types for your monster—ancestries, power sources, elements, factions, affiliations, etc.",
     "gg5e_mm.modal.info.tags.p.2": "You can create multiple tags at once by separating each tag with a semi-colon:",
-    "gg5e_mm.modal.info.tags.pre.1": "e.g. val1; second value; thirdValue",
-
-    "gg5e_mm.display.skin.bubble": "Bubble",
-
-    "gg5e_mm.display.color.polo_blue": "Polo Blue"
+    "gg5e_mm.modal.info.tags.pre.1": "e.g. val1; second value; thirdValue"
 }

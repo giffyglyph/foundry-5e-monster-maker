@@ -1,30 +1,12 @@
-<div class="gg5e-mm-sheet {{cssClass}}">
+<div class="gg5e-mm-sheet color--primary-{{data.gg5e_mm.blueprint.data.display.color.primary}} color--secondary-{{data.gg5e_mm.blueprint.data.display.color.secondary}} {{cssClass}}">
 	<div class="sheet__core">
 		<div class="sheet__body">
-			<div class="gg5e-mm-monster">
-				<div class="monster__header">
-					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/header.html" }}
+			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/' data.gg5e_mm.blueprint.data.display.skin '/' data.gg5e_mm.blueprint.data.display.skin '.html') }}
+				<div class="sheet__error">
+					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+					<div class="error__advice">{{localize 'gg5e_mm.monster.errors.invalid_monster'}}</div>
 				</div>
-				<div class="monster__body" data-track-scrollbars="true" id="monster-body">
-					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/blocks.html" }}
-					{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/abilities.html" }}
-					{{#if data.gg5e_mm.monster.data.legendary_resistances.maximum}}
-						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/legendary_resistances.html" }}
-					{{/if}}
-					{{#if data.gg5e_mm.monster.data.paragon_actions.maximum.value}}
-						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/paragon_actions.html" }}
-					{{/if}}
-					{{#if data.gg5e_mm.monster.data.legendary_actions.maximum}}
-						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/legendary_actions.html" }}
-					{{/if}}
-					{{#if data.gg5e_mm.monster.data.lair_actions.enabled}}
-						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/lair_actions.html" }}
-					{{/if}}
-					{{#if data.gg5e_mm.monster.data.biography}}
-						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/view/biography.html" }}
-					{{/if}}
-				</div>
-			</div>
+			{{/undefined}}
 		</div>
 		<div class="sheet__footer">
 			<div class="sheet__id">
@@ -38,51 +20,51 @@
 		</div>
 	</div>
 	<div class="sheet__sidepanel">
-		<div class="gg5e-mm-blueprint">
+		<div class="gg5e-mm-blueprint blueprint--monster">
 			<div class="blueprint__header">
 				<div class="blueprint__icon"><i class="fas fa-cogs"></i></div>
 				<div class="blueprint__title">{{localize 'gg5e_mm.monster.options.title'}}</div>
-				<div class="accordion-options">
-					<button type="button" class="options__close-all" data-action="close-accordion" data-accordion="monster-configuration">
+				<div class="blueprint__options">
+					<button type="button" data-action="close-accordion" data-accordion="monster-configuration">
 						<i class="fas fa-bars"></i>
 					</button>
 					<button type="button" data-action="expand-window"><i class="fas fa-times"></i></button>
 				</div>
 			</div>
 			<div class="blueprint__body" data-track-scrollbars="true" id="options-body">
-				<form class="gg5e-mm-form form--options" autocomplete="off">
+				<form class="blueprint__form" autocomplete="off">
 					<div class="gg5e-mm-accordion" id="monster-configuration">
 						<div class="accordion-group">
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/description.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/combat.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/display.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/description.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/combat.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/display.html" }}
 						</div>
 						<div class="accordion-group">
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/abilities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/armor_class.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_bonus.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/attack_dcs.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/biography.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/cr.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/condition_immunities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_immunities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_resistances.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/damage_vulnerabilities.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/hit_points.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/initiative.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/lair_actions.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/languages.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_actions.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/legendary_resistances.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/paragon_actions.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/perception.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/proficiency.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/saving_throws.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/senses.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/skills.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/speeds.html" }}
-							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/options/xp.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/abilities.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/armor_class.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/attack_bonus.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/attack_dcs.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/biography.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/cr.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/condition_immunities.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/damage.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/damage_immunities.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/damage_resistances.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/damage_vulnerabilities.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/hit_points.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/initiative.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/lair_actions.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/languages.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/legendary_actions.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/legendary_resistances.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/paragon_actions.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/perception.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/proficiency.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/saving_throws.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/senses.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/skills.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/speeds.html" }}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/xp.html" }}
 						</div>
 					</div>
 				</form>

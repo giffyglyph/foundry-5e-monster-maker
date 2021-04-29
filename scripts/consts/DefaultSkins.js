@@ -1,3 +1,6 @@
 export const DEFAULT_SKINS = [
-    "bubble"
+    {
+        code: "vanity",
+        name: "Vanity"
+    }
 ];

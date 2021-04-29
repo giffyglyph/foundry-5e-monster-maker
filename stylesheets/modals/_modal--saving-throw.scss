@@ -4,7 +4,7 @@
         flex-direction: column;
         margin-bottom: 1rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid mix($primary-tone-1, white, 15%);
+        border-bottom: 1px solid var(--color-primary-tint-5);
 
         .form-group__header {
             width: 100%;
@@ -21,7 +21,7 @@
                     content: '';
                     height: 1px;
                     width: 100%;
-                    background: mix($primary-tone-1, white, 15%);
+                    background: var(--color-primary-tint-5);
                     flex-grow: 1;
                     position: relative;
                     top: 9px;

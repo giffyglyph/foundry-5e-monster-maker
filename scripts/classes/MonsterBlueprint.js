@@ -435,8 +435,11 @@ const MonsterBlueprint = (function() {
 					initiative: 0
 				},
 				display: {
-					skin: "bubble",
-					color: "polo_blue"
+					skin: "vanity",
+					color: {
+						primary: "blue",
+						secondary: "deep-orange"
+					}
 				}
 			}
 		}

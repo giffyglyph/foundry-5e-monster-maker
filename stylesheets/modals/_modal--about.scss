@@ -7,7 +7,7 @@
     .contact_links {
         margin: 1rem -1rem 0;
         padding: 1rem 1rem 0;
-        border-top: 1px dotted mix($primary-tone-1, white, 35%);
+        border-top: 1px dotted white;
         text-align: center;
         list-style: none;
         display: grid;
@@ -42,72 +42,72 @@
 
         .website {
             text-transform: uppercase;
-            color: $website-purple;
+            color: var(--color-website);
 
             &:hover {
-                background: $website-purple;
-                border-color: $website-purple;
+                background: var(--color-website);
+                border-color: var(--color-website);
             }
         };
 
         .twitch {
-            color: $twitch-purple;
+            color: var(--color-twitch);
 
             &:hover {
-                background: $twitch-purple;
-                border-color: $twitch-purple;
+                background: var(--color-twitch);
+                border-color: var(--color-twitch);
             }
         }
 
         .discord {
-            color: $discord-blue;
+            color: var(--color-discord);
 
             &:hover {
-                background: $discord-blue;
-                border-color: $discord-blue;
+                background: var(--color-discord);
+                border-color: var(--color-discord);
             }
         }
 
         .reddit {
-            color: $reddit-red;
+            color: var(--color-reddit);
 
             &:hover {
-                background: $reddit-red;
-                border-color: $reddit-red;
+                background: var(--color-reddit);
+                border-color: var(--color-reddit);
             }
         }
 
         .twitter {
-            color: $twitter-blue;
+            color: var(--color-twitter);
 
             &:hover {
-                background: $twitter-blue;
-                border-color: $twitter-blue;
+                background: var(--color-twitter);
+                border-color: var(--color-twitter);
             }
         }
 
         .facebook {
-            color: $facebook-blue;
+            color: var(--color-facebook);
 
             &:hover {
-                background: $facebook-blue;
-                border-color: $facebook-blue;
+                background: var(--color-facebook);
+                border-color: var(--color-facebook);
             }
         }
 
         .youtube {
-            color: $youtube-red;
+            color: var(--color-youtube);
 
             &:hover {
-                background: $youtube-red;
-                border-color: $youtube-red;
+                background: var(--color-youtube);
+                border-color: var(--color-youtube);
             }
         }
     }
 
     .support {
         padding: 1rem;
-        background: mix($primary-tone-1, white, 15%);
+        background: var(--color-primary-tint-5);
         margin-top: 1rem;
         border-radius: 1rem;
         text-align: center;
@@ -129,7 +129,7 @@
 
         a {
             width: 100%;
-            background: $patreon-orange;
+            background: var(--color-patreon);
             color: white;
             margin: 0 auto;
             display: inline-block;
@@ -137,11 +137,11 @@
             padding: 0.5rem 1rem;
             overflow: hidden;
             text-overflow: ellipsis;
-            box-shadow: 0 2px 0 0 darken($patreon-orange, 30%);
+            box-shadow: 0 2px 0 0 darken(#ff424d, 30%);
 
             &:hover {
-                background: darken($patreon-orange, 20%);
-                box-shadow: 0 2px 0 0 darken($patreon-orange, 40%);
+                background: darken(#ff424d, 20%);
+                box-shadow: 0 2px 0 0 darken(#ff424d, 40%);
                 text-decoration: none;
             }
         }

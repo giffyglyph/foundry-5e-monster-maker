@@ -1,8 +1,8 @@
 .gg5e-mm-panel {
-	filter: drop-shadow(0 1px 0 $primary-shade-3);
+	filter: drop-shadow(0 1px 0 var(--color-primary-shade-3));
 
 	.panel__header {
-		background: $primary-shade-1;
+		background: var(--color-primary-shade-1);
 		color: white;
 		padding: 0.5rem 1rem 1.5rem;
 		font-size: larger;
@@ -50,7 +50,7 @@
 			}
 
 			&:hover {
-				background: $secondary-base;
+				background: var(--color-secondary-base);
 			}
 		}
 
@@ -70,7 +70,7 @@
 		&.collapsing {
 
 			.panel__header {
-				background: $secondary-base;
+				background: var(--color-secondary-base);
 				transition: margin 200ms ease-in-out, padding 200ms ease-in-out, border-radius 200ms ease-in-out;
 
 				&::after {

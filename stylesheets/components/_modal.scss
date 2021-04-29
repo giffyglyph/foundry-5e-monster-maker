@@ -26,7 +26,7 @@
 	.modal__icon {
 		height: 3.5rem;
 		width: 3.5rem;
-		background: $primary-base;
+		background: var(--color-primary-base);
 		border-radius: 2rem;
 		display: flex;
 		justify-content: center;
@@ -43,8 +43,8 @@
 	}
 	
 	.modal__header {
-		background: $primary-shade-3;
-		border-top: 0.5rem solid $primary-base;
+		background: var(--color-primary-shade-2);
+		border-top: 0.5rem solid var(--color-primary-base);
 		color: white;
 		text-align: center;
 		padding: 1rem 1rem 3rem;
@@ -59,13 +59,13 @@
 			border: none;
 			padding: 0;
 			margin: 0;
-			color: $primary-shade-3;
+			color: var(--color-primary-shade-2);
 			position: absolute;
 			right: 0.5rem;
 			top: 0.5rem;
 			width: 1.4rem;
 			height: 1.4rem;
-			background: $primary-base;
+			background: var(--color-primary-base);
 			border-radius: 1rem;
 			display: flex;
 			justify-content: center;
@@ -73,7 +73,7 @@
 
 			&:hover {
 				cursor: pointer;
-				background: $secondary-base;
+				background: var(--color-secondary-base);
 				color: white;
 				box-shadow: none;
 			}
@@ -107,7 +107,7 @@
 			white-space: normal;
 			font-family: inherit;
 			font-weight: bold;
-			background: mix($primary-tone-1, white, 10%);
+			background: var(--color-primary-tint-5);
 			padding: 0.75rem 1rem;
 
 			&.text--center {
@@ -117,12 +117,12 @@
 
 		hr {
 			margin: 1rem 0;
-			border-color: mix($primary-tone-1, white, 15%);
+			border-color: var(--color-primary-tint-4);
 			border-bottom: none;
 		}
 
 		a {
-			color: $primary-base;
+			color: var(--color-primary-base);
 			font-weight: 600;
 			text-decoration: none;
 
@@ -134,7 +134,7 @@
 	}
 
 	.modal__footer {
-		background: mix($primary-tone-1, white, 15%);
+		background: var(--color-primary-tint-5);
 		padding: 1rem 2rem calc(2rem + 3px);
 		display: flex;
 		justify-content: space-between;
@@ -142,7 +142,7 @@
 		position: relative;
 
 		.modal__button {
-			background: $primary-base;
+			background: var(--color-primary-base);
 			color: white;
 			border-radius: 0.75rem;
 			text-align: center;
@@ -151,7 +151,7 @@
 			margin: 0;
 			flex-grow: 1;
 			border: none;
-			box-shadow: 0 3px 0 0 $primary-shade-3;
+			box-shadow: 0 3px 0 0 var(--color-primary-shade-3);
 			font-size: large;
 			font-family: inherit;
 
@@ -161,9 +161,164 @@
 
 			&:hover {
 				cursor: pointer;
-				background: $secondary-base;
-				box-shadow: 0 3px 0 0 $secondary-shade-3;
+				background: var(--color-secondary-base);
+				box-shadow: 0 3px 0 0 var(--color-secondary-shade-3);
 				color: white;
+			}
+		}
+	}
+
+	.modal__form {
+
+		.form-group {
+			margin: 0;
+			display: flex;
+			flex-wrap: nowrap;
+
+			> * {
+				flex: 0 1 auto;
+			}
+
+			+ * {
+				margin-top: 0.5rem;
+			}
+		}
+
+		.form-group__header {
+			margin: 0;
+			font-weight: 600;
+			margin-bottom: 0.25rem;
+			width: 7rem;
+			line-height: 2;
+			margin: 0;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			flex-shrink: 0;
+			padding-top: 2px;
+			align-self: flex-start;
+
+			+ .form-group__body {
+				margin-left: 1rem;
+			}
+		}
+
+		.form-group__body {
+			flex-grow: 1;
+
+			input,
+			select {
+				background: none;
+				border: 2px solid var(--color-primary-tint-4);
+				border-radius: 0.75rem;
+				display: block;
+				width: 100%;
+				padding: 0 .75rem;
+				line-height: 1;
+				margin: 0;
+				height: 2.25rem;
+				font-family: inherit;
+				font-size: 1rem !important;
+
+				&::placeholder {
+					color: var(--color-primary-tint-4);
+				}
+
+				&:focus {
+					box-shadow: none;
+					border-color: var(--color-primary-tint-1);
+				}
+			}
+
+			input:disabled,
+			select:disabled,
+			input:read-only {
+				background: var(--color-primary-tint-5);
+				border-color: var(--color-primary-tint-4);
+			}
+
+			select {
+				padding-left: 0.5rem;
+				font-size: inherit;
+			}
+
+			.radios--grid {
+				display: grid;
+				grid-column-gap: 2px;
+				grid-row-gap: 2px;
+
+				.radio {
+					display: flex;
+					text-align: center;
+					overflow: hidden;
+					align-items: center;
+
+					> span {
+						border: 2px solid var(--color-primary-tint-4);
+						border-radius: 0.75rem;
+						display: block;
+						flex-grow: 1;
+					}
+
+					i {
+						color: var(--color-primary-base);
+					}
+
+					input {
+						display: none;
+
+						&:checked ~ span {
+							background: var(--color-primary-base);
+							border-color: var(--color-primary-base);
+							color: white;
+
+							i {
+								color: white;
+							}
+						}
+					}
+
+					&:hover {
+
+						input ~ span {
+							background: var(--color-secondary-base);
+							border-color: var(--color-secondary-base);
+							color: white;
+	
+							i {
+								color: white;
+							}
+						}
+					}
+				}
+			}
+
+			.radio {
+				display: flex;
+				cursor: pointer;
+				align-items: center;
+
+				span {
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+			}
+
+			input[type="radio"] {
+				height: 1.5rem;
+				width: 1.5rem;
+				margin-top: -0.25rem;
+				margin-right: 0.35rem;
+				flex-shrink: 0;
+
+				&:hover {
+					cursor: pointer;
+				}
+
+				&:focus {
+					outline: none;
+				}
 			}
 		}
 	}

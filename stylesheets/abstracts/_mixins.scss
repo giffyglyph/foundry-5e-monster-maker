@@ -1,0 +1,46 @@
+@mixin primary-colors($base) {
+    --color-primary-base: #{$base};
+	--color-primary-shade-1: #{mix($base, black, 80%)};
+	--color-primary-shade-2: #{mix($base, black, 60%)};
+	--color-primary-shade-3: #{mix($base, black, 40%)};
+	--color-primary-shade-4: #{mix($base, black, 20%)};
+    --color-primary-shade-5: #{mix($base, black, 10%)};
+    --color-primary-tone-1: #{desaturate($base, 20%)};
+	--color-primary-tone-2: #{desaturate($base, 40%)};
+	--color-primary-tone-3: #{desaturate($base, 60%)};
+	--color-primary-tone-4: #{desaturate($base, 80%)};
+	--color-primary-tint-1: #{mix($base, white, 80%)};
+	--color-primary-tint-2: #{mix($base, white, 60%)};
+	--color-primary-tint-3: #{mix($base, white, 40%)};
+	--color-primary-tint-4: #{mix($base, white, 20%)};
+    --color-primary-tint-5: #{mix($base, white, 10%)};
+}
+
+@mixin secondary-colors($base) {
+    --color-secondary-base: #{$base};
+	--color-secondary-shade-1: #{mix($base, black, 80%)};
+	--color-secondary-shade-2: #{mix($base, black, 60%)};
+	--color-secondary-shade-3: #{mix($base, black, 40%)};
+	--color-secondary-shade-4: #{mix($base, black, 20%)};
+    --color-secondary-shade-4: #{mix($base, black, 10%)};
+    --color-secondary-tone-1: #{desaturate($base, 20%)};
+	--color-secondary-tone-2: #{desaturate($base, 40%)};
+	--color-secondary-tone-3: #{desaturate($base, 60%)};
+	--color-secondary-tone-4: #{desaturate($base, 80%)};
+	--color-secondary-tint-1: #{mix($base, white, 80%)};
+	--color-secondary-tint-2: #{mix($base, white, 60%)};
+	--color-secondary-tint-3: #{mix($base, white, 40%)};
+	--color-secondary-tint-4: #{mix($base, white, 20%)};
+    --color-secondary-tint-5: #{mix($base, white, 10%)};
+}
+
+@mixin brand-colors() {
+    --color-patreon: #ff424d;
+	--color-facebook: #3b5998;
+	--color-discord: #7289da;
+	--color-youtube: #ff0000;
+	--color-twitter: #00a5df;
+	--color-reddit: #ff4500;
+	--color-twitch: #9146ff;
+	--color-website: #5833d3;
+}

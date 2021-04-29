@@ -1,4 +1,7 @@
 .gg5e-mm-sheet {
+	@include primary-colors(#1E88E5);
+	@include secondary-colors(#F4511E);
+	@include brand-colors();
 	font-family: 'Source Sans Pro';
 	display: flex;
 	overflow: hidden;
@@ -55,6 +58,29 @@
 		display: flex;
 		overflow: hidden;
 		position: relative;
+	}
+
+	.sheet__error {
+		background: var(--color-primary-shade-2);
+		border: 0.125rem solid white;
+		color: white;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+		border-radius: 1rem;
+
+		.error__icon {
+			font-size: 5rem;
+		}
+
+		.error__advice {
+			font-size: 1.5rem;
+			margin: 1rem 3rem 0;
+			border-top: 1px solid var(--color-primary-tint-1);
+			padding-top: 1rem;
+		}
 	}
 
 	.sheet__footer {
@@ -122,5 +148,158 @@
 				margin-left: 0.25rem;
 			}
 		}
+	}
+
+	//Color themes
+	&.color--primary-red {
+		@include primary-colors(#b41414);
+	}
+
+	&.color--primary-pink {
+		@include primary-colors(#9e1a53);
+	}
+
+	&.color--primary-purple {
+		@include primary-colors(#8E24AA);
+	}
+
+	&.color--primary-deep-purple {
+		@include primary-colors(#5E35B1);
+	}
+
+	&.color--primary-indigo {
+		@include primary-colors(#3949AB);
+	}
+
+	&.color--primary-blue {
+		@include primary-colors(#1E88E5);
+	}
+
+	&.color--primary-light-blue {
+		@include primary-colors(#0288D1);
+	}
+
+	&.color--primary-cyan {
+		@include primary-colors(#0097A7);
+	}
+
+	&.color--primary-teal {
+		@include primary-colors(#009688);
+	}
+
+	&.color--primary-green {
+		@include primary-colors(#388E3C);
+	}
+
+	&.color--primary-light-green {
+		@include primary-colors(#689F38);
+	}
+
+	&.color--primary-lime {
+		@include primary-colors(#9ba01c);
+	}
+
+	&.color--primary-yellow {
+		@include primary-colors(#cf8816);
+	}
+
+	&.color--primary-amber {
+		@include primary-colors(#c37003);
+	}
+
+	&.color--primary-orange {
+		@include primary-colors(#c3671c);
+	}
+
+	&.color--primary-deep-orange {
+		@include primary-colors(#ca4016);
+	}
+
+	&.color--primary-brown {
+		@include primary-colors(#6D4C41);
+	}
+
+	&.color--primary-gray {
+		@include primary-colors(#757575);
+	}
+
+	&.color--primary-blue-gray {
+		@include primary-colors(#546E7A);
+	}
+
+	&.color--secondary-red {
+		@include secondary-colors(#C62828);
+	}
+
+	&.color--secondary-pink {
+		@include secondary-colors(#AD1457);
+	}
+
+	&.color--secondary-purple {
+		@include secondary-colors(#8E24AA);
+	}
+
+	&.color--secondary-deep-purple {
+		@include secondary-colors(#5E35B1);
+	}
+
+	&.color--secondary-indigo {
+		@include secondary-colors(#3949AB);
+	}
+
+	&.color--secondary-blue {
+		@include secondary-colors(#1E88E5);
+	}
+
+	&.color--secondary-light-blue {
+		@include secondary-colors(#0288D1);
+	}
+
+	&.color--secondary-cyan {
+		@include secondary-colors(#0097A7);
+	}
+
+	&.color--secondary-teal {
+		@include secondary-colors(#009688);
+	}
+
+	&.color--secondary-green {
+		@include secondary-colors(#388E3C);
+	}
+
+	&.color--secondary-light-green {
+		@include secondary-colors(#689F38);
+	}
+
+	&.color--secondary-lime {
+		@include secondary-colors(#AFB42B);
+	}
+
+	&.color--secondary-yellow {
+		@include secondary-colors(#d8962b);
+	}
+
+	&.color--secondary-amber {
+		@include secondary-colors(#d88113);
+	}
+
+	&.color--secondary-orange {
+		@include secondary-colors(#ec7e24);
+	}
+
+	&.color--secondary-deep-orange {
+		@include secondary-colors(#d65e39);
+	}
+
+	&.color--secondary-brown {
+		@include secondary-colors(#6D4C41);
+	}
+
+	&.color--secondary-gray {
+		@include secondary-colors(#757575);
+	}
+
+	&.color--secondary-blue-gray {
+		@include secondary-colors(#546E7A);
 	}
 }
