@@ -1,70 +1,34 @@
 .gg5e-mm-window--monster {
 	width: 540px !important;
-	transition: width 200ms ease-in-out;
 
-	.gg5e-mm-sheet {
-		background: none;
+	.window-content {
+		transition: margin 200ms ease-in-out;
+	}
 
-		&::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 540px;
-			height: 100%;
-			background: black;
-			border-radius: 1rem;
+	.gg5e-mm-sheet::before,
+	.sheet__core {
+		width: 540px;
+	}
+
+	.gg5e-mm-sheet::after {
+		width: calc(540px - 1rem);
+	}
+
+	.sheet__sidepanel {
+		width: calc(440px + 0.5rem - 1px);
+		top: 3.575rem;
+		height: calc(100% - 8rem);
+
+		.gg5e-mm-blueprint {
+			padding-left: 0;
+			border-radius: 0 1rem 1rem 0;
 		}
-	}
-
-	.sheet__body {
-
-		&::before {
-			content: '';
-			position: absolute;
-			top: 3.5rem;
-			right: 0;
-			width: 100%;
-			height: calc(100% - 7rem);
-			background: black;
-			border-radius: 1rem;
-		}
-	}
-
-	.sheet__footer {
-		max-width: 524px;
-		position: relative;
-	}
-
-	.window-resizable-handle {
-		left: calc(540px - 2.5rem);
-	}
-
-	.gg5e-mm-panes {
-		display: grid;
-		grid-template-columns: 524px 1fr;
-		position: relative;
-	}
-
-	.pane--view {
-		position: relative;
-		z-index: 1;
-	}
-
-	.pane--edit {
-		position: absolute;
-		top: 0;
-		right: 0;
-		height: calc(100% - 4.57rem);
-		margin-top: 3.57rem;
-		margin-bottom: 1rem;
-		padding-left: 0;
-		border-top-left-radius: 0;
-		border-bottom-left-radius: 0;
-		width: 439px;
 	}
 
 	&.expanded {
-		width: 980px !important;
+
+		.window-content {
+			margin-right: -440px;
+		}
 	}
 }

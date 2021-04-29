@@ -122,7 +122,7 @@ export default class ActorSheetMonster extends ActorSheet {
 		}
 
 		if (event && event.currentTarget) {
-			this._gui.readFrom(event.currentTarget.closest(".gg5e-mm-window"));
+			this._gui.updateFrom(event.currentTarget.closest(".gg5e-mm-window"));
 		}
 
 		if (event && event.currentTarget) {

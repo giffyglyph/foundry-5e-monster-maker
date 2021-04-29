@@ -38,7 +38,7 @@ export default class Gui {
 		}
 	}
 
-	readFrom(html) {
+	updateFrom(html) {
 		this._updateAccordions(html);
 		this._updatePanels(html);
 		this._updateScrollbars(html);
@@ -88,6 +88,7 @@ export default class Gui {
 		const modal = button.closest(".gg5e-mm-window").querySelector(`#${button.dataset.modal}`)
 		if (modal) {
 			modal.classList.add("open");
+			button.closest(".gg5e-mm-sheet").classList.add("open-modal");
 		}
 	}
 
@@ -107,6 +108,7 @@ export default class Gui {
 	_closeModal(event) {
 		const modal = event.currentTarget.closest(".gg5e-mm-modal");
 		modal.classList.remove("open");
+		event.currentTarget.closest(".gg5e-mm-sheet").classList.remove("open-modal");
 	}
 
 	_toggleAccordionCollapse(event) {

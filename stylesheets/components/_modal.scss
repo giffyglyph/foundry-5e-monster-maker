@@ -1,11 +1,10 @@
 .gg5e-mm-modal {
 	position: absolute;
-	z-index: 2;
+	z-index: 3;
 	height: 100%;
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: rgba($primary-shade-4, 0.85);
 	display: flex;
 	font-size: larger;
 	padding: 1rem;
@@ -16,8 +15,8 @@
 	}
 
 	.modal__dialog {
-		width: 30.25rem;
-		box-shadow: 0 3px 0 0 black;
+		width: 30.5rem;
+		filter: drop-shadow(0 0 20px black);
 		border-radius: 0 0 1rem 1rem;
 		overflow: hidden;
 		flex-shrink: 0;
@@ -44,11 +43,11 @@
 	}
 	
 	.modal__header {
-		background: $primary-shade-4;
+		background: $primary-shade-3;
 		border-top: 0.5rem solid $primary-base;
 		color: white;
 		text-align: center;
-		padding: 1rem 1rem 2rem;
+		padding: 1rem 1rem 3rem;
 		text-align: center;
 		font-size: 2rem;
 		letter-spacing: 0.5px;
@@ -60,13 +59,13 @@
 			border: none;
 			padding: 0;
 			margin: 0;
-			color: $primary-shade-4;
+			color: $primary-shade-3;
 			position: absolute;
 			right: 0.5rem;
 			top: 0.5rem;
 			width: 1.4rem;
 			height: 1.4rem;
-			background: $primary-shade-2;
+			background: $primary-base;
 			border-radius: 1rem;
 			display: flex;
 			justify-content: center;
@@ -74,7 +73,7 @@
 
 			&:hover {
 				cursor: pointer;
-				background: $primary-base;
+				background: $secondary-base;
 				color: white;
 				box-shadow: none;
 			}
@@ -85,7 +84,7 @@
 		}
 
 		+ .modal__body {
-			margin-top: -1rem;
+			margin-top: -2rem;
 			border-top-left-radius: 2rem;
 			border-top-right-radius: 2rem;
 		}

@@ -1,6 +1,35 @@
-.gg5e-mm-monster-options {
+.gg5e-mm-blueprint {
+	background: white;
+	padding: 0.125rem;
+	overflow: hidden;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	border-radius: 1rem;
 
-	.options__header {
+	::-webkit-scrollbar-thumb {
+		border-radius: 1rem;
+		background: $secondary-shade-2;
+		border: none;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background: linear-gradient(to right, rgba(black, 0.2), transparent 5%);
+		pointer-events: none;
+	}
+
+	.blueprint__header {
+		background: black;
+		color: white;
+		padding: 0.5rem 1rem 1.5rem;
+		border-radius: 1rem 1rem 0 0;
+		flex-shrink: 0;
 		display: flex;
 		font-size: 2rem;
 		text-align: center;
@@ -13,7 +42,7 @@
 		background: $primary-shade-2;
 		border-bottom: 2px solid $primary-shade-3;
 
-		.pane__icon {
+		.blueprint__icon {
 			height: 3rem;
 			width: 3rem;
 			display: flex;
@@ -25,11 +54,11 @@
 			font-size: 1.5rem;
 		}
 
-		+ .options__body {
+		+ .blueprint__body {
 			margin-top: 0;
 		}
 
-		.pane__title {
+		.blueprint__title {
 			flex-grow: 1;
 			text-align: left;
 		}
@@ -70,7 +99,13 @@
 		}
 	}
 
-	.options__body {
+	.blueprint__body {
+		background: white;
+		margin-top: -1rem;
+		border-radius: 1rem;
+		padding: 1rem;
+		overflow-y: overlay;
+		flex-grow: 1;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 		border-bottom-left-radius: 0;

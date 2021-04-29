@@ -1,5 +1,7 @@
 .gg5e-mm-window {
 	border-radius: 0 0 1rem 1rem;
+	box-shadow: none;
+	filter: drop-shadow(0px 0px 20px black);
 
 	.window-header {
 		border-bottom: none;
@@ -22,6 +24,7 @@
 				align-items: center;
 				font-size: larger;
 				cursor: pointer;
+				z-index: 1;
 			}
 
 			~ .window-content .sheet__footer {

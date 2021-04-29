@@ -243,35 +243,6 @@
     font-weight: 600;
     color: #487997; }
 
-.gg5e-mm-panes {
-  display: flex;
-  width: 100%; }
-  .gg5e-mm-panes .pane {
-    background: white;
-    padding: 0.125rem;
-    overflow: hidden;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    border-radius: 1rem; }
-    .gg5e-mm-panes .pane ::-webkit-scrollbar-thumb {
-      border-radius: 1rem;
-      background: #8a4d28;
-      border: none; }
-  .gg5e-mm-panes .pane__header {
-    background: black;
-    color: white;
-    padding: 0.5rem 1rem 1.5rem;
-    border-radius: 1rem 1rem 0 0;
-    flex-shrink: 0; }
-  .gg5e-mm-panes .pane__body {
-    background: white;
-    margin-top: -1rem;
-    border-radius: 1rem;
-    padding: 1rem;
-    overflow-y: overlay;
-    flex-grow: 1; }
-
 .gg5e-mm-form.form--modal .form-group {
   margin: 0; }
   .gg5e-mm-form.form--modal .form-group > * {
@@ -572,12 +543,11 @@
 
 .gg5e-mm-modal {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
-  background: rgba(10, 25, 35, 0.85);
   display: flex;
   font-size: larger;
   padding: 1rem;
@@ -585,8 +555,8 @@
   .gg5e-mm-modal:not(.open) {
     display: none; }
   .gg5e-mm-modal .modal__dialog {
-    width: 30.25rem;
-    box-shadow: 0 3px 0 0 black;
+    width: 30.5rem;
+    filter: drop-shadow(0 0 20px black);
     border-radius: 0 0 1rem 1rem;
     overflow: hidden;
     flex-shrink: 0;
@@ -607,11 +577,11 @@
     .gg5e-mm-modal .modal__icon + .modal__header {
       padding-top: 2rem; }
   .gg5e-mm-modal .modal__header {
-    background: #0a1923;
+    background: #143345;
     border-top: 0.5rem solid #327fad;
     color: white;
     text-align: center;
-    padding: 1rem 1rem 2rem;
+    padding: 1rem 1rem 3rem;
     text-align: center;
     font-size: 2rem;
     letter-spacing: 0.5px;
@@ -622,26 +592,26 @@
       border: none;
       padding: 0;
       margin: 0;
-      color: #0a1923;
+      color: #143345;
       position: absolute;
       right: 0.5rem;
       top: 0.5rem;
       width: 1.4rem;
       height: 1.4rem;
-      background: #1e4c68;
+      background: #327fad;
       border-radius: 1rem;
       display: flex;
       justify-content: center;
       align-items: center; }
       .gg5e-mm-modal .modal__header .modal__close:hover {
         cursor: pointer;
-        background: #327fad;
+        background: #ad6032;
         color: white;
         box-shadow: none; }
       .gg5e-mm-modal .modal__header .modal__close i {
         margin: 0; }
     .gg5e-mm-modal .modal__header + .modal__body {
-      margin-top: -1rem;
+      margin-top: -2rem;
       border-top-left-radius: 2rem;
       border-top-right-radius: 2rem; }
   .gg5e-mm-modal .modal__body {
@@ -699,582 +669,601 @@
         box-shadow: 0 3px 0 0 #452614;
         color: white; }
 
-.gg5e-mm-monster .monster__header {
-  display: grid;
-  grid-template-columns: 1fr 3.9rem;
-  grid-column-gap: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background: #1e4c68;
-  border-bottom: 2px solid #143345; }
-  .gg5e-mm-monster .monster__header + .monster__body {
-    margin-top: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0; }
-  .gg5e-mm-monster .monster__header .monster__image {
-    grid-row: 1 / span 2;
-    grid-column: 2;
-    position: relative; }
-    .gg5e-mm-monster .monster__header .monster__image img {
-      background: black;
-      border-radius: 0.75rem;
-      border: 2px solid #0a1923;
-      display: block; }
-  .gg5e-mm-monster .monster__header .monster__name {
-    font-size: 2.5rem;
-    letter-spacing: 0.5px;
-    font-family: 'Londrina Solid';
-    line-height: 1.1; }
-  .gg5e-mm-monster .monster__header .monster__description {
-    font-weight: 600;
-    font-size: larger;
-    grid-column: 1; }
-  .gg5e-mm-monster .monster__header .monster__name,
-  .gg5e-mm-monster .monster__header .monster__description {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
-  .gg5e-mm-monster .monster__header .monster__combat {
-    grid-column: 1 / span 2;
-    font-weight: 600;
-    position: relative;
-    text-align: center;
-    font-weight: 600;
-    font-size: larger;
-    border-top: 1px solid #0a1923;
-    margin: 0.5rem -1rem -0.5rem;
-    padding: 0.5rem 1rem; }
-    .gg5e-mm-monster .monster__header .monster__combat .level,
-    .gg5e-mm-monster .monster__header .monster__combat .rank,
-    .gg5e-mm-monster .monster__header .monster__combat .role,
-    .gg5e-mm-monster .monster__header .monster__combat .phase {
-      display: inline-block; }
-      .gg5e-mm-monster .monster__header .monster__combat .level i,
-      .gg5e-mm-monster .monster__header .monster__combat .rank i,
-      .gg5e-mm-monster .monster__header .monster__combat .role i,
-      .gg5e-mm-monster .monster__header .monster__combat .phase i {
-        margin-right: 0.25rem; }
-      .gg5e-mm-monster .monster__header .monster__combat .level:not(:first-child),
-      .gg5e-mm-monster .monster__header .monster__combat .rank:not(:first-child),
-      .gg5e-mm-monster .monster__header .monster__combat .role:not(:first-child),
-      .gg5e-mm-monster .monster__header .monster__combat .phase:not(:first-child) {
-        margin-left: 0.25rem; }
-        .gg5e-mm-monster .monster__header .monster__combat .level:not(:first-child)::before,
-        .gg5e-mm-monster .monster__header .monster__combat .rank:not(:first-child)::before,
-        .gg5e-mm-monster .monster__header .monster__combat .role:not(:first-child)::before,
-        .gg5e-mm-monster .monster__header .monster__combat .phase:not(:first-child)::before {
-          content: '•';
-          color: #0a1923;
-          margin-right: 0.25rem; }
-    .gg5e-mm-monster .monster__header .monster__combat .rank .stars i:not(:first-child) {
-      margin-left: -20px;
-      filter: drop-shadow(0 0 2px #143345); }
-
-.gg5e-mm-monster .monster__body {
-  background: #84b2ce; }
-  .gg5e-mm-monster .monster__body > * + * {
-    margin-top: 0.5rem; }
-
-.gg5e-mm-monster .monster__blocks .monster__blocks__row {
-  display: flex; }
-  .gg5e-mm-monster .monster__blocks .monster__blocks__row > * + * {
-    margin-left: 0.25rem; }
-  .gg5e-mm-monster .monster__blocks .monster__blocks__row + .monster__blocks__row {
-    margin-top: 0.25rem; }
-
-.gg5e-mm-monster .monster__blocks + * {
-  margin-top: 0.5rem; }
-
-.gg5e-mm-monster .monster__blocks .hit-points,
-.gg5e-mm-monster .monster__blocks .attack-dcs {
+.gg5e-mm-monster {
+  background: white;
+  padding: 0.125rem;
+  overflow: hidden;
   flex-grow: 1;
-  width: 100%; }
-
-.gg5e-mm-monster .monster__blocks .perception,
-.gg5e-mm-monster .monster__blocks .ac {
-  width: 6rem;
-  flex-shrink: 0; }
-
-.gg5e-mm-monster .monster__blocks .attack {
-  width: 6.5rem;
-  flex-shrink: 0; }
-
-.gg5e-mm-monster .monster__blocks .damage {
-  width: 12.25rem;
-  flex-shrink: 0; }
-  .gg5e-mm-monster .monster__blocks .damage .random {
-    letter-spacing: 0; }
-    .gg5e-mm-monster .monster__blocks .damage .random .roll {
-      white-space: normal;
-      line-height: 0.875;
-      font-style: 1rem;
-      text-align: left;
-      letter-spacing: 0; }
-
-.gg5e-mm-monster .monster__blocks .hit-points__temporary:hover,
-.gg5e-mm-monster .monster__blocks .hit-points__current:hover {
-  color: #ad6032; }
-  .gg5e-mm-monster .monster__blocks .hit-points__temporary:hover i,
-  .gg5e-mm-monster .monster__blocks .hit-points__current:hover i {
-    color: #ad6032; }
-
-.gg5e-mm-monster .monster__blocks .input--thp,
-.gg5e-mm-monster .monster__blocks .input--hp {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  font-size: inherit;
-  font-family: inherit;
-  opacity: 0;
-  background: #efdfd6;
-  border: none;
-  border-radius: 0.5rem; }
-  .gg5e-mm-monster .monster__blocks .input--thp:focus,
-  .gg5e-mm-monster .monster__blocks .input--hp:focus {
-    opacity: 1; }
-
-.gg5e-mm-monster .gg5e-mm-panel .panel__header {
-  text-transform: uppercase;
-  text-align: center;
-  padding-left: 3rem; }
-
-.gg5e-mm-monster .monster__attributes {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  grid-column-gap: 0.35rem;
-  grid-row-gap: 0.25rem;
-  margin: 0; }
-  .gg5e-mm-monster .monster__attributes dt {
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #327fad;
-    font-size: smaller;
-    text-align: right;
-    line-height: 18px;
-    position: relative; }
-    .gg5e-mm-monster .monster__attributes dt::after {
-      content: '';
-      width: 4px;
-      height: 100%;
-      position: absolute;
-      right: 7px;
-      top: 0;
-      background: #327fad;
-      border-radius: 4px; }
-  .gg5e-mm-monster .monster__attributes dd {
-    padding: 0;
-    margin: 0; }
-    .gg5e-mm-monster .monster__attributes dd span:not(:last-child)::after {
-      content: ', '; }
-  .gg5e-mm-monster .monster__attributes .attribute__icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0.25rem;
-    background: #327fad;
-    color: white;
-    line-height: 18px;
-    width: 18px;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem; }
+  .gg5e-mm-monster ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    font-size: 12px;
-    height: 18px;
-    border: 1px solid #327fad;
-    box-sizing: border-box;
-    overflow: hidden; }
-
-.gg5e-mm-monster .monster__modifiers {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-column-gap: 0.25rem;
-  filter: drop-shadow(0 1px 0 #28668a); }
-  .gg5e-mm-monster .monster__modifiers + .monster__attributes {
-    margin-top: 0.75rem;
-    border-top: 1px dotted #adccde;
-    padding-top: 1rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem; }
-
-.gg5e-mm-monster .monster__modifier {
-  text-align: center;
-  overflow: hidden; }
-  .gg5e-mm-monster .monster__modifier .title {
-    text-transform: uppercase;
-    color: #487997;
-    font-weight: bold;
-    position: relative;
-    padding: 0.25rem 0.25rem 0.75rem;
-    background: #d6e5ef;
-    border-radius: 0.75rem 0.75rem 0 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; }
-    .gg5e-mm-monster .monster__modifier .title + .value {
-      margin-top: -1rem;
-      position: relative; }
-  .gg5e-mm-monster .monster__modifier .value {
-    background: #d6e5ef;
-    height: 4.3rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.75rem;
-    font-weight: normal;
-    font-family: 'Londrina Solid';
-    letter-spacing: 2px;
-    padding-bottom: 1.25rem;
-    border-radius: 100%;
-    border-radius: 0.75rem 0.75rem 1.5rem 1.5rem; }
-    .gg5e-mm-monster .monster__modifier .value button {
-      padding: 0;
-      font-size: inherit;
-      font-family: inherit; }
-  .gg5e-mm-monster .monster__modifier .save {
-    position: relative;
-    z-index: 1;
-    height: 2.5rem;
-    margin-top: -1.5rem;
-    font-weight: bold;
-    font-size: 1.25rem;
-    padding-bottom: 0.5rem;
+    background: #683a1e;
+    border: none; }
+  .gg5e-mm-monster .monster__header {
+    background: black;
     color: white;
-    display: flex;
-    justify-content: center;
-    letter-spacing: 1px;
-    align-items: center; }
-    .gg5e-mm-monster .monster__modifier .save button {
-      padding: 0;
-      font-size: inherit;
-      font-family: inherit;
-      color: inherit;
-      font-weight: inherit; }
-    .gg5e-mm-monster .monster__modifier .save::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 2.5rem;
-      height: 100%;
-      left: calc(50% - 1.25rem);
-      background: #487997;
-      clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
-      z-index: -1; }
-    .gg5e-mm-monster .monster__modifier .save:hover::before {
-      background: #ad6032; }
-
-.gg5e-mm-monster .monster__skill {
-  padding: 0;
-  display: inline;
-  width: auto;
-  font-weight: normal;
-  font-family: inherit;
-  line-height: inherit;
-  font-size: inherit; }
-  .gg5e-mm-monster .monster__skill:not(:last-child)::after {
-    content: ', '; }
-
-.gg5e-mm-monster .monster__biography .panel__body {
-  white-space: normal;
-  word-break: break-word; }
-  .gg5e-mm-monster .monster__biography .panel__body > :first-child {
-    margin-top: 0; }
-  .gg5e-mm-monster .monster__biography .panel__body > :last-child {
-    margin-bottom: 0; }
-
-.gg5e-mm-monster .monster__paragon-actions .panel__body,
-.gg5e-mm-monster .monster__legendary-resistances .panel__body,
-.gg5e-mm-monster .monster__legendary-actions .panel__body,
-.gg5e-mm-monster .monster__lair-actions .panel__body {
-  display: grid;
-  grid-template-columns: 1fr 5.5rem 5.5rem;
-  grid-column-gap: 0;
-  align-items: center; }
-
-.gg5e-mm-monster .monster__paragon-actions .legendary__blurb,
-.gg5e-mm-monster .monster__legendary-resistances .legendary__blurb,
-.gg5e-mm-monster .monster__legendary-actions .legendary__blurb,
-.gg5e-mm-monster .monster__lair-actions .legendary__blurb {
-  padding-right: 1rem;
-  font-size: smaller;
-  line-height: 13px;
-  overflow-y: auto;
-  text-overflow: ellipsis;
-  border-right: 1px solid #d6e5ef;
-  text-align: right;
-  margin-right: 0.5rem; }
-
-.gg5e-mm-monster .monster__paragon-actions .legendary--current,
-.gg5e-mm-monster .monster__legendary-resistances .legendary--current,
-.gg5e-mm-monster .monster__legendary-actions .legendary--current,
-.gg5e-mm-monster .monster__lair-actions .legendary--current {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  font-size: inherit;
-  font-family: inherit;
-  opacity: 0;
-  background: #efdfd6;
-  border: none;
-  border-radius: 0.5rem; }
-  .gg5e-mm-monster .monster__paragon-actions .legendary--current:focus,
-  .gg5e-mm-monster .monster__legendary-resistances .legendary--current:focus,
-  .gg5e-mm-monster .monster__legendary-actions .legendary--current:focus,
-  .gg5e-mm-monster .monster__lair-actions .legendary--current:focus {
-    opacity: 1; }
-
-.gg5e-mm-monster .monster__paragon-actions .legendary__current,
-.gg5e-mm-monster .monster__paragon-actions .legendary__maximum,
-.gg5e-mm-monster .monster__legendary-resistances .legendary__current,
-.gg5e-mm-monster .monster__legendary-resistances .legendary__maximum,
-.gg5e-mm-monster .monster__legendary-actions .legendary__current,
-.gg5e-mm-monster .monster__legendary-actions .legendary__maximum,
-.gg5e-mm-monster .monster__lair-actions .legendary__current,
-.gg5e-mm-monster .monster__lair-actions .legendary__maximum {
-  text-align: center; }
-
-.gg5e-mm-monster .monster__paragon-actions .legendary__value,
-.gg5e-mm-monster .monster__legendary-resistances .legendary__value,
-.gg5e-mm-monster .monster__legendary-actions .legendary__value,
-.gg5e-mm-monster .monster__lair-actions .legendary__value {
-  font-family: 'Londrina Solid';
-  font-size: 1.75rem;
-  line-height: 1.5rem;
-  letter-spacing: 0.5px;
-  position: relative;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .gg5e-mm-monster .monster__paragon-actions .legendary__value i,
-  .gg5e-mm-monster .monster__legendary-resistances .legendary__value i,
-  .gg5e-mm-monster .monster__legendary-actions .legendary__value i,
-  .gg5e-mm-monster .monster__lair-actions .legendary__value i {
-    margin-right: 0.25rem;
-    color: #1e4c68; }
-
-.gg5e-mm-monster .monster__paragon-actions .legendary__current .legendary__value:hover,
-.gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover,
-.gg5e-mm-monster .monster__legendary-actions .legendary__current .legendary__value:hover,
-.gg5e-mm-monster .monster__lair-actions .legendary__current .legendary__value:hover {
-  color: #ad6032; }
-  .gg5e-mm-monster .monster__paragon-actions .legendary__current .legendary__value:hover i,
-  .gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover i,
-  .gg5e-mm-monster .monster__legendary-actions .legendary__current .legendary__value:hover i,
-  .gg5e-mm-monster .monster__lair-actions .legendary__current .legendary__value:hover i {
-    color: #ad6032; }
-
-.gg5e-mm-monster .monster__paragon-actions .legendary__description,
-.gg5e-mm-monster .monster__legendary-resistances .legendary__description,
-.gg5e-mm-monster .monster__legendary-actions .legendary__description,
-.gg5e-mm-monster .monster__lair-actions .legendary__description {
-  margin-top: 0.25rem;
-  font-size: smaller;
-  font-weight: 600;
-  color: #487997; }
-
-.gg5e-mm-monster .monster__lair-actions .panel__body {
-  grid-template-columns: 1fr 5.5rem; }
-
-.gg5e-mm-monster .button--text {
-  background: none;
-  border: none;
-  box-shadow: none;
-  margin: 0;
-  border-radius: 0;
-  cursor: pointer; }
-  .gg5e-mm-monster .button--text:hover {
-    color: #ad6032; }
-    .gg5e-mm-monster .button--text:hover i {
-      color: #8a4d28; }
-
-.gg5e-mm-monster-options .options__header {
-  display: flex;
-  font-size: 2rem;
-  text-align: center;
-  font-family: 'Londrina Solid';
-  align-items: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background: #1e4c68;
-  border-bottom: 2px solid #143345; }
-  .gg5e-mm-monster-options .options__header .pane__icon {
-    height: 3rem;
-    width: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #0a1923;
-    border-radius: 0.75rem;
-    margin-right: 1rem;
-    font-size: 1.5rem; }
-  .gg5e-mm-monster-options .options__header + .options__body {
-    margin-top: 0; }
-  .gg5e-mm-monster-options .options__header .pane__title {
+    padding: 0.5rem 1rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: 1fr 3.9rem;
+    grid-column-gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #1e4c68;
+    border-bottom: 2px solid #143345; }
+    .gg5e-mm-monster .monster__header + .monster__body {
+      margin-top: 0;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0; }
+    .gg5e-mm-monster .monster__header .monster__image {
+      grid-row: 1 / span 2;
+      grid-column: 2;
+      position: relative; }
+      .gg5e-mm-monster .monster__header .monster__image img {
+        background: black;
+        border-radius: 0.75rem;
+        border: 2px solid #0a1923;
+        display: block; }
+    .gg5e-mm-monster .monster__header .monster__name {
+      font-size: 2.5rem;
+      letter-spacing: 0.5px;
+      font-family: 'Londrina Solid';
+      line-height: 1.1; }
+    .gg5e-mm-monster .monster__header .monster__description {
+      font-weight: 600;
+      font-size: larger;
+      grid-column: 1; }
+    .gg5e-mm-monster .monster__header .monster__name,
+    .gg5e-mm-monster .monster__header .monster__description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .gg5e-mm-monster .monster__header .monster__combat {
+      grid-column: 1 / span 2;
+      font-weight: 600;
+      position: relative;
+      text-align: center;
+      font-weight: 600;
+      font-size: larger;
+      border-top: 1px solid #0a1923;
+      margin: 0.5rem -1rem -0.5rem;
+      padding: 0.5rem 1rem; }
+      .gg5e-mm-monster .monster__header .monster__combat .level,
+      .gg5e-mm-monster .monster__header .monster__combat .rank,
+      .gg5e-mm-monster .monster__header .monster__combat .role,
+      .gg5e-mm-monster .monster__header .monster__combat .phase {
+        display: inline-block; }
+        .gg5e-mm-monster .monster__header .monster__combat .level i,
+        .gg5e-mm-monster .monster__header .monster__combat .rank i,
+        .gg5e-mm-monster .monster__header .monster__combat .role i,
+        .gg5e-mm-monster .monster__header .monster__combat .phase i {
+          margin-right: 0.25rem; }
+        .gg5e-mm-monster .monster__header .monster__combat .level:not(:first-child),
+        .gg5e-mm-monster .monster__header .monster__combat .rank:not(:first-child),
+        .gg5e-mm-monster .monster__header .monster__combat .role:not(:first-child),
+        .gg5e-mm-monster .monster__header .monster__combat .phase:not(:first-child) {
+          margin-left: 0.25rem; }
+          .gg5e-mm-monster .monster__header .monster__combat .level:not(:first-child)::before,
+          .gg5e-mm-monster .monster__header .monster__combat .rank:not(:first-child)::before,
+          .gg5e-mm-monster .monster__header .monster__combat .role:not(:first-child)::before,
+          .gg5e-mm-monster .monster__header .monster__combat .phase:not(:first-child)::before {
+            content: '•';
+            color: #0a1923;
+            margin-right: 0.25rem; }
+      .gg5e-mm-monster .monster__header .monster__combat .rank .stars i:not(:first-child) {
+        margin-left: -20px;
+        filter: drop-shadow(0 0 2px #143345); }
+  .gg5e-mm-monster .monster__body {
+    background: white;
+    margin-top: -1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow-y: overlay;
     flex-grow: 1;
-    text-align: left; }
-  .gg5e-mm-monster-options .options__header .accordion-options {
+    background: #84b2ce; }
+    .gg5e-mm-monster .monster__body > * + * {
+      margin-top: 0.5rem; }
+  .gg5e-mm-monster .monster__blocks .monster__blocks__row {
     display: flex; }
-    .gg5e-mm-monster-options .options__header .accordion-options button {
-      flex-shrink: 0;
-      width: 2rem;
-      height: 2rem;
-      margin: 0;
-      background: none;
-      border: none;
+    .gg5e-mm-monster .monster__blocks .monster__blocks__row > * + * {
+      margin-left: 0.25rem; }
+    .gg5e-mm-monster .monster__blocks .monster__blocks__row + .monster__blocks__row {
+      margin-top: 0.25rem; }
+  .gg5e-mm-monster .monster__blocks + * {
+    margin-top: 0.5rem; }
+  .gg5e-mm-monster .monster__blocks .hit-points,
+  .gg5e-mm-monster .monster__blocks .attack-dcs {
+    flex-grow: 1;
+    width: 100%; }
+  .gg5e-mm-monster .monster__blocks .perception,
+  .gg5e-mm-monster .monster__blocks .ac {
+    width: 6rem;
+    flex-shrink: 0; }
+  .gg5e-mm-monster .monster__blocks .attack {
+    width: 6.5rem;
+    flex-shrink: 0; }
+  .gg5e-mm-monster .monster__blocks .damage {
+    width: 12.25rem;
+    flex-shrink: 0; }
+    .gg5e-mm-monster .monster__blocks .damage .random {
+      letter-spacing: 0; }
+      .gg5e-mm-monster .monster__blocks .damage .random .roll {
+        white-space: normal;
+        line-height: 0.875;
+        font-style: 1rem;
+        text-align: left;
+        letter-spacing: 0; }
+  .gg5e-mm-monster .monster__blocks .hit-points__temporary:hover,
+  .gg5e-mm-monster .monster__blocks .hit-points__current:hover {
+    color: #ad6032; }
+    .gg5e-mm-monster .monster__blocks .hit-points__temporary:hover i,
+    .gg5e-mm-monster .monster__blocks .hit-points__current:hover i {
+      color: #ad6032; }
+  .gg5e-mm-monster .monster__blocks .input--thp,
+  .gg5e-mm-monster .monster__blocks .input--hp {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: inherit;
+    font-family: inherit;
+    opacity: 0;
+    background: #efdfd6;
+    border: none;
+    border-radius: 0.5rem; }
+    .gg5e-mm-monster .monster__blocks .input--thp:focus,
+    .gg5e-mm-monster .monster__blocks .input--hp:focus {
+      opacity: 1; }
+  .gg5e-mm-monster .gg5e-mm-panel .panel__header {
+    text-transform: uppercase;
+    text-align: center;
+    padding-left: 3rem; }
+  .gg5e-mm-monster .monster__attributes {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 0.35rem;
+    grid-row-gap: 0.25rem;
+    margin: 0; }
+    .gg5e-mm-monster .monster__attributes dt {
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #327fad;
+      font-size: smaller;
+      text-align: right;
+      line-height: 18px;
+      position: relative; }
+      .gg5e-mm-monster .monster__attributes dt::after {
+        content: '';
+        width: 4px;
+        height: 100%;
+        position: absolute;
+        right: 7px;
+        top: 0;
+        background: #327fad;
+        border-radius: 4px; }
+    .gg5e-mm-monster .monster__attributes dd {
+      padding: 0;
+      margin: 0; }
+      .gg5e-mm-monster .monster__attributes dd span:not(:last-child)::after {
+        content: ', '; }
+    .gg5e-mm-monster .monster__attributes .attribute__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0.25rem;
+      background: #327fad;
+      color: white;
+      line-height: 18px;
+      width: 18px;
+      position: relative;
+      z-index: 1;
       border-radius: 1rem;
-      background: #28668a;
+      font-size: 12px;
+      height: 18px;
+      border: 1px solid #327fad;
+      box-sizing: border-box;
+      overflow: hidden; }
+  .gg5e-mm-monster .monster__modifiers {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 0.25rem;
+    filter: drop-shadow(0 1px 0 #28668a); }
+    .gg5e-mm-monster .monster__modifiers + .monster__attributes {
+      margin-top: 0.75rem;
+      border-top: 1px dotted #adccde;
+      padding-top: 1rem;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem; }
+  .gg5e-mm-monster .monster__modifier {
+    text-align: center;
+    overflow: hidden; }
+    .gg5e-mm-monster .monster__modifier .title {
+      text-transform: uppercase;
+      color: #487997;
+      font-weight: bold;
+      position: relative;
+      padding: 0.25rem 0.25rem 0.75rem;
+      background: #d6e5ef;
+      border-radius: 0.75rem 0.75rem 0 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      .gg5e-mm-monster .monster__modifier .title + .value {
+        margin-top: -1rem;
+        position: relative; }
+    .gg5e-mm-monster .monster__modifier .value {
+      background: #d6e5ef;
+      height: 4.3rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.75rem;
+      font-weight: normal;
+      font-family: 'Londrina Solid';
+      letter-spacing: 2px;
+      padding-bottom: 1.25rem;
+      border-radius: 100%;
+      border-radius: 0.75rem 0.75rem 1.5rem 1.5rem; }
+      .gg5e-mm-monster .monster__modifier .value button {
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit; }
+    .gg5e-mm-monster .monster__modifier .save {
+      position: relative;
+      z-index: 1;
+      height: 2.5rem;
+      margin-top: -1.5rem;
+      font-weight: bold;
+      font-size: 1.25rem;
+      padding-bottom: 0.5rem;
       color: white;
       display: flex;
-      align-items: center;
       justify-content: center;
-      cursor: pointer; }
-      .gg5e-mm-monster-options .options__header .accordion-options button:hover, .gg5e-mm-monster-options .options__header .accordion-options button:focus {
-        background: #ad6032;
-        text-shadow: none;
-        box-shadow: none; }
-      .gg5e-mm-monster-options .options__header .accordion-options button i {
-        margin: 0; }
-      .gg5e-mm-monster-options .options__header .accordion-options button + * {
-        margin-left: 0.25rem; }
-
-.gg5e-mm-monster-options .options__body {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-  background: #84b2ce; }
-
-.gg5e-mm-monster-options .button--help {
-  background: none;
-  width: 1rem;
-  border: none;
-  padding: 0;
-  font-size: 10px;
-  line-height: inherit;
-  margin: 0;
-  height: 1rem;
-  background: #debfad;
-  color: white;
-  border-radius: 1rem;
-  text-align: center;
-  margin-left: -0.25rem;
-  float: left;
-  margin-right: 0.5rem;
-  flex-shrink: 0; }
-  .gg5e-mm-monster-options .button--help:hover {
-    cursor: pointer;
-    box-shadow: none;
-    background: #ad6032; }
-  .gg5e-mm-monster-options .button--help i {
-    margin: 0; }
-
-.gg5e-mm-monster-options .form-group--image img {
-  background: black;
-  border-radius: 0.75rem;
-  width: 4.2rem;
-  margin: 0.25rem auto 0.25rem 0.5rem;
-  border: none;
-  display: block; }
-  .gg5e-mm-monster-options .form-group--image img:hover {
-    cursor: pointer; }
-
-.gg5e-mm-monster-options .accordion-section__body {
-  padding: 0; }
-
-.gg5e-mm-monster-options .fieldset-rank .target-players,
-.gg5e-mm-monster-options .fieldset-rank .phases {
-  display: none; }
-
-.gg5e-mm-monster-options .fieldset-rank:not(.rank-custom) .form-group:not(.type) {
-  display: none; }
-
-.gg5e-mm-monster-options .fieldset-rank.scale-with-players .form-group.target-players {
-  display: flex; }
-
-.gg5e-mm-monster-options .fieldset-rank.show-phases .form-group.phases {
-  display: flex; }
-
-.gg5e-mm-monster-options .fieldset-rank .phases .form-group__body {
-  display: flex;
-  align-items: center; }
-  .gg5e-mm-monster-options .fieldset-rank .phases .form-group__body input {
+      letter-spacing: 1px;
+      align-items: center; }
+      .gg5e-mm-monster .monster__modifier .save button {
+        padding: 0;
+        font-size: inherit;
+        font-family: inherit;
+        color: inherit;
+        font-weight: inherit; }
+      .gg5e-mm-monster .monster__modifier .save::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 2.5rem;
+        height: 100%;
+        left: calc(50% - 1.25rem);
+        background: #487997;
+        clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
+        z-index: -1; }
+      .gg5e-mm-monster .monster__modifier .save:hover::before {
+        background: #ad6032; }
+  .gg5e-mm-monster .monster__skill {
+    padding: 0;
+    display: inline;
+    width: auto;
+    font-weight: normal;
+    font-family: inherit;
+    line-height: inherit;
+    font-size: inherit; }
+    .gg5e-mm-monster .monster__skill:not(:last-child)::after {
+      content: ', '; }
+  .gg5e-mm-monster .monster__biography .panel__body {
+    white-space: normal;
+    word-break: break-word; }
+    .gg5e-mm-monster .monster__biography .panel__body > :first-child {
+      margin-top: 0; }
+    .gg5e-mm-monster .monster__biography .panel__body > :last-child {
+      margin-bottom: 0; }
+  .gg5e-mm-monster .monster__paragon-actions .panel__body,
+  .gg5e-mm-monster .monster__legendary-resistances .panel__body,
+  .gg5e-mm-monster .monster__legendary-actions .panel__body,
+  .gg5e-mm-monster .monster__lair-actions .panel__body {
+    display: grid;
+    grid-template-columns: 1fr 5.5rem 5.5rem;
+    grid-column-gap: 0;
+    align-items: center; }
+  .gg5e-mm-monster .monster__paragon-actions .legendary__blurb,
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__blurb,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__blurb,
+  .gg5e-mm-monster .monster__lair-actions .legendary__blurb {
+    padding-right: 1rem;
+    font-size: smaller;
+    line-height: 13px;
+    overflow-y: auto;
+    text-overflow: ellipsis;
+    border-right: 1px solid #d6e5ef;
+    text-align: right;
+    margin-right: 0.5rem; }
+  .gg5e-mm-monster .monster__paragon-actions .legendary--current,
+  .gg5e-mm-monster .monster__legendary-resistances .legendary--current,
+  .gg5e-mm-monster .monster__legendary-actions .legendary--current,
+  .gg5e-mm-monster .monster__lair-actions .legendary--current {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
     width: 100%;
-    flex-grow: 1; }
-    .gg5e-mm-monster-options .fieldset-rank .phases .form-group__body input:first-child {
-      margin-right: 0.5rem; }
-    .gg5e-mm-monster-options .fieldset-rank .phases .form-group__body input:last-child {
-      margin-left: 0.5rem; }
-
-.gg5e-mm-monster-options .fieldset-role:not(.role-custom) .form-group:not(.type) {
-  display: none; }
-
-.gg5e-mm-monster-options .form-group--modifier .form-group__body {
-  display: flex; }
-  .gg5e-mm-monster-options .form-group--modifier .form-group__body .checkbox {
-    display: inline-flex;
+    text-align: center;
     font-size: inherit;
-    white-space: nowrap;
-    height: auto;
+    font-family: inherit;
+    opacity: 0;
+    background: #efdfd6;
+    border: none;
+    border-radius: 0.5rem; }
+    .gg5e-mm-monster .monster__paragon-actions .legendary--current:focus,
+    .gg5e-mm-monster .monster__legendary-resistances .legendary--current:focus,
+    .gg5e-mm-monster .monster__legendary-actions .legendary--current:focus,
+    .gg5e-mm-monster .monster__lair-actions .legendary--current:focus {
+      opacity: 1; }
+  .gg5e-mm-monster .monster__paragon-actions .legendary__current,
+  .gg5e-mm-monster .monster__paragon-actions .legendary__maximum,
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__current,
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__maximum,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__current,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__maximum,
+  .gg5e-mm-monster .monster__lair-actions .legendary__current,
+  .gg5e-mm-monster .monster__lair-actions .legendary__maximum {
+    text-align: center; }
+  .gg5e-mm-monster .monster__paragon-actions .legendary__value,
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__value,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__value,
+  .gg5e-mm-monster .monster__lair-actions .legendary__value {
+    font-family: 'Londrina Solid';
+    font-size: 1.75rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    text-align: center;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 0 0.5rem; }
-    .gg5e-mm-monster-options .form-group--modifier .form-group__body .checkbox:hover {
-      cursor: pointer; }
-    .gg5e-mm-monster-options .form-group--modifier .form-group__body .checkbox input {
-      margin: 0;
-      top: 0;
-      display: inline-block;
-      margin-right: 0.25rem; }
-
-.gg5e-mm-monster-options .ability-ranking,
-.gg5e-mm-monster-options .save-ranking {
-  display: flex;
-  line-height: 2rem; }
-  .gg5e-mm-monster-options .ability-ranking:not(:first-child),
-  .gg5e-mm-monster-options .save-ranking:not(:first-child) {
-    border-top: 1px solid #debfad; }
-  .gg5e-mm-monster-options .ability-ranking .value,
-  .gg5e-mm-monster-options .save-ranking .value {
-    flex-grow: 1;
-    padding: 0 0.5rem; }
-    .gg5e-mm-monster-options .ability-ranking .value i,
-    .gg5e-mm-monster-options .save-ranking .value i {
-      width: 1.5rem;
-      line-height: 1.5rem;
-      display: inline-block;
+    align-items: center; }
+    .gg5e-mm-monster .monster__paragon-actions .legendary__value i,
+    .gg5e-mm-monster .monster__legendary-resistances .legendary__value i,
+    .gg5e-mm-monster .monster__legendary-actions .legendary__value i,
+    .gg5e-mm-monster .monster__lair-actions .legendary__value i {
       margin-right: 0.25rem;
-      justify-content: center;
-      align-items: center;
-      background: #efdfd6;
-      border-radius: 1rem;
-      color: #8a4d28; }
-  .gg5e-mm-monster-options .ability-ranking .move-down,
-  .gg5e-mm-monster-options .ability-ranking .move-up,
-  .gg5e-mm-monster-options .save-ranking .move-down,
-  .gg5e-mm-monster-options .save-ranking .move-up {
+      color: #1e4c68; }
+  .gg5e-mm-monster .monster__paragon-actions .legendary__current .legendary__value:hover,
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__current .legendary__value:hover,
+  .gg5e-mm-monster .monster__lair-actions .legendary__current .legendary__value:hover {
+    color: #ad6032; }
+    .gg5e-mm-monster .monster__paragon-actions .legendary__current .legendary__value:hover i,
+    .gg5e-mm-monster .monster__legendary-resistances .legendary__current .legendary__value:hover i,
+    .gg5e-mm-monster .monster__legendary-actions .legendary__current .legendary__value:hover i,
+    .gg5e-mm-monster .monster__lair-actions .legendary__current .legendary__value:hover i {
+      color: #ad6032; }
+  .gg5e-mm-monster .monster__paragon-actions .legendary__description,
+  .gg5e-mm-monster .monster__legendary-resistances .legendary__description,
+  .gg5e-mm-monster .monster__legendary-actions .legendary__description,
+  .gg5e-mm-monster .monster__lair-actions .legendary__description {
+    margin-top: 0.25rem;
+    font-size: smaller;
+    font-weight: 600;
+    color: #487997; }
+  .gg5e-mm-monster .monster__lair-actions .panel__body {
+    grid-template-columns: 1fr 5.5rem; }
+  .gg5e-mm-monster .button--text {
     background: none;
     border: none;
-    padding: 0;
+    box-shadow: none;
     margin: 0;
-    width: 2rem; }
-    .gg5e-mm-monster-options .ability-ranking .move-down:hover,
-    .gg5e-mm-monster-options .ability-ranking .move-up:hover,
-    .gg5e-mm-monster-options .save-ranking .move-down:hover,
-    .gg5e-mm-monster-options .save-ranking .move-up:hover {
+    border-radius: 0;
+    cursor: pointer; }
+    .gg5e-mm-monster .button--text:hover {
+      color: #ad6032; }
+      .gg5e-mm-monster .button--text:hover i {
+        color: #8a4d28; }
+
+.gg5e-mm-blueprint {
+  background: white;
+  padding: 0.125rem;
+  overflow: hidden;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem; }
+  .gg5e-mm-blueprint ::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background: #683a1e;
+    border: none; }
+  .gg5e-mm-blueprint::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent 5%);
+    pointer-events: none; }
+  .gg5e-mm-blueprint .blueprint__header {
+    background: black;
+    color: white;
+    padding: 0.5rem 1rem 1.5rem;
+    border-radius: 1rem 1rem 0 0;
+    flex-shrink: 0;
+    display: flex;
+    font-size: 2rem;
+    text-align: center;
+    font-family: 'Londrina Solid';
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    background: #1e4c68;
+    border-bottom: 2px solid #143345; }
+    .gg5e-mm-blueprint .blueprint__header .blueprint__icon {
+      height: 3rem;
+      width: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0a1923;
+      border-radius: 0.75rem;
+      margin-right: 1rem;
+      font-size: 1.5rem; }
+    .gg5e-mm-blueprint .blueprint__header + .blueprint__body {
+      margin-top: 0; }
+    .gg5e-mm-blueprint .blueprint__header .blueprint__title {
+      flex-grow: 1;
+      text-align: left; }
+    .gg5e-mm-blueprint .blueprint__header .accordion-options {
+      display: flex; }
+      .gg5e-mm-blueprint .blueprint__header .accordion-options button {
+        flex-shrink: 0;
+        width: 2rem;
+        height: 2rem;
+        margin: 0;
+        background: none;
+        border: none;
+        border-radius: 1rem;
+        background: #28668a;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer; }
+        .gg5e-mm-blueprint .blueprint__header .accordion-options button:hover, .gg5e-mm-blueprint .blueprint__header .accordion-options button:focus {
+          background: #ad6032;
+          text-shadow: none;
+          box-shadow: none; }
+        .gg5e-mm-blueprint .blueprint__header .accordion-options button i {
+          margin: 0; }
+        .gg5e-mm-blueprint .blueprint__header .accordion-options button + * {
+          margin-left: 0.25rem; }
+  .gg5e-mm-blueprint .blueprint__body {
+    background: white;
+    margin-top: -1rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    overflow-y: overlay;
+    flex-grow: 1;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    background: #84b2ce; }
+  .gg5e-mm-blueprint .button--help {
+    background: none;
+    width: 1rem;
+    border: none;
+    padding: 0;
+    font-size: 10px;
+    line-height: inherit;
+    margin: 0;
+    height: 1rem;
+    background: #debfad;
+    color: white;
+    border-radius: 1rem;
+    text-align: center;
+    margin-left: -0.25rem;
+    float: left;
+    margin-right: 0.5rem;
+    flex-shrink: 0; }
+    .gg5e-mm-blueprint .button--help:hover {
       cursor: pointer;
       box-shadow: none;
-      color: #ad6032; }
+      background: #ad6032; }
+    .gg5e-mm-blueprint .button--help i {
+      margin: 0; }
+  .gg5e-mm-blueprint .form-group--image img {
+    background: black;
+    border-radius: 0.75rem;
+    width: 4.2rem;
+    margin: 0.25rem auto 0.25rem 0.5rem;
+    border: none;
+    display: block; }
+    .gg5e-mm-blueprint .form-group--image img:hover {
+      cursor: pointer; }
+  .gg5e-mm-blueprint .accordion-section__body {
+    padding: 0; }
+  .gg5e-mm-blueprint .fieldset-rank .target-players,
+  .gg5e-mm-blueprint .fieldset-rank .phases {
+    display: none; }
+  .gg5e-mm-blueprint .fieldset-rank:not(.rank-custom) .form-group:not(.type) {
+    display: none; }
+  .gg5e-mm-blueprint .fieldset-rank.scale-with-players .form-group.target-players {
+    display: flex; }
+  .gg5e-mm-blueprint .fieldset-rank.show-phases .form-group.phases {
+    display: flex; }
+  .gg5e-mm-blueprint .fieldset-rank .phases .form-group__body {
+    display: flex;
+    align-items: center; }
+    .gg5e-mm-blueprint .fieldset-rank .phases .form-group__body input {
+      width: 100%;
+      flex-grow: 1; }
+      .gg5e-mm-blueprint .fieldset-rank .phases .form-group__body input:first-child {
+        margin-right: 0.5rem; }
+      .gg5e-mm-blueprint .fieldset-rank .phases .form-group__body input:last-child {
+        margin-left: 0.5rem; }
+  .gg5e-mm-blueprint .fieldset-role:not(.role-custom) .form-group:not(.type) {
+    display: none; }
+  .gg5e-mm-blueprint .form-group--modifier .form-group__body {
+    display: flex; }
+    .gg5e-mm-blueprint .form-group--modifier .form-group__body .checkbox {
+      display: inline-flex;
+      font-size: inherit;
+      white-space: nowrap;
+      height: auto;
+      justify-content: center;
+      align-items: center;
+      padding: 0 0.5rem; }
+      .gg5e-mm-blueprint .form-group--modifier .form-group__body .checkbox:hover {
+        cursor: pointer; }
+      .gg5e-mm-blueprint .form-group--modifier .form-group__body .checkbox input {
+        margin: 0;
+        top: 0;
+        display: inline-block;
+        margin-right: 0.25rem; }
+  .gg5e-mm-blueprint .ability-ranking,
+  .gg5e-mm-blueprint .save-ranking {
+    display: flex;
+    line-height: 2rem; }
+    .gg5e-mm-blueprint .ability-ranking:not(:first-child),
+    .gg5e-mm-blueprint .save-ranking:not(:first-child) {
+      border-top: 1px solid #debfad; }
+    .gg5e-mm-blueprint .ability-ranking .value,
+    .gg5e-mm-blueprint .save-ranking .value {
+      flex-grow: 1;
+      padding: 0 0.5rem; }
+      .gg5e-mm-blueprint .ability-ranking .value i,
+      .gg5e-mm-blueprint .save-ranking .value i {
+        width: 1.5rem;
+        line-height: 1.5rem;
+        display: inline-block;
+        margin-right: 0.25rem;
+        justify-content: center;
+        align-items: center;
+        background: #efdfd6;
+        border-radius: 1rem;
+        color: #8a4d28; }
+    .gg5e-mm-blueprint .ability-ranking .move-down,
+    .gg5e-mm-blueprint .ability-ranking .move-up,
+    .gg5e-mm-blueprint .save-ranking .move-down,
+    .gg5e-mm-blueprint .save-ranking .move-up {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      width: 2rem; }
+      .gg5e-mm-blueprint .ability-ranking .move-down:hover,
+      .gg5e-mm-blueprint .ability-ranking .move-up:hover,
+      .gg5e-mm-blueprint .save-ranking .move-down:hover,
+      .gg5e-mm-blueprint .save-ranking .move-up:hover {
+        cursor: pointer;
+        box-shadow: none;
+        color: #ad6032; }
 
 .gg5e-mm-panel {
   filter: drop-shadow(0 1px 0 #143345); }
@@ -1342,22 +1331,64 @@
     transform: rotate(-180deg); }
 
 .gg5e-mm-sheet {
-  background: black;
   font-family: 'Source Sans Pro';
-  padding: 0.5rem;
   display: flex;
-  flex-direction: column;
   overflow: hidden;
   position: relative; }
+  .gg5e-mm-sheet::before {
+    content: '';
+    background: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 1.5rem; }
+  .gg5e-mm-sheet.open-modal::after,
+  .gg5e-mm-sheet.open-modal .sheet__sidepanel::after {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    background: rgba(0, 0, 0, 0.75); }
+  .gg5e-mm-sheet.open-modal::after {
+    z-index: 2; }
+  .gg5e-mm-sheet.open-modal .sheet__sidepanel::after {
+    right: 0.5rem;
+    left: auto;
+    width: 100%;
+    z-index: 0; }
+  .gg5e-mm-sheet .sheet__core {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    z-index: 1; }
   .gg5e-mm-sheet .sheet__body {
     flex-grow: 1;
     border-radius: 1rem;
     display: flex;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative; }
   .gg5e-mm-sheet .sheet__footer {
     margin-top: 0.5rem;
     display: flex;
-    justify-content: space-between; }
+    justify-content: space-between;
+    position: relative; }
+  .gg5e-mm-sheet .sheet__sidepanel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background: black;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    border-radius: 0 1.5rem 1.5rem 0;
+    display: flex; }
   .gg5e-mm-sheet .sheet__id {
     color: white;
     text-transform: uppercase;
@@ -1406,7 +1437,9 @@
   background: white; }
 
 .gg5e-mm-window {
-  border-radius: 0 0 1rem 1rem; }
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: none;
+  filter: drop-shadow(0px 0px 20px black); }
   .gg5e-mm-window .window-header {
     border-bottom: none; }
     .gg5e-mm-window .window-header.resizable ~ .window-resizable-handle {
@@ -1424,7 +1457,8 @@
       justify-content: center;
       align-items: center;
       font-size: larger;
-      cursor: pointer; }
+      cursor: pointer;
+      z-index: 1; }
     .gg5e-mm-window .window-header.resizable ~ .window-content .sheet__footer {
       padding-right: 2.25rem; }
   .gg5e-mm-window.minimized .window-header ~ .window-resizable-handle {
@@ -1708,50 +1742,20 @@
       grid-column: 1 / span 2; }
 
 .gg5e-mm-window--monster {
-  width: 540px !important;
-  transition: width 200ms ease-in-out; }
-  .gg5e-mm-window--monster .gg5e-mm-sheet {
-    background: none; }
-    .gg5e-mm-window--monster .gg5e-mm-sheet::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 540px;
-      height: 100%;
-      background: black;
-      border-radius: 1rem; }
-  .gg5e-mm-window--monster .sheet__body::before {
-    content: '';
-    position: absolute;
-    top: 3.5rem;
-    right: 0;
-    width: 100%;
-    height: calc(100% - 7rem);
-    background: black;
-    border-radius: 1rem; }
-  .gg5e-mm-window--monster .sheet__footer {
-    max-width: 524px;
-    position: relative; }
-  .gg5e-mm-window--monster .window-resizable-handle {
-    left: calc(540px - 2.5rem); }
-  .gg5e-mm-window--monster .gg5e-mm-panes {
-    display: grid;
-    grid-template-columns: 524px 1fr;
-    position: relative; }
-  .gg5e-mm-window--monster .pane--view {
-    position: relative;
-    z-index: 1; }
-  .gg5e-mm-window--monster .pane--edit {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: calc(100% - 4.57rem);
-    margin-top: 3.57rem;
-    margin-bottom: 1rem;
-    padding-left: 0;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    width: 439px; }
-  .gg5e-mm-window--monster.expanded {
-    width: 980px !important; }
+  width: 540px !important; }
+  .gg5e-mm-window--monster .window-content {
+    transition: margin 200ms ease-in-out; }
+  .gg5e-mm-window--monster .gg5e-mm-sheet::before,
+  .gg5e-mm-window--monster .sheet__core {
+    width: 540px; }
+  .gg5e-mm-window--monster .gg5e-mm-sheet::after {
+    width: calc(540px - 1rem); }
+  .gg5e-mm-window--monster .sheet__sidepanel {
+    width: calc(440px + 0.5rem - 1px);
+    top: 3.575rem;
+    height: calc(100% - 8rem); }
+    .gg5e-mm-window--monster .sheet__sidepanel .gg5e-mm-blueprint {
+      padding-left: 0;
+      border-radius: 0 1rem 1rem 0; }
+  .gg5e-mm-window--monster.expanded .window-content {
+    margin-right: -440px; }
