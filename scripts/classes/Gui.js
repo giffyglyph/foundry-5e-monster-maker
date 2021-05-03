@@ -17,6 +17,7 @@ export default class Gui {
 		$el.find('button[data-action="close-accordion"]').click((e) => this._closeAccordion(e));
 		$el.find('button[data-action="expand-window"]').click((e) => this._expandWindow(e));
 		$el.find('input[data-action="update-field"]').change((e) => this._updateField(e));
+		$el.find('[data-track-scrollbars="true"]').scroll((e) => this._updateScrollbar(e));
 	}
 
 	applyTo($el) {
@@ -77,6 +78,21 @@ export default class Gui {
 				});
 			}
 		});
+	}
+
+	_updateScrollbar(event) {
+		const li = event.currentTarget.closest("[data-track-scrollbars='true']");
+		const index = this._scrollbars.findIndex((x) => x.id == li.getAttribute("id"));
+		if (index == -1) {
+			this._scrollbars.push({
+				id: li.getAttribute("id"),
+				x: li.scrollLeft,
+				y: li.scrollTop
+			});
+		} else {
+			this._scrollbars[index].x = li.scrollLeft;
+			this._scrollbars[index].y = li.scrollTop;
+		}
 	}
 
 	_updateWindow(html) {
