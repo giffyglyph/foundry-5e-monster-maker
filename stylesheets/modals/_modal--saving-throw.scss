@@ -53,6 +53,11 @@
             > span {
                 padding: 0.5rem 0.25rem;
             }
+
+            &:hover .save__name,
+            input:checked ~ span .save__name {
+                color: white;
+            }
         }
 
         .save__name,
@@ -71,7 +76,9 @@
         .save__name {
             font-size: 14px;
             text-transform: uppercase;
-            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--color-primary-tint-1);
         }
     }
 

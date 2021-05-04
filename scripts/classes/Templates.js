@@ -50,7 +50,7 @@ const Templates = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/skills.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/speeds.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/xp.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/abilities.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/attributes.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/biography.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/blocks.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/header.html",

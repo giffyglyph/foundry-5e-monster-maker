@@ -14,6 +14,7 @@
 	--color-primary-tint-3: #{mix($base, white, 40%)};
 	--color-primary-tint-4: #{mix($base, white, 20%)};
     --color-primary-tint-5: #{mix($base, white, 10%)};
+	--color-primary-tint-6: #{mix($base, white, 5%)};
 }
 
 @mixin secondary-colors($base) {
@@ -32,6 +33,7 @@
 	--color-secondary-tint-3: #{mix($base, white, 40%)};
 	--color-secondary-tint-4: #{mix($base, white, 20%)};
     --color-secondary-tint-5: #{mix($base, white, 10%)};
+	--color-secondary-tint-6: #{mix($base, white, 5%)};
 }
 
 @mixin brand-colors() {

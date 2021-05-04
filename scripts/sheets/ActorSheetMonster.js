@@ -85,6 +85,11 @@ export default class ActorSheetMonster extends ActorSheet {
 			};
 		}
 
+		let monster = data.data.gg5e_mm.monster.data;
+		if (monster.skills || monster.speeds || monster.damage_vulnerabilities || monster.damage_resistances || monster.damage_vulnerabilities || monster.condition_immunities || monster.senses || monster.languages) {
+			data.data.gg5e_mm.monster.data.show_properties = true;
+		}
+
 		return data;
 	}
 

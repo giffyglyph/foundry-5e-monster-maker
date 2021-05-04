@@ -4,8 +4,9 @@
 		<div class="legendary__blurb">
             {{localize 'gg5e_mm.monster.view.lair_actions.blurb' initiative=data.gg5e_mm.monster.data.lair_actions.initiative}}
         </div>
-        <div class="legendary__maximum">
+        <div class="legendary__current">
             <div class="legendary__value">
+                <input class="legendary--current" data-action="update-field" data-field="data.gg5e_mm.blueprint.data.lair_actions.initiative" data-type="number"/>
                 <i class="fas fa-hourglass"></i> {{data.gg5e_mm.monster.data.lair_actions.initiative}}
             </div>
             <div class="legendary__description">

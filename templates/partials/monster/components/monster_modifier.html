@@ -1,9 +1,11 @@
 <div class="monster__modifier">
-    <div class="title">{{localize (concat 'gg5e_mm.monster.common.ability.' ability '.code')}}</div>
-    <div class="value" title="{{{parseSources modifier.sources}}}">
-        <button class="button--text" data-ability="{{ability}}" data-action="open-modal" data-modal="modal_ability_check">
-            {{numberFormat modifier.value sign=true}}
-        </button>
+    <div class="modifier">
+        <div class="title">{{localize (concat 'gg5e_mm.monster.common.ability.' ability '.code')}}</div>
+        <div class="value" title="{{{parseSources modifier.sources}}}">
+            <button class="button--text" data-ability="{{ability}}" data-action="open-modal" data-modal="modal_ability_check">
+                {{numberFormat modifier.value sign=true}}
+            </button>
+        </div>
     </div>
     <div class="save" title="{{{parseSources save.sources}}}">
         <button class="button--text" data-save="{{ability}}" data-action="open-modal" data-modal="modal_saving_throw">
