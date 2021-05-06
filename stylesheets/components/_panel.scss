@@ -1,26 +1,53 @@
 .gg5e-mm-panel {
 	filter: drop-shadow(0 1px 0 var(--color-primary-shade-3));
+	border-radius: 0.75rem;
+	overflow: hidden;
 
 	.panel__header {
-		background: var(--color-primary-shade-1);
-		color: white;
-		padding: 0.5rem 1rem 1.5rem;
-		font-size: larger;
+		color: var(--color-primary-tone-1);
+		background: white;
+		padding: 0.5rem 1rem 0.5rem;
 		font-weight: bold;
-		border-radius: 0.75rem 0.75rem 0 0;
+		font-size: larger;
 		position: relative;
 
-		&:not(:last-child) {
-			margin-bottom: -1rem;
+		.badge {
+			background: var(--color-primary-tint-4);
+			color: var(--color-primary-base);
+			padding: 0 0.5rem;
+			margin-left: 0.25rem;
+			border-radius: 1rem;
 		}
 	}
 
 	.panel__body {
 		background: white;
-		border-radius: 0.75rem;
 		position: relative;
 		padding: 1rem;
 		overflow: hidden;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			border-bottom: 1px dotted var(--color-primary-tint-3);
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background: var(--color-primary-shade-1);
+			z-index: 1;
+			pointer-events: none;
+			opacity: 0;
+		}
 	}
 
 	&.panel--collapsible {
@@ -50,45 +77,70 @@
 				border-radius: 1rem;
 			}
 
-			&:hover {
-				background: var(--color-secondary-base);
+			&:hover::after {
+				color: var(--color-secondary-base);
 			}
 		}
 
 		&.closed {
 
 			.panel__header {
+				background: var(--color-primary-shade-1);
+				color: white;
 				padding-bottom: 0.5rem;
-				border-radius: 0.75rem;
 				margin-bottom: 0;
+
+				.badge {
+					background: var(--color-primary-base);
+					color: var(--color-primary-tint-3);
+				}
 	
 				&::after {
 					transform: rotate(-180deg);
 				}
+			}
+
+			.panel__body::after {
+				opacity: 1;
 			}
 		}
 
 		&.collapsing {
 
 			.panel__header {
-				background: var(--color-secondary-base);
-				transition: margin 200ms ease-in-out, padding 200ms ease-in-out, border-radius 200ms ease-in-out;
+				transition: color 100ms linear, background-color 100ms linear, margin 100ms ease-out, padding 100ms ease-out;
+
+				.badge {
+					transition: color 100ms linear, background-color 100ms linear;
+				}
 
 				&::after {
-					transition: transform 200ms ease-in-out;
+					transition: transform 100ms ease-out;
 				}
+			}
+
+			.panel__body::after {
+				transition: opacity 100ms linear;
 			}
 
 			&.closed {
 
 				.panel__header {
-					padding-bottom: 1.5rem;
-					margin-bottom: -1rem;
-					border-radius: 0.75rem 0.75rem 0 0;
+					background-color: white;
+					color: var(--color-primary-tone-1);
+
+					.badge {
+						background: var(--color-primary-tint-4);
+						color: var(--color-primary-base);
+					}
+
+					&::after {
+						transform: rotate(0);
+					}
 				}
 
-				.panel__header::after {
-					transform: rotate(0);
+				.panel__body::after {
+					opacity: 0;
 				}
 			}
 
@@ -97,11 +149,21 @@
 				.panel__header {
 					padding-bottom: 0.5rem;
 					margin-bottom: 0rem;
-					border-radius: 0.75rem;
+					background-color: var(--color-primary-shade-1);
+					color: white;
+
+					.badge {
+						background: var(--color-primary-base);
+						color: var(--color-primary-tint-3);
+					}
+
+					&::after {
+						transform: rotate(-180deg);
+					}
 				}
 
-				.panel__header::after {
-					transform: rotate(-180deg);
+				.panel__body::after {
+					opacity: 1;
 				}
 			}
 		}

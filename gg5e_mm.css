@@ -175,8 +175,7 @@
   flex-direction: column;
   overflow: hidden;
   border-radius: 0.75rem;
-  background: white;
-  filter: drop-shadow(0 1px 2px var(--color-primary-shade-1)); }
+  background: white; }
   .gg5e-mm-block .block__title {
     text-transform: uppercase;
     color: var(--color-primary-tone-1);
@@ -330,7 +329,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-left-radius: 0;
-    background: var(--color-primary-tint-3); }
+    background: var(--color-primary-tint-2); }
   .gg5e-mm-blueprint .blueprint__form .form-group {
     margin: 0;
     position: relative;
@@ -491,7 +490,7 @@
     font-weight: bold;
     color: var(--color-secondary-shade-3); }
     .gg5e-mm-blueprint .blueprint__form .form-fieldset .form-fieldset__header::after {
-      content: "\f07b";
+      content: "\f07c";
       -webkit-font-smoothing: antialiased;
       font-family: "Font Awesome 5 Free";
       font-weight: 400;
@@ -510,8 +509,32 @@
       top: 0.6rem;
       color: var(--color-secondary-base);
       font-size: larger; }
+    .gg5e-mm-blueprint .blueprint__form .form-fieldset .form-fieldset__header:hover {
+      color: white;
+      cursor: pointer; }
+  .gg5e-mm-blueprint .blueprint__form .form-fieldset.closed .form-fieldset__header::after {
+    content: "\f07b"; }
   .gg5e-mm-blueprint .blueprint__form .form-fieldset:not(:first-child) {
     border-top: 1px solid var(--color-secondary-tint-2); }
+  .gg5e-mm-blueprint .blueprint__form .form-footer {
+    background: var(--color-secondary-tint-5);
+    text-align: right;
+    padding: 0.5rem 0.25rem; }
+    .gg5e-mm-blueprint .blueprint__form .form-footer button {
+      background: var(--color-secondary-base);
+      color: white;
+      font-weight: bold;
+      line-height: 1.5;
+      padding: 0 1rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      border: none;
+      width: auto; }
+      .gg5e-mm-blueprint .blueprint__form .form-footer button i {
+        margin: 0; }
+      .gg5e-mm-blueprint .blueprint__form .form-footer button:hover {
+        box-shadow: none;
+        background: var(--color-secondary-shade-2); }
   .gg5e-mm-blueprint .button--help {
     width: 1rem;
     border: none;
@@ -782,23 +805,46 @@
     border: none; }
 
 .gg5e-mm-panel {
-  filter: drop-shadow(0 1px 0 var(--color-primary-shade-3)); }
+  filter: drop-shadow(0 1px 0 var(--color-primary-shade-3));
+  border-radius: 0.75rem;
+  overflow: hidden; }
   .gg5e-mm-panel .panel__header {
-    background: var(--color-primary-shade-1);
-    color: white;
-    padding: 0.5rem 1rem 1.5rem;
-    font-size: larger;
+    color: var(--color-primary-tone-1);
+    background: white;
+    padding: 0.5rem 1rem 0.5rem;
     font-weight: bold;
-    border-radius: 0.75rem 0.75rem 0 0;
+    font-size: larger;
     position: relative; }
-    .gg5e-mm-panel .panel__header:not(:last-child) {
-      margin-bottom: -1rem; }
+    .gg5e-mm-panel .panel__header .badge {
+      background: var(--color-primary-tint-4);
+      color: var(--color-primary-base);
+      padding: 0 0.5rem;
+      margin-left: 0.25rem;
+      border-radius: 1rem; }
   .gg5e-mm-panel .panel__body {
     background: white;
-    border-radius: 0.75rem;
     position: relative;
     padding: 1rem;
     overflow: hidden; }
+    .gg5e-mm-panel .panel__body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px dotted var(--color-primary-tint-3); }
+    .gg5e-mm-panel .panel__body::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: var(--color-primary-shade-1);
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0; }
   .gg5e-mm-panel.panel--collapsible .panel__header {
     padding-right: 3rem;
     cursor: pointer; }
@@ -821,31 +867,50 @@
       align-items: center;
       top: 0.25rem;
       border-radius: 1rem; }
-    .gg5e-mm-panel.panel--collapsible .panel__header:hover {
-      background: var(--color-secondary-base); }
+    .gg5e-mm-panel.panel--collapsible .panel__header:hover::after {
+      color: var(--color-secondary-base); }
   .gg5e-mm-panel.panel--collapsible.closed .panel__header {
+    background: var(--color-primary-shade-1);
+    color: white;
     padding-bottom: 0.5rem;
-    border-radius: 0.75rem;
     margin-bottom: 0; }
+    .gg5e-mm-panel.panel--collapsible.closed .panel__header .badge {
+      background: var(--color-primary-base);
+      color: var(--color-primary-tint-3); }
     .gg5e-mm-panel.panel--collapsible.closed .panel__header::after {
       transform: rotate(-180deg); }
+  .gg5e-mm-panel.panel--collapsible.closed .panel__body::after {
+    opacity: 1; }
   .gg5e-mm-panel.panel--collapsible.collapsing .panel__header {
-    background: var(--color-secondary-base);
-    transition: margin 200ms ease-in-out, padding 200ms ease-in-out, border-radius 200ms ease-in-out; }
+    transition: color 100ms linear, background-color 100ms linear, margin 100ms ease-out, padding 100ms ease-out; }
+    .gg5e-mm-panel.panel--collapsible.collapsing .panel__header .badge {
+      transition: color 100ms linear, background-color 100ms linear; }
     .gg5e-mm-panel.panel--collapsible.collapsing .panel__header::after {
-      transition: transform 200ms ease-in-out; }
+      transition: transform 100ms ease-out; }
+  .gg5e-mm-panel.panel--collapsible.collapsing .panel__body::after {
+    transition: opacity 100ms linear; }
   .gg5e-mm-panel.panel--collapsible.collapsing.closed .panel__header {
-    padding-bottom: 1.5rem;
-    margin-bottom: -1rem;
-    border-radius: 0.75rem 0.75rem 0 0; }
-  .gg5e-mm-panel.panel--collapsible.collapsing.closed .panel__header::after {
-    transform: rotate(0); }
+    background-color: white;
+    color: var(--color-primary-tone-1); }
+    .gg5e-mm-panel.panel--collapsible.collapsing.closed .panel__header .badge {
+      background: var(--color-primary-tint-4);
+      color: var(--color-primary-base); }
+    .gg5e-mm-panel.panel--collapsible.collapsing.closed .panel__header::after {
+      transform: rotate(0); }
+  .gg5e-mm-panel.panel--collapsible.collapsing.closed .panel__body::after {
+    opacity: 0; }
   .gg5e-mm-panel.panel--collapsible.collapsing:not(.closed) .panel__header {
     padding-bottom: 0.5rem;
     margin-bottom: 0rem;
-    border-radius: 0.75rem; }
-  .gg5e-mm-panel.panel--collapsible.collapsing:not(.closed) .panel__header::after {
-    transform: rotate(-180deg); }
+    background-color: var(--color-primary-shade-1);
+    color: white; }
+    .gg5e-mm-panel.panel--collapsible.collapsing:not(.closed) .panel__header .badge {
+      background: var(--color-primary-base);
+      color: var(--color-primary-tint-3); }
+    .gg5e-mm-panel.panel--collapsible.collapsing:not(.closed) .panel__header::after {
+      transform: rotate(-180deg); }
+  .gg5e-mm-panel.panel--collapsible.collapsing:not(.closed) .panel__body::after {
+    opacity: 1; }
 
 .gg5e-mm-sheet {
   --color-primary-base: #1E88E5;
@@ -1770,6 +1835,51 @@
       box-shadow: none;
       color: var(--color-secondary-base); }
 
+.blueprint--monster .items .item {
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  align-items: center; }
+  .blueprint--monster .items .item:not(:last-child) {
+    border-bottom: 1px dotted var(--color-secondary-tint-3); }
+
+.blueprint--monster .items .item__icon {
+  margin: -0.25rem 6px -0.25rem -0.5rem;
+  width: 26px;
+  height: 26px;
+  background: black; }
+  .blueprint--monster .items .item__icon img {
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    display: block; }
+
+.blueprint--monster .items .item__title {
+  flex-grow: 1;
+  white-space: nowrap;
+  margin-right: 1rem; }
+
+.blueprint--monster .items .item__actions {
+  display: flex;
+  margin-right: -0.25rem;
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem; }
+  .blueprint--monster .items .item__actions button {
+    background: none;
+    color: var(--color-secondary-tint-4);
+    border: none;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 0;
+    cursor: pointer;
+    text-align: center; }
+    .blueprint--monster .items .item__actions button i {
+      margin: 0; }
+    .blueprint--monster .items .item__actions button + * {
+      margin-left: 0.5rem; }
+    .blueprint--monster .items .item__actions button:hover {
+      box-shadow: none;
+      color: var(--color-secondary-base); }
+
 .gg5e-mm-modal.modal--ability-check .form-group--abilities {
   flex-direction: column;
   margin-bottom: 1rem;
@@ -1814,8 +1924,7 @@
     display: block;
     line-height: 1; }
   .gg5e-mm-modal.modal--ability-check .abilities .ability__value {
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 28px;
     letter-spacing: 1px;
     font-family: 'Londrina Solid'; }
   .gg5e-mm-modal.modal--ability-check .abilities .ability__name {
@@ -2034,8 +2143,7 @@
     display: block;
     line-height: 1; }
   .gg5e-mm-modal.modal--saving-throw .saves .save__value {
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 28px;
     letter-spacing: 1px;
     font-family: 'Londrina Solid'; }
   .gg5e-mm-modal.modal--saving-throw .saves .save__name {
@@ -2142,171 +2250,129 @@
     padding: 1rem;
     overflow-y: overlay;
     flex-grow: 1;
-    background: var(--color-primary-tint-3); }
+    background: var(--color-primary-tint-2); }
     .monster--vanity .monster__body > * + * {
-      margin-top: 0.25rem; }
-  .monster--vanity .monster__blocks .monster__blocks__row {
-    display: flex; }
-    .monster--vanity .monster__blocks .monster__blocks__row > * + * {
-      margin-left: 0.25rem; }
-    .monster--vanity .monster__blocks .monster__blocks__row + .monster__blocks__row {
-      margin-top: 0.25rem; }
-  .monster--vanity .monster__blocks + * {
-    margin-top: 0.5rem; }
-  .monster--vanity .monster__blocks .hit-points,
-  .monster--vanity .monster__blocks .attack-dcs {
-    flex-grow: 1;
-    width: 100%; }
-  .monster--vanity .monster__blocks .perception,
-  .monster--vanity .monster__blocks .ac {
-    width: 6rem;
-    flex-shrink: 0; }
-  .monster--vanity .monster__blocks .attack {
-    width: 6.5rem;
-    flex-shrink: 0; }
-  .monster--vanity .monster__blocks .damage {
-    width: 12.25rem;
-    flex-shrink: 0; }
-    .monster--vanity .monster__blocks .damage .random {
-      letter-spacing: 0; }
-      .monster--vanity .monster__blocks .damage .random .roll {
-        white-space: normal;
-        line-height: 0.875;
-        font-style: 1rem;
-        text-align: left;
+      margin-top: 0.5rem; }
+  .monster--vanity .monster__blocks {
+    filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
+    .monster--vanity .monster__blocks .monster__blocks__row {
+      display: flex; }
+      .monster--vanity .monster__blocks .monster__blocks__row > * + * {
+        margin-left: 0.25rem; }
+      .monster--vanity .monster__blocks .monster__blocks__row + .monster__blocks__row {
+        margin-top: 0.25rem; }
+    .monster--vanity .monster__blocks .hit-points,
+    .monster--vanity .monster__blocks .attack-dcs {
+      flex-grow: 1;
+      width: 100%; }
+    .monster--vanity .monster__blocks .perception,
+    .monster--vanity .monster__blocks .ac {
+      width: 6rem;
+      flex-shrink: 0; }
+    .monster--vanity .monster__blocks .attack {
+      width: 6.5rem;
+      flex-shrink: 0; }
+    .monster--vanity .monster__blocks .damage {
+      width: 12.25rem;
+      flex-shrink: 0; }
+      .monster--vanity .monster__blocks .damage .random {
         letter-spacing: 0; }
-  .monster--vanity .monster__blocks .hit-points__temporary:hover,
-  .monster--vanity .monster__blocks .hit-points__current:hover {
-    color: var(--color-secondary-base); }
-    .monster--vanity .monster__blocks .hit-points__temporary:hover i,
-    .monster--vanity .monster__blocks .hit-points__current:hover i {
+        .monster--vanity .monster__blocks .damage .random .roll {
+          white-space: normal;
+          line-height: 0.875;
+          font-style: 1rem;
+          text-align: left;
+          letter-spacing: 0; }
+    .monster--vanity .monster__blocks .hit-points__temporary:hover,
+    .monster--vanity .monster__blocks .hit-points__current:hover {
       color: var(--color-secondary-base); }
-  .monster--vanity .monster__blocks .input--thp,
-  .monster--vanity .monster__blocks .input--hp {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-    font-size: inherit;
-    font-family: inherit;
-    opacity: 0;
-    background: var(--color-primary-tint-5);
-    border: none;
-    border-radius: 0.5rem; }
-    .monster--vanity .monster__blocks .input--thp:focus,
-    .monster--vanity .monster__blocks .input--hp:focus {
-      opacity: 1; }
-  .monster--vanity .gg5e-mm-panel .panel__header {
-    text-transform: uppercase;
-    text-align: center;
-    padding-left: 3rem; }
-  .monster--vanity .monster__properties {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-column-gap: 0;
-    grid-row-gap: 1px;
-    margin: 1rem 0 0;
-    padding: 0; }
-    .monster--vanity .monster__properties dt {
-      text-transform: uppercase;
-      font-weight: bold;
-      color: var(--color-primary-shade-1);
-      font-size: smaller;
-      text-align: right;
-      line-height: 18px;
-      position: relative;
-      background: var(--color-primary-tint-4);
-      padding: 0.25rem 0.75rem 0.25rem 1rem;
-      border-right: 4px solid var(--color-primary-base); }
-      .monster--vanity .monster__properties dt:first-of-type {
-        border-top-left-radius: 0.75rem; }
-      .monster--vanity .monster__properties dt:last-of-type {
-        border-bottom-left-radius: 0.75rem; }
-    .monster--vanity .monster__properties dd {
-      padding: 0;
-      margin: 0;
+      .monster--vanity .monster__blocks .hit-points__temporary:hover i,
+      .monster--vanity .monster__blocks .hit-points__current:hover i {
+        color: var(--color-secondary-base); }
+    .monster--vanity .monster__blocks .input--thp,
+    .monster--vanity .monster__blocks .input--hp {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      font-size: inherit;
+      font-family: inherit;
+      opacity: 0;
       background: var(--color-primary-tint-5);
-      padding: 0.25rem 1rem 0.25rem 1.25rem; }
-      .monster--vanity .monster__properties dd:first-of-type {
-        border-top-right-radius: 0.75rem; }
-      .monster--vanity .monster__properties dd:last-of-type {
-        border-bottom-right-radius: 0.75rem; }
-      .monster--vanity .monster__properties dd span:not(:last-child)::after {
+      border: none;
+      border-radius: 0.5rem; }
+      .monster--vanity .monster__blocks .input--thp:focus,
+      .monster--vanity .monster__blocks .input--hp:focus {
+        opacity: 1; }
+  .monster--vanity .gg5e-mm-panel {
+    filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
+    .monster--vanity .gg5e-mm-panel .panel__header {
+      text-align: center;
+      padding-left: 3rem; }
+  .monster--vanity .monster__properties {
+    columns: 2;
+    column-gap: 2rem;
+    column-rule: 1px dotted var(--color-primary-tint-3); }
+    .monster--vanity .monster__properties .monster__property {
+      display: flex;
+      margin-bottom: 0.125rem; }
+      .monster--vanity .monster__properties .monster__property:last-child {
+        margin-bottom: 0; }
+      .monster--vanity .monster__properties .monster__property .property__body {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between; }
+      .monster--vanity .monster__properties .monster__property .property__icon {
+        color: var(--color-primary-tone-1);
+        margin-right: 0.5rem; }
+      .monster--vanity .monster__properties .monster__property .property__title {
+        color: var(--color-primary-tone-1);
+        font-weight: bold;
+        flex-grow: 1;
+        white-space: nowrap;
+        flex-shrink: 0;
+        display: flex;
+        text-transform: uppercase; }
+        .monster--vanity .monster__properties .monster__property .property__title::after {
+          content: '';
+          flex-grow: 1;
+          border-bottom: 1px dotted var(--color-primary-tint-3);
+          margin: 0 0.5rem;
+          height: 13px;
+          min-width: 2rem; }
+      .monster--vanity .monster__properties .monster__property .property__value span:not(:last-child)::after {
         content: ', '; }
-    .monster--vanity .monster__properties .attribute__icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--color-primary-tone-1);
-      color: white;
-      width: 26px;
-      position: relative;
-      z-index: 1;
-      border-radius: 1rem;
-      font-size: 12px;
-      height: 26px;
-      box-sizing: border-box;
-      overflow: hidden;
-      margin: -4px calc(-0.75rem - 15px) -4px 0.5rem; }
-  .monster--vanity .monster__stats {
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem 1rem;
-    background: var(--color-primary-tint-5);
-    margin: 1rem -1rem -1rem; }
-    .monster--vanity .monster__stats + * {
+    .monster--vanity .monster__properties .property--divider + .monster__property {
       margin-top: 1rem; }
-    .monster--vanity .monster__stats .stat {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-grow: 1;
-      filter: drop-shadow(0 1px 0 var(--color-primary-tint-2)); }
-      .monster--vanity .monster__stats .stat + * {
-        margin-left: 0.35rem; }
-    .monster--vanity .monster__stats .stat__body {
-      display: flex;
-      align-items: center;
-      background: white;
-      padding: 0 0.5rem;
-      border-radius: 0 1rem 1rem 0;
-      flex-grow: 1;
-      justify-content: space-between;
-      margin-left: -5px; }
-    .monster--vanity .monster__stats .stat__icon {
-      color: var(--color-primary-tone-1);
-      height: 1.5rem;
-      width: 1.5rem;
-      background: white;
-      border-radius: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative; }
-    .monster--vanity .monster__stats .stat__title {
-      text-transform: uppercase;
-      color: var(--color-primary-tone-1);
-      font-size: smaller;
-      font-weight: bold;
-      position: relative;
-      white-space: nowrap;
-      margin-right: 0.25rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      position: relative; }
+    .monster--vanity .monster__properties .property--wide {
+      column-span: all; }
+      .monster--vanity .monster__properties .property--wide .property__body {
+        justify-content: flex-start; }
+      .monster--vanity .monster__properties .property--wide .property__title {
+        flex-grow: 0;
+        width: 13.25rem; }
+  .monster--vanity .monster__divider {
+    height: 1px;
+    margin: 0.5rem 0;
+    background: var(--color-primary-base); }
+    .monster--vanity .monster__divider:last-child,
+    .monster--vanity .monster__divider + .monster__divider {
+      display: none; }
   .monster--vanity .monster__modifiers {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 0.125rem;
-    filter: drop-shadow(0 1px 0 var(--color-primary-shade-1)); }
+    grid-column-gap: 0.25rem; }
   .monster--vanity .monster__modifier {
     text-align: center;
-    overflow: hidden; }
+    overflow: hidden;
+    background: var(--color-primary-tint-4);
+    border-radius: 0.75rem;
+    filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
     .monster--vanity .monster__modifier .modifier {
-      background: var(--color-primary-tint-4);
-      border-radius: 0.75rem 0.75rem 1.5rem 1.5rem; }
+      background: white;
+      border-radius: 0 0 1.5rem 1.5rem; }
     .monster--vanity .monster__modifier .title {
       text-transform: uppercase;
       color: var(--color-primary-tone-1);
@@ -2315,7 +2381,8 @@
       padding: 0.25rem 0.25rem 0;
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; }
+      text-overflow: ellipsis;
+      font-size: larger; }
     .monster--vanity .monster__modifier .value {
       height: 4rem;
       width: 100%;
@@ -2326,8 +2393,7 @@
       font-weight: normal;
       font-family: 'Londrina Solid';
       letter-spacing: 2px;
-      padding-bottom: 1.3rem;
-      border-radius: 100%; }
+      padding-bottom: 1.4rem; }
       .monster--vanity .monster__modifier .value button {
         padding: 0;
         font-size: inherit;
@@ -2344,7 +2410,9 @@
       display: flex;
       justify-content: center;
       letter-spacing: 1px;
-      align-items: center; }
+      align-items: center;
+      filter: drop-shadow(0 1px 0 white);
+      margin-bottom: 2px; }
       .monster--vanity .monster__modifier .save button {
         padding: 0;
         font-size: inherit;
@@ -2358,7 +2426,7 @@
         width: 2.5rem;
         height: 100%;
         left: calc(50% - 1.25rem);
-        background: var(--color-primary-tone-1);
+        background: var(--color-primary-shade-1);
         clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
         z-index: -1; }
       .monster--vanity .monster__modifier .save:hover::before {
@@ -2380,18 +2448,18 @@
       margin-top: 0; }
     .monster--vanity .monster__biography .panel__body > :last-child {
       margin-bottom: 0; }
-  .monster--vanity .monster__paragon-actions .panel__body,
-  .monster--vanity .monster__legendary-resistances .panel__body,
-  .monster--vanity .monster__legendary-actions .panel__body,
-  .monster--vanity .monster__lair-actions .panel__body {
+  .monster--vanity .panel--paragon-actions .panel__body,
+  .monster--vanity .panel--legendary-resistances .panel__body,
+  .monster--vanity .panel--legendary-actions .panel__body,
+  .monster--vanity .panel--lair-actions .panel__body {
     display: grid;
     grid-template-columns: 1fr 5.5rem 5.5rem;
     grid-column-gap: 0;
     align-items: center; }
-  .monster--vanity .monster__paragon-actions .legendary__blurb,
-  .monster--vanity .monster__legendary-resistances .legendary__blurb,
-  .monster--vanity .monster__legendary-actions .legendary__blurb,
-  .monster--vanity .monster__lair-actions .legendary__blurb {
+  .monster--vanity .panel--paragon-actions .legendary__blurb,
+  .monster--vanity .panel--legendary-resistances .legendary__blurb,
+  .monster--vanity .panel--legendary-actions .legendary__blurb,
+  .monster--vanity .panel--lair-actions .legendary__blurb {
     padding-right: 1rem;
     font-size: smaller;
     line-height: 13px;
@@ -2400,10 +2468,10 @@
     border-right: 1px solid var(--color-primary-tint-4);
     text-align: right;
     margin-right: 0.5rem; }
-  .monster--vanity .monster__paragon-actions .legendary--current,
-  .monster--vanity .monster__legendary-resistances .legendary--current,
-  .monster--vanity .monster__legendary-actions .legendary--current,
-  .monster--vanity .monster__lair-actions .legendary--current {
+  .monster--vanity .panel--paragon-actions .legendary--current,
+  .monster--vanity .panel--legendary-resistances .legendary--current,
+  .monster--vanity .panel--legendary-actions .legendary--current,
+  .monster--vanity .panel--lair-actions .legendary--current {
     position: absolute;
     left: 0;
     top: 0;
@@ -2416,24 +2484,24 @@
     background: var(--color-primary-tint-5);
     border: none;
     border-radius: 0.5rem; }
-    .monster--vanity .monster__paragon-actions .legendary--current:focus,
-    .monster--vanity .monster__legendary-resistances .legendary--current:focus,
-    .monster--vanity .monster__legendary-actions .legendary--current:focus,
-    .monster--vanity .monster__lair-actions .legendary--current:focus {
+    .monster--vanity .panel--paragon-actions .legendary--current:focus,
+    .monster--vanity .panel--legendary-resistances .legendary--current:focus,
+    .monster--vanity .panel--legendary-actions .legendary--current:focus,
+    .monster--vanity .panel--lair-actions .legendary--current:focus {
       opacity: 1; }
-  .monster--vanity .monster__paragon-actions .legendary__current,
-  .monster--vanity .monster__paragon-actions .legendary__maximum,
-  .monster--vanity .monster__legendary-resistances .legendary__current,
-  .monster--vanity .monster__legendary-resistances .legendary__maximum,
-  .monster--vanity .monster__legendary-actions .legendary__current,
-  .monster--vanity .monster__legendary-actions .legendary__maximum,
-  .monster--vanity .monster__lair-actions .legendary__current,
-  .monster--vanity .monster__lair-actions .legendary__maximum {
+  .monster--vanity .panel--paragon-actions .legendary__current,
+  .monster--vanity .panel--paragon-actions .legendary__maximum,
+  .monster--vanity .panel--legendary-resistances .legendary__current,
+  .monster--vanity .panel--legendary-resistances .legendary__maximum,
+  .monster--vanity .panel--legendary-actions .legendary__current,
+  .monster--vanity .panel--legendary-actions .legendary__maximum,
+  .monster--vanity .panel--lair-actions .legendary__current,
+  .monster--vanity .panel--lair-actions .legendary__maximum {
     text-align: center; }
-  .monster--vanity .monster__paragon-actions .legendary__value,
-  .monster--vanity .monster__legendary-resistances .legendary__value,
-  .monster--vanity .monster__legendary-actions .legendary__value,
-  .monster--vanity .monster__lair-actions .legendary__value {
+  .monster--vanity .panel--paragon-actions .legendary__value,
+  .monster--vanity .panel--legendary-resistances .legendary__value,
+  .monster--vanity .panel--legendary-actions .legendary__value,
+  .monster--vanity .panel--lair-actions .legendary__value {
     font-family: 'Londrina Solid';
     font-size: 1.75rem;
     line-height: 1.5rem;
@@ -2443,33 +2511,33 @@
     display: flex;
     justify-content: center;
     align-items: center; }
-    .monster--vanity .monster__paragon-actions .legendary__value i,
-    .monster--vanity .monster__legendary-resistances .legendary__value i,
-    .monster--vanity .monster__legendary-actions .legendary__value i,
-    .monster--vanity .monster__lair-actions .legendary__value i {
+    .monster--vanity .panel--paragon-actions .legendary__value i,
+    .monster--vanity .panel--legendary-resistances .legendary__value i,
+    .monster--vanity .panel--legendary-actions .legendary__value i,
+    .monster--vanity .panel--lair-actions .legendary__value i {
       margin-right: 0.25rem;
       color: var(--color-primary-shade-2); }
-  .monster--vanity .monster__paragon-actions .legendary__current .legendary__value:hover,
-  .monster--vanity .monster__legendary-resistances .legendary__current .legendary__value:hover,
-  .monster--vanity .monster__legendary-actions .legendary__current .legendary__value:hover,
-  .monster--vanity .monster__lair-actions .legendary__current .legendary__value:hover {
+  .monster--vanity .panel--paragon-actions .legendary__current .legendary__value:hover,
+  .monster--vanity .panel--legendary-resistances .legendary__current .legendary__value:hover,
+  .monster--vanity .panel--legendary-actions .legendary__current .legendary__value:hover,
+  .monster--vanity .panel--lair-actions .legendary__current .legendary__value:hover {
     color: var(--color-secondary-base); }
-    .monster--vanity .monster__paragon-actions .legendary__current .legendary__value:hover i,
-    .monster--vanity .monster__legendary-resistances .legendary__current .legendary__value:hover i,
-    .monster--vanity .monster__legendary-actions .legendary__current .legendary__value:hover i,
-    .monster--vanity .monster__lair-actions .legendary__current .legendary__value:hover i {
+    .monster--vanity .panel--paragon-actions .legendary__current .legendary__value:hover i,
+    .monster--vanity .panel--legendary-resistances .legendary__current .legendary__value:hover i,
+    .monster--vanity .panel--legendary-actions .legendary__current .legendary__value:hover i,
+    .monster--vanity .panel--lair-actions .legendary__current .legendary__value:hover i {
       color: var(--color-secondary-base); }
-  .monster--vanity .monster__paragon-actions .legendary__description,
-  .monster--vanity .monster__legendary-resistances .legendary__description,
-  .monster--vanity .monster__legendary-actions .legendary__description,
-  .monster--vanity .monster__lair-actions .legendary__description {
+  .monster--vanity .panel--paragon-actions .legendary__description,
+  .monster--vanity .panel--legendary-resistances .legendary__description,
+  .monster--vanity .panel--legendary-actions .legendary__description,
+  .monster--vanity .panel--lair-actions .legendary__description {
     margin-top: 0.25rem;
     font-size: smaller;
     font-weight: 600;
     color: var(--color-primary-tone-1); }
-  .monster--vanity .monster__lair-actions .panel__body {
+  .monster--vanity .panel--lair-actions .panel__body {
     grid-template-columns: 1fr 5.5rem; }
-  .monster--vanity .monster__lair-actions .legendary__value i {
+  .monster--vanity .panel--lair-actions .legendary__value i {
     font-size: 0.9em; }
   .monster--vanity .button--text {
     background: none;
@@ -2482,16 +2550,168 @@
       color: var(--color-secondary-base); }
       .monster--vanity .button--text:hover i {
         color: var(--color-secondary-shade-1); }
+  .monster--vanity .item-collection:not(:last-child) {
+    border-bottom: 1px solid var(--color-primary-tint-4); }
+  .monster--vanity .item-collection .item-collection__header {
+    background: var(--color-primary-tint-5);
+    padding: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-primary-tint-1);
+    display: flex; }
+    .monster--vanity .item-collection .item-collection__header::before {
+      content: "\f550";
+      -webkit-font-smoothing: antialiased;
+      font-family: "Font Awesome 5 Free";
+      font-weight: bold;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      font-size: larger;
+      width: 40px;
+      margin-right: 0.5rem;
+      text-align: center; }
+    .monster--vanity .item-collection .item-collection__header .header__title {
+      flex-grow: 1; }
+    .monster--vanity .item-collection .item-collection__header button {
+      background: var(--color-primary-base);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 1rem;
+      line-height: 1;
+      width: 5.5rem; }
+      .monster--vanity .item-collection .item-collection__header button:hover {
+        cursor: pointer;
+        background: var(--color-secondary-base);
+        box-shadow: none; }
+  .monster--vanity .item-collection .item {
+    padding: 0;
+    display: flex;
+    position: relative; }
+    .monster--vanity .item-collection .item:not(:last-child) {
+      border-bottom: 1px dotted var(--color-primary-tint-3); }
+  .monster--vanity .item-collection .item__icon {
+    flex-shrink: 0;
+    margin: 0.5rem;
+    width: 41px;
+    height: 41px;
+    background: black;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative; }
+    .monster--vanity .item-collection .item__icon img {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block; }
+    .monster--vanity .item-collection .item__icon button {
+      opacity: 0;
+      position: absolute;
+      width: 41px;
+      height: 41px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: black;
+      border: none;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      font-size: 26px; }
+      .monster--vanity .item-collection .item__icon button:hover {
+        opacity: 1; }
+  .monster--vanity .item-collection .item__body {
+    flex-grow: 1;
+    overflow: hidden; }
+  .monster--vanity .item-collection .item__title {
+    line-height: 35px;
+    font-family: 'Londrina Solid';
+    font-size: 22px;
+    padding-right: 4.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+    .monster--vanity .item-collection .item__title:hover {
+      cursor: pointer;
+      color: var(--color-secondary-base); }
+  .monster--vanity .item-collection .item__detail {
+    font-size: small;
+    line-height: 1.2;
+    padding-bottom: 0.5rem;
+    padding-right: 0.5rem; }
+    .monster--vanity .item-collection .item__detail > *:first-child {
+      margin-top: 0; }
+    .monster--vanity .item-collection .item__detail > *:last-child {
+      margin-bottom: 0; }
+  .monster--vanity .item-collection .item__tags {
+    font-size: smaller;
+    font-style: italic;
+    padding-bottom: 0.5rem;
+    color: var(--color-primary-tone-1); }
+    .monster--vanity .item-collection .item__tags::before {
+      content: "\f02c";
+      -webkit-font-smoothing: antialiased;
+      font-family: "Font Awesome 5 Free";
+      font-weight: bold;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      margin-right: 0.15rem; }
+    .monster--vanity .item-collection .item__tags .item__tag:not(:last-child)::after {
+      content: ", "; }
+  .monster--vanity .item-collection .item__actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    margin-right: 0.5rem;
+    width: 5.5rem; }
+    .monster--vanity .item-collection .item__actions button {
+      margin: 0;
+      padding: 0;
+      border: none;
+      color: var(--color-primary-tint-2);
+      background: var(--color-primary-tint-5);
+      text-align: center;
+      cursor: pointer;
+      border-radius: 1rem;
+      height: 28px;
+      width: 28px; }
+      .monster--vanity .item-collection .item__actions button i {
+        margin: 0;
+        width: 100%;
+        text-align: center; }
+      .monster--vanity .item-collection .item__actions button:hover, .monster--vanity .item-collection .item__actions button:focus {
+        background: var(--color-secondary-base);
+        color: white;
+        text-shadow: none;
+        box-shadow: none; }
+  .monster--vanity .panel--legacy-attacks .panel__body,
+  .monster--vanity .panel--legacy-actions .panel__body,
+  .monster--vanity .panel--legacy-features .panel__body,
+  .monster--vanity .panel--legacy-inventory .panel__body {
+    padding: 0; }
+    .monster--vanity .panel--legacy-attacks .panel__body::before,
+    .monster--vanity .panel--legacy-actions .panel__body::before,
+    .monster--vanity .panel--legacy-features .panel__body::before,
+    .monster--vanity .panel--legacy-inventory .panel__body::before {
+      display: none; }
 
 .gg5e-mm-window--monster {
-  width: 540px !important; }
+  width: 560px !important; }
   .gg5e-mm-window--monster .window-content {
-    transition: margin 200ms ease-in-out; }
+    transition: margin 100ms ease-out; }
   .gg5e-mm-window--monster .gg5e-mm-sheet::before,
   .gg5e-mm-window--monster .sheet__core {
-    width: 540px; }
+    width: 560px; }
   .gg5e-mm-window--monster .gg5e-mm-sheet::after {
-    width: calc(540px - 1rem); }
+    width: calc(560px - 1rem); }
   .gg5e-mm-window--monster .sheet__sidepanel {
     width: calc(405px + 0.5rem - 1px);
     top: 57px;

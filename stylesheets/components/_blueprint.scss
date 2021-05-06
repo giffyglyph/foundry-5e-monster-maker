@@ -109,7 +109,7 @@
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
 		border-bottom-left-radius: 0;
-		background: var(--color-primary-tint-3);
+		background: var(--color-primary-tint-2);
 	}
 
 	.blueprint__form {
@@ -342,7 +342,7 @@
 				color: var(--color-secondary-shade-3);
 
 				&::after {
-					content: "\f07b";
+					content: "\f07c";
 					-webkit-font-smoothing: antialiased;
 					font-family: "Font Awesome 5 Free";
 					font-weight: 400;
@@ -362,10 +362,46 @@
 					color: var(--color-secondary-base);
 					font-size: larger;
 				}
+
+				&:hover {
+					color: white;
+					cursor: pointer;
+				}
+			}
+
+			&.closed .form-fieldset__header::after {
+				content: "\f07b";
 			}
 
 			&:not(:first-child) {
 				border-top: 1px solid var(--color-secondary-tint-2);
+			}
+		}
+
+		.form-footer {
+			background: var(--color-secondary-tint-5);
+			text-align: right;
+			padding: 0.5rem 0.25rem;
+
+			button {
+				background: var(--color-secondary-base);
+				color: white;
+				font-weight: bold;
+				line-height: 1.5;
+				padding: 0 1rem;
+				border-radius: 1rem;
+				cursor: pointer;
+				border: none;
+				width: auto;
+
+				i {
+					margin: 0;
+				}
+
+				&:hover {
+					box-shadow: none;
+					background: var(--color-secondary-shade-2);
+				}
 			}
 		}
 	}

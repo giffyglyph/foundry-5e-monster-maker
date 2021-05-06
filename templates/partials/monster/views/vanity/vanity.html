@@ -4,7 +4,10 @@
     </div>
     <div class="monster__body" data-track-scrollbars="true" id="monster-body">
         {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/blocks.html" }}
+        <div class="monster__divider"></div>
+        {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/modifiers.html" }}
         {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/attributes.html" }}
+        <div class="monster__divider"></div>
         {{#if data.gg5e_mm.monster.data.legendary_resistances.maximum}}
             {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legendary_resistances.html" }}
         {{/if}}
@@ -19,6 +22,21 @@
         {{/if}}
         {{#if data.gg5e_mm.monster.data.biography}}
             {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/biography.html" }}
+        {{/if}}
+        {{#if data.gg5e_mm.monster.data.show_legacy}}
+            <div class="monster__divider"></div>
+            {{#if data.gg5e_mm.monster.data.legacy_items.attacks}}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_attacks.html" }}
+            {{/if}}
+            {{#if data.gg5e_mm.monster.data.legacy_items.actions}}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_actions.html" }}
+            {{/if}}
+            {{#if data.gg5e_mm.monster.data.legacy_items.features}}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_features.html" }}
+            {{/if}}
+            {{#if data.gg5e_mm.monster.data.legacy_items.inventory}}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_inventory.html" }}
+            {{/if}}
         {{/if}}
     </div>
 </div>

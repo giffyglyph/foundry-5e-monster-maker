@@ -146,4 +146,68 @@
 			}
 		}
 	}
+
+	.items {
+
+		.item {
+			display: flex;
+			padding: 0.25rem 0.5rem;
+			align-items: center;
+
+			&:not(:last-child) {
+				border-bottom: 1px dotted var(--color-secondary-tint-3);
+			}
+		}
+
+		.item__icon {
+			margin: -0.25rem 6px -0.25rem -0.5rem;
+			width: 26px;
+			height: 26px;
+			background: black;
+
+			img {
+				max-width: 100%;
+				max-height: 100%;
+				border: none;
+				display: block;
+			}
+		}
+
+		.item__title {
+			flex-grow: 1;
+			white-space: nowrap;
+			margin-right: 1rem;
+		}
+
+		.item__actions {
+			display: flex;
+			margin-right: -0.25rem;
+			margin-top: -0.25rem;
+			margin-bottom: -0.25rem;
+
+			button {
+				background: none;
+				color: var(--color-secondary-tint-4);
+				border: none;
+				font-weight: bold;
+				line-height: 1.5;
+				padding: 0;
+				cursor: pointer;
+				text-align: center;
+
+				i {
+					margin: 0;
+				}
+
+				+ * {
+					margin-left: 0.5rem;
+				}
+
+				&:hover {
+					box-shadow: none;
+					color: var(--color-secondary-base);
+				}
+			}
+		}
+	}
 }

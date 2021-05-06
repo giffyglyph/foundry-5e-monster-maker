@@ -1,145 +1,142 @@
-<div class="gg5e-mm-panel panel--collapsible monster__attributes" id="panel-attributes">
+<div class="gg5e-mm-panel panel--collapsible panel--properties" id="panel-properties">
 	<div class="panel__header">{{localize 'gg5e_mm.monster.view.attributes.title'}}</div>
 	<div class="panel__body">
-		<div class="monster__modifiers">
-			{{#each data.gg5e_mm.enums.abilities}}
-				{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_modifier.html"
-					ability=.
-					modifier=(lookup ../data.gg5e_mm.monster.data.ability_modifiers .)
-					save=(lookup ../data.gg5e_mm.monster.data.saving_throws .)
-				}}
-			{{/each}}
-		</div>
-		{{#if data.gg5e_mm.monster.data.show_properties}}
-			<dl class="monster__properties">
-				{{#if data.gg5e_mm.monster.data.skills}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.skills'}}</span>
-						<span class="attribute__icon"><i class="fas fa-lightbulb fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.skills as | skill |}}
-							<button class="button--text monster__skill" data-action="open-modal" data-modal="modal_ability_check" data-ability="{{skill.ability}}" data-skill="{{skill.code}}" title="{{{parseSources skill.sources}}}">{{skill.title}} {{numberFormat skill.value sign=true}}</button>
-						{{/each}}
-					</dd>
-				{{/if}}
-				{{#if data.gg5e_mm.monster.data.speeds}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.speeds.title'}}</span>
-						<span class="attribute__icon"><i class="fas fa-shoe-prints fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.speeds as | speed |}}
-							<span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.attributes.speeds.' speed.units) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
-						{{/each}}
-					</dd>
-				{{/if}}
-				{{#if data.gg5e_mm.monster.data.damage_vulnerabilities}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.damage_vulnerabilities'}}</span>
-						<span class="attribute__icon"><i class="far fa-star fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.damage_vulnerabilities}}
-							<span>{{this}}</span>
-						{{/each}}
-					</dd>
-				{{/if}}
-				{{#if data.gg5e_mm.monster.data.damage_resistances}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.damage_resistances'}}</span>
-						<span class="attribute__icon"><i class="fas fa-star-half-alt fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.damage_resistances}}
-							<span>{{this}}</span>
-						{{/each}}
-					</dd>
-				{{/if}}
-				{{#if data.gg5e_mm.monster.data.damage_immunities}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.damage_immunities'}}</span>
-						<span class="attribute__icon"><i class="fas fa-star fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.damage_immunities}}
-							<span>{{this}}</span>
-						{{/each}}
-					</dd>
-				{{/if}}
-				{{#if data.gg5e_mm.monster.data.condition_immunities}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.condition_immunities'}}</span>
-						<span class="attribute__icon"><i class="fas fa-shield-alt fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.condition_immunities}}
-							<span>{{this}}</span>
-						{{/each}}
-					</dd>
-				{{/if}}
-				{{#if data.gg5e_mm.monster.data.senses}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.senses.title'}}</span>
-						<span class="attribute__icon"><i class="fas fa-eye fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.senses as | sense |}}
-							<span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gg5e_mm.monster.view.attributes.senses.' sense.units) distance=sense.value}}{{/if}}</span>
-						{{/each}}
-					</dd>
-				{{/if}}
-				{{#if data.gg5e_mm.monster.data.languages}}
-					<dt>
-						<span class="attribute__title">{{localize 'gg5e_mm.monster.view.attributes.languages'}}</span>
-						<span class="attribute__icon"><i class="fas fa-comment fa-fw"></i></span>
-					</dt>
-					<dd>
-						{{#each data.gg5e_mm.monster.data.languages}}
-							<span>{{this}}</span>
-						{{/each}}
-					</dd>
-				{{/if}}
-			</dl>
-		{{/if}}
-		<div class="monster__stats">
-			{{#if data.gg5e_mm.monster.data.proficiency_bonus}}
-				<div class="stat">
-					<div class="stat__icon"><i class="fa fa-brain"></i></div>
-					<div class="stat__body">
-						<span class="stat__title">{{localize 'gg5e_mm.monster.view.attributes.proficiency_bonus'}}</span>
-						<span class="stat__value" title="{{{parseSources data.gg5e_mm.monster.data.proficiency_bonus.sources}}}">{{numberFormat data.gg5e_mm.monster.data.proficiency_bonus.value sign=true}}</span>
+		<div class="monster__properties">
+			<div class="monster__property">
+				<div class="property__icon"><i class="fa fa-brain fa-fw"></i></div>
+				<div class="property__body">
+					<span class="property__title">{{localize 'gg5e_mm.monster.view.attributes.proficiency_bonus'}}</span>
+					<span class="property__value" title="{{{parseSources data.gg5e_mm.monster.data.proficiency_bonus.sources}}}">{{numberFormat data.gg5e_mm.monster.data.proficiency_bonus.value sign=true}}</span>
+				</div>
+			</div>
+			<div class="monster__property">
+				<div class="property__icon"><i class="fa fa-bolt fa-fw"></i></div>
+				<div class="property__body">
+					<span class="property__title">{{localize 'gg5e_mm.monster.view.attributes.initiative'}}</span>
+					<span class="property__value" title="{{{parseSources data.gg5e_mm.monster.data.initiative.sources}}}">{{numberFormat data.gg5e_mm.monster.data.initiative.value sign=true}}{{#if data.gg5e_mm.monster.data.initiative.advantage}} (advantage){{/if}}</span>
+				</div>
+			</div>
+			<div class="monster__property">
+				<div class="property__icon"><i class="fa fa-skull fa-fw"></i></div>
+				<div class="property__body">
+					<span class="property__title">{{localize 'gg5e_mm.monster.view.attributes.challenge_rating'}}</span>
+					<span class="property__value" title="{{{parseSources data.gg5e_mm.monster.data.challenge_rating.sources}}}">
+						{{formatChallengeRating data.gg5e_mm.monster.data.challenge_rating.value}}
+					</span>
+				</div>
+			</div>
+			<div class="monster__property property--divider">
+				<div class="property__icon"><i class="fa fa-star fa-fw"></i></div>
+				<div class="property__body">
+					<span class="property__title">{{localize 'gg5e_mm.monster.view.attributes.xp'}}</span>
+					<span class="property__value" title="{{{parseSources data.gg5e_mm.monster.data.xp.sources}}}">
+						{{numberFormat data.gg5e_mm.monster.data.xp.value}}
+					</span>
+				</div>
+			</div>
+			{{#if data.gg5e_mm.monster.data.skills}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="fas fa-lightbulb fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.skills'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.skills as | skill |}}
+								<button class="button--text monster__skill" data-action="open-modal" data-modal="modal_ability_check" data-ability="{{skill.ability}}" data-skill="{{skill.code}}" title="{{{parseSources skill.sources}}}">
+									{{skill.title}} {{numberFormat skill.value sign=true}}
+								</button>
+							{{/each}}
+						</div>
 					</div>
 				</div>
 			{{/if}}
-			{{#if data.gg5e_mm.monster.data.initiative}}
-				<div class="stat">
-					<div class="stat__icon"><i class="fa fa-bolt"></i></div>
-					<div class="stat__body">
-						<span class="stat__title">{{localize 'gg5e_mm.monster.view.attributes.initiative'}}</span>
-						<span class="stat__value" title="{{{parseSources data.gg5e_mm.monster.data.initiative.sources}}}">{{numberFormat data.gg5e_mm.monster.data.initiative.value sign=true}}{{#if data.gg5e_mm.monster.data.initiative.advantage}} (advantage){{/if}}</span>
+			{{#if data.gg5e_mm.monster.data.speeds}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="fas fa-shoe-prints fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.speeds.title'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.speeds as | speed |}}
+								<span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.attributes.speeds.' speed.units) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
+							{{/each}}
+						</div>
 					</div>
 				</div>
 			{{/if}}
-			{{#if data.gg5e_mm.monster.data.challenge_rating}}
-				<div class="stat">
-					<div class="stat__icon"><i class="fa fa-skull"></i></div>
-					<div class="stat__body">
-						<span class="stat__title">{{localize 'gg5e_mm.monster.view.attributes.challenge_rating'}}</span>
-						<span class="stat__value" title="{{{parseSources data.gg5e_mm.monster.data.challenge_rating.sources}}}">
-							{{formatChallengeRating data.gg5e_mm.monster.data.challenge_rating.value}}
-						</span>
+			{{#if data.gg5e_mm.monster.data.damage_vulnerabilities}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="far fa-star fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.damage_vulnerabilities'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.damage_vulnerabilities}}
+								<span>{{this}}</span>
+							{{/each}}
+						</div>
 					</div>
 				</div>
 			{{/if}}
-			{{#if data.gg5e_mm.monster.data.xp}}
-				<div class="stat">
-					<div class="stat__icon"><i class="fa fa-star"></i></div>
-					<div class="stat__body">
-						<span class="stat__title">{{localize 'gg5e_mm.monster.view.attributes.xp'}}</span>
-						<span class="stat__value" title="{{{parseSources data.gg5e_mm.monster.data.xp.sources}}}">
-							{{numberFormat data.gg5e_mm.monster.data.xp.value}}
-						</span>
+			{{#if data.gg5e_mm.monster.data.damage_resistances}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="fas fa-star-half-alt fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.damage_resistances'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.damage_resistances}}
+								<span>{{this}}</span>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			{{/if}}
+			{{#if data.gg5e_mm.monster.data.damage_immunities}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="fas fa-star fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.damage_immunities'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.damage_immunities}}
+								<span>{{this}}</span>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			{{/if}}
+			{{#if data.gg5e_mm.monster.data.condition_immunities}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="fas fa-shield-alt fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.condition_immunities'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.condition_immunities}}
+								<span>{{this}}</span>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			{{/if}}
+			{{#if data.gg5e_mm.monster.data.senses}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="fas fa-eye fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.senses.title'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.senses as | sense |}}
+								<span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gg5e_mm.monster.view.attributes.senses.' sense.units) distance=sense.value}}{{/if}}</span>
+							{{/each}}
+						</div>
+					</div>
+				</div>
+			{{/if}}
+			{{#if data.gg5e_mm.monster.data.languages}}
+				<div class="monster__property property--wide">
+					<div class="property__icon"><i class="fas fa-comment fa-fw"></i></div>
+					<div class="property__body">
+						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.languages'}}</div>
+						<div class="property__value">
+							{{#each data.gg5e_mm.monster.data.languages}}
+								<span>{{this}}</span>
+							{{/each}}
+						</div>
 					</div>
 				</div>
 			{{/if}}

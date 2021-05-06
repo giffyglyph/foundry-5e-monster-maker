@@ -1,17 +1,17 @@
 .gg5e-mm-window--monster {
-	width: 540px !important;
+	width: 560px !important;
 
 	.window-content {
-		transition: margin 200ms ease-in-out;
+		transition: margin 100ms ease-out;
 	}
 
 	.gg5e-mm-sheet::before,
 	.sheet__core {
-		width: 540px;
+		width: 560px;
 	}
 
 	.gg5e-mm-sheet::after {
-		width: calc(540px - 1rem);
+		width: calc(560px - 1rem);
 	}
 
 	.sheet__sidepanel {

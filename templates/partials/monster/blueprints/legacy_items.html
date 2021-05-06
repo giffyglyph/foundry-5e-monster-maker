@@ -1,0 +1,57 @@
+<div class="accordion-section" data-section="legacy_items">
+	<div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.legacy_items.title'}}</div>
+	<div class="accordion-section__body">
+		<div class="form-fieldset">
+			<div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.legacy_items.attacks'}}</div>
+			<div class="form-fieldset__body">
+				<div class="items items--legacy-attacks item-list">
+					{{#each data.gg5e_mm.monster.data.legacy_items.attacks as | item |}}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/blueprint_legacy_item.html" item=.}}
+					{{/each}}
+				</div>
+				<div class="form-footer">
+					<button type="button" data-action="add-item" data-type="weapon">{{localize 'gg5e_mm.monster.options.legacy_items.add'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="form-fieldset">
+			<div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.legacy_items.actions'}}</div>
+			<div class="form-fieldset__body">
+				<div class="items items--legacy-attacks item-list">
+					{{#each data.gg5e_mm.monster.data.legacy_items.actions as | item |}}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/blueprint_legacy_item.html" item=.}}
+					{{/each}}
+				</div>
+				<div class="form-footer">
+					<button type="button" data-action="add-item" data-type="feat" data-activation.type="action">{{localize 'gg5e_mm.monster.options.legacy_items.add'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="form-fieldset">
+			<div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.legacy_items.features'}}</div>
+			<div class="form-fieldset__body">
+				<div class="items items--legacy-attacks item-list">
+					{{#each data.gg5e_mm.monster.data.legacy_items.features as | item |}}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/blueprint_legacy_item.html" item=.}}
+					{{/each}}
+				</div>
+				<div class="form-footer">
+					<button type="button" data-action="add-item" data-type="feat">{{localize 'gg5e_mm.monster.options.legacy_items.add'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="form-fieldset">
+			<div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.legacy_items.inventory'}}</div>
+			<div class="form-fieldset__body">
+				<div class="items items--legacy-attacks item-list">
+					{{#each data.gg5e_mm.monster.data.legacy_items.inventory as | item |}}
+						{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/blueprint_legacy_item.html" item=.}}
+					{{/each}}
+				</div>
+				<div class="form-footer">
+					<button type="button" data-action="add-item" data-type="loot">{{localize 'gg5e_mm.monster.options.legacy_items.add'}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

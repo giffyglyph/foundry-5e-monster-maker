@@ -57,9 +57,27 @@ export default class ActorSheetMonster extends ActorSheet {
 		);
 	}
 
+	activateListeners($el) {
+		super.activateListeners($el);
+		this._gui.activateListeners($el);
+		this._gui.applyTo($el);
+		$el.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
+		$el.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+		$el.find('[data-action="edit-item"]').click(this._editItem.bind(this));
+		$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
+		$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
+		$el.find('.item .item__title').click(this._toggleItemDetails.bind(this));
+		$el.find('[data-action="roll-item"]').click(this._rollItem.bind(this));
+
+		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
+			x.activateListeners($el, this.actor, this.id)
+		});
+	}
+
 	getData() {
 		const data = super.getData();
 
+		// Pass enums to sheet
 		let enums = {
 			abilities: DEFAULT_ABILITIES,
 			alignments: DEFAULT_ALIGNMENTS,
@@ -75,8 +93,6 @@ export default class ActorSheetMonster extends ActorSheet {
 			roles: Object.keys(DEFAULT_ROLES),
 			units: DEFAULT_UNITS.map((x) => x.name)
 		};
-
-		// Pass enums to sheet
 		if (data.data.gg5e_mm) {
 			 data.data.gg5e_mm.enums = enums;
 		} else {
@@ -85,24 +101,109 @@ export default class ActorSheetMonster extends ActorSheet {
 			};
 		}
 
-		let monster = data.data.gg5e_mm.monster.data;
-		if (monster.skills || monster.speeds || monster.damage_vulnerabilities || monster.damage_resistances || monster.damage_vulnerabilities || monster.condition_immunities || monster.senses || monster.languages) {
-			data.data.gg5e_mm.monster.data.show_properties = true;
-		}
+		// Get legacy item details
+		let legacy_items = {
+			attacks: [],
+			actions: [],
+			features: [],
+			inventory: []
+		};
+		data.items.forEach((x) => {
+			switch (x.type) {
+				case "weapon":
+					legacy_items.attacks.push(this._renderItem(x, "attack"));
+					break;
+				case "feat":
+					if (x.data.activation.type) {
+						legacy_items.actions.push(this._renderItem(x, "action"));
+					} else {
+			  			legacy_items.features.push(this._renderItem(x, "feature"));
+					}
+					break;
+				default:
+					legacy_items.inventory.push(this._renderItem(x, "inventory"));
+					break;
+			}
+		});
+		data.data.gg5e_mm.monster.data.legacy_items = legacy_items;
+
+		// Create legacy view parameters
+		["attacks", "actions", "features", "inventory"].forEach((x) => {
+			if (legacy_items[x] && legacy_items[x].length > 0) {
+				data.data.gg5e_mm.monster.data.show_legacy = true;
+			}
+		});
 
 		return data;
 	}
 
-	activateListeners($el) {
-		super.activateListeners($el);
-		this._gui.activateListeners($el);
-		this._gui.applyTo($el);
-		$el.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
-		$el.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+	async _onDropItemCreate(itemData) {
+		if ( itemData.data ) {
+			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.data[x]);
+		}
+		return super._onDropItemCreate(itemData);
+	}
 
-		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
-			x.activateListeners($el, this.actor, this.id)
-		});
+	_renderItem(item, type) {
+		let properties = this.actor.getOwnedItem(item._id).getChatData({secrets: this.actor.owner});
+		let data = {
+			id: item._id,
+			name: item.name,
+			img: item.img,
+			description: properties.description.value,
+			tags: properties.properties
+		};
+		console.log(properties);
+		switch (type) {
+			case "attack":
+				break;
+			case "action":
+				break;
+			case "feature":
+				break;
+			case "inventory":
+				break;
+		}
+		return data;
+	}
+
+	_getItemTags(item) {
+		return item.getChatData({secrets: this.actor.owner});
+	}
+
+	_rollItem(event) {
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.getOwnedItem(li.dataset.itemId);
+		return item.roll();
+	}
+
+	_editItem(event) {
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.getOwnedItem(li.dataset.itemId);
+		console.log(li, item);
+		item.sheet.render(true);
+	}
+
+	_deleteItem(event) {
+		const li = event.currentTarget.closest(".item");
+		this.actor.deleteOwnedItem(li.dataset.itemId);
+	}
+
+	_addItem(event) {
+		const header = event.currentTarget;
+		const type = header.dataset.type;
+		const itemData = {
+			name: game.i18n.format("DND5E.ItemNew", {type: type.capitalize()}),
+			type: type,
+			data: duplicate(header.dataset)
+		};
+		delete itemData.data["type"];
+		return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+	}
+
+	_toggleItemDetails(event) {
+		const item = event.currentTarget.closest(".item");
+		$(item.querySelector(".item__detail")).slideToggle("fast");
 	}
 
 	_updateAbilityRanking(event) {

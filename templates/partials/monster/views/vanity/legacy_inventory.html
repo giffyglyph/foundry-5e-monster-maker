@@ -1,0 +1,16 @@
+<div class="gg5e-mm-panel panel--collapsible panel--legacy-inventory" id="panel-legacy-inventory">
+	<div class="panel__header">{{localize 'gg5e_mm.monster.view.legacy_inventory.title'}} <span class="badge">{{data.gg5e_mm.monster.data.legacy_items.inventory.length}}</span></div>
+	<div class="panel__body">
+        <div class="item-collection">
+            <div class="item-collection__header">
+                <span class="header__title">{{localize 'gg5e_mm.monster.view.legacy_inventory.inventory'}}</span>
+                <button class="header__add" data-action="add-item" data-type="loot">{{localize 'gg5e_mm.monster.view.legacy_inventory.add'}}</button>
+            </div>
+            <div class="item-collection__body item-list">
+                {{#each data.gg5e_mm.monster.data.legacy_items.inventory as | item |}}
+                    {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_legacy_item.html" item=.}}
+                {{/each}}
+            </div>
+        </div>
+	</div>
+</div>

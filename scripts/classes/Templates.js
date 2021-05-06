@@ -4,11 +4,13 @@ const Templates = (function() {
 
 		return loadTemplates([
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/ability_ranking.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/blueprint_legacy_item.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/condition_immunity.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_immunity.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_resistance.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/damage_vulnerability.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/language.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_legacy_item.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_modifier.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/save_ranking.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/skill.html",
@@ -38,8 +40,9 @@ const Templates = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/display.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/hit_points.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/initiative.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/languages.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/lair_actions.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/languages.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/legacy_items.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/legendary_actions.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/legendary_resistances.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/blueprints/paragon_actions.html",
@@ -55,8 +58,13 @@ const Templates = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/blocks.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/header.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/lair_actions.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_attacks.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_actions.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_features.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_inventory.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legendary_actions.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legendary_resistances.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/modifiers.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/paragon_actions.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/vanity.html"
 		]);

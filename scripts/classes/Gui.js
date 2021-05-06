@@ -18,6 +18,7 @@ export default class Gui {
 		$el.find('button[data-action="expand-window"]').click((e) => this._expandWindow(e));
 		$el.find('input[data-action="update-field"]').change((e) => this._updateField(e));
 		$el.find('[data-track-scrollbars="true"]').scroll((e) => this._updateScrollbar(e));
+		$el.find('.form-fieldset__header').click((e) => this._toggleFormFieldset(e));
 	}
 
 	applyTo($el) {
@@ -113,7 +114,7 @@ export default class Gui {
 		const accordion = button.closest(".gg5e-mm-window").querySelectorAll(`#${button.dataset.accordion} .accordion-section`);
 		[...accordion].forEach((x) => {
 			x.classList.add("collapsing");
-			$(x.querySelector(".accordion-section__body")).slideUp("fast", function() {
+			$(x.querySelector(".accordion-section__body")).slideUp(100, function() {
 				x.classList.remove("collapsing");
 				$(x).toggleClass('opened', $(this).is(':visible'));
 			});
@@ -133,7 +134,7 @@ export default class Gui {
 		if (accordion.getAttribute("data-accordion-mode") == "single") {
 			[...accordion.querySelectorAll(".accordion-section.opened")].filter((x) => x != section).forEach((x) => {
 				x.classList.add("collapsing");
-				$(x.querySelector(".accordion-section__body")).slideToggle("fast", function() {
+				$(x.querySelector(".accordion-section__body")).slideToggle(100, function() {
 					x.classList.remove("collapsing");
 					$(x).toggleClass('opened', $(this).is(':visible'));
 				});
@@ -142,7 +143,7 @@ export default class Gui {
 
 		section.classList.add("collapsing");
 		let gui = this;
-		$(section.querySelector(".accordion-section__body")).slideToggle("fast", function() {
+		$(section.querySelector(".accordion-section__body")).slideToggle(100, function() {
 			section.classList.remove("collapsing");
 			$(section).toggleClass('opened', $(this).is(':visible'));
 			gui._updateAccordions(event.currentTarget.closest(".gg5e-mm-window"));
@@ -155,11 +156,20 @@ export default class Gui {
 		let panelBody = panel.querySelector(".panel__body");
 		let gui = this;
 		panel.classList.add("collapsing");
-		$(panelBody).slideToggle("fast", function() {
+		$(panelBody).slideToggle(100, function() {
 			panel.classList.remove("collapsing");
 			$(panel).toggleClass('closed', !$(this).is(':visible'));
 			gui._updatePanels(event.currentTarget.closest(".gg5e-mm-window"));
 			gui._updateScrollbars(event.currentTarget.closest(".gg5e-mm-window"));
+		});
+	}
+
+	_toggleFormFieldset(event) {
+		let fieldset = event.currentTarget.closest(".form-fieldset");
+		fieldset.classList.add("collapsing");
+		$(fieldset.querySelector(".form-fieldset__body")).slideToggle(100, function() {
+			fieldset.classList.remove("collapsing");
+			$(fieldset).toggleClass('closed', !$(this).is(':visible'));
 		});
 	}
 

@@ -1,0 +1,26 @@
+<div class="item" data-item-id="{{item.id}}" draggable="true">
+    <div class="item__icon">
+        {{#if item.img}}
+            <img src="{{item.img}}"/>
+        {{/if}}
+        <button data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
+    </div>
+    <div class="item__body">
+        <div class="item__title">{{item.name}}</div>
+        {{#if item.description}}
+            <div class="item__detail" style="display: none;">{{{item.description}}}</div>
+        {{/if}}
+        {{#if item.tags}}
+            <div class="item__tags">
+                {{#each item.tags}}
+                    <span class="item__tag">{{.}}</span>
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="item__actions">
+        <button data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
+        <button data-action="edit-item"><i class="fas fa-edit"></i></button>
+        <button data-action="delete-item"><i class="fas fa-trash"></i></button>
+    </div>
+</div>
