@@ -1,0 +1,47 @@
+<div class="accordion-section" data-section="legacy_spells">
+	<div class="accordion-section__header">{{localize 'gg5e_mm.monster.options.legacy_spells.title'}}</div>
+	<div class="accordion-section__body">
+		<div class="form-fieldset">
+			<div class="form-fieldset__header">{{localize 'gg5e_mm.monster.options.legacy_spells.spellcasting.title'}}</div>
+			<div class="form-fieldset__body">
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.monster.options.legacy_spells.spellcasting.level'}}</span>
+					</div>
+					<div class="form-group__body">
+						<input name="data.gg5e_mm.blueprint.data.legacy_spells.spellcasting_level" value="{{data.gg5e_mm.blueprint.data.legacy_spells.spellcasting_level}}"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="form-group__header">
+						<span class="form-group__title">{{localize 'gg5e_mm.monster.options.legacy_spells.spellcasting.ability'}}</span>
+					</div>
+					<div class="form-group__body">
+						<select name="data.gg5e_mm.blueprint.data.legacy_spells.spellcasting_ability">
+							{{#select data.gg5e_mm.blueprint.data.legacy_spells.spellcasting_ability}}
+								{{#each data.gg5e_mm.enums.abilities}}
+									<option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.ability.' . '.name')}}</option>
+								{{/each}}
+							{{/select}}
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{#for 0 10 1}}
+			<div class="form-fieldset">
+				<div class="form-fieldset__header">{{localize (concat 'gg5e_mm.monster.options.legacy_spells.level_' . )}}</div>
+				<div class="form-fieldset__body">
+					<div class="items items--legacy-attacks item-list">
+						{{#each (lookup ../data.gg5e_mm.monster.data.legacy_items.spells (concat 'level_' .)) as | item |}}
+							{{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/blueprint_legacy_item.html" item=item}}
+						{{/each}}
+					</div>
+					<div class="form-footer">
+						<button type="button" data-action="add-item" data-type="spell" data-level="{{.}}" data-preparation.mode="prepared">{{localize 'gg5e_mm.monster.options.legacy_items.add'}}</button>
+					</div>
+				</div>
+			</div>
+		{{/for}}
+	</div>
+</div>

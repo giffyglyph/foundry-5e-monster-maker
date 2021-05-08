@@ -2695,12 +2695,14 @@
   .monster--vanity .panel--legacy-attacks .panel__body,
   .monster--vanity .panel--legacy-actions .panel__body,
   .monster--vanity .panel--legacy-features .panel__body,
-  .monster--vanity .panel--legacy-inventory .panel__body {
+  .monster--vanity .panel--legacy-inventory .panel__body,
+  .monster--vanity .panel--legacy-spells .panel__body {
     padding: 0; }
     .monster--vanity .panel--legacy-attacks .panel__body::before,
     .monster--vanity .panel--legacy-actions .panel__body::before,
     .monster--vanity .panel--legacy-features .panel__body::before,
-    .monster--vanity .panel--legacy-inventory .panel__body::before {
+    .monster--vanity .panel--legacy-inventory .panel__body::before,
+    .monster--vanity .panel--legacy-spells .panel__body::before {
       display: none; }
 
 .gg5e-mm-window--monster {

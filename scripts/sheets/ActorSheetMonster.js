@@ -106,10 +106,28 @@ export default class ActorSheetMonster extends ActorSheet {
 			attacks: [],
 			actions: [],
 			features: [],
-			inventory: []
+			inventory: [],
+			spells: {
+				total_spells: 0,
+				level_0: [],
+				level_1: [],
+				level_2: [],
+				level_3: [],
+				level_4: [],
+				level_5: [],
+				level_6: [],
+				level_7: [],
+				level_8: [],
+				level_9: []
+			}
 		};
 		data.items.forEach((x) => {
 			switch (x.type) {
+				case "spell":
+					let spell = this._renderItem(x, "spell");
+					legacy_items.spells[`level_${spell.spell_level}`].push(spell);
+					legacy_items.spells.total_spells++;
+					break;
 				case "weapon":
 					legacy_items.attacks.push(this._renderItem(x, "attack"));
 					break;
@@ -133,7 +151,9 @@ export default class ActorSheetMonster extends ActorSheet {
 				data.data.gg5e_mm.monster.data.show_legacy = true;
 			}
 		});
-
+		if (legacy_items.spells.total_spells > 0) {
+			data.data.gg5e_mm.monster.data.show_legacy = true;
+		}
 		return data;
 	}
 
@@ -153,15 +173,9 @@ export default class ActorSheetMonster extends ActorSheet {
 			description: properties.description.value,
 			tags: properties.properties
 		};
-		console.log(properties);
 		switch (type) {
-			case "attack":
-				break;
-			case "action":
-				break;
-			case "feature":
-				break;
-			case "inventory":
+			case "spell":
+				data.spell_level = item.data.level || 0
 				break;
 		}
 		return data;

@@ -75,6 +75,10 @@ const MonsterBlueprint = (function() {
 				lair_actions: {
 					enabled: actor.data.resources.lair.value,
 					initiative: actor.data.resources.lair.initiative
+				},
+				legacy_spells: {
+					spellcasting_level: actor.data.details.spellLevel,
+					spellcasting_ability: actor.data.attributes.spellcasting
 				}
 			}
 		};
@@ -138,7 +142,9 @@ const MonsterBlueprint = (function() {
 			{ from: "data.gg5e_mm.blueprint.data.legendary_actions.current", to: "data.resources.legact.value" },
 			{ from: "data.gg5e_mm.blueprint.data.legendary_actions.maximum", to: "data.resources.legact.max" },
 			{ from: "data.gg5e_mm.blueprint.data.lair_actions.enabled", to: "data.resources.lair.value" },
-			{ from: "data.gg5e_mm.blueprint.data.lair_actions.initiative", to: "data.resources.lair.initiative" }
+			{ from: "data.gg5e_mm.blueprint.data.lair_actions.initiative", to: "data.resources.lair.initiative" },
+			{ from: "data.gg5e_mm.blueprint.data.legacy_spells.spellcasting_level", to: "data.details.spellLevel" },
+			{ from: "data.gg5e_mm.blueprint.data.legacy_spells.spellcasting_ability", to: "data.attributes.spellcasting" },
 		];
 		mappings.forEach((x) => {
 			if (typeof form[x.from] !== 'undefined') {
@@ -440,6 +446,10 @@ const MonsterBlueprint = (function() {
 						primary: "blue",
 						secondary: "deep-orange"
 					}
+				},
+				legacy_spells: {
+					spellcasting_level: 0,
+					spellcasting_ability: "int"
 				}
 			}
 		}

@@ -20,9 +20,6 @@
         {{#if data.gg5e_mm.monster.data.lair_actions.enabled}}
             {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/lair_actions.html" }}
         {{/if}}
-        {{#if data.gg5e_mm.monster.data.biography}}
-            {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/biography.html" }}
-        {{/if}}
         {{#if data.gg5e_mm.monster.data.show_legacy}}
             <div class="monster__divider"></div>
             {{#if data.gg5e_mm.monster.data.legacy_items.attacks}}
@@ -37,6 +34,13 @@
             {{#if data.gg5e_mm.monster.data.legacy_items.inventory}}
                 {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_inventory.html" }}
             {{/if}}
+            {{#if data.gg5e_mm.monster.data.legacy_items.spells.total_spells}}
+                {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/legacy_spells.html" }}
+            {{/if}}
+        {{/if}}
+        {{#if data.gg5e_mm.monster.data.biography}}
+            <div class="monster__divider"></div>
+            {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/vanity/biography.html" }}
         {{/if}}
     </div>
 </div>

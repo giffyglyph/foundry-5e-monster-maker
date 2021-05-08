@@ -1,0 +1,18 @@
+<div class="gg5e-mm-panel panel--collapsible panel--legacy-spells" id="panel-legacy-spells">
+	<div class="panel__header">{{localize 'gg5e_mm.monster.view.legacy_spells.title'}} <span class="badge">{{data.gg5e_mm.monster.data.legacy_items.spells.total_spells}}</span></div>
+	<div class="panel__body">
+        {{#for 0 10 1}}
+            <div class="item-collection">
+                <div class="item-collection__header">
+                    <span class="header__title">{{localize (concat 'gg5e_mm.monster.view.legacy_spells.level_' . )}}</span>
+                    <button class="header__add" data-action="add-item" data-type="spell" data-level="{{.}}" data-preparation.mode="prepared">{{localize 'gg5e_mm.monster.view.legacy_spells.add'}}</button>
+                </div>
+                <div class="item-collection__body item-list">
+                    {{#each (lookup ../data.gg5e_mm.monster.data.legacy_items.spells (concat 'level_' .)) as | item |}}
+                        {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_legacy_item.html" item=item}}
+                    {{/each}}
+                </div>
+            </div>
+		{{/for}}
+	</div>
+</div>
