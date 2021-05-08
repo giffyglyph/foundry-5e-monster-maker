@@ -79,7 +79,12 @@ const MonsterFactory = (function() {
 		if (tags.length > 0) {
 			parts.push(`(${tags.join(", ")})`);
 		}
-		const alignment = game.i18n.format(`gg5e_mm.monster.common.alignment.${description.alignment}`).toLowerCase();
+		let alignment = "";
+		if (description.alignment.category === "custom") {
+			alignment = description.alignment.custom.trim();
+		} else {
+			alignment = game.i18n.format(`gg5e_mm.monster.common.alignment.${description.alignment.category}`).toLowerCase();
+		}
 		return `${parts.join(' ')}, ${alignment}`;
 	}
 	

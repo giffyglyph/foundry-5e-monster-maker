@@ -65,13 +65,17 @@
 				<span class="form-group__title">{{localize 'gg5e_mm.monster.options.description.alignment'}}</span>
 			</div>
 			<div class="form-group__body">
-				<select name="data.gg5e_mm.blueprint.data.description.alignment">
-					{{#select data.gg5e_mm.blueprint.data.description.alignment}}
+				<select name="data.gg5e_mm.blueprint.data.description.alignment.category">
+					{{#select data.gg5e_mm.blueprint.data.description.alignment.category}}
 						{{#each data.gg5e_mm.enums.alignments}}
 							<option value="{{.}}">{{localize (concat 'gg5e_mm.monster.common.alignment.' .)}}</option>
 						{{/each}}
+						<option value="custom">{{localize 'gg5e_mm.monster.common.alignment.custom'}}</option>
 					{{/select}}
 				</select>
+				{{#toggleCustom data.gg5e_mm.blueprint.data.description.alignment.category}}
+					<input name="data.gg5e_mm.blueprint.data.description.alignment.custom" value="{{data.gg5e_mm.blueprint.data.description.alignment.custom}}"/>
+				{{/toggleCustom}}
 			</div>
 		</div>
 	</div>

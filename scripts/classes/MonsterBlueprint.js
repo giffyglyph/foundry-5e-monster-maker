@@ -6,6 +6,8 @@ import { DEFAULT_SIZES } from "../consts/DefaultSizes.js";
 import { DEFAULT_UNITS } from "../consts/DefaultUnits.js";
 import { DEFAULT_ROLES } from "../consts/DefaultRoles.js";
 import { DEFAULT_RANKS } from "../consts/DefaultRanks.js";
+import { DEFAULT_CATEGORIES } from "../consts/DefaultCategories.js";
+import { DEFAULT_ALIGNMENTS } from "../consts/DefaultAlignments.js";
 
 const MonsterBlueprint = (function() {
 
@@ -16,98 +18,105 @@ const MonsterBlueprint = (function() {
 	}
 
 	function getBlueprintFromActor(actor) {
-		let blueprint = {
-			data: {
-				description: {
-					name: actor.name,
-					image: actor.img,
-					size: DEFAULT_SIZES.find((x) => x.foundry == actor.data.traits.size).name
-				},
-				hit_points: {
-					current: actor.data.attributes.hp.value,
-					temporary: actor.data.attributes.hp.temp
-				},
-				speeds: {
-					walk: actor.data.attributes.movement.walk,
-					burrow: actor.data.attributes.movement.burrow,
-					climb: actor.data.attributes.movement.climb,
-					fly: actor.data.attributes.movement.fly,
-					swim: actor.data.attributes.movement.swim,
-					units: DEFAULT_UNITS.find((x) => x.foundry == actor.data.attributes.movement.units).name,
-					can_hover: actor.data.attributes.movement.hover
-				},
-				senses: {
-					blindsight: actor.data.attributes.senses.blindsight,
-					darkvision: actor.data.attributes.senses.darkvision,
-					tremorsense: actor.data.attributes.senses.tremorsense,
-					truesight: actor.data.attributes.senses.truesight,
-					units: DEFAULT_UNITS.find((x) => x.foundry == actor.data.attributes.senses.units).name,
-					other: actor.data.attributes.senses.special
-				},
-				skills: {},
-				damage_resistances: {
-					other: actor.data.traits.dr.custom
-				},
-				damage_vulnerabilities: {
-					other: actor.data.traits.dv.custom
-				},
-				damage_immunities: {
-					other: actor.data.traits.di.custom
-				},
-				condition_immunities: {
-					other: actor.data.traits.ci.custom
-				},
-				languages: {
-					other: actor.data.traits.languages.custom
-				},
-				initiative: {
-					advantage: actor.flags.dnd5e && actor.flags.dnd5e.initiativeAdv
-				},
-				biography: actor.data.details.biography.value,
-				legendary_resistances: {
-					current: actor.data.resources.legres.value,
-					maximum: actor.data.resources.legres.max
-				},
-				legendary_actions: {
-					current: actor.data.resources.legact.value,
-					maximum: actor.data.resources.legact.max
-				},
-				lair_actions: {
-					enabled: actor.data.resources.lair.value,
-					initiative: actor.data.resources.lair.initiative
-				},
-				legacy_spells: {
-					spellcasting_level: actor.data.details.spellLevel,
-					spellcasting_ability: actor.data.attributes.spellcasting
+		try {
+			let blueprint = {
+				data: {
+					description: {
+						name: actor.name,
+						image: actor.img,
+						size: DEFAULT_SIZES.find((x) => x.foundry == actor.data.traits.size).name,
+						type: _getActorType(actor.data.details.type),
+						alignment: _getActorAlignment(actor.data.details.alignment)
+					},
+					hit_points: {
+						current: actor.data.attributes.hp.value,
+						temporary: actor.data.attributes.hp.temp
+					},
+					speeds: {
+						walk: actor.data.attributes.movement.walk,
+						burrow: actor.data.attributes.movement.burrow,
+						climb: actor.data.attributes.movement.climb,
+						fly: actor.data.attributes.movement.fly,
+						swim: actor.data.attributes.movement.swim,
+						units: DEFAULT_UNITS.find((x) => x.foundry == actor.data.attributes.movement.units).name,
+						can_hover: actor.data.attributes.movement.hover
+					},
+					senses: {
+						blindsight: actor.data.attributes.senses.blindsight,
+						darkvision: actor.data.attributes.senses.darkvision,
+						tremorsense: actor.data.attributes.senses.tremorsense,
+						truesight: actor.data.attributes.senses.truesight,
+						units: DEFAULT_UNITS.find((x) => x.foundry == actor.data.attributes.senses.units).name,
+						other: actor.data.attributes.senses.special
+					},
+					skills: {},
+					damage_resistances: {
+						other: actor.data.traits.dr.custom
+					},
+					damage_vulnerabilities: {
+						other: actor.data.traits.dv.custom
+					},
+					damage_immunities: {
+						other: actor.data.traits.di.custom
+					},
+					condition_immunities: {
+						other: actor.data.traits.ci.custom
+					},
+					languages: {
+						other: actor.data.traits.languages.custom
+					},
+					initiative: {
+						advantage: actor.flags.dnd5e && actor.flags.dnd5e.initiativeAdv
+					},
+					biography: actor.data.details.biography.value,
+					legendary_resistances: {
+						current: actor.data.resources.legres.value,
+						maximum: actor.data.resources.legres.max
+					},
+					legendary_actions: {
+						current: actor.data.resources.legact.value,
+						maximum: actor.data.resources.legact.max
+					},
+					lair_actions: {
+						enabled: actor.data.resources.lair.value,
+						initiative: actor.data.resources.lair.initiative
+					},
+					legacy_spells: {
+						spellcasting_level: actor.data.details.spellLevel,
+						spellcasting_ability: actor.data.attributes.spellcasting
+					}
 				}
-			}
-		};
+			};
 
-		DEFAULT_SKILLS.forEach((x) => {
-			let actorSkill = actor.data.skills[x.foundry];
-			switch (actorSkill.value) {
-				case 0.5:
-					blueprint.data.skills[x.name] = "half-proficient";
-					break;
-				case 1:
-					blueprint.data.skills[x.name] = "proficient";
-					break;
-				case 2:
-					blueprint.data.skills[x.name] = "expert";
-					break;
-				default:
-					blueprint.data.skills[x.name] = "";
-					break;
-			}
-		});
+			DEFAULT_SKILLS.forEach((x) => {
+				let actorSkill = actor.data.skills[x.foundry];
+				switch (actorSkill.value) {
+					case 0.5:
+						blueprint.data.skills[x.name] = "half-proficient";
+						break;
+					case 1:
+						blueprint.data.skills[x.name] = "proficient";
+						break;
+					case 2:
+						blueprint.data.skills[x.name] = "expert";
+						break;
+					default:
+						blueprint.data.skills[x.name] = "";
+						break;
+				}
+			});
 
-		actor.data.traits.di.value.forEach((x) => blueprint.data.damage_immunities[x] = true);
-		actor.data.traits.dr.value.forEach((x) => blueprint.data.damage_resistances[x] = true);
-		actor.data.traits.dv.value.forEach((x) => blueprint.data.damage_vulnerabilities[x] = true);
-		actor.data.traits.ci.value.forEach((x) => blueprint.data.condition_immunities[x] = true);
-		actor.data.traits.languages.value.forEach((x) => blueprint.data.languages[x] = true);
+			actor.data.traits.di.value.forEach((x) => blueprint.data.damage_immunities[x] = true);
+			actor.data.traits.dr.value.forEach((x) => blueprint.data.damage_resistances[x] = true);
+			actor.data.traits.dv.value.forEach((x) => blueprint.data.damage_vulnerabilities[x] = true);
+			actor.data.traits.ci.value.forEach((x) => blueprint.data.condition_immunities[x] = true);
+			actor.data.traits.languages.value.forEach((x) => blueprint.data.languages[x] = true);
 
-		return blueprint;
+			return blueprint;
+		} catch (error) {
+			console.error("Couldn't get blueprint data from the actor", error);
+			return {};
+		}
 	}
 
 	function getActorFromBlueprint(form) {
@@ -152,6 +161,22 @@ const MonsterBlueprint = (function() {
 			}
 		});
 
+		if (typeof form["data.gg5e_mm.blueprint.data.description.type.category"] !== 'undefined') {
+			if (form["data.gg5e_mm.blueprint.data.description.type.category"] == "custom") {
+				output["data.details.type"] = form["data.gg5e_mm.blueprint.data.description.type.custom"];
+			} else {
+				output["data.details.type"] = game.i18n.format(`gg5e_mm.monster.common.type.${form["data.gg5e_mm.blueprint.data.description.type.category"]}`);
+			}
+		}
+
+		if (typeof form["data.gg5e_mm.blueprint.data.description.alignment.category"] !== 'undefined') {
+			if (form["data.gg5e_mm.blueprint.data.description.alignment.category"] == "custom") {
+				output["data.details.alignment"] = form["data.gg5e_mm.blueprint.data.description.alignment.custom"];
+			} else {
+				output["data.details.alignment"] = game.i18n.format(`gg5e_mm.monster.common.alignment.${form["data.gg5e_mm.blueprint.data.description.alignment.category"]}`);
+			}
+		}
+
 		if (typeof form["data.gg5e_mm.blueprint.data.speeds.units"] !== 'undefined') {
 			output["data.attributes.movement.units"] = DEFAULT_UNITS.find((x) => x.name == form["data.gg5e_mm.blueprint.data.speeds.units"]).foundry;
 		}
@@ -192,6 +217,36 @@ const MonsterBlueprint = (function() {
 		return output;
 	}
 
+	function _getActorType(type) {
+		let actorType = type.replace(/ /g, '_').toLowerCase();
+		if (DEFAULT_CATEGORIES.includes(actorType)) {
+			return {
+				category: actorType,
+				custom: null
+			}
+		} else {
+			return {
+				category: "custom",
+				custom: type
+			}
+		}
+	}
+
+	function _getActorAlignment(alignment) {
+		let actorAlignment = alignment.replace(/ /g, '_').toLowerCase();
+		if (DEFAULT_ALIGNMENTS.includes(actorAlignment)) {
+			return {
+				category: actorAlignment,
+				custom: null
+			}
+		} else {
+			return {
+				category: "custom",
+				custom: alignment
+			}
+		}
+	}
+
 	function _getDefaultBlueprint() {
 		return {
 			vid: 1,
@@ -204,7 +259,10 @@ const MonsterBlueprint = (function() {
 						custom: null
 					},
 					tags: null,
-					alignment: "unaligned"
+					alignment: {
+						category: "unaligned",
+						custom: null
+					}
 				},
 				combat: {
 					level: 10,

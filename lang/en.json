@@ -13,6 +13,7 @@
     "gg5e_mm.monster.common.alignment.neutral_evil": "Neutral evil",
     "gg5e_mm.monster.common.alignment.chaotic_evil": "Chaotic evil",
     "gg5e_mm.monster.common.alignment.unaligned": "Unaligned",
+    "gg5e_mm.monster.common.alignment.custom": "Custom",
     "gg5e_mm.monster.common.ability.str.code": "Str",
     "gg5e_mm.monster.common.ability.str.name": "Strength",
     "gg5e_mm.monster.common.ability.str.icon": "fas fa-dumbbell",
