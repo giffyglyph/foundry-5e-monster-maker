@@ -101,59 +101,63 @@ export default class ActorSheetMonster extends ActorSheet {
 			};
 		}
 
-		// Get legacy item details
-		let legacy_items = {
-			attacks: [],
-			actions: [],
-			features: [],
-			inventory: [],
-			spells: {
-				total_spells: 0,
-				level_0: [],
-				level_1: [],
-				level_2: [],
-				level_3: [],
-				level_4: [],
-				level_5: [],
-				level_6: [],
-				level_7: [],
-				level_8: [],
-				level_9: []
-			}
-		};
-		data.items.forEach((x) => {
-			switch (x.type) {
-				case "spell":
-					let spell = this._renderItem(x, "spell");
-					legacy_items.spells[`level_${spell.spell_level}`].push(spell);
-					legacy_items.spells.total_spells++;
-					break;
-				case "weapon":
-					legacy_items.attacks.push(this._renderItem(x, "attack"));
-					break;
-				case "feat":
-					if (x.data.activation.type) {
-						legacy_items.actions.push(this._renderItem(x, "action"));
-					} else {
-			  			legacy_items.features.push(this._renderItem(x, "feature"));
-					}
-					break;
-				default:
-					legacy_items.inventory.push(this._renderItem(x, "inventory"));
-					break;
-			}
-		});
-		data.data.gg5e_mm.monster.data.legacy_items = legacy_items;
+		if (data.data.gg5e_mm && data.data.gg5e_mm.monster) {
 
-		// Create legacy view parameters
-		["attacks", "actions", "features", "inventory"].forEach((x) => {
-			if (legacy_items[x] && legacy_items[x].length > 0) {
+			// Get legacy item details
+			let legacy_items = {
+				attacks: [],
+				actions: [],
+				features: [],
+				inventory: [],
+				spells: {
+					total_spells: 0,
+					level_0: [],
+					level_1: [],
+					level_2: [],
+					level_3: [],
+					level_4: [],
+					level_5: [],
+					level_6: [],
+					level_7: [],
+					level_8: [],
+					level_9: []
+				}
+			};
+			data.items.forEach((x) => {
+				switch (x.type) {
+					case "spell":
+						let spell = this._renderItem(x, "spell");
+						legacy_items.spells[`level_${spell.spell_level}`].push(spell);
+						legacy_items.spells.total_spells++;
+						break;
+					case "weapon":
+						legacy_items.attacks.push(this._renderItem(x, "attack"));
+						break;
+					case "feat":
+						if (x.data.activation.type) {
+							legacy_items.actions.push(this._renderItem(x, "action"));
+						} else {
+							legacy_items.features.push(this._renderItem(x, "feature"));
+						}
+						break;
+					default:
+						legacy_items.inventory.push(this._renderItem(x, "inventory"));
+						break;
+				}
+			});
+			data.data.gg5e_mm.monster.data.legacy_items = legacy_items;
+
+			// Create legacy view parameters
+			["attacks", "actions", "features", "inventory"].forEach((x) => {
+				if (legacy_items[x] && legacy_items[x].length > 0) {
+					data.data.gg5e_mm.monster.data.show_legacy = true;
+				}
+			});
+			if (legacy_items.spells.total_spells > 0) {
 				data.data.gg5e_mm.monster.data.show_legacy = true;
 			}
-		});
-		if (legacy_items.spells.total_spells > 0) {
-			data.data.gg5e_mm.monster.data.show_legacy = true;
 		}
+
 		return data;
 	}
 
