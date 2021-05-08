@@ -17,7 +17,7 @@ export const DEFAULT_SIZES = [
 	},
 	{
 		name: "huge",
-		foundry: "tiny"
+		foundry: "huge"
 	},
 	{
 		name: "gargantuan",
