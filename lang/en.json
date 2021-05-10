@@ -2,6 +2,7 @@
     "gg5e_mm.sheet.monster.label": "Giffyglyph's 5e Monster Maker",
 
     "gg5e_mm.monster.errors.invalid_monster": "This monster is invalid. Please check your configuration settings and try again.",
+    "gg5e_mm.monster.errors.missing_monster": "Your monster data is missing. Please check your configuration settings and try again.",
 
     "gg5e_mm.monster.common.alignment.lawful_good": "Lawful good",
     "gg5e_mm.monster.common.alignment.neutral_good": "Neutral good",

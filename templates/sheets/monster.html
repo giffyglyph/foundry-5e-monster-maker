@@ -1,12 +1,19 @@
 <div class="gg5e-mm-sheet color--primary-{{data.gg5e_mm.blueprint.data.display.color.primary}} color--secondary-{{data.gg5e_mm.blueprint.data.display.color.secondary}} {{cssClass}}">
 	<div class="sheet__core">
 		<div class="sheet__body">
-			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/' data.gg5e_mm.blueprint.data.display.skin '/' data.gg5e_mm.blueprint.data.display.skin '.html') }}
+			{{#if data.gg5e_mm.monster }}
+				{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/partials/monster/views/' data.gg5e_mm.blueprint.data.display.skin '/' data.gg5e_mm.blueprint.data.display.skin '.html') }}
+					<div class="sheet__error">
+						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+						<div class="error__advice">{{localize 'gg5e_mm.monster.errors.invalid_monster'}}</div>
+					</div>
+				{{/undefined}}
+			{{else}}
 				<div class="sheet__error">
 					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
-					<div class="error__advice">{{localize 'gg5e_mm.monster.errors.invalid_monster'}}</div>
+					<div class="error__advice">{{localize 'gg5e_mm.monster.errors.missing_monster'}}</div>
 				</div>
-			{{/undefined}}
+			{{/if}}
 		</div>
 		<div class="sheet__footer">
 			<div class="sheet__id">
