@@ -6,6 +6,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 1,
 		saving_throws: -1,
 		attack_dcs: 0,
+		initiative: 2,
+		passive_perception: 0,
+		speed: 0,
 		icon: "fas fa-brain"
 	},
 	defender: {
@@ -15,6 +18,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 1,
 		saving_throws: 1,
 		attack_dcs: 0,
+		initiative: 0,
+		passive_perception: 2,
+		speed: -10,
 		icon: "fas fa-shield-alt"
 	},
 	lurker: {
@@ -24,6 +30,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 1.5,
 		saving_throws: -2,
 		attack_dcs: 2,
+		initiative: 0,
+		passive_perception: 2,
+		speed: 0,
 		icon: "fas fa-moon"
 	},
 	scout: {
@@ -33,6 +42,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 0.75,
 		saving_throws: -1,
 		attack_dcs: 0,
+		initiative: 2,
+		passive_perception: 2,
+		speed: 10,
 		icon: "fas fa-eye"
 	},
 	sniper: {
@@ -42,6 +54,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 1.25,
 		saving_throws: 0,
 		attack_dcs: 0,
+		initiative: 0,
+		passive_perception: 0,
+		speed: 0,
 		icon: "fas fa-crosshairs"
 	},
 	striker: {
@@ -51,6 +66,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 1.25,
 		saving_throws: -2,
 		attack_dcs: 2,
+		initiative: 0,
+		passive_perception: 0,
+		speed: 0,
 		icon: "fas fa-fire"
 	},
 	supporter: {
@@ -60,6 +78,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 0.75,
 		saving_throws: -1,
 		attack_dcs: 0,
+		initiative: 2,
+		passive_perception: 0,
+		speed: 0,
 		icon: "fas fa-first-aid"
 	},
 	custom: {
@@ -69,6 +90,9 @@ export const DEFAULT_ROLES = {
 		damage_per_action: 1,
 		saving_throws: 0,
 		attack_dcs: 0,
+		initiative: 0,
+		passive_perception: 0,
+		speed: 0,
 		icon: "fas fa-question"
 	}
 };

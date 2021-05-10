@@ -40,11 +40,11 @@ const MonsterFactory = (function() {
 				ability_modifiers: monsterAbilityModifiers,
 				saving_throws: _parseSavingThrows(derivedAttributes, blueprint.data.saving_throws),
 				proficiency_bonus: monsterProficiency,
-				initiative: _parseInitiative(monsterAbilityModifiers, blueprint.data.initiative),
+				initiative: _parseInitiative(monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.initiative),
 				skills: monsterSkills,
-				speeds: _parseSpeeds(blueprint.data.speeds),
+				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
 				senses: _parseSenses(blueprint.data.senses),
-				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, blueprint.data.passive_perception),
+				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.passive_perception),
 				languages: _parseCollection(DEFAULT_LANGUAGES, blueprint.data.languages, "languages"),
 				damage_immunities: _parseCollection(DEFAULT_DAMAGE_TYPES, blueprint.data.damage_immunities, "damage"),
 				damage_resistances: _parseCollection(DEFAULT_DAMAGE_TYPES, blueprint.data.damage_resistances, "damage"),
@@ -276,19 +276,24 @@ const MonsterFactory = (function() {
 		return skills;
 	}
 
-	function _parseSpeeds(monsterSpeeds) {
+	function _parseSpeeds(monsterSpeeds, role) {
 		const speeds = [];
 		DEFAULT_SPEEDS.forEach(function(defaultSpeed) {
 			if (monsterSpeeds[defaultSpeed]) {
-				const speed = {};
-				speed.title = game.i18n.format(`gg5e_mm.monster.common.speeds.${defaultSpeed}`);
-				speed.value = monsterSpeeds[defaultSpeed];
-				speed.units = monsterSpeeds.units;
+				const speed = new DerivedAttribute();
+				speed.add(monsterSpeeds[defaultSpeed], game.i18n.format('gg5e_mm.monster.source.base'));
+				speed.add(role.modifiers.speed, game.i18n.format('gg5e_mm.monster.source.role'));
+				speed.setMinimumValue(1);
+				speed.ceil();
+
+				const details = {};
+				details.title = game.i18n.format(`gg5e_mm.monster.common.speeds.${defaultSpeed}`);
+				details.units = monsterSpeeds.units;
 				if (defaultSpeed == "fly" && monsterSpeeds.can_hover) {
-					speed.detail =  game.i18n.format(`gg5e_mm.monster.common.speeds.can_hover`).toLowerCase();
+					details.detail =  game.i18n.format(`gg5e_mm.monster.common.speeds.can_hover`).toLowerCase();
 				}
 
-				speeds.push(speed);
+				speeds.push($.extend(speed, details));
 			}
 		});
 
@@ -330,10 +335,12 @@ const MonsterFactory = (function() {
 		return senses;
 	}
 
-	function _parsePassivePerception(skills, abilityModifiers, passivePerception) {
+	function _parsePassivePerception(skills, abilityModifiers, rank, role, passivePerception) {
 		const basePerc = 10;
 		const percep = new DerivedAttribute();
 		percep.add(basePerc, game.i18n.format('gg5e_mm.monster.source.base'));
+		percep.add(rank.modifiers.passive_perception, game.i18n.format('gg5e_mm.monster.source.rank'));
+		percep.add(role.modifiers.passive_perception, game.i18n.format('gg5e_mm.monster.source.role'));
 
 		if (skills.find((x) => x.code == "perception")) {
 			const skillPerc = skills.find((x) => x.code == "perception").getValue();
@@ -382,13 +389,16 @@ const MonsterFactory = (function() {
 		return cr;
 	}
 
-	function _parseInitiative(monsterAbilityModifiers, initiative) {
+	function _parseInitiative(monsterAbilityModifiers, rank, role, initiative) {
 		const init = new DerivedAttribute();
 		init.add(monsterAbilityModifiers[initiative.ability].value, game.i18n.format('gg5e_mm.monster.source.ability_modifier'));
+		init.add(rank.modifiers.initiative, game.i18n.format('gg5e_mm.monster.source.rank'));
+		init.add(role.modifiers.initiative, game.i18n.format('gg5e_mm.monster.source.role'));
 		init.applyModifier(initiative.modifier, initiative.override);
 		init.ceil();
 
 		return $.extend(init, {
+			ability: initiative.ability,
 			advantage: initiative.advantage
 		});
 	}

@@ -56,7 +56,7 @@
 						<div class="property__title">{{localize 'gg5e_mm.monster.view.attributes.speeds.title'}}</div>
 						<div class="property__value">
 							{{#each data.gg5e_mm.monster.data.speeds as | speed |}}
-								<span>{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.attributes.speeds.' speed.units) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
+								<span title="{{{parseSources speed.sources}}}">{{speed.title}} {{#if speed.value}}{{localize (concat 'gg5e_mm.monster.view.attributes.speeds.' speed.units) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
 							{{/each}}
 						</div>
 					</div>
