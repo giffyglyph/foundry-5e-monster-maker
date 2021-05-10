@@ -218,31 +218,45 @@ const MonsterBlueprint = (function() {
 	}
 
 	function _getActorType(type) {
-		let actorType = type.replace(/ /g, '_').toLowerCase();
-		if (DEFAULT_CATEGORIES.includes(actorType)) {
+		if (type.trim().length == 0) {
 			return {
-				category: actorType,
+				category: "humanoid",
 				custom: null
 			}
 		} else {
-			return {
-				category: "custom",
-				custom: type
+			let actorType = type.replace(/ /g, '_').trim().toLowerCase();
+			if (DEFAULT_CATEGORIES.includes(actorType)) {
+				return {
+					category: actorType,
+					custom: null
+				}
+			} else {
+				return {
+					category: "custom",
+					custom: type.trim()
+				}
 			}
 		}
 	}
 
 	function _getActorAlignment(alignment) {
-		let actorAlignment = alignment.replace(/ /g, '_').toLowerCase();
-		if (DEFAULT_ALIGNMENTS.includes(actorAlignment)) {
+		if (alignment.trim().length == 0) {
 			return {
-				category: actorAlignment,
+				category: "unaligned",
 				custom: null
 			}
 		} else {
-			return {
-				category: "custom",
-				custom: alignment
+			let actorAlignment = alignment.replace(/ /g, '_').trim().toLowerCase();
+			if (DEFAULT_ALIGNMENTS.includes(actorAlignment)) {
+				return {
+					category: actorAlignment,
+					custom: null
+				}
+			} else {
+				return {
+					category: "custom",
+					custom: alignment.trim()
+				}
 			}
 		}
 	}
