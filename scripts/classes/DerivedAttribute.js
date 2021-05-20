@@ -42,7 +42,7 @@ class DerivedAttribute {
 
 	setMinimumValue(value) {
 		if (this.value < value) {
-			this.set(value, game.i18n.format('gg5e_mm.monster.source.minimum_allowed'));
+			this.set(value, game.i18n.format('gmm.monster.source.minimum_allowed'));
 		};
 	}
 
@@ -76,13 +76,17 @@ class DerivedAttribute {
 	applyModifier(modifier, isFixed) {
 		if (typeof modifier === "number") {
 			if (isFixed) {
-				this.setValue(modifier, game.i18n.format('gg5e_mm.monster.source.fixed_modifier'));
+				this.setValue(modifier, game.i18n.format('gmm.monster.source.fixed_modifier'));
 				this.has_modifier = true;
 			} else if (modifier != 0) {
-				this.add(modifier, game.i18n.format('gg5e_mm.monster.source.relative_modifier'));
+				this.add(modifier, game.i18n.format('gmm.monster.source.relative_modifier'));
 				this.has_modifier = true;
 			}
 		}
+	}
+
+	round(scale) {
+		this.value = Math.round(this.value * scale) / scale;
 	}
 }
 

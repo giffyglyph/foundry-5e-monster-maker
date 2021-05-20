@@ -1,9 +1,9 @@
-.gg5e-mm-block {
+.gmm-block {
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	border-radius: 0.75rem;
+	border-radius: 0.5rem 0.5rem 1rem 1rem;
 	background: white;
 
 	.block__title {
@@ -11,10 +11,8 @@
 		color: var(--color-primary-tone-1);
 		font-weight: bold;
 		position: relative;
-		background: white;
 		padding: 0.25rem 0.25rem;
 		text-align: center;
-		font-size: smaller;
 
 		+ .block__contents {
 			position: relative;

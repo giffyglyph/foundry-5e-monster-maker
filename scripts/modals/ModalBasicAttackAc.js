@@ -8,7 +8,7 @@ const ModalBasicAttackAc = (function() {
 
     function _submitForm(event) {
 		const action = event.currentTarget.closest("button").dataset.action;
-		const modal = event.currentTarget.closest(".gg5e-mm-modal");
+		const modal = event.currentTarget.closest(".gmm-modal");
 		const form = new FormData(modal.querySelector("form"));
 
 		const rollParts = [];
@@ -16,15 +16,15 @@ const ModalBasicAttackAc = (function() {
 		switch (action) {
 			case "roll-advantage":
 				rollParts.push("2d20kh");
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack_ac.message.advantage'));
+				messageParts.push(game.i18n.format('gmm.modal.basic_attack_ac.message.advantage'));
 				break;
 			case "roll-disadvantage":
 				rollParts.push("2d20kl");
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack_ac.message.disadvantage'));
+				messageParts.push(game.i18n.format('gmm.modal.basic_attack_ac.message.disadvantage'));
 				break;
 			default: 
 				rollParts.push("1d20");
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack_ac.message.plain'));
+				messageParts.push(game.i18n.format('gmm.modal.basic_attack_ac.message.plain'));
 				break;
 		}
 		rollParts.push(form.get("bonus"));

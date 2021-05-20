@@ -1,4 +1,4 @@
-.gg5e-mm-window {
+.gmm-window {
 	border-radius: 0 0 1.5rem 1.5rem;
 	box-shadow: none;
 	filter: drop-shadow(0px 0px 20px black);
@@ -7,7 +7,7 @@
 		border-bottom: none;
 
 		&.resizable {
-
+			
 			~ .window-resizable-handle {
 				background: white;
 				color: black;
@@ -17,29 +17,41 @@
 				width: 2rem;
 				padding: 0;
 				border-radius: 1rem;
-				right: 0.5rem;
-				bottom: 0.5rem;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				font-size: larger;
+				margin: 0;
 				cursor: pointer;
-				z-index: 1;
+				bottom: 0.5rem;
+				right: 0.5rem;
+				display: flex;
+				z-index: 2;
+
+				i {
+					margin: auto;
+				}
 			}
 
-			~ .window-content .sheet__footer {
+			~ .window-content > .gmm-forge .forge__controls {
 				padding-right: 2.25rem;
 			}
 		}
 	}
 
-	&.minimized .window-header ~ .window-resizable-handle {
-		display: none;
+	&.minimized {
+		border-radius: 0;
+
+		.window-header {
+			border: none;
+
+			&.resizable ~ .window-resizable-handle {
+				display: none;
+			}
+		}
 	}
 
 	.window-content {
 		background: none;
 		padding: 0;
 		border-radius: 1rem;
+		overflow: visible;
+		height: 0;
 	}
 }

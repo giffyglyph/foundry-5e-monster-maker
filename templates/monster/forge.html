@@ -1,0 +1,581 @@
+<div class="gmm-forge forge--monster layout--{{gmm.blueprint.display.layout}} color--primary-{{gmm.blueprint.display.color.primary}} color--secondary-{{gmm.blueprint.display.color.secondary}} {{#if gmm.gui._isExpanded}}expanded{{/if}} {{cssClass}}">
+	<div class="forge__artifact">
+		{{#if gmm.monster }}
+			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/monster/skins/' gmm.blueprint.display.skin.artifact '/artifact.html') }}
+				<div class="gmm-artifact">
+					<div class="artifact__error">
+						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+						<div class="error__advice">{{localize 'gmm.monster.errors.invalid_monster'}}</div>
+					</div>
+				</div>
+			{{/undefined}}
+		{{else}}
+			<div class="gmm-artifact">
+				<div class="artifact__error">
+					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+					<div class="error__advice">{{localize 'gmm.monster.errors.missing_monster'}}</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="forge__blueprint">
+		{{#if gmm.blueprint }}
+			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/monster/skins/' gmm.blueprint.display.skin.blueprint '/blueprint.html') }}
+				<div class="gmm-blueprint">
+					<div class="blueprint__error">
+						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+						<div class="error__advice">{{localize 'gmm.monster.errors.invalid_blueprint'}}</div>
+					</div>
+				</div>
+			{{/undefined}}
+		{{else}}
+			<div class="gmm-blueprint">
+				<div class="blueprint__error">
+					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+					<div class="error__advice">{{localize 'gmm.monster.errors.missing_blueprint'}}</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="forge__options">
+		<div class="forge__id">
+			<span class="id">{{actor._id}}</span>
+			<span class="name">Giffyglyph's 5e Monster Maker</span>
+		</div>
+		<nav class="forge__controls" data-group="primary">
+			<button type="button" data-action="open-modal" data-modal="modal_about"><i class="fas fa-question"></i></button>
+			<button type="button" data-action="expand-window"><i class="fas fa-cogs"></i></button>
+		</nav>
+	</div>
+	<div class="forge__modals">
+		<div class="gmm-modal modal--ability-check" id="modal_ability_check">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-dice-d20"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.ability_check.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<form class="modal__form">
+						<div class="form-group form-group--abilities">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.ability_check.ability_bonus'}}</span>
+							</div>
+							<div class="form-group__body">
+								<div class="radios radios--grid abilities">
+									<label class="radio ability">
+										<input type="radio" class="radio--str" name="ability" value="str" checked/>
+										<input type="hidden" name="ability_str" value="{{data.gmm.monster.data.ability_modifiers.str.value}}"/>
+										<span>
+											<span class="ability__name">{{localize 'gmm.common.ability.str.code'}}</span>
+											<span class="ability__value">{{numberFormat data.gmm.monster.data.ability_modifiers.str.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio ability">
+										<input type="radio" class="radio--dex" name="ability" value="dex"/>
+										<input type="hidden" name="ability_dex" value="{{data.gmm.monster.data.ability_modifiers.dex.value}}"/>
+										<span>
+											<span class="ability__name">{{localize 'gmm.common.ability.dex.code'}}</span>
+											<span class="ability__value">{{numberFormat data.gmm.monster.data.ability_modifiers.dex.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio ability">
+										<input type="radio" class="radio--con" name="ability" value="con"/>
+										<input type="hidden" name="ability_con" value="{{data.gmm.monster.data.ability_modifiers.con.value}}"/>
+										<span>
+											<span class="ability__name">{{localize 'gmm.common.ability.con.code'}}</span>
+											<span class="ability__value">{{numberFormat data.gmm.monster.data.ability_modifiers.con.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio ability">
+										<input type="radio" class="radio--int" name="ability" value="int"/>
+										<input type="hidden" name="ability_int" value="{{data.gmm.monster.data.ability_modifiers.int.value}}"/>
+										<span>
+											<span class="ability__name">{{localize 'gmm.common.ability.int.code'}}</span>
+											<span class="ability__value">{{numberFormat data.gmm.monster.data.ability_modifiers.int.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio ability">
+										<input type="radio" class="radio--wis" name="ability" value="wis"/>
+										<input type="hidden" name="ability_wis" value="{{data.gmm.monster.data.ability_modifiers.wis.value}}"/>
+										<span>
+											<span class="ability__name">{{localize 'gmm.common.ability.wis.code'}}</span>
+											<span class="ability__value">{{numberFormat data.gmm.monster.data.ability_modifiers.wis.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio ability">
+										<input type="radio" class="radio--cha" name="ability" value="cha"/>
+										<input type="hidden" name="ability_cha" value="{{data.gmm.monster.data.ability_modifiers.cha.value}}"/>
+										<span>
+											<span class="ability__name">{{localize 'gmm.common.ability.cha.code'}}</span>
+											<span class="ability__value">{{numberFormat data.gmm.monster.data.ability_modifiers.cha.value sign=true}}</span>
+										</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.ability_check.skill_bonus'}}</span>
+							</div>
+							<div class="form-group__body">
+								<select class="select--skill" name="skill">
+									<option value="" selected="">—</option>
+									{{#each gmm.enums.skills}}
+										<option value="{{.}}">{{localize (concat 'gmm.common.skill.' .)}} {{#if (getSkillProficiency ../data.gmm.monster.data.skills .)}}({{numberFormat (getSkillProficiency ../data.gmm.monster.data.skills .) sign=true}}){{/if}}</option>
+									{{/each}}
+								</select>
+								{{#each gmm.enums.skills}}
+									<input type="hidden" name="skill_{{.}}" value="{{getSkillProficiency ../data.gmm.monster.data.skills .}}"/>
+								{{/each}}
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.modifiers.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<input name="modifiers" type="text" placeholder="{{localize 'gmm.modal.common.modifiers.placeholder'}}"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.roll_mode.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<select name="mode">
+									<option value="roll" selected="">{{localize 'gmm.modal.common.roll_mode.roll'}}</option>
+									<option value="gmroll">{{localize 'gmm.modal.common.roll_mode.gmroll'}}</option>
+									<option value="blindroll">{{localize 'gmm.modal.common.roll_mode.blindroll'}}</option>
+									<option value="selfroll">{{localize 'gmm.modal.common.roll_mode.selfroll'}}</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal__footer">
+					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
+					<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--about" id="modal_about">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-question"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.about.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">{{{localize 'gmm.modal.info.about.p.1' pdf='https://drive.google.com/file/d/1BKZcrdUeeZCiG8WjC1E_Pxr1LCpaGbfY/view?usp=sharing'}}}</p>
+					<div class="support">
+						<p class="support__title">{{localize 'gmm.modal.info.about.support'}}</p>
+						<p>{{{localize 'gmm.modal.info.about.p.2'}}}</p>
+						<ul class="support__links">
+							<li><a class="patreon" href="https://www.patreon.com/bePatron?u=12684623"><i class="fab fa-fw fa-patreon"></i> {{{localize 'gmm.modal.info.about.patreon'}}}</a></li>
+							<li><a class="kofi" href="https://ko-fi.com/giffyglyph#checkoutModal"><i class="fas fa-fw fa-heart"></i> {{{localize 'gmm.modal.info.about.kofi'}}}</a></li>
+						</ul>
+						<ul class="contact_links">
+							<li>
+								<a class="reddit" href="https://reddit.com/r/darkerdungeons5e">
+									<i class="fab fa-fw fa-reddit-alien"></i>
+								</a>
+							</li>
+							<li>
+								<a class="youtube" href="https://youtube.com/giffyglyph">
+									<i class="fab fa-fw fa-youtube"></i>
+								</a>
+							</li>
+							<li>
+								<a class="twitter" href="https://twitter.com/giffyglyph">
+									<i class="fab fa-fw fa-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a class="facebook" href="https://facebook.com/giffyglyph">
+									<i class="fab fa-fw fa-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a class="twitch" href="https://twitch.com/giffyglyph">
+									<i class="fab fa-fw fa-twitch"></i>
+								</a>
+							</li>
+							<li>
+								<a class="website" href="https://www.giffyglyph.com">giffyglyph.com</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--basic-attack-ac" id="modal_basic_attack_ac">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-crosshairs"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.basic_attack_ac.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<form class="modal__form">
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.basic_attack_ac.bonus'}}</span>
+							</div>
+							<div class="form-group__body">
+								<input name="bonus" value="{{numberFormat data.gmm.monster.data.attack_bonus.value sign=true}}" readonly/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.modifiers.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<input name="modifiers" type="text" placeholder="{{localize 'gmm.modal.common.modifiers.placeholder'}}"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.roll_mode.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<select name="mode">
+									<option value="roll" selected="">{{localize 'gmm.modal.common.roll_mode.roll'}}</option>
+									<option value="gmroll">{{localize 'gmm.modal.common.roll_mode.gmroll'}}</option>
+									<option value="blindroll">{{localize 'gmm.modal.common.roll_mode.blindroll'}}</option>
+									<option value="selfroll">{{localize 'gmm.modal.common.roll_mode.selfroll'}}</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal__footer">
+					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
+					<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--basic-attack-save" id="modal_basic_attack_save">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-bullseye"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.basic_attack_save.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<form class="modal__form">
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.basic_attack_save.attack'}}</span>
+							</div>
+							<div class="form-group__body">
+								<div class="radios radios--grid attacks">
+									<label class="radio attack">
+										<input type="radio" name="attack" value="primary" class="radio--primary" checked/>
+										<span>
+											<span class="attack__dc">DC {{data.gmm.monster.data.attack_dcs.primary.value}}</span>
+											<span class="attack__title">{{localize 'gmm.modal.basic_attack_save.primary'}}</span>
+										</span>
+									</label>
+									<label class="radio attack">
+										<input type="radio" name="attack" value="secondary" class="radio--secondary"/>
+										<span>
+											<span class="attack__dc">DC {{data.gmm.monster.data.attack_dcs.secondary.value}}</span>
+											<span class="attack__title">{{localize 'gmm.modal.basic_attack_save.secondary'}}</span>
+										</span>
+									</label>
+									<input type="hidden" name="primary" value="{{data.gmm.monster.data.attack_dcs.primary.value}}"/>
+									<input type="hidden" name="secondary" value="{{data.gmm.monster.data.attack_dcs.secondary.value}}"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.basic_attack_save.defence'}}</span>
+							</div>
+							<div class="form-group__body">
+								<div class="radios radios--grid defences">
+									<label class="radio defence">
+										<input type="radio" name="defence" value="str" checked/>
+										<span>{{localize 'gmm.common.ability.str.code'}}</span>
+									</label>
+									<label class="radio defence">
+										<input type="radio" name="defence" value="dex"/>
+										<span>{{localize 'gmm.common.ability.dex.code'}}</span>
+									</label>
+									<label class="radio defence">
+										<input type="radio" name="defence" value="con"/>
+										<span>{{localize 'gmm.common.ability.con.code'}}</span>
+									</label>
+									<label class="radio defence">
+										<input type="radio" name="defence" value="int"/>
+										<span>{{localize 'gmm.common.ability.int.code'}}</span>
+									</label>
+									<label class="radio defence">
+										<input type="radio" name="defence" value="wis"/>
+										<span>{{localize 'gmm.common.ability.wis.code'}}</span>
+									</label>
+									<label class="radio defence">
+										<input type="radio" name="defence" value="cha"/>
+										<span>{{localize 'gmm.common.ability.cha.code'}}</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.modifiers.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<input name="modifiers" type="text" placeholder="{{localize 'gmm.modal.common.modifiers.placeholder'}}"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.roll_mode.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<select name="mode">
+									<option value="roll" selected="">{{localize 'gmm.modal.common.roll_mode.roll'}}</option>
+									<option value="gmroll">{{localize 'gmm.modal.common.roll_mode.gmroll'}}</option>
+									<option value="blindroll">{{localize 'gmm.modal.common.roll_mode.blindroll'}}</option>
+									<option value="selfroll">{{localize 'gmm.modal.common.roll_mode.selfroll'}}</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal__footer">
+					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--basic-damage" id="modal_basic_damage">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-fire"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.basic_damage.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<form class="modal__form">
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.basic_damage.bonus'}}</span>
+							</div>
+							<div class="form-group__body">
+								<div class="radios radios--grid damages">
+									<label class="radio damage">
+										<input type="radio" name="bonus" value="static" class="radio--static" checked/>
+										<span>
+											<span class="damage__value">{{data.gmm.monster.data.damage_per_action.value}}</span>
+											<span class="damage__title">{{localize 'gmm.modal.basic_damage.static'}}</span>
+										</span>
+									</label>
+									<label class="radio damage">
+										<input type="radio" name="bonus" value="random" class="radio--random"/>
+										<span>
+											<span class="damage__value">{{data.gmm.monster.data.damage_per_action.dice}}</span>
+											<span class="damage__title">{{localize 'gmm.modal.basic_damage.random'}}</span>
+										</span>
+									</label>
+									<input type="hidden" name="static" value="{{data.gmm.monster.data.damage_per_action.value}}"/>
+									<input type="hidden" name="random" value="{{data.gmm.monster.data.damage_per_action.dice}}"/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.modifiers.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<input name="modifiers" type="text" placeholder="{{localize 'gmm.modal.common.modifiers.placeholder'}}"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.roll_mode.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<select name="mode">
+									<option value="roll" selected="">{{localize 'gmm.modal.common.roll_mode.roll'}}</option>
+									<option value="gmroll">{{localize 'gmm.modal.common.roll_mode.gmroll'}}</option>
+									<option value="blindroll">{{localize 'gmm.modal.common.roll_mode.blindroll'}}</option>
+									<option value="selfroll">{{localize 'gmm.modal.common.roll_mode.selfroll'}}</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal__footer">
+					<button class="modal__button" data-action="roll-critical"><i class="fas fa-skull"></i> {{localize 'gmm.modal.common.button.critical'}}</button>
+					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal" id="modal_modifiers">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-pen"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.modifiers.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p>{{{localize 'gmm.modal.info.modifiers.p.1'}}}</p>
+					<p>{{localize 'gmm.modal.info.modifiers.p.2'}}</p>
+					<ol>
+						<li>{{{localize 'gmm.modal.info.modifiers.li.1'}}}</li>
+						<li>{{{localize 'gmm.modal.info.modifiers.li.2'}}}</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal" id="modal_modifying_abilities">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-pen"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.modifying_abilities.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p>{{{localize 'gmm.modal.info.modifying_abilities.p.1'}}}</p>
+					<pre class="text--center">
+						{{localize 'gmm.modal.info.modifying_abilities.pre.1'}}
+					</pre>
+					<p>{{{localize 'gmm.modal.info.modifying_abilities.p.2'}}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal" id="modal_ranked_abilities">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-sort-numeric-down"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.ranked_abilities.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p>{{localize 'gmm.modal.info.ranked_abilities.p.1'}}</p>
+					<p>{{localize 'gmm.modal.info.ranked_abilities.p.2'}}</p>
+					<pre class="text--center">
+						{{localize 'gmm.modal.info.ranked_abilities.pre.1'}}
+					</pre>
+					<p>{{localize 'gmm.modal.info.ranked_abilities.p.3'}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--saving-throw" id="modal_saving_throw">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-shield-alt"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.saving_throw.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<form class="modal__form">
+						<div class="form-group form-group--saves">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.saving_throw.ability_bonus'}}</span>
+							</div>
+							<div class="form-group__body">
+								<div class="radios radios--grid saves">
+									<label class="radio save">
+										<input type="radio" class="radio--str" name="save" value="str" checked/>
+										<input type="hidden" name="save_str" value="{{data.gmm.monster.data.saving_throws.str.value}}"/>
+										<span>
+											<span class="save__name">{{localize 'gmm.common.ability.str.code'}}</span>
+											<span class="save__value">{{numberFormat data.gmm.monster.data.saving_throws.str.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio save">
+										<input type="radio" class="radio--dex" name="save" value="dex"/>
+										<input type="hidden" name="save_dex" value="{{data.gmm.monster.data.saving_throws.dex.value}}"/>
+										<span>
+											<span class="save__name">{{localize 'gmm.common.ability.dex.code'}}</span>
+											<span class="save__value">{{numberFormat data.gmm.monster.data.saving_throws.dex.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio save">
+										<input type="radio" class="radio--con" name="save" value="con"/>
+										<input type="hidden" name="save_con" value="{{data.gmm.monster.data.saving_throws.con.value}}"/>
+										<span>
+											<span class="save__name">{{localize 'gmm.common.ability.con.code'}}</span>
+											<span class="save__value">{{numberFormat data.gmm.monster.data.saving_throws.con.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio save">
+										<input type="radio" class="radio--int" name="save" value="int"/>
+										<input type="hidden" name="save_int" value="{{data.gmm.monster.data.saving_throws.int.value}}"/>
+										<span>
+											<span class="save__name">{{localize 'gmm.common.ability.int.code'}}</span>
+											<span class="save__value">{{numberFormat data.gmm.monster.data.saving_throws.int.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio save">
+										<input type="radio" class="radio--wis" name="save" value="wis"/>
+										<input type="hidden" name="save_wis" value="{{data.gmm.monster.data.saving_throws.wis.value}}"/>
+										<span>
+											<span class="save__name">{{localize 'gmm.common.ability.wis.code'}}</span>
+											<span class="save__value">{{numberFormat data.gmm.monster.data.saving_throws.wis.value sign=true}}</span>
+										</span>
+									</label>
+									<label class="radio save">
+										<input type="radio" class="radio--cha" name="save" value="cha"/>
+										<input type="hidden" name="save_cha" value="{{data.gmm.monster.data.saving_throws.cha.value}}"/>
+										<span>
+											<span class="save__name">{{localize 'gmm.common.ability.cha.code'}}</span>
+											<span class="save__value">{{numberFormat data.gmm.monster.data.saving_throws.cha.value sign=true}}</span>
+										</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.modifiers.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<input name="modifiers" type="text" placeholder="{{localize 'gmm.modal.common.modifiers.placeholder'}}"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group__header">
+								<span class="form-group__title">{{localize 'gmm.modal.common.roll_mode.title'}}</span>
+							</div>
+							<div class="form-group__body">
+								<select name="mode">
+									<option value="roll" selected="">{{localize 'gmm.modal.common.roll_mode.roll'}}</option>
+									<option value="gmroll">{{localize 'gmm.modal.common.roll_mode.gmroll'}}</option>
+									<option value="blindroll">{{localize 'gmm.modal.common.roll_mode.blindroll'}}</option>
+									<option value="selfroll">{{localize 'gmm.modal.common.roll_mode.selfroll'}}</option>
+								</select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal__footer">
+					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
+					<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal" id="modal_tags">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-tag"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.tags.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p>{{{localize 'gmm.modal.info.tags.p.1'}}}</p>
+					<p>{{localize 'gmm.modal.info.tags.p.2'}}</p>
+					<pre class="text--center">
+						{{localize 'gmm.modal.info.tags.pre.1'}}
+					</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

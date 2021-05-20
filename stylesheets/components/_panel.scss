@@ -1,22 +1,30 @@
-.gg5e-mm-panel {
+.gmm-panel {
 	filter: drop-shadow(0 1px 0 var(--color-primary-shade-3));
-	border-radius: 0.75rem;
+	border-radius: 0.5rem 0.5rem 1rem 1rem;
 	overflow: hidden;
 
 	.panel__header {
-		color: var(--color-primary-tone-1);
-		background: white;
-		padding: 0.5rem 1rem 0.5rem;
+		color: white;
+		background: var(--color-primary-shade-1);
+		padding: 0.5rem 1rem 1.5rem;
 		font-weight: bold;
 		font-size: larger;
 		position: relative;
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: -1rem;
 
 		.badge {
 			background: var(--color-primary-tint-4);
 			color: var(--color-primary-base);
 			padding: 0 0.5rem;
-			margin-left: 0.25rem;
 			border-radius: 1rem;
+		}
+
+		+ .panel__body {
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
 		}
 	}
 
@@ -25,29 +33,6 @@
 		position: relative;
 		padding: 1rem;
 		overflow: hidden;
-
-		&::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			border-bottom: 1px dotted var(--color-primary-tint-3);
-		}
-
-		&::after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background: var(--color-primary-shade-1);
-			z-index: 1;
-			pointer-events: none;
-			opacity: 0;
-		}
 	}
 
 	&.panel--collapsible {
@@ -55,6 +40,7 @@
 		.panel__header {
 			padding-right: 3rem;
 			cursor: pointer;
+			padding-left: 3rem;
 
 			&::after {
 				content: "\f077";
@@ -85,8 +71,6 @@
 		&.closed {
 
 			.panel__header {
-				background: var(--color-primary-shade-1);
-				color: white;
 				padding-bottom: 0.5rem;
 				margin-bottom: 0;
 
@@ -108,7 +92,7 @@
 		&.collapsing {
 
 			.panel__header {
-				transition: color 100ms linear, background-color 100ms linear, margin 100ms ease-out, padding 100ms ease-out;
+				transition: color 100ms linear, background-color 100ms linear, margin 100ms linear, padding 100ms linear;
 
 				.badge {
 					transition: color 100ms linear, background-color 100ms linear;
@@ -126,8 +110,6 @@
 			&.closed {
 
 				.panel__header {
-					background-color: white;
-					color: var(--color-primary-tone-1);
 
 					.badge {
 						background: var(--color-primary-tint-4);
@@ -149,8 +131,6 @@
 				.panel__header {
 					padding-bottom: 0.5rem;
 					margin-bottom: 0rem;
-					background-color: var(--color-primary-shade-1);
-					color: white;
 
 					.badge {
 						background: var(--color-primary-base);

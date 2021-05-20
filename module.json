@@ -10,9 +10,8 @@
       "url": "https://www.giffyglyph.com"
     }
   ],
-  "scripts": [],
-  "esmodules": ["gg5e_mm.js"],
-  "styles": ["gg5e_mm.css"],
+  "esmodules": ["gmm.js"],
+  "styles": ["gmm.css"],
   "system": "dnd5e",
   "packs": [
   ],

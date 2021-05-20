@@ -1,9 +1,0 @@
-<div class="monster__modifiers">
-    {{#each data.gg5e_mm.enums.abilities}}
-        {{> "modules/giffyglyphs-5e-monster-maker/templates/partials/monster/components/monster_modifier.html"
-            ability=.
-            modifier=(lookup ../data.gg5e_mm.monster.data.ability_modifiers .)
-            save=(lookup ../data.gg5e_mm.monster.data.saving_throws .)
-        }}
-    {{/each}}
-</div>

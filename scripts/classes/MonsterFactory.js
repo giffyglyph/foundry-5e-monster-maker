@@ -1,12 +1,13 @@
 import Dice from "./Dice.js";
 import MonsterHelpers from "./MonsterHelpers.js";
-import { DEFAULT_ABILITIES } from "../consts/DefaultAbilities.js";
-import { DEFAULT_LANGUAGES } from "../consts/DefaultLanguages.js";
-import { DEFAULT_DAMAGE_TYPES } from "../consts/DefaultDamageTypes.js";
-import { DEFAULT_CONDITIONS } from "../consts/DefaultConditions.js";
-import { DEFAULT_SKILLS } from "../consts/DefaultSkills.js";
-import { DEFAULT_SPEEDS } from "../consts/DefaultSpeeds.js";
-import { DEFAULT_SENSES } from "../consts/DefaultSenses.js";
+import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
+import { GMM_5E_LANGUAGES } from "../consts/Gmm5eLanguages.js";
+import { GMM_5E_DAMAGE_TYPES } from "../consts/Gmm5eDamageTypes.js";
+import { GMM_5E_CONDITIONS } from "../consts/Gmm5eConditions.js";
+import { GMM_5E_SKILLS } from "../consts/Gmm5eSkills.js";
+import { GMM_5E_SIZES } from "../consts/Gmm5eSizes.js";
+import { GMM_5E_SPEEDS } from "../consts/Gmm5eSpeeds.js";
+import { GMM_5E_SENSES } from "../consts/Gmm5eSenses.js";
 import DerivedAttribute from "./DerivedAttribute.js";
 
 const MonsterFactory = (function() {
@@ -20,43 +21,52 @@ const MonsterFactory = (function() {
 		const monsterProficiency = _parseProficiency(derivedAttributes, blueprint.data.proficiency_bonus);
 		const monsterAbilityModifiers = _parseAbilityModifiers(derivedAttributes, blueprint.data.ability_modifiers);
 		const monsterSkills = _parseSkills(monsterProficiency.getValue(), blueprint.data.skills);
-		
+		const monsterInventoryWeight = _getInventoryWeight(blueprint.data);
+		const monsterInventoryCapacity = _getInventoryCapacity(monsterAbilityModifiers, blueprint.data);
+		const monsterClasses = blueprint.data.traits.items.filter((x) => x.class );
+
 		return {
 			vid: 1,
 			type: blueprint.type,
 			data: {
-				name: _parseName(blueprint.data.description.name),
-				image: blueprint.data.description.image,
-				description: _parseDescription(blueprint.data.description),
-				level: _parseLevel(derivedAttributes.level),
-				rank: _parseRank(derivedAttributes.rank),
-				phase: _parsePhase(derivedAttributes.rank),
-				role: _parseRole(derivedAttributes.role),
-				hit_points: _parseHitPoints(derivedAttributes, blueprint.data.hit_points),
+				ability_modifiers: monsterAbilityModifiers,
+				actions: _parseActions(blueprint.data.actions),
 				armor_class: _parseArmorClass(derivedAttributes, blueprint.data.armor_class),
 				attack_bonus: _parseAttackBonus(derivedAttributes, blueprint.data.attack_bonus),
 				attack_dcs: _parseAttackDcs(derivedAttributes, blueprint.data.attack_dcs),
+				biography: _parseBiography(blueprint.data.biography),
+				bonus_actions: _parseBonusActions(blueprint.data.bonus_actions),
+				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating),
+				condition_immunities: _parseCollection(GMM_5E_CONDITIONS, blueprint.data.condition_immunities, "condition"),
+				damage_immunities: _parseCollection(GMM_5E_DAMAGE_TYPES, blueprint.data.damage_immunities, "damage"),
 				damage_per_action: _parseDamagePerAction(derivedAttributes, blueprint.data.damage_per_action),
-				ability_modifiers: monsterAbilityModifiers,
-				saving_throws: _parseSavingThrows(derivedAttributes, blueprint.data.saving_throws),
-				proficiency_bonus: monsterProficiency,
+				damage_resistances: _parseCollection(GMM_5E_DAMAGE_TYPES, blueprint.data.damage_resistances, "damage"),
+				damage_vulnerabilities: _parseCollection(GMM_5E_DAMAGE_TYPES, blueprint.data.damage_vulnerabilities, "damage"),
+				description: _parseDescription(blueprint.data.description),
+				hit_points: _parseHitPoints(derivedAttributes, blueprint.data.hit_points),
+				image: blueprint.data.description.image,
 				initiative: _parseInitiative(monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.initiative),
+				inventory: _parseInventory(monsterInventoryWeight, monsterInventoryCapacity, blueprint.data.inventory),
+				lair_actions: _parseLairActions(blueprint.data.lair_actions),
+				languages: _parseCollection(GMM_5E_LANGUAGES, blueprint.data.languages, "languages"),
+				legendary_actions: _parseLegendaryActions(blueprint.data.legendary_actions),
+				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances),
+				level: _parseLevel(derivedAttributes.level),
+				name: _parseName(blueprint.data.description.name),
+				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions),
+				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.passive_perception),
+				phase: _parsePhase(derivedAttributes.rank),
+				proficiency_bonus: monsterProficiency,
+				rank: _parseRank(derivedAttributes.rank),
+				reactions: _parseReactions(blueprint.data.reactions),
+				role: _parseRole(derivedAttributes.role),
+				saving_throws: _parseSavingThrows(derivedAttributes, blueprint.data.saving_throws),
+				senses: _parseSenses(blueprint.data.senses),
 				skills: monsterSkills,
 				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
-				senses: _parseSenses(blueprint.data.senses),
-				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.passive_perception),
-				languages: _parseCollection(DEFAULT_LANGUAGES, blueprint.data.languages, "languages"),
-				damage_immunities: _parseCollection(DEFAULT_DAMAGE_TYPES, blueprint.data.damage_immunities, "damage"),
-				damage_resistances: _parseCollection(DEFAULT_DAMAGE_TYPES, blueprint.data.damage_resistances, "damage"),
-				damage_vulnerabilities: _parseCollection(DEFAULT_DAMAGE_TYPES, blueprint.data.damage_vulnerabilities, "damage"),
-				condition_immunities: _parseCollection(DEFAULT_CONDITIONS, blueprint.data.condition_immunities, "condition"),
-				xp: _parseXp(derivedAttributes, blueprint.data.xp),
-				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating),
-				biography: _parseBiography(blueprint.data.biography),
-				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions),
-				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances),
-				legendary_actions: _parseLegendaryActions(blueprint.data.legendary_actions),
-				lair_actions: _parseLairActions(blueprint.data.lair_actions)
+				spellbook: _parseSpellbook(monsterAbilityModifiers, monsterClasses, blueprint.data.spellbook),
+				traits: _parseTraits(blueprint.data.traits),
+				xp: _parseXp(derivedAttributes, blueprint.data.xp)
 			}
 		};
 	}
@@ -67,13 +77,13 @@ const MonsterFactory = (function() {
 
 	function _parseDescription(description) {
 		const parts = [];
-		parts.push(game.i18n.format(`gg5e_mm.monster.common.size.${description.size}`));
+		parts.push(game.i18n.format(`gmm.common.size.${description.size}`));
 		if (description.type.category === "custom") {
 			if (description.type.custom.trim().length > 0) {
 				parts.push(description.type.custom);
 			}
 		} else {
-			parts.push(game.i18n.format(`gg5e_mm.monster.common.type.${description.type.category}`).toLowerCase());
+			parts.push(game.i18n.format(`gmm.common.type.${description.type.category}`).toLowerCase());
 		}
 		const tags = description.tags ? description.tags.split(";").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
 		if (tags.length > 0) {
@@ -83,22 +93,22 @@ const MonsterFactory = (function() {
 		if (description.alignment.category === "custom") {
 			alignment = description.alignment.custom.trim();
 		} else {
-			alignment = game.i18n.format(`gg5e_mm.monster.common.alignment.${description.alignment.category}`).toLowerCase();
+			alignment = game.i18n.format(`gmm.common.alignment.${description.alignment.category}`).toLowerCase();
 		}
 		return `${parts.join(' ')}, ${alignment}`;
 	}
 	
 	function _parseLevel(level) {
-		return game.i18n.format('gg5e_mm.monster.view.combat.level', { level: level });
+		return game.i18n.format('gmm.monster.artifact.combat.level', { level: level });
 	}
 
 	function _parseRank(rank) {
-		let name = (rank.type == "custom") ? rank.custom_name : game.i18n.format(`gg5e_mm.monster.common.rank.${rank.type}`);
+		let name = (rank.type == "custom") ? rank.custom_name : game.i18n.format(`gmm.common.rank.${rank.type}`);
 		if (!name || name.trim().length == 0 ) {
 			name = "???";
 		}
 		if (rank.modifiers.scale_with_players && rank.modifiers.target_players != 1) {
-			name = game.i18n.format(`gg5e_mm.monster.view.combat.rank.vs`, { name: name, players: rank.modifiers.target_players });
+			name = game.i18n.format(`gmm.monster.artifact.combat.rank.vs`, { name: name, players: rank.modifiers.target_players });
 		}
 		return {
 			name: name,
@@ -108,14 +118,14 @@ const MonsterFactory = (function() {
 
 	function _parsePhase(rank) {
 		if (rank.modifiers.has_phases && rank.modifiers.phases.maximum > 1) {
-			return game.i18n.format('gg5e_mm.monster.view.combat.phase', rank.modifiers.phases);
+			return game.i18n.format('gmm.monster.artifact.combat.phase', rank.modifiers.phases);
 		} else {
 			return null;
 		}
 	}
 
 	function _parseRole(role) {
-		const name = (role.type == "custom") ? role.custom_name : game.i18n.format(`gg5e_mm.monster.common.role.${role.type}`);
+		const name = (role.type == "custom") ? role.custom_name : game.i18n.format(`gmm.common.role.${role.type}`);
 		return {
 			name: (!name || name.trim().length == 0 ) ? "???" : name,
 			icon: role.modifiers.icon
@@ -124,7 +134,7 @@ const MonsterFactory = (function() {
 
 	function _parseHitPoints(derivedAttributes, hitPoints) {
 		const maximumHp = derivedAttributes.maximumHitPoints;
-		maximumHp.applyModifier(hitPoints.maximum.modifier, hitPoints.maximum.override);
+		maximumHp.applyModifier(hitPoints.maximum.modifier.value, hitPoints.maximum.modifier.override);
 		maximumHp.setMinimumValue(1);
 		maximumHp.ceil();
 
@@ -137,7 +147,7 @@ const MonsterFactory = (function() {
 
 	function _parseArmorClass(derivedAttributes, armorClass) {
 		const ac = derivedAttributes.armorClass;
-		ac.applyModifier(armorClass.modifier, armorClass.override);
+		ac.applyModifier(armorClass.modifier.value, armorClass.modifier.override);
 		ac.setMinimumValue(1);
 		ac.ceil();
 
@@ -146,7 +156,7 @@ const MonsterFactory = (function() {
 
 	function _parseAttackBonus(derivedAttributes, attackBonus) {
 		const ab = derivedAttributes.attackBonus;
-		ab.applyModifier(attackBonus.modifier, attackBonus.override);
+		ab.applyModifier(attackBonus.modifier.value, attackBonus.modifier.override);
 		ab.setMinimumValue(1);
 		ab.ceil();
 
@@ -155,10 +165,10 @@ const MonsterFactory = (function() {
 
 	function _parseAttackDcs(derivedAttributes, attackDcs) {
 		const dcs = derivedAttributes.attackDcs;
-		dcs.primary.applyModifier(attackDcs.primary.modifier, attackDcs.primary.override);
+		dcs.primary.applyModifier(attackDcs.primary.modifier.value, attackDcs.primary.modifier.override);
 		dcs.primary.setMinimumValue(0);
 		dcs.primary.ceil();
-		dcs.secondary.applyModifier(attackDcs.secondary.modifier, attackDcs.secondary.override);
+		dcs.secondary.applyModifier(attackDcs.secondary.modifier.value, attackDcs.secondary.modifier.override);
 		dcs.secondary.setMinimumValue(0);
 		dcs.secondary.ceil();
 
@@ -170,7 +180,7 @@ const MonsterFactory = (function() {
 
 	function _parseDamagePerAction(derivedAttributes, damagePerAction) {
 		const damage = derivedAttributes.damagePerAction;
-		damage.applyModifier(damagePerAction.modifier, damagePerAction.override);
+		damage.applyModifier(damagePerAction.modifier.value, damagePerAction.modifier.override);
 		damage.setMinimumValue(1);
 		damage.ceil();
 
@@ -184,24 +194,25 @@ const MonsterFactory = (function() {
 
 	function _parseAbilityModifiers(derivedAttributes, abilityModifiers) {
 		const ams = {};
-		DEFAULT_ABILITIES.forEach((x) => {
+		GMM_5E_ABILITIES.forEach((x) => {
 			let ranking = abilityModifiers.ranking.indexOf(x);
 			ams[x] = derivedAttributes.abilityModifiers[ranking];
 		});
 
-		if (abilityModifiers.modifiers) {
-			const modifiers = abilityModifiers.modifiers.split(";").map(x => x.split("="));
+		if (abilityModifiers.modifier.value) {
+			const modifiers = abilityModifiers.modifier.value.split(";").map(x => x.split("="));
 			modifiers.forEach(function(modifier) {
 				const ability = modifier[0].trim().toLowerCase();
 				const value = Number(modifier[1]);
-				if (DEFAULT_ABILITIES.includes(ability)) {
-					ams[ability].applyModifier(value, abilityModifiers.override);
+				if (GMM_5E_ABILITIES.includes(ability)) {
+					ams[ability].applyModifier(value, abilityModifiers.modifier.override);
 				}
 			});
 		}
 
 		for (const am in ams) {
 			ams[am].ceil();
+			ams[am].score = 10 + (2 * ams[am].value);
 		}
 
 		return ams;
@@ -209,18 +220,18 @@ const MonsterFactory = (function() {
 
 	function _parseSavingThrows(derivedAttributes, savingThrows) {
 		const sts = {};
-		DEFAULT_ABILITIES.forEach((x) => {
+		GMM_5E_ABILITIES.forEach((x) => {
 			let ranking = savingThrows.ranking.indexOf(x);
 			sts[x] = derivedAttributes.savingThrows[ranking];
 		});
 
-		if (savingThrows.modifiers) {
-			const modifiers = savingThrows.modifiers.split(";").map(x => x.split("="));
+		if (savingThrows.modifier.value) {
+			const modifiers = savingThrows.modifier.value.split(";").map(x => x.split("="));
 			modifiers.forEach(function(modifier) {
 				const ability = modifier[0].trim().toLowerCase();
 				const value = Number(modifier[1]);
-				if (DEFAULT_ABILITIES.includes(ability)) {
-					sts[ability].applyModifier(value, savingThrows.override);
+				if (GMM_5E_ABILITIES.includes(ability)) {
+					sts[ability].applyModifier(value, savingThrows.modifier.override);
 				}
 			});
 		}
@@ -234,8 +245,8 @@ const MonsterFactory = (function() {
 
 	function _parseProficiency(derivedAttributes, proficiencyBonus) {
 		const prof = new DerivedAttribute();
-		prof.setValue(derivedAttributes.averageProficiencyBonus, game.i18n.format('gg5e_mm.monster.source.base'));
-		prof.applyModifier(proficiencyBonus.modifier, proficiencyBonus.override);
+		prof.setValue(derivedAttributes.averageProficiencyBonus, game.i18n.format('gmm.monster.source.base'));
+		prof.applyModifier(proficiencyBonus.modifier.value, proficiencyBonus.modifier.override);
 		prof.setMinimumValue(1);
 		prof.ceil();
 
@@ -244,22 +255,22 @@ const MonsterFactory = (function() {
 
 	function _parseSkills(proficiencyBonus, monsterSkills) {
 		let skills = [];
-		DEFAULT_SKILLS.forEach(function(defaultSkill) {
+		GMM_5E_SKILLS.forEach(function(defaultSkill) {
 			if (monsterSkills[defaultSkill.name]) {
 				let proficiencyModifier = 0;
 				let proficiencyType = "";
 				switch (monsterSkills[defaultSkill.name]) {
 					case "half-proficient":
 						proficiencyModifier = Math.floor(proficiencyBonus / 2);
-						proficiencyType = game.i18n.format('gg5e_mm.monster.source.half_proficiency');
+						proficiencyType = game.i18n.format('gmm.monster.source.half_proficiency');
 						break;
 					case "proficient":
 						proficiencyModifier = proficiencyBonus;
-						proficiencyType = game.i18n.format('gg5e_mm.monster.source.proficiency');
+						proficiencyType = game.i18n.format('gmm.monster.source.proficiency');
 						break;
 					case "expert":
 						proficiencyModifier = proficiencyBonus * 2;
-						proficiencyType = game.i18n.format('gg5e_mm.monster.source.expertise');
+						proficiencyType = game.i18n.format('gmm.monster.source.expertise');
 						break;
 				}
 
@@ -269,7 +280,7 @@ const MonsterFactory = (function() {
 				skills.push($.extend(skill, {
 					code: defaultSkill.name,
 					ability: defaultSkill.ability,
-					title: game.i18n.format(`gg5e_mm.monster.common.skill.${defaultSkill.name}`)
+					title: game.i18n.format(`gmm.common.skill.${defaultSkill.name}`)
 				}));
 			}
 		});
@@ -278,19 +289,19 @@ const MonsterFactory = (function() {
 
 	function _parseSpeeds(monsterSpeeds, role) {
 		const speeds = [];
-		DEFAULT_SPEEDS.forEach(function(defaultSpeed) {
+		GMM_5E_SPEEDS.forEach(function(defaultSpeed) {
 			if (monsterSpeeds[defaultSpeed]) {
 				const speed = new DerivedAttribute();
-				speed.add(monsterSpeeds[defaultSpeed], game.i18n.format('gg5e_mm.monster.source.base'));
-				speed.add(role.modifiers.speed, game.i18n.format('gg5e_mm.monster.source.role'));
+				speed.add(monsterSpeeds[defaultSpeed], game.i18n.format('gmm.monster.source.base'));
+				speed.add(role.modifiers.speed, game.i18n.format('gmm.monster.source.role'));
 				speed.setMinimumValue(1);
 				speed.ceil();
 
 				const details = {};
-				details.title = game.i18n.format(`gg5e_mm.monster.common.speeds.${defaultSpeed}`);
+				details.title = game.i18n.format(`gmm.common.speeds.${defaultSpeed}`);
 				details.units = monsterSpeeds.units;
 				if (defaultSpeed == "fly" && monsterSpeeds.can_hover) {
-					details.detail =  game.i18n.format(`gg5e_mm.monster.common.speeds.can_hover`).toLowerCase();
+					details.detail =  game.i18n.format(`gmm.common.speeds.can_hover`).toLowerCase();
 				}
 
 				speeds.push($.extend(speed, details));
@@ -312,10 +323,10 @@ const MonsterFactory = (function() {
 
 	function _parseSenses(monsterSenses) {
 		const senses = [];
-		DEFAULT_SENSES.forEach(function(type) {
+		GMM_5E_SENSES.forEach(function(type) {
 			if (monsterSenses[type]) {
 				const sense = {};
-				sense.title = game.i18n.format(`gg5e_mm.monster.common.senses.${type}`);
+				sense.title = game.i18n.format(`gmm.common.senses.${type}`);
 				sense.value = monsterSenses[type];
 				sense.units = monsterSenses.units;
 				senses.push(sense);
@@ -338,19 +349,19 @@ const MonsterFactory = (function() {
 	function _parsePassivePerception(skills, abilityModifiers, rank, role, passivePerception) {
 		const basePerc = 10;
 		const percep = new DerivedAttribute();
-		percep.add(basePerc, game.i18n.format('gg5e_mm.monster.source.base'));
-		percep.add(rank.modifiers.passive_perception, game.i18n.format('gg5e_mm.monster.source.rank'));
-		percep.add(role.modifiers.passive_perception, game.i18n.format('gg5e_mm.monster.source.role'));
+		percep.add(basePerc, game.i18n.format('gmm.monster.source.base'));
+		percep.add(rank.modifiers.passive_perception, game.i18n.format('gmm.monster.source.rank'));
+		percep.add(role.modifiers.passive_perception, game.i18n.format('gmm.monster.source.role'));
 
 		if (skills.find((x) => x.code == "perception")) {
 			const skillPerc = skills.find((x) => x.code == "perception").getValue();
-			percep.add(skillPerc, game.i18n.format('gg5e_mm.monster.source.perception'));
+			percep.add(skillPerc, game.i18n.format('gmm.monster.source.perception'));
 		} else {
 			const wisPerc = abilityModifiers["wis"].getValue();
-			percep.add(wisPerc, game.i18n.format('gg5e_mm.monster.source.wis'));
+			percep.add(wisPerc, game.i18n.format('gmm.monster.source.wis'));
 		}
 		
-		percep.applyModifier(passivePerception.modifier, passivePerception.override);
+		percep.applyModifier(passivePerception.modifier.value, passivePerception.modifier.override);
 		percep.setMinimumValue(1);
 		percep.ceil();
 
@@ -361,7 +372,7 @@ const MonsterFactory = (function() {
 		let output = [];
 		collection.forEach(function(type) {
 			if (options[type]) {
-				output.push(game.i18n.format(`gg5e_mm.monster.common.${key}.${type}`));
+				output.push(game.i18n.format(`gmm.common.${key}.${type}`));
 			}
 		});
 
@@ -374,7 +385,7 @@ const MonsterFactory = (function() {
 
 	function _parseXp(derivedAttributes, xpModifier) {
 		const xp = derivedAttributes.xp;
-		xp.applyModifier(xpModifier.modifier, xpModifier.override);
+		xp.applyModifier(xpModifier.modifier.value, xpModifier.modifier.override);
 		xp.setMinimumValue(0);
 		xp.ceil();
 
@@ -383,7 +394,7 @@ const MonsterFactory = (function() {
 
 	function _parseChallengeRating(derivedAttributes, crModifier) {
 		const cr = derivedAttributes.challengeRating;
-		cr.applyModifier(crModifier.modifier, crModifier.override);
+		cr.applyModifier(crModifier.modifier.value, crModifier.modifier.override);
 		cr.setMinimumValue(0);
 
 		return cr;
@@ -391,10 +402,10 @@ const MonsterFactory = (function() {
 
 	function _parseInitiative(monsterAbilityModifiers, rank, role, initiative) {
 		const init = new DerivedAttribute();
-		init.add(monsterAbilityModifiers[initiative.ability].value, game.i18n.format('gg5e_mm.monster.source.ability_modifier'));
-		init.add(rank.modifiers.initiative, game.i18n.format('gg5e_mm.monster.source.rank'));
-		init.add(role.modifiers.initiative, game.i18n.format('gg5e_mm.monster.source.role'));
-		init.applyModifier(initiative.modifier, initiative.override);
+		init.add(monsterAbilityModifiers[initiative.ability].value, game.i18n.format('gmm.monster.source.ability_modifier'));
+		init.add(rank.modifiers.initiative, game.i18n.format('gmm.monster.source.rank'));
+		init.add(role.modifiers.initiative, game.i18n.format('gmm.monster.source.role'));
+		init.applyModifier(initiative.modifier.value, initiative.modifier.override);
 		init.ceil();
 
 		return $.extend(init, {
@@ -413,11 +424,12 @@ const MonsterFactory = (function() {
 		if (rank.modifiers.scale_with_players) {
 			maximum *= Math.max(0, rank.modifiers.target_players - 1);
 		}
-		mx.add(maximum, game.i18n.format('gg5e_mm.monster.source.rank'));
-		mx.applyModifier(paragonActions.maximum.modifier, paragonActions.maximum.override);
+		mx.add(maximum, game.i18n.format('gmm.monster.source.rank'));
+		mx.applyModifier(paragonActions.maximum.modifier.value, paragonActions.maximum.modifier.override);
 		mx.ceil();
 
 		return {
+			visible: paragonActions.always_show || mx.value > 0,
 			current: paragonActions.current,
 			maximum: mx
 		};
@@ -425,6 +437,7 @@ const MonsterFactory = (function() {
 
 	function _parseLegendaryResistances(legendaryResistances) {
 		return {
+			visible: legendaryResistances.always_show || legendaryResistances.maximum > 0,
 			current: legendaryResistances.current,
 			maximum: legendaryResistances.maximum
 		};
@@ -432,16 +445,179 @@ const MonsterFactory = (function() {
 
 	function _parseLegendaryActions(legendaryActions) {
 		return {
+			visible: legendaryActions.always_show || legendaryActions.maximum > 0 || legendaryActions.items.length > 0,
 			current: legendaryActions.current,
-			maximum: legendaryActions.maximum
+			maximum: legendaryActions.maximum,
+			items: legendaryActions.items
 		};
 	}
 
 	function _parseLairActions(lairActions) {
 		return {
-			enabled: lairActions.enabled,
-			initiative: lairActions.initiative
+			visible: lairActions.always_show || lairActions.initiative > 0 || lairActions.items.length > 0,
+			initiative: lairActions.initiative,
+			items: lairActions.items
 		};
+	}
+
+	function _parseActions(actions) {
+		return {
+			visible: actions.always_show || actions.items.length > 0,
+			items: actions.items
+		};
+	}
+
+	function _parseReactions(reactions) {
+		return {
+			visible: reactions.always_show || reactions.items.length > 0,
+			items: reactions.items
+		};
+	}
+
+	function _parseTraits(traits) {
+		return {
+			visible: traits.always_show || traits.items.length > 0,
+			items: traits.items
+		};
+	}
+
+	function _parseBonusActions(bonusActions) {
+		return {
+			visible: bonusActions.always_show || bonusActions.items.length > 0,
+			items: bonusActions.items
+		};
+	}
+
+	function _parseSpellbook(monsterAbilityModifiers, monsterClasses, spellbook) {
+		console.log(spellbook);
+		const dc = new DerivedAttribute();
+		dc.add(8, game.i18n.format('gmm.monster.source.base'));
+		dc.add(monsterAbilityModifiers[spellbook.spellcasting.ability].value, game.i18n.format('gmm.monster.source.ability_modifier'));
+		dc.applyModifier(spellbook.spellcasting.dc.modifier.value, spellbook.spellcasting.dc.modifier.override);
+		dc.ceil();
+
+		let slots = _getSpellSlots(monsterClasses.filter((x) => x.class.spellcasting ), spellbook.spellcasting.level, spellbook.slots);
+		let totalSlots = Object.values(slots).reduce((x, y) => x + y.maximum, 0);
+		let totalSpells = Object.values(spellbook.spells).reduce((x, y) => x + y.length, 0);
+
+		return {
+			visible: spellbook.always_show || totalSlots > 0 || totalSpells > 0,
+			spellcasting: {
+				level: spellbook.spellcasting.level,
+				ability: spellbook.spellcasting.ability,
+				dc: dc
+			},
+			slots: slots,
+			spells: spellbook.spells
+		};
+	}
+
+	function _parseInventory(inventoryWeight, inventoryCapacity, inventory) {
+		const currencyCoins = inventory.currency.cp + inventory.currency.sp + inventory.currency.ep + inventory.currency.gp + inventory.currency.pp;
+		const currencyValuation = Math.round((((inventory.currency.cp || 0) / 100) + ((inventory.currency.sp || 0) / 10) + ((inventory.currency.ep || 0) / 2) + (inventory.currency.gp || 0) + ((inventory.currency.pp || 0) * 10)) * 100) / 100;
+
+		return {
+			visible: inventory.always_show || inventory.items.length > 0 || currencyCoins > 0,
+			items: inventory.items,
+			weight: inventoryWeight || 0,
+			capacity: inventoryCapacity || 0,
+			encumbrance: Math.round(Math.clamped((inventoryWeight.value * 100) / inventoryCapacity.value, 0, 100) * 100) / 100,
+			show_currencies: inventory.currency.always_show || currencyCoins > 0,
+			currency: {
+				pp: inventory.currency.pp || 0,
+				gp: inventory.currency.gp || 0,
+				ep: inventory.currency.ep || 0,
+				sp: inventory.currency.sp || 0,
+				cp: inventory.currency.cp || 0,
+				valuation: currencyValuation || 0,
+				total_coins: currencyCoins
+			}
+		};
+	}
+
+	function _getInventoryWeight(data) {
+		const weight = new DerivedAttribute();
+		["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"].forEach((x) => {
+			if (hasProperty(data, x)) {
+				getProperty(data, x).forEach((y) => {
+					weight.add(y.weight * y.quantity, y.name)
+				});
+			}
+		});
+		if ( game.settings.get("dnd5e", "currencyWeight")) {
+			let currency = ["cp", "sp", "ep", "gp", "pp"].map((x) => data.inventory.currency[x]).reduce((val, denom) => val += Math.max(denom, 0), 0);
+			weight.add(currency / CONFIG.DND5E.encumbrance.currencyPerWeight, "currency");
+		}
+		weight.applyModifier(data.inventory.encumbrance.weight.modifier.value, data.inventory.encumbrance.weight.modifier.override);
+		weight.round(100);
+
+		return weight;
+	}
+
+	function _getInventoryCapacity(monsterAbilityModifiers, data) {
+		const capacity = new DerivedAttribute();
+		capacity.add((monsterAbilityModifiers["str"].value * 2) + 10, game.i18n.format('gmm.monster.source.ability_score'));
+		capacity.multiply(CONFIG.DND5E.encumbrance.strMultiplier, "config");
+		capacity.multiply(GMM_5E_SIZES.find((x) => x.name == data.description.size).inventory_capacity, "size");
+		capacity.applyModifier(data.inventory.encumbrance.capacity.modifier.value, data.inventory.encumbrance.capacity.modifier.override);
+
+		return capacity;
+	}
+
+	function _getSpellSlots(classes, spellLevel, slotModifiers) {
+
+		// Tabulate the total spell-casting progression
+		const progression = {
+			total: 0,
+			slot: 0,
+			pact: 0
+		};
+		classes.forEach((x) => {
+			const levels = x.class.level;
+			const prog = x.class.spellcasting;
+
+			// Accumulate levels
+			if ( prog !== "pact" ) {
+				progression.total++;
+			}
+			switch (prog) {
+				case 'third':
+					progression.slot += Math.floor(levels / 3);
+					break;
+				case 'half':
+					progression.slot += Math.floor(levels / 2);
+					break;
+				case 'full':
+					progression.slot += levels;
+					break;
+				case 'artificer':
+					progression.slot += Math.ceil(levels / 2);
+					break;
+				case 'pact':
+					progression.pact += levels;
+					break;
+			}
+		});
+		
+		// Look up the number of slots per level from the progression table
+		const levels = Math.clamped(spellLevel ? spellLevel : progression.slot, 0, 20);
+		const pactLevel = Math.clamped(slotModifiers.pact.level ? slotModifiers.pact.level : progression.pact, 0, 20);
+		const rawSlots = CONFIG.DND5E.SPELL_SLOT_TABLE[levels - 1] || [];
+
+		const slots = {};
+		for (let i = 0; i < 9; i++) {
+			slots[i + 1] = {
+				current: slotModifiers[i + 1].current || 0,
+				maximum: slotModifiers[i + 1].maximum || rawSlots[i] || 0
+			}
+		}
+		slots["pact"] = {
+			level: Math.ceil(Math.min(10, pactLevel) / 2),
+			current: slotModifiers.pact.current || 0,
+			maximum: slotModifiers.pact.maximum || (pactLevel > 0) ? Math.max(1, Math.min(pactLevel, 2), Math.min(pactLevel - 8, 3), Math.min(pactLevel - 13, 4)) : 0
+		}
+
+		return slots;
 	}
 
 	return {

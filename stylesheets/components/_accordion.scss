@@ -1,4 +1,4 @@
-.gg5e-mm-accordion {
+.gmm-accordion {
 	filter: drop-shadow(0 1px 0 var(--color-primary-shade-3));
 
 	.accordion-group {
@@ -19,8 +19,12 @@
 		&.opened .accordion-section__header {
 			background: var(--color-secondary-base);
 
-			&::after {
+			&::before {
 				background: var(--color-secondary-tint-2);
+			}
+
+			.accordion-section__info .badge {
+				background: var(--color-secondary-shade-2);
 			}
 		}
 
@@ -28,15 +32,19 @@
 
 			.accordion-section__header {
 	
-				&::after {
+				&::before {
 					transform: rotate(-90deg);
 				}
 
 				&:hover {
 					background: var(--color-secondary-base);
 
-					&::after {
+					&::before {
 						background: var(--color-secondary-tint-2);
+					}
+
+					.accordion-section__info .badge {
+						background: var(--color-secondary-shade-2);
 					}
 				}
 			}
@@ -51,7 +59,7 @@
 			.accordion-section__header {
 				background: var(--color-secondary-base);
 
-				&::after {
+				&::before {
 					transition: transform 200ms ease-in-out;
 					background: var(--color-secondary-tint-2);
 				}
@@ -59,14 +67,14 @@
 
 			&.opened {
 
-				.accordion-section__header::after {
+				.accordion-section__header::before {
 					transform: rotate(-90deg);
 				}
 			}
 
 			&:not(.opened) {
 
-				.accordion-section__header::after {
+				.accordion-section__header::before {
 					transform: rotate(0deg);
 				}
 			}
@@ -88,7 +96,7 @@
 		justify-content: space-between;
 		text-transform: uppercase;
 
-		&::after {
+		&::before {
 			content: "\f078";
 			-webkit-font-smoothing: antialiased;
 			font-family: "Font Awesome 5 Free";
@@ -120,5 +128,32 @@
 		padding: 1rem;
 		overflow: hidden;
 		border-top: 1px solid var(--color-secondary-shade-2);
+	}
+
+	.accordion-section__info {
+
+		.badge {
+			background: var(--color-primary-shade-2);
+			font-weight: normal;
+			color: white;
+			padding: 0 0.35rem;
+			border-radius: 1rem;
+			line-height: 1.2;
+		}
+
+		.modifier {
+
+			&::before {
+				content: "\f071";
+				-webkit-font-smoothing: antialiased;
+				font-family: "Font Awesome 5 Free";
+				font-weight: 900;
+				display: inline-block;
+				font-style: normal;
+				font-variant: normal;
+				text-rendering: auto;
+				line-height: 1;
+			}
+		}
 	}
 }

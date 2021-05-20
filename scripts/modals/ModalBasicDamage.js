@@ -9,18 +9,18 @@ const ModalBasicDamage = (function() {
 	}
 
 	function _setStatic(event) {
-		const modal = event.currentTarget.closest(".gg5e-mm-window");
+		const modal = event.currentTarget.closest(".gmm-window");
 		modal.querySelector("#modal_basic_damage .radio--static").checked = true;
 	}
 
 	function _setRandom(event) {
-		const modal = event.currentTarget.closest(".gg5e-mm-window");
+		const modal = event.currentTarget.closest(".gmm-window");
 		modal.querySelector("#modal_basic_damage .radio--random").checked = true;
 	}
 
     function _submitForm(event) {
 		const action = event.currentTarget.closest("button").dataset.action;
-		const modal = event.currentTarget.closest(".gg5e-mm-modal");
+		const modal = event.currentTarget.closest(".gmm-modal");
 		const form = new FormData(modal.querySelector("form"));
 		const bonus = (form.get("bonus") == "static") ? form.get("static") : (form.get("random") == "—") ? 0 : form.get("random");
 
@@ -29,10 +29,10 @@ const ModalBasicDamage = (function() {
 		switch (action) {
 			case "roll-critical":
 				rollParts.push(bonus);
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_damage.message.critical'));
+				messageParts.push(game.i18n.format('gmm.modal.basic_damage.message.critical'));
 				break;
 			default: 
-				messageParts.push(game.i18n.format('gg5e_mm.modal.basic_damage.message.plain'));
+				messageParts.push(game.i18n.format('gmm.modal.basic_damage.message.plain'));
 				break;
 		}
 		rollParts.push(bonus);

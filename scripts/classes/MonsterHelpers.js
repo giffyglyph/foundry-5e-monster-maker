@@ -1,5 +1,5 @@
 import DerivedAttribute from "./DerivedAttribute.js";
-import { DEFAULT_XP } from "../consts/DefaultXp.js";
+import { GMM_5E_XP } from "../consts/Gmm5eXp.js";
 
 const MonsterHelpers = (function() {
 
@@ -31,7 +31,7 @@ const MonsterHelpers = (function() {
 	}
 
 	function _getClampedLevel(level) {
-		let levels = DEFAULT_XP.map((x) => x.level);
+		let levels = GMM_5E_XP.map((x) => x.level);
 		let max = Math.max(...levels);
 		let min = Math.min(...levels);
 		return Math.max(min, Math.min(level, max));
@@ -74,24 +74,25 @@ const MonsterHelpers = (function() {
 	function _getAveragePlayerHitPoints(level, abilityModifier) {
 		return (level * (5 + Math.min(abilityModifier - 2, 5))) + 2
 	}
+
 	function _getMonsterMaximumHitPoints(playerDamagePerRound, rank, role) {
 		const baseHp = playerDamagePerRound * 4;
 		const rankHp = rank.modifiers.hit_points;
 		const roleHp = role.modifiers.hit_points;
 
 		const hp = new DerivedAttribute();
-		hp.add(baseHp, game.i18n.format('gg5e_mm.monster.source.base'));
-		hp.multiply(rankHp, game.i18n.format('gg5e_mm.monster.source.rank'));
-		hp.multiply(roleHp, game.i18n.format('gg5e_mm.monster.source.role'));
+		hp.add(baseHp, game.i18n.format('gmm.monster.source.base'));
+		hp.multiply(rankHp, game.i18n.format('gmm.monster.source.rank'));
+		hp.multiply(roleHp, game.i18n.format('gmm.monster.source.role'));
 
 		let scale = 1;
 		if (rank.modifiers.scale_with_players && rank.modifiers.target_players != 1) {
-			hp.multiply(rank.modifiers.target_players, game.i18n.format('gg5e_mm.monster.source.scale_with_players'));
+			hp.multiply(rank.modifiers.target_players, game.i18n.format('gmm.monster.source.scale_with_players'));
 		}
 
 		let phases = 1;
 		if (rank.modifiers.has_phases && rank.modifiers.phases.maximum != 1) {
-			hp.divide(phases, game.i18n.format('gg5e_mm.monster.source.phases'));
+			hp.divide(phases, game.i18n.format('gmm.monster.source.phases'));
 		}
 
 		return hp;
@@ -103,9 +104,9 @@ const MonsterHelpers = (function() {
 		const roleAc = role.modifiers.armor_class;
 
 		const ac = new DerivedAttribute();
-		ac.add(baseAc, game.i18n.format('gg5e_mm.monster.source.base'));
-		ac.add(rankAc, game.i18n.format('gg5e_mm.monster.source.rank'));
-		ac.add(roleAc, game.i18n.format('gg5e_mm.monster.source.role'));
+		ac.add(baseAc, game.i18n.format('gmm.monster.source.base'));
+		ac.add(rankAc, game.i18n.format('gmm.monster.source.rank'));
+		ac.add(roleAc, game.i18n.format('gmm.monster.source.role'));
 
 		return ac;
 	}
@@ -116,9 +117,9 @@ const MonsterHelpers = (function() {
 		const roleAttack = role.modifiers.attack_bonus;
 
 		const ab = new DerivedAttribute();
-		ab.add(baseAttack, game.i18n.format('gg5e_mm.monster.source.base'));
-		ab.add(rankAttack, game.i18n.format('gg5e_mm.monster.source.rank'));
-		ab.add(roleAttack, game.i18n.format('gg5e_mm.monster.source.role'));
+		ab.add(baseAttack, game.i18n.format('gmm.monster.source.base'));
+		ab.add(rankAttack, game.i18n.format('gmm.monster.source.rank'));
+		ab.add(roleAttack, game.i18n.format('gmm.monster.source.role'));
 		
 		return ab;
 	}
@@ -129,14 +130,14 @@ const MonsterHelpers = (function() {
 		const roleDc = role.modifiers.attack_dcs;
 		
 		const primary = new DerivedAttribute();
-		primary.add(baseDc, game.i18n.format('gg5e_mm.monster.source.base'));
-		primary.add(rankDc, game.i18n.format('gg5e_mm.monster.source.rank'));
-		primary.add(roleDc, game.i18n.format('gg5e_mm.monster.source.role'));
+		primary.add(baseDc, game.i18n.format('gmm.monster.source.base'));
+		primary.add(rankDc, game.i18n.format('gmm.monster.source.rank'));
+		primary.add(roleDc, game.i18n.format('gmm.monster.source.role'));
 
 		const secondary = new DerivedAttribute();
-		secondary.add(baseDc - 3, game.i18n.format('gg5e_mm.monster.source.base'));
-		secondary.add(rankDc, game.i18n.format('gg5e_mm.monster.source.rank'));
-		secondary.add(roleDc, game.i18n.format('gg5e_mm.monster.source.role'));
+		secondary.add(baseDc - 3, game.i18n.format('gmm.monster.source.base'));
+		secondary.add(rankDc, game.i18n.format('gmm.monster.source.rank'));
+		secondary.add(roleDc, game.i18n.format('gmm.monster.source.role'));
 
 		return {
 			primary: primary,
@@ -150,9 +151,9 @@ const MonsterHelpers = (function() {
 		const rankDamage = rank.modifiers.damage_per_action;
 
 		const damage = new DerivedAttribute();
-		damage.add(baseDamage, game.i18n.format('gg5e_mm.monster.source.base'));
-		damage.multiply(rankDamage, game.i18n.format('gg5e_mm.monster.source.rank'));
-		damage.multiply(roleDamage, game.i18n.format('gg5e_mm.monster.source.role'));
+		damage.add(baseDamage, game.i18n.format('gmm.monster.source.base'));
+		damage.multiply(rankDamage, game.i18n.format('gmm.monster.source.rank'));
+		damage.multiply(roleDamage, game.i18n.format('gmm.monster.source.role'));
 
 		return damage;
 	}
@@ -160,7 +161,7 @@ const MonsterHelpers = (function() {
 	function _getMonsterAbilityModifiers(abilityModifiers) {
 		return abilityModifiers.map((x) => {
 			const am = new DerivedAttribute();
-			am.setValue(x, game.i18n.format('gg5e_mm.monster.source.base'));
+			am.setValue(x, game.i18n.format('gmm.monster.source.base'));
 			return am;
 		});
 	}
@@ -168,29 +169,29 @@ const MonsterHelpers = (function() {
 	function _getMonsterSavingThrows(savingThrows, rank, role) {
 		return savingThrows.map((x) => {
 			const st = new DerivedAttribute();
-			st.add(x, game.i18n.format('gg5e_mm.monster.source.base'));
-			st.add(rank.modifiers.saving_throws, game.i18n.format('gg5e_mm.monster.source.rank'));
-			st.add(role.modifiers.saving_throws, game.i18n.format('gg5e_mm.monster.source.role'));
+			st.add(x, game.i18n.format('gmm.monster.source.base'));
+			st.add(rank.modifiers.saving_throws, game.i18n.format('gmm.monster.source.rank'));
+			st.add(role.modifiers.saving_throws, game.i18n.format('gmm.monster.source.role'));
 			return st;
 		});
 	}
 
 	function _getMonsterXp(level, rank) {
-		const baseXp = DEFAULT_XP.find((x) => x.level == level).xp;
+		const baseXp = GMM_5E_XP.find((x) => x.level == level).xp;
 		const rankXp = rank.modifiers.xp;
 
 		const xp = new DerivedAttribute();
-		xp.add(baseXp, game.i18n.format('gg5e_mm.monster.source.base'));
-		xp.multiply(rankXp, game.i18n.format('gg5e_mm.monster.source.rank'));
+		xp.add(baseXp, game.i18n.format('gmm.monster.source.base'));
+		xp.multiply(rankXp, game.i18n.format('gmm.monster.source.rank'));
 		
 		return xp;
 	}
 
 	function _getMonsterChallengeRating(xp) {
-		const baseCr = DEFAULT_XP.filter((x) => x.xp <= xp).pop().cr;
+		const baseCr = GMM_5E_XP.filter((x) => x.xp <= xp).pop().cr;
 
 		const cr = new DerivedAttribute();
-		cr.setValue(baseCr, game.i18n.format('gg5e_mm.monster.source.base'));
+		cr.setValue(baseCr, game.i18n.format('gmm.monster.source.base'));
 		
 		return cr;
 	}

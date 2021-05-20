@@ -4,12 +4,12 @@ export default class Gui {
 		this._accordions = [];
 		this._panels = [];
 		this._scrollbars = [];
-		this._isExpaned = false;
+		this._isExpanded = false;
 	}
 
 	activateListeners($el) {
-		$el.find('.gg5e-mm-accordion .accordion-section__header').click((e) => this._toggleAccordionCollapse(e));
-		$el.find('.gg5e-mm-panel.panel--collapsible .panel__header').click((e) => this._togglePanelCollapse(e));
+		$el.find('.gmm-accordion .accordion-section__header').click((e) => this._toggleAccordionCollapse(e));
+		$el.find('.gmm-panel.panel--collapsible .panel__header').click((e) => this._togglePanelCollapse(e));
 		$el.find('button.move-up').click((e) => this._moveUp(e));
 		$el.find('button.move-down').click((e) => this._moveDown(e));
 		$el.find('button[data-action="open-modal"]').click((e) => this._openModal(e));
@@ -19,6 +19,7 @@ export default class Gui {
 		$el.find('input[data-action="update-field"]').change((e) => this._updateField(e));
 		$el.find('[data-track-scrollbars="true"]').scroll((e) => this._updateScrollbar(e));
 		$el.find('.form-fieldset__header').click((e) => this._toggleFormFieldset(e));
+		$el.find('.form-fieldset__header button').click((e) => e.stopPropagation());
 	}
 
 	applyTo($el) {
@@ -36,7 +37,7 @@ export default class Gui {
 			$el.find(`#${x.id}`).scrollTop(x.y);
 		});
 		if (this._isExpanded) {
-			$el.closest(".gg5e-mm-window").addClass("expanded");
+			$el.closest(".gmm-window").find(".gmm-forge").addClass("expanded");
 		}
 	}
 
@@ -49,7 +50,7 @@ export default class Gui {
 
 	_updateAccordions(html) {
 		this._accordions = [];
-		html.querySelectorAll(".gg5e-mm-accordion").forEach((x) => {
+		html.querySelectorAll(".gmm-accordion").forEach((x) => {
 			if (x.hasAttribute("id")) {
 				this._accordions.push({
 					id: x.getAttribute("id"),
@@ -61,7 +62,7 @@ export default class Gui {
 
 	_updatePanels(html) {
 		this._panels = [];
-		html.querySelectorAll(".gg5e-mm-panel.panel--collapsible").forEach((x) => {
+		html.querySelectorAll(".gmm-panel.panel--collapsible").forEach((x) => {
 			if (x.hasAttribute("id") && x.classList.contains("closed")) {
 				this._panels.push(x.getAttribute("id"));
 			}
@@ -97,21 +98,21 @@ export default class Gui {
 	}
 
 	_updateWindow(html) {
-		this._isExpanded = html.closest(".gg5e-mm-window").classList.contains("expanded");
+		this._isExpanded = html.closest(".gmm-window").querySelector(".gmm-forge").classList.contains("expanded");
 	}
 
 	_openModal(event) {
 		const button = event.currentTarget.closest("button");
-		const modal = button.closest(".gg5e-mm-window").querySelector(`#${button.dataset.modal}`)
+		const modal = button.closest(".gmm-window").querySelector(`#${button.dataset.modal}`)
 		if (modal) {
 			modal.classList.add("open");
-			button.closest(".gg5e-mm-sheet").classList.add("open-modal");
+			button.closest(".gmm-forge").classList.add("open-modal");
 		}
 	}
 
 	_closeAccordion(event) {
 		const button = event.currentTarget.closest("button");
-		const accordion = button.closest(".gg5e-mm-window").querySelectorAll(`#${button.dataset.accordion} .accordion-section`);
+		const accordion = button.closest(".gmm-window").querySelectorAll(`#${button.dataset.accordion} .accordion-section`);
 		[...accordion].forEach((x) => {
 			x.classList.add("collapsing");
 			$(x.querySelector(".accordion-section__body")).slideUp(100, function() {
@@ -123,13 +124,13 @@ export default class Gui {
 	}
 
 	_closeModal(event) {
-		const modal = event.currentTarget.closest(".gg5e-mm-modal");
+		const modal = event.currentTarget.closest(".gmm-modal");
 		modal.classList.remove("open");
-		event.currentTarget.closest(".gg5e-mm-sheet").classList.remove("open-modal");
+		event.currentTarget.closest(".gmm-forge").classList.remove("open-modal");
 	}
 
 	_toggleAccordionCollapse(event) {
-		const accordion = event.currentTarget.closest(".gg5e-mm-accordion");
+		const accordion = event.currentTarget.closest(".gmm-accordion");
 		const section = event.currentTarget.closest(".accordion-section");
 		if (accordion.getAttribute("data-accordion-mode") == "single") {
 			[...accordion.querySelectorAll(".accordion-section.opened")].filter((x) => x != section).forEach((x) => {
@@ -146,21 +147,21 @@ export default class Gui {
 		$(section.querySelector(".accordion-section__body")).slideToggle(100, function() {
 			section.classList.remove("collapsing");
 			$(section).toggleClass('opened', $(this).is(':visible'));
-			gui._updateAccordions(event.currentTarget.closest(".gg5e-mm-window"));
-			gui._updateScrollbars(event.currentTarget.closest(".gg5e-mm-window"));
+			gui._updateAccordions(event.currentTarget.closest(".gmm-window"));
+			gui._updateScrollbars(event.currentTarget.closest(".gmm-window"));
 		});
 	}
 
 	_togglePanelCollapse(event) {
-		let panel = event.currentTarget.closest(".gg5e-mm-panel");
+		let panel = event.currentTarget.closest(".gmm-panel");
 		let panelBody = panel.querySelector(".panel__body");
 		let gui = this;
 		panel.classList.add("collapsing");
 		$(panelBody).slideToggle(100, function() {
 			panel.classList.remove("collapsing");
 			$(panel).toggleClass('closed', !$(this).is(':visible'));
-			gui._updatePanels(event.currentTarget.closest(".gg5e-mm-window"));
-			gui._updateScrollbars(event.currentTarget.closest(".gg5e-mm-window"));
+			gui._updatePanels(event.currentTarget.closest(".gmm-window"));
+			gui._updateScrollbars(event.currentTarget.closest(".gmm-window"));
 		});
 	}
 
@@ -174,8 +175,8 @@ export default class Gui {
 	}
 
 	_expandWindow(event) {
-		event.currentTarget.closest(".gg5e-mm-window").classList.toggle("expanded");
-		this._updateWindow(event.currentTarget.closest(".gg5e-mm-window"));
+		event.currentTarget.closest(".gmm-window").querySelector(".gmm-forge").classList.toggle("expanded");
+		this._updateWindow(event.currentTarget.closest(".gmm-window"));
 	}
 
 	_moveUp(event) {
@@ -196,7 +197,7 @@ export default class Gui {
 		const input = event.currentTarget.closest("input");
 		const field = input.dataset.field;
 		const type = input.dataset.type ? input.dataset.type : "text";
-		const output = event.currentTarget.closest(".gg5e-mm-window").querySelector(`input[name='${field}']`);
+		const output = event.currentTarget.closest(".gmm-window").querySelector(`input[name='${field}']`);
 
 		switch (type) {
 			case "number":

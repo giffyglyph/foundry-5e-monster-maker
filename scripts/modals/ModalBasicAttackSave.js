@@ -9,25 +9,25 @@ const ModalBasicAttackAc = (function() {
 	}
 
 	function _setPrimary(event) {
-		const modal = event.currentTarget.closest(".gg5e-mm-window");
+		const modal = event.currentTarget.closest(".gmm-window");
 		modal.querySelector("#modal_basic_attack_save .radio--primary").checked = true;
 	}
 
 	function _setSecondary(event) {
-		const modal = event.currentTarget.closest(".gg5e-mm-window");
+		const modal = event.currentTarget.closest(".gmm-window");
 		modal.querySelector("#modal_basic_attack_save .radio--secondary").checked = true;
 	}
 
     function _submitForm(event) {
-		const modal = event.currentTarget.closest(".gg5e-mm-modal");
+		const modal = event.currentTarget.closest(".gmm-modal");
 		const form = new FormData(modal.querySelector("form"));
 		const bonus = form.get(form.get("attack"));
 
 		const rollParts = [];
 		const messageParts = [];
 		rollParts.push(bonus);
-		messageParts.push(game.i18n.format('gg5e_mm.modal.basic_attack_save.message', {
-			defence: game.i18n.format(`gg5e_mm.monster.common.ability.${form.get("defence")}.name`)
+		messageParts.push(game.i18n.format('gmm.modal.basic_attack_save.message', {
+			defence: game.i18n.format(`gmm.common.ability.${form.get("defence")}.name`)
 		}));
 		if (form.get("modifiers")) {
 			rollParts.push(form.get("modifiers"));

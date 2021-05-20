@@ -1,0 +1,478 @@
+.gmm-forge {
+	@include primary-colors(#1E88E5);
+	@include secondary-colors(#F4511E);
+	@include brand-colors();
+	font-family: 'Source Sans Pro';
+	display: grid;
+	overflow: hidden;
+	position: relative;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr auto;
+	grid-column-gap: 0;
+	pointer-events: none;
+
+	> * {
+		pointer-events: all;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background: black;
+		border-radius: 1rem;
+	}
+
+	.forge__artifact {
+		padding: 0.25rem 0.25rem 0 0.25rem;
+		overflow: hidden;
+		position: relative;
+	}
+
+	.forge__blueprint {
+		padding: 0.25rem 0.25rem 0 0.25rem;
+		overflow: hidden;
+		position: relative;
+		display: none;
+	}
+
+	.forge__options {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.5rem;
+		position: relative;
+		z-index: 2;
+
+		.forge__id {
+			color: white;
+			text-transform: uppercase;
+			font-weight: bold;
+			line-height: 1;
+	
+			.id,
+			.name {
+				display: flex;
+				align-items: center;
+	
+				&::before {
+					content: '';
+					background: white;
+					width: 6px;
+					display: inline-block;
+					height: 6px;
+					border-radius: 1rem;
+					margin-right: 0.4rem;
+				}
+			}
+		}
+
+		.forge__controls {
+			display: flex;
+	
+			button {
+				background: white;
+				border: none;
+				box-shadow: none;
+				height: 2rem;
+				width: 2rem;
+				padding: 0;
+				border-radius: 1rem;
+				margin: 0;
+				cursor: pointer;
+				position: relative;
+				top: 0;
+				left: 0;
+				display: flex;
+	
+				i {
+					margin: auto;
+				}
+	
+				&:not(:last-child) {
+					margin-right: 0.25rem;
+				}
+			}
+		}
+	}
+
+	&.open-modal {
+
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background: rgba(black, 0.75);
+			z-index: 3;
+			border-radius: 1rem;
+		}
+	}
+
+	&.expanded {
+
+		.forge__controls [data-action="expand-window"] {
+			background: var(--color-primary-base);
+			color: white;
+		}
+	}
+
+	// Layouts
+	&.layout--single {
+
+		&.expanded {
+
+			.forge__artifact {
+				
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: rgba(black, 0.7);
+					height: 100%;
+					width: 100%;
+					border-radius: 1rem;
+					z-index: 1;
+				}
+			}
+
+			.forge__blueprint {
+				display: block;
+				position: absolute;
+				top: 0.5rem;
+				height: calc(100% - 3.75rem);
+				left: calc(50% - 210px);
+				width: 420px;
+				filter: drop-shadow(0px 0px 10px black);
+				z-index: 1;
+				background: black;
+				padding: 0.25rem;
+				border-radius: 1rem;
+			}
+
+			.forge__blueprint .gmm-blueprint .blueprint__form {
+				max-width: 420px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+
+	&.layout--slide-in-left,
+	&.layout--slide-in-right {
+
+		.forge__blueprint {
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 0;
+			padding: 0;
+			height: calc(100% - 2.9rem);
+			box-sizing: border-box;
+			background: none;
+			transition: width 100ms ease-in-out;
+			border-radius: 1rem;
+			filter: drop-shadow(0px 0px 10px black);
+			z-index: 1;
+
+			.gmm-blueprint {
+				border: 0.25rem solid black;
+				width: 420px;
+				background: white;
+				padding: 0.125rem;
+				border-radius: 1.2rem;
+
+				.blueprint__header {
+					border-top-left-radius: 1rem;
+					border-top-right-radius: 1rem;
+				}
+
+				.blueprint__body {
+					border-bottom-left-radius: 1rem;
+					border-bottom-right-radius: 1rem;
+				}
+			}
+		}
+
+		&.expanded {
+
+			.forge__artifact {
+				display: block;
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: rgba(black, 0.7);
+					height: 100%;
+					width: 100%;
+					border-radius: 1rem;
+					z-index: 1;
+				}
+			}
+
+			.forge__blueprint {
+				width: 420px;
+			}
+		}
+	}
+
+	&.layout--slide-in-left .forge__blueprint {
+		left: 0;
+	}
+
+	&.layout--slide-in-right .forge__blueprint {
+		right: 0;
+	}
+
+	&.layout--slide-out {
+		transition: margin 100ms ease-in-out, padding 100ms ease-in-out;
+
+		&::before {
+			transition: width 100ms ease-in-out;
+		}
+
+		&.open-modal {
+
+			&::after {
+				z-index: 3;
+			}
+		}
+
+		.forge__artifact {
+			padding-right: 0.25rem;
+			position: relative;
+			z-index: 2;
+			display: block;
+		}
+
+		.forge__blueprint {
+			position: absolute;
+			right: 0;
+			top: 1rem;
+			height: calc(100% - 5rem);
+			background: black;
+			padding: 0.25rem;
+			border-radius: 0 1.2rem 1.2rem 0;
+			grid-column: auto;
+			padding-left: 0;
+			width: calc(360px + 0.25rem - 1px);
+			display: block;
+
+			.gmm-blueprint {
+				border-radius: 0 1rem 1rem 0;
+				border-left: none;
+
+				&::after {
+					content: '';
+					position: absolute;
+					left: 0;
+					top: 0;
+					height: 100%;
+					width: 100%;
+					background: linear-gradient(to right, rgba(black, 0.2), transparent 5%);
+					pointer-events: none;
+				}
+			}
+		}
+
+		.forge__controls {
+			grid-column: 1;
+		}
+
+		&.expanded {
+			margin-right: -360px;
+			padding-right: 360px;
+			
+			&::before {
+				width: calc(100% - 360px);
+			}
+
+			&.open-modal {
+
+				&::after {
+					width: calc(100% - 360px);
+				}
+
+				.forge__blueprint::after {
+					content: '';
+					position: absolute;
+					left: 0.25rem;
+					top: 0;
+					height: 100%;
+					width: calc(100% - 0.25rem);
+					background: rgba(black, 0.75);
+					z-index: 1;
+					border-radius: 0 1rem 1rem 0;
+				}
+			}
+		}
+	}
+
+	// Color themes
+	&.color--primary-red {
+		@include primary-colors(#b41414);
+	}
+
+	&.color--primary-pink {
+		@include primary-colors(#9e1a53);
+	}
+
+	&.color--primary-purple {
+		@include primary-colors(#8E24AA);
+	}
+
+	&.color--primary-deep-purple {
+		@include primary-colors(#5E35B1);
+	}
+
+	&.color--primary-indigo {
+		@include primary-colors(#3949AB);
+	}
+
+	&.color--primary-blue {
+		@include primary-colors(#1E88E5);
+	}
+
+	&.color--primary-light-blue {
+		@include primary-colors(#0288D1);
+	}
+
+	&.color--primary-cyan {
+		@include primary-colors(#0097A7);
+	}
+
+	&.color--primary-teal {
+		@include primary-colors(#009688);
+	}
+
+	&.color--primary-green {
+		@include primary-colors(#388E3C);
+	}
+
+	&.color--primary-light-green {
+		@include primary-colors(#689F38);
+	}
+
+	&.color--primary-lime {
+		@include primary-colors(#9ba01c);
+	}
+
+	&.color--primary-yellow {
+		@include primary-colors(#cf8816);
+	}
+
+	&.color--primary-amber {
+		@include primary-colors(#c37003);
+	}
+
+	&.color--primary-orange {
+		@include primary-colors(#c3671c);
+	}
+
+	&.color--primary-deep-orange {
+		@include primary-colors(#ca4016);
+	}
+
+	&.color--primary-brown {
+		@include primary-colors(#6D4C41);
+	}
+
+	&.color--primary-gray {
+		@include primary-colors(#757575);
+	}
+
+	&.color--primary-blue-gray {
+		@include primary-colors(#546E7A);
+	}
+
+	&.color--secondary-red {
+		@include secondary-colors(#C62828);
+	}
+
+	&.color--secondary-pink {
+		@include secondary-colors(#AD1457);
+	}
+
+	&.color--secondary-purple {
+		@include secondary-colors(#8E24AA);
+	}
+
+	&.color--secondary-deep-purple {
+		@include secondary-colors(#5E35B1);
+	}
+
+	&.color--secondary-indigo {
+		@include secondary-colors(#3949AB);
+	}
+
+	&.color--secondary-blue {
+		@include secondary-colors(#1E88E5);
+	}
+
+	&.color--secondary-light-blue {
+		@include secondary-colors(#0288D1);
+	}
+
+	&.color--secondary-cyan {
+		@include secondary-colors(#0097A7);
+	}
+
+	&.color--secondary-teal {
+		@include secondary-colors(#009688);
+	}
+
+	&.color--secondary-green {
+		@include secondary-colors(#388E3C);
+	}
+
+	&.color--secondary-light-green {
+		@include secondary-colors(#689F38);
+	}
+
+	&.color--secondary-lime {
+		@include secondary-colors(#AFB42B);
+	}
+
+	&.color--secondary-yellow {
+		@include secondary-colors(#d8962b);
+	}
+
+	&.color--secondary-amber {
+		@include secondary-colors(#d88113);
+	}
+
+	&.color--secondary-orange {
+		@include secondary-colors(#ec7e24);
+	}
+
+	&.color--secondary-deep-orange {
+		@include secondary-colors(#d65e39);
+	}
+
+	&.color--secondary-brown {
+		@include secondary-colors(#6D4C41);
+	}
+
+	&.color--secondary-gray {
+		@include secondary-colors(#757575);
+	}
+
+	&.color--secondary-blue-gray {
+		@include secondary-colors(#546E7A);
+	}
+}
+
+.gmm-artifact {
+	background: white;
+	height: 100%;
+	width: 100%;
+	border-radius: 1rem;
+}

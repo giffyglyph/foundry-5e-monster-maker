@@ -9,13 +9,13 @@ const ModalSavingThrow = (function() {
 
 	function _setSave(event) {
 		const save = event.currentTarget.closest("button").dataset.save;
-		const modal = event.currentTarget.closest(".gg5e-mm-window");
+		const modal = event.currentTarget.closest(".gmm-window");
 		modal.querySelector(`#modal_saving_throw .radio--${save ? save : "str"}`).checked = true;
 	}
 
     function _submitForm(event) {
 		const action = event.currentTarget.closest("button").dataset.action;
-		const modal = event.currentTarget.closest(".gg5e-mm-modal");
+		const modal = event.currentTarget.closest(".gmm-modal");
 		const form = new FormData(modal.querySelector("form"));
 		const save = form.get("save");
 		const saveBonus = save ? Number(form.get(`save_${save}`)) : 0;
@@ -25,20 +25,20 @@ const ModalSavingThrow = (function() {
 		switch (action) {
 			case "roll-advantage":
 				rollParts.push("2d20kh");
-				messageParts.push(game.i18n.format(`gg5e_mm.modal.saving_throw.message.advantage`, {
-					ability: game.i18n.format(`gg5e_mm.monster.common.ability.${save}.name`)
+				messageParts.push(game.i18n.format(`gmm.modal.saving_throw.message.advantage`, {
+					ability: game.i18n.format(`gmm.common.ability.${save}.name`)
 				}));
 				break;
 			case "roll-disadvantage":
 				rollParts.push("2d20kl");
-				messageParts.push(game.i18n.format(`gg5e_mm.modal.saving_throw.message.disadvantage`, {
-					ability: game.i18n.format(`gg5e_mm.monster.common.ability.${save}.name`)
+				messageParts.push(game.i18n.format(`gmm.modal.saving_throw.message.disadvantage`, {
+					ability: game.i18n.format(`gmm.common.ability.${save}.name`)
 				}));
 				break;
 			default: 
 				rollParts.push("1d20");
-				messageParts.push(game.i18n.format(`gg5e_mm.modal.saving_throw.message.plain`, {
-					ability: game.i18n.format(`gg5e_mm.monster.common.ability.${save}.name`)
+				messageParts.push(game.i18n.format(`gmm.modal.saving_throw.message.plain`, {
+					ability: game.i18n.format(`gmm.common.ability.${save}.name`)
 				}));
 				break;
 		}

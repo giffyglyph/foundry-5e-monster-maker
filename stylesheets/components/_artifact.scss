@@ -1,0 +1,51 @@
+.gmm-artifact {
+	border: 0.125rem solid white;
+	overflow: hidden;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	border-radius: 1rem;
+	height: 100%;
+
+	::-webkit-scrollbar {
+		width: 1rem;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 1rem;
+		background: var(--color-primary-shade-3);
+		border: 2px solid var(--color-primary-tint-2);
+	}
+
+	::-webkit-scrollbar-track {
+		box-shadow: none;
+		border-radius: 1rem;
+		background: var(--color-primary-tint-1);
+		border: 5px solid var(--color-primary-tint-2);
+	}
+
+	.artifact__error {
+		flex-grow: 1;
+		text-align: center;
+		font-size: 1.5rem;
+		padding: 2rem;
+		background: var(--color-primary-tint-2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: white;
+
+		.error__icon {
+			border: 2px solid white;
+			font-size: 3rem;
+			height: 4rem;
+			width: 4rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 1rem;
+			margin-bottom: 1rem;
+		}
+	}
+}
