@@ -1,13 +1,13 @@
 <div class="gmm-artifact artifact--monster--vanity">
     <div class="monster__header">
-        <div class="monster__image"><img src="{{data.gmm.monster.data.image}}"></div>
-        <div class="monster__name">{{data.gmm.monster.data.name}}</div>
-        <div class="monster__description">{{data.gmm.monster.data.description}}</div>
+        <div class="monster__image" data-action="open-config" data-config="description"><img src="{{data.gmm.monster.data.image}}"></div>
+        <div class="monster__name" data-action="open-config" data-config="description">{{data.gmm.monster.data.name}}</div>
+        <div class="monster__description" data-action="open-config" data-config="description">{{data.gmm.monster.data.description}}</div>
         <div class="monster__combat">
-            <div class="level">
+            <div class="level" data-action="open-config" data-config="combat">
                 <i class="fas fa-crown"></i> {{data.gmm.monster.data.level}}
             </div>
-            <div class="rank">
+            <div class="rank" data-action="open-config" data-config="combat">
                 <span class="stars">
                     {{#repeat data.gmm.monster.data.rank.threat}}
                         <i class="fas fa-star"></i>
@@ -15,11 +15,11 @@
                 </span> {{data.gmm.monster.data.rank.name}}
             </div>
             {{#if data.gmm.monster.data.phase}}
-                <div class="phase">
+                <div class="phase" data-action="open-config" data-config="combat">
                     <i class="fas fa-clock"></i> {{data.gmm.monster.data.phase}}
                 </div>
             {{/if}}
-            <div class="role">
+            <div class="role" data-action="open-config" data-config="combat">
                 <i class="{{data.gmm.monster.data.role.icon}}"></i> {{data.gmm.monster.data.role.name}}
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="monster__blocks">
             <div class="monster__blocks__row">
                 <div class="gmm-block hit-points">
-                    <div class="block__title">{{localize 'gmm.monster.artifact.blocks.hit_points.title'}}</div>
+                    <div class="block__title" data-action="open-config" data-config="hit-points">{{localize 'gmm.monster.artifact.blocks.hit_points.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content hit-points__temporary">
                             <div class="block__value length-{{strlen data.gmm.monster.data.hit_points.temporary}}">
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="gmm-block ac">
-                    <div class="block__title">{{localize 'gmm.monster.artifact.blocks.armor_class.title'}}</div>
+                    <div class="block__title" data-action="open-config" data-config="armor-class">{{localize 'gmm.monster.artifact.blocks.armor_class.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
                             <div class="block__value length-{{strlen data.gmm.monster.data.armor_class.value}}" title="{{{parseSources data.gmm.monster.data.armor_class.sources}}}">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="gmm-block perception">
-                    <div class="block__title">{{localize 'gmm.monster.artifact.blocks.perception.title'}}</div>
+                    <div class="block__title" data-action="open-config" data-config="passive-perception">{{localize 'gmm.monster.artifact.blocks.perception.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
                             <div class="block__value length-{{strlen data.gmm.monster.data.passive_perception.value}}" title="{{{parseSources data.gmm.monster.data.passive_perception.sources}}}">
@@ -91,7 +91,7 @@
             </div>
             <div class="monster__blocks__row">
                 <div class="gmm-block attack">
-                    <div class="block__title">{{localize 'gmm.monster.artifact.blocks.attack_bonus.title'}}</div>
+                    <div class="block__title" data-action="open-config" data-config="attack-bonus">{{localize 'gmm.monster.artifact.blocks.attack_bonus.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
                             <button class="block__value button--text length-{{strlen (numberFormat data.gmm.monster.data.attack_bonus.value sign=true)}}" title="{{{parseSources data.gmm.monster.data.attack_bonus.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_ac">
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <div class="gmm-block attack-dcs">
-                    <div class="block__title">{{localize 'gmm.monster.artifact.blocks.attack_dcs.title'}}</div>
+                    <div class="block__title" data-action="open-config" data-config="attack-dc">{{localize 'gmm.monster.artifact.blocks.attack_dcs.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
                             <button class="block__value button--text button--primary-dc length-{{strlen data.gmm.monster.data.attack_dcs.primary.value}}" title="{{{parseSources data.gmm.monster.data.attack_dcs.primary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <div class="gmm-block damage">
-                    <div class="block__title">{{localize 'gmm.monster.artifact.blocks.damage.title'}}</div>
+                    <div class="block__title" data-action="open-config" data-config="damage-per-action">{{localize 'gmm.monster.artifact.blocks.damage.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content static">
                             <button class="block__value button--text button--static-damage length-{{strlen data.gmm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gmm.monster.data.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_basic_damage">
@@ -174,21 +174,21 @@
                     <div class="monster__property">
                         <div class="property__icon"><i class="fa fa-brain fa-fw"></i></div>
                         <div class="property__body">
-                            <span class="property__title">{{localize 'gmm.monster.artifact.attributes.proficiency_bonus'}}</span>
+                            <span class="property__title" data-action="open-config" data-config="proficiency-bonus">{{localize 'gmm.monster.artifact.attributes.proficiency_bonus'}}</span>
                             <span class="property__value" title="{{{parseSources data.gmm.monster.data.proficiency_bonus.sources}}}">{{numberFormat data.gmm.monster.data.proficiency_bonus.value sign=true}}</span>
                         </div>
                     </div>
                     <div class="monster__property">
                         <div class="property__icon"><i class="fa fa-bolt fa-fw"></i></div>
                         <div class="property__body">
-                            <span class="property__title">{{localize 'gmm.monster.artifact.attributes.initiative'}}</span>
+                            <span class="property__title" data-action="open-config" data-config="initiative">{{localize 'gmm.monster.artifact.attributes.initiative'}}</span>
                             <span class="property__value" title="{{{parseSources data.gmm.monster.data.initiative.sources}}}">{{numberFormat data.gmm.monster.data.initiative.value sign=true}}{{#if data.gmm.monster.data.initiative.advantage}} (advantage){{/if}}</span>
                         </div>
                     </div>
                     <div class="monster__property">
                         <div class="property__icon"><i class="fa fa-skull fa-fw"></i></div>
                         <div class="property__body">
-                            <span class="property__title">{{localize 'gmm.monster.artifact.attributes.challenge_rating'}}</span>
+                            <span class="property__title" data-action="open-config" data-config="challenge-rating">{{localize 'gmm.monster.artifact.attributes.challenge_rating'}}</span>
                             <span class="property__value" title="{{{parseSources data.gmm.monster.data.challenge_rating.sources}}}">
                                 {{formatChallengeRating data.gmm.monster.data.challenge_rating.value}}
                             </span>
@@ -197,7 +197,7 @@
                     <div class="monster__property property--divider">
                         <div class="property__icon"><i class="fa fa-star fa-fw"></i></div>
                         <div class="property__body">
-                            <span class="property__title">{{localize 'gmm.monster.artifact.attributes.xp'}}</span>
+                            <span class="property__title" data-action="open-config" data-config="xp">{{localize 'gmm.monster.artifact.attributes.xp'}}</span>
                             <span class="property__value" title="{{{parseSources data.gmm.monster.data.xp.sources}}}">
                                 {{numberFormat data.gmm.monster.data.xp.value}}
                             </span>
@@ -209,7 +209,7 @@
                         <div class="monster__modifier">
                             {{#with (lookup ../data.gmm.monster.data.ability_modifiers .) as | modifier |}}
                                 <div class="modifier">
-                                    <div class="title">{{localize (concat 'gmm.common.ability.' ../. '.code')}}</div>
+                                    <div class="title" data-action="open-config" data-config="ability-modifiers">{{localize (concat 'gmm.common.ability.' ../. '.code')}}</div>
                                     <div class="value" title="{{{parseSources modifier.sources}}}">
                                         <button class="button--text" data-ability="{{../.}}" data-action="open-modal" data-modal="modal_ability_check">
                                             {{numberFormat modifier.value sign=true}}
@@ -232,7 +232,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-lightbulb fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.skills'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="skills">{{localize 'gmm.monster.artifact.attributes.skills'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.skills as | skill |}}
                                         <button class="button--text monster__skill" data-action="open-modal" data-modal="modal_ability_check" data-ability="{{skill.ability}}" data-skill="{{skill.code}}" title="{{{parseSources skill.sources}}}">
@@ -247,7 +247,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-shoe-prints fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.speeds.title'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="speed">{{localize 'gmm.monster.artifact.attributes.speeds.title'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.speeds as | speed |}}
                                         <span title="{{{parseSources speed.sources}}}">{{speed.title}} {{#if speed.value}}{{localize (concat 'gmm.monster.artifact.attributes.speeds.' speed.units) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
@@ -260,7 +260,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="far fa-star fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.damage_vulnerabilities'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="damage-vulnerabilities">{{localize 'gmm.monster.artifact.attributes.damage_vulnerabilities'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.damage_vulnerabilities}}
                                         <span>{{this}}</span>
@@ -273,7 +273,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-star-half-alt fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.damage_resistances'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="damage-resistances">{{localize 'gmm.monster.artifact.attributes.damage_resistances'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.damage_resistances}}
                                         <span>{{this}}</span>
@@ -286,7 +286,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-star fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.damage_immunities'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="damage-immunities">{{localize 'gmm.monster.artifact.attributes.damage_immunities'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.damage_immunities}}
                                         <span>{{this}}</span>
@@ -299,7 +299,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-shield-alt fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.condition_immunities'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="condition-immunities">{{localize 'gmm.monster.artifact.attributes.condition_immunities'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.condition_immunities}}
                                         <span>{{this}}</span>
@@ -312,7 +312,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-eye fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.senses.title'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="senses">{{localize 'gmm.monster.artifact.attributes.senses.title'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.senses as | sense |}}
                                         <span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gmm.monster.artifact.attributes.senses.' sense.units) distance=sense.value}}{{/if}}</span>
@@ -325,7 +325,7 @@
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-comment fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.attributes.languages'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="languages">{{localize 'gmm.monster.artifact.attributes.languages'}}</div>
                                 <div class="property__value">
                                     {{#each data.gmm.monster.data.languages}}
                                         <span>{{this}}</span>
@@ -344,7 +344,7 @@
                     {{#if gmm.monster.traits.visible}}
                         <div class="item-collection item-collection--traits {{#unless gmm.monster.traits.items}}empty{{/unless}}">
                             <div class="item-collection__header">
-                                <div class="column column--title">{{localize 'gmm.monster.artifact.traits.title'}}</div>
+                                <div class="column column--title" data-action="open-config" data-config="traits">{{localize 'gmm.monster.artifact.traits.title'}}</div>
                                 <div class="column column--uses">{{localize 'gmm.monster.artifact.traits.uses'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.traits.activation'}}</div>
                                 <div class="column column--actions">
@@ -367,7 +367,7 @@
                     {{#if gmm.monster.bonus_actions.visible}}
                         <div class="item-collection item-collection--bonus-actions {{#unless gmm.monster.bonus_actions.items}}empty{{/unless}}">
                             <div class="item-collection__header">
-                                <div class="column column--title">{{localize 'gmm.monster.artifact.bonus_actions.title'}}</div>
+                                <div class="column column--title" data-action="open-config" data-config="bonus-actions">{{localize 'gmm.monster.artifact.bonus_actions.title'}}</div>
                                 <div class="column column--uses">{{localize 'gmm.monster.artifact.bonus_actions.uses'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.bonus_actions.activation'}}</div>
                                 <div class="column column--actions">
@@ -390,7 +390,7 @@
                     {{#if gmm.monster.actions.visible}}
                         <div class="item-collection item-collection--actions {{#unless gmm.monster.actions.items}}empty{{/unless}}">
                             <div class="item-collection__header">
-                                <div class="column column--title">{{localize 'gmm.monster.artifact.actions.title'}}</div>
+                                <div class="column column--title" data-action="open-config" data-config="actions">{{localize 'gmm.monster.artifact.actions.title'}}</div>
                                 <div class="column column--uses">{{localize 'gmm.monster.artifact.actions.uses'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.actions.activation'}}</div>
                                 <div class="column column--actions">
@@ -413,7 +413,7 @@
                     {{#if gmm.monster.reactions.visible}}
                         <div class="item-collection item-collection--reactions {{#unless gmm.monster.reactions.items}}empty{{/unless}}">
                             <div class="item-collection__header">
-                                <div class="column column--title">{{localize 'gmm.monster.artifact.reactions.title'}}</div>
+                                <div class="column column--title" data-action="open-config" data-config="reactions">{{localize 'gmm.monster.artifact.reactions.title'}}</div>
                                 <div class="column column--uses">{{localize 'gmm.monster.artifact.reactions.uses'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.reactions.activation'}}</div>
                                 <div class="column column--actions">
@@ -453,7 +453,7 @@
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__title">{{localize 'gmm.monster.artifact.paragon_actions.title'}}</div>
+                                <div class="blurb__title" data-action="open-config" data-config="paragon-actions">{{localize 'gmm.monster.artifact.paragon_actions.title'}}</div>
                                 <div class="blurb__text">{{localize 'gmm.monster.artifact.paragon_actions.blurb'}}</div>
                             </div>
                         </div>
@@ -478,7 +478,7 @@
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__title">{{localize 'gmm.monster.artifact.legendary_resistances.title'}}</div>
+                                <div class="blurb__title" data-action="open-config" data-config="legendary-resistances">{{localize 'gmm.monster.artifact.legendary_resistances.title'}}</div>
                                 <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_resistances.blurb'}}</div>
                             </div>
                         </div>
@@ -503,13 +503,13 @@
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__title">Legendary Actions</div>
+                                <div class="blurb__title" data-action="open-config" data-config="legendary-actions">Legendary Actions</div>
                                 <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_actions.blurb'}}</div>
                             </div>
                         </div>
                         <div class="item-collection item-collection--legendary-actions {{#unless gmm.monster.legendary_actions.items}}empty{{/unless}}">
                             <div class="item-collection__header">
-                                <div class="column column--title">{{localize 'gmm.monster.artifact.legendary_actions.title'}}</div>
+                                <div class="column column--title" data-action="open-config" data-config="legendary-actions">{{localize 'gmm.monster.artifact.legendary_actions.title'}}</div>
                                 <div class="column column--uses">{{localize 'gmm.monster.artifact.legendary_actions.uses'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.legendary_actions.activation'}}</div>
                                 <div class="column column--actions">
@@ -541,13 +541,13 @@
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__title">{{localize 'gmm.monster.artifact.lair_actions.title'}}</div>
+                                <div class="blurb__title" data-action="open-config" data-config="lair-actions">{{localize 'gmm.monster.artifact.lair_actions.title'}}</div>
                                 <div class="blurb__text">{{localize 'gmm.monster.artifact.lair_actions.blurb' initiative=data.gmm.monster.data.lair_actions.initiative}}</div>
                             </div>
                         </div>
                         <div class="item-collection item-collection--lair-actions {{#unless gmm.monster.lair_actions.items}}empty{{/unless}}">
                             <div class="item-collection__header">
-                                <div class="column column--title">{{localize 'gmm.monster.artifact.lair_actions.title'}}</div>
+                                <div class="column column--title" data-action="open-config" data-config="lair-actions">{{localize 'gmm.monster.artifact.lair_actions.title'}}</div>
                                 <div class="column column--uses">{{localize 'gmm.monster.artifact.lair_actions.uses'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.lair_actions.activation'}}</div>
                                 <div class="column column--actions">
@@ -578,7 +578,7 @@
                         <div class="monster__property">
                             <div class="property__icon"><i class="fas fa-magic fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.spellbook.spellcasting_ability.title'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="spellcasting">{{localize 'gmm.monster.artifact.spellbook.spellcasting_ability.title'}}</div>
                                 <div class="property__value">
                                     {{localize 'gmm.monster.artifact.spellbook.spellcasting_ability.value'
                                         level=gmm.monster.spellbook.spellcasting.level
@@ -590,7 +590,7 @@
                         <div class="monster__property">
                             <div class="property__icon"><i class="fas fa-hand-sparkles fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.spellbook.spellcasting_dc.title'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="spellcasting">{{localize 'gmm.monster.artifact.spellbook.spellcasting_dc.title'}}</div>
                                 <div class="property__value" title="{{{parseSources gmm.monster.spellbook.spellcasting.dc.sources}}}">
                                     {{localize 'gmm.monster.artifact.spellbook.spellcasting_dc.value' dc=gmm.monster.spellbook.spellcasting.dc.value}}
                                 </div>
@@ -599,7 +599,7 @@
                     </div>
                     <div class="spellbook__slots">
                         <div class="slots__title">
-                            <div class="title">{{localize 'gmm.monster.artifact.spellbook.slots.title'}}</div>
+                            <div class="title" data-action="open-config" data-config="spellcasting">{{localize 'gmm.monster.artifact.spellbook.slots.title'}}</div>
                         </div>
                         <div class="slots__list">
                             {{#for 1 10 1}}
@@ -627,7 +627,7 @@
                     {{#for 0 (add gmm.monster.spellbook.maximum_visible_spell_level 1) 1}}
                         <div class="item-collection item-collection--spells {{#unless (lookup ../gmm.monster.spellbook.spells (concat .))}}empty{{/unless}} ">
                             <div class="item-collection__header">
-                                <div class="column column--title">{{localize (concat 'gmm.monster.artifact.spellbook.spells.' . )}}</div>
+                                <div class="column column--title" data-action="open-config" data-config="spellcasting">{{localize (concat 'gmm.monster.artifact.spellbook.spells.' . )}}</div>
                                 <div class="column column--components">{{localize 'gmm.monster.artifact.spellbook.spells.components'}}</div>
                                 <div class="column column--target">{{localize 'gmm.monster.artifact.spellbook.spells.target'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.spellbook.spells.activation'}}</div>
@@ -659,35 +659,35 @@
                         <div class="monster__property">
                             <div class="property__icon"><i class="fas fa-shopping-bag fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.inventory.capacity'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.capacity'}}</div>
                                 <div class="property__value" title="{{{parseSources gmm.monster.inventory.capacity.sources}}}">{{gmm.monster.inventory.capacity.value}}</div>
                             </div>
                         </div>
                         <div class="monster__property">
                             <div class="property__icon"><i class="fas fa-balance-scale fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.inventory.encumbrance'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.encumbrance'}}</div>
                                 <div class="property__value">{{gmm.monster.inventory.encumbrance}}%</div>
                             </div>
                         </div>
                         <div class="monster__property">
                             <div class="property__icon"><i class="fas fa-weight fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.inventory.weight'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.weight'}}</div>
                                 <div class="property__value" title="{{{parseSources gmm.monster.inventory.weight.sources}}}">{{gmm.monster.inventory.weight.value}}</div>
                             </div>
                         </div>
                         <div class="monster__property">
                             <div class="property__icon"><i class="fas fa-coins fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title">{{localize 'gmm.monster.artifact.inventory.currency'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.currency'}}</div>
                                 <div class="property__value">{{gmm.monster.inventory.currency.valuation}} GP</div>
                             </div>
                         </div>
                     </div>
                     {{#if gmm.monster.inventory.show_currencies}}
                         <div class="currencies">
-                            <div class="currencies__title">
+                            <div class="currencies__title" data-action="open-config" data-config="inventory">
                                 <div class="title">{{localize 'gmm.monster.artifact.inventory.coins.title'}}</div>
                             </div>
                             <div class="currencies__list">
@@ -731,7 +731,7 @@
                     {{/if}}
                     <div class="item-collection item-collection--items {{#unless gmm.monster.inventory.items}}empty{{/unless}}">
                         <div class="item-collection__header">
-                            <div class="column column--title">{{localize 'gmm.monster.artifact.inventory.items.title'}}</div>
+                            <div class="column column--title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.items.title'}}</div>
                             <div class="column column--quantity">{{localize 'gmm.monster.artifact.inventory.items.quantity'}}</div>
                             <div class="column column--uses">{{localize 'gmm.monster.artifact.inventory.items.uses'}}</div>
                             <div class="column column--activation">{{localize 'gmm.monster.artifact.inventory.items.activation'}}</div>

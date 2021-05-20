@@ -20,6 +20,7 @@ export default class Gui {
 		$el.find('[data-track-scrollbars="true"]').scroll((e) => this._updateScrollbar(e));
 		$el.find('.form-fieldset__header').click((e) => this._toggleFormFieldset(e));
 		$el.find('.form-fieldset__header button').click((e) => e.stopPropagation());
+		$el.find('[data-action="open-config"]').click((e) => this._openConfig(e));
 	}
 
 	applyTo($el) {
@@ -46,6 +47,26 @@ export default class Gui {
 		this._updatePanels(html);
 		this._updateScrollbars(html);
 		this._updateWindow(html);
+	}
+
+	_openConfig(event) {
+		let target = event.currentTarget.closest("[data-action='open-config']").dataset.config;
+		if (target) {
+			const forge = event.currentTarget.closest(".gmm-forge");
+			if (!forge.classList.contains("expanded")) {
+				this._expandWindow(event);
+			}
+			const section = forge.querySelector(`.gmm-blueprint [data-section="${target}"]`);
+			const accordion = forge.querySelectorAll(`.gmm-blueprint .accordion-section`);
+			[...accordion].forEach((x) => {
+				x.classList.remove("opened");
+				x.querySelector(".accordion-section__body").style.display = "none";
+			});
+			section.classList.add("opened");
+			section.querySelector(".accordion-section__body").style.removeProperty("display");
+			section.scrollIntoView();
+			this._updateAccordions(event.currentTarget.closest(".gmm-window"));
+		}
 	}
 
 	_updateAccordions(html) {
