@@ -173,7 +173,7 @@
 			top: 0;
 			width: 0;
 			padding: 0;
-			height: calc(100% - 2.9rem);
+			height: calc(100% - 2.75rem);
 			box-sizing: border-box;
 			background: none;
 			transition: width 100ms ease-in-out;
@@ -263,7 +263,7 @@
 			border-radius: 0 1.2rem 1.2rem 0;
 			grid-column: auto;
 			padding-left: 0;
-			width: calc(360px + 0.25rem - 1px);
+			width: calc(360px + 0.25rem - 2px);
 			display: block;
 
 			.gmm-blueprint {

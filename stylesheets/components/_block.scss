@@ -16,7 +16,11 @@
 
 		+ .block__contents {
 			position: relative;
-			border-top: 1px dotted var(--color-primary-tint-3);
+			border-top: 2px solid var(--color-primary-tint-4);
+			margin-left: 0.25rem;
+			margin-right: 0.25rem;
+			padding-left: 0;
+			padding-right: 0;
 		}
 	}
 

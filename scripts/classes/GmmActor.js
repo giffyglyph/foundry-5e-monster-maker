@@ -1,12 +1,12 @@
 import MonsterBlueprint from './MonsterBlueprint.js';
-import MonsterFactory from './MonsterFactory.js';
+import MonsterForge from './MonsterForge.js';
 import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
 import { GMM_5E_SKILLS } from '../consts/Gmm5eSkills.js';
 
 /**
  * A patcher which controls actor data based on the selected sheet.
  */
-const ActorGmm = (function () {
+const GmmActor = (function () {
 
 	/**
 	 * Patch the Foundry Actor5e entity to control how data is prepared based on the active sheet.
@@ -16,6 +16,7 @@ const ActorGmm = (function () {
 		game.dnd5e.entities.Actor5e.prototype.prepareBaseData = _prepareBaseData;
 		game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData = game.dnd5e.entities.Actor5e.prototype.prepareDerivedData;
 		game.dnd5e.entities.Actor5e.prototype.prepareDerivedData = _prepareDerivedData;
+		game.dnd5e.entities.Actor5e.prototype.getSheetId = _getActorSheetId;
 	}
 
 	/**
@@ -23,7 +24,7 @@ const ActorGmm = (function () {
 	 * @private
 	 */
 	function _prepareBaseData() {
-		if (_getSheetId(this) == "gmm.ActorSheetMonster") {
+		if (this.getSheetId() == "gmm.MonsterSheet") {
 			_prepareMonsterBaseData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eBaseData.call(this);
@@ -35,7 +36,7 @@ const ActorGmm = (function () {
 	 * @private
 	 */
 	function _prepareDerivedData() {
-		if (_getSheetId(this) == "gmm.ActorSheetMonster") {
+		if (this.getSheetId() == "gmm.MonsterSheet") {
 			_prepareMonsterDerivedData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData.call(this);
@@ -57,15 +58,13 @@ const ActorGmm = (function () {
 	 */
 	function _prepareMonsterDerivedData(actor) {
 		try {
-			console.time('loading');
-			
 			const actorData = actor.data.data;
 			const monsterBlueprint = MonsterBlueprint.createFromActor(actor);
-			const monsterProduct = MonsterFactory.createEntity(monsterBlueprint);
-			const monsterData = monsterProduct.data;
+			const monsterArtifact = MonsterForge.createArtifact(monsterBlueprint);
+			const monsterData = monsterArtifact.data;
 			actorData.gmm = {
 				blueprint: monsterBlueprint,
-				monster: monsterProduct
+				monster: monsterArtifact
 			};
 
 			GMM_5E_ABILITIES.forEach((x) => {
@@ -117,9 +116,8 @@ const ActorGmm = (function () {
 			actor.items.forEach((item) => {
 				item.getSaveDC();
 				item.getAttackToHit();
+				item.prepareShortcodes();
 			});
-
-			console.timeEnd('loading');
 		} catch (error) {
 			console.error(error);
 		}
@@ -131,9 +129,9 @@ const ActorGmm = (function () {
 	 * @returns {String} - A sheet id.
 	 * @private
 	 */
-	function _getSheetId(actor) {
+	function _getActorSheetId() {
 		try {
-			return actor.getFlag("core", "sheetClass") || game.settings.get("core", "sheetClasses").Actor.npc;
+			return this.getFlag("core", "sheetClass") || game.settings.get("core", "sheetClasses").Actor.npc;
 		} catch (error) {
 			return "";
 		}
@@ -144,4 +142,4 @@ const ActorGmm = (function () {
 	};
 })();
 
-export default ActorGmm;
+export default GmmActor;

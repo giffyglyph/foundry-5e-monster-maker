@@ -11,6 +11,7 @@
     }
   ],
   "esmodules": ["gmm.js"],
+  "scripts": ["./scripts/vendors/math_js.9.3.2.min.js"],
   "styles": ["gmm.css"],
   "system": "dnd5e",
   "packs": [

@@ -10,7 +10,7 @@
 	.monster__header {
 		background: black;
 		color: white;
-		padding: 0.5rem;
+		padding: 0.25rem;
 		border-radius: 1rem 1rem 0 0;
 		flex-shrink: 0;
 		display: grid;
@@ -112,13 +112,13 @@
         color: black;
 		margin-top: -1rem;
 		border-radius: 1rem;
-		padding: 0.5rem;
-		overflow-y: scroll;
+		padding: 0.25rem;
+		overflow-y: auto;
 		flex-grow: 1;
 		background: var(--color-primary-tint-2);
 
 		> * + * {
-			margin-top: 0.5rem;
+			margin-top: 0.25rem;
 		}
 
 		> * {
@@ -599,7 +599,7 @@
 	.monster__properties {
 		columns: 2;
 		column-gap: 2rem;
-		column-rule: 1px dotted var(--color-primary-tint-3);
+		column-rule: 2px solid var(--color-primary-tint-4);
 
 		.monster__property {
 			display: flex;
@@ -663,7 +663,7 @@
 
 			.property__title {
 				flex-grow: 0;
-				width: 14.65rem;
+				width: calc(50% - 1rem);
 			}
 		}
 	}

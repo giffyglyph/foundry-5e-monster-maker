@@ -7,7 +7,9 @@ const Templates = (function() {
 			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/monster_modifier.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/blueprint.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/artifact.html"
+			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/artifact.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/action/skins/vanity/blueprint.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/action/skins/vanity/artifact.html"
 		]);
 	};
 
@@ -50,7 +52,7 @@ const Templates = (function() {
 		Handlebars.registerHelper('parseSources', function(sources) {
 			if (sources) {
 				return sources.map((x) => {
-					return game.i18n.format('gmm.monster.source.from', { value: x.value, source: x.source });
+					return game.i18n.format('gmm.common.derived_source.from', { value: x.value, source: x.source });
 				}).join(",&#010;");
 			} else {
 				return "";

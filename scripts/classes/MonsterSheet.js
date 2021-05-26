@@ -1,3 +1,17 @@
+import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
+import { GMM_5E_ALIGNMENTS } from "../consts/Gmm5eAlignments.js";
+import { GMM_5E_CATEGORIES } from "../consts/Gmm5eCategories.js";
+import { GMM_5E_CONDITIONS } from "../consts/Gmm5eConditions.js";
+import { GMM_5E_DAMAGE_TYPES } from "../consts/Gmm5eDamageTypes.js";
+import { GMM_5E_LANGUAGES } from "../consts/Gmm5eLanguages.js";
+import { GMM_5E_SIZES } from "../consts/Gmm5eSizes.js";
+import { GMM_5E_SKILLS } from "../consts/Gmm5eSkills.js";
+import { GMM_5E_UNITS } from "../consts/Gmm5eUnits.js";
+import { GMM_GUI_COLORS } from "../consts/GmmGuiColors.js";
+import { GMM_GUI_LAYOUTS } from "../consts/GmmGuiLayouts.js";
+import { GMM_GUI_SKINS } from "../consts/GmmGuiSkins.js";
+import { GMM_MONSTER_RANKS } from "../consts/GmmMonsterRanks.js";
+import { GMM_MONSTER_ROLES } from "../consts/GmmMonsterRoles.js";
 import Gui from "./Gui.js";
 import ModalAbilityCheck from "../modals/ModalAbilityCheck.js";
 import ModalBasicAttackAc from "../modals/ModalBasicAttackAc.js";
@@ -5,22 +19,8 @@ import ModalBasicAttackSave from "../modals/ModalBasicAttackSave.js";
 import ModalBasicDamage from "../modals/ModalBasicDamage.js";
 import ModalSavingThrow from "../modals/ModalSavingThrow.js";
 import MonsterBlueprint from "./MonsterBlueprint.js";
-import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
-import { GMM_5E_ALIGNMENTS } from "../consts/Gmm5eAlignments.js";
-import { GMM_5E_CATEGORIES } from "../consts/Gmm5eCategories.js";
-import { GMM_GUI_COLORS } from "../consts/GmmGuiColors.js";
-import { GMM_5E_CONDITIONS } from "../consts/Gmm5eConditions.js";
-import { GMM_5E_DAMAGE_TYPES } from "../consts/Gmm5eDamageTypes.js";
-import { GMM_5E_LANGUAGES } from "../consts/Gmm5eLanguages.js";
-import { GMM_5E_SIZES } from "../consts/Gmm5eSizes.js";
-import { GMM_5E_SKILLS } from "../consts/Gmm5eSkills.js";
-import { GMM_GUI_SKINS } from "../consts/GmmGuiSkins.js";
-import { GMM_GUI_LAYOUTS } from "../consts/GmmGuiLayouts.js";
-import { GMM_5E_UNITS } from "../consts/Gmm5eUnits.js";
-import { GMM_MONSTER_RANKS } from "../consts/GmmMonsterRanks.js";
-import { GMM_MONSTER_ROLES } from "../consts/GmmMonsterRoles.js";
 
-export default class ActorSheetMonster extends ActorSheet {
+export default class MonsterSheet extends ActorSheet {
 
 	constructor(...args) {
 		super(...args);
@@ -64,8 +64,8 @@ export default class ActorSheetMonster extends ActorSheet {
 		const data = super.getData();
 
 		data.gmm = {
-			blueprint: data.actor.data.gmm.blueprint.data,
-			monster: data.actor.data.gmm.monster.data,
+			blueprint: data.actor.data.gmm.blueprint ? data.actor.data.gmm.blueprint.data : null,
+			monster: data.actor.data.gmm.monster ? data.actor.data.gmm.monster.data : null,
 			gui: this._gui,
 			enums: {
 				abilities: GMM_5E_ABILITIES,
@@ -85,83 +85,91 @@ export default class ActorSheetMonster extends ActorSheet {
 			}
 		};
 
-		// Set action totals.
-		data.gmm.blueprint.spellbook.total = Object.entries(data.gmm.blueprint.spellbook.spells).reduce((a, b) => a + b[1].length, 0);
+		if (data.gmm.blueprint) {
+			
+			// Set total number of spells.
+			if (data.gmm.blueprint.spellbook.spells) {
+				data.gmm.blueprint.spellbook.total = Object.entries(data.gmm.blueprint.spellbook.spells).reduce((a, b) => a + b[1].length, 0);
+			}
+		}
 
-		// Beautify monster item data.
-		["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"].forEach((x) => {
-			let items = getProperty(data.gmm.monster, x);
-			if (items) {
-				setProperty(data.gmm.monster, x, items.map((y) => {
-					let item = this.actor.getOwnedItem(y.id);
-					let sortType = this._getItemSortType(item.data);
-					let properties = item.getChatData({secrets: this.actor.owner});
-					let details = {
-						id: item._id,
-						name: item.name,
-						img: item.img,
-						description: properties.description.value,
-						tags: properties.properties,
-						is_scaling: Math.round(Math.random()) == 1,
-						sort_type: sortType,
-						uses: {
-							enabled: item.hasLimitedUses,
-							current: item.hasLimitedUses ? item.data.data.uses.value : null,
-							maximum: item.hasLimitedUses ? item.data.data.uses.max : null
-						},
-						recharge: {
-							enabled: item.data.data.recharge && item.data.data.recharge.value != null,
-							value: item.data.data.recharge ? item.data.data.recharge.value : null,
-							charged: item.data.data.recharge ? item.data.data.recharge.charged : null
-						},
-						activation: {
-							enabled: item.data.data.activation && item.data.data.activation.type != "",
-							description: item.labels.activation
+		if (data.gmm.monster) {
+
+			// Beautify monster item data.
+			["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"].forEach((x) => {
+				let items = getProperty(data.gmm.monster, x);
+				if (items) {
+					setProperty(data.gmm.monster, x, items.map((y) => {
+						let item = this.actor.getOwnedItem(y.id);
+						let sortType = this._getItemSortType(item.data);
+						let properties = item.getChatData({secrets: this.actor.owner});
+						let details = {
+							id: item._id,
+							name: item.name,
+							img: item.img,
+							description: properties.description.value,
+							tags: properties.properties,
+							is_scaling: Math.round(Math.random()) == 1,
+							sort_type: sortType,
+							uses: {
+								enabled: item.hasLimitedUses,
+								current: item.hasLimitedUses ? item.data.data.uses.value : null,
+								maximum: item.hasLimitedUses ? item.data.data.uses.max : null
+							},
+							recharge: {
+								enabled: item.data.data.recharge && item.data.data.recharge.value != null,
+								value: item.data.data.recharge ? item.data.data.recharge.value : null,
+								charged: item.data.data.recharge ? item.data.data.recharge.charged : null
+							},
+							activation: {
+								enabled: item.data.data.activation && item.data.data.activation.type != "",
+								description: item.labels.activation
+							}
+						};
+						if (item.type == "class") {
+							properties.properties.push("Class");
 						}
-					};
-					if (item.type == "class") {
-						properties.properties.push("Class");
-					}
-					if (item.type == "feat" && !item.data.data.activation.type) {
-						properties.properties.push("Passive");
-					}
-					if (sortType == "loot") {
-						details.quantity = item.data.data.quantity;
-					}
-					if (sortType == "spell") {
-						details.components = item.labels.components;
-						details.target = item.labels.target;
-						details.school = item.labels.school;
-					}
-					return details;
-				}));
-			}
-		});
+						if (item.type == "feat" && !item.data.data.activation.type) {
+							properties.properties.push("Passive");
+						}
+						if (sortType == "loot") {
+							details.quantity = item.data.data.quantity;
+						}
+						if (sortType == "spell") {
+							details.components = item.labels.components;
+							details.target = item.labels.target;
+							details.school = item.labels.school;
+						}
+						return details;
+					}));
+				}
+			});
 
-		// Set maximum active spell level
-		let maximum_spell_level = 0;
-		for (let i = 1; i < 10; i++) {
-			if (data.gmm.monster.spellbook.spells[i].length > 0 || data.gmm.monster.spellbook.slots[i].maximum > 0) {
-				maximum_spell_level = i;
-			}
-		}
-		if (data.gmm.monster.spellbook.slots.pact.maximum > 0) {
-			maximum_spell_level = Math.max(maximum_spell_level, data.gmm.monster.spellbook.slots.pact.level);
-		}
-		data.gmm.monster.spellbook.maximum_visible_spell_level = maximum_spell_level;
-
-		// Show/hide features panel
-		["bonus_actions", "actions", "reactions", "traits", "paragon_actions", "legendary_actions", "lair_actions", "legendary_resistances"].forEach((x) => {
-			if (data.gmm.monster[x].visible) {
-				if (data.gmm.monster.features) {
-					data.gmm.monster.features.visible = true;
-				} else {
-					data.gmm.monster.features = {
-						visible: true
-					};
+			// Set maximum active spell level
+			let maximum_spell_level = 0;
+			for (let i = 1; i < 10; i++) {
+				if (data.gmm.monster.spellbook.spells[i].length > 0 || data.gmm.monster.spellbook.slots[i].maximum > 0) {
+					maximum_spell_level = i;
 				}
 			}
-		});
+			if (data.gmm.monster.spellbook.slots.pact.maximum > 0) {
+				maximum_spell_level = Math.max(maximum_spell_level, data.gmm.monster.spellbook.slots.pact.level);
+			}
+			data.gmm.monster.spellbook.maximum_visible_spell_level = maximum_spell_level;
+
+			// Show/hide features panel
+			["bonus_actions", "actions", "reactions", "traits", "paragon_actions", "legendary_actions", "lair_actions", "legendary_resistances"].forEach((x) => {
+				if (data.gmm.monster[x].visible) {
+					if (data.gmm.monster.features) {
+						data.gmm.monster.features.visible = true;
+					} else {
+						data.gmm.monster.features = {
+							visible: true
+						};
+					}
+				}
+			});
+		}
 
 		return data;
 	}

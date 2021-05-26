@@ -247,7 +247,11 @@
     text-align: center; }
     .gmm-block .block__title + .block__contents {
       position: relative;
-      border-top: 1px dotted var(--color-primary-tint-3); }
+      border-top: 2px solid var(--color-primary-tint-4);
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+      padding-left: 0;
+      padding-right: 0; }
   .gmm-block .block__contents {
     flex-grow: 1;
     display: flex;
@@ -314,29 +318,27 @@
     width: 1rem; }
   .gmm-blueprint ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background: var(--color-secondary-shade-3);
-    border: 2px solid var(--color-secondary-tint-2); }
+    background: var(--color-primary-shade-3);
+    border: 2px solid var(--color-primary-tint-2); }
   .gmm-blueprint ::-webkit-scrollbar-track {
     box-shadow: none;
     border-radius: 1rem;
-    background: var(--color-secondary-tint-1);
-    border: 5px solid var(--color-secondary-tint-2); }
+    background: var(--color-primary-tint-1);
+    border: 5px solid var(--color-primary-tint-2); }
   .gmm-blueprint .blueprint__header {
     background: black;
     color: white;
-    padding: 0.5rem 0.5rem 1.5rem;
+    padding: 0.25rem;
     flex-shrink: 0;
     display: flex;
     font-size: 2rem;
     text-align: center;
     font-family: 'Londrina Solid';
     align-items: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
     border-top-left-radius: 0;
     border-bottom-right-radius: 0;
-    background: var(--color-secondary-shade-2);
-    border-bottom: 2px solid var(--color-secondary-shade-3);
+    background: var(--color-primary-shade-2);
+    border-bottom: 2px solid var(--color-primary-shade-3);
     position: relative;
     z-index: 1; }
     .gmm-blueprint .blueprint__header + .blueprint__body {
@@ -347,7 +349,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--color-secondary-shade-4);
+    background: var(--color-primary-shade-4);
     border-radius: 0.75rem;
     margin-right: 1rem;
     font-size: 1.5rem; }
@@ -364,14 +366,14 @@
       background: none;
       border: none;
       border-radius: 1rem;
-      background: var(--color-secondary-shade-1);
+      background: var(--color-primary-shade-1);
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer; }
       .gmm-blueprint .blueprint__options button:hover, .gmm-blueprint .blueprint__options button:focus {
-        background: var(--color-primary-base);
+        background: var(--color-secondary-base);
         text-shadow: none;
         box-shadow: none; }
       .gmm-blueprint .blueprint__options button i {
@@ -380,27 +382,27 @@
         margin-left: 0.25rem; }
   .gmm-blueprint .blueprint__body {
     background: white;
-    padding: 0.5rem;
+    padding: 0.25rem;
     overflow-y: auto;
     flex-grow: 1;
-    background: var(--color-secondary-tint-2); }
+    background: var(--color-primary-tint-2); }
   .gmm-blueprint .blueprint__form .form-group {
     margin: 0;
     position: relative;
     align-items: normal; }
     .gmm-blueprint .blueprint__form .form-group:not(:last-child) {
-      border-bottom: 1px solid var(--color-primary-tint-3); }
+      border-bottom: 1px solid var(--color-secondary-tint-3); }
   .gmm-blueprint .blueprint__form .form-group__header {
     flex-shrink: 0;
     margin: 0;
     font-weight: bold;
     padding: 0.5rem 0.75rem;
     box-sizing: border-box;
-    background: var(--color-primary-tint-4);
+    background: var(--color-secondary-tint-4);
     line-height: 1;
     min-height: 2rem;
     text-align: right;
-    color: var(--color-primary-shade-4);
+    color: var(--color-secondary-shade-4);
     width: 8rem;
     flex: unset;
     white-space: nowrap;
@@ -425,7 +427,7 @@
       .gmm-blueprint .blueprint__form .form-group__body input + select,
       .gmm-blueprint .blueprint__form .form-group__body select + input,
       .gmm-blueprint .blueprint__form .form-group__body select + select {
-        border-top: 1px solid var(--color-primary-tint-3); }
+        border-top: 1px solid var(--color-secondary-tint-3); }
       .gmm-blueprint .blueprint__form .form-group__body input:focus,
       .gmm-blueprint .blueprint__form .form-group__body select:focus {
         outline: 2px solid white;
@@ -442,7 +444,7 @@
       .gmm-blueprint .blueprint__form .form-group__body input[type="checkbox"]:focus {
         outline: none; }
     .gmm-blueprint .blueprint__form .form-group__body .html-field .editor-content {
-      padding: 1rem;
+      padding: 0.5rem;
       min-height: 4rem;
       white-space: normal;
       word-break: break-word; }
@@ -454,7 +456,7 @@
       top: 1rem;
       right: 1rem;
       border-radius: 1rem;
-      background: var(--color-primary-base);
+      background: var(--color-secondary-base);
       border: none;
       color: white;
       font-size: 1rem;
@@ -475,7 +477,7 @@
         width: 30px;
         padding: 0; }
         .gmm-blueprint .blueprint__form .form-group__body .html-field .tox .tox-tbtn:hover {
-          background: var(--color-primary-tint-3);
+          background: var(--color-secondary-tint-3);
           cursor: pointer; }
       .gmm-blueprint .blueprint__form .form-group__body .html-field .tox .tox-tbtn[title="Formats"] {
         width: 90px; }
@@ -483,10 +485,10 @@
     .gmm-blueprint .blueprint__form .form-group__body .html-field .tox-toolbar__primary {
       background: none !important; }
     .gmm-blueprint .blueprint__form .form-group__body .html-field .tox-editor-header {
-      background: var(--color-primary-tint-5);
+      background: var(--color-secondary-tint-5);
       padding: 0.25rem; }
     .gmm-blueprint .blueprint__form .form-group__body .html-field .tox-edit-area__iframe {
-      padding: 1rem; }
+      padding: 0.5rem; }
     .gmm-blueprint .blueprint__form .form-group__body .form-group__options {
       position: absolute;
       right: 0;
@@ -536,30 +538,56 @@
       border: none;
       margin: 0; }
       .gmm-blueprint .blueprint__form .form-group__body table thead {
-        color: var(--color-primary-shade-2);
-        background: var(--color-primary-tint-3);
+        color: var(--color-secondary-shade-2);
+        background: var(--color-secondary-tint-3);
         text-shadow: none;
         border: none;
         line-height: 1.5;
         font-size: smaller; }
       .gmm-blueprint .blueprint__form .form-group__body table.table--bordered th:not(:first-child),
       .gmm-blueprint .blueprint__form .form-group__body table.table--bordered td:not(:first-child) {
-        border-left: 1px solid var(--color-primary-tint-4); }
+        border-left: 1px solid var(--color-secondary-tint-4); }
       .gmm-blueprint .blueprint__form .form-group__body table.table--bordered tbody tr:not(:last-child) {
-        border-bottom: 1px solid var(--color-primary-tint-4); }
+        border-bottom: 1px solid var(--color-secondary-tint-4); }
+    .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row {
+      display: flex; }
+      .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row > * {
+        border: none; }
+        .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row > *:focus {
+          outline: none; }
+        .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row > *:not(:first-child) {
+          border-left: 2px solid var(--color-secondary-tint-3);
+          border-top-left-radius: 1rem;
+          border-bottom-left-radius: 1rem; }
+      .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row span.text {
+        display: flex;
+        align-items: center;
+        border-left: none;
+        margin: 0.125rem 0;
+        background: var(--color-secondary-tint-1);
+        border-radius: 1rem;
+        padding: 0.125rem 0.75rem;
+        color: white;
+        align-self: center; }
+        .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row span.text:first-child {
+          margin-left: 0.5rem; }
+        .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row span.text + * {
+          border-left: none;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0; }
   .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header {
     border-right: none;
     text-align: left;
     text-transform: uppercase;
     padding: 0 0.5rem 0 2.2rem;
-    background: var(--color-primary-tint-3);
+    background: var(--color-secondary-tint-3);
     min-height: auto;
     line-height: 1.5rem;
-    border-bottom: 1px solid var(--color-primary-tint-3);
+    border-bottom: 1px solid var(--color-secondary-tint-3);
     position: relative;
     font-weight: bold;
     font-size: smaller;
-    color: var(--color-primary-shade-1);
+    color: var(--color-secondary-shade-1);
     display: flex;
     justify-content: space-between; }
     .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header::after {
@@ -580,13 +608,13 @@
       justify-content: center;
       align-items: center;
       top: 0.4rem;
-      color: var(--color-primary-base);
+      color: var(--color-secondary-base);
       font-size: larger; }
     .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header:hover {
       color: white;
       cursor: pointer; }
     .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header button {
-      background: var(--color-primary-tint-2);
+      background: var(--color-secondary-tint-2);
       color: white;
       font-weight: bold;
       line-height: 1.5;
@@ -602,18 +630,18 @@
         margin: 0; }
       .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header button:hover {
         box-shadow: none;
-        background: var(--color-primary-base); }
+        background: var(--color-secondary-base); }
   .gmm-blueprint .blueprint__form .form-fieldset.closed .form-fieldset__header::after {
     content: "\f07b";
     font-weight: 400; }
   .gmm-blueprint .blueprint__form .form-fieldset:not(:first-child) {
-    border-top: 1px solid var(--color-primary-tint-2); }
+    border-top: 1px solid var(--color-secondary-tint-2); }
   .gmm-blueprint .blueprint__form .form-footer {
-    background: var(--color-primary-tint-5);
+    background: var(--color-secondary-tint-5);
     text-align: right;
     padding: 0.5rem 0.25rem; }
     .gmm-blueprint .blueprint__form .form-footer button {
-      background: var(--color-primary-base);
+      background: var(--color-secondary-base);
       color: white;
       font-weight: bold;
       line-height: 1.5;
@@ -626,13 +654,13 @@
         margin: 0; }
       .gmm-blueprint .blueprint__form .form-footer button:hover {
         box-shadow: none;
-        background: var(--color-primary-shade-2); }
+        background: var(--color-secondary-shade-2); }
   .gmm-blueprint .blueprint__error {
     flex-grow: 1;
     text-align: center;
     font-size: 1.5rem;
     padding: 2rem;
-    background: var(--color-secondary-tint-2);
+    background: var(--color-primary-tint-2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -656,7 +684,7 @@
     line-height: inherit;
     margin: 0;
     height: 1rem;
-    background: var(--color-primary-tint-3);
+    background: var(--color-secondary-tint-3);
     color: white;
     border-radius: 1rem;
     text-align: center;
@@ -667,40 +695,107 @@
     .gmm-blueprint .button--help:hover {
       cursor: pointer;
       box-shadow: none;
-      background: var(--color-primary-base); }
+      background: var(--color-secondary-base); }
     .gmm-blueprint .button--help i {
       margin: 0; }
   .gmm-blueprint .accordion-section__header {
     padding-right: 0.5rem; }
   .gmm-blueprint .accordion-section__body {
     padding: 0; }
-  .gmm-blueprint .gmm-accordion {
+  .gmm-blueprint.reverse-colors ::-webkit-scrollbar-thumb {
+    background: var(--color-secondary-shade-3);
+    border-color: var(--color-secondary-tint-2); }
+  .gmm-blueprint.reverse-colors ::-webkit-scrollbar-track {
+    background: var(--color-secondary-tint-1);
+    border-color: var(--color-secondary-tint-2); }
+  .gmm-blueprint.reverse-colors .blueprint__header {
+    background: var(--color-secondary-shade-2);
+    border-bottom: 2px solid var(--color-secondary-shade-3); }
+  .gmm-blueprint.reverse-colors .blueprint__icon {
+    background: var(--color-secondary-shade-4); }
+  .gmm-blueprint.reverse-colors .blueprint__options button {
+    background: var(--color-secondary-shade-1); }
+    .gmm-blueprint.reverse-colors .blueprint__options button:hover, .gmm-blueprint.reverse-colors .blueprint__options button:focus {
+      background: var(--color-primary-base); }
+  .gmm-blueprint.reverse-colors .blueprint__body {
+    background: var(--color-secondary-tint-2); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group:not(:last-child) {
+    border-bottom-color: var(--color-primary-tint-3); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__header {
+    background: var(--color-primary-tint-4);
+    color: var(--color-primary-shade-4); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body input + input,
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body input + select,
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body select + input,
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body select + select {
+    border-top: 1px solid var(--color-primary-tint-3); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body .html-field .editor-edit {
+    background: var(--color-primary-base); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body .html-field .tox .tox-tbtn:hover {
+    background: var(--color-primary-tint-3); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body .html-field .tox-editor-header {
+    background: var(--color-primary-tint-5); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table thead {
+    color: var(--color-primary-shade-2);
+    background: var(--color-primary-tint-3); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table.table--bordered th:not(:first-child),
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table.table--bordered td:not(:first-child) {
+    border-left-color: var(--color-primary-tint-4); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table.table--bordered tbody tr:not(:last-child) {
+    border-bottom-color: var(--color-primary-tint-4); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header {
+    background: var(--color-primary-tint-3);
+    border-bottom-color: var(--color-primary-tint-3);
+    color: var(--color-primary-shade-1); }
+    .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header::after {
+      color: var(--color-primary-base); }
+    .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header button {
+      background: var(--color-primary-tint-2); }
+      .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header button:hover {
+        background: var(--color-primary-base); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset:not(:first-child) {
+    border-top-color: var(--color-primary-tint-2); }
+  .gmm-blueprint.reverse-colors .blueprint__form .form-footer {
+    background: var(--color-primary-tint-5); }
+    .gmm-blueprint.reverse-colors .blueprint__form .form-footer button {
+      background: var(--color-primary-base); }
+      .gmm-blueprint.reverse-colors .blueprint__form .form-footer button:hover {
+        background: var(--color-primary-shade-2); }
+  .gmm-blueprint.reverse-colors .blueprint__error {
+    background: var(--color-secondary-tint-2); }
+  .gmm-blueprint.reverse-colors .button--help {
+    background: var(--color-primary-tint-3); }
+    .gmm-blueprint.reverse-colors .button--help:hover {
+      background: var(--color-primary-base); }
+  .gmm-blueprint.reverse-colors .gmm-accordion {
     filter: drop-shadow(0 1px 0 var(--color-secondary-shade-3)); }
-    .gmm-blueprint .gmm-accordion .accordion-section:not(:first-of-type) {
+    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(:first-of-type) {
       border-top-color: var(--color-secondary-shade-2); }
-    .gmm-blueprint .gmm-accordion .accordion-section.opened .accordion-section__header {
-      background: var(--color-primary-base); }
-      .gmm-blueprint .gmm-accordion .accordion-section.opened .accordion-section__header::before {
-        background: var(--color-primary-tint-2); }
-      .gmm-blueprint .gmm-accordion .accordion-section.opened .accordion-section__header .accordion-section__info .badge {
-        background: var(--color-primary-shade-2); }
-    .gmm-blueprint .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover {
-      background: var(--color-primary-base); }
-      .gmm-blueprint .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover::before {
-        background: var(--color-primary-tint-2); }
-      .gmm-blueprint .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover .accordion-section__info .badge {
-        background: var(--color-primary-shade-2); }
-    .gmm-blueprint .gmm-accordion .accordion-section.collapsing .accordion-section__header {
-      background: var(--color-primary-base); }
-      .gmm-blueprint .gmm-accordion .accordion-section.collapsing .accordion-section__header::before {
-        background: var(--color-primary-tint-2); }
-    .gmm-blueprint .gmm-accordion .accordion-section__header {
-      background: var(--color-secondary-shade-1); }
-      .gmm-blueprint .gmm-accordion .accordion-section__header::before {
-        background: var(--color-secondary-tint-1); }
-    .gmm-blueprint .gmm-accordion .accordion-section__body {
+    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened {
       border-top-color: var(--color-primary-shade-2); }
-    .gmm-blueprint .gmm-accordion .accordion-section__info .badge {
+      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened .accordion-section__header {
+        background: var(--color-primary-base); }
+        .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened .accordion-section__header::before {
+          background: var(--color-primary-tint-2); }
+        .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened .accordion-section__header .accordion-section__info .badge {
+          background: var(--color-primary-shade-2); }
+    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover {
+      background: var(--color-primary-base); }
+      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover::before {
+        background: var(--color-primary-tint-2); }
+      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover .accordion-section__info .badge {
+        background: var(--color-primary-shade-2); }
+    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.collapsing .accordion-section__header {
+      background: var(--color-primary-base); }
+      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.collapsing .accordion-section__header::before {
+        background: var(--color-primary-tint-2); }
+    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__header {
+      background: var(--color-secondary-shade-1); }
+      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__header::before {
+        background: var(--color-secondary-tint-1); }
+    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__body {
+      border-top-color: var(--color-primary-shade-2); }
+    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__info .badge {
       background: var(--color-secondary-shade-2); }
 
 .gmm-modal {
@@ -1180,7 +1275,7 @@
     top: 0;
     width: 0;
     padding: 0;
-    height: calc(100% - 2.9rem);
+    height: calc(100% - 2.75rem);
     box-sizing: border-box;
     background: none;
     transition: width 100ms ease-in-out;
@@ -1238,7 +1333,7 @@
       border-radius: 0 1.2rem 1.2rem 0;
       grid-column: auto;
       padding-left: 0;
-      width: calc(360px + 0.25rem - 1px);
+      width: calc(360px + 0.25rem - 2px);
       display: block; }
       .gmm-forge.layout--slide-out .forge__blueprint .gmm-blueprint {
         border-radius: 0 1rem 1rem 0;
@@ -1971,7 +2066,7 @@
   .gmm-artifact.artifact--monster--vanity .monster__header {
     background: black;
     color: white;
-    padding: 0.5rem;
+    padding: 0.25rem;
     border-radius: 1rem 1rem 0 0;
     flex-shrink: 0;
     display: grid;
@@ -2051,12 +2146,12 @@
     color: black;
     margin-top: -1rem;
     border-radius: 1rem;
-    padding: 0.5rem;
-    overflow-y: scroll;
+    padding: 0.25rem;
+    overflow-y: auto;
     flex-grow: 1;
     background: var(--color-primary-tint-2); }
     .gmm-artifact.artifact--monster--vanity .monster__body > * + * {
-      margin-top: 0.5rem; }
+      margin-top: 0.25rem; }
     .gmm-artifact.artifact--monster--vanity .monster__body > * {
       filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
   .gmm-artifact.artifact--monster--vanity .monster__blocks .monster__blocks__row {
@@ -2380,7 +2475,7 @@
   .gmm-artifact.artifact--monster--vanity .monster__properties {
     columns: 2;
     column-gap: 2rem;
-    column-rule: 1px dotted var(--color-primary-tint-3); }
+    column-rule: 2px solid var(--color-primary-tint-4); }
     .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property {
       display: flex;
       margin-bottom: 0.125rem; }
@@ -2418,7 +2513,7 @@
         justify-content: flex-start; }
       .gmm-artifact.artifact--monster--vanity .monster__properties .property--wide .property__title {
         flex-grow: 0;
-        width: 14.65rem; }
+        width: calc(50% - 1rem); }
   .gmm-artifact.artifact--monster--vanity .button--text {
     background: none;
     border: none;
@@ -3132,3 +3227,178 @@
 .gmm-window.window--monster {
   width: 600px !important;
   min-height: 500px; }
+
+.gmm-blueprint.blueprint--action--vanity .form-group--image img {
+  background: black;
+  border-radius: 0.75rem;
+  width: 4.2rem;
+  margin: 0.25rem auto 0.25rem 0.5rem;
+  border: none;
+  display: block; }
+  .gmm-blueprint.blueprint--action--vanity .form-group--image img:hover {
+    cursor: pointer; }
+
+.gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body {
+  display: flex; }
+  .gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox {
+    display: inline-flex;
+    font-size: inherit;
+    white-space: nowrap;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5rem; }
+    .gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox:hover {
+      cursor: pointer; }
+    .gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox input {
+      margin: 0;
+      top: 0;
+      display: inline-block;
+      margin-right: 0.25rem; }
+
+.gmm-artifact.artifact--action--vanity {
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-primary-tint-2);
+  padding: 2px; }
+  .gmm-artifact.artifact--action--vanity ::-webkit-scrollbar-thumb {
+    background: var(--color-primary-shade-3);
+    border-color: white; }
+  .gmm-artifact.artifact--action--vanity ::-webkit-scrollbar-track {
+    background: var(--color-primary-tint-1);
+    border-color: white; }
+  .gmm-artifact.artifact--action--vanity [data-action="open-config"]:hover {
+    cursor: pointer;
+    color: var(--color-secondary-base) !important; }
+  .gmm-artifact.artifact--action--vanity .action {
+    background: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    filter: drop-shadow(0 2px 0 var(--color-primary-shade-3));
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%; }
+  .gmm-artifact.artifact--action--vanity .action__header {
+    display: grid;
+    grid-template-columns: 93px 1fr;
+    grid-column-gap: 1rem;
+    font-size: inherit;
+    font-family: inherit; }
+    .gmm-artifact.artifact--action--vanity .action__header .action__icon {
+      grid-row: 1 / span 3;
+      margin: 0;
+      height: 100%;
+      width: 100%; }
+      .gmm-artifact.artifact--action--vanity .action__header .action__icon img {
+        border: none;
+        border-radius: 0.75rem;
+        display: block;
+        background: var(--color-primary-shade-3); }
+    .gmm-artifact.artifact--action--vanity .action__header .action__title {
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+      font-family: 'Londrina Solid';
+      line-height: 1.1;
+      padding-right: 2.5rem; }
+    .gmm-artifact.artifact--action--vanity .action__header .action__type {
+      font-weight: 600;
+      font-size: larger;
+      text-align: left;
+      padding-right: 2.5rem; }
+    .gmm-artifact.artifact--action--vanity .action__header .action__requirements {
+      font-weight: 600;
+      font-size: larger;
+      text-align: left;
+      padding-right: 2.5rem;
+      border-top: 1px solid var(--color-primary-tint-4);
+      border-bottom: 1px solid var(--color-primary-tint-4);
+      margin: 0.25rem 0 0;
+      padding: 0.25rem 0;
+      display: flex; }
+      .gmm-artifact.artifact--action--vanity .action__header .action__requirements i {
+        color: var(--color-primary-base); }
+      .gmm-artifact.artifact--action--vanity .action__header .action__requirements .level,
+      .gmm-artifact.artifact--action--vanity .action__header .action__requirements .rank,
+      .gmm-artifact.artifact--action--vanity .action__header .action__requirements .role {
+        display: inline-block; }
+        .gmm-artifact.artifact--action--vanity .action__header .action__requirements .level:not(:first-child),
+        .gmm-artifact.artifact--action--vanity .action__header .action__requirements .rank:not(:first-child),
+        .gmm-artifact.artifact--action--vanity .action__header .action__requirements .role:not(:first-child) {
+          margin-left: 0.5rem; }
+          .gmm-artifact.artifact--action--vanity .action__header .action__requirements .level:not(:first-child)::before,
+          .gmm-artifact.artifact--action--vanity .action__header .action__requirements .rank:not(:first-child)::before,
+          .gmm-artifact.artifact--action--vanity .action__header .action__requirements .role:not(:first-child)::before {
+            content: '•';
+            color: var(--color-primary-tint-3);
+            margin-right: 0.5rem; }
+    .gmm-artifact.artifact--action--vanity .action__header .action__options {
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.5rem; }
+  .gmm-artifact.artifact--action--vanity .action__body {
+    margin-top: 1rem;
+    margin-right: -0.5rem;
+    padding-right: 0.5rem;
+    overflow-y: auto; }
+    .gmm-artifact.artifact--action--vanity .action__body .action__properties {
+      columns: 2;
+      column-gap: 2rem;
+      column-rule: 2px solid var(--color-primary-tint-4); }
+      .gmm-artifact.artifact--action--vanity .action__body .action__properties + * {
+        margin-top: 1rem; }
+      .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property {
+        display: flex;
+        margin-bottom: 0.125rem; }
+        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property:last-child {
+          margin-bottom: 0; }
+        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__body {
+          flex-grow: 1;
+          display: flex;
+          justify-content: space-between; }
+        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__icon {
+          color: var(--color-primary-tone-1);
+          margin-right: 0.5rem; }
+        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__title {
+          color: var(--color-primary-tone-1);
+          font-weight: bold;
+          flex-grow: 1;
+          white-space: nowrap;
+          flex-shrink: 0;
+          display: flex;
+          text-transform: uppercase; }
+          .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__title::after {
+            content: '';
+            flex-grow: 1;
+            border-bottom: 1px dotted var(--color-primary-tint-3);
+            margin: 0 0.5rem;
+            height: 13px;
+            min-width: 0.5rem; }
+        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__value span:not(:last-child)::after {
+          content: ', '; }
+      .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--divider + .monster__property {
+        margin-top: 1rem; }
+      .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--wide {
+        column-span: all; }
+        .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--wide .property__body {
+          justify-content: flex-start; }
+        .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--wide .property__title {
+          flex-grow: 0;
+          width: calc(35% - 1rem); }
+    .gmm-artifact.artifact--action--vanity .action__body .action__description > :first-child {
+      margin-top: 0; }
+    .gmm-artifact.artifact--action--vanity .action__body .action__description > :last-child {
+      margin-bottom: 0; }
+    .gmm-artifact.artifact--action--vanity .action__body .action__description .secret {
+      border: none;
+      background: var(--color-primary-tint-5);
+      padding: 1rem;
+      border-radius: 0.75rem; }
+      .gmm-artifact.artifact--action--vanity .action__body .action__description .secret > :first-child {
+        margin-top: 0; }
+      .gmm-artifact.artifact--action--vanity .action__body .action__description .secret > :last-child {
+        margin-bottom: 0; }
+
+.gmm-window.window--action {
+  width: 550px !important;
+  min-height: 400px; }

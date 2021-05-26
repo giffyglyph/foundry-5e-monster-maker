@@ -10,9 +10,9 @@ import { GMM_5E_SPEEDS } from "../consts/Gmm5eSpeeds.js";
 import { GMM_5E_SENSES } from "../consts/Gmm5eSenses.js";
 import DerivedAttribute from "./DerivedAttribute.js";
 
-const MonsterFactory = (function() {
+const MonsterForge = (function() {
 
-	function createEntity(blueprint) {
+	function createArtifact(blueprint) {
 		const derivedAttributes = MonsterHelpers.getDerivedAttributes(
 			blueprint.data.combat.level,
 			blueprint.data.combat.rank,
@@ -30,7 +30,7 @@ const MonsterFactory = (function() {
 			type: blueprint.type,
 			data: {
 				ability_modifiers: monsterAbilityModifiers,
-				actions: _parseActions(blueprint.data.actions),
+				actions: _parseActions(derivedAttributes, blueprint.data.actions),
 				armor_class: _parseArmorClass(derivedAttributes, blueprint.data.armor_class),
 				attack_bonus: _parseAttackBonus(derivedAttributes, blueprint.data.attack_bonus),
 				attack_dcs: _parseAttackDcs(derivedAttributes, blueprint.data.attack_dcs),
@@ -48,7 +48,7 @@ const MonsterFactory = (function() {
 				initiative: _parseInitiative(monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.initiative),
 				inventory: _parseInventory(monsterInventoryWeight, monsterInventoryCapacity, blueprint.data.inventory),
 				lair_actions: _parseLairActions(blueprint.data.lair_actions),
-				languages: _parseCollection(GMM_5E_LANGUAGES, blueprint.data.languages, "languages"),
+				languages: _parseCollection(GMM_5E_LANGUAGES, blueprint.data.languages, "language"),
 				legendary_actions: _parseLegendaryActions(blueprint.data.legendary_actions),
 				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances),
 				level: _parseLevel(derivedAttributes.level),
@@ -99,7 +99,10 @@ const MonsterFactory = (function() {
 	}
 	
 	function _parseLevel(level) {
-		return game.i18n.format('gmm.monster.artifact.combat.level', { level: level });
+		return {
+			value: level,
+			label: game.i18n.format('gmm.monster.artifact.combat.level', { level: level })
+		};
 	}
 
 	function _parseRank(rank) {
@@ -245,7 +248,7 @@ const MonsterFactory = (function() {
 
 	function _parseProficiency(derivedAttributes, proficiencyBonus) {
 		const prof = new DerivedAttribute();
-		prof.setValue(derivedAttributes.averageProficiencyBonus, game.i18n.format('gmm.monster.source.base'));
+		prof.setValue(derivedAttributes.averageProficiencyBonus, game.i18n.format('gmm.common.derived_source.base'));
 		prof.applyModifier(proficiencyBonus.modifier.value, proficiencyBonus.modifier.override);
 		prof.setMinimumValue(1);
 		prof.ceil();
@@ -262,15 +265,15 @@ const MonsterFactory = (function() {
 				switch (monsterSkills[defaultSkill.name]) {
 					case "half-proficient":
 						proficiencyModifier = Math.floor(proficiencyBonus / 2);
-						proficiencyType = game.i18n.format('gmm.monster.source.half_proficiency');
+						proficiencyType = game.i18n.format('gmm.common.derived_source.half_proficiency');
 						break;
 					case "proficient":
 						proficiencyModifier = proficiencyBonus;
-						proficiencyType = game.i18n.format('gmm.monster.source.proficiency');
+						proficiencyType = game.i18n.format('gmm.common.derived_source.proficiency');
 						break;
 					case "expert":
 						proficiencyModifier = proficiencyBonus * 2;
-						proficiencyType = game.i18n.format('gmm.monster.source.expertise');
+						proficiencyType = game.i18n.format('gmm.common.derived_source.expertise');
 						break;
 				}
 
@@ -292,16 +295,16 @@ const MonsterFactory = (function() {
 		GMM_5E_SPEEDS.forEach(function(defaultSpeed) {
 			if (monsterSpeeds[defaultSpeed]) {
 				const speed = new DerivedAttribute();
-				speed.add(monsterSpeeds[defaultSpeed], game.i18n.format('gmm.monster.source.base'));
-				speed.add(role.modifiers.speed, game.i18n.format('gmm.monster.source.role'));
+				speed.add(monsterSpeeds[defaultSpeed], game.i18n.format('gmm.common.derived_source.base'));
+				speed.add(role.modifiers.speed, game.i18n.format('gmm.common.derived_source.role'));
 				speed.setMinimumValue(1);
 				speed.ceil();
 
 				const details = {};
-				details.title = game.i18n.format(`gmm.common.speeds.${defaultSpeed}`);
+				details.title = game.i18n.format(`gmm.common.speed.${defaultSpeed}`);
 				details.units = monsterSpeeds.units;
 				if (defaultSpeed == "fly" && monsterSpeeds.can_hover) {
-					details.detail =  game.i18n.format(`gmm.common.speeds.can_hover`).toLowerCase();
+					details.detail =  game.i18n.format(`gmm.common.speed.can_hover`).toLowerCase();
 				}
 
 				speeds.push($.extend(speed, details));
@@ -326,7 +329,7 @@ const MonsterFactory = (function() {
 		GMM_5E_SENSES.forEach(function(type) {
 			if (monsterSenses[type]) {
 				const sense = {};
-				sense.title = game.i18n.format(`gmm.common.senses.${type}`);
+				sense.title = game.i18n.format(`gmm.common.sense.${type}`);
 				sense.value = monsterSenses[type];
 				sense.units = monsterSenses.units;
 				senses.push(sense);
@@ -349,16 +352,16 @@ const MonsterFactory = (function() {
 	function _parsePassivePerception(skills, abilityModifiers, rank, role, passivePerception) {
 		const basePerc = 10;
 		const percep = new DerivedAttribute();
-		percep.add(basePerc, game.i18n.format('gmm.monster.source.base'));
-		percep.add(rank.modifiers.passive_perception, game.i18n.format('gmm.monster.source.rank'));
-		percep.add(role.modifiers.passive_perception, game.i18n.format('gmm.monster.source.role'));
+		percep.add(basePerc, game.i18n.format('gmm.common.derived_source.base'));
+		percep.add(rank.modifiers.passive_perception, game.i18n.format('gmm.common.derived_source.rank'));
+		percep.add(role.modifiers.passive_perception, game.i18n.format('gmm.common.derived_source.role'));
 
 		if (skills.find((x) => x.code == "perception")) {
 			const skillPerc = skills.find((x) => x.code == "perception").getValue();
-			percep.add(skillPerc, game.i18n.format('gmm.monster.source.perception'));
+			percep.add(skillPerc, game.i18n.format('gmm.common.derived_source.perception'));
 		} else {
 			const wisPerc = abilityModifiers["wis"].getValue();
-			percep.add(wisPerc, game.i18n.format('gmm.monster.source.wis'));
+			percep.add(wisPerc, game.i18n.format('gmm.common.derived_source.ability_modifier'));
 		}
 		
 		percep.applyModifier(passivePerception.modifier.value, passivePerception.modifier.override);
@@ -402,9 +405,9 @@ const MonsterFactory = (function() {
 
 	function _parseInitiative(monsterAbilityModifiers, rank, role, initiative) {
 		const init = new DerivedAttribute();
-		init.add(monsterAbilityModifiers[initiative.ability].value, game.i18n.format('gmm.monster.source.ability_modifier'));
-		init.add(rank.modifiers.initiative, game.i18n.format('gmm.monster.source.rank'));
-		init.add(role.modifiers.initiative, game.i18n.format('gmm.monster.source.role'));
+		init.add(monsterAbilityModifiers[initiative.ability].value, game.i18n.format('gmm.common.derived_source.ability_modifier'));
+		init.add(rank.modifiers.initiative, game.i18n.format('gmm.common.derived_source.rank'));
+		init.add(role.modifiers.initiative, game.i18n.format('gmm.common.derived_source.role'));
 		init.applyModifier(initiative.modifier.value, initiative.modifier.override);
 		init.ceil();
 
@@ -424,7 +427,7 @@ const MonsterFactory = (function() {
 		if (rank.modifiers.scale_with_players) {
 			maximum *= Math.max(0, rank.modifiers.target_players - 1);
 		}
-		mx.add(maximum, game.i18n.format('gmm.monster.source.rank'));
+		mx.add(maximum, game.i18n.format('gmm.common.derived_source.rank'));
 		mx.applyModifier(paragonActions.maximum.modifier.value, paragonActions.maximum.modifier.override);
 		mx.ceil();
 
@@ -460,10 +463,26 @@ const MonsterFactory = (function() {
 		};
 	}
 
-	function _parseActions(actions) {
+	function _parseActions(derivedAttributes, actions) {
 		return {
 			visible: actions.always_show || actions.items.length > 0,
-			items: actions.items
+			items: actions.items.filter((x) => {
+				if (x.requirements) {
+					if (x.requirements.level.min && derivedAttributes.level < x.requirements.level.min) {
+						return false;
+					}
+					if (x.requirements.level.max && derivedAttributes.level > x.requirements.level.max) {
+						return false;
+					}
+					if (x.requirements.rank && derivedAttributes.rank.type != x.requirements.rank) {
+						return false;
+					}
+					if (x.requirements.role && derivedAttributes.role.type != x.requirements.role) {
+						return false;
+					}
+				}
+				return true;
+			})
 		};
 	}
 
@@ -489,10 +508,9 @@ const MonsterFactory = (function() {
 	}
 
 	function _parseSpellbook(monsterAbilityModifiers, monsterClasses, spellbook) {
-		console.log(spellbook);
 		const dc = new DerivedAttribute();
-		dc.add(8, game.i18n.format('gmm.monster.source.base'));
-		dc.add(monsterAbilityModifiers[spellbook.spellcasting.ability].value, game.i18n.format('gmm.monster.source.ability_modifier'));
+		dc.add(8, game.i18n.format('gmm.common.derived_source.base'));
+		dc.add(monsterAbilityModifiers[spellbook.spellcasting.ability].value, game.i18n.format('gmm.common.derived_source.ability_modifier'));
 		dc.applyModifier(spellbook.spellcasting.dc.modifier.value, spellbook.spellcasting.dc.modifier.override);
 		dc.ceil();
 
@@ -556,7 +574,7 @@ const MonsterFactory = (function() {
 
 	function _getInventoryCapacity(monsterAbilityModifiers, data) {
 		const capacity = new DerivedAttribute();
-		capacity.add((monsterAbilityModifiers["str"].value * 2) + 10, game.i18n.format('gmm.monster.source.ability_score'));
+		capacity.add((monsterAbilityModifiers["str"].value * 2) + 10, game.i18n.format('gmm.common.derived_source.ability_score'));
 		capacity.multiply(CONFIG.DND5E.encumbrance.strMultiplier, "config");
 		capacity.multiply(GMM_5E_SIZES.find((x) => x.name == data.description.size).inventory_capacity, "size");
 		capacity.applyModifier(data.inventory.encumbrance.capacity.modifier.value, data.inventory.encumbrance.capacity.modifier.override);
@@ -621,8 +639,8 @@ const MonsterFactory = (function() {
 	}
 
 	return {
-		createEntity: createEntity
+		createArtifact: createArtifact
 	};
 })();
 
-export default MonsterFactory;
+export default MonsterForge;

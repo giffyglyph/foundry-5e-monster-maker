@@ -9,7 +9,7 @@
 			<button type="button" data-action="expand-window"><i class="fas fa-times"></i></button>
 		</div>
 	</div>
-	<div class="blueprint__body" data-track-scrollbars="true" id="options-body">
+	<div class="blueprint__body" data-track-scrollbars="true" id="monster-blueprint-body">
 		<form class="blueprint__form" autocomplete="off">
 			<div class="gmm-accordion" id="monster-configuration">
 				<div class="accordion-group">
@@ -362,93 +362,6 @@
 										</div>
 										<div class="form-group__body">
 											<input name="gmm.blueprint.combat.role.modifiers.icon" value="{{gmm.blueprint.combat.role.modifiers.icon}}"/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="accordion-section" data-section="display">
-						<div class="accordion-section__header">
-							<span class="accordion-section__title">{{localize 'gmm.monster.blueprint.display.title'}}</span>
-						</div>
-						<div class="accordion-section__body">
-							<div class="form-group">
-								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.layout.title'}}</span>
-								</div>
-								<div class="form-group__body">
-									<select name="gmm.blueprint.display.layout">
-										{{#select gmm.blueprint.display.layout}}
-											{{#each gmm.enums.layouts.monster as | layout |}}
-												<option value="{{layout.code}}">{{layout.name}}</option>
-											{{/each}}
-										{{/select}}
-									</select>
-								</div>
-							</div>
-							<div class="form-fieldset">
-								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.display.skins.title'}}</div>
-								<div class="form-fieldset__body">
-									<div class="form-group">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.skins.artifact'}}</span>
-										</div>
-										<div class="form-group__body">
-											<select name="gmm.blueprint.display.skin.artifact">
-												{{#select gmm.blueprint.display.skin.artifact}}
-													{{#each gmm.enums.skins.monster.artifact as | skin |}}
-														<option value="{{skin.code}}">{{skin.name}}</option>
-													{{/each}}
-												{{/select}}
-											</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.skins.blueprint'}}</span>
-										</div>
-										<div class="form-group__body">
-											<select name="gmm.blueprint.display.skin.blueprint">
-												{{#select gmm.blueprint.display.skin.blueprint}}
-													{{#each gmm.enums.skins.monster.blueprint as | skin |}}
-														<option value="{{skin.code}}">{{skin.name}}</option>
-													{{/each}}
-												{{/select}}
-											</select>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-fieldset">
-								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.display.colors.title'}}</div>
-								<div class="form-fieldset__body">
-									<div class="form-group">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.colors.primary'}}</span>
-										</div>
-										<div class="form-group__body">
-											<select name="gmm.blueprint.display.color.primary">
-												{{#select gmm.blueprint.display.color.primary}}
-													{{#each gmm.enums.colors as | color |}}
-														<option value="{{color.code}}">{{color.name}}</option>
-													{{/each}}
-												{{/select}}
-											</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.colors.secondary'}}</span>
-										</div>
-										<div class="form-group__body">
-											<select name="gmm.blueprint.display.color.secondary">
-												{{#select gmm.blueprint.display.color.secondary}}
-													{{#each gmm.enums.colors as | color |}}
-														<option value="{{color.code}}">{{color.name}}</option>
-													{{/each}}
-												{{/select}}
-											</select>
 										</div>
 									</div>
 								</div>
@@ -1199,7 +1112,7 @@
 									<div class="checkboxes">
 										{{#each gmm.enums.languages}}
 											<label class="checkbox">
-												<input type="checkbox" name="gmm.blueprint.languages.{{.}}" {{#if (lookup ../gmm.blueprint.languages .)}}checked{{/if}}/> {{localize (concat 'gmm.common.languages.' .)}}
+												<input type="checkbox" name="gmm.blueprint.languages.{{.}}" {{#if (lookup ../gmm.blueprint.languages .)}}checked{{/if}}/> {{localize (concat 'gmm.common.language.' .)}}
 											</label>
 										{{/each}}
 									</div>
@@ -1499,7 +1412,7 @@
 						<div class="accordion-section__body">
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.senses.blindsight'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.sense.blindsight'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.senses.blindsight" type="number" value="{{gmm.blueprint.senses.blindsight}}"/>
@@ -1507,7 +1420,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.senses.darkvision'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.sense.darkvision'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.senses.darkvision" type="number" value="{{gmm.blueprint.senses.darkvision}}"/>
@@ -1515,7 +1428,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.senses.tremorsense'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.sense.tremorsense'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.senses.tremorsense" type="number" value="{{gmm.blueprint.senses.tremorsense}}"/>
@@ -1523,7 +1436,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.senses.truesight'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.sense.truesight'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.senses.truesight" type="number" value="{{gmm.blueprint.senses.truesight}}"/>
@@ -1531,13 +1444,13 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.senses.units.title'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.sense.units.title'}}</span>
 								</div>
 								<div class="form-group__body">
 									<select name="gmm.blueprint.senses.units">
 										{{#select gmm.blueprint.senses.units}}
 											{{#each gmm.enums.units}}
-												<option value="{{.}}">{{localize (concat 'gmm.common.senses.units.' . '.name')}}</option>
+												<option value="{{.}}">{{localize (concat 'gmm.common.sense.units.' . '.name')}}</option>
 											{{/each}}
 										{{/select}}
 									</select>
@@ -1545,7 +1458,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.senses.other'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.sense.other'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.senses.other" value="{{gmm.blueprint.senses.other}}"/>
@@ -1584,7 +1497,7 @@
 						<div class="accordion-section__body">
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.speeds.walk'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.speed.walk'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.speeds.walk" type="number" value="{{gmm.blueprint.speeds.walk}}"/>
@@ -1592,7 +1505,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.speeds.burrow'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.speed.burrow'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.speeds.burrow" type="number" value="{{gmm.blueprint.speeds.burrow}}"/>
@@ -1600,7 +1513,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.speeds.climb'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.speed.climb'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.speeds.climb" type="number" value="{{gmm.blueprint.speeds.climb}}"/>
@@ -1608,18 +1521,18 @@
 							</div>
 							<div class="form-group form-group--modifier">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.speeds.fly'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.speed.fly'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.speeds.fly" type="number" value="{{gmm.blueprint.speeds.fly}}"/>
 									<label class="checkbox">
-										<input type="checkbox" name="gmm.blueprint.speeds.can_hover" {{#if gmm.blueprint.speeds.can_hover}}checked{{/if}}/> {{localize 'gmm.common.speeds.can_hover'}}
+										<input type="checkbox" name="gmm.blueprint.speeds.can_hover" {{#if gmm.blueprint.speeds.can_hover}}checked{{/if}}/> {{localize 'gmm.common.speed.can_hover'}}
 									</label>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.speeds.swim'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.speed.swim'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.speeds.swim" type="number" value="{{gmm.blueprint.speeds.swim}}"/>
@@ -1627,13 +1540,13 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.speeds.units.title'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.speed.units.title'}}</span>
 								</div>
 								<div class="form-group__body">
 									<select name="gmm.blueprint.speeds.units">
 										{{#select gmm.blueprint.speeds.units}}
 											{{#each gmm.enums.units}}
-												<option value="{{.}}">{{localize (concat 'gmm.common.speeds.units.' . '.name')}}</option>
+												<option value="{{.}}">{{localize (concat 'gmm.common.speed.units.' . '.name')}}</option>
 											{{/each}}
 										{{/select}}
 									</select>
@@ -1641,7 +1554,7 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.common.speeds.other'}}</span>
+									<span class="form-group__title">{{localize 'gmm.common.speed.other'}}</span>
 								</div>
 								<div class="form-group__body">
 									<input name="gmm.blueprint.speeds.other" value="{{gmm.blueprint.speeds.other}}"/>
@@ -1856,6 +1769,95 @@
 									<label class="checkbox">
 										<input type="checkbox" name="gmm.blueprint.xp.modifier.override" {{#if gmm.blueprint.xp.modifier.override}}checked{{/if}}/> {{localize 'gmm.monster.blueprint.is_fixed'}}
 									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-section" data-section="display">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.monster.blueprint.display.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.layout.title'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.display.layout">
+										{{#select gmm.blueprint.display.layout}}
+											{{#each gmm.enums.layouts.monster as | layout |}}
+												<option value="{{layout.code}}">{{layout.name}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.display.skins.title'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.skins.artifact'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.skin.artifact">
+												{{#select gmm.blueprint.display.skin.artifact}}
+													{{#each gmm.enums.skins.monster.artifact as | skin |}}
+														<option value="{{skin.code}}">{{skin.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.skins.blueprint'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.skin.blueprint">
+												{{#select gmm.blueprint.display.skin.blueprint}}
+													{{#each gmm.enums.skins.monster.blueprint as | skin |}}
+														<option value="{{skin.code}}">{{skin.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.display.colors.title'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.colors.primary'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.color.primary">
+												{{#select gmm.blueprint.display.color.primary}}
+													{{#each gmm.enums.colors as | color |}}
+														<option value="{{color.code}}">{{color.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.display.colors.secondary'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.color.secondary">
+												{{#select gmm.blueprint.display.color.secondary}}
+													{{#each gmm.enums.colors as | color |}}
+														<option value="{{color.code}}">{{color.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

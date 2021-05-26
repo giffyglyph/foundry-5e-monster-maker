@@ -1,0 +1,524 @@
+<div class="gmm-blueprint blueprint--action--vanity">
+	<div class="blueprint__header">
+		<div class="blueprint__icon"><i class="fas fa-cogs"></i></div>
+		<div class="blueprint__title">{{localize 'gmm.action.blueprint.title'}}</div>
+		<div class="blueprint__options">
+			<button type="button" data-action="close-accordion" data-accordion="action-configuration">
+				<i class="fas fa-bars"></i>
+			</button>
+			<button type="button" data-action="expand-window"><i class="fas fa-times"></i></button>
+		</div>
+	</div>
+	<div class="blueprint__body" data-track-scrollbars="true" id="action-blueprint-body">
+		<form class="blueprint__form" autocomplete="off">
+			<div class="gmm-accordion" id="action-configuration">
+				<div class="accordion-group">
+					<div class="accordion-section" data-section="title">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.action_title.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.action_title.name'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.description.name" value="{{gmm.blueprint.description.name}}"/>
+								</div>
+							</div>
+							<div class="form-group form-group--image">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.action_title.image'}}</span>
+								</div>
+								<div class="form-group__body">
+									<img src="{{gmm.blueprint.description.image}}" data-edit="gmm.blueprint.description.image">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="action-type">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.action_type.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.action_type.type'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.activation.type">
+										{{#select gmm.blueprint.activation.type}}
+											<option value="">{{localize 'gmm.common.activation_type.trait'}}</option>
+											{{#each gmm.enums.activation_types}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.activation_type.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.action_type.quantity'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.activation.cost" value="{{gmm.blueprint.activation.cost}}" type="number"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.action_type.condition'}}</span>
+								</div>
+								<div class="form-group__body form-group__body--row">
+									<input name="gmm.blueprint.activation.condition" value="{{gmm.blueprint.activation.condition}}"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="requirements">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.requirements.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.requirements.level.min'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.requirements.level.min" value="{{gmm.blueprint.requirements.level.min}}" type="number"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.requirements.level.max'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.requirements.level.max" value="{{gmm.blueprint.requirements.level.max}}" type="number"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.requirements.rank'}}</span>
+								</div>
+								<div class="form-group__body form-group__body--row">
+									<select name="gmm.blueprint.requirements.rank">
+										{{#select gmm.blueprint.requirements.rank}}
+											<option value="">{{localize 'gmm.common.rank.any'}}</option>
+											{{#each gmm.enums.ranks}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.rank.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.requirements.role'}}</span>
+								</div>
+								<div class="form-group__body form-group__body--row">
+									<select name="gmm.blueprint.requirements.role">
+										{{#select gmm.blueprint.requirements.role}}
+											<option value="">{{localize 'gmm.common.role.any'}}</option>
+											{{#each gmm.enums.roles}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.role.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="description">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.description.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__body">
+									<div class="html-field">
+										{{editor content=gmm.blueprint.description.text target='gmm.blueprint.description.text' button=true owner=owner editable=editable}}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-section" data-section="activation-cost">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.activation_cost.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.activation_cost.resource_type'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.resource_consumption.type">
+										{{#select gmm.blueprint.resource_consumption.type}}
+											<option value=""></option>
+											{{#each gmm.enums.consumption_types}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.consumption_type.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.activation_cost.resource'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.resource_consumption.target">
+										{{#select gmm.blueprint.resource_consumption.target}}
+											<option value=""></option>
+											{{#each gmm.enums.consumption_targets as | name key |}}
+												<option value="{{key}}">{{name}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.activation_cost.quantity'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.resource_consumption.amount" value="{{gmm.blueprint.resource_consumption.amount}}" type="number"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="attack">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.attack.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.type'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.attack.type">
+										{{#select gmm.blueprint.attack.type}}
+											<option value=""></option>
+											{{#each gmm.enums.attack_types}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.attack_type.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.defense'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.attack.defense">
+										{{#select gmm.blueprint.attack.defense}}
+											{{#each gmm.enums.abilities}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.ability.' . '.name')}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.action.blueprint.attack.damage.title'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.formula'}}</span>
+										</div>
+										<div class="form-group__body">
+											<input name="gmm.blueprint.attack.damage.formula" value="{{gmm.blueprint.attack.damage.formula}}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.type'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.attack.damage.type">
+												{{#select gmm.blueprint.attack.damage.type}}
+													<option value=""></option>
+													{{#each gmm.enums.attack_damage_types}}
+														<option value="{{.}}">{{localize (concat 'gmm.common.damage.' .)}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="duration">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.duration.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.duration.type'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.duration.units">
+										{{#select gmm.blueprint.duration.units}}
+											<option value=""></option>
+											{{#each gmm.enums.time_periods}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.time_period.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.duration.quantity'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.duration.value" value="{{gmm.blueprint.duration.value}}" type="number"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="range">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.range.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.range.units'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.range.units">
+										{{#select gmm.blueprint.range.units}}
+											<option value=""></option>
+											{{#each gmm.enums.range_types}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.range_type.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.range.normal'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.range.value" value="{{gmm.blueprint.range.value}}" type="number"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.range.long'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.range.long" value="{{gmm.blueprint.range.long}}" type="number"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="recharge">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.recharge.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.recharge.on'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.recharge.value" value="{{gmm.blueprint.recharge.value}}" type="number" placeholder="1d6"/>
+								</div>
+							</div>
+							<div class="form-group form-group--modifier">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.recharge.charged'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input type="checkbox" name="gmm.blueprint.recharge.is_charged" {{#if gmm.blueprint.recharge.is_charged}}checked{{/if}}/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="target">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.target.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.target.type'}}</span>
+								</div>
+								<div class="form-group__body form-group__body--row">
+									<select name="gmm.blueprint.target.type">
+										{{#select gmm.blueprint.target.type}}
+											<option value=""></option>
+											{{#each gmm.enums.target_types}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.target_type.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.target.units'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.target.units">
+										{{#select gmm.blueprint.target.units}}
+											<option value=""></option>
+											{{#each gmm.enums.range_types}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.range_type.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.target.quantity'}}</span>
+								</div>
+								<div class="form-group__body form-group__body--row">
+									<input name="gmm.blueprint.target.value" value="{{gmm.blueprint.target.value}}" type="number"/>
+									<span class="text">x</span>
+									<input name="gmm.blueprint.target.width" value="{{gmm.blueprint.target.width}}" type="number"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="uses">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.uses.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.uses.current'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.uses.value" value="{{gmm.blueprint.uses.value}}" type="number"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.uses.maximum'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.uses.max" value="{{gmm.blueprint.uses.max}}" type="number"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.uses.refresh'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.uses.per">
+										{{#select gmm.blueprint.uses.per}}
+											<option value=""></option>
+											{{#each gmm.enums.use_periods}}
+												<option value="{{.}}">{{localize (concat 'gmm.common.use_period.' .)}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-section" data-section="display">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.display.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.display.layout.title'}}</span>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.display.layout">
+										{{#select gmm.blueprint.display.layout}}
+											{{#each gmm.enums.layouts.action as | layout |}}
+												<option value="{{layout.code}}">{{layout.name}}</option>
+											{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.action.blueprint.display.skins.title'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.display.skins.artifact'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.skin.artifact">
+												{{#select gmm.blueprint.display.skin.artifact}}
+													{{#each gmm.enums.skins.action.artifact as | skin |}}
+														<option value="{{skin.code}}">{{skin.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.display.skins.blueprint'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.skin.blueprint">
+												{{#select gmm.blueprint.display.skin.blueprint}}
+													{{#each gmm.enums.skins.action.blueprint as | skin |}}
+														<option value="{{skin.code}}">{{skin.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.action.blueprint.display.colors.title'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.display.colors.primary'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.color.primary">
+												{{#select gmm.blueprint.display.color.primary}}
+													{{#each gmm.enums.colors as | color |}}
+														<option value="{{color.code}}">{{color.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.display.colors.secondary'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.display.color.secondary">
+												{{#select gmm.blueprint.display.color.secondary}}
+													{{#each gmm.enums.colors as | color |}}
+														<option value="{{color.code}}">{{color.name}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

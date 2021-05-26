@@ -12,5 +12,19 @@ export const GMM_GUI_SKINS = {
                 name: "Vanity"
             }
         ]
+    },
+    action: {
+        artifact: [
+            {
+                code: "vanity",
+                name: "Vanity"
+            }
+        ],
+        blueprint: [
+            {
+                code: "vanity",
+                name: "Vanity"
+            }
+        ]
     }
 };

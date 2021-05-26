@@ -1,0 +1,123 @@
+<div class="gmm-artifact artifact--action--vanity">
+    <div class="action" data-track-scrollbars="true" id="action-body">
+		<div class="action__header">
+			<div class="action__icon" data-action="open-config" data-config="title"><img src="{{gmm.action.image}}"></div>
+			<div class="action__title" data-action="open-config" data-config="title">{{gmm.action.name}}</div>
+			<div class="action__type" data-action="open-config" data-config="action-type">{{gmm.action.type}}</div>
+			<div class="action__requirements">
+				<div class="level" data-action="open-config" data-config="requirements"><i class="fas fa-crown"></i> {{gmm.action.level_requirement}}</div>
+				<div class="rank" data-action="open-config" data-config="requirements"><i class="fas fa-star"></i> {{gmm.action.rank_requirement}}</div>
+				<div class="role" data-action="open-config" data-config="requirements"><i class="fas fa-dice-d6"></i> {{gmm.action.role_requirement}}</div>
+			</div>
+		</div>
+		<div class="action__body">
+			<div class="action__properties">
+				{{#if gmm.action.activation_time}}
+					<div class="action__property property--wide action__activation">
+						<div class="property__icon"><i class="fas fa-clock fa-fw"></i></div>
+						<div class="property__body">
+							<div class="property__title" data-action="open-config" data-config="action-type">
+								{{localize 'gmm.action.artifact.activation.title'}}
+							</div>
+							<div class="property__value">{{{gmm.action.activation_time}}}</div>
+						</div>
+					</div>
+				{{/if}}
+				{{#if gmm.action.activation_cost.label}}
+					<div class="action__property property--wide action__cost">
+						<div class="property__icon"><i class="fas fa-coins fa-fw"></i></div>
+						<div class="property__body">
+							<div class="property__title" data-action="open-config" data-config="activation-cost">
+								{{localize 'gmm.action.artifact.cost.title'}}
+							</div>
+							<div class="property__value">{{{gmm.action.activation_cost.label}}}</div>
+						</div>
+					</div>
+				{{/if}}
+				{{#if gmm.action.target}}
+					<div class="action__property property--wide action__target">
+						<div class="property__icon"><i class="fas fa-bullseye fa-fw"></i></div>
+						<div class="property__body">
+							<div class="property__title" data-action="open-config" data-config="target">
+								{{localize 'gmm.action.artifact.target.title'}}
+							</div>
+							<div class="property__value">{{{gmm.action.target}}}</div>
+						</div>
+					</div>
+				{{/if}}
+				{{#if gmm.action.range}}
+					<div class="action__property property--wide action__range">
+						<div class="property__icon"><i class="fas fa-ruler-horizontal fa-fw"></i></div>
+						<div class="property__body">
+							<div class="property__title" data-action="open-config" data-config="range">
+								{{localize 'gmm.action.artifact.range.title'}}
+							</div>
+							<div class="property__value">{{{gmm.action.range}}}</div>
+						</div>
+						
+					</div>
+				{{/if}}
+				{{#if gmm.action.duration}}
+					<div class="action__property property--wide action__duration">
+						<div class="property__icon"><i class="fas fa-hourglass-half fa-fw"></i></div>
+						<div class="property__body">
+							<div class="property__title" data-action="open-config" data-config="duration">
+								{{localize 'gmm.action.artifact.duration.title'}}
+							</div>
+							<div class="property__value">{{{gmm.action.duration}}}</div>
+						</div>
+					</div>
+				{{/if}}
+				{{#if gmm.action.uses}}
+					<div class="action__property property--wide action__uses">
+						<div class="property__icon"><i class="fas fa-ruler fa-fw"></i></div>
+						<div class="property__body">
+							 <div class="property__title" data-action="open-config" data-config="uses">
+								 {{localize 'gmm.action.artifact.uses.title'}}
+							</div>
+							 <div class="property__value">{{{gmm.action.uses}}}</div>
+						</div>
+					</div>
+				{{/if}}
+				{{#if gmm.action.recharge}}
+					<div class="action__property property--wide action__recharge">
+						<div class="property__icon"><i class="fas fa-dice-d6 fa-fw"></i></div>
+						<div class="property__body">
+							 <div class="property__title" data-action="open-config" data-config="recharge">
+								 {{localize 'gmm.action.artifact.recharge.title'}}
+							</div>
+							 <div class="property__value">{{{gmm.action.recharge}}}</div>
+						</div>
+					</div>
+				{{/if}}
+				{{#if gmm.action.attack}}
+					<div class="action__property property--wide action__attack">
+						<div class="property__icon"><i class="fas fa-skull fa-fw"></i></div>
+						<div class="property__body">
+							 <div class="property__title" data-action="open-config" data-config="attack">
+								 {{localize 'gmm.action.artifact.attack.title'}}
+							</div>
+							 <div class="property__value">{{{gmm.action.attack}}}</div>
+						</div>
+					</div>
+				{{/if}}
+				{{#if gmm.action.damage}}
+					<div class="action__property property--wide action__damage">
+						<div class="property__icon"><i class="fas fa-fire fa-fw"></i></div>
+						<div class="property__body">
+							 <div class="property__title" data-action="open-config" data-config="attack">
+								 {{localize 'gmm.action.artifact.damage.title'}}
+							</div>
+							 <div class="property__value">{{{gmm.action.damage}}}</div>
+						</div>
+					</div>
+				{{/if}}
+			</div>
+			{{#if gmm.action.description}}
+				<div class="action__description">
+					{{{gmm.action.description}}}
+				</div>
+			{{/if}}
+		</div>
+    </div>
+</div>

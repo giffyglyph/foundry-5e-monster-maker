@@ -10,6 +10,65 @@ import { GMM_MONSTER_BLUEPRINT } from "../consts/GmmMonsterBlueprint.js";
 
 const MonsterBlueprint = (function() {
 
+	const mappings = [
+		{ from: "biography", to: "data.details.biography.value" },
+		{ from: "condition_immunities.other", to: "data.traits.ci.custom" },
+		{ from: "damage_immunities.other", to: "data.traits.di.custom" },
+		{ from: "damage_resistances.other", to: "data.traits.dr.custom" },
+		{ from: "damage_vulnerabilities.other", to: "data.traits.dv.custom" },
+		{ from: "description.image", to: "img" },
+		{ from: "description.name", to: "name" },
+		{ from: "hit_points.current", to: "data.attributes.hp.value" },
+		{ from: "hit_points.temporary", to: "data.attributes.hp.temp" },
+		{ from: "initiative.advantage", to: "flags.dnd5e.initiativeAdv" },
+		{ from: "inventory.encumbrance.powerful_build", to: "flags.dnd5e.powerfulBuild" },
+		{ from: "inventory.currency.cp", to: "data.currency.cp" },
+		{ from: "inventory.currency.ep", to: "data.currency.ep" },
+		{ from: "inventory.currency.gp", to: "data.currency.gp" },
+		{ from: "inventory.currency.pp", to: "data.currency.pp" },
+		{ from: "inventory.currency.sp", to: "data.currency.sp" },
+		{ from: "lair_actions.always_show", to: "data.resources.lair.value" },
+		{ from: "lair_actions.initiative", to: "data.resources.lair.initiative" },
+		{ from: "languages.other", to: "data.traits.languages.custom" },
+		{ from: "legendary_actions.current", to: "data.resources.legact.value" },
+		{ from: "legendary_actions.maximum", to: "data.resources.legact.max" },
+		{ from: "legendary_resistances.current", to: "data.resources.legres.value" },
+		{ from: "legendary_resistances.maximum", to: "data.resources.legres.max" },
+		{ from: "senses.blindsight", to: "data.attributes.senses.blindsight" },
+		{ from: "senses.darkvision", to: "data.attributes.senses.darkvision" },
+		{ from: "senses.other", to: "data.attributes.senses.special" },
+		{ from: "senses.tremorsense", to: "data.attributes.senses.tremorsense" },
+		{ from: "senses.truesight", to: "data.attributes.senses.truesight" },
+		{ from: "speeds.burrow", to: "data.attributes.movement.burrow" },
+		{ from: "speeds.can_hover", to: "data.attributes.movement.hover" },
+		{ from: "speeds.climb", to: "data.attributes.movement.climb" },
+		{ from: "speeds.fly", to: "data.attributes.movement.fly" },
+		{ from: "speeds.swim", to: "data.attributes.movement.swim" },			
+		{ from: "speeds.walk", to: "data.attributes.movement.walk" },
+		{ from: "spellbook.slots.1.current", to: "data.spells.spell1.value" },
+		{ from: "spellbook.slots.1.maximum", to: "data.spells.spell1.override" },
+		{ from: "spellbook.slots.2.current", to: "data.spells.spell2.value" },
+		{ from: "spellbook.slots.2.maximum", to: "data.spells.spell2.override" },
+		{ from: "spellbook.slots.3.current", to: "data.spells.spell3.value" },
+		{ from: "spellbook.slots.3.maximum", to: "data.spells.spell3.override" },
+		{ from: "spellbook.slots.4.current", to: "data.spells.spell4.value" },
+		{ from: "spellbook.slots.4.maximum", to: "data.spells.spell4.override" },
+		{ from: "spellbook.slots.5.current", to: "data.spells.spell5.value" },
+		{ from: "spellbook.slots.5.maximum", to: "data.spells.spell5.override" },
+		{ from: "spellbook.slots.6.current", to: "data.spells.spell6.value" },
+		{ from: "spellbook.slots.6.maximum", to: "data.spells.spell6.override" },
+		{ from: "spellbook.slots.7.current", to: "data.spells.spell7.value" },
+		{ from: "spellbook.slots.7.maximum", to: "data.spells.spell7.override" },
+		{ from: "spellbook.slots.8.current", to: "data.spells.spell8.value" },
+		{ from: "spellbook.slots.8.maximum", to: "data.spells.spell8.override" },
+		{ from: "spellbook.slots.9.current", to: "data.spells.spell9.value" },
+		{ from: "spellbook.slots.9.maximum", to: "data.spells.spell9.override" },
+		{ from: "spellbook.slots.pact.current", to: "data.spells.pact.value" },
+		{ from: "spellbook.slots.pact.maximum", to: "data.spells.pact.override" },
+		{ from: "spellbook.spellcasting.ability", to: "data.attributes.spellcasting" },
+		{ from: "spellbook.spellcasting.level", to: "data.details.spellLevel" }
+	];
+
 	function createFromActor(actor) {
 		const blueprint = $.extend(true, {}, GMM_MONSTER_BLUEPRINT, actor.data.data.gmm ? _verifyBlueprint(actor.data.data.gmm.blueprint) : null);
 		return _syncActorDataToBlueprint(blueprint, actor);
@@ -33,73 +92,26 @@ const MonsterBlueprint = (function() {
 		const actorData = actor.data.data;
 
 		try {
+			mappings.forEach((x) => {
+				if (hasProperty(actor.data, x.to)) {
+					setProperty(blueprintData, x.from, getProperty(actor.data, x.to));
+				}
+			});
+
 			blueprintData.actions.items = [];
-			blueprintData.biography = actorData.details.biography.value;
 			blueprintData.bonus_actions.items = [];
-			blueprintData.condition_immunities.other = actorData.traits.ci.custom;
-			blueprintData.damage_immunities.other = actorData.traits.di.custom;
-			blueprintData.damage_resistances.other = actorData.traits.dr.custom;
-			blueprintData.damage_vulnerabilities.other = actorData.traits.dv.custom;
 			blueprintData.description.alignment = _getActorAlignment(actorData.details.alignment);
-			blueprintData.description.image = actor.img;
-			blueprintData.description.name = actor.name;
 			blueprintData.description.size = GMM_5E_SIZES.find((x) => x.foundry == actorData.traits.size).name;
 			blueprintData.description.type = _getActorType(actorData.details.type);
-			blueprintData.hit_points.current = actorData.attributes.hp.value;
-			blueprintData.hit_points.temporary = actorData.attributes.hp.temp;
 			blueprintData.initiative.advantage = actor.data.flags.dnd5e && actor.data.flags.dnd5e.initiativeAdv;
-			blueprintData.inventory.currency.cp = actorData.currency.cp;
-			blueprintData.inventory.currency.ep = actorData.currency.ep;
-			blueprintData.inventory.currency.gp = actorData.currency.gp;
-			blueprintData.inventory.currency.pp = actorData.currency.pp;
-			blueprintData.inventory.currency.sp = actorData.currency.sp;
 			blueprintData.inventory.encumbrance.powerful_build = actor.data.flags.dnd5e && actor.data.flags.dnd5e.powerfulBuild;
 			blueprintData.inventory.items = [];
 			blueprintData.lair_actions.items = [];
-			blueprintData.lair_actions.always_show = actorData.resources.lair.value;
-			blueprintData.lair_actions.initiative = actorData.resources.lair.initiative;
-			blueprintData.languages.other = actorData.traits.languages.custom;
 			blueprintData.legendary_actions.items = [];
-			blueprintData.legendary_actions.current = actorData.resources.legact.value;
-			blueprintData.legendary_actions.maximum = actorData.resources.legact.max;
-			blueprintData.legendary_resistances.current = actorData.resources.legres.value;
-			blueprintData.legendary_resistances.maximum = actorData.resources.legres.max;
 			blueprintData.reactions.items = [];
-			blueprintData.senses.blindsight = actorData.attributes.senses.blindsight;
-			blueprintData.senses.darkvision = actorData.attributes.senses.darkvision;
-			blueprintData.senses.other = actorData.attributes.senses.special;
-			blueprintData.senses.tremorsense = actorData.attributes.senses.tremorsense;
-			blueprintData.senses.truesight = actorData.attributes.senses.truesight;
 			blueprintData.senses.units = GMM_5E_UNITS.find((x) => x.foundry == actorData.attributes.senses.units).name;
-			blueprintData.speeds.burrow = actorData.attributes.movement.burrow;
-			blueprintData.speeds.can_hover = actorData.attributes.movement.hover;
-			blueprintData.speeds.climb = actorData.attributes.movement.climb;
-			blueprintData.speeds.fly = actorData.attributes.movement.fly;
-			blueprintData.speeds.swim = actorData.attributes.movement.swim;
 			blueprintData.speeds.units = GMM_5E_UNITS.find((x) => x.foundry == actorData.attributes.movement.units).name;
-			blueprintData.speeds.walk = actorData.attributes.movement.walk;
-			blueprintData.spellbook.slots[1].current = actorData.spells.spell1.value;
-			blueprintData.spellbook.slots[1].maximum = actorData.spells.spell1.override;
-			blueprintData.spellbook.slots[2].current = actorData.spells.spell2.value;
-			blueprintData.spellbook.slots[2].maximum = actorData.spells.spell2.override;
-			blueprintData.spellbook.slots[3].current = actorData.spells.spell3.value;
-			blueprintData.spellbook.slots[3].maximum = actorData.spells.spell3.override;
-			blueprintData.spellbook.slots[4].current = actorData.spells.spell4.value;
-			blueprintData.spellbook.slots[4].maximum = actorData.spells.spell4.override;
-			blueprintData.spellbook.slots[5].current = actorData.spells.spell5.value;
-			blueprintData.spellbook.slots[5].maximum = actorData.spells.spell5.override;
-			blueprintData.spellbook.slots[6].current = actorData.spells.spell6.value;
-			blueprintData.spellbook.slots[6].maximum = actorData.spells.spell6.override;
-			blueprintData.spellbook.slots[7].current = actorData.spells.spell7.value;
-			blueprintData.spellbook.slots[7].maximum = actorData.spells.spell7.override;
-			blueprintData.spellbook.slots[8].current = actorData.spells.spell8.value;
-			blueprintData.spellbook.slots[8].maximum = actorData.spells.spell8.override;
-			blueprintData.spellbook.slots[9].current = actorData.spells.spell9.value;
-			blueprintData.spellbook.slots[9].maximum = actorData.spells.spell9.override;
-			blueprintData.spellbook.slots.pact.current = actorData.spells.pact.value;
-			blueprintData.spellbook.slots.pact.maximum = actorData.spells.pact.override;
 			blueprintData.spellbook.spellcasting.ability = (actorData.attributes.spellcasting == "") ? "int" : actorData.attributes.spellcasting;
-			blueprintData.spellbook.spellcasting.level = actorData.details.spellLevel;
 			blueprintData.spellbook.spells.other = [];
 			blueprintData.spellbook.spells[0] = [];
 			blueprintData.spellbook.spells[1] = [];
@@ -141,39 +153,39 @@ const MonsterBlueprint = (function() {
                 switch (x.type) {
                     case "spell":
                         let spell_level = x.data.level || 0;
-						blueprintData.spellbook.spells[`${spell_level < 10 ? spell_level : "other"}`].push(_getItemDetails(x));
+						blueprintData.spellbook.spells[`${spell_level < 10 ? spell_level : "other"}`].push(_getItemDetails(actor.getOwnedItem(x._id)));
 						break;
 					case "weapon":
                     case "feat":
                         if (x.data.activation.type) {
 							switch(x.data.activation.type) {
 								case "bonus":
-									blueprintData.bonus_actions.items.push(_getItemDetails(x));
+									blueprintData.bonus_actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
 									break;
 								case "reaction":
-									blueprintData.reactions.items.push(_getItemDetails(x));
+									blueprintData.reactions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
 									break;
 								case "lair":
-									blueprintData.lair_actions.items.push(_getItemDetails(x));
+									blueprintData.lair_actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
 									break;
 								case "legendary":
-									blueprintData.legendary_actions.items.push(_getItemDetails(x));
+									blueprintData.legendary_actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
 									break;
 								default:
-									blueprintData.actions.items.push(_getItemDetails(x));
+									blueprintData.actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
 									break;
 							}
                         } else if (x.type == "weapon") {
-							blueprintData.inventory.items.push(_getItemDetails(x));
+							blueprintData.inventory.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
 						} else {
-							blueprintData.traits.items.push(_getItemDetails(x));
+							blueprintData.traits.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
                         }
                         break;
 					case "class":
-						blueprintData.traits.items.push(_getItemDetails(x));
+						blueprintData.traits.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
 						break;
                     default:
-						blueprintData.inventory.items.push(_getItemDetails(x));
+						blueprintData.inventory.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
                         break;
                 }
             });
@@ -188,64 +200,6 @@ const MonsterBlueprint = (function() {
 	function getActorDataFromBlueprint(blueprint) {
 		const actorData = {};
 
-		const mappings = [
-			{ from: "biography", to: "data.details.biography.value" },
-			{ from: "condition_immunities.other", to: "data.traits.ci.custom" },
-			{ from: "damage_immunities.other", to: "data.traits.di.custom" },
-			{ from: "damage_resistances.other", to: "data.traits.dr.custom" },
-			{ from: "damage_vulnerabilities.other", to: "data.traits.dv.custom" },
-			{ from: "description.image", to: "img" },
-			{ from: "description.name", to: "name" },
-			{ from: "hit_points.current", to: "data.attributes.hp.value" },
-			{ from: "hit_points.temporary", to: "data.attributes.hp.temp" },
-			{ from: "initiative.advantage", to: "flags.dnd5e.initiativeAdv" },
-			{ from: "inventory.encumbrance.powerful_build", to: "flags.dnd5e.powerfulBuild" },
-			{ from: "inventory.currency.cp", to: "data.currency.cp" },
-			{ from: "inventory.currency.ep", to: "data.currency.ep" },
-			{ from: "inventory.currency.gp", to: "data.currency.gp" },
-			{ from: "inventory.currency.pp", to: "data.currency.pp" },
-			{ from: "inventory.currency.sp", to: "data.currency.sp" },
-			{ from: "lair_actions.always_show", to: "data.resources.lair.value" },
-			{ from: "lair_actions.initiative", to: "data.resources.lair.initiative" },
-			{ from: "languages.other", to: "data.traits.languages.custom" },
-			{ from: "legendary_actions.current", to: "data.resources.legact.value" },
-			{ from: "legendary_actions.maximum", to: "data.resources.legact.max" },
-			{ from: "legendary_resistances.current", to: "data.resources.legres.value" },
-			{ from: "legendary_resistances.maximum", to: "data.resources.legres.max" },
-			{ from: "senses.blindsight", to: "data.attributes.senses.blindsight" },
-			{ from: "senses.darkvision", to: "data.attributes.senses.darkvision" },
-			{ from: "senses.other", to: "data.attributes.senses.special" },
-			{ from: "senses.tremorsense", to: "data.attributes.senses.tremorsense" },
-			{ from: "senses.truesight", to: "data.attributes.senses.truesight" },
-			{ from: "speeds.burrow", to: "data.attributes.movement.burrow" },
-			{ from: "speeds.can_hover", to: "data.attributes.movement.hover" },
-			{ from: "speeds.climb", to: "data.attributes.movement.climb" },
-			{ from: "speeds.fly", to: "data.attributes.movement.fly" },
-			{ from: "speeds.swim", to: "data.attributes.movement.swim" },			
-			{ from: "speeds.walk", to: "data.attributes.movement.walk" },
-			{ from: "spellbook.slots.1.current", to: "data.spells.spell1.value" },
-			{ from: "spellbook.slots.1.maximum", to: "data.spells.spell1.override" },
-			{ from: "spellbook.slots.2.current", to: "data.spells.spell2.value" },
-			{ from: "spellbook.slots.2.maximum", to: "data.spells.spell2.override" },
-			{ from: "spellbook.slots.3.current", to: "data.spells.spell3.value" },
-			{ from: "spellbook.slots.3.maximum", to: "data.spells.spell3.override" },
-			{ from: "spellbook.slots.4.current", to: "data.spells.spell4.value" },
-			{ from: "spellbook.slots.4.maximum", to: "data.spells.spell4.override" },
-			{ from: "spellbook.slots.5.current", to: "data.spells.spell5.value" },
-			{ from: "spellbook.slots.5.maximum", to: "data.spells.spell5.override" },
-			{ from: "spellbook.slots.6.current", to: "data.spells.spell6.value" },
-			{ from: "spellbook.slots.6.maximum", to: "data.spells.spell6.override" },
-			{ from: "spellbook.slots.7.current", to: "data.spells.spell7.value" },
-			{ from: "spellbook.slots.7.maximum", to: "data.spells.spell7.override" },
-			{ from: "spellbook.slots.8.current", to: "data.spells.spell8.value" },
-			{ from: "spellbook.slots.8.maximum", to: "data.spells.spell8.override" },
-			{ from: "spellbook.slots.9.current", to: "data.spells.spell9.value" },
-			{ from: "spellbook.slots.9.maximum", to: "data.spells.spell9.override" },
-			{ from: "spellbook.slots.pact.current", to: "data.spells.pact.value" },
-			{ from: "spellbook.slots.pact.maximum", to: "data.spells.pact.override" },
-			{ from: "spellbook.spellcasting.ability", to: "data.attributes.spellcasting" },
-			{ from: "spellbook.spellcasting.level", to: "data.details.spellLevel" }
-		];
 		mappings.forEach((x) => {
 			if (hasProperty(blueprint.data, x.from)) {
 				setProperty(actorData, x.to, getProperty(blueprint.data, x.from));
@@ -382,8 +336,8 @@ const MonsterBlueprint = (function() {
 		switch (item.type) {
 			case "class":
 				details.class = {
-					level: item.data.levels,
-					spellcasting: item.data.spellcasting
+					level: item.data.data.levels,
+					spellcasting: item.data.data.spellcasting
 				}
 				break;
 			case "weapon":
@@ -392,9 +346,12 @@ const MonsterBlueprint = (function() {
 			case "tool":
 			case "backpack":
 			case "loot":
-				details.weight = item.data.weight || 0;
-				details.quantity = item.data.quantity || 0;
+				details.weight = item.data.data.weight || 0;
+				details.quantity = item.data.data.quantity || 0;
 				break;
+		}
+		if (item.getSheetId() == "gmm.ActionSheet") {
+			details.requirements = item.data.data.gmm.blueprint.data.requirements;
 		}
 		return details;
 	}

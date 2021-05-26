@@ -1,0 +1,102 @@
+<div class="gmm-forge forge--action layout--{{gmm.blueprint.display.layout}} color--primary-{{gmm.blueprint.display.color.primary}} color--secondary-{{gmm.blueprint.display.color.secondary}} {{#if gmm.gui._isExpanded}}expanded{{/if}} {{cssClass}}">
+	<div class="forge__artifact">
+		{{#if gmm.action }}
+			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/action/skins/' gmm.blueprint.display.skin.artifact '/artifact.html') }}
+				<div class="gmm-artifact">
+					<div class="artifact__error">
+						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+						<div class="error__advice">{{localize 'gmm.action.errors.invalid_action'}}</div>
+					</div>
+				</div>
+			{{/undefined}}
+		{{else}}
+			<div class="gmm-artifact">
+				<div class="artifact__error">
+					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+					<div class="error__advice">{{localize 'gmm.action.errors.missing_action'}}</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="forge__blueprint">
+		{{#if gmm.blueprint }}
+			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/action/skins/' gmm.blueprint.display.skin.blueprint '/blueprint.html') }}
+				<div class="gmm-blueprint">
+					<div class="blueprint__error">
+						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+						<div class="error__advice">{{localize 'gmm.action.errors.invalid_blueprint'}}</div>
+					</div>
+				</div>
+			{{/undefined}}
+		{{else}}
+			<div class="gmm-blueprint">
+				<div class="blueprint__error">
+					<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
+					<div class="error__advice">{{localize 'gmm.action.errors.missing_blueprint'}}</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+	<div class="forge__options">
+		<div class="forge__id">
+			<span class="id">{{item._id}}</span>
+			<span class="name">Giffyglyph's 5e Monster Maker</span>
+		</div>
+		<nav class="forge__controls" data-group="primary">
+			<button type="button" data-action="open-modal" data-modal="modal_about"><i class="fas fa-question"></i></button>
+			<button type="button" data-action="expand-window"><i class="fas fa-cogs"></i></button>
+		</nav>
+	</div>
+	<div class="forge__modals">
+		<div class="gmm-modal modal--about" id="modal_about">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-question"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.about.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">{{{localize 'gmm.modal.info.about.p.1' pdf='https://drive.google.com/file/d/1BKZcrdUeeZCiG8WjC1E_Pxr1LCpaGbfY/view?usp=sharing'}}}</p>
+					<div class="support">
+						<p class="support__title">{{localize 'gmm.modal.info.about.support'}}</p>
+						<p>{{{localize 'gmm.modal.info.about.p.2'}}}</p>
+						<ul class="support__links">
+							<li><a class="patreon" href="https://www.patreon.com/bePatron?u=12684623"><i class="fab fa-fw fa-patreon"></i> {{{localize 'gmm.modal.info.about.patreon'}}}</a></li>
+							<li><a class="kofi" href="https://ko-fi.com/giffyglyph#checkoutModal"><i class="fas fa-fw fa-heart"></i> {{{localize 'gmm.modal.info.about.kofi'}}}</a></li>
+						</ul>
+						<ul class="contact_links">
+							<li>
+								<a class="reddit" href="https://reddit.com/r/darkerdungeons5e">
+									<i class="fab fa-fw fa-reddit-alien"></i>
+								</a>
+							</li>
+							<li>
+								<a class="youtube" href="https://youtube.com/giffyglyph">
+									<i class="fab fa-fw fa-youtube"></i>
+								</a>
+							</li>
+							<li>
+								<a class="twitter" href="https://twitter.com/giffyglyph">
+									<i class="fab fa-fw fa-twitter"></i>
+								</a>
+							</li>
+							<li>
+								<a class="facebook" href="https://facebook.com/giffyglyph">
+									<i class="fab fa-fw fa-facebook"></i>
+								</a>
+							</li>
+							<li>
+								<a class="twitch" href="https://twitch.com/giffyglyph">
+									<i class="fab fa-fw fa-twitch"></i>
+								</a>
+							</li>
+							<li>
+								<a class="website" href="https://www.giffyglyph.com">giffyglyph.com</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
