@@ -4,8 +4,9 @@ const Templates = (function() {
 
 		return loadTemplates([
 			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/monster_modifier.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_loot.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html",
+			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_spell.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/blueprint.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/artifact.html",
 			"modules/giffyglyphs-5e-monster-maker/templates/action/skins/vanity/blueprint.html",

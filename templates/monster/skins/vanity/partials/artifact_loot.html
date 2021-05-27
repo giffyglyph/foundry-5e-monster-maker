@@ -1,5 +1,43 @@
-<div class="item" data-item-id="{{item.id}}" draggable="true">
-    <div class="row item__header">
+<div class="item item--loot" data-item-id="{{item.id}}" draggable="true">
+    <div class="item__icon">
+        {{#if item.img}}
+            <img src="{{item.img}}"/>
+        {{/if}}
+        <button data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
+    </div>
+    <div class="item__body">
+        <div class="item__title">
+            <div class="item__name" data-action="roll-item">{{item.name}}</div>
+            {{#if item.recharge.enabled}}
+                <div class="item__recharge {{#if item.recharge.charged}}charged{{/if}}">
+                    {{#if item.recharge.charged}}
+                        (charged)
+                    {{else}}
+                        <button class="button--text" data-action="recharge-item">(<i class="fas fa-dice-d6"></i> recharge {{item.recharge.value}})</button>
+                    {{/if}}
+                </div>
+            {{else}}
+                {{#if item.uses.enabled}}
+                    <div class="item__uses">
+                        <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="data.uses.value" data-type="number"/>
+                        <div class="value">({{item.uses.current}}, {{item.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.uses.per)}})</div>
+                    </div>
+                {{/if}}
+            {{/if}}
+        </div>
+        <div class="item__quantity">
+            <input class="input--quantity" data-action="update-item" data-target="{{item.id}}" data-field="data.quantity" data-type="number"/>
+            <span class="value">{{item.quantity}}</span>
+        </div>
+        <!-- <div class="item__value">{{item.target}}</div>
+        <div class="item__activation">{{#if item.activation.enabled}}{{item.activation.description}}{{/if}}</div> -->
+        <div class="item__actions">
+            <button data-action="roll-item"><i class="fas fa-fw fa-comments"></i></button>
+            <button data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>
+            <button data-action="delete-item"><i class="fas fa-fw fa-trash"></i></button>
+        </div>
+    </div>
+    <!-- <div class="row item__header">
         <div class="column column--title">
             <div class="item__icon">
                 {{#if item.img}}
@@ -57,5 +95,5 @@
                 {{/each}}
             </div>
         {{/if}}
-    </div>
+    </div> -->
 </div>

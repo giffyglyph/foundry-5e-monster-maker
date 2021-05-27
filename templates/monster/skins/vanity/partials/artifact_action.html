@@ -1,0 +1,98 @@
+<div class="item item--action" data-item-id="{{item.id}}" draggable="true">
+    <div class="item__icon">
+        {{#if item.img}}
+            <img src="{{item.img}}"/>
+        {{/if}}
+        <button data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
+    </div>
+    <div class="item__body">
+        <div class="item__title">
+            <div class="item__name" data-action="roll-item"><i class="{{item.icon}}"></i> {{item.name}}</div>
+            {{#if item.legendary_cost}}
+                <div class="item__cost">({{localize 'gmm.monster.artifact.legendary_actions.cost' cost=item.legendary_cost}})</div>
+            {{/if}}
+            {{#if item.recharge.enabled}}
+                <div class="item__recharge {{#if item.recharge.charged}}charged{{/if}}">
+                    {{#if item.recharge.charged}}
+                        (charged)
+                    {{else}}
+                        <button class="button--text" data-action="recharge-item">(<i class="fas fa-dice-d6"></i> recharge {{item.recharge.value}})</button>
+                    {{/if}}
+                </div>
+            {{else}}
+                {{#if item.uses.enabled}}
+                    <div class="item__uses">
+                        <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="data.uses.value" data-type="number"/>
+                        <div class="value">({{item.uses.current}}, {{item.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.uses.per)}})</div>
+                    </div>
+                {{/if}}
+            {{/if}}
+            
+        </div>
+        <div class="item__description">{{{item.description}}}</div>
+        <div class="item__actions">
+            <button data-action="roll-item"><i class="fas fa-fw fa-comments"></i></button>
+            <button data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>
+            <button data-action="delete-item"><i class="fas fa-fw fa-trash"></i></button>
+        </div>
+    </div>
+    <!-- <div class="row item__header">
+        <div class="column column--title">
+            <div class="item__icon">
+                {{#if item.img}}
+                    <img src="{{item.img}}"/>
+                {{/if}}
+                <button data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
+            </div>
+            <div class="item__name">{{item.name}}</div>
+        </div>
+        {{#if (eq item.sort_type "spell")}}
+            <div class="column column--components">{{item.components}}</div>
+            <div class="column column--target">{{item.target}}</div>
+        {{else}}
+            {{#if (eq item.sort_type "loot")}}
+                <div class="column column--quantity">
+                    <input class="input--quantity" data-action="update-item" data-target="{{item.id}}" data-field="data.quantity" data-type="number"/>
+                    <div class="value">{{item.quantity}}</div>
+                </div>
+            {{/if}}
+            <div class="column column--uses">
+                {{#if item.recharge.enabled}}
+                    {{#if item.recharge.charged}}
+                        Charged
+                    {{else}}
+                        <button class="button--text" data-action="recharge-item">Recharge {{item.recharge.value}}</button>
+                    {{/if}}
+                {{else}}
+                    {{#if item.uses.enabled}}
+                        <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="data.uses.value" data-type="number"/>
+                        <div class="value">
+                            {{item.uses.current}}<span class="maximum"> / {{item.uses.maximum}}</span>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
+        {{/if}}
+        <div class="column column--activation">{{#if item.activation.enabled}}{{item.activation.description}}{{/if}}</div>
+        <div class="column column--actions">
+            <button data-action="roll-item"><i class="fas fa-fw fa-comments"></i></button>
+            <button data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>
+            <button data-action="delete-item"><i class="fas fa-fw fa-trash"></i></button>
+        </div>
+    </div>
+    <div class="item__body" style="display: none;">
+        {{#if item.description}}
+            <div class="item__description" >{{{item.description}}}</div>
+        {{/if}}
+        {{#if (eq item.sort_type "spell")}}
+            <div class="item__detail item__school"><i class="fas fa-hat-wizard"></i> {{item.school}}</div>
+        {{/if}}
+        {{#if item.tags}}
+            <div class="item__detail item__tags">
+                {{#each item.tags}}
+                    <span class="item__tag">{{.}}</span>
+                {{/each}}
+            </div>
+        {{/if}}
+    </div> -->
+</div>

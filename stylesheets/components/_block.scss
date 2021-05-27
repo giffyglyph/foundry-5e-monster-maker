@@ -13,6 +13,7 @@
 		position: relative;
 		padding: 0.25rem 0.25rem;
 		text-align: center;
+		font-size: smaller;
 
 		+ .block__contents {
 			position: relative;
@@ -64,18 +65,18 @@
 
 		i {
 			color: var(--color-primary-shade-2);
-			font-size: 1.75rem;
+			font-size: 1.5rem;
 			margin-right: 0.25rem;
 		}
 
 		&.length-1,
 		&.length-2,
 		&.length-3 {
-			font-size: 1.75rem;
+			font-size: 1.5rem;
 		}
 
 		&.length-4 {
-			font-size: 1.5rem;
+			font-size: 1.25rem;
 		}
 
 		&.length-5 {

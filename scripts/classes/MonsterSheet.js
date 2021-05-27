@@ -50,7 +50,6 @@ export default class MonsterSheet extends ActorSheet {
 		$el.find('[data-action="edit-item"]').click(this._editItem.bind(this));
 		$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
 		$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
-		$el.find('.item .item__name').click(this._toggleItemDetails.bind(this));
 		$el.find('[data-action="roll-item"]').click(this._rollItem.bind(this));
 		$el.find('[data-action="recharge-item"]').click(this._rechargeItem.bind(this));
 		$el.find('[data-action="update-item"]').change((e) => this._updateItem(e));
@@ -106,25 +105,27 @@ export default class MonsterSheet extends ActorSheet {
 						let details = {
 							id: item._id,
 							name: item.name,
+							icon: (item.getSheetId() == "gmm.ActionSheet") ? 'fas fa-arrow-circle-right' : 'far fa-arrow-alt-circle-right',
 							img: item.img,
 							description: properties.description.value,
 							tags: properties.properties,
-							is_scaling: Math.round(Math.random()) == 1,
 							sort_type: sortType,
 							uses: {
 								enabled: item.hasLimitedUses,
 								current: item.hasLimitedUses ? item.data.data.uses.value : null,
-								maximum: item.hasLimitedUses ? item.data.data.uses.max : null
+								maximum: item.hasLimitedUses ? item.data.data.uses.max : null,
+								per: item.hasLimitedUses && item.data.data.uses.per ? item.data.data.uses.per : null
 							},
 							recharge: {
 								enabled: item.data.data.recharge && item.data.data.recharge.value != null,
-								value: item.data.data.recharge ? item.data.data.recharge.value : null,
+								value: item.data.data.recharge ? (item.data.data.recharge.value < 6 ? `${item.data.data.recharge.value}-6` : item.data.data.recharge.value) : null,
 								charged: item.data.data.recharge ? item.data.data.recharge.charged : null
 							},
 							activation: {
 								enabled: item.data.data.activation && item.data.data.activation.type != "",
 								description: item.labels.activation
-							}
+							},
+							legendary_cost: (item.data.data.activation?.type == "legendary" && item.data.data.activation?.cost > 1) ? item.data.data.activation.cost : null
 						};
 						if (item.type == "class") {
 							properties.properties.push("Class");
@@ -226,11 +227,6 @@ export default class MonsterSheet extends ActorSheet {
 		};
 		delete itemData.data["type"];
 		return this.actor.createEmbeddedEntity("OwnedItem", itemData);
-	}
-
-	_toggleItemDetails(event) {
-		const item = event.currentTarget.closest(".item");
-		$(item.querySelector(".item__body")).slideToggle("fast");
 	}
 
 	_updateAbilityRanking(event) {

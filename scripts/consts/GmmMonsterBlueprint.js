@@ -46,7 +46,10 @@ export const GMM_MONSTER_BLUEPRINT = {
 				type: ""
 			}
 		},
-		biography: "",
+		biography: {
+			always_hide: true,
+			text: ""
+		},
 		bonus_actions: {
 			always_show: false,
 			items: []
@@ -204,6 +207,7 @@ export const GMM_MONSTER_BLUEPRINT = {
 				sp: null
 			},
 			encumbrance: {
+				always_show: false,
 				powerful_build: false,
 				weight: {
 					modifier: {

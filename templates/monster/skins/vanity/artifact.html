@@ -166,9 +166,7 @@
                 </div>
             </div>
         </div>
-        
-        <div class="gmm-panel panel--collapsible panel--properties" id="panel-properties">
-            <div class="panel__header">{{localize 'gmm.monster.artifact.attributes.title'}}</div>
+        <div class="gmm-panel panel--properties">
             <div class="panel__body">
                 <div class="monster__properties">
                     <div class="monster__property">
@@ -335,105 +333,120 @@
                         </div>
                     {{/if}}
                 </div>
-            </div>
-        </div>
-        {{#if gmm.monster.features.visible}}
-            <div class="gmm-panel panel--collapsible panel--features" id="panel-features">
-                <div class="panel__header">{{localize 'gmm.monster.artifact.features.title'}}</div>
-                <div class="panel__body">
-                    {{#if gmm.monster.traits.visible}}
-                        <div class="item-collection item-collection--traits {{#unless gmm.monster.traits.items}}empty{{/unless}}">
-                            <div class="item-collection__header">
-                                <div class="column column--title" data-action="open-config" data-config="traits">{{localize 'gmm.monster.artifact.traits.title'}}</div>
-                                <div class="column column--uses">{{localize 'gmm.monster.artifact.traits.uses'}}</div>
-                                <div class="column column--activation">{{localize 'gmm.monster.artifact.traits.activation'}}</div>
-                                <div class="column column--actions">
-                                    <button class="header__add" data-action="add-item" data-type="feat">
-                                        {{localize 'gmm.monster.artifact.traits.add'}}
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="item-collection__body">
-                                {{#if gmm.monster.traits.items}}
-                                    <div class="item-list">
-                                        {{#each gmm.monster.traits.items as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=.}}
-                                        {{/each}}
-                                    </div>
-                                {{/if}}
+                {{#if gmm.monster.traits.visible}}
+                    <div class="item-collection item-collection--traits {{#unless gmm.monster.traits.items}}empty{{/unless}}">
+                        <div class="item-collection__header">
+                            <div class="title" data-action="open-config" data-config="traits">{{localize 'gmm.monster.artifact.traits.title'}}</div>
+                            <div class="actions">
+                                <button class="header__add" data-action="add-item" data-type="feat">
+                                    {{localize 'gmm.monster.artifact.traits.add'}}
+                                </button>
                             </div>
                         </div>
-                    {{/if}}
-                    {{#if gmm.monster.bonus_actions.visible}}
-                        <div class="item-collection item-collection--bonus-actions {{#unless gmm.monster.bonus_actions.items}}empty{{/unless}}">
-                            <div class="item-collection__header">
-                                <div class="column column--title" data-action="open-config" data-config="bonus-actions">{{localize 'gmm.monster.artifact.bonus_actions.title'}}</div>
-                                <div class="column column--uses">{{localize 'gmm.monster.artifact.bonus_actions.uses'}}</div>
-                                <div class="column column--activation">{{localize 'gmm.monster.artifact.bonus_actions.activation'}}</div>
-                                <div class="column column--actions">
-                                    <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="bonus">
-                                        {{localize 'gmm.monster.artifact.bonus_actions.add'}}
-                                    </button>
+                        {{#if gmm.monster.legendary_resistances.visible}}
+                            <div class="legendary__resources resources--legendary-resistances">
+                                <div class="legendary__current">
+                                    <div class="legendary__value">
+                                        <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_resistances.current" data-type="number"/>
+                                        <i class="far fa-star"></i> {{data.gmm.monster.data.legendary_resistances.current}}
+                                    </div>
+                                    <div class="legendary__description">
+                                        {{localize 'gmm.monster.artifact.legendary_resistances.current'}}
+                                    </div>
+                                </div>
+                                <div class="legendary__maximum">
+                                    <div class="legendary__value">
+                                        <i class="fas fa-star"></i> {{data.gmm.monster.data.legendary_resistances.maximum}}
+                                    </div>
+                                    <div class="legendary__description">
+                                        {{localize 'gmm.monster.artifact.legendary_resistances.maximum'}}
+                                    </div>
+                                </div>
+                                <div class="legendary__blurb">
+                                    <div class="blurb__title" data-action="open-config" data-config="legendary-resistances">{{localize 'gmm.monster.artifact.legendary_resistances.title'}}</div>
+                                    <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_resistances.blurb'}}</div>
                                 </div>
                             </div>
-                            <div class="item-collection__body">
-                                {{#if gmm.monster.bonus_actions.items}}
-                                    <div class="item-list">
-                                        {{#each gmm.monster.bonus_actions.items as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=.}}
-                                        {{/each}}
-                                    </div>
-                                {{/if}}
-                            </div>
-                        </div>
-                    {{/if}}
-                    {{#if gmm.monster.actions.visible}}
-                        <div class="item-collection item-collection--actions {{#unless gmm.monster.actions.items}}empty{{/unless}}">
-                            <div class="item-collection__header">
-                                <div class="column column--title" data-action="open-config" data-config="actions">{{localize 'gmm.monster.artifact.actions.title'}}</div>
-                                <div class="column column--uses">{{localize 'gmm.monster.artifact.actions.uses'}}</div>
-                                <div class="column column--activation">{{localize 'gmm.monster.artifact.actions.activation'}}</div>
-                                <div class="column column--actions">
-                                    <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="action">
-                                        {{localize 'gmm.monster.artifact.actions.add'}}
-                                    </button>
+                        {{/if}}
+                        <div class="item-collection__body">
+                            {{#if gmm.monster.traits.items}}
+                                <div class="item-list">
+                                    {{#each gmm.monster.traits.items as | item |}}
+                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                    {{/each}}
                                 </div>
-                            </div>
-                            <div class="item-collection__body">
-                                {{#if gmm.monster.actions.items}}
-                                    <div class="item-list">
-                                        {{#each gmm.monster.actions.items as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=. itemType="action"}}
-                                        {{/each}}
-                                    </div>
-                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if gmm.monster.bonus_actions.visible}}
+                    <div class="item-collection item-collection--bonus-actions {{#unless gmm.monster.bonus_actions.items}}empty{{/unless}}">
+                        <div class="item-collection__header">
+                            <div class="title" data-action="open-config" data-config="bonus-actions">{{localize 'gmm.monster.artifact.bonus_actions.title'}}</div>
+                            <div class="actions">
+                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="bonus">
+                                    {{localize 'gmm.monster.artifact.bonus_actions.add'}}
+                                </button>
                             </div>
                         </div>
-                    {{/if}}
-                    {{#if gmm.monster.reactions.visible}}
-                        <div class="item-collection item-collection--reactions {{#unless gmm.monster.reactions.items}}empty{{/unless}}">
-                            <div class="item-collection__header">
-                                <div class="column column--title" data-action="open-config" data-config="reactions">{{localize 'gmm.monster.artifact.reactions.title'}}</div>
-                                <div class="column column--uses">{{localize 'gmm.monster.artifact.reactions.uses'}}</div>
-                                <div class="column column--activation">{{localize 'gmm.monster.artifact.reactions.activation'}}</div>
-                                <div class="column column--actions">
-                                    <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="reaction">
-                                        {{localize 'gmm.monster.artifact.reactions.add'}}
-                                    </button>
+                        <div class="item-collection__body">
+                            {{#if gmm.monster.bonus_actions.items}}
+                                <div class="item-list">
+                                    {{#each gmm.monster.bonus_actions.items as | item |}}
+                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                    {{/each}}
                                 </div>
-                            </div>
-                            <div class="item-collection__body">
-                                {{#if gmm.monster.reactions.items}}
-                                    <div class="item-list">
-                                        {{#each gmm.monster.reactions.items as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=.}}
-                                        {{/each}}
-                                    </div>
-                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if gmm.monster.actions.visible}}
+                    <div class="item-collection item-collection--actions {{#unless gmm.monster.actions.items}}empty{{/unless}}">
+                        <div class="item-collection__header">
+                            <div class="title" data-action="open-config" data-config="actions">{{localize 'gmm.monster.artifact.actions.title'}}</div>
+                            <div class="actions">
+                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="action">
+                                    {{localize 'gmm.monster.artifact.actions.add'}}
+                                </button>
                             </div>
                         </div>
-                    {{/if}}
-                    {{#if gmm.monster.paragon_actions.visible}}
+                        <div class="item-collection__body">
+                            {{#if gmm.monster.actions.items}}
+                                <div class="item-list">
+                                    {{#each gmm.monster.actions.items as | item |}}
+                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=. itemType="action"}}
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if gmm.monster.reactions.visible}}
+                    <div class="item-collection item-collection--reactions {{#unless gmm.monster.reactions.items}}empty{{/unless}}">
+                        <div class="item-collection__header">
+                            <div class="title" data-action="open-config" data-config="reactions">{{localize 'gmm.monster.artifact.reactions.title'}}</div>
+                            <div class="actions">
+                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="reaction">
+                                    {{localize 'gmm.monster.artifact.reactions.add'}}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="item-collection__body">
+                            {{#if gmm.monster.reactions.items}}
+                                <div class="item-list">
+                                    {{#each gmm.monster.reactions.items as | item |}}
+                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if gmm.monster.paragon_actions.visible}}
+                    <div class="item-collection item-collection--paragon-actions">
+                        <div class="item-collection__header">
+                            <div class="title" data-action="open-config" data-config="paragon-actions">{{localize 'gmm.monster.artifact.paragon_actions.title'}}</div>
+                        </div>
                         <div class="legendary__resources">
                             <div class="legendary__current">
                                 <div class="legendary__value">
@@ -453,37 +466,21 @@
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__title" data-action="open-config" data-config="paragon-actions">{{localize 'gmm.monster.artifact.paragon_actions.title'}}</div>
                                 <div class="blurb__text">{{localize 'gmm.monster.artifact.paragon_actions.blurb'}}</div>
                             </div>
                         </div>
-                    {{/if}}
-                    {{#if gmm.monster.legendary_resistances.visible}}
-                        <div class="legendary__resources resources--legendary-resistances">
-                            <div class="legendary__current">
-                                <div class="legendary__value">
-                                    <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_resistances.current" data-type="number"/>
-                                    <i class="far fa-star"></i> {{data.gmm.monster.data.legendary_resistances.current}}
-                                </div>
-                                <div class="legendary__description">
-                                    {{localize 'gmm.monster.artifact.legendary_resistances.current'}}
-                                </div>
-                            </div>
-                            <div class="legendary__maximum">
-                                <div class="legendary__value">
-                                    <i class="fas fa-star"></i> {{data.gmm.monster.data.legendary_resistances.maximum}}
-                                </div>
-                                <div class="legendary__description">
-                                    {{localize 'gmm.monster.artifact.legendary_resistances.maximum'}}
-                                </div>
-                            </div>
-                            <div class="legendary__blurb">
-                                <div class="blurb__title" data-action="open-config" data-config="legendary-resistances">{{localize 'gmm.monster.artifact.legendary_resistances.title'}}</div>
-                                <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_resistances.blurb'}}</div>
+                    </div>
+                {{/if}}
+                {{#if gmm.monster.legendary_actions.visible}}
+                    <div class="item-collection item-collection--legendary-actions">
+                        <div class="item-collection__header">
+                            <div class="title" data-action="open-config" data-config="legendary-actions">{{localize 'gmm.monster.artifact.legendary_actions.title'}}</div>
+                            <div class="actions">
+                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="legendary">
+                                    {{localize 'gmm.monster.artifact.legendary_actions.add'}}
+                                </button>
                             </div>
                         </div>
-                    {{/if}}
-                    {{#if gmm.monster.legendary_actions.visible}}
                         <div class="legendary__resources resources--legendary-actions">
                             <div class="legendary__current">
                                 <div class="legendary__value">
@@ -503,33 +500,30 @@
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__title" data-action="open-config" data-config="legendary-actions">Legendary Actions</div>
                                 <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_actions.blurb'}}</div>
                             </div>
                         </div>
-                        <div class="item-collection item-collection--legendary-actions {{#unless gmm.monster.legendary_actions.items}}empty{{/unless}}">
-                            <div class="item-collection__header">
-                                <div class="column column--title" data-action="open-config" data-config="legendary-actions">{{localize 'gmm.monster.artifact.legendary_actions.title'}}</div>
-                                <div class="column column--uses">{{localize 'gmm.monster.artifact.legendary_actions.uses'}}</div>
-                                <div class="column column--activation">{{localize 'gmm.monster.artifact.legendary_actions.activation'}}</div>
-                                <div class="column column--actions">
-                                    <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="legendary">
-                                        {{localize 'gmm.monster.artifact.legendary_actions.add'}}
-                                    </button>
+                        <div class="item-collection__body">
+                            {{#if gmm.monster.legendary_actions.items}}
+                                <div class="item-list">
+                                    {{#each gmm.monster.legendary_actions.items as | item |}}
+                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                    {{/each}}
                                 </div>
-                            </div>
-                            <div class="item-collection__body">
-                                {{#if gmm.monster.legendary_actions.items}}
-                                    <div class="item-list">
-                                        {{#each gmm.monster.legendary_actions.items as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=.}}
-                                        {{/each}}
-                                    </div>
-                                {{/if}}
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+                {{#if gmm.monster.lair_actions.visible}}
+                    <div class="item-collection item-collection--lair-actions">
+                        <div class="item-collection__header">
+                            <div class="title" data-action="open-config" data-config="lair-actions">{{localize 'gmm.monster.artifact.lair_actions.title'}}</div>
+                            <div class="actions">
+                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="lair">
+                                    {{localize 'gmm.monster.artifact.actions.add'}}
+                                </button>
                             </div>
                         </div>
-                    {{/if}}
-                    {{#if gmm.monster.lair_actions.visible}}
                         <div class="legendary__resources resources--lair-actions">
                             <div class="legendary__current">
                                 <div class="legendary__value">
@@ -541,44 +535,31 @@
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__title" data-action="open-config" data-config="lair-actions">{{localize 'gmm.monster.artifact.lair_actions.title'}}</div>
                                 <div class="blurb__text">{{localize 'gmm.monster.artifact.lair_actions.blurb' initiative=data.gmm.monster.data.lair_actions.initiative}}</div>
                             </div>
                         </div>
-                        <div class="item-collection item-collection--lair-actions {{#unless gmm.monster.lair_actions.items}}empty{{/unless}}">
-                            <div class="item-collection__header">
-                                <div class="column column--title" data-action="open-config" data-config="lair-actions">{{localize 'gmm.monster.artifact.lair_actions.title'}}</div>
-                                <div class="column column--uses">{{localize 'gmm.monster.artifact.lair_actions.uses'}}</div>
-                                <div class="column column--activation">{{localize 'gmm.monster.artifact.lair_actions.activation'}}</div>
-                                <div class="column column--actions">
-                                    <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="lair">
-                                        {{localize 'gmm.monster.artifact.actions.add'}}
-                                    </button>
+                        <div class="item-collection__body">
+                            {{#if gmm.monster.lair_actions.items}}
+                                <div class="item-list">
+                                    {{#each gmm.monster.lair_actions.items as | item |}}
+                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                    {{/each}}
                                 </div>
-                            </div>
-                            <div class="item-collection__body">
-                                {{#if gmm.monster.lair_actions.items}}
-                                    <div class="item-list">
-                                        {{#each gmm.monster.lair_actions.items as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=.}}
-                                        {{/each}}
-                                    </div>
-                                {{/if}}
-                            </div>
+                            {{/if}}
                         </div>
-                    {{/if}}
-                </div>
+                    </div>
+                {{/if}}
             </div>
-        {{/if}}
+        </div>
         {{#if gmm.monster.spellbook.visible}}
             <div class="gmm-panel panel--collapsible panel--spellbook" id="panel-spellbook">
                 <div class="panel__header">{{localize 'gmm.monster.artifact.spellbook.title'}}</div>
                 <div class="panel__body">
                     <div class="monster__properties">
-                        <div class="monster__property">
+                        <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-magic fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title" data-action="open-config" data-config="spellcasting">{{localize 'gmm.monster.artifact.spellbook.spellcasting_ability.title'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="spellbook">{{localize 'gmm.monster.artifact.spellbook.spellcasting_ability.title'}}</div>
                                 <div class="property__value">
                                     {{localize 'gmm.monster.artifact.spellbook.spellcasting_ability.value'
                                         level=gmm.monster.spellbook.spellcasting.level
@@ -587,51 +568,52 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="monster__property">
+                        <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-hand-sparkles fa-fw"></i></div>
                             <div class="property__body">
-                                <div class="property__title" data-action="open-config" data-config="spellcasting">{{localize 'gmm.monster.artifact.spellbook.spellcasting_dc.title'}}</div>
+                                <div class="property__title" data-action="open-config" data-config="spellbook">{{localize 'gmm.monster.artifact.spellbook.spellcasting_dc.title'}}</div>
                                 <div class="property__value" title="{{{parseSources gmm.monster.spellbook.spellcasting.dc.sources}}}">
                                     {{localize 'gmm.monster.artifact.spellbook.spellcasting_dc.value' dc=gmm.monster.spellbook.spellcasting.dc.value}}
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="spellbook__slots">
-                        <div class="slots__title">
-                            <div class="title" data-action="open-config" data-config="spellcasting">{{localize 'gmm.monster.artifact.spellbook.slots.title'}}</div>
-                        </div>
-                        <div class="slots__list">
-                            {{#for 1 10 1}}
-                                {{#with (lookup ../gmm.monster.spellbook.slots (concat .)) as | slot |}}
-                                    <div class="slot {{#unless slot.maximum}}empty{{/unless}}">
-                                        <div class="title">{{localize (concat 'gmm.monster.artifact.spellbook.slots.level.' ../. )}}</div>
-                                        <div class="value">
-                                            <input class="input--slots" data-action="update-field" data-field="gmm.blueprint.spellbook.slots.{{../.}}.current" data-type="number">
-                                            <div class="current">{{slot.current}}<span class="maximum"> / {{slot.maximum}}</span></div>
-                                        </div>
-                                    </div>
-                                {{/with}}
-                            {{/for}}
+                        {{#if gmm.monster.spellbook.slots.pact.maximum}}
                             {{#with gmm.monster.spellbook.slots.pact as | slot |}}
-                                <div class="slot {{#unless slot.maximum}}empty{{/unless}}">
-                                    <div class="title">{{localize (concat 'gmm.monster.artifact.spellbook.slots.level.pact.' slot.level )}}</div>
-                                    <div class="value">
-                                        <input class="input--slots" data-action="update-field" data-field="gmm.blueprint.spellbook.slots.pact.current" data-type="number">
-                                        <div class="current">{{slot.current}}<span class="maximum"> / {{slot.maximum}}</span></div>
+                                <div class="monster__property property--wide">
+                                    <div class="property__icon"><i class="fas fa-hand-sparkles fa-fw"></i></div>
+                                    <div class="property__body">
+                                        <div class="property__title" data-action="open-config" data-config="spellbook">{{localize (concat 'gmm.monster.artifact.spellbook.slots.level.pact.' slot.level )}}</div>
+                                        <div class="property__value">
+                                            <span class="current-slots">
+                                                <input class="input--slots" data-action="update-field" data-field="gmm.blueprint.spellbook.slots.pact.current" data-type="number">
+                                                {{localize 'gmm.monster.artifact.spellbook.slots.current' current=slot.current maximum=slot.maximum}}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             {{/with}}
-                        </div>
+                        {{/if}}
                     </div>
                     {{#for 0 (add gmm.monster.spellbook.maximum_visible_spell_level 1) 1}}
                         <div class="item-collection item-collection--spells {{#unless (lookup ../gmm.monster.spellbook.spells (concat .))}}empty{{/unless}} ">
                             <div class="item-collection__header">
-                                <div class="column column--title" data-action="open-config" data-config="spellcasting">{{localize (concat 'gmm.monster.artifact.spellbook.spells.' . )}}</div>
+                                <div class="title">
+                                    <span data-action="open-config" data-config="spellbook">
+                                        {{localize (concat 'gmm.monster.artifact.spellbook.spells.' . )}}
+                                    </span>
+                                    {{#if .}}
+                                        {{#with (lookup ../gmm.monster.spellbook.slots (concat .)) as | slot |}}
+                                            <span class="current-slots">
+                                                <input class="input--slots" data-action="update-field" data-field="gmm.blueprint.spellbook.slots.{{../.}}.current" data-type="number">
+                                                ({{slot.current}} / {{slot.maximum}})
+                                            </span>
+                                        {{/with}}
+                                    {{/if}}
+                                </div>
                                 <div class="column column--components">{{localize 'gmm.monster.artifact.spellbook.spells.components'}}</div>
                                 <div class="column column--target">{{localize 'gmm.monster.artifact.spellbook.spells.target'}}</div>
                                 <div class="column column--activation">{{localize 'gmm.monster.artifact.spellbook.spells.activation'}}</div>
-                                <div class="column column--actions">
+                                <div class="actions">
                                     <button class="header__add" data-action="add-item" data-type="spell" data-level="{{.}}" data-preparation.mode="prepared">
                                         {{localize 'gmm.monster.artifact.spellbook.add'}}
                                     </button>
@@ -641,7 +623,7 @@
                                 {{#if (lookup ../gmm.monster.spellbook.spells .)}}
                                     <div class="item-list">
                                         {{#each (lookup ../gmm.monster.spellbook.spells .) as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=item}}
+                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_spell.html" item=item}}
                                         {{/each}}
                                     </div>
                                 {{/if}}
@@ -655,40 +637,10 @@
             <div class="gmm-panel panel--collapsible panel--inventory" id="panel-inventory">
                 <div class="panel__header">{{localize 'gmm.monster.artifact.inventory.title'}}</div>
                 <div class="panel__body">
-                    <div class="monster__properties">
-                        <div class="monster__property">
-                            <div class="property__icon"><i class="fas fa-shopping-bag fa-fw"></i></div>
-                            <div class="property__body">
-                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.capacity'}}</div>
-                                <div class="property__value" title="{{{parseSources gmm.monster.inventory.capacity.sources}}}">{{gmm.monster.inventory.capacity.value}}</div>
-                            </div>
-                        </div>
-                        <div class="monster__property">
-                            <div class="property__icon"><i class="fas fa-balance-scale fa-fw"></i></div>
-                            <div class="property__body">
-                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.encumbrance'}}</div>
-                                <div class="property__value">{{gmm.monster.inventory.encumbrance}}%</div>
-                            </div>
-                        </div>
-                        <div class="monster__property">
-                            <div class="property__icon"><i class="fas fa-weight fa-fw"></i></div>
-                            <div class="property__body">
-                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.weight'}}</div>
-                                <div class="property__value" title="{{{parseSources gmm.monster.inventory.weight.sources}}}">{{gmm.monster.inventory.weight.value}}</div>
-                            </div>
-                        </div>
-                        <div class="monster__property">
-                            <div class="property__icon"><i class="fas fa-coins fa-fw"></i></div>
-                            <div class="property__body">
-                                <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.currency'}}</div>
-                                <div class="property__value">{{gmm.monster.inventory.currency.valuation}} GP</div>
-                            </div>
-                        </div>
-                    </div>
                     {{#if gmm.monster.inventory.show_currencies}}
                         <div class="currencies">
                             <div class="currencies__title" data-action="open-config" data-config="inventory">
-                                <div class="title">{{localize 'gmm.monster.artifact.inventory.coins.title'}}</div>
+                                <div class="title"><i class="fas fa-coins"></i> {{localize 'gmm.monster.artifact.inventory.coins.title'}}</div>
                             </div>
                             <div class="currencies__list">
                                 <div class="currency">
@@ -731,11 +683,9 @@
                     {{/if}}
                     <div class="item-collection item-collection--items {{#unless gmm.monster.inventory.items}}empty{{/unless}}">
                         <div class="item-collection__header">
-                            <div class="column column--title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.items.title'}}</div>
+                            <div class="title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.items.title'}}</div>
                             <div class="column column--quantity">{{localize 'gmm.monster.artifact.inventory.items.quantity'}}</div>
-                            <div class="column column--uses">{{localize 'gmm.monster.artifact.inventory.items.uses'}}</div>
-                            <div class="column column--activation">{{localize 'gmm.monster.artifact.inventory.items.activation'}}</div>
-                            <div class="column column--actions">
+                            <div class="actions">
                                 <button class="header__add" data-action="add-item" data-type="loot">
                                     {{localize 'gmm.monster.artifact.inventory.add'}}
                                 </button>
@@ -745,22 +695,56 @@
                             {{#if gmm.monster.inventory.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.inventory.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_item.html" item=.}}
+                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_loot.html" item=.}}
                                     {{/each}}
                                 </div>
                             {{/if}}
                         </div>
                     </div>
+                    {{#if gmm.monster.inventory.show_encumbrance}}
+                        <div class="monster__properties">
+                            <div class="monster__property">
+                                <div class="property__icon"><i class="fas fa-shopping-bag fa-fw"></i></div>
+                                <div class="property__body">
+                                    <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.capacity'}}</div>
+                                    <div class="property__value" title="{{{parseSources gmm.monster.inventory.capacity.sources}}}">{{gmm.monster.inventory.capacity.value}}</div>
+                                </div>
+                            </div>
+                            <div class="monster__property">
+                                <div class="property__icon"><i class="fas fa-balance-scale fa-fw"></i></div>
+                                <div class="property__body">
+                                    <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.encumbrance'}}</div>
+                                    <div class="property__value">{{gmm.monster.inventory.encumbrance}}%</div>
+                                </div>
+                            </div>
+                            <div class="monster__property">
+                                <div class="property__icon"><i class="fas fa-weight fa-fw"></i></div>
+                                <div class="property__body">
+                                    <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.weight'}}</div>
+                                    <div class="property__value" title="{{{parseSources gmm.monster.inventory.weight.sources}}}">{{gmm.monster.inventory.weight.value}}</div>
+                                </div>
+                            </div>
+                            <div class="monster__property">
+                                <div class="property__icon"><i class="fas fa-coins fa-fw"></i></div>
+                                <div class="property__body">
+                                    <div class="property__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.currency'}}</div>
+                                    <div class="property__value">{{gmm.monster.inventory.currency.valuation}} GP</div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
                 </div>
             </div>
         {{/if}}
-        {{#if gmm.monster.biography}}
-            <div class="gmm-panel panel--collapsible panel--biography" id="panel-biography">
-                <div class="panel__header">{{localize 'gmm.monster.artifact.biography.title'}}</div>
-                <div class="panel__body">
-                    {{{gmm.monster.biography}}}
+        {{#unless gmm.monster.biography.always_hide}}
+            {{#if gmm.monster.biography.text}}
+                <div class="gmm-panel panel--collapsible panel--biography" id="panel-biography">
+                    <div class="panel__header">{{localize 'gmm.monster.artifact.biography.title'}}</div>
+                    <div class="panel__body">
+                        {{{gmm.monster.biography.text}}}
+                    </div>
                 </div>
-            </div>
-        {{/if}}
+            {{/if}}
+        {{/unless}}
     </div>
 </div>

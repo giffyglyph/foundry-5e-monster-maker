@@ -11,7 +11,7 @@ import { GMM_MONSTER_BLUEPRINT } from "../consts/GmmMonsterBlueprint.js";
 const MonsterBlueprint = (function() {
 
 	const mappings = [
-		{ from: "biography", to: "data.details.biography.value" },
+		{ from: "biography.text", to: "data.details.biography.value" },
 		{ from: "condition_immunities.other", to: "data.traits.ci.custom" },
 		{ from: "damage_immunities.other", to: "data.traits.di.custom" },
 		{ from: "damage_resistances.other", to: "data.traits.dr.custom" },

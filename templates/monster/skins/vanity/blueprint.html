@@ -592,10 +592,18 @@
 							<span class="accordion-section__title">{{localize 'gmm.monster.blueprint.biography.title'}}</span>
 						</div>
 						<div class="accordion-section__body">
+							<div class="form-group form-group--modifier">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.monster.blueprint.biography.always_hide'}}</span>
+								</div>
+								<div class="form-group__body">
+									<input type="checkbox" name="gmm.blueprint.biography.always_hide" {{#if gmm.blueprint.biography.always_hide}}checked{{/if}}/>
+								</div>
+							</div>
 							<div class="form-group">
 								<div class="form-group__body">
 									<div class="html-field">
-										{{editor content=gmm.blueprint.biography target='gmm.blueprint.biography' button=true owner=owner editable=editable}}
+										{{editor content=gmm.blueprint.biography.text target='gmm.blueprint.biography.text' button=true owner=owner editable=editable}}
 									</div>
 								</div>
 							</div>
@@ -1007,6 +1015,14 @@
 							<div class="form-fieldset">
 								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.inventory.encumbrance.title'}}</div>
 								<div class="form-fieldset__body">
+									<div class="form-group form-group--modifier">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.inventory.encumbrance.always_show'}}</span>
+										</div>
+										<div class="form-group__body">
+											<input type="checkbox" name="gmm.blueprint.inventory.encumbrance.always_show" {{#if gmm.blueprint.inventory.encumbrance.always_show}}checked{{/if}}/>
+										</div>
+									</div>
 									<div class="form-group form-group--modifier">
 										<div class="form-group__header">
 											<span class="form-group__title">{{localize 'gmm.monster.blueprint.inventory.encumbrance.powerful_build'}}</span>
