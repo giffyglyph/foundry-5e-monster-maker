@@ -1,5 +1,5 @@
-<div class="gmm-artifact artifact--monster--vanity">
-    <div class="monster__header">
+<div class="gmm-artifact artifact--monster artifact--monster--vanity">
+    <div class="artifact__header monster__header">
         <div class="monster__image" data-action="open-config" data-config="description"><img src="{{data.gmm.monster.data.image}}"></div>
         <div class="monster__name" data-action="open-config" data-config="description">{{data.gmm.monster.data.name}}</div>
         <div class="monster__description" data-action="open-config" data-config="description">{{data.gmm.monster.data.description}}</div>
@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div class="monster__body" data-track-scrollbars="true" id="monster-body">
+    <div class="artifact__body monster__body" data-track-scrollbars="true" id="monster-body">
         <div class="monster__blocks">
             <div class="monster__blocks__row">
                 <div class="gmm-block hit-points">
@@ -167,6 +167,7 @@
             </div>
         </div>
         <div class="gmm-panel panel--properties">
+            <div class="panel__header">{{localize 'gmm.monster.artifact.attributes.title'}}</div>
             <div class="panel__body">
                 <div class="monster__properties">
                     <div class="monster__property">

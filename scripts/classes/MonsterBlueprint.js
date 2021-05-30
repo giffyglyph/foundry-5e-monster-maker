@@ -150,43 +150,33 @@ const MonsterBlueprint = (function() {
 			actorData.traits.languages.value.forEach((x) => blueprintData.languages[x] = true);
 
 			actor.data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0)).forEach(x => {
-                switch (x.type) {
+				let item = actor.getOwnedItem(x._id)
+                switch (item.getSortingCategory()) {
                     case "spell":
                         let spell_level = x.data.level || 0;
-						blueprintData.spellbook.spells[`${spell_level < 10 ? spell_level : "other"}`].push(_getItemDetails(actor.getOwnedItem(x._id)));
+						blueprintData.spellbook.spells[`${spell_level < 10 ? spell_level : "other"}`].push(_getItemDetails(item));
 						break;
-					case "weapon":
-                    case "feat":
-                        if (x.data.activation.type) {
-							switch(x.data.activation.type) {
-								case "bonus":
-									blueprintData.bonus_actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-									break;
-								case "reaction":
-									blueprintData.reactions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-									break;
-								case "lair":
-									blueprintData.lair_actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-									break;
-								case "legendary":
-									blueprintData.legendary_actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-									break;
-								default:
-									blueprintData.actions.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-									break;
-							}
-                        } else if (x.type == "weapon") {
-							blueprintData.inventory.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-						} else {
-							blueprintData.traits.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-                        }
-                        break;
-					case "class":
-						blueprintData.traits.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
+					case "bonus":
+						blueprintData.bonus_actions.items.push(_getItemDetails(item));
 						break;
-                    default:
-						blueprintData.inventory.items.push(_getItemDetails(actor.getOwnedItem(x._id)));
-                        break;
+					case "reaction":
+						blueprintData.reactions.items.push(_getItemDetails(item));
+						break;
+					case "lair":
+						blueprintData.lair_actions.items.push(_getItemDetails(item));
+						break;
+					case "legendary":
+						blueprintData.legendary_actions.items.push(_getItemDetails(item));
+						break;
+					case "trait":
+						blueprintData.traits.items.push(_getItemDetails(item));
+						break;
+					case "loot":
+						blueprintData.inventory.items.push(_getItemDetails(item));
+						break;
+					default:
+						blueprintData.actions.items.push(_getItemDetails(item));
+						break;
                 }
             });
 
@@ -329,30 +319,8 @@ const MonsterBlueprint = (function() {
 		let details = {
 			id: item._id,
 			name: item.name,
-			img: item.img,
-			weight: 0,
-			quantity: 1
+			img: item.img
 		};
-		switch (item.type) {
-			case "class":
-				details.class = {
-					level: item.data.data.levels,
-					spellcasting: item.data.data.spellcasting
-				}
-				break;
-			case "weapon":
-			case "equipment":
-			case "consumable":
-			case "tool":
-			case "backpack":
-			case "loot":
-				details.weight = item.data.data.weight || 0;
-				details.quantity = item.data.data.quantity || 0;
-				break;
-		}
-		if (item.getSheetId() == "gmm.ActionSheet") {
-			details.requirements = item.data.data.gmm.blueprint.data.requirements;
-		}
 		return details;
 	}
 

@@ -96,35 +96,30 @@
   font-style: italic; }
 
 .gmm-accordion {
-  filter: drop-shadow(0 1px 0 var(--color-primary-shade-3)); }
+  filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
   .gmm-accordion .accordion-group {
     border-radius: 0.75rem;
     overflow: hidden; }
     .gmm-accordion .accordion-group:not(:last-child) {
-      margin-bottom: 0.5rem; }
+      margin-bottom: 0.25rem; }
+  .gmm-accordion .accordion-section__header:hover {
+    background: var(--color-secondary-base) !important; }
+    .gmm-accordion .accordion-section__header:hover .accordion-section__info .badge {
+      background: var(--color-secondary-shade-2) !important; }
   .gmm-accordion .accordion-section:not(:first-of-type) {
     border-top: 1px solid var(--color-primary-shade-2); }
   .gmm-accordion .accordion-section.opened .accordion-section__header {
-    background: var(--color-secondary-base); }
-    .gmm-accordion .accordion-section.opened .accordion-section__header::before {
-      background: var(--color-secondary-tint-2); }
+    background: var(--color-primary-shade-3); }
     .gmm-accordion .accordion-section.opened .accordion-section__header .accordion-section__info .badge {
-      background: var(--color-secondary-shade-2); }
+      background: var(--color-primary-shade-1); }
   .gmm-accordion .accordion-section:not(.opened) .accordion-section__header::before {
     transform: rotate(-90deg); }
-  .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover {
-    background: var(--color-secondary-base); }
-    .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover::before {
-      background: var(--color-secondary-tint-2); }
-    .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover .accordion-section__info .badge {
-      background: var(--color-secondary-shade-2); }
   .gmm-accordion .accordion-section:not(.opened) .accordion-section__body {
     display: none; }
   .gmm-accordion .accordion-section.collapsing .accordion-section__header {
-    background: var(--color-secondary-base); }
+    background: var(--color-primary-shade-3); }
     .gmm-accordion .accordion-section.collapsing .accordion-section__header::before {
-      transition: transform 200ms ease-in-out;
-      background: var(--color-secondary-tint-2); }
+      transition: transform 200ms ease-in-out; }
   .gmm-accordion .accordion-section.collapsing.opened .accordion-section__header::before {
     transform: rotate(-90deg); }
   .gmm-accordion .accordion-section.collapsing:not(.opened) .accordion-section__header::before {
@@ -161,7 +156,6 @@
       justify-content: center;
       align-items: center;
       top: 0.25rem;
-      background: var(--color-primary-tint-1);
       color: white;
       border-radius: 1rem;
       font-size: smaller; }
@@ -170,8 +164,7 @@
     border-radius: 0;
     position: relative;
     padding: 1rem;
-    overflow: hidden;
-    border-top: 1px solid var(--color-secondary-shade-2); }
+    overflow: hidden; }
   .gmm-accordion .accordion-section__info .badge {
     background: var(--color-primary-shade-2);
     font-weight: normal;
@@ -197,18 +190,40 @@
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  height: 100%; }
+  height: 100%;
+  padding: 2px;
+  background: var(--color-primary-tint-2); }
+  .gmm-artifact [data-action="open-config"]:hover {
+    cursor: pointer;
+    color: var(--color-secondary-base) !important; }
   .gmm-artifact ::-webkit-scrollbar {
     width: 1rem; }
   .gmm-artifact ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background: var(--color-primary-shade-3);
+    background: var(--color-primary-shade-1);
     border: 2px solid var(--color-primary-tint-2); }
   .gmm-artifact ::-webkit-scrollbar-track {
     box-shadow: none;
     border-radius: 1rem;
     background: var(--color-primary-tint-1);
     border: 5px solid var(--color-primary-tint-2); }
+  .gmm-artifact .artifact__header {
+    background: black;
+    color: white;
+    padding: 0.25rem;
+    flex-shrink: 0;
+    display: flex;
+    background: var(--color-primary-shade-2);
+    filter: drop-shadow(0 2px 0 var(--color-primary-shade-4));
+    position: relative;
+    z-index: 1;
+    border-radius: 0.75rem; }
+  .gmm-artifact .artifact__body {
+    padding: 2px 1px 2px 0;
+    margin: calc(0.25rem - 2px) -1px -2px 0;
+    overflow-y: auto;
+    flex-grow: 1;
+    border-radius: 0.75rem; }
   .gmm-artifact .artifact__error {
     flex-grow: 1;
     text-align: center;
@@ -231,27 +246,1004 @@
       border-radius: 1rem;
       margin-bottom: 1rem; }
 
+.gmm-artifact.artifact--action.artifact--action--vanity {
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-primary-tint-2);
+  padding: 2px; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__header {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    grid-column-gap: 0.5rem; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__icon {
+      grid-row: 1 / span 3;
+      margin: 0;
+      height: 100%;
+      width: 100%; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__icon img {
+        border: none;
+        border-radius: 0.75rem;
+        display: block;
+        background: var(--color-primary-shade-3); }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__title {
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+      font-family: 'Londrina Solid';
+      line-height: 1.1;
+      padding-right: 2.5rem; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__type {
+      font-weight: 600;
+      font-size: larger;
+      text-align: left;
+      padding-right: 2.5rem; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements {
+      font-weight: 600;
+      font-size: larger;
+      text-align: left;
+      padding-right: 2.5rem;
+      border-top: 1px solid var(--color-primary-shade-4);
+      margin: 0.25rem 0 0;
+      padding: 0.25rem 0 0; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements i {
+        margin-right: 0.25rem; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .level,
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .rank,
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .role {
+        display: inline-block; }
+        .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .level:not(:first-child),
+        .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .rank:not(:first-child),
+        .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .role:not(:first-child) {
+          margin-left: 0.25rem; }
+          .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .level:not(:first-child)::before,
+          .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .rank:not(:first-child)::before,
+          .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__requirements .role:not(:first-child)::before {
+            content: '•';
+            color: var(--color-primary-shade-4);
+            margin-right: 0.25rem; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__header .action__options {
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.5rem; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .gmm-panel {
+    flex-grow: 1;
+    display: flex;
+    min-height: 100%; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .gmm-panel .panel__body {
+      flex-grow: 1; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__icon {
+    width: 24px;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: -3px;
+    margin-bottom: -3px;
+    align-self: flex-start; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__icon img {
+      width: 100%;
+      margin: 0;
+      display: block;
+      border: none;
+      background: var(--color-primary-shade-3); }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__icon button {
+      display: none; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__title {
+    display: inline; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__title::after {
+      content: ':';
+      margin-left: -2px; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__title > * {
+      display: inline; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__title button {
+      display: inline;
+      width: auto;
+      padding: 0;
+      margin: 0;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__cost {
+    font-weight: bold;
+    color: var(--color-primary-base); }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__name {
+    font-weight: bold;
+    text-transform: uppercase; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__name i {
+      color: var(--color-primary-base); }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__name:hover {
+      cursor: pointer;
+      color: var(--color-secondary-base); }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__recharge {
+    display: inline;
+    font-weight: bold;
+    color: var(--color-primary-base); }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__recharge button {
+      color: var(--color-primary-base);
+      font-weight: bold;
+      border: none; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__recharge button:hover {
+        color: var(--color-secondary-base);
+        box-shadow: none;
+        cursor: pointer; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__uses {
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    color: var(--color-primary-base); }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__uses:hover {
+      color: var(--color-secondary-base); }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__uses .input--uses {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      font-size: inherit;
+      font-family: inherit;
+      opacity: 0;
+      background: var(--color-secondary-tint-5);
+      border: none;
+      border-radius: 0.5rem; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__uses .input--uses:focus {
+        opacity: 1; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__details {
+    display: inline; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__description .secret {
+    border-color: var(--color-primary-tint-3);
+    padding: 0.5rem 1rem;
+    background: var(--color-primary-tint-6);
+    margin-top: 0.25rem;
+    font-size: small;
+    line-height: 1.2;
+    display: none; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__description .secret > :first-child {
+      margin-top: 0; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__description .secret > :last-child {
+      margin-bottom: 0; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__description > :first-child:not(.secret) {
+    display: inline; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__description > .secret:first-child + * {
+    display: inline; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__actions {
+    position: absolute;
+    top: -2px;
+    right: 0;
+    display: none; }
+    .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__actions button {
+      background: var(--color-primary-base);
+      height: 22px;
+      width: 22px;
+      text-align: center;
+      color: white;
+      padding: 0;
+      margin: 0;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__actions button:hover {
+        background: var(--color-secondary-base);
+        box-shadow: none; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__actions button + * {
+        margin-left: 1px; }
+      .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__actions button i {
+        margin: 0; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__attack span:not(.attack__title):last-child::after,
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__damage span:not(.attack__title):last-child::after {
+    content: '.'; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__attack span:not(.attack__title):not(:last-child)::after,
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__damage span:not(.attack__title):not(:last-child)::after {
+    content: ','; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__attack + .item__description,
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__damage + .item__description {
+    display: block;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-primary-tint-5); }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body .item__body {
+    position: relative;
+    width: 100%; }
+  .gmm-artifact.artifact--action.artifact--action--vanity .action__body:hover .item__actions {
+    display: flex; }
+
+.gmm-artifact.artifact--monster.artifact--monster--vanity {
+  padding: 0;
+  overflow: hidden;
+  background: var(--color-primary-tint-2);
+  padding: 2px; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header {
+    display: grid;
+    grid-template-columns: 97px 1fr;
+    grid-column-gap: 0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__image {
+      grid-row: 1 / span 3;
+      grid-column: 1;
+      position: relative; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__image[data-action="open-config"]:hover {
+        outline: 2px solid; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__image img {
+        background: var(--color-primary-shade-3);
+        border-radius: 0.75rem;
+        border: none;
+        display: block; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__name {
+      font-size: 2.5rem;
+      letter-spacing: 0.5px;
+      font-family: 'Londrina Solid';
+      line-height: 1.1; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__description {
+      font-weight: 600;
+      font-size: larger;
+      grid-column: 2; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__name,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat {
+      grid-column: 2;
+      font-weight: 600;
+      position: relative;
+      font-weight: 600;
+      font-size: larger;
+      border-top: 1px solid var(--color-primary-shade-4);
+      margin: 0.25rem 0 0;
+      padding: 0.25rem 0 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .level,
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .rank,
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .role,
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .phase {
+        display: inline-block; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .level i,
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .rank i,
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .role i,
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .phase i {
+          margin-right: 0.25rem; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .level:not(:first-child),
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .rank:not(:first-child),
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .role:not(:first-child),
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .phase:not(:first-child) {
+          margin-left: 0.25rem; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .level:not(:first-child)::before,
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .rank:not(:first-child)::before,
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .role:not(:first-child)::before,
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .phase:not(:first-child)::before {
+            content: '•';
+            color: var(--color-primary-shade-4);
+            margin-right: 0.25rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__combat .rank .stars i:not(:first-child) {
+        margin-left: -20px;
+        filter: drop-shadow(0 0 2px var(--color-primary-shade-3)); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__body {
+    background: none;
+    color: black;
+    padding: 2px 1px 2px 0;
+    margin: calc(0.25rem - 2px) -1px -2px 0;
+    overflow-y: auto;
+    flex-grow: 1; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__body > * + * {
+      margin-top: 0.25rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__body > * {
+      filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .monster__blocks__row {
+    display: flex; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .monster__blocks__row > * + * {
+      margin-left: 0.25rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .monster__blocks__row + .monster__blocks__row {
+      margin-top: 0.25rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .attack-dcs {
+    flex-grow: 1;
+    width: 100%; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .perception,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .ac {
+    width: 6.5rem;
+    flex-shrink: 0; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .attack {
+    width: 7rem;
+    flex-shrink: 0; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .damage {
+    width: 13.25rem;
+    flex-shrink: 0; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .damage .random {
+      letter-spacing: 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .damage .random .roll {
+        white-space: normal;
+        line-height: 0.875;
+        font-style: 1rem;
+        text-align: left;
+        letter-spacing: 0; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points__temporary:hover,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points__current:hover {
+    color: var(--color-secondary-base); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points__temporary:hover i,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points__current:hover i {
+      color: var(--color-secondary-base); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .input--thp,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .input--hp {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: inherit;
+    font-family: inherit;
+    opacity: 0;
+    background: var(--color-secondary-tint-5);
+    border: none;
+    border-radius: 0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .input--thp:focus,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .input--hp:focus {
+      opacity: 1; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .panel__header {
+    color: var(--color-primary-shade-1);
+    font-weight: bold;
+    padding: 0.25rem 0.25rem 1.25rem;
+    font-size: smaller;
+    background: var(--color-primary-tint-4); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .panel__header + * {
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__skill {
+    padding: 0;
+    display: inline;
+    width: auto;
+    font-weight: normal;
+    font-family: inherit;
+    line-height: inherit;
+    font-size: inherit; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__skill:not(:last-child)::after {
+      content: ', '; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 0.25rem;
+    background: radial-gradient(circle, var(--color-primary-base) 0%, var(--color-primary-shade-1) 100%);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin: 1rem -0.5rem;
+    position: relative; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers::before, .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers::after {
+      content: '';
+      position: absolute;
+      height: 1rem;
+      width: 1rem;
+      left: calc(50% - 0.5rem);
+      background: var(--color-primary-tint-3);
+      border: 5px solid var(--color-primary-base);
+      box-sizing: border-box;
+      transform: rotate(45deg); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers::before {
+      top: -0.25rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers::after {
+      bottom: -0.25rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier {
+      text-align: center;
+      overflow: hidden;
+      background: var(--color-primary-tint-4);
+      border-radius: 0.75rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .modifier {
+        background: white;
+        border-radius: 0 0 1.5rem 1.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .title {
+        text-transform: uppercase;
+        color: var(--color-primary-tone-1);
+        font-weight: bold;
+        position: relative;
+        padding: 0.25rem 0.25rem 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: smaller; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .value {
+        height: 3.5rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: normal;
+        font-family: 'Londrina Solid';
+        letter-spacing: 2px;
+        padding-bottom: 1.4rem; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .value button {
+          padding: 0;
+          font-size: inherit;
+          font-family: inherit; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save {
+        position: relative;
+        z-index: 1;
+        height: 2.5rem;
+        margin-top: -1.5rem;
+        font-weight: bold;
+        font-size: 1.25rem;
+        padding-bottom: 0.5rem;
+        color: white;
+        display: flex;
+        justify-content: center;
+        letter-spacing: 1px;
+        align-items: center;
+        filter: drop-shadow(0 1px 0 white);
+        margin-bottom: 1px; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save button {
+          padding: 0;
+          font-size: inherit;
+          font-family: inherit;
+          color: inherit;
+          font-weight: inherit; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          width: 2.5rem;
+          height: 100%;
+          left: calc(50% - 1.25rem);
+          background: var(--color-primary-shade-1);
+          clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
+          z-index: -1; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save:hover::before {
+          background: var(--color-secondary-base); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .legendary__resources {
+    margin-top: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .monster__properties + * {
+    margin-top: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots {
+    position: relative; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots:hover {
+      color: var(--color-secondary-base); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots .input--slots {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      font-size: inherit;
+      font-family: inherit;
+      opacity: 0;
+      background: var(--color-secondary-tint-5);
+      border: none;
+      border-radius: 0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots .input--slots:focus {
+        opacity: 1; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots {
+    margin-left: -1rem;
+    background: var(--color-primary-tone-1);
+    border-radius: 0 1rem 1rem 0;
+    display: flex;
+    margin-right: -0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots + * {
+      margin-top: 1rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__title {
+      text-transform: uppercase;
+      background: var(--color-primary-shade-1);
+      color: var(--color-primary-tint-3);
+      font-weight: bold;
+      font-size: 23px;
+      padding-right: 2rem;
+      clip-path: polygon(0% 0%, 0% 100%, 72% 100%, 100% 50%, 72% 0%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-left: 2px solid var(--color-primary-tint-3); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__title .title {
+        transform: rotate(-90deg);
+        max-width: 5rem;
+        text-align: center;
+        line-height: 1; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__list {
+      flex-grow: 1;
+      padding: 0.5rem 0.5rem 0.5rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 0.25rem;
+      grid-row-gap: 0.25rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 0.25rem;
+      text-align: center;
+      min-height: 50px; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .title {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: var(--color-primary-tone-1); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value {
+        font-size: 20px;
+        font-family: 'Londrina Solid';
+        position: relative; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value:hover {
+          color: var(--color-secondary-base); }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .maximum {
+          color: var(--color-primary-base); }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .input--slots {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          font-size: inherit;
+          font-family: inherit;
+          opacity: 0;
+          background: var(--color-secondary-tint-5);
+          border: none;
+          border-radius: 0.5rem; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .input--slots:focus {
+            opacity: 1; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot.empty {
+        background: var(--color-primary-tint-2); }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot.empty .value {
+          display: none; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item-collection__header,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item .item__body {
+    display: grid;
+    grid-template-columns: 1fr 4rem 5rem 5rem 4.1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item-collection__header .column {
+    font-size: 12px;
+    text-align: center;
+    color: var(--color-primary-tint-3); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__title::after {
+    display: none; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__components,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__target,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__activation {
+    text-align: center;
+    font-size: smaller; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__description {
+    padding-top: 0.5rem;
+    grid-column: 1 / span 5; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .monster__properties:not(:first-child) {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-bottom: -1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: var(--color-primary-tint-5); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies {
+    margin-left: -0.5rem;
+    background: var(--color-primary-tone-1);
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    margin-right: -0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies:first-child {
+      margin-top: -0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies + * {
+      margin-top: 1rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies + .item-collection {
+      margin-top: 0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__title {
+      text-transform: uppercase;
+      background: var(--color-primary-shade-1);
+      color: var(--color-primary-tint-3);
+      font-weight: bold;
+      font-size: 18px;
+      padding-right: 1.5rem;
+      clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-left: 1rem;
+      margin-right: -0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__title i {
+        margin-right: 0.25rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__title .title {
+        text-align: center;
+        line-height: 1; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__list {
+      flex-grow: 1;
+      padding: 0.5rem 0.5rem 0.5rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 0.25rem;
+      grid-row-gap: 0.25rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency {
+      background: white;
+      border-radius: 0.5rem;
+      padding: 0.25rem;
+      text-align: center;
+      min-height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency .title {
+        text-transform: uppercase;
+        font-size: smaller;
+        font-weight: bold;
+        color: var(--color-primary-tone-1); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency .value {
+        font-size: 20px;
+        font-family: 'Londrina Solid';
+        position: relative; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency .value:hover {
+          color: var(--color-secondary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency .input--currency {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        font-size: inherit;
+        font-family: inherit;
+        opacity: 0;
+        background: var(--color-secondary-tint-5);
+        border: none;
+        border-radius: 0.5rem; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency .input--currency:focus {
+          opacity: 1; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item-collection__header,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item .item__body {
+    display: grid;
+    grid-template-columns: 1fr 5rem 4.1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item-collection__header .column {
+    font-size: 12px;
+    text-align: center;
+    color: var(--color-primary-tint-3); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__title::after {
+    display: none; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__quantity {
+    text-align: center;
+    position: relative; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__quantity .input--quantity {
+      position: absolute;
+      left: 0.25rem;
+      top: 0;
+      height: 100%;
+      width: calc(100% - 0.5rem);
+      text-align: center;
+      font-size: inherit;
+      font-family: inherit;
+      opacity: 0;
+      background: var(--color-secondary-tint-5);
+      border: none;
+      border-radius: 0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__quantity .input--quantity:focus {
+        opacity: 1; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__biography .panel__body {
+    white-space: normal;
+    word-break: break-word; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__biography .panel__body > :first-child {
+      margin-top: 0; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__biography .panel__body > :last-child {
+      margin-bottom: 0; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties {
+    columns: 2;
+    column-gap: 2rem;
+    column-rule: 2px solid var(--color-primary-tint-4); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .monster__property {
+      display: flex;
+      margin-bottom: 0.125rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .monster__property:last-child {
+        margin-bottom: 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .monster__property .property__body {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .monster__property .property__icon {
+        color: var(--color-primary-tone-1);
+        margin-right: 0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .monster__property .property__title {
+        color: var(--color-primary-tone-1);
+        font-weight: bold;
+        flex-grow: 1;
+        white-space: nowrap;
+        flex-shrink: 0;
+        display: flex;
+        text-transform: uppercase; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .monster__property .property__title::after {
+          content: '';
+          flex-grow: 1;
+          border-bottom: 1px dotted var(--color-primary-tint-3);
+          margin: 0 0.5rem;
+          height: 13px;
+          min-width: 0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .monster__property .property__value span:not(:last-child)::after {
+        content: ', '; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .property--divider + .monster__property {
+      margin-top: 1rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .property--wide {
+      column-span: all; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .property--wide .property__body {
+        justify-content: flex-start; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties .property--wide .property__title {
+        flex-grow: 0;
+        width: calc(50% - 1rem); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties + .item-collection {
+      margin-top: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .button--text {
+    background: none;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    border-radius: 0;
+    cursor: pointer; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .button--text:hover {
+      color: var(--color-secondary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .button--text:hover i {
+        color: var(--color-secondary-shade-1); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection + * {
+    margin-top: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty .item-collection__header {
+    border: none; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty .item-collection__header .column {
+      visibility: hidden; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty .item-collection__header .title {
+      color: var(--color-primary-tint-3); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty + .item-collection {
+    margin-top: 1px; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header {
+    padding: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-primary-shade-1);
+    display: flex;
+    font-size: larger;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -1rem;
+    margin-right: -0.5rem;
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+    border-radius: 0 1rem 1rem 0;
+    background: var(--color-primary-tint-4); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header button {
+      background: var(--color-primary-tint-3);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 0.6rem;
+      line-height: 1;
+      padding: 0.125rem 0.5rem;
+      width: 100%;
+      align-self: center;
+      margin: 0;
+      font-size: 13px;
+      font-weight: normal;
+      position: relative;
+      top: -3px; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header button:hover {
+        cursor: pointer;
+        background: var(--color-secondary-base);
+        color: white;
+        box-shadow: none; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header + .legendary__resources {
+      margin-top: 0.5rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item {
+    display: flex;
+    padding-top: 0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__icon {
+      width: 24px;
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: -3px;
+      margin-bottom: -3px;
+      align-self: flex-start; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__icon img {
+        width: 100%;
+        margin: 0;
+        display: block;
+        border: none;
+        background: var(--color-primary-shade-3); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__icon button {
+        display: none; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title {
+      display: inline; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title::after {
+        content: ':';
+        margin-left: -2px; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title > * {
+        display: inline; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title button {
+        display: inline;
+        width: auto;
+        padding: 0;
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__cost {
+      font-weight: bold;
+      color: var(--color-primary-base); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__name {
+      font-weight: bold;
+      text-transform: uppercase; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__name i {
+        color: var(--color-primary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__name:hover {
+        cursor: pointer;
+        color: var(--color-secondary-base); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__recharge {
+      display: inline;
+      font-weight: bold;
+      color: var(--color-primary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__recharge button {
+        color: var(--color-primary-base);
+        font-weight: bold; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__recharge button:hover {
+          color: var(--color-secondary-base); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses {
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      color: var(--color-primary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses:hover {
+        color: var(--color-secondary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses .input--uses {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        font-size: inherit;
+        font-family: inherit;
+        opacity: 0;
+        background: var(--color-secondary-tint-5);
+        border: none;
+        border-radius: 0.5rem; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses .input--uses:focus {
+          opacity: 1; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__details {
+      display: inline; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description .secret {
+      border-color: var(--color-primary-tint-3);
+      padding: 0.5rem 1rem;
+      background: var(--color-primary-tint-6);
+      margin-top: 0.25rem;
+      font-size: small;
+      line-height: 1.2;
+      display: none; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description .secret > :first-child {
+        margin-top: 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description .secret > :last-child {
+        margin-bottom: 0; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description > :first-child:not(.secret) {
+      display: inline; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description > .secret:first-child + * {
+      display: inline; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions {
+      position: absolute;
+      top: -2px;
+      right: 0;
+      display: none; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button {
+        background: var(--color-primary-base);
+        height: 22px;
+        width: 22px;
+        text-align: center;
+        color: white;
+        padding: 0;
+        margin: 0;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button:hover {
+          background: var(--color-secondary-base);
+          box-shadow: none; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button + * {
+          margin-left: 1px; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button i {
+          margin: 0; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__attack span:not(.attack__title):last-child::after,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__damage span:not(.attack__title):last-child::after {
+      content: '.'; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__attack span:not(.attack__title):not(:last-child)::after,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__damage span:not(.attack__title):not(:last-child)::after {
+      content: ','; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__attack + .item__description,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__damage + .item__description {
+      display: block;
+      margin-top: 0.25rem;
+      padding: 0.5rem 1rem;
+      background: var(--color-primary-tint-5);
+      border-radius: 1rem;
+      font-size: small;
+      line-height: 1.3; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__body {
+      position: relative;
+      width: 100%; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item:hover .item__actions {
+      display: flex; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources {
+    display: grid;
+    grid-template-columns: 5rem 5rem 1fr;
+    grid-column-gap: 0.25rem;
+    margin-left: -0.5rem;
+    padding: 0.5rem;
+    background: radial-gradient(circle, var(--color-primary-base) 0%, var(--color-primary-shade-1) 100%);
+    border-radius: 1rem;
+    margin-right: -0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources > * {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__blurb {
+      font-size: smaller;
+      padding-left: 0.25rem;
+      color: white;
+      text-align: left;
+      align-items: flex-start; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__blurb .blurb__title {
+        text-transform: uppercase;
+        font-weight: bold; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary--current {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      font-size: inherit;
+      font-family: inherit;
+      opacity: 0;
+      background: var(--color-primary-tint-5);
+      border: none;
+      border-radius: 0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary--current:focus {
+        opacity: 1; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__current,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__maximum {
+      text-align: center;
+      background: white;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.25rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__value {
+      font-family: 'Londrina Solid';
+      font-size: 1.75rem;
+      line-height: 1.5rem;
+      letter-spacing: 0.5px;
+      position: relative;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__value i {
+        margin-right: 0.25rem;
+        color: var(--color-primary-shade-2); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__current .legendary__value:hover {
+      color: var(--color-secondary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__current .legendary__value:hover i {
+        color: var(--color-secondary-base); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__description {
+      margin-top: 0.25rem;
+      font-size: smaller;
+      font-weight: 600;
+      color: var(--color-primary-tone-1); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources.resources--lair-actions {
+      grid-template-columns: 5rem 1fr; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources.resources--lair-actions .legendary__value i {
+        font-size: 0.9em; }
+
 .gmm-block {
   position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 0.5rem 0.5rem 1rem 1rem;
-  background: white; }
+  border-radius: 0.75rem;
+  background: var(--color-primary-tint-4); }
   .gmm-block .block__title {
     text-transform: uppercase;
-    color: var(--color-primary-tone-1);
+    color: var(--color-primary-shade-1);
     font-weight: bold;
     position: relative;
-    padding: 0.25rem 0.25rem;
-    text-align: center; }
+    padding: 0.25rem 0.25rem 1.25rem;
+    text-align: center;
+    font-size: smaller;
+    background: var(--color-primary-tint-4); }
     .gmm-block .block__title + .block__contents {
       position: relative;
-      border-top: 2px solid var(--color-primary-tint-4);
-      margin-left: 0.25rem;
-      margin-right: 0.25rem;
-      padding-left: 0;
-      padding-right: 0; }
+      margin-top: -1rem;
+      background: white;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem; }
   .gmm-block .block__contents {
     flex-grow: 1;
     display: flex;
@@ -285,12 +1277,12 @@
     align-items: center; }
     .gmm-block .block__value i {
       color: var(--color-primary-shade-2);
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       margin-right: 0.25rem; }
     .gmm-block .block__value.length-1, .gmm-block .block__value.length-2, .gmm-block .block__value.length-3 {
-      font-size: 1.75rem; }
-    .gmm-block .block__value.length-4 {
       font-size: 1.5rem; }
+    .gmm-block .block__value.length-4 {
+      font-size: 1.25rem; }
     .gmm-block .block__value.length-5 {
       font-size: 1.15rem; }
   .gmm-block .block__title,
@@ -313,12 +1305,15 @@
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
-  height: 100%; }
+  height: 100%;
+  filter: saturate(0.25);
+  padding: 2px;
+  background: var(--color-primary-tint-2); }
   .gmm-blueprint ::-webkit-scrollbar {
     width: 1rem; }
   .gmm-blueprint ::-webkit-scrollbar-thumb {
     border-radius: 1rem;
-    background: var(--color-primary-shade-3);
+    background: var(--color-primary-shade-1);
     border: 2px solid var(--color-primary-tint-2); }
   .gmm-blueprint ::-webkit-scrollbar-track {
     box-shadow: none;
@@ -331,28 +1326,27 @@
     padding: 0.25rem;
     flex-shrink: 0;
     display: flex;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
     font-family: 'Londrina Solid';
     align-items: center;
     border-top-left-radius: 0;
     border-bottom-right-radius: 0;
     background: var(--color-primary-shade-2);
-    border-bottom: 2px solid var(--color-primary-shade-3);
+    filter: drop-shadow(0 2px 0 var(--color-primary-shade-4));
     position: relative;
-    z-index: 1; }
-    .gmm-blueprint .blueprint__header + .blueprint__body {
-      margin-top: 0; }
+    z-index: 1;
+    border-radius: 0.75rem; }
   .gmm-blueprint .blueprint__icon {
-    height: 3rem;
-    width: 3rem;
+    height: 2rem;
+    width: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background: var(--color-primary-shade-4);
-    border-radius: 0.75rem;
-    margin-right: 1rem;
-    font-size: 1.5rem; }
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    font-size: 1rem; }
   .gmm-blueprint .blueprint__title {
     flex-grow: 1;
     text-align: left; }
@@ -373,7 +1367,7 @@
       justify-content: center;
       cursor: pointer; }
       .gmm-blueprint .blueprint__options button:hover, .gmm-blueprint .blueprint__options button:focus {
-        background: var(--color-secondary-base);
+        background: var(--color-primary-base);
         text-shadow: none;
         box-shadow: none; }
       .gmm-blueprint .blueprint__options button i {
@@ -381,41 +1375,41 @@
       .gmm-blueprint .blueprint__options button + * {
         margin-left: 0.25rem; }
   .gmm-blueprint .blueprint__body {
-    background: white;
-    padding: 0.25rem;
+    padding: 2px 1px 2px 0;
+    margin: calc(0.25rem - 2px) -1px -2px 0;
     overflow-y: auto;
     flex-grow: 1;
-    background: var(--color-primary-tint-2); }
+    border-radius: 0.75rem; }
   .gmm-blueprint .blueprint__form .form-group {
     margin: 0;
     position: relative;
     align-items: normal; }
-    .gmm-blueprint .blueprint__form .form-group:not(:last-child) {
-      border-bottom: 1px solid var(--color-secondary-tint-3); }
+    .gmm-blueprint .blueprint__form .form-group + .form-group {
+      border-top: 1px solid var(--color-primary-tint-4); }
   .gmm-blueprint .blueprint__form .form-group__header {
     flex-shrink: 0;
     margin: 0;
     font-weight: bold;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem 0.5rem;
     box-sizing: border-box;
-    background: var(--color-secondary-tint-4);
+    background: var(--color-primary-tint-5);
     line-height: 1;
-    min-height: 2rem;
+    min-height: 1.5rem;
     text-align: right;
-    color: var(--color-secondary-shade-4);
+    color: var(--color-primary-shade-4);
     width: 8rem;
     flex: unset;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
   .gmm-blueprint .blueprint__form .form-group__body {
-    min-height: 2rem;
+    min-height: 1.5rem;
     overflow: hidden; }
     .gmm-blueprint .blueprint__form .form-group__body input,
     .gmm-blueprint .blueprint__form .form-group__body select {
       display: block;
       width: 100%;
-      padding: 0 .75rem;
+      padding: 0 .5rem;
       line-height: 1;
       background-color: #fff;
       background-clip: padding-box;
@@ -427,13 +1421,13 @@
       .gmm-blueprint .blueprint__form .form-group__body input + select,
       .gmm-blueprint .blueprint__form .form-group__body select + input,
       .gmm-blueprint .blueprint__form .form-group__body select + select {
-        border-top: 1px solid var(--color-secondary-tint-3); }
+        border-top: 1px solid var(--color-primary-tint-4); }
       .gmm-blueprint .blueprint__form .form-group__body input:focus,
       .gmm-blueprint .blueprint__form .form-group__body select:focus {
         outline: 2px solid white;
         box-shadow: none; }
     .gmm-blueprint .blueprint__form .form-group__body select {
-      padding-left: 0.5rem; }
+      padding-left: 0.25rem; }
     .gmm-blueprint .blueprint__form .form-group__body input[type="checkbox"] {
       height: 1.5rem;
       width: 1.5rem;
@@ -456,7 +1450,7 @@
       top: 1rem;
       right: 1rem;
       border-radius: 1rem;
-      background: var(--color-secondary-base);
+      background: var(--color-primary-base);
       border: none;
       color: white;
       font-size: 1rem;
@@ -477,7 +1471,7 @@
         width: 30px;
         padding: 0; }
         .gmm-blueprint .blueprint__form .form-group__body .html-field .tox .tox-tbtn:hover {
-          background: var(--color-secondary-tint-3);
+          background: var(--color-primary-tint-3);
           cursor: pointer; }
       .gmm-blueprint .blueprint__form .form-group__body .html-field .tox .tox-tbtn[title="Formats"] {
         width: 90px; }
@@ -485,7 +1479,7 @@
     .gmm-blueprint .blueprint__form .form-group__body .html-field .tox-toolbar__primary {
       background: none !important; }
     .gmm-blueprint .blueprint__form .form-group__body .html-field .tox-editor-header {
-      background: var(--color-secondary-tint-5);
+      background: var(--color-primary-tint-5);
       padding: 0.25rem; }
     .gmm-blueprint .blueprint__form .form-group__body .html-field .tox-edit-area__iframe {
       padding: 0.5rem; }
@@ -538,17 +1532,17 @@
       border: none;
       margin: 0; }
       .gmm-blueprint .blueprint__form .form-group__body table thead {
-        color: var(--color-secondary-shade-2);
-        background: var(--color-secondary-tint-3);
+        color: var(--color-primary-shade-2);
+        background: var(--color-primary-tint-3);
         text-shadow: none;
         border: none;
         line-height: 1.5;
         font-size: smaller; }
       .gmm-blueprint .blueprint__form .form-group__body table.table--bordered th:not(:first-child),
       .gmm-blueprint .blueprint__form .form-group__body table.table--bordered td:not(:first-child) {
-        border-left: 1px solid var(--color-secondary-tint-4); }
+        border-left: 1px solid var(--color-primary-tint-4); }
       .gmm-blueprint .blueprint__form .form-group__body table.table--bordered tbody tr:not(:last-child) {
-        border-bottom: 1px solid var(--color-secondary-tint-4); }
+        border-bottom: 1px solid var(--color-primary-tint-4); }
     .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row {
       display: flex; }
       .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row > * {
@@ -556,7 +1550,7 @@
         .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row > *:focus {
           outline: none; }
         .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row > *:not(:first-child) {
-          border-left: 2px solid var(--color-secondary-tint-3);
+          border-left: 2px solid var(--color-primary-tint-3);
           border-top-left-radius: 1rem;
           border-bottom-left-radius: 1rem; }
       .gmm-blueprint .blueprint__form .form-group__body.form-group__body--row span.text {
@@ -564,7 +1558,7 @@
         align-items: center;
         border-left: none;
         margin: 0.125rem 0;
-        background: var(--color-secondary-tint-1);
+        background: var(--color-primary-tint-1);
         border-radius: 1rem;
         padding: 0.125rem 0.75rem;
         color: white;
@@ -579,15 +1573,14 @@
     border-right: none;
     text-align: left;
     text-transform: uppercase;
-    padding: 0 0.5rem 0 2.2rem;
-    background: var(--color-secondary-tint-3);
+    padding: 0 0.5rem 0 1.75rem;
+    background: var(--color-primary-tint-4);
     min-height: auto;
     line-height: 1.5rem;
-    border-bottom: 1px solid var(--color-secondary-tint-3);
     position: relative;
     font-weight: bold;
     font-size: smaller;
-    color: var(--color-secondary-shade-1);
+    color: var(--color-primary-shade-1);
     display: flex;
     justify-content: space-between; }
     .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header::after {
@@ -601,20 +1594,19 @@
       text-rendering: auto;
       line-height: 1;
       position: absolute;
-      left: 0.6rem;
-      width: 1rem;
-      height: 0.8rem;
+      left: 0.25rem;
+      width: 1.25rem;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      top: 0.4rem;
-      color: var(--color-secondary-base);
+      color: var(--color-primary-base);
       font-size: larger; }
     .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header:hover {
       color: white;
       cursor: pointer; }
     .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header button {
-      background: var(--color-secondary-tint-2);
+      background: var(--color-primary-tint-2);
       color: white;
       font-weight: bold;
       line-height: 1.5;
@@ -630,18 +1622,16 @@
         margin: 0; }
       .gmm-blueprint .blueprint__form .form-fieldset .form-fieldset__header button:hover {
         box-shadow: none;
-        background: var(--color-secondary-base); }
+        background: var(--color-primary-base); }
   .gmm-blueprint .blueprint__form .form-fieldset.closed .form-fieldset__header::after {
     content: "\f07b";
     font-weight: 400; }
-  .gmm-blueprint .blueprint__form .form-fieldset:not(:first-child) {
-    border-top: 1px solid var(--color-secondary-tint-2); }
   .gmm-blueprint .blueprint__form .form-footer {
-    background: var(--color-secondary-tint-5);
+    background: var(--color-primary-tint-5);
     text-align: right;
     padding: 0.5rem 0.25rem; }
     .gmm-blueprint .blueprint__form .form-footer button {
-      background: var(--color-secondary-base);
+      background: var(--color-primary-base);
       color: white;
       font-weight: bold;
       line-height: 1.5;
@@ -654,7 +1644,7 @@
         margin: 0; }
       .gmm-blueprint .blueprint__form .form-footer button:hover {
         box-shadow: none;
-        background: var(--color-secondary-shade-2); }
+        background: var(--color-primary-shade-2); }
   .gmm-blueprint .blueprint__error {
     flex-grow: 1;
     text-align: center;
@@ -684,7 +1674,7 @@
     line-height: inherit;
     margin: 0;
     height: 1rem;
-    background: var(--color-secondary-tint-3);
+    background: var(--color-primary-tint-3);
     color: white;
     border-radius: 1rem;
     text-align: center;
@@ -695,108 +1685,229 @@
     .gmm-blueprint .button--help:hover {
       cursor: pointer;
       box-shadow: none;
-      background: var(--color-secondary-base); }
+      background: var(--color-primary-base); }
     .gmm-blueprint .button--help i {
       margin: 0; }
-  .gmm-blueprint .accordion-section__header {
-    padding-right: 0.5rem; }
-  .gmm-blueprint .accordion-section__body {
+  .gmm-blueprint .blueprint__form-options .accordion-section.opened {
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+    overflow: hidden; }
+    .gmm-blueprint .blueprint__form-options .accordion-section.opened:not(:last-child) {
+      margin-bottom: 0.25rem; }
+    .gmm-blueprint .blueprint__form-options .accordion-section.opened + .accordion-section {
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem;
+      overflow: hidden;
+      border-top: none; }
+  .gmm-blueprint .blueprint__form-options .accordion-section__header {
+    padding-right: 0.5rem;
+    line-height: 1.75rem;
+    padding-left: 1.75rem; }
+    .gmm-blueprint .blueprint__form-options .accordion-section__header::before {
+      width: 1.25rem;
+      height: 1.25rem; }
+    .gmm-blueprint .blueprint__form-options .accordion-section__header .button--help {
+      margin: 0;
+      line-height: 1; }
+  .gmm-blueprint .blueprint__form-options .accordion-section__body {
     padding: 0; }
-  .gmm-blueprint.reverse-colors ::-webkit-scrollbar-thumb {
-    background: var(--color-secondary-shade-3);
-    border-color: var(--color-secondary-tint-2); }
-  .gmm-blueprint.reverse-colors ::-webkit-scrollbar-track {
-    background: var(--color-secondary-tint-1);
-    border-color: var(--color-secondary-tint-2); }
-  .gmm-blueprint.reverse-colors .blueprint__header {
-    background: var(--color-secondary-shade-2);
-    border-bottom: 2px solid var(--color-secondary-shade-3); }
-  .gmm-blueprint.reverse-colors .blueprint__icon {
-    background: var(--color-secondary-shade-4); }
-  .gmm-blueprint.reverse-colors .blueprint__options button {
-    background: var(--color-secondary-shade-1); }
-    .gmm-blueprint.reverse-colors .blueprint__options button:hover, .gmm-blueprint.reverse-colors .blueprint__options button:focus {
-      background: var(--color-primary-base); }
-  .gmm-blueprint.reverse-colors .blueprint__body {
-    background: var(--color-secondary-tint-2); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group:not(:last-child) {
-    border-bottom-color: var(--color-primary-tint-3); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__header {
-    background: var(--color-primary-tint-4);
-    color: var(--color-primary-shade-4); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body input + input,
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body input + select,
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body select + input,
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body select + select {
+
+.gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--image img {
+  background: black;
+  border-radius: 0.75rem;
+  width: 4.2rem;
+  margin: 0.25rem auto 0.25rem 0.5rem;
+  border: none;
+  display: block; }
+  .gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--image img:hover {
+    cursor: pointer; }
+
+.gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--modifier .form-group__body {
+  display: flex; }
+  .gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox {
+    display: inline-flex;
+    font-size: inherit;
+    white-space: nowrap;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5rem; }
+    .gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox:hover {
+      cursor: pointer; }
+    .gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox input {
+      margin: 0;
+      top: 0;
+      display: inline-block;
+      margin-right: 0.25rem; }
+
+.gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--damage + .form-group--damage {
+  border-top: 1px solid var(--color-tint-1); }
+
+.gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--damage .damage-formula {
+  display: flex; }
+  .gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--damage .damage-formula button {
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    width: 2rem;
+    text-align: center;
+    color: var(--color-primary-base); }
+    .gmm-blueprint.blueprint--action.blueprint--action--vanity .form-group--damage .damage-formula button:hover {
+      box-shadow: none;
+      color: var(--color-secondary-base);
+      cursor: pointer; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .form-group--image img {
+  background: black;
+  border-radius: 0.75rem;
+  width: 4.2rem;
+  margin: 0.25rem auto 0.25rem 0.5rem;
+  border: none;
+  display: block; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .form-group--image img:hover {
+    cursor: pointer; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank .target-players,
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank .phases {
+  display: none; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank:not(.rank-custom) .form-group:not(.type) {
+  display: none; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank.scale-with-players .form-group.target-players {
+  display: flex; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank.show-phases .form-group.phases {
+  display: flex; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank .phases .form-group__body {
+  display: flex;
+  align-items: center; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank .phases .form-group__body input {
+    width: 100%;
+    flex-grow: 1; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank .phases .form-group__body input:first-child {
+      margin-right: 0.5rem; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-rank .phases .form-group__body input:last-child {
+      margin-left: 0.5rem; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .fieldset-role:not(.role-custom) .form-group:not(.type) {
+  display: none; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .form-group--modifier .form-group__body {
+  display: flex; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .form-group--modifier .form-group__body .checkbox {
+    display: inline-flex;
+    font-size: inherit;
+    white-space: nowrap;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.5rem; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .form-group--modifier .form-group__body .checkbox:hover {
+      cursor: pointer; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .form-group--modifier .form-group__body .checkbox input {
+      margin: 0;
+      top: 0;
+      display: inline-block;
+      margin-right: 0.25rem; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking,
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking {
+  display: flex;
+  line-height: 2rem; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking:not(:first-child),
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking:not(:first-child) {
     border-top: 1px solid var(--color-primary-tint-3); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body .html-field .editor-edit {
-    background: var(--color-primary-base); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body .html-field .tox .tox-tbtn:hover {
-    background: var(--color-primary-tint-3); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body .html-field .tox-editor-header {
-    background: var(--color-primary-tint-5); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table thead {
-    color: var(--color-primary-shade-2);
-    background: var(--color-primary-tint-3); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table.table--bordered th:not(:first-child),
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table.table--bordered td:not(:first-child) {
-    border-left-color: var(--color-primary-tint-4); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-group__body table.table--bordered tbody tr:not(:last-child) {
-    border-bottom-color: var(--color-primary-tint-4); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header {
-    background: var(--color-primary-tint-3);
-    border-bottom-color: var(--color-primary-tint-3);
-    color: var(--color-primary-shade-1); }
-    .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header::after {
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking .value,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking .value {
+    flex-grow: 1;
+    padding: 0 0.5rem; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking .value i,
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking .value i {
+      width: 1.5rem;
+      line-height: 1.5rem;
+      display: inline-block;
+      margin-right: 0.25rem;
+      justify-content: center;
+      align-items: center;
+      background: var(--color-primary-tint-4);
+      border-radius: 1rem;
+      color: var(--color-primary-shade-1); }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking .move-down,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking .move-up,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking .move-down,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking .move-up {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 2rem; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking .move-down:hover,
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .ability-ranking .move-up:hover,
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking .move-down:hover,
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .save-ranking .move-up:hover {
+      cursor: pointer;
+      box-shadow: none;
       color: var(--color-primary-base); }
-    .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header button {
-      background: var(--color-primary-tint-2); }
-      .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset .form-fieldset__header button:hover {
-        background: var(--color-primary-base); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-fieldset:not(:first-child) {
-    border-top-color: var(--color-primary-tint-2); }
-  .gmm-blueprint.reverse-colors .blueprint__form .form-footer {
-    background: var(--color-primary-tint-5); }
-    .gmm-blueprint.reverse-colors .blueprint__form .form-footer button {
-      background: var(--color-primary-base); }
-      .gmm-blueprint.reverse-colors .blueprint__form .form-footer button:hover {
-        background: var(--color-primary-shade-2); }
-  .gmm-blueprint.reverse-colors .blueprint__error {
-    background: var(--color-secondary-tint-2); }
-  .gmm-blueprint.reverse-colors .button--help {
-    background: var(--color-primary-tint-3); }
-    .gmm-blueprint.reverse-colors .button--help:hover {
-      background: var(--color-primary-base); }
-  .gmm-blueprint.reverse-colors .gmm-accordion {
-    filter: drop-shadow(0 1px 0 var(--color-secondary-shade-3)); }
-    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(:first-of-type) {
-      border-top-color: var(--color-secondary-shade-2); }
-    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened {
-      border-top-color: var(--color-primary-shade-2); }
-      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened .accordion-section__header {
-        background: var(--color-primary-base); }
-        .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened .accordion-section__header::before {
-          background: var(--color-primary-tint-2); }
-        .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.opened .accordion-section__header .accordion-section__info .badge {
-          background: var(--color-primary-shade-2); }
-    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover {
-      background: var(--color-primary-base); }
-      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover::before {
-        background: var(--color-primary-tint-2); }
-      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section:not(.opened) .accordion-section__header:hover .accordion-section__info .badge {
-        background: var(--color-primary-shade-2); }
-    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.collapsing .accordion-section__header {
-      background: var(--color-primary-base); }
-      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section.collapsing .accordion-section__header::before {
-        background: var(--color-primary-tint-2); }
-    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__header {
-      background: var(--color-secondary-shade-1); }
-      .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__header::before {
-        background: var(--color-secondary-tint-1); }
-    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__body {
-      border-top-color: var(--color-primary-shade-2); }
-    .gmm-blueprint.reverse-colors .gmm-accordion .accordion-section__info .badge {
-      background: var(--color-secondary-shade-2); }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item {
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  align-items: center; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item:not(:last-child) {
+    border-bottom: 1px dotted var(--color-primary-tint-3); }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__icon {
+  margin: -0.25rem 6px -0.25rem -0.5rem;
+  width: 26px;
+  height: 26px;
+  background: black; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__icon img {
+    max-width: 100%;
+    max-height: 100%;
+    border: none;
+    display: block; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__title {
+  flex-grow: 1;
+  white-space: nowrap;
+  margin-right: 1rem; }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__actions {
+  display: flex;
+  margin-right: -0.25rem;
+  margin-top: -0.25rem;
+  margin-bottom: -0.25rem; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__actions button {
+    background: none;
+    color: var(--color-primary-tint-3);
+    border: none;
+    font-weight: bold;
+    line-height: 1.5;
+    padding: 0;
+    cursor: pointer;
+    text-align: center; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__actions button i {
+      margin: 0; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__actions button + * {
+      margin-left: 0.5rem; }
+    .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .items .item__actions button:hover {
+      box-shadow: none;
+      color: var(--color-primary-base); }
+
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--spell-slots,
+.gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--pact-slots {
+  text-align: center; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--spell-slots th,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--spell-slots td,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--pact-slots th,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--pact-slots td {
+    width: 33%; }
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--spell-slots td,
+  .gmm-blueprint.blueprint--monster.blueprint--monster--vanity .table--pact-slots td {
+    padding: 0; }
 
 .gmm-modal {
   position: absolute;
@@ -1029,7 +2140,7 @@
 
 .gmm-panel {
   filter: drop-shadow(0 1px 0 var(--color-primary-shade-3));
-  border-radius: 0.5rem 0.5rem 1rem 1rem;
+  border-radius: 0.75rem;
   overflow: hidden; }
   .gmm-panel .panel__header {
     color: white;
@@ -1048,8 +2159,8 @@
       padding: 0 0.5rem;
       border-radius: 1rem; }
     .gmm-panel .panel__header + .panel__body {
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem; }
+      border-top-left-radius: 0.75rem;
+      border-top-right-radius: 0.75rem; }
   .gmm-panel .panel__body {
     background: white;
     position: relative;
@@ -1189,7 +2300,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
+    padding: 0.25rem;
     position: relative;
     z-index: 2; }
     .gmm-forge .forge__options .forge__id {
@@ -1197,6 +2308,8 @@
       text-transform: uppercase;
       font-weight: bold;
       line-height: 1; }
+      .gmm-forge .forge__options .forge__id:first-child {
+        margin-left: 0.25rem; }
       .gmm-forge .forge__options .forge__id .id,
       .gmm-forge .forge__options .forge__id .name {
         display: flex;
@@ -1243,75 +2356,55 @@
   .gmm-forge.expanded .forge__controls [data-action="expand-window"] {
     background: var(--color-primary-base);
     color: white; }
-  .gmm-forge.layout--single.expanded .forge__artifact::after {
+  .gmm-forge.layout--slide-in-left .forge__artifact::after, .gmm-forge.layout--slide-in-right .forge__artifact::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.7);
-    height: 100%;
-    width: 100%;
+    height: 0;
+    width: 0;
     border-radius: 1rem;
-    z-index: 1; }
-  .gmm-forge.layout--single.expanded .forge__blueprint {
-    display: block;
-    position: absolute;
-    top: 0.5rem;
-    height: calc(100% - 3.75rem);
-    left: calc(50% - 210px);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 100ms ease-in-out; }
+  .gmm-forge.layout--slide-in-left .forge__blueprint, .gmm-forge.layout--slide-in-right .forge__blueprint {
     width: 420px;
     filter: drop-shadow(0px 0px 10px black);
     z-index: 1;
     background: black;
     padding: 0.25rem;
-    border-radius: 1rem; }
-  .gmm-forge.layout--single.expanded .forge__blueprint .gmm-blueprint .blueprint__form {
-    max-width: 420px;
-    margin-left: auto;
-    margin-right: auto; }
-  .gmm-forge.layout--slide-in-left .forge__blueprint, .gmm-forge.layout--slide-in-right .forge__blueprint {
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 0;
-    padding: 0;
-    height: calc(100% - 2.75rem);
-    box-sizing: border-box;
-    background: none;
-    transition: width 100ms ease-in-out;
     border-radius: 1rem;
-    filter: drop-shadow(0px 0px 10px black);
-    z-index: 1; }
+    position: absolute;
+    display: block;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
+    width: 0;
+    top: 0;
+    height: calc(100% - 2.75rem);
+    padding: 0; }
+    .gmm-forge.layout--slide-in-left .forge__blueprint .blueprint__form, .gmm-forge.layout--slide-in-right .forge__blueprint .blueprint__form {
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto; }
     .gmm-forge.layout--slide-in-left .forge__blueprint .gmm-blueprint, .gmm-forge.layout--slide-in-right .forge__blueprint .gmm-blueprint {
-      border: 0.25rem solid black;
-      width: 420px;
-      background: white;
-      padding: 0.125rem;
-      border-radius: 1.2rem; }
-      .gmm-forge.layout--slide-in-left .forge__blueprint .gmm-blueprint .blueprint__header, .gmm-forge.layout--slide-in-right .forge__blueprint .gmm-blueprint .blueprint__header {
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem; }
-      .gmm-forge.layout--slide-in-left .forge__blueprint .gmm-blueprint .blueprint__body, .gmm-forge.layout--slide-in-right .forge__blueprint .gmm-blueprint .blueprint__body {
-        border-bottom-left-radius: 1rem;
-        border-bottom-right-radius: 1rem; }
-  .gmm-forge.layout--slide-in-left.expanded .forge__artifact, .gmm-forge.layout--slide-in-right.expanded .forge__artifact {
-    display: block; }
-    .gmm-forge.layout--slide-in-left.expanded .forge__artifact::after, .gmm-forge.layout--slide-in-right.expanded .forge__artifact::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: rgba(0, 0, 0, 0.7);
-      height: 100%;
-      width: 100%;
-      border-radius: 1rem;
-      z-index: 1; }
+      margin: 0.25rem;
+      height: calc(100% - 0.5rem);
+      width: calc(420px - 0.5rem); }
+  .gmm-forge.layout--slide-in-left.expanded .forge__artifact::after, .gmm-forge.layout--slide-in-right.expanded .forge__artifact::after {
+    height: 100%;
+    width: 100%;
+    opacity: 1; }
   .gmm-forge.layout--slide-in-left.expanded .forge__blueprint, .gmm-forge.layout--slide-in-right.expanded .forge__blueprint {
+    display: block;
     width: 420px; }
   .gmm-forge.layout--slide-in-left .forge__blueprint {
     left: 0; }
+    .gmm-forge.layout--slide-in-left .forge__blueprint .gmm-blueprint {
+      float: right; }
   .gmm-forge.layout--slide-in-right .forge__blueprint {
     right: 0; }
+    .gmm-forge.layout--slide-in-right .forge__blueprint .gmm-blueprint {
+      float: left; }
   .gmm-forge.layout--slide-out {
     transition: margin 100ms ease-in-out, padding 100ms ease-in-out; }
     .gmm-forge.layout--slide-out::before {
@@ -1322,31 +2415,30 @@
       padding-right: 0.25rem;
       position: relative;
       z-index: 2;
-      display: block; }
+      display: block;
+      filter: drop-shadow(2px 0 0 black); }
     .gmm-forge.layout--slide-out .forge__blueprint {
       position: absolute;
       right: 0;
-      top: 1rem;
-      height: calc(100% - 5rem);
+      top: 0;
+      height: calc(100% - 2.75rem);
       background: black;
       padding: 0.25rem;
       border-radius: 0 1.2rem 1.2rem 0;
       grid-column: auto;
       padding-left: 0;
-      width: calc(360px + 0.25rem - 2px);
+      width: calc(360px + 2rem);
       display: block; }
       .gmm-forge.layout--slide-out .forge__blueprint .gmm-blueprint {
         border-radius: 0 1rem 1rem 0;
-        border-left: none; }
-        .gmm-forge.layout--slide-out .forge__blueprint .gmm-blueprint::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          background: linear-gradient(to right, rgba(0, 0, 0, 0.2), transparent 5%);
-          pointer-events: none; }
+        border-left: none;
+        padding-left: 0; }
+        .gmm-forge.layout--slide-out .forge__blueprint .gmm-blueprint .blueprint__header {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          padding-left: 2rem; }
+        .gmm-forge.layout--slide-out .forge__blueprint .gmm-blueprint .blueprint__body {
+          padding-left: 2rem; }
     .gmm-forge.layout--slide-out .forge__controls {
       grid-column: 1; }
     .gmm-forge.layout--slide-out.expanded {
@@ -1359,10 +2451,10 @@
       .gmm-forge.layout--slide-out.expanded.open-modal .forge__blueprint::after {
         content: '';
         position: absolute;
-        left: 0.25rem;
+        left: 0;
         top: 0;
         height: 100%;
-        width: calc(100% - 0.25rem);
+        width: 100%;
         background: rgba(0, 0, 0, 0.75);
         z-index: 1;
         border-radius: 0 1rem 1rem 0; }
@@ -2013,933 +3105,128 @@
     --color-secondary-tint-5: #eef1f2;
     --color-secondary-tint-6: #f6f8f8; }
 
-.gmm-artifact {
-  background: white;
-  height: 100%;
-  width: 100%;
-  border-radius: 1rem; }
+.gmm-forge.forge--action .gmm-modal .modal__dialog {
+  width: 28.5rem; }
 
-.gmm-window {
-  border-radius: 0 0 1.5rem 1.5rem;
-  box-shadow: none;
-  filter: drop-shadow(0px 0px 20px black); }
-  .gmm-window .window-header {
-    border-bottom: none; }
-    .gmm-window .window-header.resizable ~ .window-resizable-handle {
-      background: white;
-      color: black;
-      border: none;
-      box-shadow: none;
-      height: 2rem;
-      width: 2rem;
-      padding: 0;
-      border-radius: 1rem;
-      margin: 0;
-      cursor: pointer;
-      bottom: 0.5rem;
-      right: 0.5rem;
-      display: flex;
-      z-index: 2; }
-      .gmm-window .window-header.resizable ~ .window-resizable-handle i {
-        margin: auto; }
-    .gmm-window .window-header.resizable ~ .window-content > .gmm-forge .forge__controls {
-      padding-right: 2.25rem; }
-  .gmm-window.minimized {
-    border-radius: 0; }
-    .gmm-window.minimized .window-header {
-      border: none; }
-      .gmm-window.minimized .window-header.resizable ~ .window-resizable-handle {
-        display: none; }
-  .gmm-window .window-content {
-    background: none;
-    padding: 0;
-    border-radius: 1rem;
-    overflow: visible;
-    height: 0; }
-
-.gmm-artifact.artifact--monster--vanity {
-  padding: 0;
-  overflow: hidden; }
-  .gmm-artifact.artifact--monster--vanity [data-action="open-config"]:hover {
-    cursor: pointer;
-    color: var(--color-secondary-base) !important; }
-  .gmm-artifact.artifact--monster--vanity .monster__header {
-    background: black;
-    color: white;
-    padding: 0.25rem;
-    border-radius: 1rem 1rem 0 0;
-    flex-shrink: 0;
-    display: grid;
-    grid-template-columns: 105px 1fr;
-    grid-column-gap: 1rem;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    background: var(--color-primary-shade-2);
-    border-bottom: 2px solid var(--color-primary-shade-3);
-    position: relative;
-    z-index: 1; }
-    .gmm-artifact.artifact--monster--vanity .monster__header + .monster__body {
-      margin-top: 0;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0; }
-    .gmm-artifact.artifact--monster--vanity .monster__header .monster__image {
-      grid-row: 1 / span 3;
-      grid-column: 1;
-      position: relative; }
-      .gmm-artifact.artifact--monster--vanity .monster__header .monster__image[data-action="open-config"]:hover {
-        outline: 2px solid; }
-      .gmm-artifact.artifact--monster--vanity .monster__header .monster__image img {
-        background: var(--color-primary-shade-3);
-        border-radius: 0.75rem;
-        border: none;
-        display: block; }
-    .gmm-artifact.artifact--monster--vanity .monster__header .monster__name {
-      font-size: 2.5rem;
-      letter-spacing: 0.5px;
-      font-family: 'Londrina Solid';
-      line-height: 1.1; }
-    .gmm-artifact.artifact--monster--vanity .monster__header .monster__description {
-      font-weight: 600;
-      font-size: larger;
-      grid-column: 2; }
-    .gmm-artifact.artifact--monster--vanity .monster__header .monster__name,
-    .gmm-artifact.artifact--monster--vanity .monster__header .monster__description {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap; }
-    .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat {
-      grid-column: 2;
-      font-weight: 600;
-      position: relative;
-      font-weight: 600;
-      font-size: larger;
-      border-top: 1px solid var(--color-primary-shade-4);
-      margin: 0.5rem 0 0;
-      padding: 0.5rem 0 0; }
-      .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .level,
-      .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .rank,
-      .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .role,
-      .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .phase {
-        display: inline-block; }
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .level i,
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .rank i,
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .role i,
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .phase i {
-          margin-right: 0.25rem; }
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .level:not(:first-child),
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .rank:not(:first-child),
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .role:not(:first-child),
-        .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .phase:not(:first-child) {
-          margin-left: 0.25rem; }
-          .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .level:not(:first-child)::before,
-          .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .rank:not(:first-child)::before,
-          .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .role:not(:first-child)::before,
-          .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .phase:not(:first-child)::before {
-            content: '•';
-            color: var(--color-primary-shade-4);
-            margin-right: 0.25rem; }
-      .gmm-artifact.artifact--monster--vanity .monster__header .monster__combat .rank .stars i:not(:first-child) {
-        margin-left: -20px;
-        filter: drop-shadow(0 0 2px var(--color-primary-shade-3)); }
-  .gmm-artifact.artifact--monster--vanity .monster__body {
-    background: white;
-    color: black;
-    margin-top: -1rem;
-    border-radius: 1rem;
-    padding: 0.25rem;
-    overflow-y: auto;
-    flex-grow: 1;
-    background: var(--color-primary-tint-2); }
-    .gmm-artifact.artifact--monster--vanity .monster__body > * + * {
-      margin-top: 0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .monster__body > * {
-      filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .monster__blocks__row {
-    display: flex; }
-    .gmm-artifact.artifact--monster--vanity .monster__blocks .monster__blocks__row > * + * {
-      margin-left: 0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .monster__blocks .monster__blocks__row + .monster__blocks__row {
-      margin-top: 0.25rem; }
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .hit-points,
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .attack-dcs {
-    flex-grow: 1;
-    width: 100%; }
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .perception,
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .ac {
-    width: 7rem;
-    flex-shrink: 0; }
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .attack {
-    width: 7rem;
-    flex-shrink: 0; }
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .damage {
-    width: 14.25rem;
-    flex-shrink: 0; }
-    .gmm-artifact.artifact--monster--vanity .monster__blocks .damage .random {
-      letter-spacing: 0; }
-      .gmm-artifact.artifact--monster--vanity .monster__blocks .damage .random .roll {
-        white-space: normal;
-        line-height: 0.875;
-        font-style: 1rem;
-        text-align: left;
-        letter-spacing: 0; }
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .hit-points__temporary:hover,
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .hit-points__current:hover {
-    color: var(--color-secondary-base); }
-    .gmm-artifact.artifact--monster--vanity .monster__blocks .hit-points__temporary:hover i,
-    .gmm-artifact.artifact--monster--vanity .monster__blocks .hit-points__current:hover i {
-      color: var(--color-secondary-base); }
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .input--thp,
-  .gmm-artifact.artifact--monster--vanity .monster__blocks .input--hp {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
+.gmm-forge.forge--action .gmm-modal.modal--shortcodes .gmm-accordion {
+  filter: none; }
+  .gmm-forge.forge--action .gmm-modal.modal--shortcodes .gmm-accordion .accordion-section__body {
+    padding: 0.5rem 0; }
+  .gmm-forge.forge--action .gmm-modal.modal--shortcodes .gmm-accordion blockquote {
     text-align: center;
-    font-size: inherit;
-    font-family: inherit;
-    opacity: 0;
     background: var(--color-primary-tint-5);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
     border: none;
-    border-radius: 0.5rem; }
-    .gmm-artifact.artifact--monster--vanity .monster__blocks .input--thp:focus,
-    .gmm-artifact.artifact--monster--vanity .monster__blocks .input--hp:focus {
-      opacity: 1; }
-  .gmm-artifact.artifact--monster--vanity .panel--properties .monster__skill {
-    padding: 0;
-    display: inline;
-    width: auto;
-    font-weight: normal;
-    font-family: inherit;
-    line-height: inherit;
-    font-size: inherit; }
-    .gmm-artifact.artifact--monster--vanity .panel--properties .monster__skill:not(:last-child)::after {
-      content: ', '; }
-  .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 0.25rem;
-    background: radial-gradient(circle, var(--color-primary-base) 0%, var(--color-primary-shade-1) 100%);
-    padding: 0.5rem;
-    border-radius: 1rem;
-    margin: 1rem -0.5rem;
-    position: relative; }
-    .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers::before, .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers::after {
-      content: '';
-      position: absolute;
-      height: 1rem;
-      width: 1rem;
-      left: calc(50% - 0.5rem);
-      background: var(--color-primary-tint-3);
-      border: 5px solid var(--color-primary-base);
-      box-sizing: border-box;
-      transform: rotate(45deg); }
-    .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers::before {
-      top: -0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers::after {
-      bottom: -0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier {
-      text-align: center;
-      overflow: hidden;
-      background: var(--color-primary-tint-4);
-      border-radius: 0.75rem; }
-      .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .modifier {
-        background: white;
-        border-radius: 0 0 1.5rem 1.5rem; }
-      .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .title {
-        text-transform: uppercase;
-        color: var(--color-primary-tone-1);
-        font-weight: bold;
-        position: relative;
-        padding: 0.25rem 0.25rem 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: larger; }
-      .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .value {
-        height: 4rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.75rem;
-        font-weight: normal;
-        font-family: 'Londrina Solid';
-        letter-spacing: 2px;
-        padding-bottom: 1.4rem; }
-        .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .value button {
-          padding: 0;
-          font-size: inherit;
-          font-family: inherit; }
-      .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save {
-        position: relative;
-        z-index: 1;
-        height: 2.5rem;
-        margin-top: -1.5rem;
-        font-weight: bold;
-        font-size: 1.25rem;
-        padding-bottom: 0.5rem;
-        color: white;
-        display: flex;
-        justify-content: center;
-        letter-spacing: 1px;
-        align-items: center;
-        filter: drop-shadow(0 1px 0 white);
-        margin-bottom: 2px; }
-        .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save button {
-          padding: 0;
-          font-size: inherit;
-          font-family: inherit;
-          color: inherit;
-          font-weight: inherit; }
-        .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          width: 2.5rem;
-          height: 100%;
-          left: calc(50% - 1.25rem);
-          background: var(--color-primary-shade-1);
-          clip-path: polygon(0% 10%, 10% 70%, 50% 100%, 90% 70%, 100% 10%, 50% 0%);
-          z-index: -1; }
-        .gmm-artifact.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save:hover::before {
-          background: var(--color-secondary-base); }
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--traits .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--traits .item .item__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--bonus-actions .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--bonus-actions .item .item__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--reactions .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--reactions .item .item__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--actions .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--actions .item .item__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--legendary-actions .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--legendary-actions .item .item__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--lair-actions .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--features .item-collection--lair-actions .item .item__header {
-    display: grid;
-    grid-template-columns: 1fr 5rem 5rem 4.1rem; }
-  .gmm-artifact.artifact--monster--vanity .panel--spellbook .monster__properties + * {
-    margin-top: 1rem; }
-  .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots {
-    margin-left: -1rem;
-    background: var(--color-primary-tone-1);
-    border-radius: 0 1rem 1rem 0;
+    font-style: normal;
+    font-size: 15px;
+    margin: 0; }
+    .gmm-forge.forge--action .gmm-modal.modal--shortcodes .gmm-accordion blockquote p {
+      margin: 0; }
+
+.gmm-forge.forge--action .gmm-modal.modal--about .intro {
+  text-align: center; }
+
+.gmm-forge.forge--action .gmm-modal.modal--about .contact_links {
+  margin: 1rem -1rem 0;
+  padding: 1rem 1rem 0;
+  border-top: 1px dotted white;
+  text-align: center;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5, auto) 1fr;
+  grid-column-gap: 0.25rem; }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links a {
+    height: 2.4rem;
+    border-radius: 2rem;
     display: flex;
-    margin-right: -0.5rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots + * {
-      margin-top: 1rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__title {
-      text-transform: uppercase;
-      background: var(--color-primary-shade-1);
-      color: var(--color-primary-tint-3);
-      font-weight: bold;
-      font-size: 23px;
-      padding-right: 2rem;
-      clip-path: polygon(0% 0%, 0% 100%, 72% 100%, 100% 50%, 72% 0%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-left: 2px solid var(--color-primary-tint-3); }
-      .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__title .title {
-        transform: rotate(-90deg);
-        max-width: 5rem;
-        text-align: center;
-        line-height: 1; }
-    .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__list {
-      flex-grow: 1;
-      padding: 0.5rem 0.5rem 0.5rem 1rem;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-column-gap: 0.25rem;
-      grid-row-gap: 0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot {
-      background: white;
-      border-radius: 0.5rem;
-      padding: 0.25rem;
-      text-align: center;
-      min-height: 50px; }
-      .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .title {
-        text-transform: uppercase;
-        font-weight: bold;
-        color: var(--color-primary-tone-1); }
-      .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value {
-        font-size: 20px;
-        font-family: 'Londrina Solid';
-        position: relative; }
-        .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value:hover {
-          color: var(--color-secondary-base); }
-        .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .maximum {
-          color: var(--color-primary-base); }
-        .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .input--slots {
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          text-align: center;
-          font-size: inherit;
-          font-family: inherit;
-          opacity: 0;
-          background: var(--color-primary-tint-5);
-          border: none;
-          border-radius: 0.5rem; }
-          .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .input--slots:focus {
-            opacity: 1; }
-      .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot.empty {
-        background: var(--color-primary-tint-2); }
-        .gmm-artifact.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot.empty .value {
-          display: none; }
-  .gmm-artifact.artifact--monster--vanity .panel--spellbook .item-collection--spells .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--spellbook .item-collection--spells .item .item__header {
-    display: grid;
-    grid-template-columns: 1fr 4rem 5rem 5rem 4.1rem; }
-  .gmm-artifact.artifact--monster--vanity .panel--inventory .monster__properties + * {
-    margin-top: 1rem; }
-  .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies {
-    margin-left: -1rem;
-    background: var(--color-primary-tone-1);
-    border-radius: 0 1rem 1rem 0;
-    display: flex;
-    margin-right: -0.5rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies + * {
-      margin-top: 1rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currencies__title {
-      text-transform: uppercase;
-      background: var(--color-primary-shade-1);
-      color: var(--color-primary-tint-3);
-      font-weight: bold;
-      font-size: 18px;
-      padding-right: 2rem;
-      clip-path: polygon(0% 0%, 0% 100%, 72% 100%, 100% 50%, 72% 0%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-left: 2px solid var(--color-primary-tint-3);
-      padding-left: calc(1rem - 2px); }
-      .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currencies__title .title {
-        text-align: center;
-        line-height: 1; }
-    .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currencies__list {
-      flex-grow: 1;
-      padding: 0.5rem 0.5rem 0.5rem 1rem;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-column-gap: 0.25rem;
-      grid-row-gap: 0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currency {
-      background: white;
-      border-radius: 0.5rem;
-      padding: 0.25rem;
-      text-align: center;
-      min-height: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center; }
-      .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currency .title {
-        text-transform: uppercase;
-        font-size: smaller;
-        font-weight: bold;
-        color: var(--color-primary-tone-1); }
-      .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currency .value {
-        font-size: 20px;
-        font-family: 'Londrina Solid';
-        position: relative; }
-        .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currency .value:hover {
-          color: var(--color-secondary-base); }
-      .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currency .input--currency {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        text-align: center;
-        font-size: inherit;
-        font-family: inherit;
-        opacity: 0;
-        background: var(--color-primary-tint-5);
-        border: none;
-        border-radius: 0.5rem; }
-        .gmm-artifact.artifact--monster--vanity .panel--inventory .currencies .currency .input--currency:focus {
-          opacity: 1; }
-  .gmm-artifact.artifact--monster--vanity .panel--inventory .item-collection--items .item-collection__header,
-  .gmm-artifact.artifact--monster--vanity .panel--inventory .item-collection--items .item .item__header {
-    display: grid;
-    grid-template-columns: 1fr 4rem 4rem 5rem 4.1rem; }
-  .gmm-artifact.artifact--monster--vanity .monster__biography .panel__body {
-    white-space: normal;
-    word-break: break-word; }
-    .gmm-artifact.artifact--monster--vanity .monster__biography .panel__body > :first-child {
-      margin-top: 0; }
-    .gmm-artifact.artifact--monster--vanity .monster__biography .panel__body > :last-child {
-      margin-bottom: 0; }
-  .gmm-artifact.artifact--monster--vanity .monster__properties {
-    columns: 2;
-    column-gap: 2rem;
-    column-rule: 2px solid var(--color-primary-tint-4); }
-    .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property {
-      display: flex;
-      margin-bottom: 0.125rem; }
-      .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property:last-child {
-        margin-bottom: 0; }
-      .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property .property__body {
-        flex-grow: 1;
-        display: flex;
-        justify-content: space-between; }
-      .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property .property__icon {
-        color: var(--color-primary-tone-1);
-        margin-right: 0.5rem; }
-      .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property .property__title {
-        color: var(--color-primary-tone-1);
-        font-weight: bold;
-        flex-grow: 1;
-        white-space: nowrap;
-        flex-shrink: 0;
-        display: flex;
-        text-transform: uppercase; }
-        .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property .property__title::after {
-          content: '';
-          flex-grow: 1;
-          border-bottom: 1px dotted var(--color-primary-tint-3);
-          margin: 0 0.5rem;
-          height: 13px;
-          min-width: 0.5rem; }
-      .gmm-artifact.artifact--monster--vanity .monster__properties .monster__property .property__value span:not(:last-child)::after {
-        content: ', '; }
-    .gmm-artifact.artifact--monster--vanity .monster__properties .property--divider + .monster__property {
-      margin-top: 1rem; }
-    .gmm-artifact.artifact--monster--vanity .monster__properties .property--wide {
-      column-span: all; }
-      .gmm-artifact.artifact--monster--vanity .monster__properties .property--wide .property__body {
-        justify-content: flex-start; }
-      .gmm-artifact.artifact--monster--vanity .monster__properties .property--wide .property__title {
-        flex-grow: 0;
-        width: calc(50% - 1rem); }
-  .gmm-artifact.artifact--monster--vanity .button--text {
-    background: none;
-    border: none;
-    box-shadow: none;
-    margin: 0;
-    border-radius: 0;
-    cursor: pointer; }
-    .gmm-artifact.artifact--monster--vanity .button--text:hover {
-      color: var(--color-secondary-base); }
-      .gmm-artifact.artifact--monster--vanity .button--text:hover i {
-        color: var(--color-secondary-shade-1); }
-  .gmm-artifact.artifact--monster--vanity .item-collection + * {
-    margin-top: 1rem; }
-  .gmm-artifact.artifact--monster--vanity .item-collection.empty .item-collection__header {
-    border-bottom: none; }
-    .gmm-artifact.artifact--monster--vanity .item-collection.empty .item-collection__header .column {
-      padding-bottom: 0; }
-    .gmm-artifact.artifact--monster--vanity .item-collection.empty .item-collection__header .column:not(.column--title):not(.column--actions) {
-      visibility: hidden; }
-  .gmm-artifact.artifact--monster--vanity .item-collection.empty + .item-collection.empty {
-    margin-top: 0.25rem; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header {
-    padding: 0;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: black; }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links a:hover {
+      text-shadow: none;
+      text-decoration: none;
+      color: white; }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .twitch,
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .discord,
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .reddit,
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .twitter,
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .facebook,
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .youtube {
+    width: 2.4rem;
+    font-size: 1.5rem; }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .website {
     text-transform: uppercase;
-    font-weight: bold;
-    color: var(--color-primary-tone-1);
-    display: flex;
-    font-size: smaller;
-    border-bottom: 4px solid; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column {
-      padding-bottom: 0.125rem; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column:not(.column--title):not(.column--actions) {
-        text-transform: none;
-        font-weight: normal;
-        color: var(--color-primary-tint-3); }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header button {
-      background: var(--color-primary-tint-3);
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 0.6rem;
-      line-height: 14px;
-      padding: 0 0.25rem;
-      width: 100%;
-      align-self: center;
-      margin: 0;
-      font-size: inherit;
-      text-transform: uppercase; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header button:hover {
-        cursor: pointer;
-        background: var(--color-secondary-base);
-        color: white;
-        box-shadow: none; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column,
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__header .column {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
+    color: var(--color-website); }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .website:hover {
+      background: var(--color-website);
+      border-color: var(--color-website); }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .twitch {
+    color: var(--color-twitch); }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .twitch:hover {
+      background: var(--color-twitch);
+      border-color: var(--color-twitch); }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .discord {
+    color: var(--color-discord); }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .discord:hover {
+      background: var(--color-discord);
+      border-color: var(--color-discord); }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .reddit {
+    color: var(--color-reddit); }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .reddit:hover {
+      background: var(--color-reddit);
+      border-color: var(--color-reddit); }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .twitter {
+    color: var(--color-twitter); }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .twitter:hover {
+      background: var(--color-twitter);
+      border-color: var(--color-twitter); }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .facebook {
+    color: var(--color-facebook); }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .facebook:hover {
+      background: var(--color-facebook);
+      border-color: var(--color-facebook); }
+  .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .youtube {
+    color: var(--color-youtube); }
+    .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .youtube:hover {
+      background: var(--color-youtube);
+      border-color: var(--color-youtube); }
+
+.gmm-forge.forge--action .gmm-modal.modal--about .support {
+  padding: 1rem;
+  background: var(--color-primary-tint-5);
+  margin-top: 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  overflow: hidden; }
+
+.gmm-forge.forge--action .gmm-modal.modal--about .support__title {
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.gmm-forge.forge--action .gmm-modal.modal--about .support__links {
+  list-style: none;
+  margin-top: 1rem;
+  padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2px; }
+  .gmm-forge.forge--action .gmm-modal.modal--about .support__links a {
+    width: 100%;
+    background: var(--color-patreon);
+    color: white;
+    margin: 0 auto;
+    display: inline-block;
+    border-radius: 0.75rem;
+    padding: 0.5rem 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column.column--title,
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__header .column.column--title {
-      padding-left: 0;
-      justify-content: flex-start; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column.column--actions,
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__header .column.column--actions {
-      padding-right: 0;
-      justify-content: space-between; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column .button--text,
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__header .column .button--text {
-      font-size: inherit;
-      padding: 0;
-      line-height: inherit;
-      font-family: inherit; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column [data-action="update-item"],
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__header .column [data-action="update-item"] {
-      position: absolute;
-      left: 0.25rem;
-      top: 0.25rem;
-      height: calc(100% - 0.5rem);
-      width: calc(100% - 0.5rem);
-      text-align: center;
-      font-size: inherit;
-      font-family: inherit;
-      opacity: 0;
-      background: var(--color-primary-tint-5);
-      border: none;
-      border-radius: 0.5rem; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item-collection__header .column [data-action="update-item"]:focus,
-      .gmm-artifact.artifact--monster--vanity .item-collection .item .item__header .column [data-action="update-item"]:focus {
-        opacity: 1; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item-list {
-    margin-top: 1px; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item:not(:last-child) {
-    border-bottom: 1px dotted var(--color-primary-tint-4); }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item:last-child .item__body {
-    padding-bottom: 0; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__header .column:not(.column--title):not(.column--actions) {
-    font-size: smaller; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .column--title .item__icon {
-    flex-shrink: 0;
-    margin: 0 0.5rem 0 0;
-    width: 30px;
-    height: 30px;
-    background: black;
-    border-radius: 4px;
-    overflow: hidden;
-    position: relative; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .column--title .item__icon img {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .column--title .item__icon button {
-      opacity: 0;
-      position: absolute;
-      width: 30px;
-      height: 30px;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: black;
-      border: none;
-      top: 0;
-      left: 0;
-      cursor: pointer;
-      font-size: 26px; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item .column--title .item__icon button:hover {
-        opacity: 1; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__name {
-    text-align: left;
-    line-height: 1; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__name:hover {
-      cursor: pointer;
-      color: var(--color-secondary-base); }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__body {
-    padding: 0 0 0.5rem 2.35rem;
-    font-size: small;
-    line-height: 1.2; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__description {
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--color-primary-tint-4); }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__description section.secret {
-      padding: 1rem; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item .item__description section.secret > *:first-child {
-        margin-top: 0; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item .item__description section.secret > *:last-child {
-        margin-bottom: 0; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__description > *:first-child {
-      margin-top: 0; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .item__description > *:last-child {
-      margin-bottom: 0; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__detail {
-    margin-top: 0.5rem;
-    color: var(--color-primary-base);
-    font-style: italic; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__tags::before {
-    content: "\f02c";
-    -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free";
-    font-weight: bold;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .item__tags .item__tag:not(:last-child)::after {
-    content: ", "; }
-  .gmm-artifact.artifact--monster--vanity .item-collection .item .column--actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-    .gmm-artifact.artifact--monster--vanity .item-collection .item .column--actions button {
-      margin: 0;
-      padding: 0;
-      border: none;
-      background: var(--color-primary-tint-3);
-      color: white;
-      text-align: center;
-      cursor: pointer;
-      border-radius: 1rem;
-      height: 20px;
-      width: 20px;
-      line-height: 20px;
-      font-size: 10px;
-      flex-shrink: 0; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item .column--actions button i {
-        margin: 0;
-        width: 100%;
-        text-align: center; }
-      .gmm-artifact.artifact--monster--vanity .item-collection .item .column--actions button:hover, .gmm-artifact.artifact--monster--vanity .item-collection .item .column--actions button:focus {
-        background: var(--color-secondary-base);
-        text-shadow: none;
-        box-shadow: none; }
-  .gmm-artifact.artifact--monster--vanity .legendary__resources {
-    display: grid;
-    grid-template-columns: 5rem 5rem 1fr;
-    grid-column-gap: 0.25rem;
-    margin-left: -1rem;
-    padding: 0.5rem 1rem 0.5rem calc(1rem - 2px);
-    background: var(--color-primary-tone-1);
-    border-radius: 0 1rem 1rem 0;
-    border-left: 2px solid var(--color-primary-tint-3);
-    margin-right: -0.5rem; }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources > * {
-      display: flex;
-      flex-direction: column;
-      justify-content: center; }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources + * {
-      margin-top: 1rem; }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources + .legendary__resources {
-      margin-top: 0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__blurb {
-      font-size: smaller;
-      padding-left: 0.75rem;
-      color: white;
-      text-align: left;
-      align-items: flex-start; }
-      .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__blurb .blurb__title {
-        text-transform: uppercase;
-        font-weight: bold; }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary--current {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      text-align: center;
-      font-size: inherit;
-      font-family: inherit;
-      opacity: 0;
-      background: var(--color-primary-tint-5);
-      border: none;
-      border-radius: 0.5rem; }
-      .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary--current:focus {
-        opacity: 1; }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__current,
-    .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__maximum {
-      text-align: center;
-      background: white;
-      border-radius: 0.5rem;
-      padding: 0.5rem 0.25rem; }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__value {
-      font-family: 'Londrina Solid';
-      font-size: 1.75rem;
-      line-height: 1.5rem;
-      letter-spacing: 0.5px;
-      position: relative;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-      .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__value i {
-        margin-right: 0.25rem;
-        color: var(--color-primary-shade-2); }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__current .legendary__value:hover {
-      color: var(--color-secondary-base); }
-      .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__current .legendary__value:hover i {
-        color: var(--color-secondary-base); }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources .legendary__description {
-      margin-top: 0.25rem;
-      font-size: smaller;
-      font-weight: 600;
-      color: var(--color-primary-tone-1); }
-    .gmm-artifact.artifact--monster--vanity .legendary__resources.resources--lair-actions {
-      grid-template-columns: 5rem 1fr; }
-      .gmm-artifact.artifact--monster--vanity .legendary__resources.resources--lair-actions .legendary__value i {
-        font-size: 0.9em; }
-
-.gmm-blueprint.blueprint--monster--vanity .form-group--image img {
-  background: black;
-  border-radius: 0.75rem;
-  width: 4.2rem;
-  margin: 0.25rem auto 0.25rem 0.5rem;
-  border: none;
-  display: block; }
-  .gmm-blueprint.blueprint--monster--vanity .form-group--image img:hover {
-    cursor: pointer; }
-
-.gmm-blueprint.blueprint--monster--vanity .fieldset-rank .target-players,
-.gmm-blueprint.blueprint--monster--vanity .fieldset-rank .phases {
-  display: none; }
-
-.gmm-blueprint.blueprint--monster--vanity .fieldset-rank:not(.rank-custom) .form-group:not(.type) {
-  display: none; }
-
-.gmm-blueprint.blueprint--monster--vanity .fieldset-rank.scale-with-players .form-group.target-players {
-  display: flex; }
-
-.gmm-blueprint.blueprint--monster--vanity .fieldset-rank.show-phases .form-group.phases {
-  display: flex; }
-
-.gmm-blueprint.blueprint--monster--vanity .fieldset-rank .phases .form-group__body {
-  display: flex;
-  align-items: center; }
-  .gmm-blueprint.blueprint--monster--vanity .fieldset-rank .phases .form-group__body input {
-    width: 100%;
-    flex-grow: 1; }
-    .gmm-blueprint.blueprint--monster--vanity .fieldset-rank .phases .form-group__body input:first-child {
-      margin-right: 0.5rem; }
-    .gmm-blueprint.blueprint--monster--vanity .fieldset-rank .phases .form-group__body input:last-child {
-      margin-left: 0.5rem; }
-
-.gmm-blueprint.blueprint--monster--vanity .fieldset-role:not(.role-custom) .form-group:not(.type) {
-  display: none; }
-
-.gmm-blueprint.blueprint--monster--vanity .form-group--modifier .form-group__body {
-  display: flex; }
-  .gmm-blueprint.blueprint--monster--vanity .form-group--modifier .form-group__body .checkbox {
-    display: inline-flex;
-    font-size: inherit;
-    white-space: nowrap;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0.5rem; }
-    .gmm-blueprint.blueprint--monster--vanity .form-group--modifier .form-group__body .checkbox:hover {
-      cursor: pointer; }
-    .gmm-blueprint.blueprint--monster--vanity .form-group--modifier .form-group__body .checkbox input {
-      margin: 0;
-      top: 0;
-      display: inline-block;
-      margin-right: 0.25rem; }
-
-.gmm-blueprint.blueprint--monster--vanity .ability-ranking,
-.gmm-blueprint.blueprint--monster--vanity .save-ranking {
-  display: flex;
-  line-height: 2rem; }
-  .gmm-blueprint.blueprint--monster--vanity .ability-ranking:not(:first-child),
-  .gmm-blueprint.blueprint--monster--vanity .save-ranking:not(:first-child) {
-    border-top: 1px solid var(--color-primary-tint-3); }
-  .gmm-blueprint.blueprint--monster--vanity .ability-ranking .value,
-  .gmm-blueprint.blueprint--monster--vanity .save-ranking .value {
-    flex-grow: 1;
-    padding: 0 0.5rem; }
-    .gmm-blueprint.blueprint--monster--vanity .ability-ranking .value i,
-    .gmm-blueprint.blueprint--monster--vanity .save-ranking .value i {
-      width: 1.5rem;
-      line-height: 1.5rem;
-      display: inline-block;
-      margin-right: 0.25rem;
-      justify-content: center;
-      align-items: center;
-      background: var(--color-primary-tint-4);
-      border-radius: 1rem;
-      color: var(--color-primary-shade-1); }
-  .gmm-blueprint.blueprint--monster--vanity .ability-ranking .move-down,
-  .gmm-blueprint.blueprint--monster--vanity .ability-ranking .move-up,
-  .gmm-blueprint.blueprint--monster--vanity .save-ranking .move-down,
-  .gmm-blueprint.blueprint--monster--vanity .save-ranking .move-up {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    width: 2rem; }
-    .gmm-blueprint.blueprint--monster--vanity .ability-ranking .move-down:hover,
-    .gmm-blueprint.blueprint--monster--vanity .ability-ranking .move-up:hover,
-    .gmm-blueprint.blueprint--monster--vanity .save-ranking .move-down:hover,
-    .gmm-blueprint.blueprint--monster--vanity .save-ranking .move-up:hover {
-      cursor: pointer;
-      box-shadow: none;
-      color: var(--color-primary-base); }
-
-.gmm-blueprint.blueprint--monster--vanity .items .item {
-  display: flex;
-  padding: 0.25rem 0.5rem;
-  align-items: center; }
-  .gmm-blueprint.blueprint--monster--vanity .items .item:not(:last-child) {
-    border-bottom: 1px dotted var(--color-primary-tint-3); }
-
-.gmm-blueprint.blueprint--monster--vanity .items .item__icon {
-  margin: -0.25rem 6px -0.25rem -0.5rem;
-  width: 26px;
-  height: 26px;
-  background: black; }
-  .gmm-blueprint.blueprint--monster--vanity .items .item__icon img {
-    max-width: 100%;
-    max-height: 100%;
-    border: none;
-    display: block; }
-
-.gmm-blueprint.blueprint--monster--vanity .items .item__title {
-  flex-grow: 1;
-  white-space: nowrap;
-  margin-right: 1rem; }
-
-.gmm-blueprint.blueprint--monster--vanity .items .item__actions {
-  display: flex;
-  margin-right: -0.25rem;
-  margin-top: -0.25rem;
-  margin-bottom: -0.25rem; }
-  .gmm-blueprint.blueprint--monster--vanity .items .item__actions button {
-    background: none;
-    color: var(--color-primary-tint-3);
-    border: none;
-    font-weight: bold;
-    line-height: 1.5;
-    padding: 0;
-    cursor: pointer;
-    text-align: center; }
-    .gmm-blueprint.blueprint--monster--vanity .items .item__actions button i {
-      margin: 0; }
-    .gmm-blueprint.blueprint--monster--vanity .items .item__actions button + * {
-      margin-left: 0.5rem; }
-    .gmm-blueprint.blueprint--monster--vanity .items .item__actions button:hover {
-      box-shadow: none;
-      color: var(--color-primary-base); }
-
-.gmm-blueprint.blueprint--monster--vanity .table--spell-slots,
-.gmm-blueprint.blueprint--monster--vanity .table--pact-slots {
-  text-align: center; }
-  .gmm-blueprint.blueprint--monster--vanity .table--spell-slots th,
-  .gmm-blueprint.blueprint--monster--vanity .table--spell-slots td,
-  .gmm-blueprint.blueprint--monster--vanity .table--pact-slots th,
-  .gmm-blueprint.blueprint--monster--vanity .table--pact-slots td {
-    width: 33%; }
-  .gmm-blueprint.blueprint--monster--vanity .table--spell-slots td,
-  .gmm-blueprint.blueprint--monster--vanity .table--pact-slots td {
-    padding: 0; }
-
-.gmm-forge.forge--monster.layout--slide-out .forge__blueprint {
-  top: 3.6rem;
-  height: calc(100% - 7.6rem); }
+    box-shadow: 0 2px 0 0 #a8000a; }
+    .gmm-forge.forge--action .gmm-modal.modal--about .support__links a:hover {
+      background: #db000d;
+      box-shadow: 0 2px 0 0 #750007;
+      text-decoration: none; }
 
 .gmm-forge.forge--monster .gmm-modal.modal--ability-check .form-group--abilities {
   flex-direction: column;
@@ -3224,181 +3511,48 @@
     .gmm-forge.forge--monster .gmm-modal.modal--saving-throw .modal__footer button:first-child {
       grid-column: 1 / span 2; }
 
-.gmm-window.window--monster {
-  width: 600px !important;
-  min-height: 500px; }
-
-.gmm-blueprint.blueprint--action--vanity .form-group--image img {
-  background: black;
-  border-radius: 0.75rem;
-  width: 4.2rem;
-  margin: 0.25rem auto 0.25rem 0.5rem;
-  border: none;
-  display: block; }
-  .gmm-blueprint.blueprint--action--vanity .form-group--image img:hover {
-    cursor: pointer; }
-
-.gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body {
-  display: flex; }
-  .gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox {
-    display: inline-flex;
-    font-size: inherit;
-    white-space: nowrap;
-    height: auto;
-    justify-content: center;
-    align-items: center;
-    padding: 0 0.5rem; }
-    .gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox:hover {
-      cursor: pointer; }
-    .gmm-blueprint.blueprint--action--vanity .form-group--modifier .form-group__body .checkbox input {
-      margin: 0;
-      top: 0;
-      display: inline-block;
-      margin-right: 0.25rem; }
-
-.gmm-artifact.artifact--action--vanity {
-  padding: 0;
-  overflow: hidden;
-  background: var(--color-primary-tint-2);
-  padding: 2px; }
-  .gmm-artifact.artifact--action--vanity ::-webkit-scrollbar-thumb {
-    background: var(--color-primary-shade-3);
-    border-color: white; }
-  .gmm-artifact.artifact--action--vanity ::-webkit-scrollbar-track {
-    background: var(--color-primary-tint-1);
-    border-color: white; }
-  .gmm-artifact.artifact--action--vanity [data-action="open-config"]:hover {
-    cursor: pointer;
-    color: var(--color-secondary-base) !important; }
-  .gmm-artifact.artifact--action--vanity .action {
-    background: white;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    filter: drop-shadow(0 2px 0 var(--color-primary-shade-3));
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%; }
-  .gmm-artifact.artifact--action--vanity .action__header {
-    display: grid;
-    grid-template-columns: 93px 1fr;
-    grid-column-gap: 1rem;
-    font-size: inherit;
-    font-family: inherit; }
-    .gmm-artifact.artifact--action--vanity .action__header .action__icon {
-      grid-row: 1 / span 3;
-      margin: 0;
-      height: 100%;
-      width: 100%; }
-      .gmm-artifact.artifact--action--vanity .action__header .action__icon img {
-        border: none;
-        border-radius: 0.75rem;
-        display: block;
-        background: var(--color-primary-shade-3); }
-    .gmm-artifact.artifact--action--vanity .action__header .action__title {
-      font-size: 2rem;
-      letter-spacing: 0.5px;
-      font-family: 'Londrina Solid';
-      line-height: 1.1;
-      padding-right: 2.5rem; }
-    .gmm-artifact.artifact--action--vanity .action__header .action__type {
-      font-weight: 600;
-      font-size: larger;
-      text-align: left;
-      padding-right: 2.5rem; }
-    .gmm-artifact.artifact--action--vanity .action__header .action__requirements {
-      font-weight: 600;
-      font-size: larger;
-      text-align: left;
-      padding-right: 2.5rem;
-      border-top: 1px solid var(--color-primary-tint-4);
-      border-bottom: 1px solid var(--color-primary-tint-4);
-      margin: 0.25rem 0 0;
-      padding: 0.25rem 0;
-      display: flex; }
-      .gmm-artifact.artifact--action--vanity .action__header .action__requirements i {
-        color: var(--color-primary-base); }
-      .gmm-artifact.artifact--action--vanity .action__header .action__requirements .level,
-      .gmm-artifact.artifact--action--vanity .action__header .action__requirements .rank,
-      .gmm-artifact.artifact--action--vanity .action__header .action__requirements .role {
-        display: inline-block; }
-        .gmm-artifact.artifact--action--vanity .action__header .action__requirements .level:not(:first-child),
-        .gmm-artifact.artifact--action--vanity .action__header .action__requirements .rank:not(:first-child),
-        .gmm-artifact.artifact--action--vanity .action__header .action__requirements .role:not(:first-child) {
-          margin-left: 0.5rem; }
-          .gmm-artifact.artifact--action--vanity .action__header .action__requirements .level:not(:first-child)::before,
-          .gmm-artifact.artifact--action--vanity .action__header .action__requirements .rank:not(:first-child)::before,
-          .gmm-artifact.artifact--action--vanity .action__header .action__requirements .role:not(:first-child)::before {
-            content: '•';
-            color: var(--color-primary-tint-3);
-            margin-right: 0.5rem; }
-    .gmm-artifact.artifact--action--vanity .action__header .action__options {
-      position: absolute;
-      right: 0.5rem;
-      bottom: 0.5rem; }
-  .gmm-artifact.artifact--action--vanity .action__body {
-    margin-top: 1rem;
-    margin-right: -0.5rem;
-    padding-right: 0.5rem;
-    overflow-y: auto; }
-    .gmm-artifact.artifact--action--vanity .action__body .action__properties {
-      columns: 2;
-      column-gap: 2rem;
-      column-rule: 2px solid var(--color-primary-tint-4); }
-      .gmm-artifact.artifact--action--vanity .action__body .action__properties + * {
-        margin-top: 1rem; }
-      .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property {
-        display: flex;
-        margin-bottom: 0.125rem; }
-        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property:last-child {
-          margin-bottom: 0; }
-        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__body {
-          flex-grow: 1;
-          display: flex;
-          justify-content: space-between; }
-        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__icon {
-          color: var(--color-primary-tone-1);
-          margin-right: 0.5rem; }
-        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__title {
-          color: var(--color-primary-tone-1);
-          font-weight: bold;
-          flex-grow: 1;
-          white-space: nowrap;
-          flex-shrink: 0;
-          display: flex;
-          text-transform: uppercase; }
-          .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__title::after {
-            content: '';
-            flex-grow: 1;
-            border-bottom: 1px dotted var(--color-primary-tint-3);
-            margin: 0 0.5rem;
-            height: 13px;
-            min-width: 0.5rem; }
-        .gmm-artifact.artifact--action--vanity .action__body .action__properties .action__property .property__value span:not(:last-child)::after {
-          content: ', '; }
-      .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--divider + .monster__property {
-        margin-top: 1rem; }
-      .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--wide {
-        column-span: all; }
-        .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--wide .property__body {
-          justify-content: flex-start; }
-        .gmm-artifact.artifact--action--vanity .action__body .action__properties .property--wide .property__title {
-          flex-grow: 0;
-          width: calc(35% - 1rem); }
-    .gmm-artifact.artifact--action--vanity .action__body .action__description > :first-child {
-      margin-top: 0; }
-    .gmm-artifact.artifact--action--vanity .action__body .action__description > :last-child {
-      margin-bottom: 0; }
-    .gmm-artifact.artifact--action--vanity .action__body .action__description .secret {
+.gmm-window {
+  border-radius: 0 0 1.5rem 1.5rem;
+  box-shadow: none;
+  filter: drop-shadow(0px 0px 20px black); }
+  .gmm-window .window-header {
+    border-bottom: none; }
+    .gmm-window .window-header.resizable ~ .window-resizable-handle {
+      background: white;
+      color: black;
       border: none;
-      background: var(--color-primary-tint-5);
-      padding: 1rem;
-      border-radius: 0.75rem; }
-      .gmm-artifact.artifact--action--vanity .action__body .action__description .secret > :first-child {
-        margin-top: 0; }
-      .gmm-artifact.artifact--action--vanity .action__body .action__description .secret > :last-child {
-        margin-bottom: 0; }
+      box-shadow: none;
+      height: 2rem;
+      width: 2rem;
+      padding: 0;
+      border-radius: 1rem;
+      margin: 0;
+      cursor: pointer;
+      bottom: 0.25rem;
+      right: 0.25rem;
+      display: flex;
+      z-index: 2; }
+      .gmm-window .window-header.resizable ~ .window-resizable-handle i {
+        margin: auto; }
+    .gmm-window .window-header.resizable ~ .window-content > .gmm-forge .forge__controls {
+      padding-right: 2.25rem; }
+  .gmm-window.minimized {
+    border-radius: 0; }
+    .gmm-window.minimized .window-header {
+      border: none; }
+      .gmm-window.minimized .window-header.resizable ~ .window-resizable-handle {
+        display: none; }
+  .gmm-window .window-content {
+    background: none;
+    padding: 0;
+    border-radius: 1rem;
+    overflow: visible;
+    height: 0; }
 
 .gmm-window.window--action {
-  width: 550px !important;
+  width: 500px !important;
   min-height: 400px; }
+
+.gmm-window.window--monster {
+  width: 525px !important;
+  min-height: 500px; }

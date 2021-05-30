@@ -11,5 +11,7 @@ export const GMM_ACTION_ATTACK_DAMAGE_TYPES = [
 	"psychic",
 	"radiant",
 	"slashing",
-	"thunder"
+	"thunder",
+	"healing",
+	"temphp"
 ];

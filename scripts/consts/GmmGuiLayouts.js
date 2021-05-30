@@ -1,10 +1,6 @@
 export const GMM_GUI_LAYOUTS = {
     monster: [
         {
-            code: "single",
-            name: "Single Column"
-        },
-        {
             code: "slide-in-left",
             name: "Slide In (Left)"
         },
@@ -14,15 +10,11 @@ export const GMM_GUI_LAYOUTS = {
         },
         {
             code: "slide-out",
-            name: "Slide Out"
+            name: "Slide Out (Right)"
         }
     ],
     action: [
         {
-            code: "single",
-            name: "Single Column"
-        },
-        {
             code: "slide-in-left",
             name: "Slide In (Left)"
         },
@@ -32,7 +24,7 @@ export const GMM_GUI_LAYOUTS = {
         },
         {
             code: "slide-out",
-            name: "Slide Out"
+            name: "Slide Out (Right)"
         }
     ]
 };

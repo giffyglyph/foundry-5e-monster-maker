@@ -6,6 +6,13 @@
 	flex-direction: column;
 	border-radius: 1rem;
 	height: 100%;
+	padding: 2px;
+	background: var(--color-primary-tint-2);
+
+	[data-action="open-config"]:hover {
+		cursor: pointer;
+		color: var(--color-secondary-base) !important;
+	}
 
 	::-webkit-scrollbar {
 		width: 1rem;
@@ -13,7 +20,7 @@
 
 	::-webkit-scrollbar-thumb {
 		border-radius: 1rem;
-		background: var(--color-primary-shade-3);
+		background: var(--color-primary-shade-1);
 		border: 2px solid var(--color-primary-tint-2);
 	}
 
@@ -22,6 +29,27 @@
 		border-radius: 1rem;
 		background: var(--color-primary-tint-1);
 		border: 5px solid var(--color-primary-tint-2);
+	}
+
+	.artifact__header {
+		background: black;
+		color: white;
+		padding: 0.25rem;
+		flex-shrink: 0;
+		display: flex;
+		background: var(--color-primary-shade-2);
+		filter: drop-shadow(0 2px 0 var(--color-primary-shade-4));
+		position: relative;
+		z-index: 1;
+		border-radius: 0.75rem;
+	}
+
+	.artifact__body {
+		padding: 2px 1px 2px 0;
+		margin: calc(0.25rem - 2px) -1px -2px 0;
+		overflow-y: auto;
+		flex-grow: 1;
+		border-radius: 0.75rem;
 	}
 
 	.artifact__error {

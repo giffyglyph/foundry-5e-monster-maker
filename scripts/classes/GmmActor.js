@@ -20,7 +20,7 @@ const GmmActor = (function () {
 	}
 
 	/**
-	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
+	 * Prepare any data which is actor-specific and does not depend on Items or Active Effects.
 	 * @private
 	 */
 	function _prepareBaseData() {

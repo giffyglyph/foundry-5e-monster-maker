@@ -1,5 +1,6 @@
 import { simplifyRollFormula, damageRoll } from "./../../../../systems/dnd5e/module/dice.js";
 import ActionBlueprint from './ActionBlueprint.js';
+import Shortcoder from './Shortcoder.js';
 import ActionForge from './ActionForge.js';
 
 /**
@@ -21,29 +22,17 @@ const GmmItem = (function () {
 		game.dnd5e.entities.Item5e.prototype.rollDamage = _rollDamage;
 		game.dnd5e.entities.Item5e.prototype.prepareShortcodes = _prepareShortcodes;
 		game.dnd5e.entities.Item5e.prototype.getSheetId = _getItemSheetId;
-		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "hasAttack", {
-			get: function () {
-				if (this.getSheetId() == "gmm.ActionSheet") {
-					return ["melee_attack_weapon", "melee_attack_spell", "ranged_attack_weapon", "ranged_attack_spell"].includes(this.data.data.gmm?.blueprint?.data?.attack?.type);
-				} else {
-					return ["mwak", "rwak", "msak", "rsak"].includes(this.data.data.actionType);
-				}
-			}
-		});
-		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "hasDamage", {
-			get: function () {
-				if (this.getSheetId() == "gmm.ActionSheet") {
-					return !!(this.data.data.gmm?.blueprint?.data?.attack?.damage?.formula);
-				} else {
-					return !!(this.data.data.damage && this.data.data.damage.parts.length);
-				}
-			}
-		});
+		game.dnd5e.entities.Item5e.prototype.getGmmActionBlueprint = _getGmmActionBlueprint;
+		game.dnd5e.entities.Item5e.prototype.isOwnedByGmmMonster = _isOwnedByGmmMonster;
+		game.dnd5e.entities.Item5e.prototype.getOwningGmmMonster = _getOwningGmmMonster;
+		game.dnd5e.entities.Item5e.prototype.getSortingCategory = _getSortingCategory;
+		game.dnd5e.entities.Item5e.prototype.getGmmLabels = _getGmmLabels;
 		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "isHealing", {
 			get: function () {
 				if (this.getSheetId() == "gmm.ActionSheet") {
 					return false;
 				} else {
+					// Copy existing Foundry behaviour.
 					return (this.data.data.actionType === "heal") && this.data.data.damage.parts.length;
 				}
 			}
@@ -53,6 +42,7 @@ const GmmItem = (function () {
 				if (this.getSheetId() == "gmm.ActionSheet") {
 					return false;
 				} else {
+					// Copy existing Foundry behaviour.
 					return !!(this.hasDamage && this.data.data.damage.versatile);
 				}
 			}
@@ -60,8 +50,9 @@ const GmmItem = (function () {
 		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "hasSave", {
 			get: function () {
 				if (this.getSheetId() == "gmm.ActionSheet") {
-					return ["dc_primary", "dc_secondary"].includes(this.data.data.gmm?.blueprint?.data?.attack?.type);
+					return ["save", "other"].includes(this.data.data.gmm?.blueprint?.data?.attack?.type);
 				} else {
+					// Copy existing Foundry behaviour.
 					const save = this.data.data?.save || {};
 					return !!(save.ability && save.scaling);
 				}
@@ -69,102 +60,169 @@ const GmmItem = (function () {
 		});
 	}
 
-	function _prepareData() {
-		game.dnd5e.entities.Item5e.prototype.prepare5eData.call(this);
+	function _getGmmLabels() {
+		const itemData = this.data.data;
+		const labels = {};
+		const rollData = this.getRollData();
+		const gmmMonster = this.getOwningGmmMonster();
 
-		if (this.getSheetId() == "gmm.ActionSheet") {
-			_prepareActionData(this);
+		labels.icon = (this.getSheetId() == "gmm.ActionSheet") ? "fas fa-arrow-alt-circle-right" : "far fa-arrow-alt-circle-right";
+
+		if (this.hasAttack) {
+			labels.attack = game.i18n.format(`gmm.action.labels.attack.${itemData.actionType}`);
+			if (this.labels.toHit) {
+				labels.to_hit = game.i18n.format(`gmm.action.labels.attack.to_hit`, { bonus: this.labels.toHit.replace(/^\+ /, '+') });
+			}
+		} else if (this.hasSave && itemData.save.ability) {
+			labels.attack = game.i18n.format(`gmm.action.labels.attack.${itemData.save.ability}`);
+			if (this.data.data.save.dc) {
+				labels.to_hit = game.i18n.format(`gmm.action.labels.attack.dc`, { bonus: this.data.data.save.dc });
+			}
 		}
+
+		if (this.hasDamage) {
+			const damages = this.data.data.damage.parts.map((x) => {
+				let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
+				return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
+			});
+			labels.damage = damages.join(" plus ");
+		}
+
+		switch (itemData.target.type) {
+			case "":
+			case "none":
+				switch (itemData.range.units) {
+					case "self":
+						labels.target = game.i18n.format(`gmm.action.labels.target.self`);
+						break;
+					case "touch":
+					case "ft":
+					case "mi":
+						if (itemData.target.units == "any") {
+							labels.target = game.i18n.format(`gmm.action.labels.target.any.all`);
+						} else {
+							labels.target = game.i18n.format(`gmm.action.labels.target.any.${itemData.target.value > 1 ? "multiple" : "single"}`, { quantity: Math.max(1, itemData.target.value) });
+						}
+						break;
+				}
+				break;
+			case "self":
+				labels.target = game.i18n.format(`gmm.action.labels.target.self`);
+				break;
+			case "ally":
+			case "enemy":
+			case "creature":
+			case "object":
+				if (itemData.target.units == "any") {
+					labels.target = game.i18n.format(`gmm.action.labels.target.${itemData.target.type}.all`);
+				} else {
+					labels.target = game.i18n.format(`gmm.action.labels.target.${itemData.target.type}.${itemData.target.value > 1 ? "multiple" : "single"}`, { quantity: Math.max(1, itemData.target.value) });
+				}
+				break;
+			case "line":
+			case "wall":
+				if (itemData.target.units) {
+					if (["ft", "mi"].includes(itemData.target.units)) {
+						let area = game.i18n.format(`gmm.action.labels.target.size.${itemData.target.units}.double`, { x: Math.max(1, itemData.target.value), y: Math.max(1, itemData.target.width) });
+						labels.target = game.i18n.format(`gmm.action.labels.target.${itemData.target.type}`, { area: area });
+					}
+				}
+				break;
+			default:
+				if (itemData.target.units) {
+					if (["ft", "mi"].includes(itemData.target.units)) {
+						let size = game.i18n.format(`gmm.action.labels.target.size.${itemData.target.units}.single`, { x: Math.max(1, itemData.target.value) });
+						labels.target = game.i18n.format(`gmm.action.labels.target.${itemData.target.type}`, { size: size });
+					}
+				}
+				break;
+		}
+
+		switch (itemData.range.units) {
+			case "any":
+			case "self":
+			case "touch":
+				labels.range = game.i18n.format(`gmm.action.labels.range.${itemData.range.units}`);
+				break;
+			case "ft":
+			case "mi":
+				if (itemData.range.value) {
+					let range = `${itemData.range.value}${itemData.range.long ? `/${itemData.range.long}` : ''}`;
+					if (["mwak", "msak"].includes(itemData.actionType)) {
+						labels.range = game.i18n.format(`gmm.action.labels.range.reach.${itemData.range.units}`, { range: range });
+					} else {
+						labels.range = game.i18n.format(`gmm.action.labels.range.${itemData.range.units}`, { range: range });
+					}
+				}
+				break;
+		}
+
+		labels.description = this.getChatData({secrets: this.actor?.owner}).description.value;
+
+		if (this.hasLimitedUses) {
+			labels.uses = {
+				current: itemData.uses.value,
+				maximum: itemData.uses.max,
+				per: itemData.uses.per
+			};
+		}
+
+		if (itemData.recharge && itemData.recharge.value != null) {
+			labels.recharge = {
+				value: itemData.recharge.value < 6 ? `${itemData.recharge.value}-6` : itemData.recharge.value,
+				charged: itemData.recharge.charged
+			};
+		}
+
+		if (itemData.activation && itemData.activation.type != "") {
+			labels.activation = this.labels.activation;
+		}
+
+		if (itemData.activation?.type == "legendary" && itemData.activation?.cost > 1) {
+			labels.legendary_cost = itemData.activation.cost;
+		}
+
+		return labels;
 	}
 
-	function _prepareActionData(item) {
-		try {
-			const itemData = item.data.data;
-			const actionBlueprint = ActionBlueprint.createFromItem(item);
-			const actionArtifact = ActionForge.createArtifact(actionBlueprint);
-			itemData.gmm = {
-				blueprint: actionBlueprint,
-				action: actionArtifact
-			};
-		} catch (error) {
-			console.error(error);
+	function _isOwnedByGmmMonster() {
+		return this.actor && (this.actor.getSheetId() == "gmm.MonsterSheet");
+	}
+
+	function _getGmmActionBlueprint() {
+		return this.data.data.gmm?.blueprint?.data;
+	}
+
+	function _getOwningGmmMonster() {
+		return this.actor?.data?.data?.gmm?.monster?.data;
+	}
+
+	function _prepareData() {
+		game.dnd5e.entities.Item5e.prototype.prepare5eData.call(this);
+		if (this.getSheetId() == "gmm.ActionSheet") {
+			try {
+				const itemData = this.data.data;
+				const actionBlueprint = ActionBlueprint.createFromItem(this);
+				itemData.gmm = {
+					blueprint: actionBlueprint
+				};
+			} catch (error) {
+				console.error(error);
+			}
 		}
 	}
 
 	function _prepareShortcodes() {
-		if (this.getSheetId() == "gmm.ActionSheet" && this.actor !== null && this.actor.getSheetId() == "gmm.MonsterSheet") {
-			if (this.actor.data.data.gmm && this.actor.data.data.gmm.monster) {
-				let monster = this.actor.data.data.gmm.monster.data;
-				if (this.data.data.description && this.data.data.description.value) {
-					this.data.data.description.value = this.data.data.description.value.replace(/\[.*?\]/g, (token) => {
-						return _applyShortcodes(token, monster);
-					});
-				}
+		if (this.getSheetId() == "gmm.ActionSheet" && this.isOwnedByGmmMonster()) {
+			let monster = this.getOwningGmmMonster();
+			if (this.data.data.description && this.data.data.description.value) {
+				this.data.data.description.value = Shortcoder.replaceShortcodes(this.data.data.description.value, monster);
 			}
-		}
-	}
-
-	function _applyShortcodes(description, monster) {
-		const shortCodes = [
-			{ code: "level", data: monster.level.value },
-			{ code: "attack-bonus", data: monster.attack_bonus.value },
-			{ code: "damage", data: monster.damage_per_action.value },
-			{ code: "dc-primary-bonus", data: monster.attack_dcs.primary.value },
-			{ code: "dc-secondary-bonus", data: monster.attack_dcs.secondary.value },
-			{ code: "str-mod", data: monster.ability_modifiers.str.value },
-			{ code: "dex-mod", data: monster.ability_modifiers.dex.value },
-			{ code: "con-mod", data: monster.ability_modifiers.con.value },
-			{ code: "int-mod", data: monster.ability_modifiers.int.value },
-			{ code: "wis-mod", data: monster.ability_modifiers.wis.value },
-			{ code: "cha-mod", data: monster.ability_modifiers.cha.value },
-			{ code: "str-save", data: monster.saving_throws.str.value },
-			{ code: "dex-save", data: monster.saving_throws.dex.value },
-			{ code: "con-save", data: monster.saving_throws.con.value },
-			{ code: "int-save", data: monster.saving_throws.int.value },
-			{ code: "wis-save", data: monster.saving_throws.wis.value },
-			{ code: "cha-save", data: monster.saving_throws.cha.value },
-			{ code: "proficiency", data: monster.proficiency_bonus.value },
-			{ code: "xp", data: monster.xp.value },
-			{ code: "cr", data: monster.challenge_rating.value },
-			{ code: "ac", data: monster.armor_class.value },
-			{ code: "hp", data: monster.hit_points.maximum.value }
-		]
-		shortCodes.forEach((x) => {
-			try {
-				let regex = new RegExp(`\\b${x.code}\\b`, 'gi');
-				description = description.replace(regex, x.data);
-			} catch (e) {
-				console.error(e);
-			}
-		});
-		try {
-			description = description.replace(/\[(.*?)(, *?d(\d+))?\]/g, (token, t1, t2, t3) => _numberToRandom(token, t1, t3));
-		} catch (e) {
-			console.error(e);
-		}
-
-		return description;
-	}
-
-	function _numberToRandom(token, value, die) {
-		let valueMath = math.evaluate(value);
-		if (die != undefined) {
-			let scale = (Number(die) + 1) / 2;
-			let dice = Math.floor(valueMath / scale);
-			let modifier = valueMath - Math.floor(dice * scale);
-
-			if (dice > 0) {
-				return dice + "d" + die + ((modifier != 0) ? (" " + ((modifier > 0) ? "+ " : "− ") + Math.abs(modifier)) : "");
-			} else {
-				return valueMath;
-			}
-		} else {
-			return valueMath;
 		}
 	}
 
 	function _getAttackToHit() {
-		if (this.getSheetId() == "gmm.ActionSheet" && this.actor !== null && this.actor.getSheetId() == "gmm.MonsterSheet") {
+		if (this.getSheetId() == "gmm.ActionSheet") {
 			return _getActionAttackToHit(this);
 		} else {
 			return game.dnd5e.entities.Item5e.prototype.get5eAttackToHit.call(this);
@@ -172,7 +230,7 @@ const GmmItem = (function () {
 	}
 
 	function _getSaveDC() {
-		if (this.getSheetId() == "gmm.ActionSheet" && this.actor !== null && this.actor.getSheetId() == "gmm.MonsterSheet") {
+		if (this.getSheetId() == "gmm.ActionSheet") {
 			return _getActionSaveDC(this);
 		} else {
 			return game.dnd5e.entities.Item5e.prototype.get5eSaveDC.call(this);
@@ -180,7 +238,7 @@ const GmmItem = (function () {
 	}
 
 	function _rollDamage({critical=false, event=null, spellLevel=null, versatile=false, options={}}={}) {
-		if (this.getSheetId() == "gmm.ActionSheet" && this.actor !== null && this.actor.getSheetId() == "gmm.MonsterSheet") {
+		if (this.getSheetId() == "gmm.ActionSheet" && this.isOwnedByGmmMonster()) {
 			return _rollActionDamage({
 				item: this,
 				critical: critical,
@@ -203,90 +261,98 @@ const GmmItem = (function () {
 	function _getActionAttackToHit(item) {
 		const itemData = item.data.data;
 		const rollData = item.getRollData();
+		const gmmActionBlueprint = item.getGmmActionBlueprint();
+		const gmmMonster = item.getOwningGmmMonster();
 
 		// Define Roll bonuses
 		const parts = [];
 
-		// Include the item's innate attack bonus as the initial value and label
-		if ( itemData.attackBonus ) {
-			parts.push(itemData.attackBonus)
-			item.labels.toHit = itemData.attackBonus;
+		// Add the actor's attack bonus
+		if (gmmMonster) {
+			switch (gmmActionBlueprint.attack.type) {
+				case "mwak":
+				case "msak":
+				case "rwak":
+				case "rsak":
+					if (gmmMonster.attack_bonus.value) {
+						parts.push("@monsterAttackBonus");
+						if (rollData) {
+							rollData["monsterAttackBonus"] = gmmMonster.attack_bonus.value;
+						}
+					}
+					break;
+			}
+		} else {
+			parts.push("[attackBonus]");
 		}
 
-		// Actor-level global bonus to attack rolls
-		if (item.actor.data.data.gmm?.monster) {
-			switch (itemData.gmm.blueprint.data.attack.type) {
-				case "melee_attack_weapon":
-				case "melee_attack_spell":
-				case "ranged_attack_weapon":
-				case "ranged_attack_spell":
-					if (item.actor.data.data.gmm.monster.data.attack_bonus.value) {
-						parts.push(item.actor.data.data.gmm.monster.data.attack_bonus.value);
-					}
-			}
+		// Add the item's attack bonus
+		if (itemData.attackBonus && itemData.attackBonus != 0) {
+			parts.push(gmmMonster ? Shortcoder.replaceShortcodes(itemData.attackBonus, gmmMonster) : itemData.attackBonus);
 		}
 
 		// One-time bonus provided by consumed ammunition
-		if ( (itemData.consume?.type === 'ammo') && !!item.actor.items ) {
+		if ((itemData.consume?.type === 'ammo') && !!item.actor?.items) {
 			const ammoItemData = item.actor.items.get(itemData.consume.target)?.data;
-
 			if (ammoItemData) {
 				const ammoItemQuantity = ammoItemData.data.quantity;
 				const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
 				const ammoItemAttackBonus = ammoItemData.data.attackBonus;
 				const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemData.data.consumableType === "ammo")
 				if ( ammoCanBeConsumed && ammoItemAttackBonus && ammoIsTypeConsumable ) {
-				parts.push("@ammo");
-				rollData["ammo"] = ammoItemAttackBonus;
+					parts.push("@ammo");
+					if (rollData) {
+						rollData["ammo"] = ammoItemAttackBonus;
+					}
 				}
 			}
 		}
 
 		// Condense the resulting attack bonus formula into a simplified label
 		let toHitLabel = simplifyRollFormula(parts.join('+'), rollData).trim();
-		if (toHitLabel.charAt(0) !== '-') {
-			toHitLabel = '+ ' + toHitLabel
-		}
-		item.labels.toHit = toHitLabel;
+		item.labels.toHit = (toHitLabel.charAt(0) !== '-') ? `+ ${toHitLabel}` : toHitLabel;
 
 		// Update labels and return the prepared roll data
 		return {rollData, parts};
 	}
 
 	function _getActionSaveDC(item) {
-		switch (item.data.data.gmm.blueprint.data.attack.type) {
-			case "dc_primary":
-				item.data.data.save.dc = item.actor.data.data.gmm.monster.data.attack_dcs.primary.value;
-				item.data.data.save.ability = item.data.data.gmm.blueprint.data.attack.defense;
-				item.data.data.save.scaling = "flat";
-				item.labels.save = game.i18n.format("DND5E.SaveDC", {
-					dc: item.actor.data.data.gmm.monster.data.attack_dcs.primary.value || "",
-					ability: game.i18n.format(`gmm.common.ability.${item.data.data.gmm.blueprint.data.attack.defense}.name`)
-				});
-				break;
-			case "dc_secondary":
-				item.data.data.save.dc = item.actor.data.data.gmm.monster.data.attack_dcs.secondary.value;
-				item.data.data.save.ability = item.data.data.gmm.blueprint.data.attack.defense;
-				item.data.data.save.scaling = "flat";
-				item.labels.save = game.i18n.format("DND5E.SaveDC", {
-					dc: item.actor.data.data.gmm.monster.data.attack_dcs.secondary.value || "",
-					ability: game.i18n.format(`gmm.common.ability.${item.data.data.gmm.blueprint.data.attack.defense}.name`)
-				});
-				break;
+		const itemData = item.data.data;
+		
+		if (["save", "other"].includes(itemData.actionType) && itemData.save?.ability) {
+			let dc = (itemData.actionType == "save") ? "[dcPrimaryBonus]" : "[dcSecondaryBonus]";
+			if (itemData.attackBonus) {
+				dc += ` + ${itemData.attackBonus}`;
+			}
+			const gmmMonster = item.getOwningGmmMonster();
+			if (gmmMonster) {
+				dc = Shortcoder.replaceShortcodes(dc, gmmMonster);
+			}
+			item.data.data.save.dc = simplifyRollFormula(dc)
+			item.data.data.save.ability = itemData.save.ability;
+			item.data.data.save.scaling = "flat";
+			item.labels.save = game.i18n.format("DND5E.SaveDC", {
+				dc: item.data.data.save.dc || "",
+				ability: game.i18n.format(`gmm.common.ability.${itemData.save.ability}.name`)
+			});
+		} else {
+			item.labels.save = null;
 		}
+		
 		return item.data.data.save.dc;
 	}
 
-	function _rollActionDamage({item=null, critical=false, event=null, spellLevel=null, versatile=false, options={}}={}) {
+	function _rollActionDamage({item=null, critical=false, event=null, options={}}={}) {
 		if ( !item.hasDamage ) {
 			throw new Error("You may not make a Damage Roll with this Item.");
 		}
 		const itemData = item.data.data;
 		const messageData = {"flags.dnd5e.roll": {type: "damage", itemId: item.id }};
+		const gmmActionBlueprint = item.getGmmActionBlueprint();
 	
 		// Get roll data
-		const parts = [itemData.gmm.blueprint.data.attack.damage.formula].map((x) => x.replace(/\[.*?\]/g, (token) => {
-			return _applyShortcodes(token, item.actor.data.data.gmm.monster.data);
+		const parts = itemData.damage.parts.map((x) => x[0].replace(/\[.*?\]/g, (token) => {
+			return Shortcoder.replaceShortcodes(token, item.actor.data.data.gmm.monster.data);
 		}));
 		const rollData = item.getRollData();
 	
@@ -294,37 +360,90 @@ const GmmItem = (function () {
 		const actionFlavor = game.i18n.localize("DND5E.DamageRoll");
 		const title = `${item.name} - ${actionFlavor}`;
 		const rollConfig = {
-		  actor: item.actor,
-		  critical: critical ?? event?.altKey ?? false,
-		  data: rollData,
-		  event: event,
-		  fastForward: event ? event.shiftKey || event.altKey || event.ctrlKey || event.metaKey : false,
-		  parts: parts,
-		  title: title,
-		  flavor: itemData.gmm.blueprint.data.attack.damage.type ? `${title} (${itemData.gmm.blueprint.data.attack.damage.type})` : title,
-		  speaker: ChatMessage.getSpeaker({actor: item.actor}),
-		  dialogOptions: {
-			width: 400,
-			top: event ? event.clientY - 80 : null,
-			left: window.innerWidth - 710
-		  },
-		  messageData: messageData
+			actor: item.actor,
+			critical: critical ?? event?.altKey ?? false,
+			data: rollData,
+			event: event,
+			fastForward: event ? event.shiftKey || event.altKey || event.ctrlKey || event.metaKey : false,
+			parts: parts,
+			title: title,
+			flavor: gmmActionBlueprint.attack.damage.type ? `${title} (${gmmActionBlueprint.attack.damage.type})` : title,
+			speaker: ChatMessage.getSpeaker({actor: item.actor}),
+			dialogOptions: {
+				width: 400,
+				top: event ? event.clientY - 80 : null,
+				left: window.innerWidth - 710
+			},
+			messageData: messageData
 		};
 	
 		// Handle ammunition damage
 		const ammoData = item._ammo?.data;
-	
-		// only add the ammunition damage if the ammution is a consumable with type 'ammo'
 		if ( item._ammo && (ammoData.type === "consumable") && (ammoData.data.consumableType === "ammo") ) {
-		  parts.push("@ammo");
-		  rollData["ammo"] = ammoData.data.damage.parts.map(p => p[0]).join("+");
-		  rollConfig.flavor += ` [${item._ammo.name}]`;
-		  delete item._ammo;
+			parts.push("@ammo");
+			rollData["ammo"] = ammoData.data.damage.parts.map(p => p[0]).join("+");
+			rollConfig.flavor += ` [${item._ammo.name}]`;
+			delete item._ammo;
 		}
 	
 		// Call the roll helper utility
 		return damageRoll(mergeObject(rollConfig, options));
-	  }
+	}
+
+	function _getSortingCategory() {
+		if (this.getSheetId() == "gmm.ActionSheet") {
+			const gmmActionBlueprint = this.getGmmActionBlueprint();
+			if (gmmActionBlueprint) {
+				switch (gmmActionBlueprint.activation.type) {
+					case "action":
+					case "crew":
+					case "minute":
+					case "hour":
+					case "day":
+					case "special":
+						return "action";
+					case "bonus":
+					case "reaction":
+					case "lair":
+					case "legendary":
+						return gmmActionBlueprint.activation.type;
+					default:
+						return "trait";
+				}
+			} else {
+				return "trait";
+			}
+		} else {
+			switch (this.type) {
+				case "spell":
+					return "spell";
+				case "weapon":
+				case "feat":
+					if (this.data.data.activation?.type) {
+						switch(this.data.data.activation.type) {
+							case "bonus":
+								return "bonus";
+							case "reaction":
+								return "reaction";
+							case "lair":
+								return "lair";
+							case "legendary":
+								return "legendary";
+							default:
+								return "action";
+						}
+					} else if (this.type == "weapon") {
+						return "loot";
+					} else {
+						return "trait";
+					}
+				case "class":
+					return "trait";
+				default:
+					return "loot";
+			}
+		}
+	}
 
 	/**
 	 * Get the active sheet id for a specified item.

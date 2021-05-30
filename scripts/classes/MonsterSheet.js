@@ -100,48 +100,8 @@ export default class MonsterSheet extends ActorSheet {
 				if (items) {
 					setProperty(data.gmm.monster, x, items.map((y) => {
 						let item = this.actor.getOwnedItem(y.id);
-						let sortType = this._getItemSortType(item.data);
-						let properties = item.getChatData({secrets: this.actor.owner});
-						let details = {
-							id: item._id,
-							name: item.name,
-							icon: (item.getSheetId() == "gmm.ActionSheet") ? 'fas fa-arrow-circle-right' : 'far fa-arrow-alt-circle-right',
-							img: item.img,
-							description: properties.description.value,
-							tags: properties.properties,
-							sort_type: sortType,
-							uses: {
-								enabled: item.hasLimitedUses,
-								current: item.hasLimitedUses ? item.data.data.uses.value : null,
-								maximum: item.hasLimitedUses ? item.data.data.uses.max : null,
-								per: item.hasLimitedUses && item.data.data.uses.per ? item.data.data.uses.per : null
-							},
-							recharge: {
-								enabled: item.data.data.recharge && item.data.data.recharge.value != null,
-								value: item.data.data.recharge ? (item.data.data.recharge.value < 6 ? `${item.data.data.recharge.value}-6` : item.data.data.recharge.value) : null,
-								charged: item.data.data.recharge ? item.data.data.recharge.charged : null
-							},
-							activation: {
-								enabled: item.data.data.activation && item.data.data.activation.type != "",
-								description: item.labels.activation
-							},
-							legendary_cost: (item.data.data.activation?.type == "legendary" && item.data.data.activation?.cost > 1) ? item.data.data.activation.cost : null
-						};
-						if (item.type == "class") {
-							properties.properties.push("Class");
-						}
-						if (item.type == "feat" && !item.data.data.activation.type) {
-							properties.properties.push("Passive");
-						}
-						if (sortType == "loot") {
-							details.quantity = item.data.data.quantity;
-						}
-						if (sortType == "spell") {
-							details.components = item.labels.components;
-							details.target = item.labels.target;
-							details.school = item.labels.school;
-						}
-						return details;
+						item.gmmLabels = item.getGmmLabels();
+						return item;
 					}));
 				}
 			});
@@ -252,15 +212,15 @@ export default class MonsterSheet extends ActorSheet {
 		}
 		// Get the drag source and its siblings
 		const source = this.actor.getOwnedItem(itemData._id);
-		const siblings = this.actor.items.filter(i => {
-			return (this._getItemSortType(i.data) === this._getItemSortType(source.data)) && (i.data._id !== source.data._id);
+		const siblings = this.actor.items.filter((i) => {
+			return (i.getSortingCategory() === source.getSortingCategory()) && (i.data._id !== source.data._id);
 		});
 		// Get the drop target
 		const dropTarget = event.target.closest(".item");
 		const targetId = dropTarget ? dropTarget.dataset.itemId : null;
 		const target = siblings.find(s => s.data._id === targetId);
 		// Ensure we are only sorting like-types
-		if (target && (this._getItemSortType(source.data) !== this._getItemSortType(target.data))) {
+		if (target && (target.getSortingCategory() !== source.getSortingCategory())) {
 			return;
 		}
 		// Perform the sort
@@ -272,46 +232,6 @@ export default class MonsterSheet extends ActorSheet {
 		});
 		// Perform the update
 		return this.actor.updateEmbeddedEntity("OwnedItem", updateData);
-	}
-
-	_getItemSortType(item) {
-		switch (item.type) {
-			case "spell":
-				return "spell";
-				break;
-			case "weapon":
-			case "feat":
-				if (item.data.activation.type) {
-					switch(item.data.activation.type) {
-						case "bonus":
-							return "bonus";
-							break;
-						case "reaction":
-							return "reaction";
-							break;
-						case "lair":
-							return "lair";
-							break;
-						case "legendary":
-							return "legendary";
-							break;
-						default:
-							return "action";
-							break;
-					}
-				} else if (item.data.type == "weapon") {
-					return "loot";
-				} else {
-					return "trait";
-				}
-				break;
-			case "class":
-				return "trait";
-				break;
-			default:
-				return "loot";
-				break;
-		}
 	}
 
  	_updateObject(event, form) {

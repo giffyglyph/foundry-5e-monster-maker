@@ -10,6 +10,9 @@ const ActionBlueprint = (function() {
 		{ from: "activation.type", to: "data.activation.type" },
 		{ from: "activation.condition", to: "data.activation.condition" },
 		{ from: "cover", to: "data.cover" },
+		{ from: "attack.type", to: "data.actionType" },
+		{ from: "attack.bonus", to: "data.attackBonus" },
+		{ from: "attack.defense", to: "data.save.ability" },
 		{ from: "target.value", to: "data.target.value" },
 		{ from: "target.units", to: "data.target.units" },
 		{ from: "target.type", to: "data.target.type" },
@@ -57,6 +60,18 @@ const ActionBlueprint = (function() {
 				}
 			});
 
+			// Set damage array
+			if (hasProperty(item.data, "data.damage.parts")) {
+				setProperty(blueprintData, "attack.hit.damage", item.data.data.damage?.parts.map((x) => {
+					return {
+						formula: x[0],
+						type: x[1]
+					};
+				}));
+			} else {
+				setProperty(blueprintData, "attack.hit.damage", []);
+			}
+
 			return blueprint;
 		} catch (error) {
 			console.error("Failed to load blueprint data from the current item", error);
@@ -72,6 +87,15 @@ const ActionBlueprint = (function() {
 				setProperty(itemData, x.to, getProperty(blueprint.data, x.from));
 			}
 		});
+
+		// Set damage array
+		if (getProperty(blueprint.data, "attack.hit.damage")) {
+			setProperty(itemData, "data.damage.parts", Object.values(getProperty(blueprint.data, "attack.hit.damage")).map((x) => {
+				return [x.formula, x.type];
+			}));
+		} else {
+			setProperty(itemData, "data.damage.parts", []);
+		}
 
 		return itemData;
 	}

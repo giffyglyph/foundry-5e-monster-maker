@@ -77,18 +77,18 @@ const ActionForge = (function() {
 		if (target.type) {
 			switch (target.type) {
 				case "self":
-					return game.i18n.format(`gmm.action.artifact.target.self`);
+					return game.i18n.format(`gmm.action.labels.self`);
 				case "ally":
 				case "enemy":
 				case "creature":
 				case "object":
-					return game.i18n.format(`gmm.action.artifact.target.${target.type}.${target.value > 1 ? "multiple" : "single"}`, { quantity: Math.max(1, target.value) });
+					return game.i18n.format(`gmm.action.labels.${target.type}.${target.value > 1 ? "multiple" : "single"}`, { quantity: Math.max(1, target.value) });
 				case "line":
 				case "wall":
 					if (target.units) {
 						if (["ft", "mi"].includes(target.units)) {
-							let area = game.i18n.format(`gmm.action.artifact.target.size.${target.units}.double`, { x: Math.max(1, target.value), y: Math.max(1, target.width) });
-							return game.i18n.format(`gmm.action.artifact.target.${target.type}`, { area: area });
+							let area = game.i18n.format(`gmm.action.labels.size.${target.units}.double`, { x: Math.max(1, target.value), y: Math.max(1, target.width) });
+							return game.i18n.format(`gmm.action.labels.${target.type}`, { area: area });
 						} else {
 							return "";
 						}
@@ -98,8 +98,8 @@ const ActionForge = (function() {
 				default:
 					if (target.units) {
 						if (["ft", "mi"].includes(target.units)) {
-							let size = game.i18n.format(`gmm.action.artifact.target.size.${target.units}.single`, { x: Math.max(1, target.value) });
-							return game.i18n.format(`gmm.action.artifact.target.${target.type}`, { size: size });
+							let size = game.i18n.format(`gmm.action.labels.size.${target.units}.single`, { x: Math.max(1, target.value) });
+							return game.i18n.format(`gmm.action.labels.${target.type}`, { size: size });
 						} else {
 							return "";
 						}
@@ -174,15 +174,21 @@ const ActionForge = (function() {
 
 	function _parseAttack(attack) {
 		switch (attack.type) {
-			case "melee_attack_weapon":
-			case "melee_attack_spell":
-			case "ranged_attack_weapon":
-			case "ranged_attack_spell":
-				return game.i18n.format(`gmm.action.artifact.attack.${attack.type}`, { bonus: "[attack-bonus]" });
-			case "dc_primary":
-				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, { dc: "[dc-primary-bonus]" });
-			case "dc_secondary":
-				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, { dc: "[dc-secondary-bonus]" });
+			case "mwak":
+			case "msak":
+			case "rwak":
+			case "rsak":
+				return game.i18n.format(`gmm.action.artifact.attack.${attack.type}`, {
+					bonus: `[attackBonus]${attack.bonus ? ` + ${attack.bonus}` : ``}`
+				});
+			case "save":
+				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, {
+					dc: `[dcPrimaryBonus]${attack.bonus ? ` + ${attack.bonus}` : ``}`
+				});
+			case "other":
+				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, {
+					dc: `[dcSecondaryBonus]${attack.bonus ? ` + ${attack.bonus}` : ``}`
+				});
 			default:
 				return "";
 		}

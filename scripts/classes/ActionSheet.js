@@ -14,6 +14,7 @@ import { GMM_MONSTER_ROLES } from "../consts/GmmMonsterRoles.js";
 import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
 import Gui from "./Gui.js";
 import ActionBlueprint from "./ActionBlueprint.js";
+import ActionForge from "./ActionForge.js";
 
 export default class ActionSheet extends ItemSheet {
 
@@ -28,8 +29,8 @@ export default class ActionSheet extends ItemSheet {
 			super.defaultOptions,
 			{
 				classes: ["gmm-window window--action"],
-				height: 400,
-				width: 540,
+				height: 600,
+				width: 500,
 				template: 'modules/giffyglyphs-5e-monster-maker/templates/action/forge.html',
 				resizable: true
 			}
@@ -41,9 +42,26 @@ export default class ActionSheet extends ItemSheet {
 			super.activateListeners($el);
 			this._gui.activateListeners($el);
 			this._gui.applyTo($el);
+			$el.find('[data-action="add-damage"]').click((e) => this._addDamage(e));
+			$el.find('[data-action="remove-damage"]').click((e) => this._removeDamage(e));
 		} catch (error) {
 			console.error(error);
 		}
+	}
+
+	_addDamage(event) {
+		event.preventDefault();
+		const damage = this.item.data.data.damage;
+		return this.item.update({"data.damage.parts": damage.parts.concat([["", ""]])});
+	}
+
+	_removeDamage(event) {
+		event.preventDefault();
+		const a = event.currentTarget;
+		const li = a.closest(".form-group--damage");
+		const damage = duplicate(this.item.data.data.damage);
+		damage.parts.splice(Number(li.dataset.index), 1);
+		return this.item.update({"data.damage.parts": damage.parts});
 	}
 
 	getData() {
@@ -51,7 +69,7 @@ export default class ActionSheet extends ItemSheet {
 
 		data.gmm = {
 			blueprint: data.item.data.gmm.blueprint ? data.item.data.gmm.blueprint.data : null,
-			action: data.item.data.gmm.action ? data.item.data.gmm.action.data : null,
+			action: data.item.data.gmm.blueprint ? ActionForge.createArtifact(data.item.data.gmm.blueprint).data : null,
 			gui: this._gui,
 			enums: {
 				colors: GMM_GUI_COLORS,
@@ -72,20 +90,7 @@ export default class ActionSheet extends ItemSheet {
 			}
 		};
 
-		if (data.gmm.action && this.item.isOwned) {
-			
-			let cost = data.gmm.action.activation_cost;
-			switch (cost.type) {
-				case "attribute":
-					data.gmm.action.activation_cost.label = `${cost.amount} × ${cost.target}`;
-				default:
-					let item = this.item.actor.getOwnedItem(cost.target);
-					if (item) {
-						data.gmm.action.activation_cost.label = `${cost.amount} × ${item.name}`
-					}
-			}
-		}
-
+		data.gmm.action.gmmLabels = this.item.getGmmLabels();
 		return data;
 	}
 
@@ -101,40 +106,40 @@ export default class ActionSheet extends ItemSheet {
 	
 		// Ammunition
 		if ( consume.type === "ammo" ) {
-		  return actor.itemTypes.consumable.reduce((ammo, i) =>  {
-			if ( i.data.data.consumableType === "ammo" ) {
-			  ammo[i.id] = `${i.name} (${i.data.data.quantity})`;
-			}
-			return ammo;
-		  }, {[item._id]: `${item.name} (${item.data.quantity})`});
+			return actor.itemTypes.consumable.reduce((ammo, i) =>  {
+				if ( i.data.data.consumableType === "ammo" ) {
+					ammo[i.id] = `${i.name} (${i.data.data.quantity})`;
+				}
+				return ammo;
+			}, {[item._id]: `${item.name} (${item.data.quantity})`});
 		} else if ( consume.type === "attribute" ) {
-		  const attributes = Object.values(CombatTrackerConfig.prototype.getAttributeChoices())[0]; // Bit of a hack
-		  return attributes.reduce((obj, a) => {
-			obj[a] = a;
-			return obj;
-		  }, {});
+			const attributes = Object.values(CombatTrackerConfig.prototype.getAttributeChoices())[0]; // Bit of a hack
+			return attributes.reduce((obj, a) => {
+				obj[a] = a;
+				return obj;
+			}, {});
 		} else if ( consume.type === "material" ) {
-		  return actor.items.reduce((obj, i) => {
-			if ( ["consumable", "loot"].includes(i.data.type) && !i.data.data.activation ) {
-			  obj[i.id] = `${i.name} (${i.data.data.quantity})`;
-			}
-			return obj;
-		  }, {});
+			return actor.items.reduce((obj, i) => {
+				if ( ["consumable", "loot"].includes(i.data.type) && !i.data.data.activation ) {
+					obj[i.id] = `${i.name} (${i.data.data.quantity})`;
+				}
+				return obj;
+			}, {});
 		} else if ( consume.type === "charges" ) {
-		  return actor.items.reduce((obj, i) => {
-			const uses = i.data.data.uses || {};
-			if ( uses.per && uses.max ) {
-			  const label = uses.per === "charges" ?
-				` (${game.i18n.format("DND5E.AbilityUseChargesLabel", {value: uses.value})})` :
-				` (${game.i18n.format("DND5E.AbilityUseConsumableLabel", {max: uses.max, per: uses.per})})`;
-			  obj[i.id] = i.name + label;
-			}
-			const recharge = i.data.data.recharge || {};
-			if ( recharge.value ) {
-				obj[i.id] = `${i.name} (${game.i18n.format("DND5E.Recharge")})`;
-			}
-			return obj;
-		  }, {})
+			return actor.items.reduce((obj, i) => {
+				const uses = i.data.data.uses || {};
+				if ( uses.per && uses.max ) {
+					const label = uses.per === "charges" ?
+					` (${game.i18n.format("DND5E.AbilityUseChargesLabel", {value: uses.value})})` :
+					` (${game.i18n.format("DND5E.AbilityUseConsumableLabel", {max: uses.max, per: uses.per})})`;
+					obj[i.id] = i.name + label;
+				}
+				const recharge = i.data.data.recharge || {};
+				if ( recharge.value ) {
+					obj[i.id] = `${i.name} (${game.i18n.format("DND5E.Recharge")})`;
+				}
+				return obj;
+			}, {})
 		} else return {};
 	}
 

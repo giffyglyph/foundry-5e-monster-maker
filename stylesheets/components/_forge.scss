@@ -43,7 +43,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.5rem;
+		padding: 0.25rem;
 		position: relative;
 		z-index: 2;
 
@@ -52,6 +52,10 @@
 			text-transform: uppercase;
 			font-weight: bold;
 			line-height: 1;
+
+			&:first-child {
+				margin-left: 0.25rem;
+			}
 	
 			.id,
 			.name {
@@ -123,102 +127,61 @@
 	}
 
 	// Layouts
-	&.layout--single {
+	&.layout--slide-in-left,
+	&.layout--slide-in-right {
 
-		&.expanded {
+		.forge__artifact::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: rgba(black, 0.7);
+			height: 0;
+			width: 0;
+			border-radius: 1rem;
+			z-index: 1;
+			opacity: 0;
+			transition: opacity 100ms ease-in-out;
+		}
 
-			.forge__artifact {
-				
-				&::after {
-					content: '';
-					position: absolute;
-					top: 0;
-					left: 0;
-					background: rgba(black, 0.7);
-					height: 100%;
-					width: 100%;
-					border-radius: 1rem;
-					z-index: 1;
-				}
-			}
+		.forge__blueprint {
+			width: 420px;
+			filter: drop-shadow(0px 0px 10px black);
+			z-index: 1;
+			background: black;
+			padding: 0.25rem;
+			border-radius: 1rem;
+			position: absolute;
+			display: block;
+			transition: width 100ms ease-in-out, height 100ms ease-in-out;
+			width: 0;
+			top: 0;
+			height: calc(100% - 2.75rem);
+			padding: 0;
 
-			.forge__blueprint {
-				display: block;
-				position: absolute;
-				top: 0.5rem;
-				height: calc(100% - 3.75rem);
-				left: calc(50% - 210px);
-				width: 420px;
-				filter: drop-shadow(0px 0px 10px black);
-				z-index: 1;
-				background: black;
-				padding: 0.25rem;
-				border-radius: 1rem;
-			}
-
-			.forge__blueprint .gmm-blueprint .blueprint__form {
+			.blueprint__form {
 				max-width: 420px;
 				margin-left: auto;
 				margin-right: auto;
 			}
-		}
-	}
-
-	&.layout--slide-in-left,
-	&.layout--slide-in-right {
-
-		.forge__blueprint {
-			display: block;
-			position: absolute;
-			top: 0;
-			width: 0;
-			padding: 0;
-			height: calc(100% - 2.75rem);
-			box-sizing: border-box;
-			background: none;
-			transition: width 100ms ease-in-out;
-			border-radius: 1rem;
-			filter: drop-shadow(0px 0px 10px black);
-			z-index: 1;
 
 			.gmm-blueprint {
-				border: 0.25rem solid black;
-				width: 420px;
-				background: white;
-				padding: 0.125rem;
-				border-radius: 1.2rem;
-
-				.blueprint__header {
-					border-top-left-radius: 1rem;
-					border-top-right-radius: 1rem;
-				}
-
-				.blueprint__body {
-					border-bottom-left-radius: 1rem;
-					border-bottom-right-radius: 1rem;
-				}
+				margin: 0.25rem;
+				height: calc(100% - 0.5rem);
+				width: calc(420px - 0.5rem);
 			}
 		}
 
 		&.expanded {
 
-			.forge__artifact {
-				display: block;
-
-				&::after {
-					content: '';
-					position: absolute;
-					top: 0;
-					left: 0;
-					background: rgba(black, 0.7);
-					height: 100%;
-					width: 100%;
-					border-radius: 1rem;
-					z-index: 1;
-				}
+			.forge__artifact::after {
+				height: 100%;
+				width: 100%;
+				opacity: 1;
 			}
 
 			.forge__blueprint {
+				display: block;
 				width: 420px;
 			}
 		}
@@ -226,10 +189,18 @@
 
 	&.layout--slide-in-left .forge__blueprint {
 		left: 0;
+
+		.gmm-blueprint {
+			float: right;
+		}
 	}
 
 	&.layout--slide-in-right .forge__blueprint {
 		right: 0;
+
+		.gmm-blueprint {
+			float: left;
+		}
 	}
 
 	&.layout--slide-out {
@@ -251,34 +222,35 @@
 			position: relative;
 			z-index: 2;
 			display: block;
+			filter: drop-shadow(2px 0 0 black);
 		}
 
 		.forge__blueprint {
 			position: absolute;
 			right: 0;
-			top: 1rem;
-			height: calc(100% - 5rem);
+			top: 0;
+			height: calc(100% - 2.75rem);
 			background: black;
 			padding: 0.25rem;
 			border-radius: 0 1.2rem 1.2rem 0;
 			grid-column: auto;
 			padding-left: 0;
-			width: calc(360px + 0.25rem - 2px);
+			width: calc(360px + 2rem);
 			display: block;
 
 			.gmm-blueprint {
 				border-radius: 0 1rem 1rem 0;
 				border-left: none;
+				padding-left: 0;
 
-				&::after {
-					content: '';
-					position: absolute;
-					left: 0;
-					top: 0;
-					height: 100%;
-					width: 100%;
-					background: linear-gradient(to right, rgba(black, 0.2), transparent 5%);
-					pointer-events: none;
+				.blueprint__header {
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+					padding-left: 2rem;
+				}
+
+				.blueprint__body {
+					padding-left: 2rem;
 				}
 			}
 		}
@@ -304,10 +276,10 @@
 				.forge__blueprint::after {
 					content: '';
 					position: absolute;
-					left: 0.25rem;
+					left: 0;
 					top: 0;
 					height: 100%;
-					width: calc(100% - 0.25rem);
+					width: 100%;
 					background: rgba(black, 0.75);
 					z-index: 1;
 					border-radius: 0 1rem 1rem 0;
@@ -468,11 +440,4 @@
 	&.color--secondary-blue-gray {
 		@include secondary-colors(#546E7A);
 	}
-}
-
-.gmm-artifact {
-	background: white;
-	height: 100%;
-	width: 100%;
-	border-radius: 1rem;
 }

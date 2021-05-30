@@ -168,7 +168,7 @@ export const GMM_MONSTER_BLUEPRINT = {
 			}
 		},
 		display: {
-			layout: "slide-in-right",
+			layout: "slide-in-left",
 			color: {
 				primary: "blue",
 				secondary: "deep-orange"

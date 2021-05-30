@@ -1,4 +1,4 @@
-<div class="gmm-blueprint blueprint--action--vanity">
+<div class="gmm-blueprint blueprint--action blueprint--action--vanity">
 	<div class="blueprint__header">
 		<div class="blueprint__icon"><i class="fas fa-cogs"></i></div>
 		<div class="blueprint__title">{{localize 'gmm.action.blueprint.title'}}</div>
@@ -11,7 +11,7 @@
 	</div>
 	<div class="blueprint__body" data-track-scrollbars="true" id="action-blueprint-body">
 		<form class="blueprint__form" autocomplete="off">
-			<div class="gmm-accordion" id="action-configuration">
+			<div class="gmm-accordion blueprint__form-options" id="action-configuration">
 				<div class="accordion-group">
 					<div class="accordion-section" data-section="title">
 						<div class="accordion-section__header">
@@ -130,6 +130,9 @@
 					<div class="accordion-section" data-section="description">
 						<div class="accordion-section__header">
 							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.description.title'}}</span>
+							<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_shortcodes">
+								<i class="fas fa-question"></i>
+							</button>
 						</div>
 						<div class="accordion-section__body">
 							<div class="form-group">
@@ -196,6 +199,9 @@
 							<div class="form-group">
 								<div class="form-group__header">
 									<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.type'}}</span>
+									<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_scaling">
+										<i class="fas fa-question"></i>
+									</button>
 								</div>
 								<div class="form-group__body">
 									<select name="gmm.blueprint.attack.type">
@@ -210,11 +216,23 @@
 							</div>
 							<div class="form-group">
 								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.bonus'}}</span>
+									<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_shortcodes">
+										<i class="fas fa-question"></i>
+									</button>
+								</div>
+								<div class="form-group__body">
+									<input name="gmm.blueprint.attack.bonus" value="{{gmm.blueprint.attack.bonus}}"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
 									<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.defense'}}</span>
 								</div>
 								<div class="form-group__body">
 									<select name="gmm.blueprint.attack.defense">
 										{{#select gmm.blueprint.attack.defense}}
+											<option value=""></option>
 											{{#each gmm.enums.abilities}}
 												<option value="{{.}}">{{localize (concat 'gmm.common.ability.' . '.name')}}</option>
 											{{/each}}
@@ -222,32 +240,54 @@
 									</select>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="accordion-section" data-section="damage">
+						<div class="accordion-section__header">
+							<span class="accordion-section__title">{{localize 'gmm.action.blueprint.attack.damage.title'}}</span>
+						</div>
+						<div class="accordion-section__body">
 							<div class="form-fieldset">
-								<div class="form-fieldset__header">{{localize 'gmm.action.blueprint.attack.damage.title'}}</div>
+								<div class="form-fieldset__header">
+									<span>{{localize 'gmm.action.blueprint.attack.damage.title'}}</span>
+									<button type="button" data-action="add-damage">
+										{{localize 'gmm.action.blueprint.attack.damage.add'}}
+									</button>
+								</div>
 								<div class="form-fieldset__body">
-									<div class="form-group">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.formula'}}</span>
+									{{#each gmm.blueprint.attack.hit.damage as | damage |}}
+										<div class="form-group--damage" data-index="{{@index}}">
+											<div class="form-group">
+												<div class="form-group__header">
+													<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.formula'}}</span>
+													<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_shortcodes">
+														<i class="fas fa-question"></i>
+													</button>
+												</div>
+												<div class="form-group__body damage-formula">
+													<input name="gmm.blueprint.attack.hit.damage.{{@index}}.formula" value="{{damage.formula}}"/>
+													<button type="button" data-action="remove-damage">
+														<i class="fas fa-trash"></i>
+													</button>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="form-group__header">
+													<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.type'}}</span>
+												</div>
+												<div class="form-group__body">
+													<select name="gmm.blueprint.attack.hit.damage.{{@index}}.type">
+														{{#select damage.type}}
+															<option value=""></option>
+															{{#each ../gmm.enums.attack_damage_types}}
+																<option value="{{.}}">{{localize (concat 'gmm.common.damage.' .)}}</option>
+															{{/each}}
+														{{/select}}
+													</select>
+												</div>
+											</div>
 										</div>
-										<div class="form-group__body">
-											<input name="gmm.blueprint.attack.damage.formula" value="{{gmm.blueprint.attack.damage.formula}}"/>
-										</div>
-									</div>
-									<div class="form-group">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.type'}}</span>
-										</div>
-										<div class="form-group__body">
-											<select name="gmm.blueprint.attack.damage.type">
-												{{#select gmm.blueprint.attack.damage.type}}
-													<option value=""></option>
-													{{#each gmm.enums.attack_damage_types}}
-														<option value="{{.}}">{{localize (concat 'gmm.common.damage.' .)}}</option>
-													{{/each}}
-												{{/select}}
-											</select>
-										</div>
-									</div>
+									{{/each}}
 								</div>
 							</div>
 						</div>

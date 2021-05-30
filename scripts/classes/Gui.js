@@ -8,6 +8,7 @@ export default class Gui {
 	}
 
 	activateListeners($el) {
+		$el.find('.gmm-accordion .accordion-section__header button').click((e) => e.stopPropagation() );
 		$el.find('.gmm-accordion .accordion-section__header').click((e) => this._toggleAccordionCollapse(e));
 		$el.find('.gmm-panel.panel--collapsible .panel__header').click((e) => this._togglePanelCollapse(e));
 		$el.find('button.move-up').click((e) => this._moveUp(e));

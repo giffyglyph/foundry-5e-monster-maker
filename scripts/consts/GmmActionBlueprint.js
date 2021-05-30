@@ -8,7 +8,7 @@ export const GMM_ACTION_BLUEPRINT = {
 			text: null
 		},
 		display: {
-			layout: "slide-in-right",
+			layout: "slide-in-left",
 			color: {
 				primary: "blue",
 				secondary: "deep-orange"

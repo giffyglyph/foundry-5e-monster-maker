@@ -48,6 +48,7 @@
 		</nav>
 	</div>
 	<div class="forge__modals">
+		
 		<div class="gmm-modal modal--about" id="modal_about">
 			<div class="modal__dialog">
 				<div class="modal__icon"><i class="fas fa-question"></i></div>
@@ -95,6 +96,79 @@
 							</li>
 						</ul>
 					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--shortcodes" id="modal_shortcodes">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-calculator"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">Automated Shortcodes</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">You can use <strong>shortcodes</strong> to automatically insert data from a parent monster. Note: this only occurs when the item is attached to a <i>Giffyglyph</i> monsters—shortcodes are otherwise left as-is.</p>
+					<div class="gmm-accordion">
+						<div class="accordion-section">
+							<div class="accordion-section__header">Randomised Dice Rolls</div>
+							<div class="accordion-section__body">
+								<p>Insert randomised dice rolls with a special shortcode. You can use any dice size, as shown below:</p>
+								<blockquote>
+									<p>[12, d4] = 4d4 + 2</p>
+									<p>[25, d12] = 3d12 + 6</p>
+									<p>[66, d30] = 4d30 + 4</p>
+								</blockquote>
+							</div>
+						</div>
+						<div class="accordion-section">
+							<div class="accordion-section__header">Shortcodes</div>
+							<div class="accordion-section__body">
+								<p>Use <strong>shortcodes</strong> to pull data out of a <i>Giffyglyph</i> monster and insert it into your text. There are currently 23 shortcodes for you to try:</p>
+								<blockquote>
+									<p>[level] [attackBonus] [damage] [ac] [hpMax] [dcPrimaryBonus] [dcSecondaryBonus] [strMod] [strSave] [dexMod] [dexSave] [conMod] [conSave] [intMod] [intSave] [wisMod] [wisSave] [chaMod] [chaSave] [xp] [proficiency] [cr]</p>
+								</blockquote>
+							</div>
+						</div>
+						<div class="accordion-section">
+							<div class="accordion-section__header">Shortcode Modifiers</div>
+							<div class="accordion-section__body">
+								<p>Use mathematical modifiers with your shortcodes to transform the final number and apply specific rounding. For example:</p>
+								<blockquote>
+									<p>[level * 2] = Monster Level x 2</p>
+									<p>[damage + 4] = Attack Damage + 4</p>
+									<p>[damage + 4] = Attack Damage + 4</p>
+									<p>[(hp / 3) + 10] = (Hit Points / 3) + 10</p>
+									<p>[round(damage / 4)] = Attack Damage / 4, rounded</p>
+									<p>[ceil(damage / 4)] = Attack Damage / 4, rounded up</p>
+									<p>[floor(damage / 4)] = Attack Damage / 4, rounded down</p>
+								</blockquote>
+							</div>
+						</div>
+						<div class="accordion-section">
+							<div class="accordion-section__header">Shortcodes and Dice</div>
+							<div class="accordion-section__body">
+								<p>Add a dice value to a shortcodes to transform it into a dice roll. For example:</p>
+								<blockquote>
+									<p>[damage, d8] = Attack Damage (shown in d8)</p>
+									<p>[12 + str-mod, d20] = 12 + Strength Mod (shown in d20)</p>
+									<p>[10 * level, d6] = 10 * Level (shown in d6)</p>
+								</blockquote>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--scaling" id="modal_scaling">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-chart-line"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">Scaling Attacks</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">When paired with a <i>Giffyglyph</i> monster, a scaling attack will automatically take into account the monster's <strong>attack bonus</strong> and <strong>attack dcs</strong>.</p>
+					<p>Use these to easily create features and attacks that work at every monster level.</p>
 				</div>
 			</div>
 		</div>
