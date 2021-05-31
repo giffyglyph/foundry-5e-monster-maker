@@ -1,7 +1,7 @@
 const Templates = (function() {
 
 	function getRelativePath(path) {
-		return `modules/giffyglyphs-5e-monster-maker/templates/${path}`;
+		return `modules/giffyglyphs-5e-monster-maker-dev/templates/${path}`;
 	}
 
 	async function preloadTemplates() {
