@@ -453,7 +453,7 @@ const GmmItem = (function () {
 	 */
 	function _getItemSheetId() {
 		try {
-			return this.getFlag("core", "sheetClass") || game.settings.get("core", "sheetClasses").Item;
+			return this.getFlag("core", "sheetClass") || game.settings.get("core", "sheetClasses").Item[this.type];
 		} catch (error) {
 			return "";
 		}

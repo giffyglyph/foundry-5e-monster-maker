@@ -42,29 +42,37 @@ export default class MonsterSheet extends ActorSheet {
 	}
 
 	activateListeners($el) {
-		super.activateListeners($el);
-		this._gui.activateListeners($el);
-		this._gui.applyTo($el);
-		$el.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
-		$el.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
-		$el.find('[data-action="edit-item"]').click(this._editItem.bind(this));
-		$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
-		$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
-		$el.find('[data-action="roll-item"]').click(this._rollItem.bind(this));
-		$el.find('[data-action="recharge-item"]').click(this._rechargeItem.bind(this));
-		$el.find('[data-action="update-item"]').change((e) => this._updateItem(e));
+		try {
+			super.activateListeners($el);
+		} catch (e) {
+			console.log(e);
+		}
+		try {
+			this._gui.activateListeners($el);
+			this._gui.applyTo($el);
+			$el.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
+			$el.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+			$el.find('[data-action="edit-item"]').click(this._editItem.bind(this));
+			$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
+			$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
+			$el.find('[data-action="roll-item"]').click(this._rollItem.bind(this));
+			$el.find('[data-action="recharge-item"]').click(this._rechargeItem.bind(this));
+			$el.find('[data-action="update-item"]').change((e) => this._updateItem(e));
 
-		[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
-			x.activateListeners($el, this.actor, this.id)
-		});
+			[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
+				x.activateListeners($el, this.actor, this.id)
+			});
+		} catch (e) {
+			console.log(e);
+		}
 	}
 
 	getData() {
 		const data = super.getData();
 
 		data.gmm = {
-			blueprint: data.actor.data.gmm.blueprint ? data.actor.data.gmm.blueprint.data : null,
-			monster: data.actor.data.gmm.monster ? data.actor.data.gmm.monster.data : null,
+			blueprint: data.actor.data.gmm?.blueprint ? data.actor.data.gmm.blueprint.data : null,
+			monster: data.actor.data.gmm?.monster ? data.actor.data.gmm.monster.data : null,
 			gui: this._gui,
 			enums: {
 				abilities: GMM_5E_ABILITIES,

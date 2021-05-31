@@ -40,6 +40,10 @@ export default class ActionSheet extends ItemSheet {
 	activateListeners($el) {
 		try {
 			super.activateListeners($el);
+		} catch (e) {
+			console.log(e);
+		}
+		try {
 			this._gui.activateListeners($el);
 			this._gui.applyTo($el);
 			$el.find('[data-action="add-damage"]').click((e) => this._addDamage(e));
@@ -68,8 +72,8 @@ export default class ActionSheet extends ItemSheet {
 		const data = super.getData();
 
 		data.gmm = {
-			blueprint: data.item.data.gmm.blueprint ? data.item.data.gmm.blueprint.data : null,
-			action: data.item.data.gmm.blueprint ? ActionForge.createArtifact(data.item.data.gmm.blueprint).data : null,
+			blueprint: data.item.data.gmm?.blueprint ? data.item.data.gmm.blueprint.data : null,
+			action: data.item.data.gmm?.blueprint ? ActionForge.createArtifact(data.item.data.gmm.blueprint).data : null,
 			gui: this._gui,
 			enums: {
 				colors: GMM_GUI_COLORS,
@@ -90,7 +94,9 @@ export default class ActionSheet extends ItemSheet {
 			}
 		};
 
-		data.gmm.action.gmmLabels = this.item.getGmmLabels();
+		if (data.gmm.action) {
+			data.gmm.action.gmmLabels = this.item.getGmmLabels();
+		}
 		return data;
 	}
 
