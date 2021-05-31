@@ -373,7 +373,7 @@
                             {{#if gmm.monster.traits.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.traits.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
                                     {{/each}}
                                 </div>
                             {{/if}}
@@ -394,7 +394,7 @@
                             {{#if gmm.monster.bonus_actions.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.bonus_actions.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
                                     {{/each}}
                                 </div>
                             {{/if}}
@@ -415,7 +415,7 @@
                             {{#if gmm.monster.actions.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.actions.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=. itemType="action"}}
+                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=. itemType="action"}}
                                     {{/each}}
                                 </div>
                             {{/if}}
@@ -436,7 +436,7 @@
                             {{#if gmm.monster.reactions.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.reactions.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
                                     {{/each}}
                                 </div>
                             {{/if}}
@@ -508,7 +508,7 @@
                             {{#if gmm.monster.legendary_actions.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.legendary_actions.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
                                     {{/each}}
                                 </div>
                             {{/if}}
@@ -543,7 +543,7 @@
                             {{#if gmm.monster.lair_actions.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.lair_actions.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html" item=.}}
+                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
                                     {{/each}}
                                 </div>
                             {{/if}}
@@ -624,7 +624,7 @@
                                 {{#if (lookup ../gmm.monster.spellbook.spells .)}}
                                     <div class="item-list">
                                         {{#each (lookup ../gmm.monster.spellbook.spells .) as | item |}}
-                                            {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_spell.html" item=item}}
+                                            {{> (getTemplate "monster/skins/vanity/partials/artifact_spell.html") item=item}}
                                         {{/each}}
                                     </div>
                                 {{/if}}
@@ -696,7 +696,7 @@
                             {{#if gmm.monster.inventory.items}}
                                 <div class="item-list">
                                     {{#each gmm.monster.inventory.items as | item |}}
-                                        {{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_loot.html" item=.}}
+                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_loot.html") item=.}}
                                     {{/each}}
                                 </div>
                             {{/if}}
