@@ -1,16 +1,20 @@
 const Templates = (function() {
 
+	function getRelativePath(path) {
+		return `modules/giffyglyphs-5e-monster-maker/templates/${path}`;
+	}
+
 	async function preloadTemplates() {
 
 		return loadTemplates([
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_loot.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_action.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/artifact_spell.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/blueprint.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/artifact.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/action/skins/vanity/blueprint.html",
-			"modules/giffyglyphs-5e-monster-maker/templates/action/skins/vanity/artifact.html"
+			getRelativePath("monster/skins/vanity/partials/blueprint_item.html"),
+			getRelativePath("monster/skins/vanity/partials/artifact_loot.html"),
+			getRelativePath("monster/skins/vanity/partials/artifact_action.html"),
+			getRelativePath("monster/skins/vanity/partials/artifact_spell.html"),
+			getRelativePath("monster/skins/vanity/blueprint.html"),
+			getRelativePath("monster/skins/vanity/artifact.html"),
+			getRelativePath("action/skins/vanity/blueprint.html"),
+			getRelativePath("action/skins/vanity/artifact.html")
 		]);
 	};
 
@@ -89,11 +93,16 @@ const Templates = (function() {
 		Handlebars.registerHelper('add', function(...args) {
 			return args.slice(0, -1).reduce((a, b) => a + b, 0);
 		});
+
+		Handlebars.registerHelper('getTemplate', function(path) {
+			return getRelativePath(path);
+		});
 	}
 
 	return {
 		preloadTemplates: preloadTemplates,
-		registerTemplateHelpers: registerTemplateHelpers
+		registerTemplateHelpers: registerTemplateHelpers,
+		getRelativePath: getRelativePath
 	};
 })();
 

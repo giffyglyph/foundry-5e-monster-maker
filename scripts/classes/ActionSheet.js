@@ -15,6 +15,7 @@ import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
 import Gui from "./Gui.js";
 import ActionBlueprint from "./ActionBlueprint.js";
 import ActionForge from "./ActionForge.js";
+import Templates from "./Templates.js";
 
 export default class ActionSheet extends ItemSheet {
 
@@ -31,7 +32,7 @@ export default class ActionSheet extends ItemSheet {
 				classes: ["gmm-window window--action"],
 				height: 600,
 				width: 500,
-				template: 'modules/giffyglyphs-5e-monster-maker/templates/action/forge.html',
+				template: Templates.getRelativePath('action/forge.html'),
 				resizable: true
 			}
 		);

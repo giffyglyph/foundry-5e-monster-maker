@@ -1,7 +1,7 @@
 <div class="gmm-forge forge--action layout--{{gmm.blueprint.display.layout}} color--primary-{{gmm.blueprint.display.color.primary}} color--secondary-{{gmm.blueprint.display.color.secondary}} {{#if gmm.gui._isExpanded}}expanded{{/if}} {{cssClass}}">
 	<div class="forge__artifact">
 		{{#if gmm.action }}
-			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/action/skins/' gmm.blueprint.display.skin.artifact '/artifact.html') }}
+			{{#> (getTemplate (concat 'action/skins/' gmm.blueprint.display.skin.artifact '/artifact.html')) }}
 				<div class="gmm-artifact">
 					<div class="artifact__error">
 						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>
@@ -20,7 +20,7 @@
 	</div>
 	<div class="forge__blueprint">
 		{{#if gmm.blueprint }}
-			{{#> (concat 'modules/giffyglyphs-5e-monster-maker/templates/action/skins/' gmm.blueprint.display.skin.blueprint '/blueprint.html') }}
+			{{#> (getTemplate (concat 'action/skins/' gmm.blueprint.display.skin.blueprint '/blueprint.html')) }}
 				<div class="gmm-blueprint">
 					<div class="blueprint__error">
 						<div class="error__icon"><i class="fas fa-skull-crossbones"></i></div>

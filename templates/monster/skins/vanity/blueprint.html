@@ -444,7 +444,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each gmm.blueprint.actions.items as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=.}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
 								</div>
@@ -637,7 +637,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each gmm.blueprint.bonus_actions.items as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=.}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
 								</div>
@@ -1065,7 +1065,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each data.gmm.monster.data.inventory.items as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=.}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
 								</div>
@@ -1108,7 +1108,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each data.gmm.monster.data.lair_actions.items as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=.}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
 								</div>
@@ -1188,7 +1188,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each data.gmm.monster.data.legendary_actions.items as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=.}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
 								</div>
@@ -1353,7 +1353,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each gmm.blueprint.reactions.items as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=.}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
 								</div>
@@ -1708,7 +1708,7 @@
 									<div class="form-fieldset__body">
 										<div class="items item-list">
 											{{#each (lookup ../gmm.blueprint.spellbook.spells .) as | item |}}
-												{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=item}}
+												{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=item}}
 											{{/each}}
 										</div>
 									</div>
@@ -1721,7 +1721,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each gmm.blueprint.spellbook.spells.other as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=item}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=item}}
 										{{/each}}
 									</div>
 								</div>
@@ -1756,7 +1756,7 @@
 								<div class="form-fieldset__body">
 									<div class="items item-list">
 										{{#each gmm.blueprint.traits.items as | item |}}
-											{{> "modules/giffyglyphs-5e-monster-maker/templates/monster/skins/vanity/partials/blueprint_item.html" item=.}}
+											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
 								</div>

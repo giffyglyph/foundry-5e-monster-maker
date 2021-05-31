@@ -19,6 +19,7 @@ import ModalBasicAttackSave from "../modals/ModalBasicAttackSave.js";
 import ModalBasicDamage from "../modals/ModalBasicDamage.js";
 import ModalSavingThrow from "../modals/ModalSavingThrow.js";
 import MonsterBlueprint from "./MonsterBlueprint.js";
+import Templates from "./Templates.js";
 
 export default class MonsterSheet extends ActorSheet {
 
@@ -35,7 +36,7 @@ export default class MonsterSheet extends ActorSheet {
 				classes: ["gmm-window window--monster"],
 				height: 900,
 				width: 540,
-				template: 'modules/giffyglyphs-5e-monster-maker/templates/monster/forge.html',
+				template: Templates.getRelativePath('monster/forge.html'),
 				resizable: true
 			}
 		);
