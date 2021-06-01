@@ -98,10 +98,7 @@ const GmmActor = (function () {
             actorData.attributes.ac.value = monsterData.armor_class.value;
             actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
             actorData.attributes.hp.formula = '';
-            actorData.attributes.init.mod = monsterData.initiative.ability;
-            actorData.attributes.init.value = monsterData.initiative.value;
-            actorData.attributes.init.bonus = 0;
-            actorData.attributes.init.total = monsterData.initiative.value;
+            actorData.attributes.init.bonus = monsterData.initiative.value;
             actorData.attributes.encumbrance = {
 				value: monsterData.inventory.weight.value,
 				max: monsterData.inventory.capacity.value,
