@@ -18,6 +18,9 @@ const MonsterBlueprint = (function() {
 		{ from: "damage_vulnerabilities.other", to: "data.traits.dv.custom" },
 		{ from: "description.image", to: "img" },
 		{ from: "description.name", to: "name" },
+		{ from: "description.type.category", to: "data.details.type.value" },
+		{ from: "description.type.custom", to: "data.details.type.custom" },
+		{ from: "description.type.tags", to: "data.details.type.subtype" },
 		{ from: "hit_points.current", to: "data.attributes.hp.value" },
 		{ from: "hit_points.temporary", to: "data.attributes.hp.temp" },
 		{ from: "initiative.advantage", to: "flags.dnd5e.initiativeAdv" },
@@ -101,16 +104,16 @@ const MonsterBlueprint = (function() {
 			blueprintData.actions.items = [];
 			blueprintData.bonus_actions.items = [];
 			blueprintData.description.alignment = _getActorAlignment(actorData.details.alignment);
-			blueprintData.description.size = GMM_5E_SIZES.find((x) => x.foundry == actorData.traits.size).name;
-			blueprintData.description.type = _getActorType(actorData.details.type);
+			blueprintData.description.size = GMM_5E_SIZES.find((x) => x.foundry == actorData.traits.size)?.name;
+			blueprintData.description.type.swarm = GMM_5E_SIZES.find((x) => x.foundry == actorData.details.type.swarm)?.name;
 			blueprintData.initiative.advantage = actor.data.flags.dnd5e && actor.data.flags.dnd5e.initiativeAdv;
 			blueprintData.inventory.encumbrance.powerful_build = actor.data.flags.dnd5e && actor.data.flags.dnd5e.powerfulBuild;
 			blueprintData.inventory.items = [];
 			blueprintData.lair_actions.items = [];
 			blueprintData.legendary_actions.items = [];
 			blueprintData.reactions.items = [];
-			blueprintData.senses.units = GMM_5E_UNITS.find((x) => x.foundry == actorData.attributes.senses.units).name;
-			blueprintData.speeds.units = GMM_5E_UNITS.find((x) => x.foundry == actorData.attributes.movement.units).name;
+			blueprintData.senses.units = GMM_5E_UNITS.find((x) => x.foundry == actorData.attributes.senses.units)?.name;
+			blueprintData.speeds.units = GMM_5E_UNITS.find((x) => x.foundry == actorData.attributes.movement.units)?.name;
 			blueprintData.spellbook.spellcasting.ability = (actorData.attributes.spellcasting == "") ? "int" : actorData.attributes.spellcasting;
 			blueprintData.spellbook.spells.other = [];
 			blueprintData.spellbook.spells[0] = [];
@@ -149,36 +152,42 @@ const MonsterBlueprint = (function() {
 			actorData.traits.ci.value.forEach((x) => blueprintData.condition_immunities[x] = true);
 			actorData.traits.languages.value.forEach((x) => blueprintData.languages[x] = true);
 
-			actor.data.items.sort((a, b) => (a.sort || 0) - (b.sort || 0)).forEach(x => {
-				let item = actor.getOwnedItem(x._id)
-                switch (item.getSortingCategory()) {
-                    case "spell":
-                        let spell_level = x.data.level || 0;
-						blueprintData.spellbook.spells[`${spell_level < 10 ? spell_level : "other"}`].push(_getItemDetails(item));
-						break;
-					case "bonus":
-						blueprintData.bonus_actions.items.push(_getItemDetails(item));
-						break;
-					case "reaction":
-						blueprintData.reactions.items.push(_getItemDetails(item));
-						break;
-					case "lair":
-						blueprintData.lair_actions.items.push(_getItemDetails(item));
-						break;
-					case "legendary":
-						blueprintData.legendary_actions.items.push(_getItemDetails(item));
-						break;
-					case "trait":
-						blueprintData.traits.items.push(_getItemDetails(item));
-						break;
-					case "loot":
-						blueprintData.inventory.items.push(_getItemDetails(item));
-						break;
-					default:
-						blueprintData.actions.items.push(_getItemDetails(item));
-						break;
-                }
-            });
+			if (actor.items) {
+				try {
+					actor.data.items.contents.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0)).forEach(x => {
+						let item = actor.items.get(x.id)
+						switch (item.getSortingCategory()) {
+							case "spell":
+								let spell_level = x.data.data.level || 0;
+								blueprintData.spellbook.spells[`${spell_level < 10 ? spell_level : "other"}`].push(_getItemDetails(item));
+								break;
+							case "bonus":
+								blueprintData.bonus_actions.items.push(_getItemDetails(item));
+								break;
+							case "reaction":
+								blueprintData.reactions.items.push(_getItemDetails(item));
+								break;
+							case "lair":
+								blueprintData.lair_actions.items.push(_getItemDetails(item));
+								break;
+							case "legendary":
+								blueprintData.legendary_actions.items.push(_getItemDetails(item));
+								break;
+							case "trait":
+								blueprintData.traits.items.push(_getItemDetails(item));
+								break;
+							case "loot":
+								blueprintData.inventory.items.push(_getItemDetails(item));
+								break;
+							default:
+								blueprintData.actions.items.push(_getItemDetails(item));
+								break;
+						}
+					});
+				} catch (e) {
+					console.warn(e);
+				}
+			}
 
 			return blueprint;
 		} catch (error) {
@@ -196,16 +205,6 @@ const MonsterBlueprint = (function() {
 			}
 		});
 
-		if (hasProperty(blueprint.data, "description.type.category")) {
-			const category = blueprint.data.description.type.category;
-			if (category == "custom") {
-				const custom = getProperty(blueprint.data, "description.type.custom");
-				setProperty(actorData, "data.details.type", custom);
-			} else {
-				setProperty(actorData, "data.details.type", game.i18n.format(`gmm.common.type.${category}`));
-			}
-		}
-
 		if (hasProperty(blueprint.data, "description.alignment.category")) {
 			const alignment = blueprint.data.description.alignment.category;
 			if (alignment == "custom") {
@@ -217,18 +216,23 @@ const MonsterBlueprint = (function() {
 		}
 
 		if (hasProperty(blueprint.data, "speeds.units")) {
-			const unit = GMM_5E_UNITS.find((x) => x.name == blueprint.data.speeds.units).foundry;
-			setProperty(actorData, "data.attributes.movement.units", unit);
+			const unit = GMM_5E_UNITS.find((x) => x.name == blueprint.data.speeds.units);
+			setProperty(actorData, "data.attributes.movement.units", unit ? unit.foundry : null);
 		}
 
 		if (hasProperty(blueprint.data, "senses.units")) {
-			const unit = GMM_5E_UNITS.find((x) => x.name == blueprint.data.senses.units).foundry;
-			setProperty(actorData, "data.attributes.senses.units", unit);
+			const unit = GMM_5E_UNITS.find((x) => x.name == blueprint.data.senses.units);
+			setProperty(actorData, "data.attributes.senses.units", unit ? unit.foundry : null);
 		}
 
 		if (hasProperty(blueprint.data, "description.size")) {
-			const size = GMM_5E_SIZES.find((x) => x.name == blueprint.data.description.size).foundry;
-			setProperty(actorData, "data.traits.size", size);
+			const size = GMM_5E_SIZES.find((x) => x.name == blueprint.data.description.size);
+			setProperty(actorData, "data.traits.size", size ? size.foundry : null);
+		}
+
+		if (hasProperty(blueprint.data, "description.type.swarm")) {
+			const size = GMM_5E_SIZES.find((x) => x.name == blueprint.data.description.type.swarm);
+			setProperty(actorData, "data.details.type.swarm", size ? size.foundry : null);
 		}
 
 		GMM_5E_SKILLS.forEach((x) => {
@@ -271,36 +275,14 @@ const MonsterBlueprint = (function() {
 		}
 	}
 
-	function _getActorType(type) {
-		if (type.trim().length == 0) {
-			return {
-				category: "humanoid",
-				custom: null
-			}
-		} else {
-			let actorType = type.replace(/ /g, '_').trim().toLowerCase();
-			if (GMM_5E_CATEGORIES.includes(actorType)) {
-				return {
-					category: actorType,
-					custom: null
-				}
-			} else {
-				return {
-					category: "custom",
-					custom: type.trim()
-				}
-			}
-		}
-	}
-
 	function _getActorAlignment(alignment) {
-		if (alignment.trim().length == 0) {
+		if (alignment?.trim().length == 0) {
 			return {
-				category: "unaligned",
+				category: "custom",
 				custom: null
 			}
 		} else {
-			let actorAlignment = alignment.replace(/ /g, '_').trim().toLowerCase();
+			let actorAlignment = alignment?.replace(/ /g, '_').trim().toLowerCase();
 			if (GMM_5E_ALIGNMENTS.includes(actorAlignment)) {
 				return {
 					category: actorAlignment,
@@ -317,7 +299,7 @@ const MonsterBlueprint = (function() {
 
 	function _getItemDetails(item) {
 		let details = {
-			id: item._id,
+			id: item.id,
 			name: item.name,
 			img: item.img
 		};

@@ -72,8 +72,8 @@ export default class MonsterSheet extends ActorSheet {
 		const data = super.getData();
 
 		data.gmm = {
-			blueprint: data.actor.data.gmm?.blueprint ? data.actor.data.gmm.blueprint.data : null,
-			monster: data.actor.data.gmm?.monster ? data.actor.data.gmm.monster.data : null,
+			blueprint: data.actor.data.data.gmm?.blueprint ? data.actor.data.data.gmm.blueprint.data : null,
+			monster: data.actor.data.data.gmm?.monster ? data.actor.data.data.gmm.monster.data : null,
 			gui: this._gui,
 			enums: {
 				abilities: GMM_5E_ABILITIES,
@@ -108,7 +108,7 @@ export default class MonsterSheet extends ActorSheet {
 				let items = getProperty(data.gmm.monster, x);
 				if (items) {
 					setProperty(data.gmm.monster, x, items.map((y) => {
-						let item = this.actor.getOwnedItem(y.id);
+						let item = this.actor.items.get(y.id);
 						item.gmmLabels = item.getGmmLabels();
 						return item;
 					}));
@@ -152,7 +152,7 @@ export default class MonsterSheet extends ActorSheet {
 	}
 
 	_getItemTags(item) {
-		return item.getChatData({secrets: this.actor.owner});
+		return item.getChatData({secrets: this.actor?.isOwner});
 	}
 
 	_updateItem(event) {
@@ -160,30 +160,30 @@ export default class MonsterSheet extends ActorSheet {
 		const field = input.dataset.field;
 		const target = input.dataset.target;
 		const value = event.currentTarget.value;
-		return this.actor.updateEmbeddedEntity("OwnedItem", { _id: target, [field] : value});
+		return this.actor.updateEmbeddedDocuments("Item", [ { _id: target, [field] : value } ]);
 	}
 
 	_rechargeItem(event) {
 		const li = event.currentTarget.closest(".item");
-		const item = this.actor.getOwnedItem(li.dataset.itemId);
+		const item = this.actor.items.get(li.dataset.itemId);
 		return item.rollRecharge();
 	}
 
 	_rollItem(event) {
 		const li = event.currentTarget.closest(".item");
-		const item = this.actor.getOwnedItem(li.dataset.itemId);
+		const item = this.actor.items.get(li.dataset.itemId);
 		return item.roll();
 	}
 
 	_editItem(event) {
 		const li = event.currentTarget.closest(".item");
-		const item = this.actor.getOwnedItem(li.dataset.itemId);
+		const item = this.actor.items.get(li.dataset.itemId);
 		item.sheet.render(true);
 	}
 
 	_deleteItem(event) {
 		const li = event.currentTarget.closest(".item");
-		this.actor.deleteOwnedItem(li.dataset.itemId);
+		this.actor.deleteEmbeddedDocuments("Item", [ li.dataset.itemId] );
 	}
 
 	_addItem(event) {
@@ -195,7 +195,7 @@ export default class MonsterSheet extends ActorSheet {
 			data: duplicate(header.dataset)
 		};
 		delete itemData.data["type"];
-		return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
 	}
 
 	_updateAbilityRanking(event) {
@@ -220,14 +220,14 @@ export default class MonsterSheet extends ActorSheet {
 			return;
 		}
 		// Get the drag source and its siblings
-		const source = this.actor.getOwnedItem(itemData._id);
-		const siblings = this.actor.items.filter((i) => {
-			return (i.getSortingCategory() === source.getSortingCategory()) && (i.data._id !== source.data._id);
+		const source = this.actor.items.get(itemData._id);
+		const siblings = this.actor.items.contents.filter((i) => {
+			return (i.getSortingCategory() === source.getSortingCategory()) && (i.id !== source.id);
 		});
 		// Get the drop target
 		const dropTarget = event.target.closest(".item");
-		const targetId = dropTarget ? dropTarget.dataset.itemId : null;
-		const target = siblings.find(s => s.data._id === targetId);
+		const targetId = dropTarget ? dropTarget.dataset?.itemId : null;
+		const target = siblings.find(s => s.id === targetId);
 		// Ensure we are only sorting like-types
 		if (target && (target.getSortingCategory() !== source.getSortingCategory())) {
 			return;
@@ -236,14 +236,15 @@ export default class MonsterSheet extends ActorSheet {
 		const sortUpdates = SortingHelpers.performIntegerSort(source, {target: target, siblings});
 		const updateData = sortUpdates.map(u => {
 			const update = u.update;
-			update._id = u.target.data._id;
+			update._id = u.target.id;
 			return update;
 		});
+
 		// Perform the update
-		return this.actor.updateEmbeddedEntity("OwnedItem", updateData);
+		return this.actor.updateEmbeddedDocuments("Item", updateData);
 	}
 
- 	_updateObject(event, form) {
+	_updateObject(event, form) {
 		if (event && event.currentTarget && event.currentTarget.closest(".gmm-modal") != null) {
 			return null;
 		}
@@ -252,34 +253,31 @@ export default class MonsterSheet extends ActorSheet {
 			this._gui.updateFrom(event.currentTarget.closest(".gmm-window"));
 		}
 
-		let formData = {
-			data: {
-				gmm: {
-					blueprint: {
-						vid: 1,
-						type: "monster",
-						data: expandObject(form).gmm.blueprint
-					}
+		let formData = expandObject(form);
+		if (hasProperty(formData, "gmm.blueprint")) {
+			setProperty(formData, "data.gmm.blueprint", {
+				vid: 1,
+				type: "monster",
+				data: getProperty(formData, "gmm.blueprint")
+			});
+			delete formData.gmm;
+
+			if (event && event.currentTarget) {
+				switch (event.currentTarget.name) {
+					case "gmm.blueprint.combat.rank.type":
+						formData.data.gmm.blueprint.data.combat.rank.custom_name = null;
+						formData.data.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
+						break;
+					case "gmm.blueprint.combat.role.type":
+						formData.data.gmm.blueprint.data.combat.role.custom_name = null;
+						formData.data.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
+						break;
 				}
 			}
-		};
 
-		if (event && event.currentTarget) {
-			switch (event.currentTarget.name) {
-				case "gmm.blueprint.combat.rank.type":
-					formData.data.gmm.blueprint.data.combat.rank.custom_name = null;
-					formData.data.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
-					break;
-				case "gmm.blueprint.combat.role.type":
-					formData.data.gmm.blueprint.data.combat.role.custom_name = null;
-					formData.data.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
-					break;
-			}
+			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.data.gmm.blueprint));
 		}
 
-		
-		$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.data.gmm.blueprint));
-
-		return this.entity.update(formData);
+		this.document.update(formData);
 	}
 }

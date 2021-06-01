@@ -1,26 +1,26 @@
 <div class="gmm-artifact artifact--monster artifact--monster--vanity">
     <div class="artifact__header monster__header">
-        <div class="monster__image" data-action="open-config" data-config="description"><img src="{{data.gmm.monster.data.image}}"></div>
-        <div class="monster__name" data-action="open-config" data-config="description">{{data.gmm.monster.data.name}}</div>
-        <div class="monster__description" data-action="open-config" data-config="description">{{data.gmm.monster.data.description}}</div>
+        <div class="monster__image" data-action="open-config" data-config="description"><img src="{{gmm.monster.image}}"></div>
+        <div class="monster__name" data-action="open-config" data-config="description">{{gmm.monster.name}}</div>
+        <div class="monster__description" data-action="open-config" data-config="description">{{gmm.monster.description}}</div>
         <div class="monster__combat">
             <div class="level" data-action="open-config" data-config="combat">
-                <i class="fas fa-crown"></i> {{data.gmm.monster.data.level.label}}
+                <i class="fas fa-crown"></i> {{gmm.monster.level.label}}
             </div>
             <div class="rank" data-action="open-config" data-config="combat">
                 <span class="stars">
-                    {{#repeat data.gmm.monster.data.rank.threat}}
+                    {{#repeat gmm.monster.rank.threat}}
                         <i class="fas fa-star"></i>
                     {{/repeat}}
-                </span> {{data.gmm.monster.data.rank.name}}
+                </span> {{gmm.monster.rank.name}}
             </div>
-            {{#if data.gmm.monster.data.phase}}
+            {{#if gmm.monster.phase}}
                 <div class="phase" data-action="open-config" data-config="combat">
-                    <i class="fas fa-clock"></i> {{data.gmm.monster.data.phase}}
+                    <i class="fas fa-clock"></i> {{gmm.monster.phase}}
                 </div>
             {{/if}}
             <div class="role" data-action="open-config" data-config="combat">
-                <i class="{{data.gmm.monster.data.role.icon}}"></i> {{data.gmm.monster.data.role.name}}
+                <i class="{{gmm.monster.role.icon}}"></i> {{gmm.monster.role.name}}
             </div>
         </div>
     </div>
@@ -31,26 +31,26 @@
                     <div class="block__title" data-action="open-config" data-config="hit-points">{{localize 'gmm.monster.artifact.blocks.hit_points.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content hit-points__temporary">
-                            <div class="block__value length-{{strlen data.gmm.monster.data.hit_points.temporary}}">
+                            <div class="block__value length-{{strlen gmm.monster.hit_points.temporary}}">
                                 <input class="input--thp" data-action="update-field" data-field="gmm.blueprint.hit_points.temporary" data-type="number"/>
-                                <i class="far fa-heart"></i> {{data.gmm.monster.data.hit_points.temporary}}
+                                <i class="far fa-heart"></i> {{gmm.monster.hit_points.temporary}}
                             </div>
                             <div class="block__description">
                                 {{localize 'gmm.monster.artifact.blocks.hit_points.temporary'}}
                             </div>
                         </div>
                         <div class="block__content hit-points__current">
-                            <div class="block__value length-{{strlen data.gmm.monster.data.hit_points.current}}">
+                            <div class="block__value length-{{strlen gmm.monster.hit_points.current}}">
                                 <input class="input--hp" data-action="update-field" data-field="gmm.blueprint.hit_points.current" data-type="number"/>
-                                <i class="fas fa-heart"></i> {{data.gmm.monster.data.hit_points.current}}
+                                <i class="fas fa-heart"></i> {{gmm.monster.hit_points.current}}
                             </div>
                             <div class="block__description">
                                 {{localize 'gmm.monster.artifact.blocks.hit_points.current'}}
                             </div>
                         </div>
                         <div class="block__content hit-points__maximum">
-                            <div class="block__value length-{{strlen data.gmm.monster.data.hit_points.maximum.value}}" title="{{{parseSources data.gmm.monster.data.hit_points.maximum.sources}}}">
-                                <i class="fas fa-heartbeat"></i> {{data.gmm.monster.data.hit_points.maximum.value}}
+                            <div class="block__value length-{{strlen gmm.monster.hit_points.maximum.value}}" title="{{{parseSources gmm.monster.hit_points.maximum.sources}}}">
+                                <i class="fas fa-heartbeat"></i> {{gmm.monster.hit_points.maximum.value}}
                             </div>
                             <div class="block__description">
                                 {{localize 'gmm.monster.artifact.blocks.hit_points.maximum'}}
@@ -62,12 +62,12 @@
                     <div class="block__title" data-action="open-config" data-config="armor-class">{{localize 'gmm.monster.artifact.blocks.armor_class.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <div class="block__value length-{{strlen data.gmm.monster.data.armor_class.value}}" title="{{{parseSources data.gmm.monster.data.armor_class.sources}}}">
-                                <i class="fas fa-shield-alt"></i> {{data.gmm.monster.data.armor_class.value}}
+                            <div class="block__value length-{{strlen gmm.monster.armor_class.value}}" title="{{{parseSources gmm.monster.armor_class.sources}}}">
+                                <i class="fas fa-shield-alt"></i> {{gmm.monster.armor_class.value}}
                             </div>
                             <div class="block__description">
-                                {{#if data.gmm.monster.data.armor_class.type}}
-                                    {{data.gmm.monster.data.armor_class.type}}
+                                {{#if gmm.monster.armor_class.type}}
+                                    {{gmm.monster.armor_class.type}}
                                 {{else}}
                                     {{localize 'gmm.monster.artifact.blocks.armor_class.ac'}}
                                 {{/if}}
@@ -79,8 +79,8 @@
                     <div class="block__title" data-action="open-config" data-config="passive-perception">{{localize 'gmm.monster.artifact.blocks.perception.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <div class="block__value length-{{strlen data.gmm.monster.data.passive_perception.value}}" title="{{{parseSources data.gmm.monster.data.passive_perception.sources}}}">
-                                <i class="fas fa-eye"></i> {{data.gmm.monster.data.passive_perception.value}}
+                            <div class="block__value length-{{strlen gmm.monster.passive_perception.value}}" title="{{{parseSources gmm.monster.passive_perception.sources}}}">
+                                <i class="fas fa-eye"></i> {{gmm.monster.passive_perception.value}}
                             </div>
                             <div class="block__description">
                                 {{localize 'gmm.monster.artifact.blocks.perception.passive'}}
@@ -94,12 +94,12 @@
                     <div class="block__title" data-action="open-config" data-config="attack-bonus">{{localize 'gmm.monster.artifact.blocks.attack_bonus.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <button class="block__value button--text length-{{strlen (numberFormat data.gmm.monster.data.attack_bonus.value sign=true)}}" title="{{{parseSources data.gmm.monster.data.attack_bonus.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_ac">
-                                <i class="fas fa-crosshairs"></i> {{numberFormat data.gmm.monster.data.attack_bonus.value sign=true}}
+                            <button class="block__value button--text length-{{strlen (numberFormat gmm.monster.attack_bonus.value sign=true)}}" title="{{{parseSources gmm.monster.attack_bonus.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_ac">
+                                <i class="fas fa-crosshairs"></i> {{numberFormat gmm.monster.attack_bonus.value sign=true}}
                             </button>
                             <div class="block__description">
-                                {{#if data.gmm.monster.data.attack_bonus.type}}
-                                    {{data.gmm.monster.data.attack_bonus.type}}
+                                {{#if gmm.monster.attack_bonus.type}}
+                                    {{gmm.monster.attack_bonus.type}}
                                 {{else}}
                                     {{localize 'gmm.monster.artifact.blocks.attack_bonus.vs'}}
                                 {{/if}}
@@ -111,24 +111,24 @@
                     <div class="block__title" data-action="open-config" data-config="attack-dc">{{localize 'gmm.monster.artifact.blocks.attack_dcs.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content">
-                            <button class="block__value button--text button--primary-dc length-{{strlen data.gmm.monster.data.attack_dcs.primary.value}}" title="{{{parseSources data.gmm.monster.data.attack_dcs.primary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
-                                <i class="fas fa-bullseye"></i> {{data.gmm.monster.data.attack_dcs.primary.value}}
+                            <button class="block__value button--text button--primary-dc length-{{strlen gmm.monster.attack_dcs.primary.value}}" title="{{{parseSources gmm.monster.attack_dcs.primary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
+                                <i class="fas fa-bullseye"></i> {{gmm.monster.attack_dcs.primary.value}}
                             </button>
                             <div class="block__description">
-                                {{#if data.gmm.monster.data.attack_dcs.primary.type}}
-                                    {{data.gmm.monster.data.attack_dcs.primary.type}}
+                                {{#if gmm.monster.attack_dcs.primary.type}}
+                                    {{gmm.monster.attack_dcs.primary.type}}
                                 {{else}}
                                     {{localize 'gmm.monster.artifact.blocks.attack_dcs.primary'}}
                                 {{/if}}
                             </div>
                         </div>
                         <div class="block__content">
-                            <button class="block__value button--text button--secondary-dc length-{{strlen data.gmm.monster.data.attack_dcs.secondary.value}}" title="{{{parseSources data.gmm.monster.data.attack_dcs.secondary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
-                                <i class="fas fa-bullseye"></i> {{data.gmm.monster.data.attack_dcs.secondary.value}}
+                            <button class="block__value button--text button--secondary-dc length-{{strlen gmm.monster.attack_dcs.secondary.value}}" title="{{{parseSources gmm.monster.attack_dcs.secondary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
+                                <i class="fas fa-bullseye"></i> {{gmm.monster.attack_dcs.secondary.value}}
                             </button>
                             <div class="block__description">
-                                {{#if data.gmm.monster.data.attack_dcs.secondary.type}}
-                                    {{data.gmm.monster.data.attack_dcs.secondary.type}}
+                                {{#if gmm.monster.attack_dcs.secondary.type}}
+                                    {{gmm.monster.attack_dcs.secondary.type}}
                                 {{else}}
                                     {{localize 'gmm.monster.artifact.blocks.attack_dcs.secondary'}}
                                 {{/if}}
@@ -140,28 +140,28 @@
                     <div class="block__title" data-action="open-config" data-config="damage-per-action">{{localize 'gmm.monster.artifact.blocks.damage.title'}}</div>
                     <div class="block__contents">
                         <div class="block__content static">
-                            <button class="block__value button--text button--static-damage length-{{strlen data.gmm.monster.data.damage_per_action.value}}" title="{{{parseSources data.gmm.monster.data.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_basic_damage">
-                                <i class="fas fa-fire"></i> {{data.gmm.monster.data.damage_per_action.value}}
+                            <button class="block__value button--text button--static-damage length-{{strlen gmm.monster.damage_per_action.value}}" title="{{{parseSources gmm.monster.damage_per_action.sources}}}" data-action="open-modal" data-modal="modal_basic_damage">
+                                <i class="fas fa-fire"></i> {{gmm.monster.damage_per_action.value}}
                             </button>
-                            {{#unless data.gmm.monster.data.damage_per_action.type}}
+                            {{#unless gmm.monster.damage_per_action.type}}
                                 <div class="block__description">
                                     {{localize 'gmm.monster.artifact.blocks.damage.static'}}
                                 </div>
                             {{/unless}}
                         </div>
                         <div class="block__content random">
-                            <button class="block__value button--text button--random-damage length-{{strlen data.gmm.monster.data.damage_per_action.dice}}" data-action="open-modal" data-modal="modal_basic_damage">
-                                <i class="fas fa-dice"></i> <span class="roll">{{data.gmm.monster.data.damage_per_action.dice}}</span>
+                            <button class="block__value button--text button--random-damage length-{{strlen gmm.monster.damage_per_action.dice}}" data-action="open-modal" data-modal="modal_basic_damage">
+                                <i class="fas fa-dice"></i> <span class="roll">{{gmm.monster.damage_per_action.dice}}</span>
                             </button>
-                            {{#unless data.gmm.monster.data.damage_per_action.type}}
+                            {{#unless gmm.monster.damage_per_action.type}}
                                 <div class="block__description">
                                     {{localize 'gmm.monster.artifact.blocks.damage.random'}}
                                 </div>
                             {{/unless}}
                         </div>
                     </div>
-                    {{#if data.gmm.monster.data.damage_per_action.type}}
-                        <div class="block__footer">{{data.gmm.monster.data.damage_per_action.type}}</div>
+                    {{#if gmm.monster.damage_per_action.type}}
+                        <div class="block__footer">{{gmm.monster.damage_per_action.type}}</div>
                     {{/if}}
                 </div>
             </div>
@@ -174,22 +174,22 @@
                         <div class="property__icon"><i class="fa fa-brain fa-fw"></i></div>
                         <div class="property__body">
                             <span class="property__title" data-action="open-config" data-config="proficiency-bonus">{{localize 'gmm.monster.artifact.attributes.proficiency_bonus'}}</span>
-                            <span class="property__value" title="{{{parseSources data.gmm.monster.data.proficiency_bonus.sources}}}">{{numberFormat data.gmm.monster.data.proficiency_bonus.value sign=true}}</span>
+                            <span class="property__value" title="{{{parseSources gmm.monster.proficiency_bonus.sources}}}">{{numberFormat gmm.monster.proficiency_bonus.value sign=true}}</span>
                         </div>
                     </div>
                     <div class="monster__property">
                         <div class="property__icon"><i class="fa fa-bolt fa-fw"></i></div>
                         <div class="property__body">
                             <span class="property__title" data-action="open-config" data-config="initiative">{{localize 'gmm.monster.artifact.attributes.initiative'}}</span>
-                            <span class="property__value" title="{{{parseSources data.gmm.monster.data.initiative.sources}}}">{{numberFormat data.gmm.monster.data.initiative.value sign=true}}{{#if data.gmm.monster.data.initiative.advantage}} (advantage){{/if}}</span>
+                            <span class="property__value" title="{{{parseSources gmm.monster.initiative.sources}}}">{{numberFormat gmm.monster.initiative.value sign=true}}{{#if gmm.monster.initiative.advantage}} (advantage){{/if}}</span>
                         </div>
                     </div>
                     <div class="monster__property">
                         <div class="property__icon"><i class="fa fa-skull fa-fw"></i></div>
                         <div class="property__body">
                             <span class="property__title" data-action="open-config" data-config="challenge-rating">{{localize 'gmm.monster.artifact.attributes.challenge_rating'}}</span>
-                            <span class="property__value" title="{{{parseSources data.gmm.monster.data.challenge_rating.sources}}}">
-                                {{formatChallengeRating data.gmm.monster.data.challenge_rating.value}}
+                            <span class="property__value" title="{{{parseSources gmm.monster.challenge_rating.sources}}}">
+                                {{formatChallengeRating gmm.monster.challenge_rating.value}}
                             </span>
                         </div>
                     </div>
@@ -197,8 +197,8 @@
                         <div class="property__icon"><i class="fa fa-star fa-fw"></i></div>
                         <div class="property__body">
                             <span class="property__title" data-action="open-config" data-config="xp">{{localize 'gmm.monster.artifact.attributes.xp'}}</span>
-                            <span class="property__value" title="{{{parseSources data.gmm.monster.data.xp.sources}}}">
-                                {{numberFormat data.gmm.monster.data.xp.value}}
+                            <span class="property__value" title="{{{parseSources gmm.monster.xp.sources}}}">
+                                {{numberFormat gmm.monster.xp.value}}
                             </span>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                 <div class="monster__modifiers">
                     {{#each gmm.enums.abilities}}
                         <div class="monster__modifier">
-                            {{#with (lookup ../data.gmm.monster.data.ability_modifiers .) as | modifier |}}
+                            {{#with (lookup ../gmm.monster.ability_modifiers .) as | modifier |}}
                                 <div class="modifier">
                                     <div class="title" data-action="open-config" data-config="ability-modifiers">{{localize (concat 'gmm.common.ability.' ../. '.code')}}</div>
                                     <div class="value" title="{{{parseSources modifier.sources}}}">
@@ -216,7 +216,7 @@
                                     </div>
                                 </div>
                             {{/with}}
-                            {{#with (lookup ../data.gmm.monster.data.saving_throws .) as | save |}}
+                            {{#with (lookup ../gmm.monster.saving_throws .) as | save |}}
                                 <div class="save" title="{{{parseSources save.sources}}}">
                                     <button class="button--text" data-save="{{../.}}" data-action="open-modal" data-modal="modal_saving_throw">
                                         {{numberFormat save.value sign=true}}
@@ -227,13 +227,13 @@
                     {{/each}}
                 </div>
                 <div class="monster__properties">
-                    {{#if data.gmm.monster.data.skills}}
+                    {{#if gmm.monster.skills}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-lightbulb fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="skills">{{localize 'gmm.monster.artifact.attributes.skills'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.skills as | skill |}}
+                                    {{#each gmm.monster.skills as | skill |}}
                                         <button class="button--text monster__skill" data-action="open-modal" data-modal="modal_ability_check" data-ability="{{skill.ability}}" data-skill="{{skill.code}}" title="{{{parseSources skill.sources}}}">
                                             {{skill.title}} {{numberFormat skill.value sign=true}}
                                         </button>
@@ -242,91 +242,91 @@
                             </div>
                         </div>
                     {{/if}}
-                    {{#if data.gmm.monster.data.speeds}}
+                    {{#if gmm.monster.speeds}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-shoe-prints fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="speed">{{localize 'gmm.monster.artifact.attributes.speeds.title'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.speeds as | speed |}}
+                                    {{#each gmm.monster.speeds as | speed |}}
                                         <span title="{{{parseSources speed.sources}}}">{{speed.title}} {{#if speed.value}}{{localize (concat 'gmm.monster.artifact.attributes.speeds.' speed.units) distance=speed.value}}{{/if}}{{#if speed.detail}} ({{speed.detail}}){{/if}}</span>
                                     {{/each}}
                                 </div>
                             </div>
                         </div>
                     {{/if}}
-                    {{#if data.gmm.monster.data.damage_vulnerabilities}}
+                    {{#if gmm.monster.damage_vulnerabilities}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="far fa-star fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="damage-vulnerabilities">{{localize 'gmm.monster.artifact.attributes.damage_vulnerabilities'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.damage_vulnerabilities}}
+                                    {{#each gmm.monster.damage_vulnerabilities}}
                                         <span>{{this}}</span>
                                     {{/each}}
                                 </div>
                             </div>
                         </div>
                     {{/if}}
-                    {{#if data.gmm.monster.data.damage_resistances}}
+                    {{#if gmm.monster.damage_resistances}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-star-half-alt fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="damage-resistances">{{localize 'gmm.monster.artifact.attributes.damage_resistances'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.damage_resistances}}
+                                    {{#each gmm.monster.damage_resistances}}
                                         <span>{{this}}</span>
                                     {{/each}}
                                 </div>
                             </div>
                         </div>
                     {{/if}}
-                    {{#if data.gmm.monster.data.damage_immunities}}
+                    {{#if gmm.monster.damage_immunities}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-star fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="damage-immunities">{{localize 'gmm.monster.artifact.attributes.damage_immunities'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.damage_immunities}}
+                                    {{#each gmm.monster.damage_immunities}}
                                         <span>{{this}}</span>
                                     {{/each}}
                                 </div>
                             </div>
                         </div>
                     {{/if}}
-                    {{#if data.gmm.monster.data.condition_immunities}}
+                    {{#if gmm.monster.condition_immunities}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-shield-alt fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="condition-immunities">{{localize 'gmm.monster.artifact.attributes.condition_immunities'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.condition_immunities}}
+                                    {{#each gmm.monster.condition_immunities}}
                                         <span>{{this}}</span>
                                     {{/each}}
                                 </div>
                             </div>
                         </div>
                     {{/if}}
-                    {{#if data.gmm.monster.data.senses}}
+                    {{#if gmm.monster.senses}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-eye fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="senses">{{localize 'gmm.monster.artifact.attributes.senses.title'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.senses as | sense |}}
+                                    {{#each gmm.monster.senses as | sense |}}
                                         <span>{{sense.title}}{{#if sense.value}} {{localize (concat 'gmm.monster.artifact.attributes.senses.' sense.units) distance=sense.value}}{{/if}}</span>
                                     {{/each}}
                                 </div>
                             </div>
                         </div>
                     {{/if}}
-                    {{#if data.gmm.monster.data.languages}}
+                    {{#if gmm.monster.languages}}
                         <div class="monster__property property--wide">
                             <div class="property__icon"><i class="fas fa-comment fa-fw"></i></div>
                             <div class="property__body">
                                 <div class="property__title" data-action="open-config" data-config="languages">{{localize 'gmm.monster.artifact.attributes.languages'}}</div>
                                 <div class="property__value">
-                                    {{#each data.gmm.monster.data.languages}}
+                                    {{#each gmm.monster.languages}}
                                         <span>{{this}}</span>
                                     {{/each}}
                                 </div>
@@ -349,7 +349,7 @@
                                 <div class="legendary__current">
                                     <div class="legendary__value">
                                         <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_resistances.current" data-type="number"/>
-                                        <i class="far fa-star"></i> {{data.gmm.monster.data.legendary_resistances.current}}
+                                        <i class="far fa-star"></i> {{gmm.monster.legendary_resistances.current}}
                                     </div>
                                     <div class="legendary__description">
                                         {{localize 'gmm.monster.artifact.legendary_resistances.current'}}
@@ -357,7 +357,7 @@
                                 </div>
                                 <div class="legendary__maximum">
                                     <div class="legendary__value">
-                                        <i class="fas fa-star"></i> {{data.gmm.monster.data.legendary_resistances.maximum}}
+                                        <i class="fas fa-star"></i> {{gmm.monster.legendary_resistances.maximum}}
                                     </div>
                                     <div class="legendary__description">
                                         {{localize 'gmm.monster.artifact.legendary_resistances.maximum'}}
@@ -452,15 +452,15 @@
                             <div class="legendary__current">
                                 <div class="legendary__value">
                                     <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.paragon_actions.current" data-type="number"/>
-                                    <i class="far fa-clock"></i> {{data.gmm.monster.data.paragon_actions.current}}
+                                    <i class="far fa-clock"></i> {{gmm.monster.paragon_actions.current}}
                                 </div>
                                 <div class="legendary__description">
                                     {{localize 'gmm.monster.artifact.paragon_actions.current'}}
                                 </div>
                             </div>
                             <div class="legendary__maximum">
-                                <div class="legendary__value" title="{{{parseSources data.gmm.monster.data.paragon_actions.maximum.sources}}}">
-                                    <i class="fas fa-clock"></i> {{data.gmm.monster.data.paragon_actions.maximum.value}}
+                                <div class="legendary__value" title="{{{parseSources gmm.monster.paragon_actions.maximum.sources}}}">
+                                    <i class="fas fa-clock"></i> {{gmm.monster.paragon_actions.maximum.value}}
                                 </div>
                                 <div class="legendary__description">
                                     {{localize 'gmm.monster.artifact.paragon_actions.maximum'}}
@@ -486,7 +486,7 @@
                             <div class="legendary__current">
                                 <div class="legendary__value">
                                     <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_actions.current" data-type="number"/>
-                                    <i class="far fa-clock"></i> {{data.gmm.monster.data.legendary_actions.current}}
+                                    <i class="far fa-clock"></i> {{gmm.monster.legendary_actions.current}}
                                 </div>
                                 <div class="legendary__description">
                                     {{localize 'gmm.monster.artifact.legendary_actions.current'}}
@@ -494,7 +494,7 @@
                             </div>
                             <div class="legendary__maximum">
                                 <div class="legendary__value">
-                                    <i class="fas fa-clock"></i> {{data.gmm.monster.data.legendary_actions.maximum}}
+                                    <i class="fas fa-clock"></i> {{gmm.monster.legendary_actions.maximum}}
                                 </div>
                                 <div class="legendary__description">
                                     {{localize 'gmm.monster.artifact.legendary_actions.maximum'}}
@@ -529,14 +529,14 @@
                             <div class="legendary__current">
                                 <div class="legendary__value">
                                     <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.lair_actions.initiative" data-type="number"/>
-                                    <i class="fas fa-hourglass"></i> {{data.gmm.monster.data.lair_actions.initiative}}
+                                    <i class="fas fa-hourglass"></i> {{gmm.monster.lair_actions.initiative}}
                                 </div>
                                 <div class="legendary__description">
                                     {{localize 'gmm.monster.artifact.lair_actions.initiative'}}
                                 </div>
                             </div>
                             <div class="legendary__blurb">
-                                <div class="blurb__text">{{localize 'gmm.monster.artifact.lair_actions.blurb' initiative=data.gmm.monster.data.lair_actions.initiative}}</div>
+                                <div class="blurb__text">{{localize 'gmm.monster.artifact.lair_actions.blurb' initiative=gmm.monster.lair_actions.initiative}}</div>
                             </div>
                         </div>
                         <div class="item-collection__body">

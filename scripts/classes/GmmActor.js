@@ -113,7 +113,7 @@ const GmmActor = (function () {
             actorData.attributes.spelldc = monsterData.spellbook.spellcasting.dc.value;
 
 			// Compute owned item attributes which depend on prepared Actor data
-			actor.items.forEach((item) => {
+			actor.items.contents.forEach((item) => {
 				item.getSaveDC();
 				item.getAttackToHit();
 				item.prepareShortcodes();

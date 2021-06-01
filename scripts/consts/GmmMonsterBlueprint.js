@@ -161,10 +161,11 @@ export const GMM_MONSTER_BLUEPRINT = {
 			image: "icons/svg/mystery-man.svg",
 			name: "Monster",
 			size: "medium",
-			tags: "",
 			type: {
 				category: "humanoid",
-				custom: ""
+				custom: "",
+				tags: "",
+				swarm: ""
 			}
 		},
 		display: {

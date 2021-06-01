@@ -34,65 +34,90 @@
 									<img src="{{gmm.blueprint.description.image}}" data-edit="gmm.blueprint.description.image">
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.size'}}</span>
-								</div>
-								<div class="form-group__body">
-									<select name="gmm.blueprint.description.size">
-										{{#select gmm.blueprint.description.size}}
-											{{#each gmm.enums.sizes}}
-												<option value="{{.}}">{{localize (concat 'gmm.common.size.' .)}}</option>
-											{{/each}}
-										{{/select}}
-									</select>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.description.type'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.size'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.description.size">
+												{{#select gmm.blueprint.description.size}}
+													{{#each gmm.enums.sizes}}
+														<option value="{{.}}">{{localize (concat 'gmm.common.size.' .)}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.category'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.description.type.category">
+												{{#select gmm.blueprint.description.type.category}}
+													{{#each gmm.enums.categories}}
+														<option value="{{.}}">{{localize (concat 'gmm.common.category.single.' .)}}</option>
+													{{/each}}
+													<option value="custom">{{localize 'gmm.common.category.single.custom'}}</option>
+												{{/select}}
+											</select>
+											{{#toggleCustom gmm.blueprint.description.type.category}}
+												<input name="gmm.blueprint.description.type.custom" value="{{gmm.blueprint.description.type.custom}}"/>
+											{{/toggleCustom}}
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.tags'}}</span>
+											<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_tags">
+												<i class="fas fa-question"></i>
+											</button>
+										</div>
+										<div class="form-group__body">
+											<input name="gmm.blueprint.description.type.tags" value="{{gmm.blueprint.description.type.tags}}"/>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.swarm'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.description.type.swarm">
+												{{#select gmm.blueprint.description.type.swarm}}
+													<option value=""></option>
+													{{#each gmm.enums.sizes}}
+														<option value="{{.}}">{{localize (concat 'gmm.common.size.' .)}}</option>
+													{{/each}}
+												{{/select}}
+											</select>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.type'}}</span>
-								</div>
-								<div class="form-group__body">
-									<select name="gmm.blueprint.description.type.category">
-										{{#select gmm.blueprint.description.type.category}}
-											{{#each gmm.enums.categories}}
-												<option value="{{.}}">{{localize (concat 'gmm.common.type.' .)}}</option>
-											{{/each}}
-											<option value="custom">{{localize 'gmm.common.type.custom'}}</option>
-										{{/select}}
-									</select>
-									{{#toggleCustom gmm.blueprint.description.type.category}}
-										<input name="gmm.blueprint.description.type.custom" value="{{gmm.blueprint.description.type.custom}}"/>
-									{{/toggleCustom}}
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.tags'}}</span>
-									<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_tags">
-										<i class="fas fa-question"></i>
-									</button>
-								</div>
-								<div class="form-group__body">
-									<input name="gmm.blueprint.description.tags" value="{{gmm.blueprint.description.tags}}"/>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="form-group__header">
-									<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.alignment'}}</span>
-								</div>
-								<div class="form-group__body">
-									<select name="gmm.blueprint.description.alignment.category">
-										{{#select gmm.blueprint.description.alignment.category}}
-											{{#each gmm.enums.alignments}}
-												<option value="{{.}}">{{localize (concat 'gmm.common.alignment.' .)}}</option>
-											{{/each}}
-											<option value="custom">{{localize 'gmm.common.alignment.custom'}}</option>
-										{{/select}}
-									</select>
-									{{#toggleCustom gmm.blueprint.description.alignment.category}}
-										<input name="gmm.blueprint.description.alignment.custom" value="{{gmm.blueprint.description.alignment.custom}}"/>
-									{{/toggleCustom}}
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.description.alignment'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.description.alignment'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.description.alignment.category">
+												{{#select gmm.blueprint.description.alignment.category}}
+													{{#each gmm.enums.alignments}}
+														<option value="{{.}}">{{localize (concat 'gmm.common.alignment.' .)}}</option>
+													{{/each}}
+													<option value="custom">{{localize 'gmm.common.alignment.custom'}}</option>
+												{{/select}}
+											</select>
+											{{#toggleCustom gmm.blueprint.description.alignment.category}}
+												<input name="gmm.blueprint.description.alignment.custom" value="{{gmm.blueprint.description.alignment.custom}}"/>
+											{{/toggleCustom}}
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -1064,7 +1089,7 @@
 								</div>
 								<div class="form-fieldset__body">
 									<div class="items item-list">
-										{{#each data.gmm.monster.data.inventory.items as | item |}}
+										{{#each gmm.monster.inventory.items as | item |}}
 											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
@@ -1107,7 +1132,7 @@
 								</div>
 								<div class="form-fieldset__body">
 									<div class="items item-list">
-										{{#each data.gmm.monster.data.lair_actions.items as | item |}}
+										{{#each gmm.monster.lair_actions.items as | item |}}
 											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>
@@ -1187,7 +1212,7 @@
 								</div>
 								<div class="form-fieldset__body">
 									<div class="items item-list">
-										{{#each data.gmm.monster.data.legendary_actions.items as | item |}}
+										{{#each gmm.monster.legendary_actions.items as | item |}}
 											{{> (getTemplate "monster/skins/vanity/partials/blueprint_item.html") item=.}}
 										{{/each}}
 									</div>

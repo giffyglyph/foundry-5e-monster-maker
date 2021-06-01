@@ -2380,7 +2380,7 @@
     transition: width 100ms ease-in-out, height 100ms ease-in-out;
     width: 0;
     top: 0;
-    height: calc(100% - 2.75rem);
+    height: calc(100% - 2.25rem);
     padding: 0; }
     .gmm-forge.layout--slide-in-left .forge__blueprint .blueprint__form, .gmm-forge.layout--slide-in-right .forge__blueprint .blueprint__form {
       max-width: 420px;
@@ -2421,7 +2421,7 @@
       position: absolute;
       right: 0;
       top: 0;
-      height: calc(100% - 2.75rem);
+      height: calc(100% - 2.25rem);
       background: black;
       padding: 0.25rem;
       border-radius: 0 1.2rem 1.2rem 0;

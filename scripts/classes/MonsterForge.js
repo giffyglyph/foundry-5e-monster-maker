@@ -77,25 +77,47 @@ const MonsterForge = (function() {
 
 	function _parseDescription(description) {
 		const parts = [];
-		parts.push(game.i18n.format(`gmm.common.size.${description.size}`));
-		if (description.type.category === "custom") {
+
+		// Render creature size
+		if (description.size) {
+			parts.push(game.i18n.format(`gmm.common.size.${description.size}`));
+		}
+
+		// Render creature category
+		let category = "";
+		if (!description.type.category || description.type.category === "custom") {
 			if (description.type.custom.trim().length > 0) {
-				parts.push(description.type.custom);
+				category = description.type.custom;
 			}
 		} else {
-			parts.push(game.i18n.format(`gmm.common.type.${description.type.category}`).toLowerCase());
+			category = game.i18n.format(`gmm.common.category.${description.type.swarm ? "multiple" : "single"}.${description.type.category}`).toLowerCase();
 		}
-		const tags = description.tags ? description.tags.split(";").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
+
+		// Render creature tags
+		const tags = description.type.tags ? description.type.tags.split(";").map(x => x.trim()).filter(x => x.length > 0).sort() : "";
 		if (tags.length > 0) {
-			parts.push(`(${tags.join(", ")})`);
+			category += `${category.length == 0 ? '' : ' '}(${tags.join(", ")})`;
 		}
+
+		// Render creature swarm
+		if (description.type.swarm) {
+			let swarmSize = game.i18n.format(`gmm.common.size.${description.type.swarm}`).toLowerCase();
+			parts.push( game.i18n.format(`gmm.monster.artifact.description.swarm`, {
+				size: swarmSize,
+				category: category
+			}));
+		} else {
+			parts.push(category);
+		}
+
+		// Render creature alignment
 		let alignment = "";
 		if (description.alignment.category === "custom") {
-			alignment = description.alignment.custom.trim();
+			alignment = description.alignment.custom?.trim();
 		} else {
 			alignment = game.i18n.format(`gmm.common.alignment.${description.alignment.category}`).toLowerCase();
 		}
-		return `${parts.join(' ')}, ${alignment}`;
+		return `${parts.join(' ')}${alignment ? `, ${alignment}` : ``}`;
 	}
 	
 	function _parseLevel(level) {

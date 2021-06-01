@@ -65,7 +65,7 @@ export default class Gui {
 			});
 			section.classList.add("opened");
 			section.querySelector(".accordion-section__body").style.removeProperty("display");
-			section.scrollIntoView();
+			section.scrollIntoView({ block: 'nearest' });
 			this._updateAccordions(event.currentTarget.closest(".gmm-window"));
 		}
 	}

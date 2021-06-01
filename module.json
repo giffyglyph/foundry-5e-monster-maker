@@ -29,8 +29,8 @@
       "type": "system"
     }
   ],
-  "minimumCoreVersion": "0.7.6",
-  "compatibleCoreVersion": "0.7.9",
+  "minimumCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.6",
   "url": "https://patreon.com/giffyglyph",
   "manifest": "https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/dev/module.json",
   "download": "https://github.com/giffyglyph/foundry_5e_monster_maker/archive/refs/tags/v0.5.2-dev.zip"

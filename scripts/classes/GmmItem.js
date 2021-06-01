@@ -1,7 +1,6 @@
 import { simplifyRollFormula, damageRoll } from "./../../../../systems/dnd5e/module/dice.js";
 import ActionBlueprint from './ActionBlueprint.js';
 import Shortcoder from './Shortcoder.js';
-import ActionForge from './ActionForge.js';
 
 /**
  * A patcher which controls item data based on the selected sheet.
@@ -85,10 +84,24 @@ const GmmItem = (function () {
 				let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
 				return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 			});
+			if ((itemData.consume?.type === 'ammo') && !!this.actor?.items) {
+				const ammoItemData = this.actor.items.get(itemData.consume.target)?.data;
+				if (ammoItemData) {
+					const ammoItemQuantity = ammoItemData.data.quantity;
+					const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
+					const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemData.data.consumableType === "ammo")
+					if ( ammoCanBeConsumed && ammoIsTypeConsumable ) {
+						damages.push(...ammoItemData.data.damage.parts.map(x => {
+							let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
+							return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
+						}));
+					}
+				}
+			}
 			labels.damage = damages.join(" plus ");
 		}
 
-		switch (itemData.target.type) {
+		switch (itemData.target?.type) {
 			case "":
 			case "none":
 				switch (itemData.range.units) {
@@ -129,7 +142,7 @@ const GmmItem = (function () {
 				}
 				break;
 			default:
-				if (itemData.target.units) {
+				if (itemData.target?.units) {
 					if (["ft", "mi"].includes(itemData.target.units)) {
 						let size = game.i18n.format(`gmm.action.labels.target.size.${itemData.target.units}.single`, { x: Math.max(1, itemData.target.value) });
 						labels.target = game.i18n.format(`gmm.action.labels.target.${itemData.target.type}`, { size: size });
@@ -138,7 +151,7 @@ const GmmItem = (function () {
 				break;
 		}
 
-		switch (itemData.range.units) {
+		switch (itemData.range?.units) {
 			case "any":
 			case "self":
 			case "touch":
@@ -157,7 +170,7 @@ const GmmItem = (function () {
 				break;
 		}
 
-		labels.description = this.getChatData({secrets: this.actor?.owner}).description.value;
+		labels.description = this.getChatData({secrets: this.actor?.isOwner}).description.value;
 
 		if (this.hasLimitedUses) {
 			labels.uses = {
@@ -213,10 +226,10 @@ const GmmItem = (function () {
 	}
 
 	function _prepareShortcodes() {
-		if (this.getSheetId() == "gmm.ActionSheet" && this.isOwnedByGmmMonster()) {
-			let monster = this.getOwningGmmMonster();
-			if (this.data.data.description && this.data.data.description.value) {
-				this.data.data.description.value = Shortcoder.replaceShortcodes(this.data.data.description.value, monster);
+		if (this.getSheetId() == "gmm.ActionSheet") {
+			let gmmMonster = this.getOwningGmmMonster();
+			if (gmmMonster && this.data.data.description && this.data.data.description.value) {
+				this.data.data.description.value = Shortcoder.replaceShortcodes(this.data.data.description.value, gmmMonster);
 			}
 		}
 	}
@@ -351,8 +364,9 @@ const GmmItem = (function () {
 		const gmmActionBlueprint = item.getGmmActionBlueprint();
 	
 		// Get roll data
+		const gmmMonster = item.getOwningGmmMonster();
 		const parts = itemData.damage.parts.map((x) => x[0].replace(/\[.*?\]/g, (token) => {
-			return Shortcoder.replaceShortcodes(token, item.actor.data.data.gmm.monster.data);
+			return (gmmMonster) ? Shortcoder.replaceShortcodes(token, gmmMonster) : token;
 		}));
 		const rollData = item.getRollData();
 	

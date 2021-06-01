@@ -73,8 +73,8 @@ export default class ActionSheet extends ItemSheet {
 		const data = super.getData();
 
 		data.gmm = {
-			blueprint: data.item.data.gmm?.blueprint ? data.item.data.gmm.blueprint.data : null,
-			action: data.item.data.gmm?.blueprint ? ActionForge.createArtifact(data.item.data.gmm.blueprint).data : null,
+			blueprint: data.item.data.data.gmm?.blueprint ? data.item.data.data.gmm.blueprint.data : null,
+			action: data.item.data.data.gmm?.blueprint ? ActionForge.createArtifact(data.item.data.data.gmm.blueprint).data : null,
 			gui: this._gui,
 			enums: {
 				colors: GMM_GUI_COLORS,
@@ -98,11 +98,12 @@ export default class ActionSheet extends ItemSheet {
 		if (data.gmm.action) {
 			data.gmm.action.gmmLabels = this.item.getGmmLabels();
 		}
+
 		return data;
 	}
 
 	_getActionConsumptionTargets(item) {
-		const consume = item.data.consume || {};
+		const consume = item.data.data.consume || {};
 		if ( !consume.type ) {
 			return [];
 		}
@@ -118,7 +119,7 @@ export default class ActionSheet extends ItemSheet {
 					ammo[i.id] = `${i.name} (${i.data.data.quantity})`;
 				}
 				return ammo;
-			}, {[item._id]: `${item.name} (${item.data.quantity})`});
+			}, {[item.id]: `${item.name} (${item.data.data.quantity})`});
 		} else if ( consume.type === "attribute" ) {
 			const attributes = Object.values(CombatTrackerConfig.prototype.getAttributeChoices())[0]; // Bit of a hack
 			return attributes.reduce((obj, a) => {
@@ -126,14 +127,14 @@ export default class ActionSheet extends ItemSheet {
 				return obj;
 			}, {});
 		} else if ( consume.type === "material" ) {
-			return actor.items.reduce((obj, i) => {
+			return actor.items.contents.reduce((obj, i) => {
 				if ( ["consumable", "loot"].includes(i.data.type) && !i.data.data.activation ) {
 					obj[i.id] = `${i.name} (${i.data.data.quantity})`;
 				}
 				return obj;
 			}, {});
 		} else if ( consume.type === "charges" ) {
-			return actor.items.reduce((obj, i) => {
+			return actor.items.contents.reduce((obj, i) => {
 				const uses = i.data.data.uses || {};
 				if ( uses.per && uses.max ) {
 					const label = uses.per === "charges" ?
@@ -159,20 +160,18 @@ export default class ActionSheet extends ItemSheet {
 			this._gui.updateFrom(event.currentTarget.closest(".gmm-window"));
 		}
 
-		let formData = {
-			data: {
-				gmm: {
-					blueprint: {
-						vid: 1,
-						type: "action",
-						data: expandObject(form).gmm.blueprint
-					}
-				}
-			}
-		};
-		
-		$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formData.data.gmm.blueprint));
+		let formData = expandObject(form);
+		if (hasProperty(formData, "gmm.blueprint")) {
+			setProperty(formData, "data.gmm.blueprint", {
+				vid: 1,
+				type: "action",
+				data: getProperty(formData, "gmm.blueprint")
+			});
+			delete formData.gmm.blueprint;
 
-		return this.entity.update(formData);
+			$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formData.data.gmm.blueprint));
+		}
+
+		return this.document.update(formData);
 	}
 }
