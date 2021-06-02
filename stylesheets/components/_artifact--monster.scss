@@ -129,7 +129,30 @@
 				+ .monster__blocks__row {
 					margin-top: 0.25rem;
 				}
-			}     
+			}
+
+			.hit-points {
+
+				button {
+					border: none;
+					padding: 0;
+					margin: 0;
+					color: var(--color-primary-tone-1);
+					line-height: inherit;
+					font-family: inherit;
+					font-size: inherit;
+					font-weight: inherit;
+
+					i {
+						margin :0;
+					}
+
+					&:hover {
+						color: var(--color-secondary-base);
+						cursor: pointer;
+					}
+				}
+			}
 
 			.hit-points,
 			.attack-dcs {
@@ -161,6 +184,8 @@
 						font-style: 1rem;
 						text-align: left;
 						letter-spacing: 0;
+						margin-top: -5px;
+						margin-bottom: -5px;
 					}
 				}
 			}

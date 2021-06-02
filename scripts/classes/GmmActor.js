@@ -40,7 +40,6 @@ const GmmActor = (function () {
 			_prepareMonsterDerivedData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData.call(this);
-			console.log("DATA", this);
 		}
 	}
 
@@ -97,8 +96,10 @@ const GmmActor = (function () {
             actorData.details.xp.value = monsterData.xp.value;
             actorData.attributes.prof = monsterData.proficiency_bonus.value;
             actorData.attributes.ac.value = monsterData.armor_class.value;
-            actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
-            actorData.attributes.hp.formula = '';
+			if (!monsterData.hit_points.use_formula) {
+            	actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
+			}
+            actorData.attributes.hp.formula = monsterData.hit_points.formula ? monsterData.hit_points.formula : '';
             actorData.attributes.init = {
 				mod: 0,
 				prof: 0,

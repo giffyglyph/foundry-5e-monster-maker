@@ -183,6 +183,9 @@ export const GMM_MONSTER_BLUEPRINT = {
 			current: null,
 			temporary: null,
 			maximum: {
+				use_formula: false,
+				die_size: "4",
+				maximum_dice: 0,
 				modifier: {
 					value: null,
 					override: false

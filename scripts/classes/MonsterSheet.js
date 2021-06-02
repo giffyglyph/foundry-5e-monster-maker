@@ -59,6 +59,7 @@ export default class MonsterSheet extends ActorSheet {
 			$el.find('[data-action="roll-item"]').click(this._rollItem.bind(this));
 			$el.find('[data-action="recharge-item"]').click(this._rechargeItem.bind(this));
 			$el.find('[data-action="update-item"]').change((e) => this._updateItem(e));
+			$el.find('[data-action="roll-hp"]').click((e) => this._rollHitPoints(e));
 
 			[ModalAbilityCheck, ModalBasicAttackAc, ModalBasicAttackSave, ModalBasicDamage, ModalSavingThrow].forEach((x) => {
 				x.activateListeners($el, this.actor, this.id)
@@ -149,6 +150,17 @@ export default class MonsterSheet extends ActorSheet {
 			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.data[x]);
 		}
 		return super._onDropItemCreate(itemData);
+	}
+
+	_rollHitPoints(event) {
+		const button = event.currentTarget.closest("button");
+		const roll = new Roll(button.dataset.formula);
+		roll.roll();
+		AudioHelper.play({src: CONFIG.sounds.dice});
+		this.actor.update({
+			[`data.attributes.hp.value`]: Math.max(1, roll.total),
+			[`data.attributes.hp.max`]: Math.max(1, roll.total),
+		});
 	}
 
 	_getItemTags(item) {

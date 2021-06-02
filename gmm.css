@@ -544,6 +544,20 @@
       margin-left: 0.25rem; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .monster__blocks__row + .monster__blocks__row {
       margin-top: 0.25rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points button {
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: var(--color-primary-tone-1);
+    line-height: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points button i {
+      margin: 0; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points button:hover {
+      color: var(--color-secondary-base);
+      cursor: pointer; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points,
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .attack-dcs {
     flex-grow: 1;
@@ -565,7 +579,9 @@
         line-height: 0.875;
         font-style: 1rem;
         text-align: left;
-        letter-spacing: 0; }
+        letter-spacing: 0;
+        margin-top: -5px;
+        margin-bottom: -5px; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points__temporary:hover,
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points__current:hover {
     color: var(--color-secondary-base); }

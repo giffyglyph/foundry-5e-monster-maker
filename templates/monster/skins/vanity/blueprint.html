@@ -916,6 +916,45 @@
 									</div>
 								</div>
 							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.hit_points.formula'}}</div>
+								<div class="form-fieldset__body">
+									<div class="form-group form-group--modifier">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.hit_points.use_formula'}}</span>
+										</div>
+										<div class="form-group__body">
+											<input type="checkbox" name="gmm.blueprint.hit_points.maximum.use_formula" {{#if gmm.blueprint.hit_points.maximum.use_formula}}checked{{/if}}/>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.hit_points.dice_size'}}</span>
+										</div>
+										<div class="form-group__body">
+											<select name="gmm.blueprint.hit_points.maximum.die_size">
+												{{#select gmm.blueprint.hit_points.maximum.die_size}}
+													<option value="4">d4</option>
+													<option value="6">d6</option>
+													<option value="8">d8</option>
+													<option value="10">d10</option>
+													<option value="12">d12</option>
+													<option value="20">d20</option>
+													<option value="100">d100</option>
+												{{/select}}
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.monster.blueprint.hit_points.maximum_dice'}}</span>
+										</div>
+										<div class="form-group__body">
+											<input name="gmm.blueprint.hit_points.maximum.maximum_dice" type="number" placeholder="0" value="{{gmm.blueprint.hit_points.maximum.maximum_dice}}"/>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="accordion-section" data-section="initiative">

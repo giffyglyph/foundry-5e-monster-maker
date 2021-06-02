@@ -50,10 +50,18 @@
                         </div>
                         <div class="block__content hit-points__maximum">
                             <div class="block__value length-{{strlen gmm.monster.hit_points.maximum.value}}" title="{{{parseSources gmm.monster.hit_points.maximum.sources}}}">
-                                <i class="fas fa-heartbeat"></i> {{gmm.monster.hit_points.maximum.value}}
+                                {{#if gmm.monster.hit_points.use_formula}}
+                                    <i class="fas fa-heartbeat"></i> {{data.data.attributes.hp.max}}
+                                {{else}}
+                                    <i class="fas fa-heartbeat"></i> {{gmm.monster.hit_points.maximum.value}}
+                                {{/if}}
                             </div>
                             <div class="block__description">
-                                {{localize 'gmm.monster.artifact.blocks.hit_points.maximum'}}
+                                {{#if gmm.monster.hit_points.use_formula}}
+                                    <button data-action="roll-hp" data-formula="{{gmm.monster.hit_points.formula}}"><i class="fas fa-dice"></i> {{gmm.monster.hit_points.formula}}</button>
+                                {{else}}
+                                    {{localize 'gmm.monster.artifact.blocks.hit_points.maximum'}}
+                                {{/if}}
                             </div>
                         </div>
                     </div>

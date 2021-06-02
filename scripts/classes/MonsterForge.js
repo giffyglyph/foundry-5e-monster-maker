@@ -163,7 +163,11 @@ const MonsterForge = (function() {
 		maximumHp.setMinimumValue(1);
 		maximumHp.ceil();
 
+		const formula = Dice.getDiceRoll(maximumHp.value, hitPoints.maximum.die_size, hitPoints.maximum.maximum_dice);
+
 		return {
+			use_formula: hitPoints.maximum.use_formula,
+			formula: formula ? formula : null,
 			current: hitPoints.current,
 			temporary: hitPoints.temporary,
 			maximum: maximumHp
