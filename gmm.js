@@ -30,6 +30,7 @@ Hooks.once("init", function() {
 		if ( setting.key === "core.sheetClasses" ) {
 			game.actors.forEach(x => x.prepareData());
 			game.items.forEach(x => x.prepareData());
+			game.scenes.forEach(x => x.tokens.forEach(y => y.actor.prepareData()));
 		}
 	});
 
