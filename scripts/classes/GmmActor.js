@@ -40,6 +40,7 @@ const GmmActor = (function () {
 			_prepareMonsterDerivedData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData.call(this);
+			console.log("DATA", this);
 		}
 	}
 
@@ -98,10 +99,13 @@ const GmmActor = (function () {
             actorData.attributes.ac.value = monsterData.armor_class.value;
             actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
             actorData.attributes.hp.formula = '';
-            actorData.attributes.init.mod = monsterData.initiative.ability;
-            actorData.attributes.init.value = monsterData.initiative.value;
-            actorData.attributes.init.bonus = 0;
-            actorData.attributes.init.total = monsterData.initiative.value;
+            actorData.attributes.init = {
+				mod: 0,
+				prof: 0,
+            	value: 0,
+            	bonus: monsterData.initiative.value,
+            	total: monsterData.initiative.value
+			};
             actorData.attributes.encumbrance = {
 				value: monsterData.inventory.weight.value,
 				max: monsterData.inventory.capacity.value,
