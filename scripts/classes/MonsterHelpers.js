@@ -85,14 +85,12 @@ const MonsterHelpers = (function() {
 		hp.multiply(rankHp, game.i18n.format('gmm.common.derived_source.rank'));
 		hp.multiply(roleHp, game.i18n.format('gmm.common.derived_source.role'));
 
-		let scale = 1;
 		if (rank.modifiers.scale_with_players && rank.modifiers.target_players != 1) {
 			hp.multiply(rank.modifiers.target_players, game.i18n.format('gmm.common.derived_source.scale_with_players'));
 		}
 
-		let phases = 1;
-		if (rank.modifiers.has_phases && rank.modifiers.phases.maximum != 1) {
-			hp.divide(phases, game.i18n.format('gmm.common.derived_source.phases'));
+		if (rank.modifiers.has_phases && rank.modifiers.phases.maximum > 1) {
+			hp.divide(rank.modifiers.phases.maximum, game.i18n.format('gmm.common.derived_source.phases'));
 		}
 
 		return hp;
