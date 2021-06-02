@@ -17,13 +17,21 @@ Hooks.once("init", function() {
 	});
 	Items.registerSheet("gmm", ActionSheet, {
 		label: "gmm.sheet.action.label"
-	  });
+	});
 
 	Templates.preloadTemplates();
 	Templates.registerTemplateHelpers();
 
 	GmmActor.patchActor5e();
 	GmmItem.patchItem5e();
+
+	// Reprepare actor/item data when the default sheet is changed
+	Hooks.on("updateSetting", (setting, data, options, userId) => {
+		if ( setting.key === "core.sheetClasses" ) {
+			game.actors.forEach(x => x.prepareData());
+			game.items.forEach(x => x.prepareData());
+		}
+	});
 
 	console.log(`Giffyglyph's 5e Monster Maker | Initialised`);
 });
