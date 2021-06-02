@@ -22,7 +22,8 @@ const Shortcoder = (function() {
 		{ code: "xp", data: "xp.value" },
 		{ code: "cr", data: "challenge_rating.value" },
 		{ code: "ac", data: "armor_class.value" },
-		{ code: "hpMax", data: "hit_points.maximum.value" }
+		{ code: "hpMax", data: "hit_points.maximum.value" },
+		{ code: "damageDie", data: "damage_per_action.die_size" }
 	];
 
 	function replaceShortcodes(text, monsterData) {
