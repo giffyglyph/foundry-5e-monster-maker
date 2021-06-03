@@ -121,9 +121,11 @@ export default class ActionSheet extends ItemSheet {
 				return ammo;
 			}, {[item.id]: `${item.name} (${item.data.data.quantity})`});
 		} else if ( consume.type === "attribute" ) {
-			const attributes = Object.values(CombatTrackerConfig.prototype.getAttributeChoices())[0]; // Bit of a hack
-			return attributes.reduce((obj, a) => {
-				obj[a] = a;
+			const attributes = TokenDocument.getTrackedAttributes(actor.data.data);
+			attributes.bar.forEach(a => a.push("value"));
+			return attributes.bar.concat(attributes.value).reduce((obj, a) => {
+				let k = a.join(".");
+				obj[k] = k;
 				return obj;
 			}, {});
 		} else if ( consume.type === "material" ) {
