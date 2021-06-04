@@ -24,7 +24,7 @@ const GmmActor = (function () {
 	 * @private
 	 */
 	function _prepareBaseData() {
-		if (this.getSheetId() == "gmm.MonsterSheet") {
+		if (this.type == "npc" && this.getSheetId() == "gmm.MonsterSheet") {
 			_prepareMonsterBaseData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eBaseData.call(this);
@@ -36,7 +36,7 @@ const GmmActor = (function () {
 	 * @private
 	 */
 	function _prepareDerivedData() {
-		if (this.getSheetId() == "gmm.MonsterSheet") {
+		if (this.type == "npc" && this.getSheetId() == "gmm.MonsterSheet") {
 			_prepareMonsterDerivedData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData.call(this);
