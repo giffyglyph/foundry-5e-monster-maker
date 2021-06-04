@@ -1,14 +1,14 @@
 export const GMM_ACTION_BLUEPRINT = {
 	vid: 1,
-	type: "item",
+	type: "action",
 	data: {
 		description: {
-			image: "icons/svg/mystery-man.svg",
-			name: "Monster",
+			image: "icons/svg/clockwork.svg",
+			name: "Scaling Action",
 			text: null
 		},
 		display: {
-			layout: "slide-in-left",
+			layout: "slide-out",
 			color: {
 				primary: "blue",
 				secondary: "deep-orange"

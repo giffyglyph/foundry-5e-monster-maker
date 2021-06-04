@@ -158,8 +158,8 @@ export const GMM_MONSTER_BLUEPRINT = {
 				category: "unaligned",
 				custom: ""
 			},
-			image: "icons/svg/mystery-man.svg",
-			name: "Monster",
+			image: "icons/svg/eye.svg",
+			name: "Scaling Monster",
 			size: "medium",
 			type: {
 				category: "humanoid",
@@ -169,7 +169,7 @@ export const GMM_MONSTER_BLUEPRINT = {
 			}
 		},
 		display: {
-			layout: "slide-in-left",
+			layout: "slide-out",
 			color: {
 				primary: "blue",
 				secondary: "deep-orange"
