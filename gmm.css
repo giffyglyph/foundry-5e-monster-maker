@@ -3543,7 +3543,12 @@
   box-shadow: none;
   filter: drop-shadow(0px 0px 20px black); }
   .gmm-window .window-header {
-    border-bottom: none; }
+    border-bottom: none;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    overflow: visible; }
     .gmm-window .window-header.resizable ~ .window-resizable-handle {
       background: white;
       color: black;
@@ -3564,7 +3569,8 @@
     .gmm-window .window-header.resizable ~ .window-content > .gmm-forge .forge__controls {
       padding-right: 2.25rem; }
   .gmm-window.minimized {
-    border-radius: 0; }
+    border-radius: 0;
+    height: 30px !important; }
     .gmm-window.minimized .window-header {
       border: none; }
       .gmm-window.minimized .window-header.resizable ~ .window-resizable-handle {

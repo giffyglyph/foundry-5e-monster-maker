@@ -5,6 +5,11 @@
 
 	.window-header {
 		border-bottom: none;
+		white-space: nowrap;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		overflow: visible;
 
 		&.resizable {
 			
@@ -37,6 +42,7 @@
 
 	&.minimized {
 		border-radius: 0;
+		height: 30px !important;
 
 		.window-header {
 			border: none;
