@@ -1,0 +1,28 @@
+#sidebar {
+
+	.giffyglyph {
+
+		.btn-group {
+			margin: 4px;
+			display: flex;
+
+			button {
+				margin: 0;
+				flex: 1;
+				cursor: pointer;
+
+				&:not(:last-child) {
+					border-right: 1px solid #b5b3a4;
+					border-top-right-radius: 0;
+					border-bottom-right-radius: 0;
+				}
+
+				&:not(:first-child) {
+					border-left: none;
+					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
+				}
+			}
+		}
+	}
+}

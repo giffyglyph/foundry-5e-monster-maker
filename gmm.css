@@ -3583,3 +3583,19 @@
 .gmm-window.window--monster {
   width: 525px !important;
   min-height: 500px; }
+
+#sidebar .giffyglyph .btn-group {
+  margin: 4px;
+  display: flex; }
+  #sidebar .giffyglyph .btn-group button {
+    margin: 0;
+    flex: 1;
+    cursor: pointer; }
+    #sidebar .giffyglyph .btn-group button:not(:last-child) {
+      border-right: 1px solid #b5b3a4;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0; }
+    #sidebar .giffyglyph .btn-group button:not(:first-child) {
+      border-left: none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; }

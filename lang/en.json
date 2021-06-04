@@ -1,4 +1,6 @@
 {   
+    "gmm.sidebar.create_monster": "Create a Scaling Monster",
+    "gmm.sidebar.create_action": "Create a Scaling Action",
     "gmm.action.artifact.action_type.action": "Scaling Action",
     "gmm.action.artifact.action_type.bonus": "Scaling Bonus Action",
     "gmm.action.artifact.action_type.crew": "Scaling Crew Action",

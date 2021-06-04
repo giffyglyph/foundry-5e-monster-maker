@@ -34,5 +34,63 @@ Hooks.once("init", function() {
 		}
 	});
 
+	Hooks.on("renderActorDirectory", (app, html, data) => {
+		if (game.user.isGM) {
+			_hookActorDirectory(html);
+		}
+	});
+
+	Hooks.on("renderItemDirectory", (app, html, data) => {
+		if (game.user.isGM) {
+			_hookItemDirectory(html);
+		}
+	});
+
 	console.log(`Giffyglyph's 5e Monster Maker | Initialised`);
 });
+
+async function _hookActorDirectory(html) {
+    let section = document.createElement("div");
+    section.classList.add("header-actions", "action-buttons", "flexrow", "giffyglyph");
+	section.insertAdjacentHTML(
+		"afterbegin",
+		`
+			<div class="btn-group">
+				<button data-action="create-scaling-monster"><i class="fas fa-skull"></i> ${game.i18n.format('gmm.sidebar.create_monster')}</button>
+			</div>
+		`
+    );
+	section.querySelector("[data-action='create-scaling-monster']").addEventListener("click", (ev) => {
+		Actor.create({
+			name: "New Scaling Monster",
+			type: "npc",
+			img: "icons/svg/eye.svg",
+			flags: { "core.sheetClass": "gmm.MonsterSheet" }
+		});
+	});
+    const dirHeader = html[0].querySelector(".directory-header .header-search");
+    dirHeader.parentNode.insertBefore(section, dirHeader);
+}
+
+async function _hookItemDirectory(html) {
+    let section = document.createElement("div");
+    section.classList.add("header-actions", "action-buttons", "flexrow", "giffyglyph");
+	section.insertAdjacentHTML(
+		"afterbegin",
+		`
+			<div class="btn-group">
+				<button data-action="create-scaling-action"><i class="fas fa-skull"></i> ${game.i18n.format('gmm.sidebar.create_action')}</button>
+			</div>
+		`
+    );
+	section.querySelector("[data-action='create-scaling-action']").addEventListener("click", (ev) => {
+		Item.create({
+			name: "New Scaling Action",
+			type: "feat",
+			img: "icons/svg/clockwork.svg",
+			flags: { "core.sheetClass": "gmm.ActionSheet" }
+		});
+	});
+    const dirHeader = html[0].querySelector(".directory-header .header-search");
+    dirHeader.parentNode.insertBefore(section, dirHeader);
+}
