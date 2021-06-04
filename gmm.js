@@ -65,7 +65,11 @@ async function _hookActorDirectory(html) {
 			name: "New Scaling Monster",
 			type: "npc",
 			img: "icons/svg/eye.svg",
-			flags: { "core.sheetClass": "gmm.MonsterSheet" }
+			flags: { "core.sheetClass": "gmm.MonsterSheet" },
+			data: {
+				"details.alignment": "unaligned",
+				"details.type.value": "humanoid"
+			},
 		});
 	});
     const dirHeader = html[0].querySelector(".directory-header .header-search");
