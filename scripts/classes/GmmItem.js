@@ -1,6 +1,7 @@
 import { simplifyRollFormula, damageRoll } from "./../../../../systems/dnd5e/module/dice.js";
 import ActionBlueprint from './ActionBlueprint.js';
 import Shortcoder from './Shortcoder.js';
+import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
 
 /**
  * A patcher which controls item data based on the selected sheet.
@@ -28,7 +29,7 @@ const GmmItem = (function () {
 		game.dnd5e.entities.Item5e.prototype.getGmmLabels = _getGmmLabels;
 		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "isHealing", {
 			get: function () {
-				if (this.getSheetId() == "gmm.ActionSheet") {
+				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 					return false;
 				} else {
 					// Copy existing Foundry behaviour.
@@ -38,7 +39,7 @@ const GmmItem = (function () {
 		});
 		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "isVersatile", {
 			get: function () {
-				if (this.getSheetId() == "gmm.ActionSheet") {
+				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 					return false;
 				} else {
 					// Copy existing Foundry behaviour.
@@ -48,7 +49,7 @@ const GmmItem = (function () {
 		});
 		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "hasSave", {
 			get: function () {
-				if (this.getSheetId() == "gmm.ActionSheet") {
+				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 					return ["save", "other"].includes(this.data.data.gmm?.blueprint?.data?.attack?.type);
 				} else {
 					// Copy existing Foundry behaviour.
@@ -65,7 +66,7 @@ const GmmItem = (function () {
 		const rollData = this.getRollData();
 		const gmmMonster = this.getOwningGmmMonster();
 
-		labels.icon = (this.getSheetId() == "gmm.ActionSheet") ? "fas fa-arrow-alt-circle-right" : "far fa-arrow-alt-circle-right";
+		labels.icon = (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) ? "fas fa-arrow-alt-circle-right" : "far fa-arrow-alt-circle-right";
 
 		if (this.hasAttack) {
 			labels.attack = game.i18n.format(`gmm.action.labels.attack.${itemData.actionType}`);
@@ -199,7 +200,7 @@ const GmmItem = (function () {
 	}
 
 	function _isOwnedByGmmMonster() {
-		return this.actor && (this.actor.getSheetId() == "gmm.MonsterSheet");
+		return this.actor && this.actor.type == "npc" && (this.actor.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`);
 	}
 
 	function _getGmmActionBlueprint() {
@@ -212,7 +213,7 @@ const GmmItem = (function () {
 
 	function _prepareData() {
 		game.dnd5e.entities.Item5e.prototype.prepare5eData.call(this);
-		if (this.getSheetId() == "gmm.ActionSheet") {
+		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			try {
 				const itemData = this.data.data;
 				const actionBlueprint = ActionBlueprint.createFromItem(this);
@@ -226,7 +227,7 @@ const GmmItem = (function () {
 	}
 
 	function _prepareShortcodes() {
-		if (this.getSheetId() == "gmm.ActionSheet") {
+		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			let gmmMonster = this.getOwningGmmMonster();
 			if (gmmMonster && this.data.data.description && this.data.data.description.value) {
 				this.data.data.description.value = Shortcoder.replaceShortcodes(this.data.data.description.value, gmmMonster);
@@ -235,7 +236,7 @@ const GmmItem = (function () {
 	}
 
 	function _getAttackToHit() {
-		if (this.getSheetId() == "gmm.ActionSheet") {
+		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			return _getActionAttackToHit(this);
 		} else {
 			return game.dnd5e.entities.Item5e.prototype.get5eAttackToHit.call(this);
@@ -243,7 +244,7 @@ const GmmItem = (function () {
 	}
 
 	function _getSaveDC() {
-		if (this.getSheetId() == "gmm.ActionSheet") {
+		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			return _getActionSaveDC(this);
 		} else {
 			return game.dnd5e.entities.Item5e.prototype.get5eSaveDC.call(this);
@@ -251,7 +252,7 @@ const GmmItem = (function () {
 	}
 
 	function _rollDamage({critical=false, event=null, spellLevel=null, versatile=false, options={}}={}) {
-		if (this.getSheetId() == "gmm.ActionSheet" && this.isOwnedByGmmMonster()) {
+		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
 			return _rollActionDamage({
 				item: this,
 				critical: critical,
@@ -405,7 +406,7 @@ const GmmItem = (function () {
 	}
 
 	function _getSortingCategory() {
-		if (this.getSheetId() == "gmm.ActionSheet") {
+		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			const gmmActionBlueprint = this.getGmmActionBlueprint();
 			if (gmmActionBlueprint) {
 				switch (gmmActionBlueprint.activation.type) {

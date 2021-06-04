@@ -1,0 +1,1 @@
+export const GMM_MODULE_TITLE = "giffyglyphs-5e-monster-maker-dev";

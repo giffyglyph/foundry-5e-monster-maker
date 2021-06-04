@@ -3,6 +3,7 @@ import GmmItem from './scripts/classes/GmmItem.js';
 import MonsterSheet from './scripts/classes/MonsterSheet.js';
 import ActionSheet from './scripts/classes/ActionSheet.js';
 import Templates from './scripts/classes/Templates.js';
+import { GMM_MODULE_TITLE } from "./scripts/consts/GmmModuleTitle.js";
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -11,11 +12,11 @@ import Templates from './scripts/classes/Templates.js';
 Hooks.once("init", function() {
 	console.log(`Giffyglyph's 5e Monster Maker | Initialising`);
 
-	Actors.registerSheet("gmm", MonsterSheet, {
+	Actors.registerSheet(GMM_MODULE_TITLE, MonsterSheet, {
 		types: ["npc"],
 		label: "gmm.sheet.monster.label"
 	});
-	Items.registerSheet("gmm", ActionSheet, {
+	Items.registerSheet(GMM_MODULE_TITLE, ActionSheet, {
 		label: "gmm.sheet.action.label"
 	});
 
@@ -65,7 +66,7 @@ async function _hookActorDirectory(html) {
 			name: "New Scaling Monster",
 			type: "npc",
 			img: "icons/svg/eye.svg",
-			flags: { "core.sheetClass": "gmm.MonsterSheet" },
+			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.MonsterSheet` },
 			data: {
 				"details.alignment": "unaligned",
 				"details.type.value": "humanoid"
@@ -92,7 +93,7 @@ async function _hookItemDirectory(html) {
 			name: "New Scaling Action",
 			type: "feat",
 			img: "icons/svg/clockwork.svg",
-			flags: { "core.sheetClass": "gmm.ActionSheet" }
+			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
 		});
 	});
     const dirHeader = html[0].querySelector(".directory-header .header-search");

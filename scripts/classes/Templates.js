@@ -1,7 +1,9 @@
+import { GMM_MODULE_TITLE } from "../consts/GmmModuleTitle.js";
+
 const Templates = (function() {
 
 	function getRelativePath(path) {
-		return `modules/giffyglyphs-5e-monster-maker-dev/templates/${path}`;
+		return `modules/${GMM_MODULE_TITLE}/templates/${path}`;
 	}
 
 	async function preloadTemplates() {

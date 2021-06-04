@@ -2,6 +2,7 @@ import MonsterBlueprint from './MonsterBlueprint.js';
 import MonsterForge from './MonsterForge.js';
 import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
 import { GMM_5E_SKILLS } from '../consts/Gmm5eSkills.js';
+import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
 
 /**
  * A patcher which controls actor data based on the selected sheet.
@@ -24,7 +25,7 @@ const GmmActor = (function () {
 	 * @private
 	 */
 	function _prepareBaseData() {
-		if (this.type == "npc" && this.getSheetId() == "gmm.MonsterSheet") {
+		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
 			_prepareMonsterBaseData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eBaseData.call(this);
@@ -36,7 +37,7 @@ const GmmActor = (function () {
 	 * @private
 	 */
 	function _prepareDerivedData() {
-		if (this.type == "npc" && this.getSheetId() == "gmm.MonsterSheet") {
+		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
 			_prepareMonsterDerivedData(this);
 		} else {
 			game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData.call(this);
