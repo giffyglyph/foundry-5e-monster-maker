@@ -32,14 +32,6 @@ const Templates = (function() {
 			return String(str).length;
 		});
 
-		Handlebars.registerHelper('toggleCustom', function(showCustom, options) {
-			let html = options.fn(this);
-			if (showCustom !== "custom") {
-				html = html.replace(/input /g, "input type='hidden'");
-			}
-			return html;
-		});
-
 		Handlebars.registerHelper('repeat', function(n, block) {
 			var accum = '';
 			for(var i = 0; i < n; ++i)

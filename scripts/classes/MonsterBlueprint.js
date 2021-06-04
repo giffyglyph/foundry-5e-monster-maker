@@ -1,5 +1,4 @@
 import { GMM_5E_ALIGNMENTS } from "../consts/Gmm5eAlignments.js";
-import { GMM_5E_CATEGORIES } from "../consts/Gmm5eCategories.js";
 import { GMM_5E_CONDITIONS } from "../consts/Gmm5eConditions.js";
 import { GMM_5E_DAMAGE_TYPES } from "../consts/Gmm5eDamageTypes.js";
 import { GMM_5E_LANGUAGES } from "../consts/Gmm5eLanguages.js";
@@ -207,11 +206,11 @@ const MonsterBlueprint = (function() {
 
 		if (hasProperty(blueprint.data, "description.alignment.category")) {
 			const alignment = blueprint.data.description.alignment.category;
-			if (alignment == "custom") {
+			if (alignment) {
+				setProperty(actorData, "data.details.alignment", game.i18n.format(`gmm.common.alignment.${alignment}`));
+			} else {
 				const custom = getProperty(blueprint.data, "description.alignment.custom");
 				setProperty(actorData, "data.details.alignment", custom);
-			} else {
-				setProperty(actorData, "data.details.alignment", game.i18n.format(`gmm.common.alignment.${alignment}`));
 			}
 		}
 
@@ -278,7 +277,7 @@ const MonsterBlueprint = (function() {
 	function _getActorAlignment(alignment) {
 		if (alignment?.trim().length == 0) {
 			return {
-				category: "custom",
+				category: "",
 				custom: null
 			}
 		} else {
@@ -290,7 +289,7 @@ const MonsterBlueprint = (function() {
 				}
 			} else {
 				return {
-					category: "custom",
+					category: "",
 					custom: alignment.trim()
 				}
 			}

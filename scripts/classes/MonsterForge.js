@@ -85,7 +85,7 @@ const MonsterForge = (function() {
 
 		// Render creature category
 		let category = "";
-		if (!description.type.category || description.type.category === "custom") {
+		if (!description.type.category) {
 			if (description.type.custom.trim().length > 0) {
 				category = description.type.custom;
 			}
@@ -112,10 +112,10 @@ const MonsterForge = (function() {
 
 		// Render creature alignment
 		let alignment = "";
-		if (description.alignment.category === "custom") {
-			alignment = description.alignment.custom?.trim();
-		} else {
+		if (description.alignment.category) {
 			alignment = game.i18n.format(`gmm.common.alignment.${description.alignment.category}`).toLowerCase();
+		} else {
+			alignment = description.alignment.custom?.trim();
 		}
 		return `${parts.join(' ')}${alignment ? `, ${alignment}` : ``}`;
 	}
