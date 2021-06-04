@@ -1863,6 +1863,7 @@
 								<div class="form-group__body">
 									<select name="gmm.blueprint.display.layout">
 										{{#select gmm.blueprint.display.layout}}
+											<option value="">Default</option>
 											{{#each gmm.enums.layouts.monster as | layout |}}
 												<option value="{{layout.code}}">{{layout.name}}</option>
 											{{/each}}
@@ -1879,6 +1880,7 @@
 										</div>
 										<div class="form-group__body">
 											<select name="gmm.blueprint.display.skin.artifact">
+												<option value="">Default</option>
 												{{#select gmm.blueprint.display.skin.artifact}}
 													{{#each gmm.enums.skins.monster.artifact as | skin |}}
 														<option value="{{skin.code}}">{{skin.name}}</option>
@@ -1893,6 +1895,7 @@
 										</div>
 										<div class="form-group__body">
 											<select name="gmm.blueprint.display.skin.blueprint">
+												<option value="">Default</option>
 												{{#select gmm.blueprint.display.skin.blueprint}}
 													{{#each gmm.enums.skins.monster.blueprint as | skin |}}
 														<option value="{{skin.code}}">{{skin.name}}</option>
@@ -1912,6 +1915,7 @@
 										</div>
 										<div class="form-group__body">
 											<select name="gmm.blueprint.display.color.primary">
+												<option value="">Default</option>
 												{{#select gmm.blueprint.display.color.primary}}
 													{{#each gmm.enums.colors as | color |}}
 														<option value="{{color.code}}">{{color.name}}</option>
@@ -1926,6 +1930,7 @@
 										</div>
 										<div class="form-group__body">
 											<select name="gmm.blueprint.display.color.secondary">
+												<option value="">Default</option>
 												{{#select gmm.blueprint.display.color.secondary}}
 													{{#each gmm.enums.colors as | color |}}
 														<option value="{{color.code}}">{{color.name}}</option>

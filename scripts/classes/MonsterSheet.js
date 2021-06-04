@@ -12,6 +12,7 @@ import { GMM_GUI_LAYOUTS } from "../consts/GmmGuiLayouts.js";
 import { GMM_GUI_SKINS } from "../consts/GmmGuiSkins.js";
 import { GMM_MONSTER_RANKS } from "../consts/GmmMonsterRanks.js";
 import { GMM_MONSTER_ROLES } from "../consts/GmmMonsterRoles.js";
+import { GMM_MODULE_TITLE } from "../consts/GmmModuleTitle.js";
 import Gui from "./Gui.js";
 import ModalAbilityCheck from "../modals/ModalAbilityCheck.js";
 import ModalBasicAttackAc from "../modals/ModalBasicAttackAc.js";
@@ -71,10 +72,22 @@ export default class MonsterSheet extends ActorSheet {
 
 	getData() {
 		const data = super.getData();
+		const actorData = data.actor.data.data;
 
 		data.gmm = {
-			blueprint: data.actor.data.data.gmm?.blueprint ? data.actor.data.data.gmm.blueprint.data : null,
-			monster: data.actor.data.data.gmm?.monster ? data.actor.data.data.gmm.monster.data : null,
+			blueprint: actorData.gmm?.blueprint ? actorData.gmm.blueprint.data : null,
+			monster: actorData.gmm?.monster ? actorData.gmm.monster.data : null,
+			forge: {
+				layout: actorData.gmm?.blueprint.data.display.layout ? actorData.gmm.blueprint.data.display.layout : game.settings.get(GMM_MODULE_TITLE, "monsterLayout"),
+				colors: {
+					primary: actorData.gmm?.blueprint.data.display.color.primary ? actorData.gmm.blueprint.data.display.color.primary : game.settings.get(GMM_MODULE_TITLE, "monsterPrimaryColor"),
+					secondary: actorData.gmm?.blueprint.data.display.color.secondary ? actorData.gmm.blueprint.data.display.color.secondary : game.settings.get(GMM_MODULE_TITLE, "monsterSecondaryColor")
+				},
+				skins: {
+					artifact: actorData.gmm?.blueprint.data.display.skin.artifact ? actorData.gmm.blueprint.data.display.skin.artifact : game.settings.get(GMM_MODULE_TITLE, "monsterArtifactSkin"),
+					blueprint: actorData.gmm?.blueprint.data.display.skin.blueprint ? actorData.gmm.blueprint.data.display.skin.blueprint : game.settings.get(GMM_MODULE_TITLE, "monsterBlueprintSkin"),
+				}
+			},
 			gui: this._gui,
 			enums: {
 				abilities: GMM_5E_ABILITIES,

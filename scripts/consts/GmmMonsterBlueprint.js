@@ -169,14 +169,14 @@ export const GMM_MONSTER_BLUEPRINT = {
 			}
 		},
 		display: {
-			layout: "slide-out",
+			layout: "",
 			color: {
-				primary: "blue",
-				secondary: "deep-orange"
+				primary: "",
+				secondary: ""
 			},
 			skin: {
-				artifact: "vanity",
-				blueprint: "vanity"
+				artifact: "",
+				blueprint: ""
 			}
 		},
 		hit_points: {

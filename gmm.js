@@ -3,6 +3,9 @@ import GmmItem from './scripts/classes/GmmItem.js';
 import MonsterSheet from './scripts/classes/MonsterSheet.js';
 import ActionSheet from './scripts/classes/ActionSheet.js';
 import Templates from './scripts/classes/Templates.js';
+import { GMM_GUI_SKINS } from "./scripts/consts/GmmGuiSkins.js";
+import { GMM_GUI_COLORS } from "./scripts/consts/GmmGuiColors.js";
+import { GMM_GUI_LAYOUTS } from "./scripts/consts/GmmGuiLayouts.js";
 import { GMM_MODULE_TITLE } from "./scripts/consts/GmmModuleTitle.js";
 
 /* -------------------------------------------- */
@@ -46,6 +49,8 @@ Hooks.once("init", function() {
 			_hookItemDirectory(html);
 		}
 	});
+
+	_registerSettings();
 
 	console.log(`Giffyglyph's 5e Monster Maker | Initialised`);
 });
@@ -98,4 +103,97 @@ async function _hookItemDirectory(html) {
 	});
     const dirHeader = html[0].querySelector(".directory-header .header-search");
     dirHeader.parentNode.insertBefore(section, dirHeader);
+}
+
+function _registerSettings() {
+
+	game.settings.register(GMM_MODULE_TITLE, "monsterLayout", {
+		name: "Monster Menu Layout",
+		scope: "world",
+		config: true,
+		default: "slide-out",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_LAYOUTS.monster.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "monsterArtifactSkin", {
+		name: "Monster Artifact Skin",
+		scope: "world",
+		config: true,
+		default: "vanity",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_SKINS.monster.artifact.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "monsterBlueprintSkin", {
+		name: "Monster Blueprint Skin",
+		scope: "world",
+		config: true,
+		default: "vanity",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_SKINS.monster.blueprint.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "monsterPrimaryColor", {
+		name: "Monster Primary Color",
+		scope: "world",
+		config: true,
+		default: "blue",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_COLORS.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "monsterSecondaryColor", {
+		name: "Monster Secondary Color",
+		scope: "world",
+		config: true,
+		default: "orange",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_COLORS.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "actionLayout", {
+		name: "Action Menu Layout",
+		scope: "world",
+		config: true,
+		default: "slide-out",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_LAYOUTS.action.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "actionArtifactSkin", {
+		name: "Action Artifact Skin",
+		scope: "world",
+		config: true,
+		default: "vanity",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_SKINS.action.artifact.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "actionBlueprintSkin", {
+		name: "Action Blueprint Skin",
+		scope: "world",
+		config: true,
+		default: "vanity",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_SKINS.action.blueprint.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "actionPrimaryColor", {
+		name: "Action Primary Color",
+		scope: "world",
+		config: true,
+		default: "blue-gray",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_COLORS.map((x) => [ x.code, x.name]))
+	});
+
+	game.settings.register(GMM_MODULE_TITLE, "actionSecondaryColor", {
+		name: "Action Secondary Color",
+		scope: "world",
+		config: true,
+		default: "amber",
+		type: String,
+		choices: Object.fromEntries(GMM_GUI_COLORS.map((x) => [ x.code, x.name]))
+	});
 }

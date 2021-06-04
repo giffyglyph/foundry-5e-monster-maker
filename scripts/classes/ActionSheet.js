@@ -11,6 +11,7 @@ import { GMM_ACTION_ATTACK_TYPES } from "../consts/GmmActionAttackTypes.js";
 import { GMM_ACTION_ATTACK_DAMAGE_TYPES } from "../consts/GmmActionAttackDamageTypes.js";
 import { GMM_MONSTER_RANKS } from "../consts/GmmMonsterRanks.js";
 import { GMM_MONSTER_ROLES } from "../consts/GmmMonsterRoles.js";
+import { GMM_MODULE_TITLE } from "../consts/GmmModuleTitle.js";
 import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
 import Gui from "./Gui.js";
 import ActionBlueprint from "./ActionBlueprint.js";
@@ -71,10 +72,22 @@ export default class ActionSheet extends ItemSheet {
 
 	getData() {
 		const data = super.getData();
+		const itemData = data.item.data.data;
 
 		data.gmm = {
-			blueprint: data.item.data.data.gmm?.blueprint ? data.item.data.data.gmm.blueprint.data : null,
-			action: data.item.data.data.gmm?.blueprint ? ActionForge.createArtifact(data.item.data.data.gmm.blueprint).data : null,
+			blueprint: itemData.gmm?.blueprint ? itemData.gmm.blueprint.data : null,
+			action: itemData.gmm?.blueprint ? ActionForge.createArtifact(itemData.gmm.blueprint).data : null,
+			forge: {
+				layout: itemData.gmm?.blueprint.data.display.layout ? itemData.gmm.blueprint.data.display.layout : game.settings.get(GMM_MODULE_TITLE, "actionLayout"),
+				colors: {
+					primary: itemData.gmm?.blueprint.data.display.color.primary ? itemData.gmm.blueprint.data.display.color.primary : game.settings.get(GMM_MODULE_TITLE, "actionPrimaryColor"),
+					secondary: itemData.gmm?.blueprint.data.display.color.secondary ? itemData.gmm.blueprint.data.display.color.secondary : game.settings.get(GMM_MODULE_TITLE, "actionSecondaryColor")
+				},
+				skins: {
+					artifact: itemData.gmm?.blueprint.data.display.skin.artifact ? itemData.gmm.blueprint.data.display.skin.artifact : game.settings.get(GMM_MODULE_TITLE, "actionArtifactSkin"),
+					blueprint: itemData.gmm?.blueprint.data.display.skin.blueprint ? itemData.gmm.blueprint.data.display.skin.blueprint : game.settings.get(GMM_MODULE_TITLE, "actionBlueprintSkin"),
+				}
+			},
 			gui: this._gui,
 			enums: {
 				colors: GMM_GUI_COLORS,

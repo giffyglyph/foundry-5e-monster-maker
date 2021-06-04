@@ -8,14 +8,14 @@ export const GMM_ACTION_BLUEPRINT = {
 			text: null
 		},
 		display: {
-			layout: "slide-out",
+			layout: "",
 			color: {
-				primary: "blue",
-				secondary: "deep-orange"
+				primary: "",
+				secondary: ""
 			},
 			skin: {
-				artifact: "vanity",
-				blueprint: "vanity"
+				artifact: "",
+				blueprint: ""
 			}
 		},
 		requirements: {
