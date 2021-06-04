@@ -195,7 +195,7 @@ const ActionForge = (function() {
 	}
 
 	function _parseDamage(attack) {
-		if (attack.type && attack.damage.formula) {
+		if (attack.type && attack.damage?.formula) {
 			if (attack.damage.type) {
 				return `${attack.damage.formula} ${game.i18n.format(`gmm.common.damage.${attack.damage.type}`).toLowerCase()} damage`;
 			} else {
