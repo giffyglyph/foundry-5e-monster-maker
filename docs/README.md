@@ -1,15 +1,13 @@
 ![Monster Maker Social Banner](./img/fire-elemental.png)
 
+# Giffyglyph's 5e Monster Maker
+
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
 [![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
 [![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
 
-# Giffyglyph's 5e Monster Maker
-
-Want to build new monsters for your D&D 5e campaign, but aren't sure how to balance them easily? No worries—**Giffyglyph's 5e Monster Maker** has you covered! Build level-appropriate D&D 5e monsters in _seconds_ with an all-new automated monster sheet and scaling actions.
-
-![Scaling Adult Dragon](./img/scaling-monster-level.gif)
+Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5e campaign, but aren't sure how to balance them easily? No worries—**Giffyglyph's 5e Monster Maker** has you covered! Build level-appropriate D&D 5e monsters in _seconds_ with an all-new automated monster sheet and scaling actions.
 
 ## Features
 
@@ -23,6 +21,8 @@ Want to build new monsters for your D&D 5e campaign, but aren't sure how to bala
 * Convert existing monsters in seconds by simply changing the active sheet.
 * Includes full stats from the **[Giffyglyph's Monster Maker PDF](http://giffyglyph.com/monstermaker/)**.
 
+![Scaling Adult Dragon](./img/scaling-monster-level.gif)
+
 ## Getting Started
 
 1. Install and activate the module.
@@ -32,13 +32,13 @@ Want to build new monsters for your D&D 5e campaign, but aren't sure how to bala
 5. Customise your action by adding an attack—try a _"Melee Weapon Attack"_.
 6. Now drag the scaling action onto your scaling monster, and watch the action's attack bonus automatically change to match your monster's bonuses.
 
-## Converting an old Monster
+### Converting an old Monster
 
 1. Open an existing monster—or import one from the SRD compendium.
 2. Change the active sheet to **"Giffyglyph's 5e Monster Maker"**.
 3. Change the monster's level, rank, and role to suit the expected encounter.
 
-## Converting an old Action
+### Converting an old Action
 
 1. Open an existing item—such as a weapon, feature, or piece of loot.
 2. Change the active sheet to **"Giffyglyph's 5e Scaling Action"**.
@@ -48,13 +48,17 @@ Want to build new monsters for your D&D 5e campaign, but aren't sure how to bala
 
 ## Roadmap
 
-To see what's being worked on right now—and what may be planned for the future—check out the [projects board](https://github.com/giffyglyph/foundry_5e_monster_maker/projects).
+To see what's being worked on right now—and what may be planned for the future—check out the **[projects board](https://github.com/giffyglyph/foundry_5e_monster_maker/projects)**.
 
 ## Bugs and Feature Suggestions
 
-If you notice a bug or have a feature suggestion, visit the [issue board](https://github.com/giffyglyph/foundry_5e_monster_maker/issues) and open a ticket. Please make sure to be as thorough as possible in your report and attach screenshots where appropriate, as low-effort tickets may be closed out-of-hand.
+If you notice a bug or have a feature suggestion, visit the **[issue board](https://github.com/giffyglyph/foundry_5e_monster_maker/issues)** and open a ticket. Please make sure to be as thorough as possible in your report and attach screenshots where appropriate, as low-effort tickets may be closed out-of-hand.
 
 ## Support
+
+[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
+[![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
+[![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
 
 If you'd like to see more from this module in future, please consider [becoming a patron](https://www.patreon.com/giffyglyph). You can also find more of my work at:
 
