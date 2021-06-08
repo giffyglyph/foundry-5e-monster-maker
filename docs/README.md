@@ -23,6 +23,15 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 ![Scaling Adult Dragon](./img/scaling-monster-level.gif)
 
+## Installation
+
+You can install this Foundry module by copying a manifest URL into your Foundry setup:
+
+* **Live:** https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/master/module.json
+* **Development (may be unstable):** https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/dev/module.json
+
+You can install both live and development branches side-by-side, but you must activate only **one branch at a time**.
+
 ## Getting Started
 
 1. Install and activate the module.
@@ -48,11 +57,11 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 ## Roadmap
 
-To see what's being worked on right now—and what may be planned for the future—check out the **[projects board](https://github.com/giffyglyph/foundry_5e_monster_maker/projects)**.
+To see what's being worked on right now—and what may be planned for the future—check out the **[projects board](https://github.com/giffyglyph/foundry-5e-monster-maker/projects)**.
 
 ## Bugs and Feature Suggestions
 
-If you notice a bug or have a feature suggestion, visit the **[issue board](https://github.com/giffyglyph/foundry_5e_monster_maker/issues)** and open a ticket. Please make sure to be as thorough as possible in your report and attach screenshots where appropriate, as low-effort tickets may be closed out-of-hand.
+If you notice a bug or have a feature suggestion, visit the **[issue board](https://github.com/giffyglyph/foundry-5e-monster-maker/issues)** and open a ticket. Please make sure to be as thorough as possible in your report and attach screenshots where appropriate, as low-effort tickets may be closed out-of-hand.
 
 ## Support
 
