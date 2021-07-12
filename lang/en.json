@@ -233,6 +233,7 @@
     "gmm.common.alignment.unaligned": "Unaligned",
     "gmm.common.attack_type.save": "Saving throw (Primary DC)",
     "gmm.common.attack_type.other": "Saving throw (Secondary DC)",
+    "gmm.common.attack_type.util": "Utility",
     "gmm.common.attack_type.msak": "Melee spell attack",
     "gmm.common.attack_type.mwak": "Melee weapon attack",
     "gmm.common.attack_type.rsak": "Ranged spell attack",
