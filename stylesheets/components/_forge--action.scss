@@ -33,6 +33,33 @@
 		}
 	}
 
+	.gmm-modal.modal--bugs {
+
+		.modal__body {
+			text-align: center;
+		}
+
+		.github {
+			width: 100%;
+			text-align: center;
+			background: var(--color-patreon);
+			color: white;
+			margin: 1rem auto 0;
+			display: block;
+			border-radius: 0.75rem;
+			padding: 0.5rem 1rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			box-shadow: 0 2px 0 0 darken(#ff424d, 30%);
+
+			&:hover {
+				background: darken(#ff424d, 20%);
+				box-shadow: 0 2px 0 0 darken(#ff424d, 40%);
+				text-decoration: none;
+			}
+		}
+	}
+
 	.gmm-modal.modal--about {
 
 		.intro {
@@ -42,26 +69,28 @@
 		.contact_links {
 			margin: 1rem -1rem 0;
 			padding: 1rem 1rem 0;
-			border-top: 1px dotted white;
+			border-top: 1px dotted var(--color-primary-tint-4);
 			text-align: center;
 			list-style: none;
 			display: grid;
 			grid-template-columns: repeat(5, auto) 1fr;
-			grid-column-gap: 0.25rem;
+			grid-column-gap: 3px;
 	
 			a {
 				height: 2.4rem;
-				border-radius: 2rem;
+				border-radius: 0.75rem;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				background: white;
 				color: black;
+				box-shadow: 0 2px 0 0 var(--color-primary-tint-4);
 	
 				&:hover {
 					text-shadow: none;
 					text-decoration: none;
 					color: white;
+					box-shadow: 0 2px 0 0 var(--color-primary-tint-3);
 				}
 			}
 	
@@ -143,7 +172,7 @@
 		.support {
 			padding: 1rem;
 			background: var(--color-primary-tint-5);
-			margin-top: 1rem;
+			margin: 2rem -1rem -1rem;
 			border-radius: 1rem;
 			text-align: center;
 			overflow: hidden;
@@ -167,7 +196,7 @@
 				background: var(--color-patreon);
 				color: white;
 				margin: 0 auto;
-				display: inline-block;
+				display: block;
 				border-radius: 0.75rem;
 				padding: 0.5rem 1rem;
 				overflow: hidden;

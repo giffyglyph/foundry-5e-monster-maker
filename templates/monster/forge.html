@@ -43,6 +43,7 @@
 			<span class="name">Giffyglyph's 5e Monster Maker</span>
 		</div>
 		<nav class="forge__controls" data-group="primary">
+			<button type="button" data-action="open-modal" data-modal="modal_bugs"><i class="fas fa-bug"></i></button>
 			<button type="button" data-action="open-modal" data-modal="modal_about"><i class="fas fa-question"></i></button>
 			<button type="button" data-action="expand-window"><i class="fas fa-cogs"></i></button>
 		</nav>
@@ -168,7 +169,7 @@
 					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
-					<p class="intro">{{{localize 'gmm.modal.info.about.p.1' pdf='https://drive.google.com/file/d/1BKZcrdUeeZCiG8WjC1E_Pxr1LCpaGbfY/view?usp=sharing'}}}</p>
+					<p class="intro">{{{localize 'gmm.modal.info.about.p.1' pdf='https://giffyglyph.com/monstermaker'}}}</p>
 					<div class="support">
 						<p class="support__title">{{localize 'gmm.modal.info.about.support'}}</p>
 						<p>{{{localize 'gmm.modal.info.about.p.2'}}}</p>
@@ -412,6 +413,19 @@
 				<div class="modal__footer">
 					<button class="modal__button" data-action="roll-critical"><i class="fas fa-skull"></i> {{localize 'gmm.modal.common.button.critical'}}</button>
 					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+				</div>
+			</div>
+		</div>
+		<div class="gmm-modal modal--bugs" id="modal_bugs">
+			<div class="modal__dialog">
+				<div class="modal__icon"><i class="fas fa-bug"></i></div>
+				<div class="modal__header">
+					<div class="modal__title">{{localize 'gmm.modal.info.bugs.title'}}</div>
+					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+				</div>
+				<div class="modal__body">
+					<p class="intro">{{{localize 'gmm.modal.info.bugs.intro'}}}</p>
+					<a class="github" href="https://github.com/giffyglyph/foundry-5e-monster-maker/issues"><i class="fab fa-github fa-fw"></i> github.com/giffyglyph</a>
 				</div>
 			</div>
 		</div>

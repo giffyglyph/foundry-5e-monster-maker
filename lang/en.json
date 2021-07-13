@@ -490,6 +490,8 @@
     "gmm.modal.common.roll_mode.roll": "Public Roll",
     "gmm.modal.common.roll_mode.selfroll": "Self Roll",
     "gmm.modal.common.roll_mode.title": "Roll Mode",
+    "gmm.modal.info.bugs.title": "Report a Bug",
+    "gmm.modal.info.bugs.intro": "If you've <strong>found a bug</strong> or have a <strong>feature request</strong>, please raise an issue on the project tracker.",
     "gmm.modal.info.about.kofi": "Make a Donation",
     "gmm.modal.info.about.p.1": "Welcome to <strong>Giffyglyph's Monster Maker</strong>! This Foundry module pairs with <a href='{pdf}'>GIFFYGLYPH'S MONSTER MAKER (PDF)</a> to help you build monsters for D&amp;D 5e <i>real fast</i>.",
     "gmm.modal.info.about.p.2": "If you like this module and want to see it grow, help out by becoming a patron or making a one-time donation.",

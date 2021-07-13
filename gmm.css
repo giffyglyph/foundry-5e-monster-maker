@@ -2294,7 +2294,7 @@
   --color-twitter: #00a5df;
   --color-reddit: #ff4500;
   --color-twitch: #9146ff;
-  --color-website: #5833d3;
+  --color-website: #336cd3;
   font-family: 'Source Sans Pro';
   display: grid;
   overflow: hidden;
@@ -3151,30 +3151,52 @@
     .gmm-forge.forge--action .gmm-modal.modal--shortcodes .gmm-accordion blockquote p {
       margin: 0; }
 
+.gmm-forge.forge--action .gmm-modal.modal--bugs .modal__body {
+  text-align: center; }
+
+.gmm-forge.forge--action .gmm-modal.modal--bugs .github {
+  width: 100%;
+  text-align: center;
+  background: var(--color-patreon);
+  color: white;
+  margin: 1rem auto 0;
+  display: block;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 2px 0 0 #a8000a; }
+  .gmm-forge.forge--action .gmm-modal.modal--bugs .github:hover {
+    background: #db000d;
+    box-shadow: 0 2px 0 0 #750007;
+    text-decoration: none; }
+
 .gmm-forge.forge--action .gmm-modal.modal--about .intro {
   text-align: center; }
 
 .gmm-forge.forge--action .gmm-modal.modal--about .contact_links {
   margin: 1rem -1rem 0;
   padding: 1rem 1rem 0;
-  border-top: 1px dotted white;
+  border-top: 1px dotted var(--color-primary-tint-4);
   text-align: center;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(5, auto) 1fr;
-  grid-column-gap: 0.25rem; }
+  grid-column-gap: 3px; }
   .gmm-forge.forge--action .gmm-modal.modal--about .contact_links a {
     height: 2.4rem;
-    border-radius: 2rem;
+    border-radius: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background: white;
-    color: black; }
+    color: black;
+    box-shadow: 0 2px 0 0 var(--color-primary-tint-4); }
     .gmm-forge.forge--action .gmm-modal.modal--about .contact_links a:hover {
       text-shadow: none;
       text-decoration: none;
-      color: white; }
+      color: white;
+      box-shadow: 0 2px 0 0 var(--color-primary-tint-3); }
   .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .twitch,
   .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .discord,
   .gmm-forge.forge--action .gmm-modal.modal--about .contact_links .reddit,
@@ -3223,7 +3245,7 @@
 .gmm-forge.forge--action .gmm-modal.modal--about .support {
   padding: 1rem;
   background: var(--color-primary-tint-5);
-  margin-top: 1rem;
+  margin: 2rem -1rem -1rem;
   border-radius: 1rem;
   text-align: center;
   overflow: hidden; }
@@ -3244,7 +3266,7 @@
     background: var(--color-patreon);
     color: white;
     margin: 0 auto;
-    display: inline-block;
+    display: block;
     border-radius: 0.75rem;
     padding: 0.5rem 1rem;
     overflow: hidden;
@@ -3319,30 +3341,52 @@
     .gmm-forge.forge--monster .gmm-modal.modal--ability-check .modal__footer button:first-child {
       grid-column: 1 / span 2; }
 
+.gmm-forge.forge--monster .gmm-modal.modal--bugs .modal__body {
+  text-align: center; }
+
+.gmm-forge.forge--monster .gmm-modal.modal--bugs .github {
+  width: 100%;
+  text-align: center;
+  background: var(--color-patreon);
+  color: white;
+  margin: 1rem auto 0;
+  display: block;
+  border-radius: 0.75rem;
+  padding: 0.5rem 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-shadow: 0 2px 0 0 #a8000a; }
+  .gmm-forge.forge--monster .gmm-modal.modal--bugs .github:hover {
+    background: #db000d;
+    box-shadow: 0 2px 0 0 #750007;
+    text-decoration: none; }
+
 .gmm-forge.forge--monster .gmm-modal.modal--about .intro {
   text-align: center; }
 
 .gmm-forge.forge--monster .gmm-modal.modal--about .contact_links {
   margin: 1rem -1rem 0;
   padding: 1rem 1rem 0;
-  border-top: 1px dotted white;
+  border-top: 1px dotted var(--color-primary-tint-4);
   text-align: center;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(5, auto) 1fr;
-  grid-column-gap: 0.25rem; }
+  grid-column-gap: 3px; }
   .gmm-forge.forge--monster .gmm-modal.modal--about .contact_links a {
     height: 2.4rem;
-    border-radius: 2rem;
+    border-radius: 0.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
     background: white;
-    color: black; }
+    color: black;
+    box-shadow: 0 2px 0 0 var(--color-primary-tint-4); }
     .gmm-forge.forge--monster .gmm-modal.modal--about .contact_links a:hover {
       text-shadow: none;
       text-decoration: none;
-      color: white; }
+      color: white;
+      box-shadow: 0 2px 0 0 var(--color-primary-tint-3); }
   .gmm-forge.forge--monster .gmm-modal.modal--about .contact_links .twitch,
   .gmm-forge.forge--monster .gmm-modal.modal--about .contact_links .discord,
   .gmm-forge.forge--monster .gmm-modal.modal--about .contact_links .reddit,
@@ -3391,7 +3435,7 @@
 .gmm-forge.forge--monster .gmm-modal.modal--about .support {
   padding: 1rem;
   background: var(--color-primary-tint-5);
-  margin-top: 1rem;
+  margin: 2rem -1rem -1rem;
   border-radius: 1rem;
   text-align: center;
   overflow: hidden; }
@@ -3412,7 +3456,7 @@
     background: var(--color-patreon);
     color: white;
     margin: 0 auto;
-    display: inline-block;
+    display: block;
     border-radius: 0.75rem;
     padding: 0.5rem 1rem;
     overflow: hidden;
