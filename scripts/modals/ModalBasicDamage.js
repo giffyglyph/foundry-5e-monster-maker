@@ -42,7 +42,7 @@ const ModalBasicDamage = (function() {
 		let rollString = rollParts.join(" + ");
 
 		if (form.get("modifiers")) {
-			rollString = `(${rollString}) + ${Shortcoder.replaceShortcodes(form.get("modifiers"), this.actor?.data?.data?.gmm?.monster?.data).trim()}`;
+			rollString = `${rollParts.length > 1 || form.get("bonus") != "static" ? `(${rollString})` : rollString} + ${Shortcoder.replaceShortcodes(form.get("modifiers"), this.actor?.data?.data?.gmm?.monster?.data).trim()}`;
 		}
 
 		try {
