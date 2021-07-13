@@ -537,7 +537,7 @@ const MonsterForge = (function() {
 	function _parseSpellbook(monsterAbilityModifiers, monsterClasses, spellbook) {
 		const dc = new DerivedAttribute();
 		dc.add(8, game.i18n.format('gmm.common.derived_source.base'));
-		dc.add(monsterAbilityModifiers[spellbook.spellcasting.ability].value, game.i18n.format('gmm.common.derived_source.ability_modifier'));
+		dc.add(monsterAbilityModifiers[spellbook.spellcasting.ability]?.value, game.i18n.format('gmm.common.derived_source.ability_modifier'));
 		dc.applyModifier(spellbook.spellcasting.dc.modifier.value, spellbook.spellcasting.dc.modifier.override);
 		dc.ceil();
 
