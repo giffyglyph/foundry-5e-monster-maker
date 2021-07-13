@@ -215,9 +215,11 @@ export default class MonsterSheet extends ActorSheet {
 		const header = event.currentTarget;
 		const type = header.dataset.type;
 		const itemData = {
-			name: game.i18n.format("DND5E.ItemNew", {type: type.capitalize()}),
+			name: game.i18n.format(`gmm.monster.artifact.add.${header.dataset["activation.type"] ? header.dataset["activation.type"] : "trait"}`),
 			type: type,
-			data: duplicate(header.dataset)
+			img: "icons/svg/clockwork.svg",
+			data: duplicate(header.dataset),
+			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
 		};
 		delete itemData.data["type"];
 		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
