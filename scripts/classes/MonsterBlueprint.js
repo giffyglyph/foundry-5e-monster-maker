@@ -6,6 +6,9 @@ import { GMM_5E_SIZES } from "../consts/Gmm5eSizes.js";
 import { GMM_5E_SKILLS } from "../consts/Gmm5eSkills.js";
 import { GMM_5E_UNITS } from "../consts/Gmm5eUnits.js";
 import { GMM_MONSTER_BLUEPRINT } from "../consts/GmmMonsterBlueprint.js";
+import { GMM_MONSTER_RANKS } from "../consts/GmmMonsterRanks.js";
+import { GMM_MONSTER_ROLES } from "../consts/GmmMonsterRoles.js";
+import { GMM_5E_XP } from "../consts/Gmm5eXp.js";
 
 const MonsterBlueprint = (function() {
 
@@ -72,8 +75,56 @@ const MonsterBlueprint = (function() {
 	];
 
 	function createFromActor(actor) {
-		const blueprint = $.extend(true, {}, GMM_MONSTER_BLUEPRINT, actor.data.data.gmm ? _verifyBlueprint(actor.data.data.gmm.blueprint) : null);
+		const blueprint = $.extend(true, {}, GMM_MONSTER_BLUEPRINT, actor.data.data.gmm ? _verifyBlueprint(actor.data.data.gmm.blueprint) : _getInitialData(actor.data.data));
 		return _syncActorDataToBlueprint(blueprint, actor);
+	}
+
+	function _getInitialData(actorData) {
+		let resources = actorData.resources;
+		let combatType = (resources.lair.value) ? "solo" : (resources.legact.max || resources.legres.max) ? "elite": "standard";
+		let combatRank = GMM_MONSTER_RANKS[combatType];
+		let abilityRankings = Object.entries(actorData.abilities).sort((x, y) => y[1].value - x[1].value).map((x) => x[0]);
+		let combatLevel = GMM_5E_XP.filter((x) => x.xp <= actorData.details.xp.value / combatRank.xp).pop().level;
+		let combatRole = "striker";
+		switch (abilityRankings[0]) {
+			case "dex":
+				combatRole = "scout";
+				break;
+			case "con":
+				combatRole = "defender";
+				break;
+			case "int":
+				combatRole = "controller";
+				break;
+			case "wis":
+				combatRole = "sniper";
+				break;
+			case "cha":
+				combatRole = "supporter";
+				break;
+		}
+
+		return {
+			data: {
+				ability_modifiers: {
+					ranking: abilityRankings,
+				},
+				saving_throws: {
+					ranking: abilityRankings,
+				},
+				combat: {
+					level: combatLevel,
+					rank: {
+						type: combatType,
+						modifiers: combatRank
+					},
+					role: {
+						type: combatRole,
+						modifiers: GMM_MONSTER_ROLES[combatRole]
+					}
+				}
+			}
+		}
 	}
 
 	function _verifyBlueprint(blueprint) {
