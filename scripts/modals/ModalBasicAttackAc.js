@@ -1,3 +1,6 @@
+import Shortcoder from '../classes/Shortcoder.js';
+import RollFormula from '../classes/RollFormula.js';
+
 const ModalBasicAttackAc = (function() {
 
 	function activateListeners(html, actor, id) {
@@ -28,25 +31,27 @@ const ModalBasicAttackAc = (function() {
 				break;
 		}
 		rollParts.push(form.get("bonus"));
+		let rollString = rollParts.join(" + ");
+
 		if (form.get("modifiers")) {
-			rollParts.push(form.get("modifiers"));
+			rollString = `(${rollString}) + ${Shortcoder.replaceShortcodes(form.get("modifiers"), this.actor?.data?.data?.gmm?.monster?.data).trim()}`;
 		}
-		
+
 		try {
-			const roll = new Roll(rollParts.join(" + ")).roll();
+			const roll = new Roll(RollFormula.getRollFormula(rollString)).roll();
 			roll.toMessage({
 				speaker: ChatMessage.getSpeaker({actor: this.actor}),
 				flavor: messageParts.join(" "),
 				messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
 				rollMode: form.get("mode")
 			});
+			modal.querySelector("[data-action='close-modal']").click();
 		} catch(err) {
+			ui.notifications.error(err, {permanent: true});
 			console.error(err);
 			return;
-		} finally {
-			modal.querySelector("[data-action='close-modal']").click();
 		}
-    }
+	}
 
 	return {
 		activateListeners: activateListeners
