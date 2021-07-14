@@ -249,7 +249,7 @@
 						<div class="accordion-section__body">
 							<div class="form-fieldset">
 								<div class="form-fieldset__header">
-									<span>{{localize 'gmm.action.blueprint.attack.damage.title'}}</span>
+									<span>{{localize 'gmm.action.blueprint.attack.damage.hit.title'}}</span>
 									<button type="button" data-action="add-damage">
 										{{localize 'gmm.action.blueprint.attack.damage.add'}}
 									</button>
@@ -288,6 +288,36 @@
 											</div>
 										</div>
 									{{/each}}
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">
+									<span>{{localize 'gmm.action.blueprint.attack.damage.miss.title'}}</span>
+								</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.type'}}</span>
+										</div>
+										<div class="form-group__body">
+											<input name="gmm.blueprint.attack.miss.damage" value="{{gmm.blueprint.attack.miss.damage}}" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-fieldset">
+								<div class="form-fieldset__header">
+									<span>{{localize 'gmm.action.blueprint.attack.damage.versatile.title'}}</span>
+								</div>
+								<div class="form-fieldset__body">
+									<div class="form-group">
+										<div class="form-group__header">
+											<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.damage.type'}}</span>
+										</div>
+										<div class="form-group__body">
+											<input name="gmm.blueprint.attack.versatile.damage" value="{{gmm.blueprint.attack.versatile.damage}}" />
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

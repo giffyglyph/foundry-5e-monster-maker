@@ -43,10 +43,22 @@
                     {{/if}}
                 </span>
             {{/if}}
-            {{#if item.gmmLabels.damage}}
+            {{#if item.gmmLabels.damage_hit}}
                 <span class="item__damage">
                     <span class="attack__title"><i>{{#if item.gmmLabels.isHealing}}{{localize 'gmm.common.attack.heal'}}{{else}}{{localize 'gmm.common.attack.hit'}}{{/if}}:</i></span>
-                    <span>{{item.gmmLabels.damage}}</span>
+                    <span>{{item.gmmLabels.damage_hit}}</span>
+                </span>
+            {{/if}}
+            {{#if item.gmmLabels.damage_versatile}}
+                <span class="item__damage">
+                    <span class="attack__title"><i>{{localize 'gmm.common.attack.versatile'}}:</i></span>
+                    <span>{{item.gmmLabels.damage_versatile}}</span>
+                </span>
+            {{/if}}
+            {{#if item.gmmLabels.damage_miss}}
+                <span class="item__damage">
+                    <span class="attack__title"><i>{{localize 'gmm.common.attack.miss'}}:</i></span>
+                    <span>{{item.gmmLabels.damage_miss}}</span>
                 </span>
             {{/if}}
             {{#if item.gmmLabels.description}}

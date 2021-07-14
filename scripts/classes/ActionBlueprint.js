@@ -29,7 +29,9 @@ const ActionBlueprint = (function() {
 		{ from: "resource_consumption.target", to: "data.consume.target" },
 		{ from: "resource_consumption.amount", to: "data.consume.amount" },
 		{ from: "recharge.value", to: "data.recharge.value" },
-		{ from: "recharge.is_charged", to: "data.recharge.charged" }
+		{ from: "recharge.is_charged", to: "data.recharge.charged" },
+		{ from: "attack.versatile.damage", to: "data.damage.versatile"},
+		{ from: "attack.miss.damage", to: "data.formula"}
 	];
 
 	function createFromItem(item) {
