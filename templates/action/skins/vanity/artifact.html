@@ -51,7 +51,7 @@
 					{{/if}}
 					{{#if gmm.action.gmmLabels.damage}}
 						<span class="item__damage" data-action="open-config" data-config="damage">
-							<span class="attack__title"><i>Hit:</i></span>
+							<span class="attack__title"><i>{{#if gmm.action.gmmLabels.isHealing}}{{localize 'gmm.common.attack.heal'}}{{else}}{{localize 'gmm.common.attack.hit'}}{{/if}}:</i></span>
 							<span>{{gmm.action.gmmLabels.damage}}</span>
 						</span>
 					{{/if}}

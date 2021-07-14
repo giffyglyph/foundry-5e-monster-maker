@@ -5,5 +5,6 @@ export const GMM_ACTION_ATTACK_TYPES = [
 	"rsak",
 	"save",
 	"other",
+	"heal",
 	"util"
 ];

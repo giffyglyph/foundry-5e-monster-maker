@@ -27,16 +27,6 @@ const GmmItem = (function () {
 		game.dnd5e.entities.Item5e.prototype.getOwningGmmMonster = _getOwningGmmMonster;
 		game.dnd5e.entities.Item5e.prototype.getSortingCategory = _getSortingCategory;
 		game.dnd5e.entities.Item5e.prototype.getGmmLabels = _getGmmLabels;
-		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "isHealing", {
-			get: function () {
-				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
-					return false;
-				} else {
-					// Copy existing Foundry behaviour.
-					return (this.data.data.actionType === "heal") && this.data.data.damage.parts.length;
-				}
-			}
-		});
 		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "isVersatile", {
 			get: function () {
 				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
@@ -101,6 +91,8 @@ const GmmItem = (function () {
 			}
 			labels.damage = damages.join(" plus ");
 		}
+
+		labels.isHealing = this.isHealing;
 
 		switch (itemData.target?.type) {
 			case "":
