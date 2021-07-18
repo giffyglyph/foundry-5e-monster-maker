@@ -24,7 +24,7 @@
                     {{#if item.gmmLabels.uses}}
                         <div class="item__uses">
                             <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="data.uses.value" data-type="number"/>
-                            <div class="value">({{item.gmmLabels.uses.current}}, {{item.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.gmmLabels.uses.per)}})</div>
+                            <span class="value">({{item.gmmLabels.uses.current}}, {{item.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.gmmLabels.uses.per)}})</span>
                         </div>
                     {{/if}}
                 {{/if}}
