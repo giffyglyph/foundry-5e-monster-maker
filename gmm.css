@@ -986,7 +986,7 @@
         .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body {
           width: calc(100% - 4.5rem);
           cursor: pointer; }
-          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body:hover i {
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body:hover .item__name i {
             color: var(--color-secondary-base); }
           .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body > * {
             display: inline; }

@@ -661,10 +661,9 @@
                     <div class="panel__body">
                         <div class="gmm-accordion" id="monster-spellbook">
                             <div class="accordion-group">
-                                
                                 <div class="accordion-section opened">
                                     <div class="accordion-section__header">
-                                        <span class="accordion-section__title">{{localize 'gmm.monster.artifact.inventory.items.title'}}</span>
+                                        <span class="accordion-section__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.items.title'}}</span>
                                         <span class="accordion-section__info"></span>
                                     </div>
                                     <div class="accordion-section__body">
@@ -719,7 +718,7 @@
                                 {{#if gmm.monster.inventory.show_encumbrance}}
                                     <div class="accordion-section opened">
                                         <div class="accordion-section__header">
-                                            <span class="accordion-section__title">{{localize 'gmm.monster.artifact.inventory.encumbrance'}}</span>
+                                            <span class="accordion-section__title" data-action="open-config" data-config="inventory">{{localize 'gmm.monster.artifact.inventory.encumbrance'}}</span>
                                             <span class="accordion-section__info"></span>
                                         </div>
                                         <div class="accordion-section__body">
