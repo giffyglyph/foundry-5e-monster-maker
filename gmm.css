@@ -818,9 +818,13 @@
         border-radius: 0.5rem; }
         .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency .input--currency:focus {
           opacity: 1; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item__quantity {
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item__quantity,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item__weight,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item__price {
     position: relative; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--quantity {
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--quantity,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--weight,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--price {
     position: absolute;
     left: 0;
     top: 0;
@@ -833,7 +837,9 @@
     background: var(--color-secondary-tint-5);
     border: none;
     border-radius: 0.5rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--quantity:focus {
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--quantity:focus,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--weight:focus,
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--price:focus {
       opacity: 1; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--biography .panel__body {
     white-space: normal;

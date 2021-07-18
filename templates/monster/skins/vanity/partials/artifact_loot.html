@@ -34,8 +34,14 @@
                     x {{item.data.data.quantity}}
                     <input class="input--quantity" data-action="update-item" data-target="{{item.id}}" data-field="data.quantity" data-type="number"/>
                 </li>
-                <li class="item__weight">{{item.data.data.weight}}</li>
-                <li class="item__price">{{item.data.data.price}}</li>
+                <li class="item__weight">
+                    {{item.data.data.weight}}
+                    <input class="input--weight" data-action="update-item" data-target="{{item.id}}" data-field="data.weight" data-type="number"/>
+                </li>
+                <li class="item__price">
+                    {{item.data.data.price}}
+                    <input class="input--price" data-action="update-item" data-target="{{item.id}}" data-field="data.price" data-type="number"/>
+                </li>
             </ul>
             {{#if item.gmmLabels.description}}
                 <div class="item__description">{{{item.gmmLabels.description}}}</div>

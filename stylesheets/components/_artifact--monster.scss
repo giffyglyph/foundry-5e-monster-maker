@@ -517,11 +517,15 @@
 				}
 			}
 
-			.item__quantity {
+			.item__quantity,
+			.item__weight,
+			.item__price {
 				position: relative;
 			}
 
-			.input--quantity {
+			.input--quantity,
+			.input--weight,
+			.input--price {
 				position: absolute;
 				left: 0;
 				top: 0;
