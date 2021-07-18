@@ -386,231 +386,233 @@
                     </div>
                 </div>
             </div>
-            <div class="gmm-panel panel--collapsible panel--abilities">
-                <div class="panel__header">Abilities</div>
-                <div class="panel__body">
-                    <div class="gmm-accordion" id="monster-properties">
-                        <div class="accordion-group">
-                            {{#if gmm.monster.traits.visible}}
-                                <div class="accordion-section opened">
-                                    <div class="accordion-section__header">
-                                        <span class="accordion-section__title" data-action="open-config" data-config="traits">{{localize 'gmm.monster.artifact.traits.title'}}</span>
-                                        <span class="accordion-section__info">
-                                            <button class="header__add" data-action="add-item" data-type="feat">
-                                                {{localize 'gmm.monster.artifact.traits.add'}}
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <div class="accordion-section__body">
-                                        {{#if (or gmm.monster.legendary_resistances.visible gmm.monster.traits.items.length)}}
-                                            <div class="item-list">
-                                                {{#if gmm.monster.legendary_resistances.visible}}
-                                                    <div class="legendary__resources resources--legendary-resistances">
-                                                        <div class="legendary__current">
-                                                            <div class="legendary__value">
-                                                                <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_resistances.current" data-type="number"/>
-                                                                <i class="far fa-star"></i> {{gmm.monster.legendary_resistances.current}}
+            {{#if gmm.monster.features.visible}}
+                <div class="gmm-panel panel--collapsible panel--abilities">
+                    <div class="panel__header">Abilities</div>
+                    <div class="panel__body">
+                        <div class="gmm-accordion" id="monster-properties">
+                            <div class="accordion-group">
+                                {{#if gmm.monster.traits.visible}}
+                                    <div class="accordion-section opened">
+                                        <div class="accordion-section__header">
+                                            <span class="accordion-section__title" data-action="open-config" data-config="traits">{{localize 'gmm.monster.artifact.traits.title'}}</span>
+                                            <span class="accordion-section__info">
+                                                <button class="header__add" data-action="add-item" data-type="feat">
+                                                    {{localize 'gmm.monster.artifact.traits.add'}}
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="accordion-section__body">
+                                            {{#if (or gmm.monster.legendary_resistances.visible gmm.monster.traits.items.length)}}
+                                                <div class="item-list">
+                                                    {{#if gmm.monster.legendary_resistances.visible}}
+                                                        <div class="legendary__resources resources--legendary-resistances">
+                                                            <div class="legendary__current">
+                                                                <div class="legendary__value">
+                                                                    <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_resistances.current" data-type="number"/>
+                                                                    <i class="far fa-star"></i> {{gmm.monster.legendary_resistances.current}}
+                                                                </div>
+                                                                <div class="legendary__description">
+                                                                    {{localize 'gmm.monster.artifact.legendary_resistances.current'}}
+                                                                </div>
                                                             </div>
-                                                            <div class="legendary__description">
-                                                                {{localize 'gmm.monster.artifact.legendary_resistances.current'}}
+                                                            <div class="legendary__maximum">
+                                                                <div class="legendary__value">
+                                                                    <i class="fas fa-star"></i> {{gmm.monster.legendary_resistances.maximum}}
+                                                                </div>
+                                                                <div class="legendary__description">
+                                                                    {{localize 'gmm.monster.artifact.legendary_resistances.maximum'}}
+                                                                </div>
+                                                            </div>
+                                                            <div class="legendary__blurb">
+                                                                <div class="blurb__title" data-action="open-config" data-config="legendary-resistances">{{localize 'gmm.monster.artifact.legendary_resistances.title'}}</div>
+                                                                <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_resistances.blurb'}}</div>
                                                             </div>
                                                         </div>
-                                                        <div class="legendary__maximum">
-                                                            <div class="legendary__value">
-                                                                <i class="fas fa-star"></i> {{gmm.monster.legendary_resistances.maximum}}
-                                                            </div>
-                                                            <div class="legendary__description">
-                                                                {{localize 'gmm.monster.artifact.legendary_resistances.maximum'}}
-                                                            </div>
-                                                        </div>
-                                                        <div class="legendary__blurb">
-                                                            <div class="blurb__title" data-action="open-config" data-config="legendary-resistances">{{localize 'gmm.monster.artifact.legendary_resistances.title'}}</div>
-                                                            <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_resistances.blurb'}}</div>
-                                                        </div>
-                                                    </div>
-                                                {{/if}}
-                                                {{#each gmm.monster.traits.items as | item |}}
-                                                    {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
-                                                {{/each}}
-                                            </div>
-                                        {{/if}}
-                                    </div>
-                                </div>
-                            {{/if}}
-                            {{#if gmm.monster.bonus_actions.visible}}
-                                <div class="accordion-section opened">
-                                    <div class="accordion-section__header">
-                                        <span class="accordion-section__title" data-action="open-config" data-config="bonus-actions">{{localize 'gmm.monster.artifact.bonus_actions.title'}}</span>
-                                        <span class="accordion-section__info">
-                                            <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="bonus">
-                                                {{localize 'gmm.monster.artifact.bonus_actions.add'}}
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <div class="accordion-section__body">
-                                        {{#if gmm.monster.bonus_actions.items}}
-                                            <div class="item-list">
-                                                {{#each gmm.monster.bonus_actions.items as | item |}}
-                                                    {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
-                                                {{/each}}
-                                            </div>
-                                        {{/if}}
-                                    </div>
-                                </div>
-                            {{/if}}
-                            {{#if gmm.monster.actions.visible}}
-                                <div class="accordion-section opened">
-                                    <div class="accordion-section__header">
-                                        <span class="accordion-section__title" data-action="open-config" data-config="actions">{{localize 'gmm.monster.artifact.actions.title'}}</span>
-                                        <span class="accordion-section__info">
-                                            <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="action">
-                                                {{localize 'gmm.monster.artifact.actions.add'}}
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <div class="accordion-section__body">
-                                        {{#if gmm.monster.actions.items}}
-                                            <div class="item-list">
-                                                {{#each gmm.monster.actions.items as | item |}}
-                                                    {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=. itemType="action"}}
-                                                {{/each}}
-                                            </div>
-                                        {{/if}}
-                                    </div>
-                                </div>
-                            {{/if}}
-                            {{#if gmm.monster.reactions.visible}}
-                                <div class="accordion-section opened">
-                                    <div class="accordion-section__header">
-                                        <span class="accordion-section__title" data-action="open-config" data-config="reactions">{{localize 'gmm.monster.artifact.reactions.title'}}</span>
-                                        <span class="accordion-section__info">
-                                            <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="reaction">
-                                                {{localize 'gmm.monster.artifact.reactions.add'}}
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <div class="accordion-section__body">
-                                        {{#if gmm.monster.reactions.items}}
-                                            <div class="item-list">
-                                                {{#each gmm.monster.reactions.items as | item |}}
-                                                    {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
-                                                {{/each}}
-                                            </div>
-                                        {{/if}}
-                                    </div>
-                                </div>
-                            {{/if}}
-                            {{#if gmm.monster.paragon_actions.visible}}
-                                <div class="accordion-section opened">
-                                    <div class="accordion-section__header">
-                                        <span class="accordion-section__title" data-action="open-config" data-config="paragon-actions">{{localize 'gmm.monster.artifact.paragon_actions.title'}}</span>
-                                    </div>
-                                    <div class="accordion-section__body">
-                                        <div class="item-list">
-                                            <div class="legendary__resources">
-                                                <div class="legendary__current">
-                                                    <div class="legendary__value">
-                                                        <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.paragon_actions.current" data-type="number"/>
-                                                        <i class="far fa-clock"></i> {{gmm.monster.paragon_actions.current}}
-                                                    </div>
-                                                    <div class="legendary__description">
-                                                        {{localize 'gmm.monster.artifact.paragon_actions.current'}}
-                                                    </div>
+                                                    {{/if}}
+                                                    {{#each gmm.monster.traits.items as | item |}}
+                                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
+                                                    {{/each}}
                                                 </div>
-                                                <div class="legendary__maximum">
-                                                    <div class="legendary__value" title="{{{parseSources gmm.monster.paragon_actions.maximum.sources}}}">
-                                                        <i class="fas fa-clock"></i> {{gmm.monster.paragon_actions.maximum.value}}
-                                                    </div>
-                                                    <div class="legendary__description">
-                                                        {{localize 'gmm.monster.artifact.paragon_actions.maximum'}}
-                                                    </div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if gmm.monster.bonus_actions.visible}}
+                                    <div class="accordion-section opened">
+                                        <div class="accordion-section__header">
+                                            <span class="accordion-section__title" data-action="open-config" data-config="bonus-actions">{{localize 'gmm.monster.artifact.bonus_actions.title'}}</span>
+                                            <span class="accordion-section__info">
+                                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="bonus">
+                                                    {{localize 'gmm.monster.artifact.bonus_actions.add'}}
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="accordion-section__body">
+                                            {{#if gmm.monster.bonus_actions.items}}
+                                                <div class="item-list">
+                                                    {{#each gmm.monster.bonus_actions.items as | item |}}
+                                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
+                                                    {{/each}}
                                                 </div>
-                                                <div class="legendary__blurb">
-                                                    <div class="blurb__text">{{localize 'gmm.monster.artifact.paragon_actions.blurb'}}</div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if gmm.monster.actions.visible}}
+                                    <div class="accordion-section opened">
+                                        <div class="accordion-section__header">
+                                            <span class="accordion-section__title" data-action="open-config" data-config="actions">{{localize 'gmm.monster.artifact.actions.title'}}</span>
+                                            <span class="accordion-section__info">
+                                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="action">
+                                                    {{localize 'gmm.monster.artifact.actions.add'}}
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="accordion-section__body">
+                                            {{#if gmm.monster.actions.items}}
+                                                <div class="item-list">
+                                                    {{#each gmm.monster.actions.items as | item |}}
+                                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=. itemType="action"}}
+                                                    {{/each}}
+                                                </div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if gmm.monster.reactions.visible}}
+                                    <div class="accordion-section opened">
+                                        <div class="accordion-section__header">
+                                            <span class="accordion-section__title" data-action="open-config" data-config="reactions">{{localize 'gmm.monster.artifact.reactions.title'}}</span>
+                                            <span class="accordion-section__info">
+                                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="reaction">
+                                                    {{localize 'gmm.monster.artifact.reactions.add'}}
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="accordion-section__body">
+                                            {{#if gmm.monster.reactions.items}}
+                                                <div class="item-list">
+                                                    {{#each gmm.monster.reactions.items as | item |}}
+                                                        {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
+                                                    {{/each}}
+                                                </div>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if gmm.monster.paragon_actions.visible}}
+                                    <div class="accordion-section opened">
+                                        <div class="accordion-section__header">
+                                            <span class="accordion-section__title" data-action="open-config" data-config="paragon-actions">{{localize 'gmm.monster.artifact.paragon_actions.title'}}</span>
+                                        </div>
+                                        <div class="accordion-section__body">
+                                            <div class="item-list">
+                                                <div class="legendary__resources">
+                                                    <div class="legendary__current">
+                                                        <div class="legendary__value">
+                                                            <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.paragon_actions.current" data-type="number"/>
+                                                            <i class="far fa-clock"></i> {{gmm.monster.paragon_actions.current}}
+                                                        </div>
+                                                        <div class="legendary__description">
+                                                            {{localize 'gmm.monster.artifact.paragon_actions.current'}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="legendary__maximum">
+                                                        <div class="legendary__value" title="{{{parseSources gmm.monster.paragon_actions.maximum.sources}}}">
+                                                            <i class="fas fa-clock"></i> {{gmm.monster.paragon_actions.maximum.value}}
+                                                        </div>
+                                                        <div class="legendary__description">
+                                                            {{localize 'gmm.monster.artifact.paragon_actions.maximum'}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="legendary__blurb">
+                                                        <div class="blurb__text">{{localize 'gmm.monster.artifact.paragon_actions.blurb'}}</div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            {{/if}}
-                            {{#if gmm.monster.legendary_actions.visible}}
-                                <div class="accordion-section opened">
-                                    <div class="accordion-section__header">
-                                        <span class="accordion-section__title" data-action="open-config" data-config="legendary-actions">{{localize 'gmm.monster.artifact.legendary_actions.title'}}</span>
-                                        <span class="accordion-section__info">
-                                            <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="legendary">
-                                                {{localize 'gmm.monster.artifact.legendary_actions.add'}}
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <div class="accordion-section__body">
-                                        <div class="item-list">
-                                            <div class="legendary__resources resources--legendary-actions">
-                                                <div class="legendary__current">
-                                                    <div class="legendary__value">
-                                                        <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_actions.current" data-type="number"/>
-                                                        <i class="far fa-clock"></i> {{gmm.monster.legendary_actions.current}}
+                                {{/if}}
+                                {{#if gmm.monster.legendary_actions.visible}}
+                                    <div class="accordion-section opened">
+                                        <div class="accordion-section__header">
+                                            <span class="accordion-section__title" data-action="open-config" data-config="legendary-actions">{{localize 'gmm.monster.artifact.legendary_actions.title'}}</span>
+                                            <span class="accordion-section__info">
+                                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="legendary">
+                                                    {{localize 'gmm.monster.artifact.legendary_actions.add'}}
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="accordion-section__body">
+                                            <div class="item-list">
+                                                <div class="legendary__resources resources--legendary-actions">
+                                                    <div class="legendary__current">
+                                                        <div class="legendary__value">
+                                                            <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.legendary_actions.current" data-type="number"/>
+                                                            <i class="far fa-clock"></i> {{gmm.monster.legendary_actions.current}}
+                                                        </div>
+                                                        <div class="legendary__description">
+                                                            {{localize 'gmm.monster.artifact.legendary_actions.current'}}
+                                                        </div>
                                                     </div>
-                                                    <div class="legendary__description">
-                                                        {{localize 'gmm.monster.artifact.legendary_actions.current'}}
+                                                    <div class="legendary__maximum">
+                                                        <div class="legendary__value">
+                                                            <i class="fas fa-clock"></i> {{gmm.monster.legendary_actions.maximum}}
+                                                        </div>
+                                                        <div class="legendary__description">
+                                                            {{localize 'gmm.monster.artifact.legendary_actions.maximum'}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="legendary__blurb">
+                                                        <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_actions.blurb'}}</div>
                                                     </div>
                                                 </div>
-                                                <div class="legendary__maximum">
-                                                    <div class="legendary__value">
-                                                        <i class="fas fa-clock"></i> {{gmm.monster.legendary_actions.maximum}}
-                                                    </div>
-                                                    <div class="legendary__description">
-                                                        {{localize 'gmm.monster.artifact.legendary_actions.maximum'}}
-                                                    </div>
-                                                </div>
-                                                <div class="legendary__blurb">
-                                                    <div class="blurb__text">{{localize 'gmm.monster.artifact.legendary_actions.blurb'}}</div>
-                                                </div>
+                                                {{#each gmm.monster.legendary_actions.items as | item |}}
+                                                    {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
+                                                {{/each}}
                                             </div>
-                                            {{#each gmm.monster.legendary_actions.items as | item |}}
-                                                {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
-                                            {{/each}}
                                         </div>
                                     </div>
-                                </div>
-                            {{/if}}
-                            {{#if gmm.monster.lair_actions.visible}}
-                                <div class="accordion-section opened">
-                                    <div class="accordion-section__header">
-                                        <span class="accordion-section__title" data-action="open-config" data-config="lair-actions">{{localize 'gmm.monster.artifact.lair_actions.title'}}</span>
-                                        <span class="accordion-section__info">
-                                            <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="lair">
-                                                {{localize 'gmm.monster.artifact.actions.add'}}
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <div class="accordion-section__body">
-                                        <div class="item-list">
-                                            <div class="legendary__resources resources--lair-actions">
-                                                <div class="legendary__current">
-                                                    <div class="legendary__value">
-                                                        <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.lair_actions.initiative" data-type="number"/>
-                                                        <i class="fas fa-hourglass"></i> {{gmm.monster.lair_actions.initiative}}
+                                {{/if}}
+                                {{#if gmm.monster.lair_actions.visible}}
+                                    <div class="accordion-section opened">
+                                        <div class="accordion-section__header">
+                                            <span class="accordion-section__title" data-action="open-config" data-config="lair-actions">{{localize 'gmm.monster.artifact.lair_actions.title'}}</span>
+                                            <span class="accordion-section__info">
+                                                <button class="header__add" data-action="add-item" data-type="feat" data-activation.type="lair">
+                                                    {{localize 'gmm.monster.artifact.actions.add'}}
+                                                </button>
+                                            </span>
+                                        </div>
+                                        <div class="accordion-section__body">
+                                            <div class="item-list">
+                                                <div class="legendary__resources resources--lair-actions">
+                                                    <div class="legendary__current">
+                                                        <div class="legendary__value">
+                                                            <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.lair_actions.initiative" data-type="number"/>
+                                                            <i class="fas fa-hourglass"></i> {{gmm.monster.lair_actions.initiative}}
+                                                        </div>
+                                                        <div class="legendary__description">
+                                                            {{localize 'gmm.monster.artifact.lair_actions.initiative'}}
+                                                        </div>
                                                     </div>
-                                                    <div class="legendary__description">
-                                                        {{localize 'gmm.monster.artifact.lair_actions.initiative'}}
+                                                    <div class="legendary__blurb">
+                                                        <div class="blurb__text">{{localize 'gmm.monster.artifact.lair_actions.blurb' initiative=gmm.monster.lair_actions.initiative}}</div>
                                                     </div>
                                                 </div>
-                                                <div class="legendary__blurb">
-                                                    <div class="blurb__text">{{localize 'gmm.monster.artifact.lair_actions.blurb' initiative=gmm.monster.lair_actions.initiative}}</div>
-                                                </div>
+                                                {{#each gmm.monster.lair_actions.items as | item |}}
+                                                    {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
+                                                {{/each}}
                                             </div>
-                                            {{#each gmm.monster.lair_actions.items as | item |}}
-                                                {{> (getTemplate "monster/skins/vanity/partials/artifact_action.html") item=.}}
-                                            {{/each}}
                                         </div>
                                     </div>
-                                </div>
-                            {{/if}}
+                                {{/if}}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {{/if}}
             {{#if gmm.monster.spellbook.visible}}
                 <div class="gmm-panel panel--collapsible panel--spellbook" id="panel-spellbook">
                     <div class="panel__header">{{localize 'gmm.monster.artifact.spellbook.title'}}</div>
