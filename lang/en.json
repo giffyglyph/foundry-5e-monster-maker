@@ -746,6 +746,7 @@
     "gmm.monster.blueprint.description.category": "Category",
     "gmm.monster.blueprint.description.swarm": "Swarm Size",
     "gmm.monster.blueprint.display.colors.primary": "Primary",
+    "gmm.monster.blueprint.display.ignore_item_requirements": "Ignore Item Requirements",
     "gmm.monster.blueprint.display.colors.secondary": "Secondary",
     "gmm.monster.blueprint.display.colors.title": "Colors",
     "gmm.monster.blueprint.display.layout.title": "Layout",

@@ -177,7 +177,8 @@ export const GMM_MONSTER_BLUEPRINT = {
 			skin: {
 				artifact: "",
 				blueprint: ""
-			}
+			},
+			ignore_item_requirements: false
 		},
 		hit_points: {
 			current: null,

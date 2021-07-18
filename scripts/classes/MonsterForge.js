@@ -25,18 +25,19 @@ const MonsterForge = (function() {
 		const monsterInventoryCapacity = _getInventoryCapacity(monsterAbilityModifiers, blueprint.data);
 		const monsterClasses = blueprint.data.traits.items.filter((x) => x.class );
 		const showLegendaryActions = blueprint.data.legendary_actions.always_show || blueprint.data.legendary_actions.maximum > 0 || blueprint.data.legendary_actions.items.length > 0;
+		const ignoreItemRequirements = blueprint.data.display.ignore_item_requirements;
 
 		return {
 			vid: 1,
 			type: blueprint.type,
 			data: {
 				ability_modifiers: monsterAbilityModifiers,
-				actions: _parseActions(derivedAttributes, blueprint.data.actions),
+				actions: _parseActions(derivedAttributes, blueprint.data.actions, ignoreItemRequirements),
 				armor_class: _parseArmorClass(derivedAttributes, blueprint.data.armor_class),
 				attack_bonus: _parseAttackBonus(derivedAttributes, blueprint.data.attack_bonus),
 				attack_dcs: _parseAttackDcs(derivedAttributes, blueprint.data.attack_dcs),
 				biography: _parseBiography(blueprint.data.biography),
-				bonus_actions: _parseBonusActions(blueprint.data.bonus_actions),
+				bonus_actions: _parseBonusActions(derivedAttributes, blueprint.data.bonus_actions, ignoreItemRequirements),
 				challenge_rating: _parseChallengeRating(derivedAttributes, blueprint.data.challenge_rating),
 				condition_immunities: _parseCollection(GMM_5E_CONDITIONS, blueprint.data.condition_immunities, "condition"),
 				damage_immunities: _parseCollection(GMM_5E_DAMAGE_TYPES, blueprint.data.damage_immunities, "damage"),
@@ -48,9 +49,9 @@ const MonsterForge = (function() {
 				image: blueprint.data.description.image,
 				initiative: _parseInitiative(monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.initiative),
 				inventory: _parseInventory(monsterInventoryWeight, monsterInventoryCapacity, blueprint.data.inventory),
-				lair_actions: _parseLairActions(blueprint.data.lair_actions),
+				lair_actions: _parseLairActions(derivedAttributes, blueprint.data.lair_actions, ignoreItemRequirements),
 				languages: _parseCollection(GMM_5E_LANGUAGES, blueprint.data.languages, "language"),
-				legendary_actions: _parseLegendaryActions(blueprint.data.legendary_actions, showLegendaryActions),
+				legendary_actions: _parseLegendaryActions(derivedAttributes, blueprint.data.legendary_actions, showLegendaryActions, ignoreItemRequirements),
 				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances),
 				level: _parseLevel(derivedAttributes.level),
 				name: _parseName(blueprint.data.description.name),
@@ -59,14 +60,14 @@ const MonsterForge = (function() {
 				phase: _parsePhase(derivedAttributes.rank),
 				proficiency_bonus: monsterProficiency,
 				rank: _parseRank(derivedAttributes.rank),
-				reactions: _parseReactions(blueprint.data.reactions),
+				reactions: _parseReactions(derivedAttributes, blueprint.data.reactions, ignoreItemRequirements),
 				role: _parseRole(derivedAttributes.role),
 				saving_throws: _parseSavingThrows(derivedAttributes, blueprint.data.saving_throws),
 				senses: _parseSenses(blueprint.data.senses),
 				skills: monsterSkills,
 				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
 				spellbook: _parseSpellbook(monsterAbilityModifiers, monsterClasses, blueprint.data.spellbook),
-				traits: _parseTraits(blueprint.data.traits),
+				traits: _parseTraits(derivedAttributes, blueprint.data.traits, ignoreItemRequirements),
 				xp: _parseXp(derivedAttributes, blueprint.data.xp)
 			}
 		};
@@ -474,64 +475,48 @@ const MonsterForge = (function() {
 		};
 	}
 
-	function _parseLegendaryActions(legendaryActions, showLegendaryActions) {
+	function _parseLegendaryActions(derivedAttributes, legendaryActions, showLegendaryActions, ignoreItemRequirements) {
 		return {
 			visible: showLegendaryActions,
 			current: legendaryActions.current,
 			maximum: legendaryActions.maximum,
-			items: legendaryActions.items
+			items: _filterItems(derivedAttributes, legendaryActions.items, ignoreItemRequirements)
 		};
 	}
 
-	function _parseLairActions(lairActions) {
+	function _parseLairActions(derivedAttributes, lairActions, ignoreItemRequirements) {
 		return {
 			visible: lairActions.always_show || lairActions.initiative > 0 || lairActions.items.length > 0,
 			initiative: lairActions.initiative,
-			items: lairActions.items
+			items: _filterItems(derivedAttributes, lairActions.items, ignoreItemRequirements)
 		};
 	}
 
-	function _parseActions(derivedAttributes, actions) {
+	function _parseActions(derivedAttributes, actions, ignoreItemRequirements) {
 		return {
 			visible: actions.always_show || actions.items.length > 0,
-			items: actions.items.filter((x) => {
-				if (x.requirements) {
-					if (x.requirements.level.min && derivedAttributes.level < x.requirements.level.min) {
-						return false;
-					}
-					if (x.requirements.level.max && derivedAttributes.level > x.requirements.level.max) {
-						return false;
-					}
-					if (x.requirements.rank && derivedAttributes.rank.type != x.requirements.rank) {
-						return false;
-					}
-					if (x.requirements.role && derivedAttributes.role.type != x.requirements.role) {
-						return false;
-					}
-				}
-				return true;
-			})
+			items: _filterItems(derivedAttributes, actions.items, ignoreItemRequirements)
 		};
 	}
 
-	function _parseReactions(reactions) {
+	function _parseReactions(derivedAttributes, reactions, ignoreItemRequirements) {
 		return {
 			visible: reactions.always_show || reactions.items.length > 0,
-			items: reactions.items
+			items: _filterItems(derivedAttributes, reactions.items, ignoreItemRequirements)
 		};
 	}
 
-	function _parseTraits(traits) {
+	function _parseTraits(derivedAttributes, traits, ignoreItemRequirements) {
 		return {
 			visible: traits.always_show || traits.items.length > 0,
-			items: traits.items
+			items: _filterItems(derivedAttributes, traits.items, ignoreItemRequirements)
 		};
 	}
 
-	function _parseBonusActions(bonusActions) {
+	function _parseBonusActions(derivedAttributes, bonusActions, ignoreItemRequirements) {
 		return {
 			visible: bonusActions.always_show || bonusActions.items.length > 0,
-			items: bonusActions.items
+			items: _filterItems(derivedAttributes, bonusActions.items, ignoreItemRequirements)
 		};
 	}
 
@@ -665,6 +650,26 @@ const MonsterForge = (function() {
 		}
 
 		return slots;
+	}
+
+	function _filterItems(derivedAttributes, items, ignore_requirements) {
+		return items.filter((x) => {
+			if (x.requirements && !ignore_requirements) {
+				if (x.requirements.level.min && derivedAttributes.level < x.requirements.level.min) {
+					return false;
+				}
+				if (x.requirements.level.max && derivedAttributes.level > x.requirements.level.max) {
+					return false;
+				}
+				if (x.requirements.rank && derivedAttributes.rank.type != x.requirements.rank) {
+					return false;
+				}
+				if (x.requirements.role && derivedAttributes.role.type != x.requirements.role) {
+					return false;
+				}
+			}
+			return true;
+		});
 	}
 
 	return {
