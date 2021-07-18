@@ -11,17 +11,18 @@
 		color: var(--color-primary-shade-1);
 		font-weight: bold;
 		position: relative;
-		padding: 0.25rem 0.25rem 1.25rem;
+		padding: calc(0.25rem - 2px) 0.25rem calc(1.25rem - 2px);
 		text-align: center;
 		font-size: smaller;
 		background: var(--color-primary-tint-4);
+		border: 2px solid white;
+		border-bottom: none;
+		border-radius: 0.75rem 0.75rem 0 0;
 
 		+ .block__contents {
 			position: relative;
 			margin-top: -1rem;
 			background: white;
-			border-top-left-radius: 1rem;
-			border-top-right-radius: 1rem;
 		}
 	}
 

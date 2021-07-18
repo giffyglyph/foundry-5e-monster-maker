@@ -182,6 +182,16 @@
     font-variant: normal;
     text-rendering: auto;
     line-height: 1; }
+  .gmm-accordion .accordion-section__info button {
+    line-height: 1;
+    background: var(--color-primary-base);
+    color: white;
+    font-weight: bold;
+    font-family: inherit;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.125rem 0.5rem;
+    font-weight: bold; }
 
 .gmm-artifact {
   border: 0.125rem solid white;
@@ -217,7 +227,8 @@
     filter: drop-shadow(0 2px 0 var(--color-primary-shade-4));
     position: relative;
     z-index: 1;
-    border-radius: 0.75rem; }
+    border-radius: 0.75rem;
+    margin-bottom: 2px; }
   .gmm-artifact .artifact__body {
     padding: 2px 1px 2px 0;
     margin: calc(0.25rem - 2px) -1px -2px 0;
@@ -450,14 +461,14 @@
 
 .gmm-artifact.artifact--monster.artifact--monster--vanity {
   padding: 0;
-  overflow: hidden;
-  background: var(--color-primary-tint-2);
-  padding: 2px; }
+  overflow: hidden; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-column-gap: 0.5rem;
-    overflow: hidden; }
+    overflow: hidden;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__header .monster__image {
       grid-row: 1 / span 3;
       grid-column: 1;
@@ -530,20 +541,23 @@
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__body {
     background: none;
     color: black;
-    padding: 2px 1px 2px 0;
-    margin: calc(0.25rem - 2px) -1px -2px 0;
+    padding: 0.25rem;
+    margin: 0;
     overflow-y: auto;
     flex-grow: 1; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__body > * + * {
-      margin-top: 0.25rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__body > * {
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__panels {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.25rem;
+    min-height: 100%; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__panels > * {
       filter: drop-shadow(0 2px 0 var(--color-primary-shade-4)); }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .monster__blocks__row {
     display: flex; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .monster__blocks__row > * + * {
-      margin-left: 0.25rem; }
+      margin-left: 2px; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .monster__blocks__row + .monster__blocks__row {
-      margin-top: 0.25rem; }
+      margin-top: 2px; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points button {
     border: none;
     padding: 0;
@@ -605,15 +619,25 @@
     .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .input--thp:focus,
     .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .input--hp:focus {
       opacity: 1; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .panel__header {
-    color: var(--color-primary-shade-1);
-    font-weight: bold;
-    padding: 0.25rem 0.25rem 1.25rem;
-    font-size: smaller;
-    background: var(--color-primary-tint-4); }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .panel__header + * {
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion {
+    filter: none; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion .accordion-section__header {
+      color: var(--color-primary-shade-1);
+      background: var(--color-primary-tint-4);
+      padding-right: 0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion .accordion-section__header::before {
+        background: var(--color-primary-base); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion .accordion-section__header:hover {
+        background: var(--color-primary-tint-4) !important; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion .accordion-section__header:hover::before {
+          background: var(--color-secondary-base); }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion .accordion-section:not(:first-of-type) {
+      border-top: none;
+      margin-top: 1px; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion .accordion-section__body {
+      padding: 0; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .gmm-accordion .accordion-section:last-child .accordion-section__body > :last-child {
+      margin-bottom: 0; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__skill {
     padding: 0;
     display: inline;
@@ -630,7 +654,7 @@
     grid-column-gap: 0.25rem;
     background: radial-gradient(circle, var(--color-primary-base) 0%, var(--color-primary-shade-1) 100%);
     padding: 0.5rem;
-    border-radius: 1rem;
+    border-radius: 0.75rem;
     margin: 1rem -0.5rem;
     position: relative; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers::before, .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers::after {
@@ -713,15 +737,22 @@
           z-index: -1; }
         .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .monster__modifiers .monster__modifier .save:hover::before {
           background: var(--color-secondary-base); }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--properties .legendary__resources {
-    margin-top: 1rem; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .monster__properties + * {
-    margin-top: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .panel__body,
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--abilities .panel__body {
+    padding: 0; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .monster__properties {
+    padding: 1rem; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .panel__body {
+    padding: 0; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots {
-    position: relative; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots:hover {
+    margin-left: 3px;
+    color: var(--color-primary-tint-2); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .current-slots {
+    position: relative;
+    text-transform: none; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .current-slots:hover {
       color: var(--color-secondary-base); }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots .input--slots {
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .current-slots .input--slots {
       position: absolute;
       left: 0;
       top: 0;
@@ -734,140 +765,24 @@
       background: var(--color-secondary-tint-5);
       border: none;
       border-radius: 0.5rem; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .current-slots .input--slots:focus {
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .current-slots .input--slots:focus {
         opacity: 1; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots {
-    margin-left: -1rem;
-    background: var(--color-primary-tone-1);
-    border-radius: 0 1rem 1rem 0;
-    display: flex;
-    margin-right: -0.5rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots + * {
-      margin-top: 1rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__title {
-      text-transform: uppercase;
-      background: var(--color-primary-shade-1);
-      color: var(--color-primary-tint-3);
-      font-weight: bold;
-      font-size: 23px;
-      padding-right: 2rem;
-      clip-path: polygon(0% 0%, 0% 100%, 72% 100%, 100% 50%, 72% 0%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-left: 2px solid var(--color-primary-tint-3); }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__title .title {
-        transform: rotate(-90deg);
-        max-width: 5rem;
-        text-align: center;
-        line-height: 1; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slots__list {
-      flex-grow: 1;
-      padding: 0.5rem 0.5rem 0.5rem 1rem;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-column-gap: 0.25rem;
-      grid-row-gap: 0.25rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot {
-      background: white;
-      border-radius: 0.5rem;
-      padding: 0.25rem;
-      text-align: center;
-      min-height: 50px; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .title {
-        text-transform: uppercase;
-        font-weight: bold;
-        color: var(--color-primary-tone-1); }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value {
-        font-size: 20px;
-        font-family: 'Londrina Solid';
-        position: relative; }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value:hover {
-          color: var(--color-secondary-base); }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .maximum {
-          color: var(--color-primary-base); }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .input--slots {
-          position: absolute;
-          left: 0;
-          top: 0;
-          height: 100%;
-          width: 100%;
-          text-align: center;
-          font-size: inherit;
-          font-family: inherit;
-          opacity: 0;
-          background: var(--color-secondary-tint-5);
-          border: none;
-          border-radius: 0.5rem; }
-          .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot .value .input--slots:focus {
-            opacity: 1; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot.empty {
-        background: var(--color-primary-tint-2); }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .spellbook__slots .slot.empty .value {
-          display: none; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item-collection__header,
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item .item__body {
-    display: grid;
-    grid-template-columns: 1fr 4rem 5rem 5rem 4.1rem; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item-collection__header .column {
-    font-size: 12px;
-    text-align: center;
-    color: var(--color-primary-tint-3); }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__title::after {
-    display: none; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__components,
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__target,
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__activation {
-    text-align: center;
-    font-size: smaller; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--spellbook .item-collection--spells .item__body .item__description {
-    padding-top: 0.5rem;
-    grid-column: 1 / span 5; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .monster__properties:not(:first-child) {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    margin-bottom: -1rem;
-    padding: 1rem;
-    margin-top: 1rem;
-    background: var(--color-primary-tint-5); }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .monster__properties {
+    padding: 1rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .monster__properties:not(:first-child) {
+      margin-left: -1rem;
+      margin-right: -1rem;
+      margin-bottom: -1rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      background: var(--color-primary-tint-5); }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies {
-    margin-left: -0.5rem;
-    background: var(--color-primary-tone-1);
-    border-radius: 1rem;
-    overflow: hidden;
-    display: flex;
-    margin-right: -0.5rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies:first-child {
-      margin-top: -0.5rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies + * {
-      margin-top: 1rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies + .item-collection {
-      margin-top: 0.5rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__title {
-      text-transform: uppercase;
-      background: var(--color-primary-shade-1);
-      color: var(--color-primary-tint-3);
-      font-weight: bold;
-      font-size: 18px;
-      padding-right: 1.5rem;
-      clip-path: polygon(0% 0%, 0% 100%, 85% 100%, 100% 50%, 85% 0%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 1rem;
-      margin-right: -0.5rem; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__title i {
-        margin-right: 0.25rem; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__title .title {
-        text-align: center;
-        line-height: 1; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currencies__list {
-      flex-grow: 1;
-      padding: 0.5rem 0.5rem 0.5rem 1rem;
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      grid-column-gap: 0.25rem;
-      grid-row-gap: 0.25rem; }
+    background: var(--color-primary-tint-5);
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 0.25rem; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency {
       background: white;
       border-radius: 0.5rem;
@@ -903,40 +818,29 @@
         border-radius: 0.5rem; }
         .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .currencies .currency .input--currency:focus {
           opacity: 1; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item-collection__header,
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item .item__body {
-    display: grid;
-    grid-template-columns: 1fr 5rem 4.1rem; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item-collection__header .column {
-    font-size: 12px;
-    text-align: center;
-    color: var(--color-primary-tint-3); }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__title::after {
-    display: none; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__quantity {
-    text-align: center;
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item__quantity {
     position: relative; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__quantity .input--quantity {
-      position: absolute;
-      left: 0.25rem;
-      top: 0;
-      height: 100%;
-      width: calc(100% - 0.5rem);
-      text-align: center;
-      font-size: inherit;
-      font-family: inherit;
-      opacity: 0;
-      background: var(--color-secondary-tint-5);
-      border: none;
-      border-radius: 0.5rem; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .item-collection--items .item__body .item__quantity .input--quantity:focus {
-        opacity: 1; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__biography .panel__body {
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--quantity {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: inherit;
+    font-family: inherit;
+    opacity: 0;
+    background: var(--color-secondary-tint-5);
+    border: none;
+    border-radius: 0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--inventory .input--quantity:focus {
+      opacity: 1; }
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--biography .panel__body {
     white-space: normal;
     word-break: break-word; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__biography .panel__body > :first-child {
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--biography .panel__body > :first-child {
       margin-top: 0; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__biography .panel__body > :last-child {
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .panel--biography .panel__body > :last-child {
       margin-bottom: 0; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__properties {
     columns: 2;
@@ -993,201 +897,245 @@
       color: var(--color-secondary-base); }
       .gmm-artifact.artifact--monster.artifact--monster--vanity .button--text:hover i {
         color: var(--color-secondary-shade-1); }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection + * {
-    margin-top: 1rem; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty .item-collection__header {
-    border: none; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty .item-collection__header .column {
-      visibility: hidden; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty .item-collection__header .title {
-      color: var(--color-primary-tint-3); }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection.empty + .item-collection {
-    margin-top: 1px; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header {
-    padding: 0;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: var(--color-primary-shade-1);
+  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list {
     display: flex;
-    font-size: larger;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: -1rem;
-    margin-right: -0.5rem;
-    padding: 0.25rem 0.5rem 0.25rem 1rem;
-    border-radius: 0 1rem 1rem 0;
-    background: var(--color-primary-tint-4); }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header button {
-      background: var(--color-primary-tint-3);
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 0.6rem;
-      line-height: 1;
-      padding: 0.125rem 0.5rem;
-      width: 100%;
-      align-self: center;
-      margin: 0;
-      font-size: 13px;
-      font-weight: normal;
-      position: relative;
-      top: -3px; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header button:hover {
-        cursor: pointer;
-        background: var(--color-secondary-base);
-        color: white;
-        box-shadow: none; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item-collection__header + .legendary__resources {
-      margin-top: 0.5rem; }
-  .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item {
-    display: flex;
-    padding-top: 0.5rem; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__icon {
-      width: 24px;
-      margin-right: 0.5rem;
-      flex-shrink: 0;
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: -3px;
-      margin-bottom: -3px;
-      align-self: flex-start; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__icon img {
-        width: 100%;
-        margin: 0;
-        display: block;
-        border: none;
-        background: var(--color-primary-shade-3); }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__icon button {
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0.75rem;
+    row-gap: 0.5rem; }
+    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item {
+      display: flex;
+      position: relative; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item:not(.expanded) .item__details {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item:not(.expanded) .item__details .secret {
+          display: none; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item:not(.expanded).item--spell .item__description, .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item:not(.expanded).item--loot .item__description {
         display: none; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title {
-      display: inline; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title::after {
-        content: ':';
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item.expanded .item__name i {
+        transform: rotate(90deg); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item:hover .item__actions {
+        display: flex; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__name {
+        width: calc(100% - 4.5rem);
+        display: block; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__name i {
+          margin-right: 3px;
+          color: var(--color-primary-tint-2); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__icon {
+        width: 56px;
+        margin-right: 0.5rem;
+        flex-shrink: 0;
+        border-radius: 1cm;
+        overflow: hidden;
+        margin-top: 0;
+        margin-bottom: 0;
+        align-self: flex-start;
+        position: relative;
+        z-index: 1;
+        padding: 2px;
+        background: white;
+        margin-top: -2px;
+        margin-bottom: -2px;
         margin-left: -2px; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title > * {
-        display: inline; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__title button {
-        display: inline;
-        width: auto;
-        padding: 0;
-        margin: 0;
-        font-family: inherit;
-        font-size: inherit;
-        line-height: inherit; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__cost {
-      font-weight: bold;
-      color: var(--color-primary-base); }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__name {
-      font-weight: bold;
-      text-transform: uppercase; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__name i {
-        color: var(--color-primary-base); }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__name:hover {
-        cursor: pointer;
-        color: var(--color-secondary-base); }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__recharge {
-      display: inline;
-      font-weight: bold;
-      color: var(--color-primary-base); }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__recharge button {
-        color: var(--color-primary-base);
-        font-weight: bold; }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__recharge button:hover {
-          color: var(--color-secondary-base); }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses {
-      font-weight: bold;
-      position: relative;
-      display: inline-block;
-      color: var(--color-primary-base); }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses:hover {
-        color: var(--color-secondary-base); }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses .input--uses {
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        text-align: center;
-        font-size: inherit;
-        font-family: inherit;
-        opacity: 0;
-        background: var(--color-secondary-tint-5);
-        border: none;
-        border-radius: 0.5rem; }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__uses .input--uses:focus {
-          opacity: 1; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__details {
-      display: inline; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description .secret {
-      border-color: var(--color-primary-tint-3);
-      padding: 0.5rem 1rem;
-      background: var(--color-primary-tint-6);
-      margin-top: 0.25rem;
-      font-size: small;
-      line-height: 1.2;
-      display: none; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description .secret > :first-child {
-        margin-top: 0; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description .secret > :last-child {
-        margin-bottom: 0; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description > :first-child:not(.secret) {
-      display: inline; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__description > .secret:first-child + * {
-      display: inline; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions {
-      position: absolute;
-      top: -2px;
-      right: 0;
-      display: none; }
-      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button {
-        background: var(--color-primary-base);
-        height: 22px;
-        width: 22px;
-        text-align: center;
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__icon img {
+          width: 100%;
+          margin: 0;
+          display: block;
+          border: none;
+          background: var(--color-primary-shade-3);
+          border-radius: 1cm;
+          border: 2px solid black; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__icon button {
+          display: none; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__icon:hover::after {
+          content: "\f6cf";
+          background: rgba(0, 0, 0, 0.5);
+          color: white;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-family: "Font Awesome 5 Free";
+          -webkit-font-smoothing: antialiased;
+          font-style: normal;
+          font-size: 2.1rem;
+          font-variant: normal;
+          text-rendering: auto;
+          line-height: 1;
+          font-weight: 900;
+          cursor: pointer; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title {
+        display: block;
+        padding: 0.25rem 0.5rem;
+        background: linear-gradient(to right, var(--color-primary-tone-1), var(--color-primary-tint-1));
         color: white;
-        padding: 0;
-        margin: 0;
+        margin-bottom: 4px;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        font-size: larger;
+        margin-left: -2.5rem;
+        padding-left: 2.5rem; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body {
+          width: calc(100% - 4.5rem);
+          cursor: pointer; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body:hover i {
+            color: var(--color-secondary-base); }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body > * {
+            display: inline; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title button {
+          display: inline;
+          width: auto;
+          padding: 0;
+          margin: 0;
+          font-family: inherit;
+          font-size: inherit;
+          line-height: inherit; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__cost {
+        font-weight: bold;
+        color: var(--color-primary-tint-3);
+        font-size: smaller;
+        margin-left: 3px; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__recharge {
+        display: inline;
+        font-weight: bold;
+        color: var(--color-primary-tint-3);
+        font-size: smaller;
+        margin-left: 3px; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__recharge button {
+          font-weight: inherit;
+          background: var(--color-primary-tint-5);
+          color: var(--color-primary-shade-2);
+          padding: 0 0.5rem;
+          border-radius: 1rem; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__recharge button:hover {
+            background: var(--color-secondary-base);
+            color: white; }
+            .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__recharge button:hover i {
+              color: inherit; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__uses {
+        font-weight: bold;
+        position: relative;
+        display: inline-block;
+        color: var(--color-primary-tint-3);
+        font-size: smaller;
+        margin-left: 3px; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__uses:hover {
+          color: var(--color-secondary-base); }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__uses .input--uses {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          font-size: inherit;
+          font-family: inherit;
+          opacity: 0;
+          background: var(--color-secondary-tint-5);
+          border: none;
+          border-radius: 0.5rem; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__uses .input--uses:focus {
+            opacity: 1; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__details {
+        display: block; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__description .secret {
         border: none;
+        padding: 0.5rem 1rem;
+        background: var(--color-primary-tint-6);
+        border-radius: 0.75rem;
+        margin: 0 0 0.5rem;
+        font-size: small;
+        line-height: 1.2;
+        color: var(--color-primary-tone-3);
+        font-style: italic; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__description .secret > :first-child {
+          margin-top: 0; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__description .secret > :last-child {
+          margin-bottom: 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__description > :first-child:not(.secret) {
+        display: inline; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__description > .secret:first-child + * {
+        display: inline; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__description > :first-child {
+        margin-top: 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__description > :last-child {
+        margin-bottom: 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__actions {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        display: flex; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__actions button {
+          background: none;
+          color: var(--color-primary-base);
+          height: 25px;
+          width: 25px;
+          text-align: center;
+          padding: 0;
+          margin: 0;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          border-radius: 1cm;
+          font-size: 15px; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__actions button:hover {
+            background: var(--color-secondary-base);
+            color: white;
+            box-shadow: none; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__actions button + * {
+            margin-left: 1px; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__actions button i {
+            margin: 0; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__attack span:not(.attack__title):last-child::after,
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__damage span:not(.attack__title):last-child::after {
+        content: '.'; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__attack span:not(.attack__title):not(:last-child)::after,
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__damage span:not(.attack__title):not(:last-child)::after {
+        content: ','; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__attackdmg + * {
+        margin-top: 0.5rem; }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__tags {
+        margin: 0;
+        padding: 0;
+        list-style: none;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer; }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button:hover {
-          background: var(--color-secondary-base);
-          box-shadow: none; }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button + * {
-          margin-left: 1px; }
-        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__actions button i {
-          margin: 0; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__attack span:not(.attack__title):last-child::after,
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__damage span:not(.attack__title):last-child::after {
-      content: '.'; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__attack span:not(.attack__title):not(:last-child)::after,
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__damage span:not(.attack__title):not(:last-child)::after {
-      content: ','; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__attack + .item__description,
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__damage + .item__description {
-      display: block;
-      margin-top: 0.25rem;
-      padding: 0.5rem 1rem;
-      background: var(--color-primary-tint-5);
-      border-radius: 1rem;
-      font-size: small;
-      line-height: 1.3; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item .item__body {
-      position: relative;
-      width: 100%; }
-    .gmm-artifact.artifact--monster.artifact--monster--vanity .item-collection .item:hover .item__actions {
-      display: flex; }
+        column-gap: 0.125rem;
+        font-size: smaller;
+        font-style: italic;
+        line-height: 16px;
+        justify-content: space-evenly; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__tags + * {
+          margin-top: 0.5rem; }
+        .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__tags li {
+          display: inline-block;
+          border: 1px solid var(--color-primary-tint-4);
+          border-radius: 0.75rem;
+          padding: 0 0.5rem;
+          width: 100%;
+          text-align: center;
+          white-space: nowrap; }
+          .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__tags li strong {
+            color: var(--color-primary-shade-1); }
+      .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__body {
+        position: relative;
+        width: 100%; }
   .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources {
     display: grid;
-    grid-template-columns: 5rem 5rem 1fr;
+    grid-template-columns: 4.5rem 4.5rem 1fr;
     grid-column-gap: 0.25rem;
-    margin-left: -0.5rem;
     padding: 0.5rem;
-    background: radial-gradient(circle, var(--color-primary-base) 0%, var(--color-primary-shade-1) 100%);
-    border-radius: 1rem;
-    margin-right: -0.5rem; }
+    background: var(--color-primary-tint-5);
+    border-radius: 0.75rem; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources > * {
       display: flex;
       flex-direction: column;
@@ -1195,12 +1143,14 @@
     .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__blurb {
       font-size: smaller;
       padding-left: 0.25rem;
-      color: white;
       text-align: left;
-      align-items: flex-start; }
+      align-items: flex-start;
+      font-style: italic;
+      color: var(--color-primary-shade-2); }
       .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__blurb .blurb__title {
         text-transform: uppercase;
-        font-weight: bold; }
+        font-weight: bold;
+        font-style: normal; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary--current {
       position: absolute;
       left: 0;
@@ -1224,7 +1174,7 @@
       padding: 0.5rem 0.25rem; }
     .gmm-artifact.artifact--monster.artifact--monster--vanity .legendary__resources .legendary__value {
       font-family: 'Londrina Solid';
-      font-size: 1.75rem;
+      font-size: 1.5rem;
       line-height: 1.5rem;
       letter-spacing: 0.5px;
       position: relative;
@@ -1261,16 +1211,17 @@
     color: var(--color-primary-shade-1);
     font-weight: bold;
     position: relative;
-    padding: 0.25rem 0.25rem 1.25rem;
+    padding: calc(0.25rem - 2px) 0.25rem calc(1.25rem - 2px);
     text-align: center;
     font-size: smaller;
-    background: var(--color-primary-tint-4); }
+    background: var(--color-primary-tint-4);
+    border: 2px solid white;
+    border-bottom: none;
+    border-radius: 0.75rem 0.75rem 0 0; }
     .gmm-block .block__title + .block__contents {
       position: relative;
       margin-top: -1rem;
-      background: white;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem; }
+      background: white; }
   .gmm-block .block__contents {
     flex-grow: 1;
     display: flex;
@@ -2169,10 +2120,24 @@
   filter: drop-shadow(0 1px 0 var(--color-primary-shade-3));
   border-radius: 0.75rem;
   overflow: hidden; }
+  .gmm-panel.panel--compact .panel__header {
+    padding: calc(0.25rem - 2px) 1rem calc(1.25rem - 2px);
+    font-weight: bold;
+    font-size: smaller; }
+  .gmm-panel.panel--compact.panel--collapsible .panel__header::after {
+    top: 0;
+    right: 0.5rem;
+    height: 1.3rem;
+    width: 1.3rem; }
+  .gmm-panel.panel--compact.panel--collapsible.closed .panel__header {
+    padding-bottom: calc(0.25rem - 2px); }
   .gmm-panel .panel__header {
-    color: white;
-    background: var(--color-primary-shade-1);
-    padding: 0.5rem 1rem 1.5rem;
+    color: var(--color-primary-shade-1);
+    background: var(--color-primary-tint-4);
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    border: 2px solid white;
+    padding: calc(0.5rem - 2px) 1rem calc(1.5rem - 2px);
     font-weight: bold;
     font-size: larger;
     position: relative;
@@ -2190,6 +2155,7 @@
       border-top-right-radius: 0.75rem; }
   .gmm-panel .panel__body {
     background: white;
+    border: 2px solid white;
     position: relative;
     padding: 1rem;
     overflow: hidden; }
@@ -2219,7 +2185,8 @@
     .gmm-panel.panel--collapsible .panel__header:hover::after {
       color: var(--color-secondary-base); }
   .gmm-panel.panel--collapsible.closed .panel__header {
-    padding-bottom: 0.5rem;
+    padding-bottom: calc(0.5rem - 2px);
+    border-radius: 0.75rem;
     margin-bottom: 0; }
     .gmm-panel.panel--collapsible.closed .panel__header .badge {
       background: var(--color-primary-base);
@@ -2244,8 +2211,9 @@
   .gmm-panel.panel--collapsible.collapsing.closed .panel__body::after {
     opacity: 0; }
   .gmm-panel.panel--collapsible.collapsing:not(.closed) .panel__header {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0rem; }
+    padding-bottom: calc(0.5rem - 2px);
+    border-radius: 0.75rem;
+    margin-bottom: 0; }
     .gmm-panel.panel--collapsible.collapsing:not(.closed) .panel__header .badge {
       background: var(--color-primary-base);
       color: var(--color-primary-tint-3); }

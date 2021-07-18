@@ -54,6 +54,7 @@ export default class MonsterSheet extends ActorSheet {
 			this._gui.applyTo($el);
 			$el.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 			$el.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+			$el.find('.item .item__title').click(this._toggleItemDetails.bind(this));
 			$el.find('[data-action="edit-item"]').click(this._editItem.bind(this));
 			$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
 			$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
@@ -163,6 +164,11 @@ export default class MonsterSheet extends ActorSheet {
 			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.data[x]);
 		}
 		return super._onDropItemCreate(itemData);
+	}
+
+	_toggleItemDetails(event) {
+		const item = event.currentTarget.closest(".item");
+		item.classList.toggle("expanded");
 	}
 
 	_rollHitPoints(event) {

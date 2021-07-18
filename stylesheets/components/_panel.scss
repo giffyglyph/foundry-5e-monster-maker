@@ -3,10 +3,36 @@
 	border-radius: 0.75rem;
 	overflow: hidden;
 
+	&.panel--compact {
+
+		.panel__header {
+			padding: calc(0.25rem - 2px) 1rem calc(1.25rem - 2px);
+			font-weight: bold;
+			font-size: smaller;
+		}
+
+		&.panel--collapsible .panel__header::after {
+			top: 0;
+			right: 0.5rem;
+			height: 1.3rem;
+			width: 1.3rem;
+		}
+
+		&.panel--collapsible.closed {
+
+			.panel__header {
+				padding-bottom: calc(0.25rem - 2px);
+			}
+		}
+	}
+
 	.panel__header {
-		color: white;
-		background: var(--color-primary-shade-1);
-		padding: 0.5rem 1rem 1.5rem;
+		color: var(--color-primary-shade-1);
+		background: var(--color-primary-tint-4);
+		border-top-left-radius: 0.75rem;
+		border-top-right-radius: 0.75rem;
+		border: 2px solid white;
+		padding: calc(0.5rem - 2px) 1rem calc(1.5rem - 2px);
 		font-weight: bold;
 		font-size: larger;
 		position: relative;
@@ -30,6 +56,7 @@
 
 	.panel__body {
 		background: white;
+		border: 2px solid white;
 		position: relative;
 		padding: 1rem;
 		overflow: hidden;
@@ -71,7 +98,8 @@
 		&.closed {
 
 			.panel__header {
-				padding-bottom: 0.5rem;
+				padding-bottom: calc(0.5rem - 2px);
+				border-radius: 0.75rem;
 				margin-bottom: 0;
 
 				.badge {
@@ -129,8 +157,9 @@
 			&:not(.closed) {
 
 				.panel__header {
-					padding-bottom: 0.5rem;
-					margin-bottom: 0rem;
+					padding-bottom: calc(0.5rem - 2px);
+					border-radius: 0.75rem;
+					margin-bottom: 0;
 
 					.badge {
 						background: var(--color-primary-base);
