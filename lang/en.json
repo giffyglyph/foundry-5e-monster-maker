@@ -778,6 +778,7 @@
     "gmm.monster.blueprint.inventory.encumbrance.powerful_build": "Powerful Build",
     "gmm.monster.blueprint.inventory.encumbrance.title": "encumbrance",
     "gmm.monster.blueprint.inventory.encumbrance.weight": "Weight Modifier",
+    "gmm.monster.blueprint.inventory.encumbrance.always_show": "Always Show",
     "gmm.monster.blueprint.inventory.items.add": "Add",
     "gmm.monster.blueprint.inventory.items.title": "Items",
     "gmm.monster.blueprint.inventory.title": "Inventory",

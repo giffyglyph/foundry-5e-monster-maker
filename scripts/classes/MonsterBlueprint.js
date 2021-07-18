@@ -351,7 +351,10 @@ const MonsterBlueprint = (function() {
 		let details = {
 			id: item.id,
 			name: item.name,
-			img: item.img
+			img: item.img,
+			weight: item.data.data.weight ? item.data.data.weight : 0,
+			quantity: item.data.data.quantity ? item.data.data.quantity : 0,
+			price: item.data.data.price ? item.data.data.price : 0
 		};
 		return details;
 	}

@@ -566,7 +566,7 @@ const MonsterForge = (function() {
 			items: inventory.items,
 			weight: inventoryWeight || 0,
 			capacity: inventoryCapacity || 0,
-			encumbrance: Math.round(Math.clamped((inventoryWeight.value * 100) / inventoryCapacity.value, 0, 100) * 100) / 100,
+			encumbrance: Math.round((inventoryWeight.value * 100) / inventoryCapacity.value),
 			show_currencies: inventory.currency.always_show || currencyCoins > 0,
 			show_encumbrance: inventory.encumbrance.always_show,
 			currency: {
