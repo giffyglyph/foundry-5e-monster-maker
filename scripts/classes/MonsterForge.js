@@ -24,6 +24,7 @@ const MonsterForge = (function() {
 		const monsterInventoryWeight = _getInventoryWeight(blueprint.data);
 		const monsterInventoryCapacity = _getInventoryCapacity(monsterAbilityModifiers, blueprint.data);
 		const monsterClasses = blueprint.data.traits.items.filter((x) => x.class );
+		const showLegendaryActions = blueprint.data.legendary_actions.always_show || blueprint.data.legendary_actions.maximum > 0 || blueprint.data.legendary_actions.items.length > 0;
 
 		return {
 			vid: 1,
@@ -49,11 +50,11 @@ const MonsterForge = (function() {
 				inventory: _parseInventory(monsterInventoryWeight, monsterInventoryCapacity, blueprint.data.inventory),
 				lair_actions: _parseLairActions(blueprint.data.lair_actions),
 				languages: _parseCollection(GMM_5E_LANGUAGES, blueprint.data.languages, "language"),
-				legendary_actions: _parseLegendaryActions(blueprint.data.legendary_actions),
+				legendary_actions: _parseLegendaryActions(blueprint.data.legendary_actions, showLegendaryActions),
 				legendary_resistances: _parseLegendaryResistances(blueprint.data.legendary_resistances),
 				level: _parseLevel(derivedAttributes.level),
 				name: _parseName(blueprint.data.description.name),
-				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions),
+				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions, showLegendaryActions),
 				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.passive_perception),
 				phase: _parsePhase(derivedAttributes.rank),
 				proficiency_bonus: monsterProficiency,
@@ -448,7 +449,7 @@ const MonsterForge = (function() {
 		return biography;
 	}
 
-	function _parseParagonActions(rank, paragonActions) {
+	function _parseParagonActions(rank, paragonActions, showLegendaryActions) {
 		let mx = new DerivedAttribute();
 		let maximum = rank.modifiers.paragon_actions;
 		if (rank.modifiers.scale_with_players) {
@@ -459,7 +460,7 @@ const MonsterForge = (function() {
 		mx.ceil();
 
 		return {
-			visible: paragonActions.always_show || mx.value > 0,
+			visible: paragonActions.always_show || (!showLegendaryActions && (mx.value > 0)),
 			current: paragonActions.current,
 			maximum: mx
 		};
@@ -473,9 +474,9 @@ const MonsterForge = (function() {
 		};
 	}
 
-	function _parseLegendaryActions(legendaryActions) {
+	function _parseLegendaryActions(legendaryActions, showLegendaryActions) {
 		return {
-			visible: legendaryActions.always_show || legendaryActions.maximum > 0 || legendaryActions.items.length > 0,
+			visible: showLegendaryActions,
 			current: legendaryActions.current,
 			maximum: legendaryActions.maximum,
 			items: legendaryActions.items
