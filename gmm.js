@@ -74,7 +74,8 @@ async function _hookActorDirectory(html) {
 			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.MonsterSheet` },
 			data: {
 				"details.alignment": "unaligned",
-				"details.type.value": "humanoid"
+				"details.type.value": "humanoid",
+				"details.xp.value": 50
 			},
 		});
 	});

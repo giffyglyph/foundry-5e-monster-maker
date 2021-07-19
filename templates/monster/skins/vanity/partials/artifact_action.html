@@ -1,5 +1,5 @@
 <div class="item item--action" data-item-id="{{item.id}}" draggable="true">
-    <div class="item__icon">
+    <div class="item__icon" data-action="roll-item">
         {{#if item.img}}
             <img src="{{item.img}}"/>
         {{/if}}
@@ -7,50 +7,68 @@
     </div>
     <div class="item__body">
         <div class="item__title">
-            <div class="item__name" data-action="roll-item"><i class="{{item.gmmLabels.icon}}"></i> {{item.name}}</div>
-            {{#if item.gmmLabels.legendary_cost}}
-                <div class="item__cost">({{localize 'gmm.monster.artifact.legendary_actions.cost' cost=item.gmmLabels.legendary_cost}})</div>
-            {{/if}}
-            {{#if item.gmmLabels.recharge}}
-                <div class="item__recharge {{#if item.recharge.charged}}charged{{/if}}">
-                    {{#if item.gmmLabels.recharge.charged}}
-                        (charged)
-                    {{else}}
-                        <button class="button--text" data-action="recharge-item">(<i class="fas fa-dice-d6"></i> recharge {{item.gmmLabels.recharge.value}})</button>
-                    {{/if}}
-                </div>
-            {{else}}
-                {{#if item.gmmLabels.uses}}
-                    <div class="item__uses">
-                        <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="data.uses.value" data-type="number"/>
-                        <div class="value">({{item.gmmLabels.uses.current}}, {{item.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.gmmLabels.uses.per)}})</div>
-                    </div>
+            <div class="item__title__body">
+                <div class="item__name"><i class="{{item.gmmLabels.icon}}"></i> {{item.name}}</div>
+                {{#if item.gmmLabels.legendary_cost}}
+                    <div class="item__cost">({{localize 'gmm.monster.artifact.legendary_actions.cost' cost=item.gmmLabels.legendary_cost}})</div>
                 {{/if}}
-            {{/if}}
+                {{#if item.gmmLabels.recharge}}
+                    <div class="item__recharge {{#if item.recharge.charged}}charged{{/if}}">
+                        {{#if item.gmmLabels.recharge.charged}}
+                            (charged)
+                        {{else}}
+                            <button class="button--text" data-action="recharge-item"><i class="fas fa-dice-d6"></i> recharge {{item.gmmLabels.recharge.value}}</button>
+                        {{/if}}
+                    </div>
+                {{else}}
+                    {{#if item.gmmLabels.uses}}
+                        <div class="item__uses">
+                            <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="data.uses.value" data-type="number"/>
+                            <span class="value">({{item.gmmLabels.uses.current}}, {{item.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.gmmLabels.uses.per)}})</span>
+                        </div>
+                    {{/if}}
+                {{/if}}
+            </div>
         </div>
         <div class="item__details">
-            {{#if item.gmmLabels.attack}}
-                <span class="item__attack">
-                    <span class="attack__title"><i>{{item.gmmLabels.attack}}:</i></span>
-                    {{#if item.gmmLabels.to_hit}}
-                        <span>{{item.gmmLabels.to_hit}}</span>
+            {{#if (or item.gmmLabels.attack item.gmmLabels.damage_hit item.gmmLabels.damage_versatile item.gmmLabels.damage_miss)}}
+                <div class="item__attackdmg">
+                    {{#if item.gmmLabels.attack}}
+                        <span class="item__attack">
+                            <span class="attack__title"><i>{{item.gmmLabels.attack}}:</i></span>
+                            {{#if item.gmmLabels.to_hit}}
+                                <span>{{item.gmmLabels.to_hit}}</span>
+                            {{/if}}
+                            {{#if item.gmmLabels.range}}
+                                <span>{{item.gmmLabels.range}}</span>
+                            {{/if}}
+                            {{#if item.gmmLabels.target}}
+                                <span>{{item.gmmLabels.target}}</span>
+                            {{/if}}
+                        </span>
                     {{/if}}
-                    {{#if item.gmmLabels.range}}
-                        <span>{{item.gmmLabels.range}}</span>
+                    {{#if item.gmmLabels.damage_hit}}
+                        <span class="item__damage">
+                            <span class="attack__title"><i>{{#if item.gmmLabels.isHealing}}{{localize 'gmm.common.attack.heal'}}{{else}}{{localize 'gmm.common.attack.hit'}}{{/if}}:</i></span>
+                            <span>{{item.gmmLabels.damage_hit}}</span>
+                        </span>
                     {{/if}}
-                    {{#if item.gmmLabels.target}}
-                        <span>{{item.gmmLabels.target}}</span>
+                    {{#if item.gmmLabels.damage_versatile}}
+                        <span class="item__damage">
+                            <span class="attack__title"><i>{{localize 'gmm.common.attack.versatile'}}:</i></span>
+                            <span>{{item.gmmLabels.damage_versatile}}</span>
+                        </span>
                     {{/if}}
-                </span>
-            {{/if}}
-            {{#if item.gmmLabels.damage}}
-                <span class="item__damage">
-                    <span class="attack__title"><i>Hit:</i></span>
-                    <span>{{item.gmmLabels.damage}}</span>
-                </span>
+                    {{#if item.gmmLabels.damage_miss}}
+                        <span class="item__damage">
+                            <span class="attack__title"><i>{{localize 'gmm.common.attack.miss'}}:</i></span>
+                            <span>{{item.gmmLabels.damage_miss}}</span>
+                        </span>
+                    {{/if}}
+                </div>
             {{/if}}
             {{#if item.gmmLabels.description}}
-                <span class="item__description">{{{item.gmmLabels.description}}}</span>
+                <div class="item__description">{{{item.gmmLabels.description}}}</div>
             {{/if}}
         </div>
         <div class="item__actions">

@@ -1,5 +1,5 @@
 <div class="item item--spell" data-item-id="{{item.id}}" draggable="true">
-    <div class="item__icon">
+    <div class="item__icon" data-action="roll-item">
         {{#if item.img}}
             <img src="{{item.img}}"/>
         {{/if}}
@@ -7,11 +7,21 @@
     </div>
     <div class="item__body">
         <div class="item__title">
-            <div class="item__name" data-action="roll-item">{{item.name}}</div>
+            <div class="item__title__body">
+                <div class="item__name"><i class="far fa-arrow-alt-circle-right"></i> {{item.name}}</div>
+            </div>
         </div>
-        <div class="item__components">{{item.labels.components}}</div>
-        <div class="item__target">{{item.labels.target}}</div>
-        <div class="item__activation">{{#if item.labels.activation}}{{item.labels.activation}}{{/if}}</div>
+        <div class="item__details">
+            <ul class="item__tags">
+                <li class="item__components">{{item.labels.components}}</li>
+                <li class="item__school">{{item.labels.school}}</li>
+                <li class="item__activation">{{item.labels.activation}}</li>
+                <li class="item__target">{{item.labels.target}}</li>
+            </ul>
+            {{#if item.gmmLabels.description}}
+                <div class="item__description">{{{item.gmmLabels.description}}}</div>
+            {{/if}}
+        </div>
         <div class="item__actions">
             <button data-action="roll-item"><i class="fas fa-fw fa-comments"></i></button>
             <button data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>

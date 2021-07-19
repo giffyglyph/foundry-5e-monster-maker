@@ -150,5 +150,17 @@
 				line-height: 1;
 			}
 		}
+
+		button {
+			line-height: 1;
+			background: var(--color-primary-base);
+			color: white;
+			font-weight: bold;
+			font-family: inherit;
+			border: none;
+			border-radius: 0.75rem;
+			padding: 0.125rem 0.5rem;
+			font-weight: bold;
+		}
 	}
 }

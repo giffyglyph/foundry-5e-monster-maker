@@ -22,14 +22,16 @@ const ActionBlueprint = (function() {
 		{ from: "range.units", to: "data.range.units" },
 		{ from: "duration.value", to: "data.duration.value" },
 		{ from: "duration.units", to: "data.duration.units" },
-		{ from: "uses.units", to: "data.uses.value" },
-		{ from: "uses.maximum", to: "data.uses.max" },
+		{ from: "uses.value", to: "data.uses.value" },
+		{ from: "uses.max", to: "data.uses.max" },
 		{ from: "uses.per", to: "data.uses.per" },
 		{ from: "resource_consumption.type", to: "data.consume.type" },
 		{ from: "resource_consumption.target", to: "data.consume.target" },
 		{ from: "resource_consumption.amount", to: "data.consume.amount" },
 		{ from: "recharge.value", to: "data.recharge.value" },
-		{ from: "recharge.is_charged", to: "data.recharge.charged" }
+		{ from: "recharge.is_charged", to: "data.recharge.charged" },
+		{ from: "attack.versatile.damage", to: "data.damage.versatile"},
+		{ from: "attack.miss.damage", to: "data.formula"}
 	];
 
 	function createFromItem(item) {

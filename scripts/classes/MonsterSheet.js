@@ -54,6 +54,10 @@ export default class MonsterSheet extends ActorSheet {
 			this._gui.applyTo($el);
 			$el.find('.ability-ranking .move-up, .ability-ranking .move-down').click(this._updateAbilityRanking.bind(this));
 			$el.find('.save-ranking .move-up, .save-ranking .move-down').click(this._updateSaveRanking.bind(this));
+			$el.find('.monster__panels .accordion-section__title').click((e) => e.stopPropagation() );
+			$el.find('.item .item__recharge button').click((e) => e.stopPropagation() );
+			$el.find('.item .item__title input').click((e) => e.stopPropagation() );
+			$el.find('.item .item__title').click(this._toggleItemDetails.bind(this));
 			$el.find('[data-action="edit-item"]').click(this._editItem.bind(this));
 			$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
 			$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
@@ -165,6 +169,11 @@ export default class MonsterSheet extends ActorSheet {
 		return super._onDropItemCreate(itemData);
 	}
 
+	_toggleItemDetails(event) {
+		const item = event.currentTarget.closest(".item");
+		item.classList.toggle("expanded");
+	}
+
 	_rollHitPoints(event) {
 		const button = event.currentTarget.closest("button");
 		const roll = new Roll(button.dataset.formula);
@@ -215,9 +224,11 @@ export default class MonsterSheet extends ActorSheet {
 		const header = event.currentTarget;
 		const type = header.dataset.type;
 		const itemData = {
-			name: game.i18n.format("DND5E.ItemNew", {type: type.capitalize()}),
+			name: game.i18n.format(`gmm.monster.artifact.add.${header.dataset["activation.type"] ? header.dataset["activation.type"] : "trait"}`),
 			type: type,
-			data: duplicate(header.dataset)
+			img: "icons/svg/clockwork.svg",
+			data: duplicate(header.dataset),
+			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
 		};
 		delete itemData.data["type"];
 		return this.actor.createEmbeddedDocuments("Item", [ itemData]);

@@ -2,7 +2,7 @@
   "name": "giffyglyphs-5e-monster-maker",
   "title": "Giffyglyph's 5e Monster Maker",
   "description": "Create new monsters in seconds using monster levels and templates.",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "author": "Giffyglyph",
   "authors": [
     {
@@ -15,6 +15,20 @@
   "scripts": ["./scripts/vendors/math_js.9.3.2.min.js"],
   "styles": ["gmm.css"],
   "systems": ["dnd5e"],
+  "packs": [
+    {
+      "name": "gmm-monster-powers",
+      "label": "GMM Monster Powers",
+      "path": "./packs/monster-powers.db",
+      "entity": "Item"
+    },
+    {
+      "name": "gmm-monster-attacks",
+      "label": "GMM Monster Attacks",
+      "path": "./packs/monster-attacks.db",
+      "entity": "Item"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
@@ -23,10 +37,10 @@
     }
   ],
   "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "0.8.6",
+  "compatibleCoreVersion": "0.8.8",
   "url": "https://github.com/giffyglyph/foundry_5e_monster_maker",
   "manifest": "https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/master/module.json",
-  "download": "https://github.com/giffyglyph/foundry_5e_monster_maker/archive/refs/tags/v0.6.0.zip",
+  "download": "https://github.com/giffyglyph/foundry_5e_monster_maker/archive/refs/tags/v1.0.0.zip",
   "bugs": "https://github.com/giffyglyph/foundry_5e_monster_maker/issues",
   "readme": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/README.md",
   "changelog": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/CHANGELOG.md"

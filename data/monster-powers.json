@@ -1,0 +1,29 @@
+{
+  "name": "{{Name}}",
+  "type": "feat",
+  "img": "{{Icon}}",
+  "flags": {
+    "core": {
+      "sheetClass": "giffyglyphs-5e-monster-maker.ActionSheet"
+    }
+  },
+  "data": {
+    "description": {
+      "value": "{{Description}}"
+    },
+    "activation": {
+      "type": "{{Type}}"
+    },
+    "gmm": {
+      "blueprint": {
+        "vid": 1,
+        "type": "action",
+        "data": {
+          "requirements": {
+            "role": "{{Role}}"
+          }
+        }
+      }
+    }
+  }
+}
