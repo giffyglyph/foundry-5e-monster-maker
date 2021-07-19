@@ -85,11 +85,11 @@ const GmmItem = (function () {
 		labels.isHealing = this.isHealing;
 
 		if (this.isVersatile) {
-			labels.damage_versatile = `${this.data.data.damage.versatile} damage`;
+			labels.damage_versatile = `${gmmMonster ? Shortcoder.replaceShortcodes(this.data.data.damage.versatile, gmmMonster) : this.data.data.damage.versatile} damage`;
 		}
 
 		if (this.data.data.formula) {
-			labels.damage_miss = `${this.data.data.formula} damage`;
+			labels.damage_miss = `${gmmMonster ? Shortcoder.replaceShortcodes(this.data.data.formula, gmmMonster) : this.data.data.formula} damage`;
 		}
 
 		switch (itemData.target?.type) {
