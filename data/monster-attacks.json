@@ -1,0 +1,47 @@
+{
+  "name": "({{Rarity}}) {{Name}}",
+  "type": "feat",
+  "img": "{{Icon}}",
+  "flags": {
+    "core": {
+      "sheetClass": "giffyglyphs-5e-monster-maker-dev.ActionSheet"
+    }
+  },
+  "data": {
+    "description": {
+      "value": "{{Description}}"
+    },
+    "activation": {
+      "type": "{{Action}}"
+    },
+    "duration": {
+      "value": "{{DurationQuantity}}",
+      "units": "{{DurationType}}"
+    },
+    "target": {
+      "value": "{{TargetSize}}",
+      "width": "{{TargetWidth}}",
+      "units": "{{TargetUnits}}",
+      "type": "{{TargetType}}"
+    },
+    "range": {
+      "value": "{{RangeNormal}}",
+      "long": "{{RangeLong}}",
+      "units": "{{RangeUnits}}"
+    },
+    "uses": {
+      "value": "{{UsesMaximum}}",
+      "max": "{{UsesMaximum}}",
+      "per": "{{UsesRefresh}}"
+    },
+    "actionType": "{{Attack}}",
+    "damage": {
+      "parts": [["{{DmgHit}}", null]]
+    },
+    "formula": "{{DmgMiss}}",
+    "save": {
+      "ability": "{{Save}}"
+    },
+    "requirements": ""
+  }
+}

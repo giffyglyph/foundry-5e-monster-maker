@@ -778,10 +778,13 @@
 				font-size: larger;
 				margin-left: -2.5rem;
 				padding-left: 2.5rem;
+				white-space: nowrap;
 
 				.item__title__body {
 					width: calc(100% - 4.5rem);
 					cursor: pointer;
+					overflow: hidden;
+					text-overflow: ellipsis;
 
 					&:hover .item__name i {
 						color: var(--color-secondary-base);

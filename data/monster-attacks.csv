@@ -1,0 +1,73 @@
+Name,Rarity,Icon,Description,Action,Attack,Save,DmgHit,DmgMiss,DurationType,DurationQuantity,RangeUnits,RangeNormal,RangeLong,Recharge,TargetType,TargetUnits,TargetSize,TargetWidth,UsesMaximum,UsesRefresh
+Melee Attack,Common,systems/dnd5e/icons/skills/violet_04.jpg,You attack a target within reach.,action,mwak,,"[damage, damageDie]",,,,ft,5,,,creature,,1,,,
+"Melee Multiattack, 2",Common,systems/dnd5e/icons/skills/weapon_22.jpg,You make two attacks at targets within reach.,action,mwak,,"[round(damage / 2), damageDie]",,,,ft,5,,,creature,,1,,,
+"Melee Multiattack, 3",Common,systems/dnd5e/icons/skills/weapon_08.jpg,You make three attacks at targets within reach.,action,mwak,,"[round(damage / 3), damageDie]",,,,ft,5,,,creature,,1,,,
+Melee Condition Attack,Common,systems/dnd5e/icons/skills/violet_09.jpg,The target is <em>Blinded</em> until the end of its next turn.,action,mwak,,,,,,ft,5,,,creature,,1,,,
+Melee Ongoing Attack,Common,systems/dnd5e/icons/skills/green_07.jpg,The target takes [damage] ongoing damage at the start of their turn. The target can make a Constitution saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,mwak,,,,,,ft,5,,,creature,,1,,,
+Melee Area Attack,Common,systems/dnd5e/icons/skills/blue_15.jpg,You attack every enemy within reach.,action,mwak,,"[round(damage * 0.5), damageDie]","[round(damage * 0.25), damageDie]",,,self,0,,,radius,ft,5,,,
+Melee Movement Attack,Common,systems/dnd5e/icons/skills/blue_36.jpg,The target is knocked back up to 15 ft.,action,mwak,,,,,,ft,5,,,creature,,1,,,
+Melee Resource Attack,Common,systems/dnd5e/icons/skills/green_15.jpg,The target gains a failed death saving throw.,action,mwak,,,,,,ft,5,,,creature,,1,,,
+"Melee Special Attack, Strong",Common,systems/dnd5e/icons/skills/yellow_16.jpg,You attack a target within reach.,action,save,str,"[damage, damageDie]",,,,ft,5,,,creature,,1,,,
+"Melee Special Attack, Weak",Common,systems/dnd5e/icons/skills/yellow_27.jpg,You attack a target within reach.,action,other,str,"[damage, damageDie]",,,,ft,5,,,creature,,1,,,
+"Melee Special Area Attack, Strong",Common,systems/dnd5e/icons/skills/emerald_01.jpg,You attack every enemy within reach.,action,save,str,"[round(damage * 0.5), damageDie]","[round(damage * 0.25), damageDie]",,,self,0,,,radius,ft,5,,,
+"Melee Special Area Attack, Weak",Common,systems/dnd5e/icons/skills/blue_25.jpg,You attack every enemy within reach.,action,other,str,"[round(damage * 0.5), damageDie]","[round(damage * 0.25), damageDie]",,,self,0,,,radius,ft,5,,,
+Melee Attack,Uncommon,systems/dnd5e/icons/skills/violet_04.jpg,You attack a target within reach.,action,mwak,,"[damage * 2, damageDie]",,,,ft,5,,,creature,,1,,3,sr
+"Melee Multiattack, 2",Uncommon,systems/dnd5e/icons/skills/weapon_22.jpg,You make two attacks at targets within reach.,action,mwak,,"[damage, damageDie]",,,,ft,5,,,creature,,1,,3,sr
+"Melee Multiattack, 3",Uncommon,systems/dnd5e/icons/skills/weapon_08.jpg,You make three attacks at targets within reach.,action,mwak,,"[round(damage * 2 / 3), damageDie]",,,,ft,5,,,creature,,1,,3,sr
+Melee Condition Attack,Uncommon,systems/dnd5e/icons/skills/violet_09.jpg,The target is <em>Frightened</em> of you. The target can make a Charisma saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,mwak,,,,,,ft,5,,,creature,,1,,3,sr
+Melee Ongoing Attack,Uncommon,systems/dnd5e/icons/skills/green_07.jpg,The target takes [damage * 2] ongoing damage at the start of their turn. The target can make a Constitution saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,mwak,,,,,,ft,5,,,creature,,1,,3,sr
+Melee Area Attack,Uncommon,systems/dnd5e/icons/skills/blue_15.jpg,You attack every enemy within reach.,action,mwak,,"[damage, damageDie]","[round(damage * 0.5), damageDie]",,,self,0,,,radius,ft,5,,3,sr
+Melee Movement Attack,Uncommon,systems/dnd5e/icons/skills/blue_36.jpg,The target is knocked back up to 30 ft.,action,mwak,,,,,,ft,5,,,creature,,1,,3,sr
+Melee Resource Attack,Uncommon,systems/dnd5e/icons/skills/green_15.jpg,The target gains two failed death saving throws.,action,mwak,,,,,,ft,5,,,creature,,1,,3,sr
+"Melee Special Attack, Strong",Uncommon,systems/dnd5e/icons/skills/yellow_16.jpg,You attack a target within reach.,action,save,str,"[damage, damageDie]",,,,ft,5,,,creature,,1,,3,sr
+"Melee Special Attack, Weak",Uncommon,systems/dnd5e/icons/skills/yellow_27.jpg,You attack a target within reach.,action,other,str,"[damage, damageDie]",,,,ft,5,,,creature,,1,,3,sr
+"Melee Special Area Attack, Strong",Uncommon,systems/dnd5e/icons/skills/emerald_01.jpg,You attack every enemy within reach.,action,save,str,"[damage, damageDie]","[round(damage * 0.5), damageDie]",,,self,0,,,radius,ft,5,,3,sr
+"Melee Special Area Attack, Weak",Uncommon,systems/dnd5e/icons/skills/blue_25.jpg,You attack every enemy within reach.,action,other,str,"[damage, damageDie]","[round(damage * 0.5), damageDie]",,,self,0,,,radius,ft,5,,3,sr
+Melee Attack,Rare,systems/dnd5e/icons/skills/violet_04.jpg,You attack a target within reach.,action,mwak,,"[damage * 3, damageDie]",,,,ft,5,,,creature,,1,,1,lr
+"Melee Multiattack, 2",Rare,systems/dnd5e/icons/skills/weapon_22.jpg,You make two attacks at targets within reach.,action,mwak,,"[round(damage * 3 / 2), damageDie]",,,,ft,5,,,creature,,1,,1,lr
+"Melee Multiattack, 3",Rare,systems/dnd5e/icons/skills/weapon_08.jpg,You make three attacks at targets within reach.,action,mwak,,"[damage, damageDie]",,,,ft,5,,,creature,,1,,1,lr
+Melee Condition Attack,Rare,systems/dnd5e/icons/skills/violet_09.jpg,The target is <em>Stunned</em> until the end of its next turn.,action,mwak,,,,,,ft,5,,,creature,,1,,1,lr
+Melee Ongoing Attack,Rare,systems/dnd5e/icons/skills/green_07.jpg,The target takes [damage * 3] ongoing damage at the start of their turn. The target can make a Constitution saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,mwak,,,,,,ft,5,,,creature,,1,,1,lr
+Melee Area Attack,Rare,systems/dnd5e/icons/skills/blue_15.jpg,You attack every enemy within reach.,action,mwak,,"[round(damage * 1.5), damageDie]","[round(damage * 0.75), damageDie]",,,self,0,,,radius,ft,5,,1,lr
+Melee Movement Attack,Rare,systems/dnd5e/icons/skills/blue_36.jpg,The target is knocked back up to 60 ft.,action,mwak,,,,,,ft,5,,,creature,,1,,1,lr
+Melee Resource Attack,Rare,systems/dnd5e/icons/skills/green_15.jpg,The target gains three failed death saving throws.,action,mwak,,,,,,ft,5,,,creature,,1,,1,lr
+"Melee Special Attack, Strong",Rare,systems/dnd5e/icons/skills/yellow_16.jpg,You attack a target within reach.,action,save,str,"[damage, damageDie]",,,,ft,5,,,creature,,1,,1,lr
+"Melee Special Attack, Weak",Rare,systems/dnd5e/icons/skills/yellow_27.jpg,You attack a target within reach.,action,other,str,"[damage, damageDie]",,,,ft,5,,,creature,,1,,1,lr
+"Melee Special Area Attack, Strong",Rare,systems/dnd5e/icons/skills/emerald_01.jpg,You attack every enemy within reach.,action,save,str,"[round(damage * 1.5), damageDie]","[round(damage * 0.75), damageDie]",,,self,0,,,radius,ft,5,,1,lr
+"Melee Special Area Attack, Weak",Rare,systems/dnd5e/icons/skills/blue_25.jpg,You attack every enemy within reach.,action,other,str,"[round(damage * 1.5), damageDie]","[round(damage * 0.75), damageDie]",,,self,0,,,radius,ft,5,,1,lr
+Ranged Attack,Common,systems/dnd5e/icons/skills/arrow_01.jpg,You attack a target within range.,action,mwak,,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,,
+"Ranged Multiattack, 2",Common,systems/dnd5e/icons/skills/arrow_17.jpg,You make two attacks at targets within range.,action,mwak,,"[round(damage / 2), damageDie]",,,,ft,60,120,,creature,,1,,,
+"Ranged Multiattack, 3",Common,systems/dnd5e/icons/skills/arrow_16.jpg,You make three attacks at targets within range.,action,mwak,,"[round(damage / 3), damageDie]",,,,ft,60,120,,creature,,1,,,
+Ranged Condition Attack,Common,systems/dnd5e/icons/skills/arrow_18.jpg,The target is <em>Blinded</em> until the end of its next turn.,action,mwak,,,,,,ft,60,120,,creature,,1,,,
+Ranged Ongoing Attack,Common,systems/dnd5e/icons/skills/arrow_03.jpg,The target takes [damage] ongoing damage at the start of their turn. The target can make a Constitution saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,mwak,,,,,,ft,60,120,,creature,,1,,,
+Ranged Area Attack,Common,systems/dnd5e/icons/skills/shadow_05.jpg,You attack every enemy within range.,action,mwak,,"[round(damage * 0.5), damageDie]","[round(damage * 0.25), damageDie]",,,ft,60,120,,sphere,ft,5,,,
+Ranged Movement Attack,Common,systems/dnd5e/icons/skills/blue_06.jpg,The target is knocked back up to 15 ft.,action,mwak,,,,,,ft,60,120,,creature,,1,,,
+Ranged Resource Attack,Common,systems/dnd5e/icons/skills/affliction_03.jpg,The target gains a failed death saving throw.,action,mwak,,,,,,ft,60,120,,creature,,1,,,
+"Ranged Special Attack, Strong",Common,systems/dnd5e/icons/skills/blue_19.jpg,You attack a target within range.,action,save,str,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,,
+"Ranged Special Attack, Weak",Common,systems/dnd5e/icons/skills/blue_21.jpg,You attack a target within range.,action,other,str,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,,
+"Ranged Special Area Attack, Strong",Common,systems/dnd5e/icons/skills/violet_06.jpg,You attack every enemy within range.,action,save,str,"[round(damage * 0.5), damageDie]","[round(damage * 0.25), damageDie]",,,ft,60,120,,sphere,ft,5,,,
+"Ranged Special Area Attack, Weak",Common,systems/dnd5e/icons/skills/violet_17.jpg,You attack every enemy within range.,action,other,str,"[round(damage * 0.5), damageDie]","[round(damage * 0.25), damageDie]",,,ft,60,120,,sphere,ft,5,,,
+Ranged Attack,Uncommon,systems/dnd5e/icons/skills/arrow_01.jpg,You attack a target within range.,action,rwak,,"[damage * 2, damageDie]",,,,ft,60,120,,creature,,1,,3,sr
+"Ranged Multiattack, 2",Uncommon,systems/dnd5e/icons/skills/arrow_17.jpg,You make two attacks at targets within range.,action,rwak,,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,3,sr
+"Ranged Multiattack, 3",Uncommon,systems/dnd5e/icons/skills/arrow_16.jpg,You make three attacks at targets within range.,action,rwak,,"[round(damage * 2 / 3), damageDie]",,,,ft,60,120,,creature,,1,,3,sr
+Ranged Condition Attack,Uncommon,systems/dnd5e/icons/skills/arrow_18.jpg,The target is <em>Frightened</em> of you. The target can make a Charisma saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,rwak,,,,,,ft,60,120,,creature,,1,,3,sr
+Ranged Ongoing Attack,Uncommon,systems/dnd5e/icons/skills/arrow_03.jpg,The target takes [damage * 2] ongoing damage at the start of their turn. The target can make a Constitution saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,rwak,,,,,,ft,60,120,,creature,,1,,3,sr
+Ranged Area Attack,Uncommon,systems/dnd5e/icons/skills/shadow_05.jpg,You attack every enemy within range.,action,rwak,,"[damage, damageDie]","[round(damage * 0.5), damageDie]",,,ft,60,120,,sphere,ft,5,,3,sr
+Ranged Movement Attack,Uncommon,systems/dnd5e/icons/skills/blue_06.jpg,The target is knocked back up to 30 ft.,action,rwak,,,,,,ft,60,120,,creature,,1,,3,sr
+Ranged Resource Attack,Uncommon,systems/dnd5e/icons/skills/affliction_03.jpg,The target gains two failed death saving throws.,action,rwak,,,,,,ft,60,120,,creature,,1,,3,sr
+"Ranged Special Attack, Strong",Uncommon,systems/dnd5e/icons/skills/blue_19.jpg,You attack a target within range.,action,save,dex,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,3,sr
+"Ranged Special Attack, Weak",Uncommon,systems/dnd5e/icons/skills/blue_21.jpg,You attack a target within range.,action,other,dex,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,3,sr
+"Ranged Special Area Attack, Strong",Uncommon,systems/dnd5e/icons/skills/violet_06.jpg,You attack every enemy within range.,action,save,dex,"[damage, damageDie]","[round(damage * 0.5), damageDie]",,,ft,60,120,,sphere,ft,5,,3,sr
+"Ranged Special Area Attack, Weak",Uncommon,systems/dnd5e/icons/skills/violet_17.jpg,You attack every enemy within range.,action,other,dex,"[damage, damageDie]","[round(damage * 0.5), damageDie]",,,ft,60,120,,sphere,ft,5,,3,sr
+Ranged Attack,Rare,systems/dnd5e/icons/skills/arrow_01.jpg,You attack a target within range.,action,rwak,,"[damage * 3, damageDie]",,,,ft,60,120,,creature,,1,,1,lr
+"Ranged Multiattack, 2",Rare,systems/dnd5e/icons/skills/arrow_17.jpg,You make two attacks at targets within range.,action,rwak,,"[round(damage * 3 / 2), damageDie]",,,,ft,60,120,,creature,,1,,1,lr
+"Ranged Multiattack, 3",Rare,systems/dnd5e/icons/skills/arrow_16.jpg,You make three attacks at targets within range.,action,rwak,,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,1,lr
+Ranged Condition Attack,Rare,systems/dnd5e/icons/skills/arrow_18.jpg,The target is <em>Stunned</em> until the end of its next turn.,action,rwak,,,,,,ft,60,120,,creature,,1,,1,lr
+Ranged Ongoing Attack,Rare,systems/dnd5e/icons/skills/arrow_03.jpg,The target takes [damage * 3] ongoing damage at the start of their turn. The target can make a Constitution saving throw (DC [dcPrimaryBonus]) at the end of their turns to remove this condition.,action,rwak,,,,,,ft,60,120,,creature,,1,,1,lr
+Ranged Area Attack,Rare,systems/dnd5e/icons/skills/shadow_05.jpg,You attack every enemy within range.,action,rwak,,"[round(damage * 1.5), damageDie]","[round(damage * 0.75), damageDie]",,,ft,60,120,,sphere,ft,5,,1,lr
+Ranged Movement Attack,Rare,systems/dnd5e/icons/skills/blue_06.jpg,The target is knocked back up to 60 ft.,action,rwak,,,,,,ft,60,120,,creature,,1,,1,lr
+Ranged Resource Attack,Rare,systems/dnd5e/icons/skills/affliction_03.jpg,The target gains three failed death saving throws.,action,rwak,,,,,,ft,60,120,,creature,,1,,1,lr
+"Ranged Special Attack, Strong",Rare,systems/dnd5e/icons/skills/blue_19.jpg,You attack a target within range.,action,save,dex,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,1,lr
+"Ranged Special Attack, Weak",Rare,systems/dnd5e/icons/skills/blue_21.jpg,You attack a target within range.,action,other,dex,"[damage, damageDie]",,,,ft,60,120,,creature,,1,,1,lr
+"Ranged Special Area Attack, Strong",Rare,systems/dnd5e/icons/skills/violet_06.jpg,You attack every enemy within range.,action,save,dex,"[round(damage * 1.5), damageDie]","[round(damage * 0.75), damageDie]",,,ft,60,120,,sphere,ft,5,,1,lr
+"Ranged Special Area Attack, Weak",Rare,systems/dnd5e/icons/skills/violet_17.jpg,You attack every enemy within range.,action,other,dex,"[round(damage * 1.5), damageDie]","[round(damage * 0.75), damageDie]",,,ft,60,120,,sphere,ft,5,,1,lr
