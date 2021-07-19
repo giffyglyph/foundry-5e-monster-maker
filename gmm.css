@@ -989,10 +989,13 @@
         font-weight: 600;
         font-size: larger;
         margin-left: -2.5rem;
-        padding-left: 2.5rem; }
+        padding-left: 2.5rem;
+        white-space: nowrap; }
         .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body {
           width: calc(100% - 4.5rem);
-          cursor: pointer; }
+          cursor: pointer;
+          overflow: hidden;
+          text-overflow: ellipsis; }
           .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body:hover .item__name i {
             color: var(--color-secondary-base); }
           .gmm-artifact.artifact--monster.artifact--monster--vanity .item-list .item .item__title .item__title__body > * {
