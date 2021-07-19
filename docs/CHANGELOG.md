@@ -7,6 +7,25 @@
 [![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
 [![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
 
+## v1.0.0
+
+* [[#24](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/24)] Added a "report bug" modal to monster/action sheets.
+* [[#25](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/25)] Support multiply/divide and shortcodes in quickaction dialogs.
+* [[#29](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/29)] Improved support for Midi-qol.
+* [[#30](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/30)] Estimate scaling monster level/rank/role when converting RAW monsters.
+* [[#31](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/31)] Fixed data-sync of monster abilities/saving throws.
+* [[#32](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/32)] Updated Foundry version to 8.8.
+* [[#33](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/33)] Improved names of new scaling actions.
+* [[#34](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/34)] Added "healing" action type.
+* [[#35](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/35)] Supported "versatile/miss" damage formulae.
+* [[#36](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/36)] Allowed item collections to be collapsed/expanded.
+* [[#37](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/37)] Allowed items to collapse/expand on click.
+* [[#38](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/38)] Hide paragon actions if monster has legendary actions.
+* [[#39](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/39)] Added roll button to item icons.
+* [[#42](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/42)] Apply restriction filter to all action types.
+* [[#41](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/41)] Added "monster powers" compendium.
+* [[#43](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/43)] Added "monster attacks" compendium.
+
 ## v0.6.0
 
 * [[#7](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/7)] Added support for a DEV build of the module.
