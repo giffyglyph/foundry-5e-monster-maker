@@ -2,7 +2,7 @@
   "name": "giffyglyphs-5e-monster-maker",
   "title": "Giffyglyph's 5e Monster Maker",
   "description": "Create new monsters in seconds using monster levels and templates.",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "author": "Giffyglyph",
   "authors": [
     {
@@ -40,7 +40,7 @@
   "compatibleCoreVersion": "0.8.8",
   "url": "https://github.com/giffyglyph/foundry_5e_monster_maker",
   "manifest": "https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/master/module.json",
-  "download": "https://github.com/giffyglyph/foundry_5e_monster_maker/archive/refs/tags/v0.6.0.zip",
+  "download": "https://github.com/giffyglyph/foundry_5e_monster_maker/archive/refs/tags/v1.0.0.zip",
   "bugs": "https://github.com/giffyglyph/foundry_5e_monster_maker/issues",
   "readme": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/README.md",
   "changelog": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/CHANGELOG.md"
