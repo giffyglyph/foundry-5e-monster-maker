@@ -8,7 +8,11 @@
     {
       "name": "Giffyglyph",
       "email": "giffyglyph@gmail.com",
-      "url": "https://www.giffyglyph.com"
+      "url": "https://www.giffyglyph.com",
+      "discord": "Giffyglyph#7632",
+      "twitter": "@giffyglyph",
+      "patreon": "giffyglyph",
+      "reddit": "u/giffyglyph"
     }
   ],
   "esmodules": ["gmm.js"],
@@ -43,5 +47,16 @@
   "download": "https://github.com/giffyglyph/foundry_5e_monster_maker/archive/refs/tags/v1.0.0.zip",
   "bugs": "https://github.com/giffyglyph/foundry_5e_monster_maker/issues",
   "readme": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/README.md",
-  "changelog": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/CHANGELOG.md"
+  "changelog": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/CHANGELOG.md",
+  "manifestPlusVersion": "1.0.0",
+  "media": [
+    {
+      "type": "screenshot",
+      "url": "https://raw.githubusercontent.com/giffyglyph/foundry-5e-monster-maker/master/docs/img/scaling-monster-level.gif"
+    },
+    {
+      "type": "cover",
+      "url": "https://raw.githubusercontent.com/giffyglyph/foundry-5e-monster-maker/master/docs/img/fire-elemental.png"
+    }
+  ]
 }
