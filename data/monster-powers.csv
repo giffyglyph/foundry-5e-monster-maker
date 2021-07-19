@@ -1,0 +1,130 @@
+Icon,Type,Role,Name,Description
+systems/dnd5e/icons/spells/link-blue-2.jpg,,controller,(Controller) Attraction,"Once per turn, when you hit a creature with an attack, you can pull that creature up to 15 ft towards you."
+systems/dnd5e/icons/skills/light_01.jpg,,controller,(Controller) Blinding Strike,"Once per turn, when you hit a creature with an attack, that creature is <em>Blinded</em> until the start of your next turn."
+systems/dnd5e/icons/spells/vines-jade-2.jpg,bonus,controller,(Controller) Blocker,You can spend a bonus action to create a 15 ft x 15 ft area of difficult terrain within 60 ft of you. The area lasts until the start of your next turn.
+systems/dnd5e/icons/skills/gray_10.jpg,,controller,(Controller) Crippling Strike,"Once per turn, when you hit a creature with an attack, you can reduce that creature's speed to 0 ft until the end of their next turn."
+systems/dnd5e/icons/skills/green_19.jpg,,controller,(Controller) Distraction,"Once per turn, when you hit a creature with an attack, you can grant advantage to the next attack roll made against that creature."
+systems/dnd5e/icons/skills/armor_01.jpg,,controller,(Controller) Get Into Position,"Once per turn, when you hit a creature with an attack, you can allow an ally to spend their reaction and move up to half their speed (without provoking opportunity attacks from your target)."
+systems/dnd5e/icons/skills/yellow_21.jpg,,controller,(Controller) Knockback,"Once per turn, when you hit a creature with an attack, you can knock the creature up to 15 ft away from you."
+systems/dnd5e/icons/spells/link-royal-1.jpg,,controller,(Controller) Sidestep,"Once per turn, when you hit a creature with an attack, you can move yourself and that creature 5 ft in any direction. This movement doesn't provoke opportunity attacks."
+systems/dnd5e/icons/skills/weapon_22.jpg,reaction,defender,(Defender) Counterattack,"When a creature misses you with a melee weapon attack misses you, you can spend your reaction to make one attack against that creature."
+systems/dnd5e/icons/skills/light_02.jpg,,defender,(Defender) Don't Look Away,"When you attack a creature, you can mark them. A marked creature has −2 to any attack roll that doesn't include you. You can have one active mark at a time, and marks don't stack."
+systems/dnd5e/icons/skills/affliction_10.jpg,,defender,(Defender) Durable,"When you finish a long rest, you gain temporary hit points equal to half your maximum hit points."
+systems/dnd5e/icons/skills/blue_18.jpg,,defender,(Defender) Get Behind Me,Allies within 5 ft of you count as being in three-quarters cover.
+systems/dnd5e/icons/skills/yellow_28.jpg,reaction,defender,(Defender) Got Your Back,"If you are unrestrained and standing next to a creature that is the target of an attack (which doesn't already include you), you can spend your reaction to redirect the attack onto yourself."
+systems/dnd5e/icons/skills/weapon_15.jpg,bonus,defender,(Defender) Heavy Defence,You may spend a bonus action to gain +2 AC until the start of your next turn.
+systems/dnd5e/icons/spells/protect-blue-3.jpg,bonus,defender,(Defender) Shield Wall,"If you are unrestrained and standing next to a creature, you can spend a bonus action to grant that creature total cover until the start of your next turn. You must remain adjacent to the creature to maintain this cover."
+systems/dnd5e/icons/skills/weapon_19.jpg,,defender,(Defender) You Can't Leave,"Creatures always provoke opportunity attacks from you, even if they take the <em>Disengage</em> action before leaving your reach. When you hit a creature with an opportunity attack, that creature's speed becomes 0 for the rest of the turn."
+systems/dnd5e/icons/skills/green_07.jpg,,lurker,(Lurker) Backstab,"If you have advantage on your attack, you deal [level] extra damage."
+systems/dnd5e/icons/skills/water_04.jpg,,lurker,(Lurker) Bleed Stamina,"When you hit a creature with an attack, that creature must make a Constitution saving throw (DC [dcPrimaryBonus]) or gain one level of exhaustion. This exhaustion expires naturally after 1 minute of undisturbed rest."
+systems/dnd5e/icons/skills/water_07.jpg,,lurker,(Lurker) Camouflage,"When you are hidden, creatures can't spot you with passive perception and they have disadvantage when making active checks to find you."
+systems/dnd5e/icons/skills/violet_18.jpg,,lurker,(Lurker) Cunning Action,"You can <em>Dash</em>, <em>Disengage</em>, or <em>Hide</em> as a bonus action."
+systems/dnd5e/icons/skills/violet_28.jpg,reaction,lurker,(Lurker) Death's Fury,"When you are reduced to 0 hit points, you can spend your reaction to make one attack against a creature that you can see."
+systems/dnd5e/icons/skills/violet_07.jpg,,lurker,(Lurker) Guerilla,"When you make an attack while hidden, you don't reveal yourself and can remain in hiding."
+systems/dnd5e/icons/skills/violet_02.jpg,,lurker,(Lurker) Hide in Plain Sight,"You can attempt to <em>Hide</em> while behind any form of cover—half, three-quarters, or total. You must be out of direct line-of-sight."
+systems/dnd5e/icons/skills/violet_05.jpg,action,lurker,(Lurker) Vanish,You can spend an action to become Invisible until the end of your next turn. You must wait until this effect expires before you can use it again.
+systems/dnd5e/icons/skills/red_15.jpg,reaction,scout,(Scout) Combat Medic,"When a creature would be reduced to 0 hit points, you can spend your reaction to reduce it to 1 hit point instead. You must move up to your speed to a space adjacent to the creature. This movement doesn't provoke opportunity attacks."
+systems/dnd5e/icons/skills/red_16.jpg,reaction,scout,(Scout) Dodge,"When you are hit by an attack, you can spend your reaction to halve the damage taken."
+systems/dnd5e/icons/skills/water_02.jpg,,scout,(Scout) Hard to Hit,"When you are standing and unrestained, attacks against you have disadvantage unless you are adjacent to two or more enemies."
+systems/dnd5e/icons/spells/protect-red-2.jpg,reaction,scout,(Scout) I Saw That Coming,"When an ally would be hit by an attack, you can spend your reaction to grant that ally +5 AC against the attack."
+systems/dnd5e/icons/skills/violet_01.jpg,,scout,(Scout) Light-footed,"You can <em>Disengage</em> or <em>Dash</em> as a bonus action. When an enemy moves adjacent to you, you can spend your reaction to move away up to half your speed."
+systems/dnd5e/icons/skills/red_11.jpg,reaction,scout,(Scout) Pincer Movement,"When an ally moves adjacent to an enemy, you can spend your reaction to move up to your speed towards that same enemy."
+systems/dnd5e/icons/skills/red_09.jpg,,scout,(Scout) You Can't Hide,You have advantage when you attempt to detect hidden creatures. Any creature that you can see is also visible to your allies.
+systems/dnd5e/icons/skills/emerald_08.jpg,,sniper,(Sniper) Close Quarters,You don't suffer disadvantage when making ranged attacks within 5 ft of a hostile creature.
+systems/dnd5e/icons/skills/violet_21.jpg,,sniper,(Sniper) Hold Still,You have advantage on attack rolls you make against any creature that moved less than 10 ft during their last turn.
+systems/dnd5e/icons/skills/violet_09.jpg,,sniper,(Sniper) I Can See You,Your ranged attacks ignore half and three-quarters cover.
+systems/dnd5e/icons/skills/blue_03.jpg,,sniper,(Sniper) Next Time,"If you miss an attack against a creature, you have advantage on the next attack you make against that same creature before the end of your next turn."
+systems/dnd5e/icons/skills/green_16.jpg,,sniper,(Sniper) Pinning Shot,"Once per turn, when you hit a creature with an attack, you can reduce that creature's speed to 0 until the start of your next turn."
+systems/dnd5e/icons/skills/green_19.jpg,bonus,sniper,(Sniper) Quarry,"You can spend your bonus action to designate a creature as your quarry. When you hit your quarry with an attack, you deal [level] extra damage."
+systems/dnd5e/icons/skills/emerald_10.jpg,reaction,sniper,(Sniper) Ricochet,"If you miss an attack against a creature, you can spend your reaction to make another attack against a different creature of your choice within 15 ft of the original target."
+systems/dnd5e/icons/skills/yellow_06.jpg,,sniper,(Sniper) Scattershot,"Once per turn, when you hit a creature with an attack, you can deal [level] damage to every other creature within 5 ft of your target."
+systems/dnd5e/icons/skills/red_19.jpg,,striker,(Striker) Bloodfury,"When you are bloodied, you become gain -2 AC and +2 attack."
+systems/dnd5e/icons/skills/red_31.jpg,,striker,(Striker) Cleave,"Once per turn, when you deal damage to a creature, you can deal half-as-much damage to a target that is (a) within 5 ft of your target and (b) within your reach."
+systems/dnd5e/icons/skills/affliction_04.jpg,,striker,(Striker) Deathstrike,"When you reduce a creature to 0 hit points, that creature immediately gains one failed death saving throw."
+systems/dnd5e/icons/skills/affliction_08.jpg,,striker,(Striker) Execute,"When you hit a creature that has 50% or fewer hit points, you deal [level] extra damage."
+systems/dnd5e/icons/skills/red_13.jpg,,striker,(Striker) Press the Attack,You have advantage when you make an attack roll against a bloodied creature.
+systems/dnd5e/icons/skills/red_12.jpg,,striker,(Striker) Savage Assault,"Once per turn, when you hit a creature with an attack, you can deal [level] extra damage."
+systems/dnd5e/icons/skills/blood_02.jpg,,striker,(Striker) Stunning Strike,"Your attacks score a critical hit on a roll of 19-20. In addition, when you critically hit a creature, that creature must make a Constitution saving throw (DC [dcPrimaryBonus]) or be Stunned until the start of your next turn."
+systems/dnd5e/icons/skills/blood_11.jpg,,striker,(Striker) Vengence,"When you hit a creature that has attacked you since the end of your last turn, you can deal [level] extra damage."
+systems/dnd5e/icons/skills/weapon_15.jpg,,supporter,(Supporter) Armorer,Allies within 10 ft of you reduce the damage they take from attacks by half.
+systems/dnd5e/icons/skills/yellow_16.jpg,bonus,supporter,(Supporter) Commander,You can spend a bonus action to command an ally to make an attack against a target of your choice.
+systems/dnd5e/icons/skills/yellow_37.jpg,,supporter,(Supporter) Ferocity,Allies within 10 ft of you gain a bonus to damage of [level].
+systems/dnd5e/icons/skills/yellow_34.jpg,,supporter,(Supporter) Guidance,Allies within 10 ft of you have advantage on their attacks rolls.
+systems/dnd5e/icons/spells/heal-royal-2.jpg,bonus,supporter,(Supporter) Healer,You can spend a bonus action to grant [level] temporary hit points to a creature within 30 ft.
+systems/dnd5e/icons/spells/heal-sky-2.jpg,reaction,supporter,(Supporter) Not On My Watch,"When a creature that you can see would be reduced to 0 hit points, you can spend your reaction to reduce it to 1 hit point instead. In addition, the creature gains [level] temporary hit points."
+systems/dnd5e/icons/spells/protect-orange-2.jpg,,supporter,(Supporter) Protection,Allies within 10 ft of you gain +2 AC.
+systems/dnd5e/icons/skills/yellow_17.jpg,,supporter,(Supporter) Rallying Cry,"Once per turn, when you hit a target with an attack, you can remove an ongoing condition from an ally that you can see."
+systems/dnd5e/icons/skills/green_08.jpg,,,Adhesive,"You can stick to anything you touch. If a creature equal to or smaller than your size touches you, that creature is <em>Grappled</em> by you. Ability checks made to escape your grapple have disadvantage."
+systems/dnd5e/icons/skills/red_22.jpg,bonus,,Aggressive,You can spend a bonus action to move up to your speed towards an enemy that you can see.
+systems/dnd5e/icons/skills/blue_17.jpg,,,Alarm,"When you take damage, all other monsters of the same type within the immediate area are made aware of your pain."
+systems/dnd5e/icons/skills/beast_04.jpg,,,Alien Mind,You have advantage on Intelligence saving throws.
+systems/dnd5e/icons/skills/blue_12.jpg,,,Amorphous,You can move through a space as narrow as 1 inch wide without squeezing.
+systems/dnd5e/icons/spells/air-burst-air-2.jpg,,,Antimagic Aura,You have a 5/10/15 ft aura. Creatures within your aura have disadvantage when casting spells.
+systems/dnd5e/icons/spells/protect-blue-3.jpg,,,Arcane Protection,You are resistant to all magical damage.
+systems/dnd5e/icons/skills/weapon_17.jpg,,,Armor Breaker,"When you hit a creature with an attack, you deal a cumulative -1 penalty to their AC. This penalty can be removed after 1 hour of repair work."
+systems/dnd5e/icons/skills/shadow_16.jpg,,,Barbed Hide,"At the start of your turn, you may deal [level] piercing damage to any creature that is grappling you."
+systems/dnd5e/icons/skills/blood_03.jpg,,,Blood Frenzy,You have advantage on melee attack rolls against any creature that doesn't have all its hit points.
+systems/dnd5e/icons/skills/beast_01.jpg,,,Charger,"If you move more than 20ft in a straight line towards a creature, make your melee attack roll with advantage. On a hit, you knock the creature prone in addition to any other effect."
+systems/dnd5e/icons/skills/green_16.jpg,,,Constrict,"At the start of your turn, you may deal [level] bludgeoning damage to any creature that you are grappling."
+systems/dnd5e/icons/skills/green_18.jpg,,,Corrosive Body,Any creature that (a) touches you or (b) makes a melee attack against you takes [level] damage. Any weapon that hits you takes a permanent and cumulative −1 penalty to damage rolls. A weapon is destroyed if the penalty reaches −5.
+systems/dnd5e/icons/skills/blue_18.jpg,,,Critical Defence,Critical hits made against you count as normal hits unless you are already bloodied.
+systems/dnd5e/icons/skills/blood_10.jpg,,,Critical Fury,Your weapon attacks score a critical hit on a roll of 19-20.
+systems/dnd5e/icons/skills/blood_04.jpg,,,Damage Absorption,"Choose a damage type. Whenever you would take damage of that type, you instead regain that many hit points."
+systems/dnd5e/icons/spells/link-spirit-3.jpg,,,Damage Transfer,"When you take damage from an attack, you can transfer half of the damage to another creature within 5 ft of you."
+systems/dnd5e/icons/spells/air-burst-jade-2.jpg,,,Damaging Aura,You have a 5/10/15 ft aura. Creatures that a) enter your aura or b) start their turn within your aura take [level] damage.
+systems/dnd5e/icons/skills/affliction_15.jpg,,,Dangerous Body,Any creature that (a) touches you or (b) hits you with a melee attack while within 5 ft of you takes [level] damage.
+systems/dnd5e/icons/skills/shadow_10.jpg,,,Disintegration,"When you die, your body distintegrates into dust. You leave behind your weapons and anything else you are carrying."
+systems/dnd5e/icons/spells/air-burst-sky-2.jpg,,,Disruptive Aura,You have a 5/10/15 ft aura. Creatures within your aura have disadvantage on saving throws.
+systems/dnd5e/icons/spells/air-burst-magenta-2.jpg,,,Distracting Aura,You have a 5/10/15 ft aura. Creatures within your aura have disadvantage on concentration saving throws.
+systems/dnd5e/icons/spells/fireball-red-3.jpg,,,Dragonbreath,You can breathe dragonfire.
+systems/dnd5e/icons/skills/blue_34.jpg,,,Earth Glide,"You can burrow through nonmagical, unworked earth and stone. While doing so, you don't disturb the material you move through."
+systems/dnd5e/icons/spells/air-burst-jade-3.jpg,,,Entangling Aura,You have a 5/10/15 ft aura. The ground within your aura is difficult terrain. Creatures that start their turn in your aura must succeed on a Strength saving throw (DC [dcPrimaryBonus]) or be <em>Restrained</em> until the start of their next turn.
+systems/dnd5e/icons/skills/blue_35.jpg,,,Escape,"When you would be reduced to 0 hit points outside of your lair, you instead escape and flee to your lair. You remain there, paralysed and resting, until you recover at least 50% of your hit points."
+systems/dnd5e/icons/skills/yellow_02.jpg,,,Explosive,"When you fall to 0 hit points, your body explodes and deals [level] damage to everyone within 5 ft. You can begin detonation on your turn with a bonus action, and you explode at the start of your next turn."
+systems/dnd5e/icons/skills/green_18.jpg,,,False Appearance,"When you remain motionless, you are indistinguishable from a piece of the local landscape."
+systems/dnd5e/icons/skills/green_13.jpg,,,Fey Mind,"You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+systems/dnd5e/icons/skills/violet_21.jpg,,,Flight,"You can fly up to your speed. While flying, you must move your entire movement speed or land—unless you can also hover. Launching into flight provokes opportunity attacks, even if you <em>Disengage</em>."
+systems/dnd5e/icons/skills/armor_01.jpg,,,Freedom of Movement,"You ignore difficult terrain, and magical effects can't reduce your speed or cause it to be restrained. You can spend 5 ft of movement to escape from nonmagical restraints or being grappled."
+systems/dnd5e/icons/spells/link-blue-3.jpg,,,Grappler,"You have advantage on attack rolls against any creature you have grappled. In addition, you can split any damage that you take from an attack 50/50 with one creature that you are grappling."
+systems/dnd5e/icons/skills/blue_02.jpg,,,Hover,You can hover in one spot in the air for up to 6 seconds before you need to move.
+systems/dnd5e/icons/skills/affliction_01.jpg,,,Immortal,You can't be killed unless you are reduced to 0 hit points by a specific type of attack. Any other form of attack will instead reduce you to 1 hit point.
+systems/dnd5e/icons/skills/blue_29.jpg,,,Immutable Form,You are immune to any spell or effect that would alter your form.
+systems/dnd5e/icons/skills/blue_18.jpg,,,Impenetrable,You are resistant to all forms of non-magical damage.
+systems/dnd5e/icons/skills/blue_06.jpg,,,Incorporeal,"You can pass through any solid, non-magical matter. In addition, you can't be hit by any non-magical weapon or attack."
+systems/dnd5e/icons/skills/emerald_06.jpg,,,Independent,You have advantage on Charisma saving throws.
+systems/dnd5e/icons/skills/beast_04.jpg,,,Indomitable,You are immune to any effects that would alter your mind or will.
+systems/dnd5e/icons/skills/emerald_02.jpg,,,Inscrutable,"You are immune to any effect that would sense your emotions or read your thoughts, as well as any divination spell that you refuse. Wisdom (Insight) checks made to ascertain your intentions or sincerity have disadvantage."
+systems/dnd5e/icons/skills/emerald_07.jpg,,,Invisible,You can't be seen by normal sight.
+systems/dnd5e/icons/skills/green_24.jpg,,,Iron Will,You have advantage on Wisdom saving throws.
+systems/dnd5e/icons/spells/air-burst-magenta-3.jpg,,,Leeching Aura,"You have a 5/10/15 ft aura. Whenever you deal damage to a creature within your aura, you regain half as many hit points."
+systems/dnd5e/icons/skills/ice_17.jpg,,,Life Eater,"When you deal damage that reduces a creature to 0 hit points, that creature can't be revived by any means short of a Wish spell."
+systems/dnd5e/icons/spells/protect-blue-3.jpg,,,Magic Resistance,You have advantage on saving throws against spells and other magical effects.
+systems/dnd5e/icons/skills/yellow_22.jpg,,,Magic Weapons,Your weapon attacks are magical.
+systems/dnd5e/icons/skills/violet_03.jpg,,,Martial Advantage,"Once per turn, when you hit a creature within 5ft of your allies, you may deal [level] extra damage."
+systems/dnd5e/icons/skills/weapon_21.jpg,,,Parry,You can spend your reaction to gain +3 AC against one melee attack that you can see.
+systems/dnd5e/icons/skills/blue_38.jpg,,,Powerful Leap,You can jump twice as far and twice as high as would be normal.
+systems/dnd5e/icons/skills/blue_03.jpg,,,Precise,You have advantage on Dexterity saving throws.
+systems/dnd5e/icons/skills/blood_07.jpg,,,Rampage,"When you reduce a creature to 0 hit points with a melee attack on your turn, you can spend a bonus action to move up to half your speed and attack a different target."
+systems/dnd5e/icons/skills/blood_12.jpg,,,Reckless,"At the start of your turn, you can have advantage on all melee attacks you make for that turn. However, all attacks made against you have advantage until the start of your next turn."
+systems/dnd5e/icons/spells/protect-sky-3.jpg,,,Redirect,"When you are within 5 ft of an ally, you can redirect any single attack made against you to your ally instead."
+systems/dnd5e/icons/skills/blood_04.jpg,,,Regeneration,You regain hit points at the start of your turn equal to your maximum hit points / 10. This regeneration stops for 1 turn if you are hit by a specific damage type (fire/acid/lightning/etc) or you are reduced to 0 hit points.
+systems/dnd5e/icons/skills/blood_01.jpg,,,Relentless,"The first time you fall to 0 hit points after a long rest, you are instead reduced to 1 hit point."
+systems/dnd5e/icons/skills/yellow_34.jpg,,,Reliable Attacker,"When you miss with an attack, you can spend your reaction to reroll your attack. You must use the second result."
+systems/dnd5e/icons/skills/violet_07.jpg,,,Shadow Stealth,"While in dim light or darkness, you can take the <em>Hide</em> action as a bonus action."
+systems/dnd5e/icons/skills/violet_22.jpg,,,Shifty,You can <em>Disengage</em> as a bonus action.
+systems/dnd5e/icons/skills/mech_11.jpg,,,Siege Monster,You deal double damage to objects and structures.
+systems/dnd5e/icons/skills/water_08.jpg,,,Slippery,You have advantage on ability checks and saving throws made to escape a grapple.
+systems/dnd5e/icons/skills/blue_05.jpg,,,Spider Climb,You can climb difficult surfaces—including upside down on ceilings—without needing to make an ability check.
+systems/dnd5e/icons/spells/link-spirit-3.jpg,,,Spirit Bond,You share a bond with one or more creatures. Your AC and saving throws are equal to the highest value among all bonded creatures.
+systems/dnd5e/icons/skills/mech_8.jpg,,,Split,"When you are bloodied, you split into two smaller copies. Each new copy has hit points equal to half of your remaining hit points, and acts independantly."
+systems/dnd5e/icons/spells/air-burst-air-3.jpg,,,Stench Aura,You have a 5/10/15 ft aura. Creatures within your aura have disadvantage on attack rolls.
+systems/dnd5e/icons/skills/armor_01.jpg,,,Sure-footed,You have advantage on Strength and Dexterity saving throws made against effects that would knock you prone.
+systems/dnd5e/icons/skills/green_23.jpg,,,Swarm,You can occupy another creature's space and vice versa. You gain advantage on attacks against any creature that shares your space.
+systems/dnd5e/icons/skills/violet_03.jpg,,,Teamwork,You have advantage on attack rolls when your target is within 5ft of an unrestrained ally.
+systems/dnd5e/icons/skills/red_33.jpg,,,Thick Skin,You have advantage on Constitution saving throws.
+systems/dnd5e/icons/skills/red_11.jpg,,,Throwing Master,"Once per turn, when you hit a creature with a ranged attack using a thrown weapon, you can deal [level] extra damage."
+systems/dnd5e/icons/skills/fire_07.jpg,,,Tough,You have advantage on Strength saving throws.
+systems/dnd5e/icons/skills/blue_17.jpg,,,Uncanny Senses,"Unless you are incapacitated, you can't be surprised."
+systems/dnd5e/icons/skills/affliction_10.jpg,,,Undying Fortitude,"If damage reduces you to 0 hit points, make a Consititution saving throw with a DC of 5 + the damage taken. On a success, you drop to 1 hit point instead."
+systems/dnd5e/icons/skills/light_02.jpg,,,Wakeful,You are never caught sleeping.
+systems/dnd5e/icons/skills/violet_04.jpg,bonus,,War Magic,"When you use your action to cast a spell, you can make one weapon attack as a bonus action."

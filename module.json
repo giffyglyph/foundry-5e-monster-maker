@@ -15,6 +15,14 @@
   "scripts": ["./scripts/vendors/math_js.9.3.2.min.js"],
   "styles": ["gmm.css"],
   "systems": ["dnd5e"],
+  "packs": [
+    {
+      "name": "gmm-monster-powers",
+      "label": "GMM Monster Powers",
+      "path": "./packs/monster-powers.db",
+      "entity": "Item"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
