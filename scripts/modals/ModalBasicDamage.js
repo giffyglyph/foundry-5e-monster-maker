@@ -46,12 +46,14 @@ const ModalBasicDamage = (function() {
 		}
 
 		try {
-			const roll = new Roll(RollFormula.getRollFormula(rollString)).roll();
-			roll.toMessage({
-				speaker: ChatMessage.getSpeaker({actor: this.actor}),
-				flavor: messageParts.join(" "),
-				messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
-				rollMode: form.get("mode")
+			const asyncRoll = new Roll(RollFormula.getRollFormula(rollString)).roll();
+			asyncRoll.then(completedRoll => {
+				completedRoll.toMessage({
+					speaker: ChatMessage.getSpeaker({actor: this.actor}),
+					flavor: messageParts.join(" "),
+					messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
+					rollMode: form.get("mode")
+				})
 			});
 			modal.querySelector("[data-action='close-modal']").click();
 		} catch(err) {
