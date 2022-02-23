@@ -7,6 +7,12 @@
 [![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
 [![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
 
+## v1.0.1
+
+* [[#65](https://github.com/giffyglyph/foundry-5e-monster-maker/issues/65)] Roll buttons on modal dialogs work again (fixed by cmazur14).
+* [[#69](https://github.com/giffyglyph/foundry-5e-monster-maker/issues/69)] Update minimum core version to v9.238.
+
+
 ## v1.0.0
 
 * [[#24](https://github.com/giffyglyph/foundry_5e_monster_maker/issues/24)] Added a "report bug" modal to monster/action sheets.
