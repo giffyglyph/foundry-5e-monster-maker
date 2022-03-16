@@ -1,5 +1,6 @@
 import MonsterBlueprint from './MonsterBlueprint.js';
 import MonsterForge from './MonsterForge.js';
+import Proficiency from '../../../../systems/dnd5e/module/actor/proficiency.js';
 import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
 import { GMM_5E_SKILLS } from '../consts/Gmm5eSkills.js';
 import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
@@ -73,6 +74,9 @@ const GmmActor = (function () {
                 actorData.abilities[x].mod = monsterData.ability_modifiers[x].value;
                 actorData.abilities[x].proficient = false;
                 actorData.abilities[x].prof = 0;
+		actorData.abilities[x].saveProf = new Proficiency(0, 1);
+		actorData.abilities[x].checkProf = new Proficiency(0, 1);
+		actorData.abilities[x].bonuses.save = (monsterData.saving_throws[x].value - monsterData.ability_modifiers[x].value);
                 actorData.abilities[x].saveBonus = 0;
                 actorData.abilities[x].checkBonus = 0;
                 actorData.abilities[x].save = monsterData.saving_throws[x].value;
