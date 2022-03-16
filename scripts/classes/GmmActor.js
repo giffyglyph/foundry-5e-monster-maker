@@ -88,7 +88,7 @@ const GmmActor = (function () {
 				actorData.skills[x.foundry].value = 0;
 				actorData.skills[x.foundry].bonus = 0;
 				actorData.skills[x.foundry].mod = monsterData.ability_modifiers[actorData.skills[x.foundry].ability].value;
-				actorData.skills[x.foundry].prof = monsterSkill ? monsterSkill.value : 0;
+				actorData.skills[x.foundry].prof = new Proficiency(monsterSkill ? monsterSkill.value : 0, 1);
 				actorData.skills[x.foundry].total = actorData.skills[x.foundry].mod + actorData.skills[x.foundry].prof;
 				if (x.name == "perception") {
 					actorData.skills[x.foundry].passive = monsterData.passive_perception.value;
