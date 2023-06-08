@@ -13,7 +13,7 @@ import { GMM_MODULE_TITLE } from "./scripts/consts/GmmModuleTitle.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", function() {
-	console.log(`Giffyglyph's 5e Monster Maker | Initialising`);
+	console.log(`Giffyglyph's 5e Monster Maker Continued | Initialising`);
 
 	Actors.registerSheet(GMM_MODULE_TITLE, MonsterSheet, {
 		types: ["npc"],
@@ -52,7 +52,7 @@ Hooks.once("init", function() {
 
 	_registerSettings();
 
-	console.log(`Giffyglyph's 5e Monster Maker | Initialised`);
+	console.log(`Giffyglyph's 5e Monster Maker Continued | Initialised`);
 });
 
 async function _hookActorDirectory(html) {
