@@ -3,8 +3,13 @@
   "title": "Giffyglyph's 5e Monster Maker Continued",
   "description": "Create new monsters in seconds using monster levels and templates.",
   "version": "0.1",
-  "author": "Skyl3lazer",
   "authors": [
+	 {
+      "name": "Skyl3lazer",
+      "discord": "Skyl3lazer#8532",
+      "twitter": "@skyl3lazer",
+      "reddit": "u/skyl3lazer"
+    },
     {
       "name": "Giffyglyph",
       "email": "giffyglyph@gmail.com",
@@ -13,13 +18,8 @@
       "twitter": "@giffyglyph",
       "patreon": "giffyglyph",
       "reddit": "u/giffyglyph"
-    },
-	{
-      "name": "Skyl3lazer",
-      "discord": "Skyl3lazer#8532",
-      "twitter": "@skyl3lazer",
-      "reddit": "u/skyl3lazer"
     }
+	
   ],
   "esmodules": ["gmm.js"],
   "scripts": ["./scripts/vendors/math_js.9.3.2.min.js"],
