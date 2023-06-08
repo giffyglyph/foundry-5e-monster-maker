@@ -71,13 +71,13 @@ const GmmItem = (function () {
 				return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 			});
 			if ((itemData.consume?.type === 'ammo') && !!this.actor?.items) {
-				const ammoItemData = this.actor.items.get(itemData.consume.target)?.data;
+				const ammoItemData = this.actor.items.get(itemData.consume.target)?.system;
 				if (ammoItemData) {
-					const ammoItemQuantity = ammoItem.system.quantity;
+					const ammoItemQuantity = ammoItemData.quantity;
 					const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
-					const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItem.system.consumableType === "ammo")
+					const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemData.consumableType === "ammo")
 					if ( ammoCanBeConsumed && ammoIsTypeConsumable ) {
-						damages.push(...ammoItem.system.damage.parts.map(x => {
+						damages.push(...ammoItemData.damage.parts.map(x => {
 							let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
 							return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 						}));
@@ -302,12 +302,12 @@ const GmmItem = (function () {
 
 		// One-time bonus provided by consumed ammunition
 		if ((itemData.consume?.type === 'ammo') && !!item.actor?.items) {
-			const ammoItemData = item.actor.items.get(itemData.consume.target)?.data;
+			const ammoItemData = item.actor.items.get(itemData.consume.target)?.system;
 			if (ammoItemData) {
-				const ammoItemQuantity = ammoItem.system.quantity;
+				const ammoItemQuantity = ammoItemData.quantity;
 				const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
 				const ammoItemAttackBonus = ammoItem.system.attackBonus;
-				const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItem.system.consumableType === "ammo")
+				const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemData.consumableType === "ammo")
 				if ( ammoCanBeConsumed && ammoItemAttackBonus && ammoIsTypeConsumable ) {
 					parts.push("@ammo");
 					if (rollData) {
@@ -388,10 +388,10 @@ const GmmItem = (function () {
 		};
 	
 		// Handle ammunition damage
-		const ammoData = item._ammo?.data;
-		if ( item._ammo && (ammoData.type === "consumable") && (ammosystem.consumableType === "ammo") ) {
+		const ammoData = item._ammo?.system;
+		if (item._ammo && (ammoData.type === "consumable") && (ammoData.consumableType === "ammo") ) {
 			parts.push("@ammo");
-			rollData["ammo"] = ammosystem.damage.parts.map(p => p[0]).join("+");
+			rollData["ammo"] = ammoData.damage.parts.map(p => p[0]).join("+");
 			rollConfig.flavor += ` [${item._ammo.name}]`;
 			delete item._ammo;
 		}

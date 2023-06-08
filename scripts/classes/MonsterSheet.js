@@ -163,8 +163,8 @@ export default class MonsterSheet extends ActorSheet {
 	}
 
 	async _onDropItemCreate(itemData) {
-		if (itemData.data) {
-			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.data[x]);
+		if (itemData.system) {
+			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.system[x]);
 		}
 		return super._onDropItemCreate(itemData);
 	}
@@ -230,7 +230,7 @@ export default class MonsterSheet extends ActorSheet {
 			system: duplicate(header.dataset),
 			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
 		};
-		delete itemData.data["type"];
+		delete itemData.system["type"];
 		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
 	}
 
