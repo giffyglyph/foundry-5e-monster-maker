@@ -45,7 +45,7 @@ const GmmItem = (function () {
 		});
 	}
 
-	function _getGmmLabels() {
+	async function _getGmmLabels() {
 		const itemData = this.system;
 		const labels = {};
 		const rollData = this.getRollData();
@@ -165,8 +165,8 @@ const GmmItem = (function () {
 				}
 				break;
 		}
-
-		labels.description = this.getChatData({secrets: this.actor?.isOwner}).description.value;
+		let desc = await this.getChatData({ secrets: this.actor?.isOwner });
+		labels.description = desc.description.value;
 
 		if (this.hasLimitedUses) {
 			labels.uses = {
@@ -203,7 +203,7 @@ const GmmItem = (function () {
 	}
 
 	function _getOwningGmmMonster() {
-		return this.actor?.data?.data?.gmm?.monster?.data;
+		return this.actor?.system?.gmm?.monster?.data;
 	}
 
 	function _prepareData() {

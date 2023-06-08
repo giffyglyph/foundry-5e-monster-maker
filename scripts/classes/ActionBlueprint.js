@@ -57,13 +57,13 @@ const ActionBlueprint = (function() {
 
 		try {
 			mappings.forEach((x) => {
-				if (hasProperty(item.data, x.to)) {
-					setProperty(blueprintData, x.from, getProperty(item.data, x.to));
+				if (hasProperty(item.system, x.to)) {
+					setProperty(blueprintData, x.from, getProperty(item.system, x.to));
 				}
 			});
 
 			// Set damage array
-			if (hasProperty(item.data, "data.damage.parts")) {
+			if (hasProperty(item.system, "damage.parts")) {
 				setProperty(blueprintData, "attack.hit.damage", item.system.damage?.parts.map((x) => {
 					return {
 						formula: x[0],
