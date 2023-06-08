@@ -1,4 +1,4 @@
-import { simplifyRollFormula, damageRoll } from "./../../../../systems/dnd5e/module/dice.js";
+
 import ActionBlueprint from './ActionBlueprint.js';
 import Shortcoder from './Shortcoder.js';
 import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
@@ -7,7 +7,12 @@ import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
  * A patcher which controls item data based on the selected sheet.
  */
 const GmmItem = (function () {
-
+	function simplifyRollFormula(...args) {
+		return dnd5e.dice.simplifyRollFormula(...args);
+	}
+	function damageRoll(...args) {
+		return dnd5e.dice.damageRoll(...args);
+	}
 	/**
 	 * Patch the Foundry Item5e entity to control how data is prepared based on the active sheet.
 	 */

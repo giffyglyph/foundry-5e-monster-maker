@@ -1,6 +1,5 @@
 import MonsterBlueprint from './MonsterBlueprint.js';
 import MonsterForge from './MonsterForge.js';
-import Proficiency from '../../../../systems/dnd5e/module/actor/proficiency.js';
 import { GMM_5E_ABILITIES } from "../consts/Gmm5eAbilities.js";
 import { GMM_5E_SKILLS } from '../consts/Gmm5eSkills.js';
 import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
@@ -9,7 +8,10 @@ import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
  * A patcher which controls actor data based on the selected sheet.
  */
 const GmmActor = (function () {
-
+	//import Proficiency from '../../../../systems/dnd5e/module/actor/proficiency.js';
+	function Proficiency(...args) {
+		return dnd5e.documents.Proficiency(...args);
+	}
 	/**
 	 * Patch the Foundry Actor5e entity to control how data is prepared based on the active sheet.
 	 */
