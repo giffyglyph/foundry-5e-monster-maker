@@ -50,26 +50,26 @@ const MonsterBlueprint = (function() {
 		{ from: "speeds.fly", to: "system.attributes.movement.fly" },
 		{ from: "speeds.swim", to: "system.attributes.movement.swim" },			
 		{ from: "speeds.walk", to: "system.attributes.movement.walk" },
-		{ from: "spellbook.slots.1.current", to: "data.spells.spell1.value" },
-		{ from: "spellbook.slots.1.maximum", to: "data.spells.spell1.override" },
-		{ from: "spellbook.slots.2.current", to: "data.spells.spell2.value" },
-		{ from: "spellbook.slots.2.maximum", to: "data.spells.spell2.override" },
-		{ from: "spellbook.slots.3.current", to: "data.spells.spell3.value" },
-		{ from: "spellbook.slots.3.maximum", to: "data.spells.spell3.override" },
-		{ from: "spellbook.slots.4.current", to: "data.spells.spell4.value" },
-		{ from: "spellbook.slots.4.maximum", to: "data.spells.spell4.override" },
-		{ from: "spellbook.slots.5.current", to: "data.spells.spell5.value" },
-		{ from: "spellbook.slots.5.maximum", to: "data.spells.spell5.override" },
-		{ from: "spellbook.slots.6.current", to: "data.spells.spell6.value" },
-		{ from: "spellbook.slots.6.maximum", to: "data.spells.spell6.override" },
-		{ from: "spellbook.slots.7.current", to: "data.spells.spell7.value" },
-		{ from: "spellbook.slots.7.maximum", to: "data.spells.spell7.override" },
-		{ from: "spellbook.slots.8.current", to: "data.spells.spell8.value" },
-		{ from: "spellbook.slots.8.maximum", to: "data.spells.spell8.override" },
-		{ from: "spellbook.slots.9.current", to: "data.spells.spell9.value" },
-		{ from: "spellbook.slots.9.maximum", to: "data.spells.spell9.override" },
-		{ from: "spellbook.slots.pact.current", to: "data.spells.pact.value" },
-		{ from: "spellbook.slots.pact.maximum", to: "data.spells.pact.override" },
+		{ from: "spellbook.slots.1.current", to: "spells.spell1.value" },
+		{ from: "spellbook.slots.1.maximum", to: "spells.spell1.override" },
+		{ from: "spellbook.slots.2.current", to: "spells.spell2.value" },
+		{ from: "spellbook.slots.2.maximum", to: "spells.spell2.override" },
+		{ from: "spellbook.slots.3.current", to: "spells.spell3.value" },
+		{ from: "spellbook.slots.3.maximum", to: "spells.spell3.override" },
+		{ from: "spellbook.slots.4.current", to: "spells.spell4.value" },
+		{ from: "spellbook.slots.4.maximum", to: "spells.spell4.override" },
+		{ from: "spellbook.slots.5.current", to: "spells.spell5.value" },
+		{ from: "spellbook.slots.5.maximum", to: "spells.spell5.override" },
+		{ from: "spellbook.slots.6.current", to: "spells.spell6.value" },
+		{ from: "spellbook.slots.6.maximum", to: "spells.spell6.override" },
+		{ from: "spellbook.slots.7.current", to: "spells.spell7.value" },
+		{ from: "spellbook.slots.7.maximum", to: "spells.spell7.override" },
+		{ from: "spellbook.slots.8.current", to: "spells.spell8.value" },
+		{ from: "spellbook.slots.8.maximum", to: "spells.spell8.override" },
+		{ from: "spellbook.slots.9.current", to: "spells.spell9.value" },
+		{ from: "spellbook.slots.9.maximum", to: "spells.spell9.override" },
+		{ from: "spellbook.slots.pact.current", to: "spells.pact.value" },
+		{ from: "spellbook.slots.pact.maximum", to: "spells.pact.override" },
 		{ from: "spellbook.spellcasting.ability", to: "system.attributes.spellcasting" },
 		{ from: "spellbook.spellcasting.level", to: "system.details.spellLevel" }
 	];
@@ -143,12 +143,12 @@ const MonsterBlueprint = (function() {
 
 	function _syncActorDataToBlueprint(blueprint, actor) {
 		const blueprintData = blueprint.data;
-		const actorData = actor.system;
+		const actorData = actor;
 
 		try {
 			mappings.forEach((x) => {
-				if (hasProperty(actor.system, x.to)) {
-					setProperty(blueprintData, x.from, getProperty(actor.system, x.to));
+				if (hasProperty(actor, x.to)) {
+					setProperty(blueprintData, x.from, getProperty(actor, x.to));
 				}
 			});
 
@@ -180,7 +180,7 @@ const MonsterBlueprint = (function() {
 			blueprintData.traits.items = [];
 			
 			GMM_5E_SKILLS.forEach((x) => {
-				let actorSkill = actorData.skills[x.foundry];
+				let actorSkill = actorData.system.skills[x.foundry];
 				switch (actorSkill.value) {
 					case 0.5:
 						blueprintData.skills[x.name] = "half-proficient";
@@ -205,7 +205,7 @@ const MonsterBlueprint = (function() {
 
 			if (actor.items) {
 				try {
-					actor.items.contents.sort((a, b) => (a.system.sort || 0) - (b.system.sort || 0)).forEach(x => {
+					actor.items.contents.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0)).forEach(x => {
 						let item = actor.items.get(x.id)
 						switch (item.getSortingCategory()) {
 							case "spell":

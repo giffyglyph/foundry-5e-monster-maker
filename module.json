@@ -57,9 +57,10 @@
 		"systems": [{
 			"id": "dnd5e",
 			"type": "system",
-			"manifest": "https://github.com/foundryvtt/dnd5e/blob/2.1.x/system.json",
 			"compatibility": {
-				"verified": "2.1.5"
+				"minimum":  "2.1.5",
+				"verified": "2.1.5",
+				"maximum": "2.2.1"
 			}
 		}]
 	},

@@ -76,7 +76,7 @@ async function _hookActorDirectory(html) {
 				details: {
 					"alignment": "unaligned",
 					"type": {
-						"value": "abberation"
+						"value": "humanoid"
 					},
 					"cr": 1
 				}
