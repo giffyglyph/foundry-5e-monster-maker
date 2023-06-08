@@ -73,11 +73,11 @@ const GmmItem = (function () {
 			if ((itemData.consume?.type === 'ammo') && !!this.actor?.items) {
 				const ammoItemData = this.actor.items.get(itemData.consume.target)?.data;
 				if (ammoItemData) {
-					const ammoItemQuantity = ammoItemsystem.quantity;
+					const ammoItemQuantity = ammoItem.system.quantity;
 					const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
-					const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemsystem.consumableType === "ammo")
+					const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItem.system.consumableType === "ammo")
 					if ( ammoCanBeConsumed && ammoIsTypeConsumable ) {
-						damages.push(...ammoItemsystem.damage.parts.map(x => {
+						damages.push(...ammoItem.system.damage.parts.map(x => {
 							let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
 							return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 						}));
@@ -304,10 +304,10 @@ const GmmItem = (function () {
 		if ((itemData.consume?.type === 'ammo') && !!item.actor?.items) {
 			const ammoItemData = item.actor.items.get(itemData.consume.target)?.data;
 			if (ammoItemData) {
-				const ammoItemQuantity = ammoItemsystem.quantity;
+				const ammoItemQuantity = ammoItem.system.quantity;
 				const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
-				const ammoItemAttackBonus = ammoItemsystem.attackBonus;
-				const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemsystem.consumableType === "ammo")
+				const ammoItemAttackBonus = ammoItem.system.attackBonus;
+				const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItem.system.consumableType === "ammo")
 				if ( ammoCanBeConsumed && ammoItemAttackBonus && ammoIsTypeConsumable ) {
 					parts.push("@ammo");
 					if (rollData) {

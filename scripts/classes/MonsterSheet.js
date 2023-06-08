@@ -163,8 +163,8 @@ export default class MonsterSheet extends ActorSheet {
 	}
 
 	async _onDropItemCreate(itemData) {
-		if ( itemsystem ) {
-			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemsystem[x]);
+		if (itemData.data) {
+			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.data[x]);
 		}
 		return super._onDropItemCreate(itemData);
 	}
@@ -230,7 +230,7 @@ export default class MonsterSheet extends ActorSheet {
 			system: duplicate(header.dataset),
 			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
 		};
-		delete itemsystem["type"];
+		delete itemData.data["type"];
 		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
 	}
 
@@ -301,17 +301,17 @@ export default class MonsterSheet extends ActorSheet {
 			if (event && event.currentTarget) {
 				switch (event.currentTarget.name) {
 					case "gmm.blueprint.combat.rank.type":
-						formsystem.gmm.blueprint.data.combat.rank.custom_name = null;
-						formsystem.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
+						formData.data.gmm.blueprint.data.combat.rank.custom_name = null;
+						formData.data.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
 						break;
 					case "gmm.blueprint.combat.role.type":
-						formsystem.gmm.blueprint.data.combat.role.custom_name = null;
-						formsystem.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
+						formData.data.gmm.blueprint.data.combat.role.custom_name = null;
+						formData.data.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
 						break;
 				}
 			}
 
-			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formsystem.gmm.blueprint));
+			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.data.gmm.blueprint));
 		}
 
 		this.document.update(formData);

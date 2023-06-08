@@ -184,7 +184,7 @@ export default class ActionSheet extends ItemSheet {
 			});
 			delete formData.gmm.blueprint;
 
-			$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formsystem.gmm.blueprint));
+			$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formData.data.gmm.blueprint));
 		}
 
 		return this.document.update(formData);
