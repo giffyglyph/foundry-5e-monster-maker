@@ -7,6 +7,10 @@
 [![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
 [![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
 
+This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x. Updated by Skyl3lazer.
+
+**THIS MODULE IS NOT YET FULLY WORKING, DO NOT USE IT FOR YOUR GAMES YET. IT IS IN ACTIVE DEVELOPMENT**
+
 Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5e campaign, but aren't sure how to balance them easily? No worries—**Giffyglyph's 5e Monster Maker** has you covered! Build level-appropriate D&D 5e monsters in _seconds_ with an all-new automated monster sheet and scaling actions.
 
 ## Features
