@@ -35,10 +35,10 @@ const GmmItem = (function () {
 		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "hasSave", {
 			get: function () {
 				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
-					return ["save", "other"].includes(this.data.data.gmm?.blueprint?.data?.attack?.type);
+					return ["save", "other"].includes(this.system.gmm?.blueprint?.data?.attack?.type);
 				} else {
 					// Copy existing Foundry behaviour.
-					const save = this.data.data?.save || {};
+					const save = this.system?.save || {};
 					return !!(save.ability && save.scaling);
 				}
 			}
@@ -46,7 +46,7 @@ const GmmItem = (function () {
 	}
 
 	function _getGmmLabels() {
-		const itemData = this.data.data;
+		const itemData = this.system;
 		const labels = {};
 		const rollData = this.getRollData();
 		const gmmMonster = this.getOwningGmmMonster();
@@ -60,24 +60,24 @@ const GmmItem = (function () {
 			}
 		} else if (this.hasSave && itemData.save.ability) {
 			labels.attack = game.i18n.format(`gmm.action.labels.attack.${itemData.save.ability}`);
-			if (this.data.data.save.dc) {
-				labels.to_hit = game.i18n.format(`gmm.action.labels.attack.dc`, { bonus: this.data.data.save.dc });
+			if (this.system.save.dc) {
+				labels.to_hit = game.i18n.format(`gmm.action.labels.attack.dc`, { bonus: this.system.save.dc });
 			}
 		}
 
 		if (this.hasDamage) {
-			const damages = this.data.data.damage.parts.map((x) => {
+			const damages = this.system.damage.parts.map((x) => {
 				let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
 				return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 			});
 			if ((itemData.consume?.type === 'ammo') && !!this.actor?.items) {
 				const ammoItemData = this.actor.items.get(itemData.consume.target)?.data;
 				if (ammoItemData) {
-					const ammoItemQuantity = ammoItemData.data.quantity;
+					const ammoItemQuantity = ammoItemsystem.quantity;
 					const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
-					const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemData.data.consumableType === "ammo")
+					const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemsystem.consumableType === "ammo")
 					if ( ammoCanBeConsumed && ammoIsTypeConsumable ) {
-						damages.push(...ammoItemData.data.damage.parts.map(x => {
+						damages.push(...ammoItemsystem.damage.parts.map(x => {
 							let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
 							return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 						}));
@@ -90,11 +90,11 @@ const GmmItem = (function () {
 		labels.isHealing = this.isHealing;
 
 		if (this.isVersatile) {
-			labels.damage_versatile = `${gmmMonster ? Shortcoder.replaceShortcodes(this.data.data.damage.versatile, gmmMonster) : this.data.data.damage.versatile} damage`;
+			labels.damage_versatile = `${gmmMonster ? Shortcoder.replaceShortcodes(this.system.damage.versatile, gmmMonster) : this.system.damage.versatile} damage`;
 		}
 
-		if (this.data.data.formula) {
-			labels.damage_miss = `${gmmMonster ? Shortcoder.replaceShortcodes(this.data.data.formula, gmmMonster) : this.data.data.formula} damage`;
+		if (this.system.formula) {
+			labels.damage_miss = `${gmmMonster ? Shortcoder.replaceShortcodes(this.system.formula, gmmMonster) : this.system.formula} damage`;
 		}
 
 		switch (itemData.target?.type) {
@@ -199,7 +199,7 @@ const GmmItem = (function () {
 	}
 
 	function _getGmmActionBlueprint() {
-		return this.data.data.gmm?.blueprint?.data;
+		return this.system.gmm?.blueprint?.data;
 	}
 
 	function _getOwningGmmMonster() {
@@ -210,7 +210,7 @@ const GmmItem = (function () {
 		game.dnd5e.entities.Item5e.prototype.prepare5eData.call(this);
 		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			try {
-				const itemData = this.data.data;
+				const itemData = this.system;
 				const actionBlueprint = ActionBlueprint.createFromItem(this);
 				itemData.gmm = {
 					blueprint: actionBlueprint
@@ -224,8 +224,8 @@ const GmmItem = (function () {
 	function _prepareShortcodes() {
 		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			let gmmMonster = this.getOwningGmmMonster();
-			if (gmmMonster && this.data.data.description && this.data.data.description.value) {
-				this.data.data.description.value = Shortcoder.replaceShortcodes(this.data.data.description.value, gmmMonster);
+			if (gmmMonster && this.system.description && this.system.description.value) {
+				this.system.description.value = Shortcoder.replaceShortcodes(this.system.description.value, gmmMonster);
 			}
 		}
 	}
@@ -268,7 +268,7 @@ const GmmItem = (function () {
 	}
 
 	function _getActionAttackToHit(item) {
-		const itemData = item.data.data;
+		const itemData = item.system;
 		const rollData = item.getRollData();
 		const gmmActionBlueprint = item.getGmmActionBlueprint();
 		const gmmMonster = item.getOwningGmmMonster();
@@ -304,10 +304,10 @@ const GmmItem = (function () {
 		if ((itemData.consume?.type === 'ammo') && !!item.actor?.items) {
 			const ammoItemData = item.actor.items.get(itemData.consume.target)?.data;
 			if (ammoItemData) {
-				const ammoItemQuantity = ammoItemData.data.quantity;
+				const ammoItemQuantity = ammoItemsystem.quantity;
 				const ammoCanBeConsumed = ammoItemQuantity && (ammoItemQuantity - (itemData.consume.amount ?? 0) >= 0);
-				const ammoItemAttackBonus = ammoItemData.data.attackBonus;
-				const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemData.data.consumableType === "ammo")
+				const ammoItemAttackBonus = ammoItemsystem.attackBonus;
+				const ammoIsTypeConsumable = (ammoItemData.type === "consumable") && (ammoItemsystem.consumableType === "ammo")
 				if ( ammoCanBeConsumed && ammoItemAttackBonus && ammoIsTypeConsumable ) {
 					parts.push("@ammo");
 					if (rollData) {
@@ -326,7 +326,7 @@ const GmmItem = (function () {
 	}
 
 	function _getActionSaveDC(item) {
-		const itemData = item.data.data;
+		const itemData = item.system;
 		
 		if (["save", "other"].includes(itemData.actionType) && itemData.save?.ability) {
 			let dc = (itemData.actionType == "save") ? "[dcPrimaryBonus]" : "[dcSecondaryBonus]";
@@ -337,25 +337,25 @@ const GmmItem = (function () {
 			if (gmmMonster) {
 				dc = Shortcoder.replaceShortcodes(dc, gmmMonster);
 			}
-			item.data.data.save.dc = simplifyRollFormula(dc)
-			item.data.data.save.ability = itemData.save.ability;
-			item.data.data.save.scaling = "flat";
+			item.system.save.dc = simplifyRollFormula(dc)
+			item.system.save.ability = itemData.save.ability;
+			item.system.save.scaling = "flat";
 			item.labels.save = game.i18n.format("DND5E.SaveDC", {
-				dc: item.data.data.save.dc || "",
+				dc: item.system.save.dc || "",
 				ability: game.i18n.format(`gmm.common.ability.${itemData.save.ability}.name`)
 			});
 		} else {
 			item.labels.save = null;
 		}
 		
-		return item.data.data.save.dc;
+		return item.system.save.dc;
 	}
 
 	function _rollActionDamage({item=null, critical=false, event=null, options={}}={}) {
 		if ( !item.hasDamage ) {
 			throw new Error("You may not make a Damage Roll with this Item.");
 		}
-		const itemData = item.data.data;
+		const itemData = item.system;
 		const messageData = {"flags.dnd5e.roll": {type: "damage", itemId: item.id }};
 		const gmmActionBlueprint = item.getGmmActionBlueprint();
 	
@@ -389,9 +389,9 @@ const GmmItem = (function () {
 	
 		// Handle ammunition damage
 		const ammoData = item._ammo?.data;
-		if ( item._ammo && (ammoData.type === "consumable") && (ammoData.data.consumableType === "ammo") ) {
+		if ( item._ammo && (ammoData.type === "consumable") && (ammosystem.consumableType === "ammo") ) {
 			parts.push("@ammo");
-			rollData["ammo"] = ammoData.data.damage.parts.map(p => p[0]).join("+");
+			rollData["ammo"] = ammosystem.damage.parts.map(p => p[0]).join("+");
 			rollConfig.flavor += ` [${item._ammo.name}]`;
 			delete item._ammo;
 		}
@@ -429,8 +429,8 @@ const GmmItem = (function () {
 					return "spell";
 				case "weapon":
 				case "feat":
-					if (this.data.data.activation?.type) {
-						switch(this.data.data.activation.type) {
+					if (this.system.activation?.type) {
+						switch(this.system.activation.type) {
 							case "bonus":
 								return "bonus";
 							case "reaction":

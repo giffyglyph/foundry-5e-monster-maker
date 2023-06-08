@@ -76,7 +76,7 @@ export default class MonsterSheet extends ActorSheet {
 
 	getData() {
 		const data = super.getData();
-		const actorData = data.actor.data.data;
+		const actorData = data.actor.system;
 
 		data.gmm = {
 			blueprint: actorData.gmm?.blueprint ? actorData.gmm.blueprint.data : null,
@@ -163,8 +163,8 @@ export default class MonsterSheet extends ActorSheet {
 	}
 
 	async _onDropItemCreate(itemData) {
-		if ( itemData.data ) {
-			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.data[x]);
+		if ( itemsystem ) {
+			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemsystem[x]);
 		}
 		return super._onDropItemCreate(itemData);
 	}
@@ -230,7 +230,7 @@ export default class MonsterSheet extends ActorSheet {
 			data: duplicate(header.dataset),
 			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
 		};
-		delete itemData.data["type"];
+		delete itemsystem["type"];
 		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
 	}
 
@@ -301,17 +301,17 @@ export default class MonsterSheet extends ActorSheet {
 			if (event && event.currentTarget) {
 				switch (event.currentTarget.name) {
 					case "gmm.blueprint.combat.rank.type":
-						formData.data.gmm.blueprint.data.combat.rank.custom_name = null;
-						formData.data.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
+						formsystem.gmm.blueprint.data.combat.rank.custom_name = null;
+						formsystem.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
 						break;
 					case "gmm.blueprint.combat.role.type":
-						formData.data.gmm.blueprint.data.combat.role.custom_name = null;
-						formData.data.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
+						formsystem.gmm.blueprint.data.combat.role.custom_name = null;
+						formsystem.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
 						break;
 				}
 			}
 
-			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.data.gmm.blueprint));
+			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formsystem.gmm.blueprint));
 		}
 
 		this.document.update(formData);

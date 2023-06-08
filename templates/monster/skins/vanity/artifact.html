@@ -52,7 +52,7 @@
                             <div class="block__content hit-points__maximum">
                                 <div class="block__value length-{{strlen gmm.monster.hit_points.maximum.value}}" title="{{{parseSources gmm.monster.hit_points.maximum.sources}}}">
                                     {{#if gmm.monster.hit_points.use_formula}}
-                                        <i class="fas fa-heartbeat"></i> {{data.data.attributes.hp.max}}
+                                        <i class="fas fa-heartbeat"></i> {{system.attributes.hp.max}}
                                     {{else}}
                                         <i class="fas fa-heartbeat"></i> {{gmm.monster.hit_points.maximum.value}}
                                     {{/if}}

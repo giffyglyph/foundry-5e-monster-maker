@@ -75,7 +75,7 @@ const MonsterBlueprint = (function() {
 	];
 
 	function createFromActor(actor) {
-		const blueprint = $.extend(true, {}, GMM_MONSTER_BLUEPRINT, actor.data.data.gmm ? _verifyBlueprint(actor.data.data.gmm.blueprint) : _getInitialData(actor.data.data));
+		const blueprint = $.extend(true, {}, GMM_MONSTER_BLUEPRINT, actor.system.gmm ? _verifyBlueprint(actor.system.gmm.blueprint) : _getInitialData(actor.system));
 		return _syncActorDataToBlueprint(blueprint, actor);
 	}
 
@@ -142,7 +142,7 @@ const MonsterBlueprint = (function() {
 
 	function _syncActorDataToBlueprint(blueprint, actor) {
 		const blueprintData = blueprint.data;
-		const actorData = actor.data.data;
+		const actorData = actor.system;
 
 		try {
 			mappings.forEach((x) => {
@@ -208,7 +208,7 @@ const MonsterBlueprint = (function() {
 						let item = actor.items.get(x.id)
 						switch (item.getSortingCategory()) {
 							case "spell":
-								let spell_level = x.data.data.level || 0;
+								let spell_level = x.system.level || 0;
 								blueprintData.spellbook.spells[`${spell_level < 10 ? spell_level : "other"}`].push(_getItemDetails(item));
 								break;
 							case "bonus":
@@ -352,16 +352,16 @@ const MonsterBlueprint = (function() {
 			id: item.id,
 			name: item.name,
 			img: item.img,
-			weight: item.data.data.weight ? item.data.data.weight : 0,
-			quantity: item.data.data.quantity ? item.data.data.quantity : 0,
-			price: item.data.data.price ? item.data.data.price : 0,
+			weight: item.system.weight ? item.system.weight : 0,
+			quantity: item.system.quantity ? item.system.quantity : 0,
+			price: item.system.price ? item.system.price : 0,
 			requirements: {
 				level: {
-					min: item.data.data.gmm?.blueprint?.data?.requirements?.level?.min,
-					max: item.data.data.gmm?.blueprint?.data?.requirements?.level?.max
+					min: item.system.gmm?.blueprint?.data?.requirements?.level?.min,
+					max: item.system.gmm?.blueprint?.data?.requirements?.level?.max
 				},
-				rank: item.data.data.gmm?.blueprint?.data?.requirements?.rank,
-				role: item.data.data.gmm?.blueprint?.data?.requirements?.role
+				rank: item.system.gmm?.blueprint?.data?.requirements?.rank,
+				role: item.system.gmm?.blueprint?.data?.requirements?.role
 			}
 		};
 		return details;

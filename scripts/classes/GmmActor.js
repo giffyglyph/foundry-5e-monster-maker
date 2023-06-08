@@ -62,7 +62,7 @@ const GmmActor = (function () {
 	 */
 	function _prepareMonsterDerivedData(actor) {
 		try {
-			const actorData = actor.data.data;
+			const actorData = actor.system;
 			const monsterBlueprint = MonsterBlueprint.createFromActor(actor);
 			const monsterArtifact = MonsterForge.createArtifact(monsterBlueprint);
 			const monsterData = monsterArtifact.data;
