@@ -10,17 +10,17 @@ import { GMM_MODULE_TITLE } from '../consts/GmmModuleTitle.js';
 const GmmActor = (function () {
 	//import Proficiency from '../../../../systems/dnd5e/module/actor/proficiency.js';
 	function Proficiency(...args) {
-		return dnd5e.documents.Proficiency(...args);
+		return new dnd5e.documents.Proficiency(...args);
 	}
 	/**
 	 * Patch the Foundry Actor5e entity to control how data is prepared based on the active sheet.
 	 */
 	function patchActor5e() {
-		game.dnd5e.entities.Actor5e.prototype.prepare5eBaseData = game.dnd5e.entities.Actor5e.prototype.prepareBaseData;
-		game.dnd5e.entities.Actor5e.prototype.prepareBaseData = _prepareBaseData;
-		game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData = game.dnd5e.entities.Actor5e.prototype.prepareDerivedData;
-		game.dnd5e.entities.Actor5e.prototype.prepareDerivedData = _prepareDerivedData;
-		game.dnd5e.entities.Actor5e.prototype.getSheetId = _getActorSheetId;
+		game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData = game.dnd5e.documents.Actor5e.prototype.prepareBaseData;
+		game.dnd5e.documents.Actor5e.prototype.prepareBaseData = _prepareBaseData;
+		game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData = game.dnd5e.documents.Actor5e.prototype.prepareDerivedData;
+		game.dnd5e.documents.Actor5e.prototype.prepareDerivedData = _prepareDerivedData;
+		game.dnd5e.documents.Actor5e.prototype.getSheetId = _getActorSheetId;
 	}
 
 	/**
@@ -29,9 +29,10 @@ const GmmActor = (function () {
 	 */
 	function _prepareBaseData() {
 		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
+			game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData.call(this);
 			_prepareMonsterBaseData(this);
 		} else {
-			game.dnd5e.entities.Actor5e.prototype.prepare5eBaseData.call(this);
+			game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData.call(this);
 		}
 	}
 
@@ -41,9 +42,10 @@ const GmmActor = (function () {
 	 */
 	function _prepareDerivedData() {
 		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
+			game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData.call(this);
 			_prepareMonsterDerivedData(this);
 		} else {
-			game.dnd5e.entities.Actor5e.prototype.prepare5eDerivedData.call(this);
+			game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData.call(this);
 		}
 	}
 
@@ -99,30 +101,30 @@ const GmmActor = (function () {
 				}
 			});
 
-            actorData.details.cr = monsterData.challenge_rating.value;
-            actorData.details.xp.value = monsterData.xp.value;
-            actorData.attributes.prof = monsterData.proficiency_bonus.value;
-            actorData.attributes.ac.value = monsterData.armor_class.value;
+			actorData.details.cr = monsterData.challenge_rating.value;
+			actorData.details.xp.value = monsterData.xp.value;
+			actorData.attributes.prof = monsterData.proficiency_bonus.value;
+			actorData.attributes.ac.value = monsterData.armor_class.value;
 			if (!monsterData.hit_points.use_formula) {
-            	actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
+				actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
 			}
-            actorData.attributes.hp.formula = monsterData.hit_points.formula ? monsterData.hit_points.formula : '';
-            actorData.attributes.init = {
+			actorData.attributes.hp.formula = monsterData.hit_points.formula ? monsterData.hit_points.formula : '';
+			actorData.attributes.init = {
 				mod: 0,
 				prof: 0,
             	value: 0,
             	bonus: monsterData.initiative.value,
             	total: monsterData.initiative.value
 			};
-            actorData.attributes.encumbrance = {
+			actorData.attributes.encumbrance = {
 				value: monsterData.inventory.weight.value,
 				max: monsterData.inventory.capacity.value,
 				pct: monsterData.inventory.encumbrance,
 				encumbered: monsterData.inventory.encumbrance > (2/3)
 			};
-            actorData.attributes.spellcasting = monsterData.spellbook.spellcasting.ability;
-            actorData.details.spellLevel = monsterData.spellbook.spellcasting.level;
-            actorData.attributes.spelldc = monsterData.spellbook.spellcasting.dc.value;
+			actorData.attributes.spellcasting = monsterData.spellbook.spellcasting.ability;
+			actorData.details.spellLevel = monsterData.spellbook.spellcasting.level;
+			actorData.attributes.spelldc = monsterData.spellbook.spellcasting.dc.value;
 
 			// Compute owned item attributes which depend on prepared Actor data
 			actor.items.contents.forEach((item) => {

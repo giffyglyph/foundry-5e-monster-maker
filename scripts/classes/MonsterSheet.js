@@ -180,8 +180,8 @@ export default class MonsterSheet extends ActorSheet {
 		roll.roll();
 		AudioHelper.play({src: CONFIG.sounds.dice});
 		this.actor.update({
-			[`data.attributes.hp.value`]: Math.max(1, roll.total),
-			[`data.attributes.hp.max`]: Math.max(1, roll.total),
+			[`system.attributes.hp.value`]: Math.max(1, roll.total),
+			[`system.attributes.hp.max`]: Math.max(1, roll.total),
 		});
 	}
 
@@ -227,7 +227,7 @@ export default class MonsterSheet extends ActorSheet {
 			name: game.i18n.format(`gmm.monster.artifact.add.${header.dataset["activation.type"] ? header.dataset["activation.type"] : "trait"}`),
 			type: type,
 			img: "icons/svg/clockwork.svg",
-			data: duplicate(header.dataset),
+			system: duplicate(header.dataset),
 			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
 		};
 		delete itemsystem["type"];

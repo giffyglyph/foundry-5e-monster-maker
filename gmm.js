@@ -66,16 +66,20 @@ async function _hookActorDirectory(html) {
 			</div>
 		`
     );
-	section.querySelector("[data-action='create-scaling-monster']").addEventListener("click", (ev) => {
+	section.querySelector("[data-action='create-scaling-monster']").addEventListener("click", async (ev) => {
 		Actor.create({
 			name: "New Scaling Monster",
 			type: "npc",
 			img: "icons/svg/eye.svg",
 			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.MonsterSheet` },
-			data: {
-				"details.alignment": "unaligned",
-				"details.type.value": "humanoid",
-				"details.xp.value": 50
+			system: {
+				details: {
+					"alignment": "unaligned",
+					"type": {
+						"value": "abberation"
+					},
+					"cr": 1
+				}
 			},
 		});
 	});

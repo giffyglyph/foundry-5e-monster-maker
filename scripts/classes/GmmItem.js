@@ -17,22 +17,22 @@ const GmmItem = (function () {
 	 * Patch the Foundry Item5e entity to control how data is prepared based on the active sheet.
 	 */
 	function patchItem5e() {
-		game.dnd5e.entities.Item5e.prototype.prepare5eData = game.dnd5e.entities.Item5e.prototype.prepareData;
-		game.dnd5e.entities.Item5e.prototype.prepareData = _prepareData;
-		game.dnd5e.entities.Item5e.prototype.get5eAttackToHit = game.dnd5e.entities.Item5e.prototype.getAttackToHit;
-		game.dnd5e.entities.Item5e.prototype.getAttackToHit = _getAttackToHit;
-		game.dnd5e.entities.Item5e.prototype.get5eSaveDC = game.dnd5e.entities.Item5e.prototype.getSaveDC;
-		game.dnd5e.entities.Item5e.prototype.getSaveDC = _getSaveDC;
-		game.dnd5e.entities.Item5e.prototype.roll5eDamage = game.dnd5e.entities.Item5e.prototype.rollDamage;
-		game.dnd5e.entities.Item5e.prototype.rollDamage = _rollDamage;
-		game.dnd5e.entities.Item5e.prototype.prepareShortcodes = _prepareShortcodes;
-		game.dnd5e.entities.Item5e.prototype.getSheetId = _getItemSheetId;
-		game.dnd5e.entities.Item5e.prototype.getGmmActionBlueprint = _getGmmActionBlueprint;
-		game.dnd5e.entities.Item5e.prototype.isOwnedByGmmMonster = _isOwnedByGmmMonster;
-		game.dnd5e.entities.Item5e.prototype.getOwningGmmMonster = _getOwningGmmMonster;
-		game.dnd5e.entities.Item5e.prototype.getSortingCategory = _getSortingCategory;
-		game.dnd5e.entities.Item5e.prototype.getGmmLabels = _getGmmLabels;
-		Object.defineProperty(game.dnd5e.entities.Item5e.prototype, "hasSave", {
+		game.dnd5e.documents.Item5e.prototype.prepare5eData = game.dnd5e.documents.Item5e.prototype.prepareData;
+		game.dnd5e.documents.Item5e.prototype.prepareData = _prepareData;
+		game.dnd5e.documents.Item5e.prototype.get5eAttackToHit = game.dnd5e.documents.Item5e.prototype.getAttackToHit;
+		game.dnd5e.documents.Item5e.prototype.getAttackToHit = _getAttackToHit;
+		game.dnd5e.documents.Item5e.prototype.get5eSaveDC = game.dnd5e.documents.Item5e.prototype.getSaveDC;
+		game.dnd5e.documents.Item5e.prototype.getSaveDC = _getSaveDC;
+		game.dnd5e.documents.Item5e.prototype.roll5eDamage = game.dnd5e.documents.Item5e.prototype.rollDamage;
+		game.dnd5e.documents.Item5e.prototype.rollDamage = _rollDamage;
+		game.dnd5e.documents.Item5e.prototype.prepareShortcodes = _prepareShortcodes;
+		game.dnd5e.documents.Item5e.prototype.getSheetId = _getItemSheetId;
+		game.dnd5e.documents.Item5e.prototype.getGmmActionBlueprint = _getGmmActionBlueprint;
+		game.dnd5e.documents.Item5e.prototype.isOwnedByGmmMonster = _isOwnedByGmmMonster;
+		game.dnd5e.documents.Item5e.prototype.getOwningGmmMonster = _getOwningGmmMonster;
+		game.dnd5e.documents.Item5e.prototype.getSortingCategory = _getSortingCategory;
+		game.dnd5e.documents.Item5e.prototype.getGmmLabels = _getGmmLabels;
+		Object.defineProperty(game.dnd5e.documents.Item5e.prototype, "hasSave", {
 			get: function () {
 				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 					return ["save", "other"].includes(this.system.gmm?.blueprint?.data?.attack?.type);
@@ -207,7 +207,7 @@ const GmmItem = (function () {
 	}
 
 	function _prepareData() {
-		game.dnd5e.entities.Item5e.prototype.prepare5eData.call(this);
+		game.dnd5e.documents.Item5e.prototype.prepare5eData.call(this);
 		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			try {
 				const itemData = this.system;
@@ -234,7 +234,7 @@ const GmmItem = (function () {
 		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			return _getActionAttackToHit(this);
 		} else {
-			return game.dnd5e.entities.Item5e.prototype.get5eAttackToHit.call(this);
+			return game.dnd5e.documents.Item5e.prototype.get5eAttackToHit.call(this);
 		}
 	}
 
@@ -242,7 +242,7 @@ const GmmItem = (function () {
 		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			return _getActionSaveDC(this);
 		} else {
-			return game.dnd5e.entities.Item5e.prototype.get5eSaveDC.call(this);
+			return game.dnd5e.documents.Item5e.prototype.get5eSaveDC.call(this);
 		}
 	}
 
@@ -257,7 +257,7 @@ const GmmItem = (function () {
 				options: options
 			});
 		} else {
-			return game.dnd5e.entities.Item5e.prototype.roll5eDamage.call(this, {
+			return game.dnd5e.documents.Item5e.prototype.roll5eDamage.call(this, {
 				critical: critical,
 				event: event,
 				spellLevel: spellLevel,
