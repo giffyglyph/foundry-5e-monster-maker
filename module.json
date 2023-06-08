@@ -2,7 +2,6 @@
 	"id": "giffyglyphs-5e-monster-maker-v10",
 	"title": "Giffyglyph's 5e Monster Maker Continued",
 	"description": "Create new monsters in seconds using monster levels and templates.",
-	"version": "0.1",
 	"authors": [
 		{
 			"name": "Skyl3lazer",
@@ -21,6 +20,11 @@
 		}
 		
 	],
+	"version": "0.1",
+	"compatability":{
+		"minimum": "10",
+		"verified": "10"
+	},
 	"esmodules": ["gmm.js"],
 	"scripts": ["scripts/vendors/math_js.9.3.2.min.js"],
 	"styles": ["gmm.css"],
@@ -48,10 +52,7 @@
 			"path": "lang/en.json"
 		}
 	],
-	"compatability":{
-		"minimum": "10",
-		"verified": "10"
-	},
+	
 	"relationships": {
 		"systems": [{
 			"id": "dnd5e",
