@@ -1,5 +1,5 @@
 {
-	"id": "giffyglyphs-5e-monster-maker-continued",
+	"id": "giffyglyphs-5e-monster-maker-v10",
 	"title": "Giffyglyph's 5e Monster Maker Continued",
 	"description": "Create new monsters in seconds using monster levels and templates.",
 	"version": "0.1",
@@ -22,7 +22,7 @@
 		
 	],
 	"esmodules": ["gmm.js"],
-	"scripts": ["./scripts/vendors/math_js.9.3.2.min.js"],
+	"scripts": ["scripts/vendors/math_js.9.3.2.min.js"],
 	"styles": ["gmm.css"],
 	"systems": ["dnd5e"],
 	"packs": [
@@ -56,7 +56,7 @@
 		"systems": [{
 			"id": "dnd5e",
 			"type": "system",
-			"manifest": "https://github.com/foundryvtt/dnd5e/blob/master/system.json",
+			"manifest": "https://github.com/foundryvtt/dnd5e/blob/2.1.x/system.json",
 			"compatibility": {
 				"verified": "2.1.5"
 			}
