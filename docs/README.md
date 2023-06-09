@@ -17,11 +17,11 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 * A brand new monster sheet with customisable themes.
 * Fully-scaled monster stats for levels -5 to 50.
-* 4 monster roles—minion, standard, elite, and solo.
-* 7 combat roles—controller, defender, lurker, skirmisher, striker, and supporter.
+* 4 monster roles—minion, standard, elite, and paragons.
+* 6 combat roles—controller, defender, lurker, skirmisher, striker, and supporter.
 * Change the level of any monster on-the-fly and watch their stats change.
 * A new scaling action sheet with fully-scaling attacks.
-* 24 easy-to-use shortcodes to make scaling features even easier.
+* Easy-to-use shortcodes to make scaling features even easier.
 * Convert existing monsters in seconds by simply changing the active sheet.
 * Includes full stats from the **[Giffyglyph's Monster Maker PDF](http://giffyglyph.com/monstermaker/)**.
 

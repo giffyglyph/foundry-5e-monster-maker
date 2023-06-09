@@ -21,7 +21,7 @@ const MonsterHelpers = (function () {
             armorClass: _getMonsterArmorClass(clampedLevel, rank, role),
             attackBonus: _getMonsterAttackBonus(proficiencyBonus),
             attackDcs: _getMonsterAttackDcs(proficiencyBonus, abilityModifiers, rank, role),
-            damagePerAction: _getMonsterDamagePerAction(abilityModifiers, rank, role),
+            damagePerAction: _getMonsterDamagePerAction(clampedLevel, rank, role),
             abilityModifiers: _getMonsterAbilityModifiers(abilityModifiers),
             trainedSavingThrowCount: trainedSavingThrowCount,
             xp: monsterXp,
@@ -129,8 +129,8 @@ const MonsterHelpers = (function () {
         };
     }
 
-    function _getMonsterDamagePerAction(averagePlayerHitPoints, rank, role) {
-        const baseDamage = averagePlayerHitPoints / 4;
+    function _getMonsterDamagePerAction(monsterLevel, rank, role) {
+        const baseDamage = monsterLevel * 3;
         const roleDamage = role.modifiers.damage_per_action;
         const rankDamage = rank.modifiers.damage_per_action;
 
