@@ -1426,7 +1426,9 @@
                                     <div class="checkboxes">
                                         {{#each gmm.enums.abilities}}
                                         <label class="checkbox">
-                                            <input type="checkbox" name="gmm.blueprint.trained_saves.{{.}}.trained" {{#if (lookup (concat '../gmm.blueprint.trained_saves' . '.trained') .)}} checked{{/if}} /><i class="{{localize (concat 'gmm.common.ability.' value '.icon')}} fa-fw"></i> {{localize (concat 'gmm.common.ability.' . '.name')}}
+                                            <span type="checkbox" name="gmm.blueprint.trained_saves.{{.}}.trained" {{#if (getSaveTrain ../gmm.blueprint.trained_saves .)}}checked{{/if}}/>
+                                            <i class="{{localize (concat 'gmm.common.ability.' . '.icon')}} fa-fw">
+                                                </i> {{localize (concat 'gmm.common.ability.' . '.name')}}
                                         </label>
                                         {{/each}}
                                     </div>
