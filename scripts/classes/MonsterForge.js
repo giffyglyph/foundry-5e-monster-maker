@@ -64,7 +64,7 @@ const MonsterForge = (function() {
 				rank: monsterRank,
 				reactions: _parseReactions(derivedAttributes, blueprint.data.reactions, ignoreItemRequirements),
 				role: monsterRole,
-				saving_throws: _parseSavingThrows(blueprint.data.saving_throws, monsterProficiency, monsterAbilityModifiers),
+				saving_throws: _parseSavingThrows(blueprint.data.trained_saves, monsterProficiency, monsterAbilityModifiers),
 				senses: _parseSenses(blueprint.data.senses),
 				skills: monsterSkills,
 				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
@@ -256,7 +256,7 @@ const MonsterForge = (function() {
 				sts[attrName] = new DerivedAttribute();
 				sts[attrName].value = 0;
 				if (savingThrows[attrName].trained) {
-					sts[attrName].applyModifier(pb, savingThrows[attrName].modifier.override);
+					sts[attrName].applyModifier(pb.value, savingThrows[attrName].modifier.override);
 				}
 				sts[attrName].applyModifier(abilityModifiers[attrName].value, savingThrows[attrName].modifier.override);
 				if (savingThrows[attrName].modifier.value) {

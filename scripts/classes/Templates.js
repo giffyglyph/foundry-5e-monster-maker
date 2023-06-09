@@ -64,6 +64,10 @@ const Templates = (function() {
 			}
 		});
 
+		Handlebars.registerHelper('getSaveTrain', function (saves, code) {
+			return saves[code].trained;
+		});
+
 		Handlebars.registerHelper('formatChallengeRating', function(cr) {
 			switch (cr) {
 				case 0.125:

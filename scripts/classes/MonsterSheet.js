@@ -280,7 +280,7 @@ export default class MonsterSheet extends ActorSheet {
 		return this.actor.updateEmbeddedDocuments("Item", updateData);
 	}
 
-	_updateObject(event, form) {
+	async _updateObject(event, form) {
 		if (event && event.currentTarget && event.currentTarget.closest(".gmm-modal") != null) {
 			return null;
 		}
@@ -313,6 +313,6 @@ export default class MonsterSheet extends ActorSheet {
 
 			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.flags.gmm.blueprint));
 		}
-		this.document.update(formData);
+		await this.document.update(formData);
 	}
 }

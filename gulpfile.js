@@ -2,7 +2,7 @@
 
 const gulp = require('gulp');
 const path = require('path');
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const using = require('gulp-using');
 
 gulp.task('build-stylesheets', function (cb) {

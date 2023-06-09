@@ -1417,22 +1417,19 @@
                             {{#if (eq gmm.blueprint.saving_throws.method 'ranking')}}
                             <div class="form-group">
                                 <div class="form-group__header">
-                                    <span class="form-group__title">Ranking</span>
+                                    <span class="form-group__title">{{localize 'gmm.monster.blueprint.is_trained'}}</span>
                                     <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ranked_abilities">
                                         <i class="fas fa-question"></i>
                                     </button>
                                 </div>
                                 <div class="form-group__body save_rankings">
-                                    {{#repeat 6}}
-                                    {{#with (lookup ../gmm.blueprint.ability_modifiers.ranking .) as | value |}}
-                                    <span>
-                                        <input type="checkbox" name="gmm.monster.blueprint.saving_throws.{{value}}.trained" {{#if gmm.monster.blueprint.saving_throws.value.trained}} checked{{/if}} />
-                                        <span class="value">
-                                            <i class="{{localize (concat 'gmm.common.ability.' value '.icon')}} fa-fw"></i> {{localize (concat 'gmm.common.ability.' value '.code')}} {{localize 'gmm.monster.blueprint.is_trained'}}
-                                        </span>
-                                    </span>
-                                    {{/with}}
-                                    {{/repeat}}
+                                    <div class="checkboxes">
+                                        {{#each gmm.enums.abilities}}
+                                        <label class="checkbox">
+                                            <input type="checkbox" name="gmm.blueprint.trained_saves.{{.}}.trained" {{#if (lookup (concat '../gmm.blueprint.trained_saves' . '.trained') .)}} checked{{/if}} /><i class="{{localize (concat 'gmm.common.ability.' value '.icon')}} fa-fw"></i> {{localize (concat 'gmm.common.ability.' . '.name')}}
+                                        </label>
+                                        {{/each}}
+                                    </div>
                                 </div>
                             </div>
                             {{/if}}
@@ -1442,12 +1439,6 @@
                                     <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifying_abilities">
                                         <i class="fas fa-question"></i>
                                     </button>
-                                </div>
-                                <div class="form-group__body">
-                                    <input name="gmm.blueprint.saving_throws.modifier.value" value="{{gmm.blueprint.saving_throws.modifier.value}}" />
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="gmm.blueprint.saving_throws.modifier.override" {{#if gmm.blueprint.saving_throws.modifier.override}} checked{{/if}} /> {{localize 'gmm.monster.blueprint.is_fixed'}}
-                                    </label>
                                 </div>
                             </div>
                         </div>

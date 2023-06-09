@@ -298,7 +298,7 @@ export const GMM_MONSTER_BLUEPRINT = {
 			always_show: false,
 			items: []
 		},
-		saving_throws: {
+		trained_saves: {
 			method: "sync",
 			str: {
 				trained: false,

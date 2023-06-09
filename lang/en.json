@@ -779,7 +779,7 @@
   "gmm.monster.blueprint.inventory.items.title": "Items",
   "gmm.monster.blueprint.inventory.title": "Inventory",
   "gmm.monster.blueprint.is_fixed": "Is fixed",
-  "gmm.monster.blueprint.is_trained": "Trained",
+  "gmm.monster.blueprint.is_trained": "Trained Saving Throws",
   "gmm.monster.blueprint.lair_actions.add": "Add",
   "gmm.monster.blueprint.lair_actions.always_show": "Always Show",
   "gmm.monster.blueprint.lair_actions.initiative": "Initiative",
