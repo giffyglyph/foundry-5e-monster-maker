@@ -22,7 +22,7 @@ const MonsterForge = (function() {
 		const monsterAbilityModifiers = _parseAbilityModifiers(derivedAttributes, blueprint.data.ability_modifiers);
 		const monsterRank = _parseRank(derivedAttributes.rank);
 		const monsterRole = _parseRole(derivedAttributes.role);
-		const monsterSkills = _parseSkills(monsterProficiency, blueprint.data.skills, derivedAttributes.role);
+		const monsterSkills = _parseSkills(monsterProficiency.value, blueprint.data.skills, derivedAttributes.role);
 		const monsterInventoryWeight = _getInventoryWeight(blueprint.data);
 		const monsterInventoryCapacity = _getInventoryCapacity(monsterAbilityModifiers, blueprint.data);
 		const monsterClasses = blueprint.data.traits.items.filter((x) => x.class );
