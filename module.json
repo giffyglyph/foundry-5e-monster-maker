@@ -18,17 +18,17 @@
 			"patreon": "giffyglyph",
 			"reddit": "u/giffyglyph"
 		}
-		
+
 	],
 	"version": "0.3",
-	"compatability":{
+	"compatibility": {
 		"minimum": "10",
 		"verified": "10"
 	},
-	"esmodules": ["gmm.js"],
-	"scripts": ["scripts/vendors/math_js.9.3.2.min.js"],
-	"styles": ["gmm.css"],
-	"systems": ["dnd5e"],
+	"esmodules": [ "gmm.js" ],
+	"scripts": [ "scripts/vendors/math_js.9.3.2.min.js" ],
+	"styles": [ "gmm.css" ],
+	"systems": [ "dnd5e" ],
 	"packs": [
 		{
 			"name": "gmm-monster-powers",
@@ -52,17 +52,19 @@
 			"path": "lang/en.json"
 		}
 	],
-	
+
 	"relationships": {
-		"systems": [{
-			"id": "dnd5e",
-			"type": "system",
-			"compatibility": {
-				"minimum":  "2.1.5",
-				"verified": "2.1.5",
-				"maximum": "2.2.1"
+		"systems": [
+			{
+				"id": "dnd5e",
+				"type": "system",
+				"compatibility": {
+					"minimum": "2.1.5",
+					"verified": "2.1.5",
+					"maximum": "2.2.1"
+				}
 			}
-		}]
+		]
 	},
 	"url": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued",
 	"manifest": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json",
