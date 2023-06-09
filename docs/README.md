@@ -1,11 +1,11 @@
 ![Monster Maker Social Banner](./img/fire-elemental.png)
 
-# Giffyglyph's 5e Monster Maker
+# Giffyglyph's 5e Monster Maker Continued, by Skyl3lazer
 
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
-[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
-[![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
-[![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
+[![Support Giffy on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
+[![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
+
 
 This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x. Updated by Skyl3lazer.
 
@@ -17,11 +17,11 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 * A brand new monster sheet with customisable themes.
 * Fully-scaled monster stats for levels -5 to 50.
-* 4 monster roles—minion, standard, elite, and solo.
-* 7 combat roles—controller, defender, lurker, scout, sniper, striker, and supporter.
+* 4 monster roles—minion, standard, elite, and paragons.
+* 6 combat roles—controller, defender, lurker, skirmisher, striker, and supporter.
 * Change the level of any monster on-the-fly and watch their stats change.
 * A new scaling action sheet with fully-scaling attacks.
-* 24 easy-to-use shortcodes to make scaling features even easier.
+* Easy-to-use shortcodes to make scaling features even easier.
 * Convert existing monsters in seconds by simply changing the active sheet.
 * Includes full stats from the **[Giffyglyph's Monster Maker PDF](http://giffyglyph.com/monstermaker/)**.
 
@@ -31,8 +31,8 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 You can install this Foundry module by copying a manifest URL into your Foundry setup:
 
-* **Live:** https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/master/module.json
-* **Development (may be unstable):** https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/dev/module.json
+* **V2 Live:** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json
+* **V3 Development (may be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json
 
 You can install both live and development branches side-by-side, but you must activate only **one branch at a time**.
 
@@ -61,19 +61,18 @@ You can install both live and development branches side-by-side, but you must ac
 
 ## Roadmap
 
-To see what's being worked on right now—and what may be planned for the future—check out the **[projects board](https://github.com/giffyglyph/foundry-5e-monster-maker/projects)**.
+Currently this release can handle V2 on the updated Foundry platform, V3 is a work in progress.
 
 ## Bugs and Feature Suggestions
 
-If you notice a bug or have a feature suggestion, visit the **[issue board](https://github.com/giffyglyph/foundry-5e-monster-maker/issues)** and open a ticket. Please make sure to be as thorough as possible in your report and attach screenshots where appropriate, as low-effort tickets may be closed out-of-hand.
+If you notice a bug or have a feature suggestion, visit the **[issue board](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues)** and open a ticket. Please make sure to be as thorough as possible in your report and attach screenshots where appropriate, as low-effort tickets may be closed out-of-hand.
 
 ## Support
 
-[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
-[![Twitter](https://img.shields.io/twitter/follow/giffyglyph?color=%231DA1F2&style=flat-square)](http://twitter.com/giffyglyph)
-[![Twitch](https://img.shields.io/twitch/status/giffyglyph?color=%23a45ee5&style=flat-square)](http://twitch.tv/giffyglyph)
+[![Support Giffy on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
+[![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 
-If you'd like to see more from this module in future, please consider [becoming a patron](https://www.patreon.com/giffyglyph). You can also find more of my work at:
+If you'd like to support the original creator of this module, please consider [becoming a patron](https://www.patreon.com/giffyglyph). You can also find more of Giffy's work at:
 
 * [giffyglyph.com](https://giffyglyph.com)
 * [twitter](https://twitter.com/giffyglyph)
