@@ -205,7 +205,7 @@ const MonsterBlueprint = (function() {
 
 			if (actor.items) {
 				try {
-					actor.items.contents.sort((a, b) => (a.data.sort || 0) - (b.data.sort || 0)).forEach(x => {
+					actor.items.contents.sort((a, b) => (a.system.sort || 0) - (b.system.sort || 0)).forEach(x => {
 						let item = actor.items.get(x.id)
 						switch (item.getSortingCategory()) {
 							case "spell":
