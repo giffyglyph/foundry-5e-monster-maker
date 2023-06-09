@@ -98,7 +98,7 @@ const MonsterBlueprint = (function() {
 				combatRole = "controller";
 				break;
 			case "wis":
-				combatRole = "sniper";
+				combatRole = "lurker";
 				break;
 			case "cha":
 				combatRole = "supporter";

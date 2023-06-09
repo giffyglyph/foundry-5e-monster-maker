@@ -22,7 +22,7 @@ const MonsterForge = (function() {
 		const monsterAbilityModifiers = _parseAbilityModifiers(derivedAttributes, blueprint.data.ability_modifiers);
 		const monsterRank = _parseRank(derivedAttributes.rank);
 		const monsterRole = _parseRole(derivedAttributes.role);
-		const monsterSkills = _parseSkills(monsterProficiency.getValue(), blueprint.data.skills, monsterRole);
+		const monsterSkills = _parseSkills(monsterProficiency, blueprint.data.skills, derivedAttributes.role);
 		const monsterInventoryWeight = _getInventoryWeight(blueprint.data);
 		const monsterInventoryCapacity = _getInventoryCapacity(monsterAbilityModifiers, blueprint.data);
 		const monsterClasses = blueprint.data.traits.items.filter((x) => x.class );
@@ -64,7 +64,7 @@ const MonsterForge = (function() {
 				rank: monsterRank,
 				reactions: _parseReactions(derivedAttributes, blueprint.data.reactions, ignoreItemRequirements),
 				role: monsterRole,
-				saving_throws: _parseSavingThrows(derivedAttributes, blueprint.data.saving_throws),
+				saving_throws: _parseSavingThrows(blueprint.data.saving_throws, monsterProficiency, monsterAbilityModifiers),
 				senses: _parseSenses(blueprint.data.senses),
 				skills: monsterSkills,
 				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
@@ -252,34 +252,27 @@ const MonsterForge = (function() {
 		return ams;
 	}
 
-	function _parseSavingThrows(derivedAttributes, savingThrows) {
+	function _parseSavingThrows(savingThrows, pb, abilityModifiers) {
 		const sts = {};
-		GMM_5E_ABILITIES.forEach((x) => {
-			let ranking = savingThrows.ranking.indexOf(x);
-			sts[x] = derivedAttributes.savingThrows[ranking];
-		});
-
-		if (savingThrows.modifier.value) {
-			const modifiers = savingThrows.modifier.value.split(";").map(x => x.split("="));
-			modifiers.forEach(function(modifier) {
-				const ability = modifier[0].trim().toLowerCase();
-				const value = Number(modifier[1]);
-				if (GMM_5E_ABILITIES.includes(ability)) {
-					sts[ability].applyModifier(value, savingThrows.modifier.override);
+		GMM_5E_ABILITIES.forEach(function (attrName) {
+			if (savingThrows[attrName]) {
+				sts[attrName] = 0;
+				if (savingThrows[attrName].trained) {
+					sts[attrName] += (pb);
 				}
-			});
-		}
-
-		for (const st in sts) {
-			sts[st].ceil();
-		}
-
+				sts[attrName].applyModifier(abilityModifiers[attrName].value, savingThrows[attrName].modifier.override);
+				if (savingThrows[attrName].modifier.value) {
+					sts[attrName].applyModifier(savingThrows[attrName].modifier.value, savingThrows[attrName].modifier.override);
+				}
+				
+			}
+		});
 		return sts;
 	}
 
 	function _parseProficiency(derivedAttributes, proficiencyBonus) {
 		const prof = new DerivedAttribute();
-		prof.setValue(derivedAttributes.averageProficiencyBonus, game.i18n.format('gmm.common.derived_source.base'));
+		prof.setValue(derivedAttributes.proficiencyBonus, game.i18n.format('gmm.common.derived_source.base'));
 		prof.applyModifier(proficiencyBonus.modifier.value, proficiencyBonus.modifier.override);
 		prof.setMinimumValue(1);
 		prof.ceil();
@@ -289,7 +282,7 @@ const MonsterForge = (function() {
 
 	function _parseSkills(proficiencyBonus, monsterSkills, monsterRole) {
 		let skills = [];
-		monsterRole.skill.forEach(function (s) {
+		monsterRole.modifiers.skill.forEach(function (s) {
 			monsterSkills[s] = "proficient";
 		});
 		GMM_5E_SKILLS.forEach(function(defaultSkill) {

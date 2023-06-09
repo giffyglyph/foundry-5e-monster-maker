@@ -300,11 +300,49 @@ export const GMM_MONSTER_BLUEPRINT = {
 		},
 		saving_throws: {
 			method: "sync",
-			ranking: ["str", "dex", "con", "int", "wis", "cha"],
-			modifier: {
-				value: "",
-				override: false
+			str: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
 			},
+			dex: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			con: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			int: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			wis: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			cha: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			}
+			
 		},
 		senses: {
 			blindsight: null,
