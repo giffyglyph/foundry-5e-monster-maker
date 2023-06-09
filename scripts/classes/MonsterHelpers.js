@@ -5,9 +5,9 @@ const MonsterHelpers = (function() {
 
 	function getDerivedAttributes(level, rank, role) {
 		const clampedLevel = _getClampedLevel(level);
-		const averageProficiencyBonus = _getAverageProficiencyBonus(clampedLevel);
-		const averageAbilityModifiers = _getAverageAbilityModifiers(clampedLevel);
-		const averageSavingThrows = _getAverageSavingThrows(averageProficiencyBonus, averageAbilityModifier);
+		const proficiencyBonus = _getProficiencyBonus(clampedLevel);
+		const abilityModifiers = _getAbilityModifiers(clampedLevel);
+		const trainedSavingThrowCount = _getTrainedSavingThrowCount(rank, role);
 		const averagePlayerDamagePerRound = _getAveragePlayerDamagePerRound(clampedLevel, averageProficiencyBonus);
 		const averagePlayerHitPoints = _getAveragePlayerHitPoints(clampedLevel, averageAbilityModifier);
 		const monsterXp = _getMonsterXp(clampedLevel, rank);
@@ -16,14 +16,14 @@ const MonsterHelpers = (function() {
 			level: clampedLevel,
 			rank: rank,
 			role: role,
-			averageProficiencyBonus: averageProficiencyBonus,
+			averageProficiencyBonus: proficiencyBonus,
 			maximumHitPoints: _getMonsterMaximumHitPoints(clampedLevel, rank, role),
 			armorClass: _getMonsterArmorClass(clampedLevel, rank, role),
 			attackBonus: _getMonsterAttackBonus(averageProficiencyBonus, averageAbilityModifier, rank, role),
 			attackDcs: _getMonsterAttackDcs(averageProficiencyBonus, averageAbilityModifier, rank, role),
 			damagePerAction: _getMonsterDamagePerAction(averagePlayerHitPoints, rank, role),
-			abilityModifiers: _getMonsterAbilityModifiers(averageAbilityModifiers),
-			savingThrows: _getMonsterSavingThrows(averageSavingThrows, rank, role),
+			abilityModifiers: _getMonsterAbilityModifiers(abilityModifiers),
+			savingThrows: _getMonsterSavingThrows(trainedSavingThrowBonus, rank, role),
 			xp: monsterXp,
 			challengeRating: _getMonsterChallengeRating(monsterXp.value)
 		}
@@ -36,12 +36,12 @@ const MonsterHelpers = (function() {
 		return Math.max(min, Math.min(level, max));
 	}
 
-	function _getAverageProficiencyBonus(level) {
+	function _getProficiencyBonus(level) {
 		return Math.max(1, Math.floor((level + 3) / 4) + 1);
 	}
 
 
-	function _getAverageAbilityModifiers(level) {
+	function _getAbilityModifiers(level) {
 		if (level < 8) {
 			return [
 				3 + Math.floor(level / 4),
@@ -63,15 +63,8 @@ const MonsterHelpers = (function() {
 		}
 	}
 
-	function _getAverageSavingThrows(proficiencyBonus, abilityModifier) {
-		return [
-			abilityModifier + proficiencyBonus,
-			Math.floor((abilityModifier + proficiencyBonus) * 0.66),
-			Math.floor((abilityModifier + proficiencyBonus) * 0.66),
-			Math.floor(((abilityModifier + proficiencyBonus) * 0.33) - 0.75),
-			Math.floor(((abilityModifier + proficiencyBonus) * 0.33) - 0.75),
-			Math.floor(((abilityModifier + proficiencyBonus) * 0.33) - 0.75)
-		];
+	function _getTrainedSavingThrowCount(rank, role) {
+		return rank.saving_throws + role.saving_throws;
 	}
 
 	function _getAveragePlayerDamagePerRound(level, proficiencyBonus) {

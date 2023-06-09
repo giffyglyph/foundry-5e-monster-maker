@@ -89,7 +89,7 @@ const MonsterBlueprint = (function() {
 		let combatRole = "striker";
 		switch (abilityRankings[0]) {
 			case "dex":
-				combatRole = "scout";
+				combatRole = "skirmisher";
 				break;
 			case "con":
 				combatRole = "defender";

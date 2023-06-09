@@ -20,7 +20,9 @@ const MonsterForge = (function() {
 		);
 		const monsterProficiency = _parseProficiency(derivedAttributes, blueprint.data.proficiency_bonus);
 		const monsterAbilityModifiers = _parseAbilityModifiers(derivedAttributes, blueprint.data.ability_modifiers);
-		const monsterSkills = _parseSkills(monsterProficiency.getValue(), blueprint.data.skills);
+		const monsterRank = _parseRank(derivedAttributes.rank);
+		const monsterRole = _parseRole(derivedAttributes.role);
+		const monsterSkills = _parseSkills(monsterProficiency.getValue(), blueprint.data.skills, monsterRole);
 		const monsterInventoryWeight = _getInventoryWeight(blueprint.data);
 		const monsterInventoryCapacity = _getInventoryCapacity(monsterAbilityModifiers, blueprint.data);
 		const monsterClasses = blueprint.data.traits.items.filter((x) => x.class );
@@ -59,9 +61,9 @@ const MonsterForge = (function() {
 				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.passive_perception),
 				phase: _parsePhase(derivedAttributes.rank),
 				proficiency_bonus: monsterProficiency,
-				rank: _parseRank(derivedAttributes.rank),
+				rank: monsterRank,
 				reactions: _parseReactions(derivedAttributes, blueprint.data.reactions, ignoreItemRequirements),
-				role: _parseRole(derivedAttributes.role),
+				role: monsterRole,
 				saving_throws: _parseSavingThrows(derivedAttributes, blueprint.data.saving_throws),
 				senses: _parseSenses(blueprint.data.senses),
 				skills: monsterSkills,
@@ -285,8 +287,11 @@ const MonsterForge = (function() {
 		return prof;
 	}
 
-	function _parseSkills(proficiencyBonus, monsterSkills) {
+	function _parseSkills(proficiencyBonus, monsterSkills, monsterRole) {
 		let skills = [];
+		monsterRole.skill.forEach(function (s) {
+			monsterSkills[s] = "proficient";
+		});
 		GMM_5E_SKILLS.forEach(function(defaultSkill) {
 			if (monsterSkills[defaultSkill.name]) {
 				let proficiencyModifier = 0;
@@ -382,8 +387,6 @@ const MonsterForge = (function() {
 		const basePerc = 10;
 		const percep = new DerivedAttribute();
 		percep.add(basePerc, game.i18n.format('gmm.common.derived_source.base'));
-		percep.add(rank.modifiers.passive_perception, game.i18n.format('gmm.common.derived_source.rank'));
-		percep.add(role.modifiers.passive_perception, game.i18n.format('gmm.common.derived_source.role'));
 
 		if (skills.find((x) => x.code == "perception")) {
 			const skillPerc = skills.find((x) => x.code == "perception").getValue();
