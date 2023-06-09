@@ -203,7 +203,7 @@ const GmmItem = (function () {
 	}
 
 	function _getOwningGmmMonster() {
-		return this.actor?.system?.gmm?.monster?.data;
+		return this.actor?.flags?.gmm?.monster?.data;
 	}
 
 	function _prepareData() {

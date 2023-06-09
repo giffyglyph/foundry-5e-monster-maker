@@ -70,7 +70,7 @@ export default class ActionSheet extends ItemSheet {
 		return this.item.update({"data.damage.parts": damage.parts});
 	}
 
-	getData() {
+	async getData() {
 		const data = super.getData();
 		const itemData = data.item.flags;
 
@@ -109,7 +109,7 @@ export default class ActionSheet extends ItemSheet {
 		};
 
 		if (data.gmm.action) {
-			data.gmm.action.gmmLabels = this.item.getGmmLabels();
+			data.gmm.action.gmmLabels = await this.item.getGmmLabels();
 		}
 
 		return data;
