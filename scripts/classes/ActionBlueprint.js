@@ -35,7 +35,7 @@ const ActionBlueprint = (function() {
 	];
 
 	function createFromItem(item) {
-		const blueprint = $.extend(true, {}, GMM_ACTION_BLUEPRINT, item.system.gmm ? _verifyBlueprint(item.system.gmm.blueprint) : null);
+		const blueprint = $.extend(true, {}, GMM_ACTION_BLUEPRINT, item.flags.gmm ? _verifyBlueprint(item.flags.gmm.blueprint) : null);
 		return _syncItemDataToBlueprint(blueprint, item);
 	}
 
@@ -92,11 +92,11 @@ const ActionBlueprint = (function() {
 
 		// Set damage array
 		if (getProperty(blueprint.data, "attack.hit.damage")) {
-			setProperty(itemData, "data.damage.parts", Object.values(getProperty(blueprint.data, "attack.hit.damage")).map((x) => {
+			setProperty(itemData, "system.damage.parts", Object.values(getProperty(blueprint.data, "attack.hit.damage")).map((x) => {
 				return [x.formula, x.type];
 			}));
 		} else {
-			setProperty(itemData, "data.damage.parts", []);
+			setProperty(itemData, "system.damage.parts", []);
 		}
 
 		return itemData;

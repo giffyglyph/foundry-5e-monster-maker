@@ -35,7 +35,7 @@ const GmmItem = (function () {
 		Object.defineProperty(game.dnd5e.documents.Item5e.prototype, "hasSave", {
 			get: function () {
 				if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
-					return ["save", "other"].includes(this.system.gmm?.blueprint?.data?.attack?.type);
+					return ["save", "other"].includes(this.flags.gmm?.blueprint?.data?.attack?.type);
 				} else {
 					// Copy existing Foundry behaviour.
 					const save = this.system?.save || {};
@@ -199,7 +199,7 @@ const GmmItem = (function () {
 	}
 
 	function _getGmmActionBlueprint() {
-		return this.system.gmm?.blueprint?.data;
+		return this.flags.gmm?.blueprint?.data;
 	}
 
 	function _getOwningGmmMonster() {
@@ -210,7 +210,7 @@ const GmmItem = (function () {
 		game.dnd5e.documents.Item5e.prototype.prepare5eData.call(this);
 		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
 			try {
-				const itemData = this.system;
+				const itemData = this.flags;
 				const actionBlueprint = ActionBlueprint.createFromItem(this);
 				itemData.gmm = {
 					blueprint: actionBlueprint

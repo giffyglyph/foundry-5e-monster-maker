@@ -72,7 +72,7 @@ export default class ActionSheet extends ItemSheet {
 
 	getData() {
 		const data = super.getData();
-		const itemData = data.item.system;
+		const itemData = data.item.flags;
 
 		data.gmm = {
 			blueprint: itemData.gmm?.blueprint ? itemData.gmm.blueprint.data : null,
@@ -177,14 +177,14 @@ export default class ActionSheet extends ItemSheet {
 
 		let formData = expandObject(form);
 		if (hasProperty(formData, "gmm.blueprint")) {
-			setProperty(formData, "data.gmm.blueprint", {
+			setProperty(formData, "flags.gmm.blueprint", {
 				vid: 1,
 				type: "action",
 				data: getProperty(formData, "gmm.blueprint")
 			});
-			delete formData.gmm.blueprint;
+			delete formData.gmm;
 
-			$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formData.data.gmm.blueprint));
+			$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formData.flags.gmm.blueprint));
 		}
 
 		return this.document.update(formData);

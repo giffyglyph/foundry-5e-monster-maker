@@ -68,7 +68,7 @@ const GmmActor = (function () {
 			const monsterBlueprint = MonsterBlueprint.createFromActor(actor);
 			const monsterArtifact = MonsterForge.createArtifact(monsterBlueprint);
 			const monsterData = monsterArtifact.data;
-			actorData.gmm = {
+			actor.flags.gmm = {
 				blueprint: monsterBlueprint,
 				monster: monsterArtifact
 			};

@@ -75,7 +75,7 @@ const MonsterBlueprint = (function() {
 	];
 
 	function createFromActor(actor) {
-		const blueprint = $.extend(true, {}, GMM_MONSTER_BLUEPRINT, actor.system.gmm ? _verifyBlueprint(actor.system.gmm.blueprint) : _getInitialData(actor));
+		const blueprint = $.extend(true, {}, GMM_MONSTER_BLUEPRINT, actor.flags.gmm ? _verifyBlueprint(actor.flags.gmm.blueprint) : _getInitialData(actor));
 		return _syncActorDataToBlueprint(blueprint, actor);
 	}
 
@@ -358,11 +358,11 @@ const MonsterBlueprint = (function() {
 			price: item.system.price ? item.system.price : 0,
 			requirements: {
 				level: {
-					min: item.system.gmm?.blueprint?.data?.requirements?.level?.min,
-					max: item.system.gmm?.blueprint?.data?.requirements?.level?.max
+					min: item.flags.gmm?.blueprint?.data?.requirements?.level?.min,
+					max: item.flags.gmm?.blueprint?.data?.requirements?.level?.max
 				},
-				rank: item.system.gmm?.blueprint?.data?.requirements?.rank,
-				role: item.system.gmm?.blueprint?.data?.requirements?.role
+				rank: item.flags.gmm?.blueprint?.data?.requirements?.rank,
+				role: item.flags.gmm?.blueprint?.data?.requirements?.role
 			}
 		};
 		return details;
