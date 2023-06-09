@@ -4,7 +4,7 @@
   "img": "{{Icon}}",
   "flags": {
     "core": {
-      "sheetClass": "foundry-5e-monster-maker-v10.ActionSheet"
+      "sheetClass": "giffyglyph-monster-maker-continued.ActionSheet"
     }
   },
   "data": {

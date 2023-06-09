@@ -1,1 +1,1 @@
-export const GMM_MODULE_TITLE = "foundry-5e-monster-maker-v10";
+export const GMM_MODULE_TITLE = "giffyglyph-monster-maker-continued";
