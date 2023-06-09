@@ -291,7 +291,7 @@ export default class MonsterSheet extends ActorSheet {
 
 		let formData = expandObject(form);
 		if (hasProperty(formData, "gmm.blueprint")) {
-			setProperty(formData, "data.gmm.blueprint", {
+			setProperty(formData, "system.gmm.blueprint", {
 				vid: 1,
 				type: "monster",
 				data: getProperty(formData, "gmm.blueprint")
@@ -301,19 +301,18 @@ export default class MonsterSheet extends ActorSheet {
 			if (event && event.currentTarget) {
 				switch (event.currentTarget.name) {
 					case "gmm.blueprint.combat.rank.type":
-						formData.data.gmm.blueprint.data.combat.rank.custom_name = null;
-						formData.data.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
+						formData.system.gmm.blueprint.data.combat.rank.custom_name = null;
+						formData.system.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
 						break;
 					case "gmm.blueprint.combat.role.type":
-						formData.data.gmm.blueprint.data.combat.role.custom_name = null;
-						formData.data.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
+						formData.system.gmm.blueprint.data.combat.role.custom_name = null;
+						formData.system.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
 						break;
 				}
 			}
 
-			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.data.gmm.blueprint));
+			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.system.gmm.blueprint));
 		}
-
 		this.document.update(formData);
 	}
 }

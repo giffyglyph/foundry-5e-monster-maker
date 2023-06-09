@@ -290,16 +290,16 @@ const MonsterBlueprint = (function() {
 			if (hasProperty(blueprint.data, `skills.${x.name}`)) {
 				switch (blueprint.data.skills[x.name]) {
 					case "half-proficient":
-						setProperty(actorData, `data.skills.${x.foundry}.value`, 0.5);
+						setProperty(actorData, `system.skills.${x.foundry}.value`, 0.5);
 						break;
 					case "proficient":
-						setProperty(actorData, `data.skills.${x.foundry}.value`, 1);
+						setProperty(actorData, `system.skills.${x.foundry}.value`, 1);
 						break;
 					case "expert":
-						setProperty(actorData, `data.skills.${x.foundry}.value`, 2);
+						setProperty(actorData, `system.skills.${x.foundry}.value`, 2);
 						break;
 					default:
-						setProperty(actorData, `data.skills.${x.foundry}.value`, 0);
+						setProperty(actorData, `system.skills.${x.foundry}.value`, 0);
 						break;
 				}
 			}
