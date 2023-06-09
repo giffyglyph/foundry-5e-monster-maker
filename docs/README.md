@@ -72,10 +72,10 @@ If you notice a bug or have a feature suggestion, visit the **[issue board](http
 [![Support Giffy on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 
-If you'd like to see more from this module in future, please consider [becoming a patron](https://www.patreon.com/giffyglyph). You can also find more of my work at:
+If you'd like to support the original creator of this module, please consider [becoming a patron](https://www.patreon.com/giffyglyph). You can also find more of Giffy's work at:
 
 * [giffyglyph.com](https://giffyglyph.com)
-* [twitter](https://twitter.com/skyl3lazer)
+* [twitter](https://twitter.com/giffyglyph)
 * [twitch.tv/giffyglyph](https://twitch.tv/giffyglyph)
 
 ## Licensing
