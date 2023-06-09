@@ -203,25 +203,33 @@
                         </div>
                         <div class="monster__modifiers">
                             {{#each gmm.enums.abilities}}
-                                <div class="monster__modifier">
-                                    {{#with (lookup ../gmm.monster.ability_modifiers .) as | modifier |}}
-                                        <div class="modifier">
-                                            <div class="title" data-action="open-config" data-config="ability-modifiers">{{localize (concat 'gmm.common.ability.' ../. '.code')}}</div>
-                                            <div class="value" title="{{{parseSources modifier.sources}}}">
-                                                <button class="button--text" data-ability="{{../.}}" data-action="open-modal" data-modal="modal_ability_check">
-                                                    {{numberFormat modifier.value sign=true}}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    {{/with}}
-                                    {{#with (lookup ../gmm.monster.saving_throws .) as | save |}}
-                                        <div class="save" title="{{{parseSources save.sources}}}">
-                                            <button class="button--text" data-save="{{../.}}" data-action="open-modal" data-modal="modal_saving_throw">
-                                                {{numberFormat save.value sign=true}}
-                                            </button>
-                                        </div>
-                                    {{/with}}
+                            <div class="monster__modifier">
+                                {{#with (lookup ../gmm.monster.ability_modifiers .) as | modifier |}}
+                                <div class="modifier">
+                                    <div class="title" data-action="open-config" data-config="ability-modifiers">{{localize (concat 'gmm.common.ability.' ../. '.code')}}</div>
+                                    <div class="value" title="{{{parseSources modifier.sources}}}">
+                                        <button class="button--text" data-ability="{{../.}}" data-action="open-modal" data-modal="modal_ability_check">
+                                            {{numberFormat modifier.value sign=true}}
+                                        </button>
+                                    </div>
                                 </div>
+                                {{/with}}
+                                {{#with (lookup ../gmm.monster.saving_throws .) as | save |}}
+                                {{#if save.trained}}
+                                <div class="save" title="{{{parseSources save.sources}}}">
+                                    <button class="button--text trained" data-save="{{../.}}" data-action="open-modal" data-modal="modal_saving_throw">
+                                        {{numberFormat save.value sign=true}}
+                                    </button>
+                                </div>
+                                {{else}}
+                                <div class="save" title="{{{parseSources save.sources}}}">
+                                    <button class="button--text" data-save="{{../.}}" data-action="open-modal" data-modal="modal_saving_throw">
+                                        {{numberFormat save.value sign=true}}
+                                    </button>
+                                </div>
+                                {{/if}}
+                                {{/with}}
+                            </div>
                             {{/each}}
                         </div>
                         <div class="monster__properties">

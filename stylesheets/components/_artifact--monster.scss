@@ -373,7 +373,9 @@
 							color: inherit;
 							font-weight: inherit;
 						}
-			
+						.trained{
+							color: gold;
+						}
 						&::before {
 							content: '';
 							position: absolute;
