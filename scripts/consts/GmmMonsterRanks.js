@@ -1,8 +1,8 @@
 export const GMM_MONSTER_RANKS = {
 	minion: {
-		armor_class: -2,
+		armor_class: 0,
 		hit_points: 0.2,
-		attack_bonus: -2,
+		ability_bonus: 0,
 		damage_per_action: 0.75,
 		saving_throws: -2,
 		attack_dcs: -2,
@@ -22,7 +22,7 @@ export const GMM_MONSTER_RANKS = {
 	grunt: {
 		armor_class: 0,
 		hit_points: 1,
-		attack_bonus: 0,
+		ability_bonus: 0,
 		damage_per_action: 1,
 		saving_throws: 0,
 		attack_dcs: 0,
@@ -40,9 +40,9 @@ export const GMM_MONSTER_RANKS = {
 		}
 	},
 	elite: {
-		armor_class: 2,
+		armor_class: 1,
 		hit_points: 2,
-		attack_bonus: 2,
+		ability_bonus: 1,
 		damage_per_action: 1.1,
 		saving_throws: 2,
 		attack_dcs: 2,
@@ -62,7 +62,7 @@ export const GMM_MONSTER_RANKS = {
 	paragon: {
 		armor_class: 2,
 		hit_points: 1,
-		attack_bonus: 2,
+		attack_bonus: 0,
 		damage_per_action: 1.2,
 		saving_throws: 2,
 		attack_dcs: 2,

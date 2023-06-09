@@ -6,8 +6,7 @@ const MonsterHelpers = (function() {
 	function getDerivedAttributes(level, rank, role) {
 		const clampedLevel = _getClampedLevel(level);
 		const averageProficiencyBonus = _getAverageProficiencyBonus(clampedLevel);
-		const averageAbilityModifier = _getAverageAbilityModifier(clampedLevel);
-		const averageAbilityModifiers = _getAverageAbilityModifiers(averageAbilityModifier);
+		const averageAbilityModifiers = _getAverageAbilityModifiers(clampedLevel);
 		const averageSavingThrows = _getAverageSavingThrows(averageProficiencyBonus, averageAbilityModifier);
 		const averagePlayerDamagePerRound = _getAveragePlayerDamagePerRound(clampedLevel, averageProficiencyBonus);
 		const averagePlayerHitPoints = _getAveragePlayerHitPoints(clampedLevel, averageAbilityModifier);
@@ -19,7 +18,7 @@ const MonsterHelpers = (function() {
 			role: role,
 			averageProficiencyBonus: averageProficiencyBonus,
 			maximumHitPoints: _getMonsterMaximumHitPoints(clampedLevel, rank, role),
-			armorClass: _getMonsterArmorClass(averageProficiencyBonus, averageAbilityModifier, rank, role),
+			armorClass: _getMonsterArmorClass(clampedLevel, rank, role),
 			attackBonus: _getMonsterAttackBonus(averageProficiencyBonus, averageAbilityModifier, rank, role),
 			attackDcs: _getMonsterAttackDcs(averageProficiencyBonus, averageAbilityModifier, rank, role),
 			damagePerAction: _getMonsterDamagePerAction(averagePlayerHitPoints, rank, role),
@@ -41,19 +40,27 @@ const MonsterHelpers = (function() {
 		return Math.max(1, Math.floor((level + 3) / 4) + 1);
 	}
 
-	function _getAverageAbilityModifier(level) {
-		return Math.floor(level / 4) + 3;
-	}
 
-	function _getAverageAbilityModifiers(abilityModifier) {
-		return [
-			abilityModifier,
-			Math.floor(abilityModifier * 0.75),
-			Math.floor(abilityModifier * 0.5),
-			Math.floor(abilityModifier * 0.4),
-			Math.floor(abilityModifier * 0.3),
-			Math.floor((abilityModifier * 0.3) - 1)
-		];
+	function _getAverageAbilityModifiers(level) {
+		if (level < 8) {
+			return [
+				3 + Math.floor(level / 4),
+				3 + Math.floor(level / 4),
+				1 + Math.floor(level / 8),
+				1 + Math.floor(level / 8),
+				Math.floor(level / 12) - 1,
+				Math.floor(level / 12) - 1
+			];
+		} else {
+			return [
+				5 + Math.floor((level-8) / 8),
+				5 + Math.floor((level - 8) / 8),
+				1 + Math.floor(level / 8),
+				1 + Math.floor(level / 8),
+				Math.floor(level / 12) - 1,
+				Math.floor(level / 12) - 1
+			];
+		}
 	}
 
 	function _getAverageSavingThrows(proficiencyBonus, abilityModifier) {
@@ -96,8 +103,8 @@ const MonsterHelpers = (function() {
 		return hp;
 	}
 
-	function _getMonsterArmorClass(proficiencyBonus, abilityModifier, rank, role) {
-		const baseAc = ((abilityModifier + proficiencyBonus) * 0.8) + 10;
+	function _getMonsterArmorClass(combatLevel, rank, role) {
+		const baseAc = 12 + Math.floor(level / 4);
 		const rankAc = rank.modifiers.armor_class;
 		const roleAc = role.modifiers.armor_class;
 
@@ -110,14 +117,10 @@ const MonsterHelpers = (function() {
 	}
 
 	function _getMonsterAttackBonus(proficiencyBonus, abilityModifier, rank, role) {
-		const baseAttack = abilityModifier + proficiencyBonus - 2;
-		const rankAttack = rank.modifiers.attack_bonus;
-		const roleAttack = role.modifiers.attack_bonus;
+		const baseAttack = abilityModifier + proficiencyBonus;
 
 		const ab = new DerivedAttribute();
 		ab.add(baseAttack, game.i18n.format('gmm.common.derived_source.base'));
-		ab.add(rankAttack, game.i18n.format('gmm.common.derived_source.rank'));
-		ab.add(roleAttack, game.i18n.format('gmm.common.derived_source.role'));
 		
 		return ab;
 	}
