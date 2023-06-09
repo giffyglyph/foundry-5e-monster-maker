@@ -256,9 +256,10 @@ const MonsterForge = (function() {
 		const sts = {};
 		GMM_5E_ABILITIES.forEach(function (attrName) {
 			if (savingThrows[attrName]) {
-				sts[attrName] = 0;
+				sts[attrName] = new DerivedAttribute();
+				sts[attrName].value = 0;
 				if (savingThrows[attrName].trained) {
-					sts[attrName] += (pb);
+					sts[attrName].applyModifier(pb, savingThrows[attrName].modifier.override);
 				}
 				sts[attrName].applyModifier(abilityModifiers[attrName].value, savingThrows[attrName].modifier.override);
 				if (savingThrows[attrName].modifier.value) {
