@@ -18,7 +18,7 @@ const MonsterHelpers = (function() {
 			rank: rank,
 			role: role,
 			averageProficiencyBonus: averageProficiencyBonus,
-			maximumHitPoints: _getMonsterMaximumHitPoints(averagePlayerDamagePerRound, rank, role),
+			maximumHitPoints: _getMonsterMaximumHitPoints(clampedLevel, rank, role),
 			armorClass: _getMonsterArmorClass(averageProficiencyBonus, averageAbilityModifier, rank, role),
 			attackBonus: _getMonsterAttackBonus(averageProficiencyBonus, averageAbilityModifier, rank, role),
 			attackDcs: _getMonsterAttackDcs(averageProficiencyBonus, averageAbilityModifier, rank, role),
@@ -75,8 +75,8 @@ const MonsterHelpers = (function() {
 		return (level * (5 + Math.min(abilityModifier - 2, 5))) + 2
 	}
 
-	function _getMonsterMaximumHitPoints(playerDamagePerRound, rank, role) {
-		const baseHp = playerDamagePerRound * 4;
+	function _getMonsterMaximumHitPoints(combatLevel, rank, role) {
+		const baseHp = 16 + combatLevel * 7;
 		const rankHp = rank.modifiers.hit_points;
 		const roleHp = role.modifiers.hit_points;
 
