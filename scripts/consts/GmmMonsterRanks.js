@@ -19,7 +19,7 @@ export const GMM_MONSTER_RANKS = {
 			maximum: 1
 		}
 	},
-	standard: {
+	grunt: {
 		armor_class: 0,
 		hit_points: 1,
 		attack_bonus: 0,
@@ -59,7 +59,7 @@ export const GMM_MONSTER_RANKS = {
 			maximum: 1
 		}
 	},
-	solo: {
+	paragon: {
 		armor_class: 2,
 		hit_points: 1,
 		attack_bonus: 2,

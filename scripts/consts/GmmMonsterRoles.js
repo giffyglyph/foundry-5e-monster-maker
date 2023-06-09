@@ -47,18 +47,6 @@ export const GMM_MONSTER_ROLES = {
 		speed: 10,
 		icon: "fas fa-eye"
 	},
-	sniper: {
-		armor_class: 0,
-		hit_points: 0.75,
-		attack_bonus: 0,
-		damage_per_action: 1.25,
-		saving_throws: 0,
-		attack_dcs: 0,
-		initiative: 0,
-		passive_perception: 0,
-		speed: 0,
-		icon: "fas fa-crosshairs"
-	},
 	striker: {
 		armor_class: -4,
 		hit_points: 1.25,

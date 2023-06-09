@@ -63,15 +63,16 @@ export const GMM_MONSTER_BLUEPRINT = {
 		combat: {
 			level: 1,
 			rank: {
-				type: "standard",
+				type: "grunt",
 				custom_name: "",
-				modifiers: GMM_MONSTER_RANKS["standard"]
+				modifiers: GMM_MONSTER_RANKS["grunt"]
 			},
 			role: {
 				type: "striker",
 				custom_name: "",
 				modifiers: GMM_MONSTER_ROLES["striker"]
-			}
+			},
+			threat: 1
 		},
 		condition_immunities: {
 			blinded: false,
