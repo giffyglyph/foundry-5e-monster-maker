@@ -123,7 +123,7 @@
 								<select class="select--skill" name="skill">
 									<option value="" selected="">—</option>
 									{{#each gmm.enums.skills}}
-										<option value="{{.}}">{{localize (concat 'gmm.common.skill.' .)}} {{#if (getSkillProficiency ../gmm.monster.skills .)}}({{numberFormat (getSkillProficiency ../gmm.monster.skills .) sign=true}}){{/if}}</option>
+										<option value="{{.}}">{{localize (concat 'gmm.common.skill.' .)}} {{#if (getSkillProficiency ../gmm.monster.skills . ../gmm.monster.role)}}({{numberFormat (getSkillProficiency ../gmm.monster.skills .) sign=true}}){{/if}}</option>
 									{{/each}}
 								</select>
 								{{#each gmm.enums.skills}}

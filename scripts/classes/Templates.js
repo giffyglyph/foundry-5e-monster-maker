@@ -54,9 +54,10 @@ const Templates = (function() {
 			}
 		});
 
-		Handlebars.registerHelper('getSkillProficiency', function(skills, code) {
+		Handlebars.registerHelper('getSkillProficiency', function(skills, code, role) {
 			if (skills) {
-				const skill = skills.find((x) => x.code == code);
+				let skill = skills.find((x) => x.code == code);
+				//if (!skill) skill = role.skill_prof.find((x) => x.code == code);
 				return (skill) ? skill.value : 0;
 			} else {
 				return 0;

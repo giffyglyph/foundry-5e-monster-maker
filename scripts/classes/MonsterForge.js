@@ -157,7 +157,8 @@ const MonsterForge = (function() {
 		const name = (role.type == "custom") ? role.custom_name : game.i18n.format(`gmm.common.role.${role.type}`);
 		return {
 			name: (!name || name.trim().length == 0 ) ? "???" : name,
-			icon: role.modifiers.icon
+			icon: role.modifiers.icon,
+			skill_prof: role.modifiers.skill
 		};
 	}
 
@@ -283,27 +284,38 @@ const MonsterForge = (function() {
 
 	function _parseSkills(proficiencyBonus, monsterSkills, monsterRole) {
 		let skills = [];
-		monsterRole.modifiers.skill.forEach(function (s) {
-			monsterSkills[s] = "proficient";
-		});
 		GMM_5E_SKILLS.forEach(function(defaultSkill) {
 			if (monsterSkills[defaultSkill.name]) {
 				let proficiencyModifier = 0;
 				let proficiencyType = "";
-				switch (monsterSkills[defaultSkill.name]) {
-					case "half-proficient":
-						proficiencyModifier = Math.floor(proficiencyBonus / 2);
-						proficiencyType = game.i18n.format('gmm.common.derived_source.half_proficiency');
-						break;
-					case "proficient":
-						proficiencyModifier = proficiencyBonus;
-						proficiencyType = game.i18n.format('gmm.common.derived_source.proficiency');
-						break;
-					case "expert":
-						proficiencyModifier = proficiencyBonus * 2;
-						proficiencyType = game.i18n.format('gmm.common.derived_source.expertise');
-						break;
-				}
+					switch (monsterSkills[defaultSkill.name]) {
+						case "half-proficient":
+							proficiencyModifier = Math.floor(proficiencyBonus / 2);
+							proficiencyType = game.i18n.format('gmm.common.derived_source.half_proficiency');
+							break;
+						case "proficient":
+							proficiencyModifier = proficiencyBonus;
+							proficiencyType = game.i18n.format('gmm.common.derived_source.proficiency');
+							break;
+						case "expert":
+							proficiencyModifier = proficiencyBonus * 2;
+							proficiencyType = game.i18n.format('gmm.common.derived_source.expertise');
+							break;
+					}
+				
+
+
+				const skill = new DerivedAttribute();
+				skill.add(proficiencyModifier, proficiencyType);
+
+				skills.push($.extend(skill, {
+					code: defaultSkill.name,
+					ability: defaultSkill.ability,
+					title: game.i18n.format(`gmm.common.skill.${defaultSkill.name}`)
+				}));
+			} else if (monsterRole.modifiers.skill.includes(defaultSkill.name)) {
+				let proficiencyModifier = proficiencyBonus;
+				let proficiencyType = game.i18n.format('gmm.common.derived_source.proficiency');
 
 				const skill = new DerivedAttribute();
 				skill.add(proficiencyModifier, proficiencyType);
