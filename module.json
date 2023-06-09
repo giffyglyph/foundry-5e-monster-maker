@@ -20,7 +20,7 @@
 		}
 		
 	],
-	"version": "0.1",
+	"version": "0.3",
 	"compatability":{
 		"minimum": "10",
 		"verified": "10"
@@ -66,11 +66,11 @@
 	},
 	"url": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued",
 	"manifest": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json",
-	"download": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/archive/refs/tags/0.2.zip",
+	"download": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/archive/refs/tags/0.3.zip",
 	"bugs": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues",
 	"readme": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/README.md",
 	"changelog": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/CHANGELOG.md",
-	"manifestPlusVersion": "0.1",
+	"manifestPlusVersion": "0.3",
 	"media": [
 		{
 			"type": "screenshot",
