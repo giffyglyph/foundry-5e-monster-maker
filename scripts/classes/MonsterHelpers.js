@@ -19,7 +19,7 @@ const MonsterHelpers = (function () {
             proficiencyBonus: proficiencyBonus,
             maximumHitPoints: _getMonsterMaximumHitPoints(clampedLevel, rank, role),
             armorClass: _getMonsterArmorClass(clampedLevel, rank, role),
-            attackBonus: _getMonsterAttackBonus(proficiencyBonus, abilityModifiers, rank, role),
+            attackBonus: _getMonsterAttackBonus(proficiencyBonus),
             attackDcs: _getMonsterAttackDcs(proficiencyBonus, abilityModifiers, rank, role),
             damagePerAction: _getMonsterDamagePerAction(abilityModifiers, rank, role),
             abilityModifiers: _getMonsterAbilityModifiers(abilityModifiers),
@@ -109,8 +109,8 @@ const MonsterHelpers = (function () {
         return ac;
     }
 
-    function _getMonsterAttackBonus(proficiencyBonus, abilityModifier, rank, role) {
-        const baseAttack = abilityModifier + proficiencyBonus;
+    function _getMonsterAttackBonus(proficiencyBonus) {
+        const baseAttack = proficiencyBonus;
 
         const ab = new DerivedAttribute();
         ab.add(baseAttack, game.i18n.format('gmm.common.derived_source.base'));
@@ -118,24 +118,14 @@ const MonsterHelpers = (function () {
         return ab;
     }
 
-    function _getMonsterAttackDcs(proficiencyBonus, abilityModifier, rank, role) {
-        const baseDc = (Math.floor(abilityModifier * 0.66)) + proficiencyBonus + 8;
-        const rankDc = rank.modifiers.attack_dcs;
-        const roleDc = role.modifiers.attack_dcs;
+    function _getMonsterAttackDcs(proficiencyBonus) {
+        const baseDc = proficiencyBonus + 8;
 
         const primary = new DerivedAttribute();
         primary.add(baseDc, game.i18n.format('gmm.common.derived_source.base'));
-        primary.add(rankDc, game.i18n.format('gmm.common.derived_source.rank'));
-        primary.add(roleDc, game.i18n.format('gmm.common.derived_source.role'));
-
-        const secondary = new DerivedAttribute();
-        secondary.add(baseDc - 3, game.i18n.format('gmm.common.derived_source.base'));
-        secondary.add(rankDc, game.i18n.format('gmm.common.derived_source.rank'));
-        secondary.add(roleDc, game.i18n.format('gmm.common.derived_source.role'));
 
         return {
-            primary: primary,
-            secondary: secondary
+            primary: primary
         };
     }
 

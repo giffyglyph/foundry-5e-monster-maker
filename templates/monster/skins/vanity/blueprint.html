@@ -546,8 +546,6 @@
 							<span class="accordion-section__info">
 								{{#if gmm.blueprint.attack_dcs.primary.modifier.value includeZero=true}}
 									<span class="modifier"></span>
-								{{else if gmm.blueprint.attack_dcs.secondary.modifier.value includeZero=true}}
-									<span class="modifier"></span>
 								{{/if}}
 							</span>
 						</div>
@@ -574,33 +572,6 @@
 											<input name="gmm.blueprint.attack_dcs.primary.modifier.value" type="number" value="{{gmm.blueprint.attack_dcs.primary.modifier.value}}"/>
 											<label class="checkbox">
 												<input type="checkbox" name="gmm.blueprint.attack_dcs.primary.modifier.override" {{#if gmm.blueprint.attack_dcs.primary.modifier.override}}checked{{/if}}/> {{localize 'gmm.monster.blueprint.is_fixed'}}
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-fieldset">
-								<div class="form-fieldset__header">{{localize 'gmm.monster.blueprint.attack_dcs.secondary'}}</div>
-								<div class="form-fieldset__body">
-									<div class="form-group">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.monster.blueprint.attack_dcs.type'}}</span>
-										</div>
-										<div class="form-group__body">
-											<input name="gmm.blueprint.attack_dcs.secondary.type" value="{{gmm.blueprint.attack_dcs.secondary.type}}"/>
-										</div>
-									</div>
-									<div class="form-group form-group--modifier">
-										<div class="form-group__header">
-											<span class="form-group__title">{{localize 'gmm.monster.blueprint.attack_dcs.modifier'}}</span>
-											<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_modifiers">
-												<i class="fas fa-question"></i>
-											</button>
-										</div>
-										<div class="form-group__body">
-											<input name="gmm.blueprint.attack_dcs.secondary.modifier.value" type="number" value="{{gmm.blueprint.attack_dcs.secondary.modifier.value}}"/>
-											<label class="checkbox">
-												<input type="checkbox" name="gmm.blueprint.attack_dcs.secondary.modifier.override" {{#if gmm.blueprint.attack_dcs.secondary.modifier.override}}checked{{/if}}/> {{localize 'gmm.monster.blueprint.is_fixed'}}
 											</label>
 										</div>
 									</div>

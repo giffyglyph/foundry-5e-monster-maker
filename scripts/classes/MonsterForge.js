@@ -202,13 +202,9 @@ const MonsterForge = (function() {
 		dcs.primary.applyModifier(attackDcs.primary.modifier.value, attackDcs.primary.modifier.override);
 		dcs.primary.setMinimumValue(0);
 		dcs.primary.ceil();
-		dcs.secondary.applyModifier(attackDcs.secondary.modifier.value, attackDcs.secondary.modifier.override);
-		dcs.secondary.setMinimumValue(0);
-		dcs.secondary.ceil();
 
 		return {
-			primary: $.extend(dcs.primary, { type: attackDcs.primary.type }),
-			secondary: $.extend(dcs.secondary, { type: attackDcs.secondary.type })
+			primary: $.extend(dcs.primary, { type: attackDcs.primary.type })
 		};
 	}
 
@@ -315,7 +311,7 @@ const MonsterForge = (function() {
 				}));
 			} else if (monsterRole.modifiers.skill.includes(defaultSkill.name)) {
 				let proficiencyModifier = proficiencyBonus;
-				let proficiencyType = game.i18n.format('gmm.common.derived_source.proficiency');
+				let proficiencyType = game.i18n.format('gmm.common.derived_source.role');
 
 				const skill = new DerivedAttribute();
 				skill.add(proficiencyModifier, proficiencyType);

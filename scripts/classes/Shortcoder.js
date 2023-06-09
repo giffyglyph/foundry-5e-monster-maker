@@ -5,7 +5,6 @@ const Shortcoder = (function() {
 		{ code: "attackBonus", data: "attack_bonus.value" },
 		{ code: "damage", data: "damage_per_action.value" },
 		{ code: "dcPrimaryBonus", data: "attack_dcs.primary.value" },
-		{ code: "dcSecondaryBonus", data: "attack_dcs.secondary.value" },
 		{ code: "strMod", data: "ability_modifiers.str.value" },
 		{ code: "dexMod", data: "ability_modifiers.dex.value" },
 		{ code: "conMod", data: "ability_modifiers.con.value" },

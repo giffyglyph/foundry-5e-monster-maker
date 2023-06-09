@@ -69,7 +69,8 @@ export const GMM_ACTION_BLUEPRINT = {
 				formula: null,
 				type: null
 			},
-			message: null
+			message: null,
+			related_stat: ""
 		}
 	}
 };

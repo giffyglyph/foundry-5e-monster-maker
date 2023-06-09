@@ -131,18 +131,6 @@
                                     {{/if}}
                                 </div>
                             </div>
-                            <div class="block__content">
-                                <button class="block__value button--text button--secondary-dc length-{{strlen gmm.monster.attack_dcs.secondary.value}}" title="{{{parseSources gmm.monster.attack_dcs.secondary.sources}}}" data-action="open-modal" data-modal="modal_basic_attack_save">
-                                    <i class="fas fa-bullseye"></i> {{gmm.monster.attack_dcs.secondary.value}}
-                                </button>
-                                <div class="block__description">
-                                    {{#if gmm.monster.attack_dcs.secondary.type}}
-                                        {{gmm.monster.attack_dcs.secondary.type}}
-                                    {{else}}
-                                        {{localize 'gmm.monster.artifact.blocks.attack_dcs.secondary'}}
-                                    {{/if}}
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="gmm-block damage">
