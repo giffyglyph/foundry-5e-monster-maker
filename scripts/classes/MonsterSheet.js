@@ -174,10 +174,10 @@ export default class MonsterSheet extends ActorSheet {
 		item.classList.toggle("expanded");
 	}
 
-	_rollHitPoints(event) {
+	async _rollHitPoints(event) {
 		const button = event.currentTarget.closest("button");
 		const roll = new Roll(button.dataset.formula);
-		roll.roll();
+		await roll.roll();
 		AudioHelper.play({src: CONFIG.sounds.dice});
 		this.actor.update({
 			[`system.attributes.hp.value`]: Math.max(1, roll.total),
