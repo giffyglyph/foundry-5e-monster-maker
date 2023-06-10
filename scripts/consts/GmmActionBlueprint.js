@@ -70,7 +70,7 @@ export const GMM_ACTION_BLUEPRINT = {
 				type: null
 			},
 			message: null,
-			related_stat: ""
+			related_stat: "str"
 		}
 	}
 };

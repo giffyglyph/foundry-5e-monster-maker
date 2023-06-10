@@ -206,10 +206,28 @@
 								<div class="form-group__body">
 									<select name="gmm.blueprint.attack.type">
 										{{#select gmm.blueprint.attack.type}}
-											<option value=""></option>
-											{{#each gmm.enums.attack_types}}
-												<option value="{{.}}">{{localize (concat 'gmm.common.attack_type.' .)}}</option>
-											{{/each}}
+										<option value=""></option>
+										{{#each gmm.enums.attack_types}}
+										<option value="{{.}}">{{localize (concat 'gmm.common.attack_type.' .)}}</option>
+										{{/each}}
+										{{/select}}
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-group__header">
+									<span class="form-group__title">{{localize 'gmm.action.blueprint.attack.stat'}}</span>
+									<button type="button" class="button button--help" data-action="open-modal" data-modal="modal_scaling">
+										<i class="fas fa-question"></i>
+									</button>
+								</div>
+								<div class="form-group__body">
+									<select name="gmm.blueprint.attack.related_stat">
+										{{#select gmm.blueprint.attack.related_stat}}
+										<option value=""></option>
+										{{#each gmm.enums.abilities}}
+									<option value="{{.}}">{{localize (concat 'gmm.common.ability.' . '.name')}}</option>
+										{{/each}}
 										{{/select}}
 									</select>
 								</div>
@@ -222,7 +240,7 @@
 									</button>
 								</div>
 								<div class="form-group__body">
-									<input name="gmm.blueprint.attack.bonus" value="{{gmm.blueprint.attack.bonus}}"/>
+									<input name="gmm.blueprint.attack.bonus" value="{{gmm.blueprint.attack.bonus}}" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -232,10 +250,10 @@
 								<div class="form-group__body">
 									<select name="gmm.blueprint.attack.defense">
 										{{#select gmm.blueprint.attack.defense}}
-											<option value=""></option>
-											{{#each gmm.enums.abilities}}
-												<option value="{{.}}">{{localize (concat 'gmm.common.ability.' . '.name')}}</option>
-											{{/each}}
+										<option value=""></option>
+										{{#each gmm.enums.abilities}}
+										<option value="{{.}}">{{localize (concat 'gmm.common.ability.' . '.name')}}</option>
+										{{/each}}
 										{{/select}}
 									</select>
 								</div>

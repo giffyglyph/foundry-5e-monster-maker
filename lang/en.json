@@ -155,6 +155,7 @@
   "gmm.action.blueprint.attack.defense": "Save",
   "gmm.action.blueprint.attack.title": "Attack",
   "gmm.action.blueprint.attack.type": "Attack Type",
+  "gmm.action.blueprint.attack.stat": "Related Ability",
   "gmm.action.blueprint.attack.bonus": "Attack Bonus",
   "gmm.action.blueprint.description.title": "Description",
   "gmm.action.blueprint.display.colors.primary": "Primary",

@@ -3,7 +3,7 @@
 ## Visual
 
 * "Attack DCs" section of builder window can be condensed since there's no Primary/Secondary anymore.
-* Save modifier should be listed as `+X` instead of `X`
+* "Attack DCs" Save modifier should be listed as `+X` instead of `X`
 
 ## Data Entry
 
@@ -12,7 +12,11 @@
 
 ## Compendiums
 
-* Many of the entries have not been migrated to v3
+* Many of the entries have not been migrated to v3 
+
+## Modal/Info Updates
+
+* I'm sure there's lots!
 
 ## Known Bugs
 
