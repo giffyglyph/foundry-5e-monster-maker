@@ -31,8 +31,8 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 You can install this Foundry module by copying a manifest URL into your Foundry setup:
 
-* **V2 Live:** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/v2/module.json
-* **V3 RC (may be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json
+* **V2 Live:** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json
+* **V3 Development (may be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json
 
 You can install both live and development branches side-by-side, but you must activate only **one branch at a time**.
 
