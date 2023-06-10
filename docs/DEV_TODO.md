@@ -7,7 +7,6 @@
 
 ## Data Entry
 
-* TST limit based on calculated value
 * UI for specifying relevant attribute on Abilities
 * Ability Modifiers should be high/medium/low rather than ranking
 
@@ -21,3 +20,4 @@
 * Converting monsters to Scalers doesn't always work
 * Encumberance NaNs
 * Skins don't seem to work
+* Making targets roll against a save doesnt work

@@ -1395,7 +1395,7 @@
                         <div class="accordion-section__header">
                             <span class="accordion-section__title">{{localize 'gmm.monster.blueprint.saving_throws.title'}}</span>
                             <span class="accordion-section__info">
-                                {{#if gmm.blueprint.saving_throws.modifier.value includeZero=true}}
+                                {{#if (getTstCount gmm.monster.tst_count) includeZero=false}}
                                 <span class="modifier"></span>
                                 {{/if}}
                             </span>
@@ -1421,16 +1421,16 @@
                                     <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ranked_abilities">
                                         <i class="fas fa-question"></i>
                                     </button>
-                                    <div><i class="fas fa-exclamation-point">TST: {{gmm.monster.tst_count}} </i></div>
+                                    <div><i class="fas fa-exclamation-point" >Max: {{gmm.monster.tst_count}} </i></div>
                                 </div>
                                 <div class="form-group__body save_rankings">
-                                    <div class="checkboxes">
+                                    <div class="checkboxes" id="monster__tst_count" name="{{gmm.monster.tst_count}}">
                                         {{#each gmm.enums.abilities}}
                                         <label class="checkbox">
                                             <!--onclick="{selectiveCheck {../ gmm.monster.tst_count } {.}}"-->
                                             <input type="checkbox" class="tstCheckbox" name="gmm.blueprint.trained_saves.{{.}}.trained" {{#if (getSaveTrain ../gmm.blueprint.trained_saves .)}} checked{{/if}} />
-                                            <i class="{{localize (concat 'gmm.common.ability.' . '.icon')}} fa-fw">
-                                            </i> {{localize (concat 'gmm.common.ability.' . '.name')}}
+                                            <i class="{{localize (concat 'gmm.common.ability.' . '.icon')}} fa-fw"></i>
+                                            &nbsp;{{localize (concat 'gmm.common.ability.' . '.name')}}
                                         </label>
                                         {{/each}}
                                     </div>

@@ -22,6 +22,7 @@ export default class Gui {
 		$el.find('.form-fieldset__header').click((e) => this._toggleFormFieldset(e));
 		$el.find('.form-fieldset__header button').click((e) => e.stopPropagation());
 		$el.find('[data-action="open-config"]').click((e) => this._openConfig(e));
+		$el.find('input.tstCheckbox').click((e) => this._limitTst(e));
 	}
 
 	applyTo($el) {
@@ -149,6 +150,17 @@ export default class Gui {
 		const modal = event.currentTarget.closest(".gmm-modal");
 		modal.classList.remove("open");
 		event.currentTarget.closest(".gmm-forge").classList.remove("open-modal");
+	}
+
+	_limitTst(event) {
+		if (event.currentTarget.getAttribute("checked") == false)
+			return true;
+
+		let checkedChecks = document.querySelectorAll(".tstCheckbox:checked");
+		let tst = event.currentTarget.closest("#monster__tst_count");
+		console.log(Number(tst.getAttribute("name")) + 1);
+		if (checkedChecks.length >= Number(tst.getAttribute("name")) + 1)
+			event.preventDefault();
 	}
 
 	_toggleAccordionCollapse(event) {
