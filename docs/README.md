@@ -10,7 +10,7 @@
 
 This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x. Updated by Skyl3lazer.
 
-**THIS MODULE IS NOT YET FULLY WORKING, DO NOT USE IT FOR YOUR LIVE GAMES YET. IT IS IN ACTIVE DEVELOPMENT**
+**THIS MODULE IS NOT YET FULLY WORKING, DO NOT USE IT FOR YOUR LIVE GAMES YET. IT IS IN ACTIVE DEVELOPMENT.**
 
 If you find issues not already listed in [DEV_TODO](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/DEV_TODO.md) please leave an Issue here or contact me @Skyl3lazer on Discord.
 
@@ -35,7 +35,7 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 You can install this Foundry module by copying a manifest URL into your Foundry setup:
 
 * **V2 Live:** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json
-* **V3 Development (may be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json
+* **V3 RC (may be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json
 
 You can install both live and development branches side-by-side, but you must activate only **one branch at a time**.
 
