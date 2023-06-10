@@ -21,3 +21,4 @@
 * Converting monsters to Scalers doesn't always work
 * Encumberance NaNs
 * Skins don't seem to work
+* Making targets roll against a save doesnt work
