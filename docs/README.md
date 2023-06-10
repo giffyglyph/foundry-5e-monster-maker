@@ -23,7 +23,7 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 * A new scaling action sheet with fully-scaling attacks.
 * Easy-to-use shortcodes to make scaling features even easier.
 * Convert existing monsters in seconds by simply changing the active sheet.
-* Includes full stats from the **[Giffyglyph's Monster Maker PDF](http://giffyglyph.com/monstermaker/)**.
+* Includes full stats from the **[Giffyglyph's Monster Maker PDF](https://giffyglyph.com/#giffyglyphs-monster-maker)**.
 
 ![Scaling Adult Dragon](./img/scaling-monster-level.gif)
 

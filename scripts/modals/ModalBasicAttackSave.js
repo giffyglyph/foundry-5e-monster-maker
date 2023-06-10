@@ -8,17 +8,11 @@ const ModalBasicAttackAc = (function() {
 		this.id = id;
 		html.find('#modal_basic_attack_save .modal__footer button').click(_submitForm.bind(this));
 		html.find('.button--primary-dc').click(_setPrimary.bind(this));
-		html.find('.button--secondary-dc').click(_setSecondary.bind(this));
 	}
 
 	function _setPrimary(event) {
 		const modal = event.currentTarget.closest(".gmm-window");
 		modal.querySelector("#modal_basic_attack_save .radio--primary").checked = true;
-	}
-
-	function _setSecondary(event) {
-		const modal = event.currentTarget.closest(".gmm-window");
-		modal.querySelector("#modal_basic_attack_save .radio--secondary").checked = true;
 	}
 
     function _submitForm(event) {

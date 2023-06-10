@@ -63,15 +63,16 @@ export const GMM_MONSTER_BLUEPRINT = {
 		combat: {
 			level: 1,
 			rank: {
-				type: "standard",
+				type: "grunt",
 				custom_name: "",
-				modifiers: GMM_MONSTER_RANKS["standard"]
+				modifiers: GMM_MONSTER_RANKS["grunt"]
 			},
 			role: {
 				type: "striker",
 				custom_name: "",
 				modifiers: GMM_MONSTER_ROLES["striker"]
-			}
+			},
+			threat: 1
 		},
 		condition_immunities: {
 			blinded: false,
@@ -178,7 +179,8 @@ export const GMM_MONSTER_BLUEPRINT = {
 				artifact: "",
 				blueprint: ""
 			},
-			ignore_item_requirements: false
+			ignore_item_requirements: false,
+			units: "imperial"
 		},
 		hit_points: {
 			current: null,
@@ -281,6 +283,17 @@ export const GMM_MONSTER_BLUEPRINT = {
 				}
 			}
 		},
+		paragon_defenses: {
+			always_show: false,
+			current: null,
+			maximum: {
+				modifier: {
+					value: null,
+					override: false
+				}
+			},
+			cost: null
+		},
 		passive_perception: {
 			modifier: {
 				value: null,
@@ -297,13 +310,51 @@ export const GMM_MONSTER_BLUEPRINT = {
 			always_show: false,
 			items: []
 		},
-		saving_throws: {
-			method: "sync",
-			ranking: ["str", "dex", "con", "int", "wis", "cha"],
-			modifier: {
-				value: "",
-				override: false
+		trained_saves: {
+			method: "custom",
+			str: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
 			},
+			dex: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			con: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			int: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			wis: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			cha: {
+				trained: false,
+				modifier: {
+					value: "",
+					override: false
+				}
+			}
+			
 		},
 		senses: {
 			blindsight: null,
