@@ -67,7 +67,7 @@ const GmmItem = (function () {
 
 		if (this.hasDamage) {
 			const damages = this.system.damage.parts.map((x) => {
-				let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
+				let damage = rollData ? simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim() : x[0];
 				return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 			});
 			if ((itemData.consume?.type === 'ammo') && !!this.actor?.items) {
