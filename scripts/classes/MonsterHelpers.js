@@ -64,7 +64,7 @@ const MonsterHelpers = (function () {
     }
 
     function _getTrainedSavingThrowCount(rank, role) {
-        return rank.saving_throws + role.saving_throws;
+        return rank.modifiers.saving_throws + role.modifiers.saving_throws;
     }
 
     function _getAveragePlayerDamagePerRound(level, proficiencyBonus) {

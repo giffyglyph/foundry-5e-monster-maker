@@ -1652,8 +1652,8 @@
   color: var(--color-primary-shade-4);
   width: 8rem;
   flex: unset;
-  white-space: nowrap;
-  overflow: hidden;
+  /*white-space: nowrap;
+  overflow: hidden;*/
   text-overflow: ellipsis;
 }
 .gmm-blueprint .blueprint__form .form-group__body {

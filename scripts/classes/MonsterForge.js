@@ -70,6 +70,7 @@ const MonsterForge = (function() {
 				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
 				spellbook: _parseSpellbook(monsterAbilityModifiers, monsterClasses, blueprint.data.spellbook),
 				traits: _parseTraits(derivedAttributes, blueprint.data.traits, ignoreItemRequirements),
+				tst_count: derivedAttributes.trainedSavingThrowCount,
 				xp: _parseXp(derivedAttributes, blueprint.data.xp)
 			}
 		};

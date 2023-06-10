@@ -7,7 +7,7 @@
 
 ## Data Entry
 
-* UI for specifying trained saves on Monsters
+* TST limit based on calculated value
 * UI for specifying relevant attribute on Abilities
 * Ability Modifiers should be high/medium/low rather than ranking
 

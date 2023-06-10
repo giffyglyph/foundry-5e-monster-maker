@@ -1417,10 +1417,11 @@
                             {{#if (eq gmm.blueprint.saving_throws.method 'ranking')}}
                             <div class="form-group">
                                 <div class="form-group__header">
-                                    <span class="form-group__title">{{localize 'gmm.monster.blueprint.is_trained'}}</span>
+                                    <div class="form-group__title">{{localize 'gmm.monster.blueprint.is_trained'}}</div>
                                     <button type="button" class="button button--help" data-action="open-modal" data-modal="modal_ranked_abilities">
                                         <i class="fas fa-question"></i>
                                     </button>
+                                    <div><i class="fas fa-exclamation-point">TST: {{gmm.monster.tst_count}} </i></div>
                                 </div>
                                 <div class="form-group__body save_rankings">
                                     <div class="checkboxes">
