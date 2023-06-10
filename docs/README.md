@@ -42,7 +42,7 @@ You can install this Foundry module by copying a manifest URL into your Foundry 
   * For the Brave
 
 * **MM v2 (Legacy):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/v2/module.json
-  * This is the original MM, only updated for Foundry v10 / dnd5e 2.1+. If you find bugs in it they may not get fixed unless I have a fix from other branches.
+  * This is the original GGMM v2 module, only updated for Foundry v10 / dnd5e 2.1+. If you find bugs in it they may not get fixed unless I have a fix from other branches.
 
 
 You can install multiple branches side-by-side, but you must activate only **one branch at a time**.
