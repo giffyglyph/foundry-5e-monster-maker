@@ -284,14 +284,14 @@ const GmmItem = (function () {
 				case "rwak":
 				case "rsak":
 					if (gmmMonster.attack_bonus.value) {
-						parts.push("[attackBonus]"); 
+						parts.push("@attackBonus"); 
 						if (rollData) {
-							rollData["[attackBonus]"] = gmmMonster.attack_bonus.value;
+							rollData["attackBonus"] = gmmMonster.attack_bonus.value;
 						}
 					}
 					if (item.flags?.gmm?.blueprint?.data?.attack?.related_stat) {
-						parts.push(`[${item.flags.gmm.blueprint.data.attack.related_stat}Mod]`); 
-						rollData[`[${item.flags.gmm.blueprint.data.attack.related_stat}Mod]`] = gmmMonster.ability_modifiers[item.flags.gmm.blueprint.data.attack.related_stat].value;
+						parts.push(`@abilityMod`); 
+						rollData[`abilityMod`] = gmmMonster.ability_modifiers[item.flags.gmm.blueprint.data.attack.related_stat].value;
 					}
 					break;
 			}
@@ -322,7 +322,7 @@ const GmmItem = (function () {
 		}
 		//let test = simplifyRollFormula(parts.join('+'), rollData);
 		// Condense the resulting attack bonus formula into a simplified label
-		let toHitLabel = simplifyRollFormula(Shortcoder.replaceShortcodes((parts.join(' +')).trim(), gmmMonster));
+		let toHitLabel = simplifyRollFormula(Roll.replaceFormulaData(parts.join('+').trim(), rollData));
 		item.labels.toHit = (toHitLabel.charAt(0) !== '-') ? `+ ${toHitLabel}` : toHitLabel;
 
 		// Update labels and return the prepared roll data
