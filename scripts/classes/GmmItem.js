@@ -284,16 +284,14 @@ const GmmItem = (function () {
 				case "rwak":
 				case "rsak":
 					if (gmmMonster.attack_bonus.value) {
-						//parts.push("@monsterAttackBonus");
 						parts.push("[attackBonus]"); 
 						if (rollData) {
-							rollData["monsterAttackBonus"] = gmmMonster.attack_bonus.value;
+							rollData["[attackBonus]"] = gmmMonster.attack_bonus.value;
 						}
 					}
 					if (item.flags?.gmm?.blueprint?.data?.attack?.related_stat) {
 						parts.push(`[${item.flags.gmm.blueprint.data.attack.related_stat}Mod]`); 
-						//parts.push("@relatedStat");
-						rollData["relatedStat"] = gmmMonster.ability_modifiers[item.flags.gmm.blueprint.data.attack.related_stat].value;
+						rollData[`[${item.flags.gmm.blueprint.data.attack.related_stat}Mod]`] = gmmMonster.ability_modifiers[item.flags.gmm.blueprint.data.attack.related_stat].value;
 					}
 					break;
 			}
