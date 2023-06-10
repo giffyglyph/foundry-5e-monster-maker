@@ -284,10 +284,16 @@ const GmmItem = (function () {
 				case "rwak":
 				case "rsak":
 					if (gmmMonster.attack_bonus.value) {
-						parts.push("@monsterAttackBonus");
+						//parts.push("@monsterAttackBonus");
+						parts.push("[attackBonus]"); 
 						if (rollData) {
 							rollData["monsterAttackBonus"] = gmmMonster.attack_bonus.value;
 						}
+					}
+					if (item.flags?.gmm?.blueprint?.data?.attack?.related_stat) {
+						parts.push(`[${item.flags.gmm.blueprint.data.attack.related_stat}Mod]`); 
+						//parts.push("@relatedStat");
+						rollData["relatedStat"] = gmmMonster.ability_modifiers[item.flags.gmm.blueprint.data.attack.related_stat].value;
 					}
 					break;
 			}
@@ -316,9 +322,9 @@ const GmmItem = (function () {
 				}
 			}
 		}
-
+		//let test = simplifyRollFormula(parts.join('+'), rollData);
 		// Condense the resulting attack bonus formula into a simplified label
-		let toHitLabel = simplifyRollFormula(parts.join('+'), rollData).trim();
+		let toHitLabel = simplifyRollFormula(Shortcoder.replaceShortcodes((parts.join(' +')).trim(), gmmMonster));
 		item.labels.toHit = (toHitLabel.charAt(0) !== '-') ? `+ ${toHitLabel}` : toHitLabel;
 
 		// Update labels and return the prepared roll data
@@ -332,6 +338,9 @@ const GmmItem = (function () {
 			let dc = (itemData.actionType == "save") ? "[dcPrimaryBonus]" : "";
 			if (itemData.attackBonus) {
 				dc += ` + ${itemData.attackBonus}`;
+			}
+			if (item.flags?.gmm?.blueprint?.data?.attack?.related_stat) {
+				dc += ` + [${item.flags.gmm.blueprint.data.attack.related_stat}mod]`
 			}
 			const gmmMonster = item.getOwningGmmMonster();
 			if (gmmMonster) {
