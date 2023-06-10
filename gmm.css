@@ -673,7 +673,7 @@
   cursor: pointer;
 }
 .gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .hit-points,
-.gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .attack-dcs {
+.gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .attack {
   flex-grow: 1;
   width: 100%;
 }
@@ -682,7 +682,7 @@
   width: 6.5rem;
   flex-shrink: 0;
 }
-.gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .attack {
+.gmm-artifact.artifact--monster.artifact--monster--vanity .monster__blocks .attack-dcs {
   width: 7rem;
   flex-shrink: 0;
 }

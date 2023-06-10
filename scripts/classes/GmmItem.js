@@ -344,7 +344,9 @@ const GmmItem = (function () {
 			if (gmmMonster) {
 				dc = Shortcoder.replaceShortcodes(dc, gmmMonster);
 			}
-			item.system.save.dc = simplifyRollFormula(dc)
+			if (item.system.save.dc) {
+				item.system.save.dc = simplifyRollFormula(dc)
+			}
 			item.system.save.ability = itemData.save.ability;
 			item.system.save.scaling = "flat";
 			item.labels.save = game.i18n.format("DND5E.SaveDC", {

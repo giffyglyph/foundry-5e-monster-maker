@@ -2,8 +2,7 @@
 
 ## Visual
 
-* "Attack DCs" section of builder window can be condensed since there's no Primary/Secondary anymore.
-* "Attack DCs" Save modifier should be listed as `+X` instead of `X`
+* Should proficiency show still under Attributes?
 
 ## Data Entry
 

@@ -157,8 +157,8 @@
 				}
 			}
 
-			.hit-points,
-			.attack-dcs {
+			.hit-points, 
+			.attack {
 				flex-grow: 1;
 				width: 100%;
 			}
@@ -169,7 +169,7 @@
 				flex-shrink: 0;
 			}
 
-			.attack {
+			.attack-dcs {
 				width: 7rem;
 				flex-shrink: 0;
 			}

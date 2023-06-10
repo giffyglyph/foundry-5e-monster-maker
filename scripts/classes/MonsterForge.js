@@ -594,6 +594,7 @@ const MonsterForge = (function() {
 
 	function _getInventoryWeight(data) {
 		const weight = new DerivedAttribute();
+		const displayUnit = data.display.units;
 		["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"].forEach((x) => {
 			if (hasProperty(data, x)) {
 				getProperty(data, x).forEach((y) => {
@@ -603,7 +604,11 @@ const MonsterForge = (function() {
 		});
 		if ( game.settings.get("dnd5e", "currencyWeight")) {
 			let currency = ["cp", "sp", "ep", "gp", "pp"].map((x) => data.inventory.currency[x]).reduce((val, denom) => val += Math.max(denom, 0), 0);
-			weight.add(currency / CONFIG.DND5E.encumbrance.currencyPerWeight, "currency");
+			if (displayUnit === "imperial") {
+				weight.add(currency / CONFIG.DND5E.encumbrance.currencyPerWeight.imperial, "currency");
+			} else if (displayUnit === "metric") {
+				weight.add(currency / CONFIG.DND5E.encumbrance.currencyPerWeight.metric, "currency");
+			}
 		}
 		weight.applyModifier(data.inventory.encumbrance.weight.modifier.value, data.inventory.encumbrance.weight.modifier.override);
 		weight.round(100);
@@ -614,7 +619,11 @@ const MonsterForge = (function() {
 	function _getInventoryCapacity(monsterAbilityModifiers, data) {
 		const capacity = new DerivedAttribute();
 		capacity.add((monsterAbilityModifiers["str"].value * 2) + 10, game.i18n.format('gmm.common.derived_source.ability_score'));
-		capacity.multiply(CONFIG.DND5E.encumbrance.strMultiplier, "config");
+		if (data.display.units === "imperial") {
+			capacity.multiply(CONFIG.DND5E.encumbrance.strMultiplier.imperial, "config");
+		} else if (data.display.units === "metric") {
+			capacity.multiply(CONFIG.DND5E.encumbrance.strMultiplier.metric, "config");
+		}
 		capacity.multiply(GMM_5E_SIZES.find((x) => x.name == data.description.size).inventory_capacity, "size");
 		capacity.applyModifier(data.inventory.encumbrance.capacity.modifier.value, data.inventory.encumbrance.capacity.modifier.override);
 

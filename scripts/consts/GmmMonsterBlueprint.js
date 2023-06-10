@@ -179,7 +179,8 @@ export const GMM_MONSTER_BLUEPRINT = {
 				artifact: "",
 				blueprint: ""
 			},
-			ignore_item_requirements: false
+			ignore_item_requirements: false,
+			units: "imperial"
 		},
 		hit_points: {
 			current: null,
