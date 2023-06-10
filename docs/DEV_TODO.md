@@ -7,7 +7,6 @@
 
 ## Data Entry
 
-* UI for specifying relevant attribute on Abilities
 * Ability Modifiers should be high/medium/low rather than ranking
 
 ## Compendiums
@@ -25,3 +24,7 @@
 * Encumberance NaNs
 * Skins don't seem to work
 * Making targets roll against a save doesnt work
+
+## Testing Stuff
+* Test attacking/rolling saves
+* MidiQOL / LMRTFY checks
