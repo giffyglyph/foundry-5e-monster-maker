@@ -516,14 +516,6 @@
                             </span>
                         </div>
                         <div class="accordion-section__body">
-                            <div class="form-group">
-                                <div class="form-group__header">
-                                    <span class="form-group__title">{{localize 'gmm.monster.blueprint.attack_bonus.type'}}</span>
-                                </div>
-                                <div class="form-group__body">
-                                    <input name="gmm.blueprint.attack_bonus.type" value="{{gmm.blueprint.attack_bonus.type}}" />
-                                </div>
-                            </div>
                             <div class="form-group form-group--modifier">
                                 <div class="form-group__header">
                                     <span class="form-group__title">{{localize 'gmm.monster.blueprint.attack_bonus.modifier'}}</span>
@@ -1297,6 +1289,37 @@
                                             </label>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-section" data-section="paragon-defenses">
+                        <div class="accordion-section__header">
+                            <span class="accordion-section__title">{{localize 'gmm.monster.blueprint.paragon_defenses.title'}}</span>
+                        </div>
+                        <div class="accordion-section__body">
+                            <div class="form-group form-group--modifier">
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gmm.monster.blueprint.paragon_defenses.always_show'}}</span>
+                                </div>
+                                <div class="form-group__body">
+                                    <input type="checkbox" name="gmm.blueprint.paragon_defenses.always_show" {{#if gmm.blueprint.paragon_defenses.always_show}} checked{{/if}} />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gmm.monster.blueprint.paragon_defenses.current'}}</span>
+                                </div>
+                                <div class="form-group__body">
+                                    <input name="gmm.blueprint.paragon_defenses.current" value="{{gmm.blueprint.paragon_defenses.current}}" type="number" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group__header">
+                                    <span class="form-group__title">{{localize 'gmm.monster.blueprint.paragon_defenses.maximum'}}</span>
+                                </div>
+                                <div class="form-group__body">
+                                    <input name="gmm.blueprint.paragon_defenses.maximum" value="{{gmm.blueprint.paragon_defenses.maximum}}" type="number" />
                                 </div>
                             </div>
                         </div>

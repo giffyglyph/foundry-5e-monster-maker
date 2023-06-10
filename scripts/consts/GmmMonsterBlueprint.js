@@ -282,6 +282,17 @@ export const GMM_MONSTER_BLUEPRINT = {
 				}
 			}
 		},
+		paragon_defenses: {
+			always_show: false,
+			current: null,
+			maximum: {
+				modifier: {
+					value: null,
+					override: false
+				}
+			},
+			cost: null
+		},
 		passive_perception: {
 			modifier: {
 				value: null,

@@ -16,6 +16,9 @@
 ## Modal/Info Updates
 
 * I'm sure there's lots!
+* Remove unused localization entries referring to deprecated data
+* Rename localization entries based on new uses
+* Consolidate duplicate attack_bonus + proficiency modifiers
 
 ## Known Bugs
 

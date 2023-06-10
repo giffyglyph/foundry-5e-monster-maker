@@ -58,6 +58,7 @@ const MonsterForge = (function() {
 				level: _parseLevel(derivedAttributes.level),
 				name: _parseName(blueprint.data.description.name),
 				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions, showLegendaryActions),
+				paragon_defenses: _parseParagonDefenses(derivedAttributes.rank, blueprint.data.paragon_actions, showLegendaryActions, derivedAttributes.level),
 				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.passive_perception),
 				phase: _parsePhase(derivedAttributes.rank),
 				proficiency_bonus: monsterProficiency,
@@ -470,6 +471,24 @@ const MonsterForge = (function() {
 			visible: paragonActions.always_show || (!showLegendaryActions && (mx.value > 0)),
 			current: paragonActions.current,
 			maximum: mx
+		};
+	}
+
+	function _parseParagonDefenses(rank, paragonDefenses, showLegendaryActions, level) {
+		let mx = new DerivedAttribute();
+		let maximum = rank.modifiers.paragon_defenses;
+		if (rank.modifiers.scale_with_players) {
+			maximum *= Math.floor(rank.modifiers.target_players / 2);
+		}
+		mx.add(maximum, game.i18n.format('gmm.common.derived_source.rank'));
+		mx.applyModifier(paragonDefenses.maximum.modifier.value, paragonDefenses.maximum.modifier.override);
+		mx.ceil();
+
+		return {
+			visible: paragonDefenses.always_show || (!showLegendaryActions && (mx.value > 0)),
+			current: paragonDefenses.current,
+			maximum: mx,
+			cost: (level * 2)
 		};
 	}
 

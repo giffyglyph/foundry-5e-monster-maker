@@ -523,6 +523,39 @@ localize 'gmm.monster.artifact.spellbook.spellcasting_ability.value'
                                 </div>
                             </div>
                             {{/if}}
+                            {{#if gmm.monster.paragon_defenses.visible}}
+                            <div class="accordion-section opened">
+                                <div class="accordion-section__header">
+                                    <span class="accordion-section__title" data-action="open-config" data-config="paragon-defenses-actions">{{localize 'gmm.monster.artifact.paragon_defenses.title'}}</span>
+                                </div>
+                                <div class="accordion-section__body">
+                                    <div class="item-list">
+                                        <div class="legendary__resources">
+                                            <div class="legendary__current">
+                                                <div class="legendary__value">
+                                                    <input class="legendary--current" data-action="update-field" data-field="gmm.blueprint.paragon_defenses.current" data-type="number" />
+                                                    <i class="far fa-shield-halved"></i> {{gmm.monster.paragon_defenses.current}}
+                                                </div>
+                                                <div class="legendary__description">
+                                                    {{localize 'gmm.monster.artifact.paragon_defenses.current'}}
+                                                </div>
+                                            </div>
+                                            <div class="legendary__maximum">
+                                                <div class="legendary__value" title="{{{parseSources gmm.monster.paragon_defenses.maximum.sources}}}">
+                                                    <i class="fas fa-shield"></i> {{gmm.monster.paragon_defenses.maximum.value}}
+                                                </div>
+                                                <div class="legendary__description">
+                                                    {{localize 'gmm.monster.artifact.paragon_defenses.maximum'}}
+                                                </div>
+                                            </div>
+                                            <div class="legendary__blurb">
+                                                <div class="blurb__text">{{localize 'gmm.monster.artifact.paragon_defenses.blurb' cost=gmm.monster.paragon_defenses.cost}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/if}}
                             {{#if gmm.monster.legendary_actions.visible}}
                             <div class="accordion-section opened">
                                 <div class="accordion-section__header">
