@@ -1427,9 +1427,10 @@
                                     <div class="checkboxes">
                                         {{#each gmm.enums.abilities}}
                                         <label class="checkbox">
-                                            <span type="checkbox" name="gmm.blueprint.trained_saves.{{.}}.trained" {{#if (getSaveTrain ../gmm.blueprint.trained_saves .)}}checked{{/if}}/>
+                                            <!--onclick="{{selectiveCheck {{../ gmm.monster.tst_count }} {{.}}}}"-->
+                                            <input type="checkbox" class="tstCheckbox" name="gmm.blueprint.trained_saves.{{.}}.trained" {{#if (getSaveTrain ../gmm.blueprint.trained_saves .)}} checked{{/if}} />
                                             <i class="{{localize (concat 'gmm.common.ability.' . '.icon')}} fa-fw">
-                                                </i> {{localize (concat 'gmm.common.ability.' . '.name')}}
+                                            </i> {{localize (concat 'gmm.common.ability.' . '.name')}}
                                         </label>
                                         {{/each}}
                                     </div>

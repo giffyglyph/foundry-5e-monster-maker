@@ -93,6 +93,12 @@ const Templates = (function() {
 			return getRelativePath(path);
 		});
 
+		Handlebars.registerHelper('limitTST', function (tst, context) {
+				var checkedChecks = document.querySelectorAll(".tstCheckbox:checked");
+				if (checkedChecks.length >= tst + 1)
+					return false;
+		});
+
 		Handlebars.registerHelper({
 			eq: (v1, v2) => v1 === v2,
 			ne: (v1, v2) => v1 !== v2,
