@@ -185,10 +185,6 @@ const ActionForge = (function() {
 				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, {
 					dc: `[dcPrimaryBonus]${attack.bonus ? ` + ${attack.bonus}` : ``}`
 				});
-			case "other":
-				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, {
-					dc: `[dcSecondaryBonus]${attack.bonus ? ` + ${attack.bonus}` : ``}`
-				});
 			default:
 				return "";
 		}

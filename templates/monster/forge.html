@@ -123,7 +123,7 @@
 								<select class="select--skill" name="skill">
 									<option value="" selected="">—</option>
 									{{#each gmm.enums.skills}}
-										<option value="{{.}}">{{localize (concat 'gmm.common.skill.' .)}} {{#if (getSkillProficiency ../gmm.monster.skills .)}}({{numberFormat (getSkillProficiency ../gmm.monster.skills .) sign=true}}){{/if}}</option>
+										<option value="{{.}}">{{localize (concat 'gmm.common.skill.' .)}} {{#if (getSkillProficiency ../gmm.monster.skills . ../gmm.monster.role)}}({{numberFormat (getSkillProficiency ../gmm.monster.skills .) sign=true}}){{/if}}</option>
 									{{/each}}
 								</select>
 								{{#each gmm.enums.skills}}
@@ -280,15 +280,7 @@
 											<span class="attack__title">{{localize 'gmm.modal.basic_attack_save.primary'}}</span>
 										</span>
 									</label>
-									<label class="radio attack">
-										<input type="radio" name="attack" value="secondary" class="radio--secondary"/>
-										<span>
-											<span class="attack__dc">DC {{gmm.monster.attack_dcs.secondary.value}}</span>
-											<span class="attack__title">{{localize 'gmm.modal.basic_attack_save.secondary'}}</span>
-										</span>
-									</label>
 									<input type="hidden" name="primary" value="{{gmm.monster.attack_dcs.primary.value}}"/>
-									<input type="hidden" name="secondary" value="{{gmm.monster.attack_dcs.secondary.value}}"/>
 								</div>
 							</div>
 						</div>

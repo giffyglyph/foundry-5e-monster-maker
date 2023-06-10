@@ -174,10 +174,10 @@ export default class MonsterSheet extends ActorSheet {
 		item.classList.toggle("expanded");
 	}
 
-	_rollHitPoints(event) {
+	async _rollHitPoints(event) {
 		const button = event.currentTarget.closest("button");
 		const roll = new Roll(button.dataset.formula);
-		roll.roll();
+		await roll.roll();
 		AudioHelper.play({src: CONFIG.sounds.dice});
 		this.actor.update({
 			[`system.attributes.hp.value`]: Math.max(1, roll.total),
@@ -280,7 +280,7 @@ export default class MonsterSheet extends ActorSheet {
 		return this.actor.updateEmbeddedDocuments("Item", updateData);
 	}
 
-	_updateObject(event, form) {
+	async _updateObject(event, form) {
 		if (event && event.currentTarget && event.currentTarget.closest(".gmm-modal") != null) {
 			return null;
 		}
@@ -313,6 +313,6 @@ export default class MonsterSheet extends ActorSheet {
 
 			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.flags.gmm.blueprint));
 		}
-		this.document.update(formData);
+		await this.document.update(formData);
 	}
 }

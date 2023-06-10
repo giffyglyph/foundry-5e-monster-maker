@@ -67,7 +67,7 @@ const GmmItem = (function () {
 
 		if (this.hasDamage) {
 			const damages = this.system.damage.parts.map((x) => {
-				let damage = simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim();
+				let damage = rollData ? simplifyRollFormula(gmmMonster ? Shortcoder.replaceShortcodes(x[0], gmmMonster) : x[0], rollData).trim() : x[0];
 				return `${damage}${x[1] ? ` ${game.i18n.format(`gmm.common.damage.${x[1]}`).toLowerCase()}` : ``} damage`;
 			});
 			if ((itemData.consume?.type === 'ammo') && !!this.actor?.items) {
@@ -284,10 +284,14 @@ const GmmItem = (function () {
 				case "rwak":
 				case "rsak":
 					if (gmmMonster.attack_bonus.value) {
-						parts.push("@monsterAttackBonus");
+						parts.push("@attackBonus"); 
 						if (rollData) {
-							rollData["monsterAttackBonus"] = gmmMonster.attack_bonus.value;
+							rollData["attackBonus"] = gmmMonster.attack_bonus.value;
 						}
+					}
+					if (item.flags?.gmm?.blueprint?.data?.attack?.related_stat) {
+						parts.push(`@abilityMod`); 
+						rollData[`abilityMod`] = gmmMonster.ability_modifiers[item.flags.gmm.blueprint.data.attack.related_stat].value;
 					}
 					break;
 			}
@@ -316,9 +320,9 @@ const GmmItem = (function () {
 				}
 			}
 		}
-
+		//let test = simplifyRollFormula(parts.join('+'), rollData);
 		// Condense the resulting attack bonus formula into a simplified label
-		let toHitLabel = simplifyRollFormula(parts.join('+'), rollData).trim();
+		let toHitLabel = simplifyRollFormula(Roll.replaceFormulaData(parts.join('+').trim(), rollData));
 		item.labels.toHit = (toHitLabel.charAt(0) !== '-') ? `+ ${toHitLabel}` : toHitLabel;
 
 		// Update labels and return the prepared roll data
@@ -329,15 +333,20 @@ const GmmItem = (function () {
 		const itemData = item.system;
 		
 		if (["save", "other"].includes(itemData.actionType) && itemData.save?.ability) {
-			let dc = (itemData.actionType == "save") ? "[dcPrimaryBonus]" : "[dcSecondaryBonus]";
+			let dc = (itemData.actionType == "save") ? "[dcPrimaryBonus]" : "";
 			if (itemData.attackBonus) {
 				dc += ` + ${itemData.attackBonus}`;
+			}
+			if (item.flags?.gmm?.blueprint?.data?.attack?.related_stat) {
+				dc += ` + [${item.flags.gmm.blueprint.data.attack.related_stat}mod]`
 			}
 			const gmmMonster = item.getOwningGmmMonster();
 			if (gmmMonster) {
 				dc = Shortcoder.replaceShortcodes(dc, gmmMonster);
 			}
-			item.system.save.dc = simplifyRollFormula(dc)
+			if (item.system.save.dc) {
+				item.system.save.dc = simplifyRollFormula(dc)
+			}
 			item.system.save.ability = itemData.save.ability;
 			item.system.save.scaling = "flat";
 			item.labels.save = game.i18n.format("DND5E.SaveDC", {

@@ -131,8 +131,8 @@
 			color: var(--color-primary-shade-4);
 			width: 8rem;
 			flex: unset;
-			white-space: nowrap;
-			overflow: hidden;
+			/*white-space: nowrap;
+			overflow: hidden;*/
 			text-overflow: ellipsis;
 		}
 
@@ -184,7 +184,7 @@
 			}
 
 			.html-field {
-				
+
 				.editor-content {
 					padding: 0.5rem;
 					min-height: 4rem;
@@ -290,7 +290,7 @@
 
 			.checkboxes {
 				padding: 0.5rem;
-		
+
 				.checkbox {
 					display: inline-flex;
 					width: 100%;
@@ -299,11 +299,11 @@
 					align-items: flex-start;
 					padding: 0;
 					line-height: 1rem;
-		
+
 					&:hover {
 						cursor: pointer;
 					}
-					
+
 					input {
 						margin: 0;
 						top: 0;
@@ -312,7 +312,7 @@
 						height: 1rem;
 						width: 1rem;
 					}
-		
+
 					&:not(:last-child) {
 						margin-bottom: 0.25rem;
 					}
@@ -446,11 +446,11 @@
 					font-size: inherit;
 					align-self: center;
 					margin: 0;
-	
+
 					i {
 						margin: 0;
 					}
-	
+
 					&:hover {
 						box-shadow: none;
 						background: var(--color-primary-base);
@@ -578,7 +578,9 @@
 				margin: 0;
 				line-height: 1;
 			}
-		};
+		}
+
+		;
 
 		.accordion-section__body {
 			padding: 0;

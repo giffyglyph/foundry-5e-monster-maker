@@ -54,13 +54,18 @@ const Templates = (function() {
 			}
 		});
 
-		Handlebars.registerHelper('getSkillProficiency', function(skills, code) {
+		Handlebars.registerHelper('getSkillProficiency', function(skills, code, role) {
 			if (skills) {
-				const skill = skills.find((x) => x.code == code);
+				let skill = skills.find((x) => x.code == code);
+				//if (!skill) skill = role.skill_prof.find((x) => x.code == code);
 				return (skill) ? skill.value : 0;
 			} else {
 				return 0;
 			}
+		});
+
+		Handlebars.registerHelper('getSaveTrain', function (saves, code) {
+			return saves[code].trained;
 		});
 
 		Handlebars.registerHelper('formatChallengeRating', function(cr) {
@@ -86,6 +91,11 @@ const Templates = (function() {
 
 		Handlebars.registerHelper('getTemplate', function(path) {
 			return getRelativePath(path);
+		});
+
+		Handlebars.registerHelper('getTstCount', function (maxTst) {
+			var checkedChecks = document.querySelectorAll(".tstCheckbox:checked");
+			return checkedChecks.length > maxTst;
 		});
 
 		Handlebars.registerHelper({

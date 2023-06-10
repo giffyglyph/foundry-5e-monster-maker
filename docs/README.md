@@ -5,11 +5,14 @@
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com)
 [![Support Giffy on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
+[![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
 
 This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x. Updated by Skyl3lazer.
 
-**THIS MODULE IS NOT YET FULLY WORKING, DO NOT USE IT FOR YOUR GAMES YET. IT IS IN ACTIVE DEVELOPMENT**
+**THIS MODULE IS NOT YET FULLY WORKING, DO NOT USE IT FOR YOUR LIVE GAMES YET. IT IS IN ACTIVE DEVELOPMENT**
+
+If you find issues not already listed in [DEV_TODO](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/DEV_TODO.md) please leave an Issue here or contact me @Skyl3lazer on Discord.
 
 Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5e campaign, but aren't sure how to balance them easily? No worries—**Giffyglyph's 5e Monster Maker** has you covered! Build level-appropriate D&D 5e monsters in _seconds_ with an all-new automated monster sheet and scaling actions.
 
@@ -23,7 +26,7 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 * A new scaling action sheet with fully-scaling attacks.
 * Easy-to-use shortcodes to make scaling features even easier.
 * Convert existing monsters in seconds by simply changing the active sheet.
-* Includes full stats from the **[Giffyglyph's Monster Maker PDF](http://giffyglyph.com/monstermaker/)**.
+* Includes full stats from the **[Giffyglyph's Monster Maker PDF](https://giffyglyph.com/#giffyglyphs-monster-maker)**.
 
 ![Scaling Adult Dragon](./img/scaling-monster-level.gif)
 
