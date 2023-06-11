@@ -21,6 +21,7 @@
 
 ## Known Bugs
 
+* Damage types are breaking
 * Converting monsters to Scalers doesn't always work
 * Skins don't seem to work
 * Had a weird thing where an trait would lose its save target sometimes for unclear reasons
