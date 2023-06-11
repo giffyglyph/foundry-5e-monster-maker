@@ -46,6 +46,12 @@ const Shortcoder = (function() {
 		});
 	}
 
+	function replaceShortcodesAndAddDamageType(text, monsterData, damageType){
+		let replaceText = replaceShortcodes(text, monsterData);
+		return replaceText.replace(/(\d[^\+\- ]*)[\+\- ]?/g, (token) => token.trim() + `[${damageType}]`);
+	}
+
+
 	function _numberToRandom(token, value, die) {
 		try {
 			let valueMath = math.evaluate(value);
@@ -69,7 +75,8 @@ const Shortcoder = (function() {
 	}
 
 	return {
-		replaceShortcodes: replaceShortcodes
+		replaceShortcodes: replaceShortcodes,
+		replaceShortcodesAndAddDamageType : replaceShortcodesAndAddDamageType
 	};
 })();
 
