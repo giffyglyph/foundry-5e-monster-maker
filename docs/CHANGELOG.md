@@ -7,7 +7,9 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
-## v0.6 (dev)
+## v0.7 (dev)
+
+## v0.6
 
 * Fixed damage types
 * fixed occasional error with blank form fields causing errors
