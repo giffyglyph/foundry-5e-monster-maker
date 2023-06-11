@@ -10,7 +10,7 @@
 ## v0.6 (dev)
 
 * Fixed damage types
-* fixed occasional error with blank form fields causing errors
+* Fixed occasional error with blank form fields causing errors
 
 ## v0.5
 
