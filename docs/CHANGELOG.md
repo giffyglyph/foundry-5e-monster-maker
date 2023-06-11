@@ -7,7 +7,12 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
-## v0.5 (dev)
+## v0.6 (dev)
+
+* Fixed damage types
+* fixed occasional error with blank form fields causing errors
+
+## v0.5
 
 * Fixed damage, misses, and versatile damage
 

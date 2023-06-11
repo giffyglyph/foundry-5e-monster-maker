@@ -336,7 +336,7 @@ const GmmItem = (function () {
 				}
 			}
 		}
-		//let test = simplifyRollFormula(parts.join('+'), rollData);
+
 		// Condense the resulting attack bonus formula into a simplified label
 		let toHitLabel = simplifyRollFormula(Roll.replaceFormulaData(parts.join('+').trim(), rollData));
 		item.labels.toHit = (toHitLabel.charAt(0) !== '-') ? `+ ${toHitLabel}` : toHitLabel;
@@ -386,9 +386,9 @@ const GmmItem = (function () {
 	
 		// Get roll data
 		const gmmMonster = item.getOwningGmmMonster();
-		const parts = itemData.damage.parts.map((x) => x[0].replace(/\[.*?\]/g, (token) => {
-			return (gmmMonster) ? Shortcoder.replaceShortcodes(token, gmmMonster) : token;
-		}));
+		const parts = itemData.damage.parts.map((x) =>
+			(gmmMonster) ? Shortcoder.replaceShortcodesAndAddDamageType(x[0], gmmMonster, x[1]) : x[0]
+		);
 		const rollData = item.getRollData();
 	
 		// Configure the damage roll

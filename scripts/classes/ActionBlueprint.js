@@ -84,6 +84,10 @@ const ActionBlueprint = (function () {
                         type: x[1]
                     };
                 }));
+                if(item.system.damage.parts[0]){
+                    setProperty(blueprintData, 'attack.damage.formula', (gmmMonster) ? Shortcoder.replaceShortcodes(item.system.damage?.parts[0][0], gmmMonster) : item.system.damage?.parts[0][0]);
+                    setProperty(blueprintData, 'attack.damage.type', (gmmMonster) ? Shortcoder.replaceShortcodes(item.system.damage?.parts[0][1], gmmMonster) : item.system.damage?.parts[0][1]);
+                }
             } else {
                 setProperty(blueprintData, "attack.hit.damage", []);
             }

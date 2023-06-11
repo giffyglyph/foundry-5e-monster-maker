@@ -174,8 +174,14 @@ export default class ActionSheet extends ItemSheet {
 		if (event && event.currentTarget) {
 			this._gui.updateFrom(event.currentTarget.closest(".gmm-window"));
 		}
-
 		let formData = expandObject(form);
+
+		//Messy but new validation makes this weird with dropdowns
+		if(formData.gmm.blueprint.duration.value === null)
+			formData.gmm.blueprint.duration.value = "";
+		if(formData.gmm.blueprint.uses.max === null)
+			formData.gmm.blueprint.uses.max = "";
+
 		if (hasProperty(formData, "gmm.blueprint")) {
 			setProperty(formData, "flags.gmm.blueprint", {
 				vid: 1,
