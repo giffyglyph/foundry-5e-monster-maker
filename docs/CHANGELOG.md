@@ -9,10 +9,12 @@
 
 ## v0.5 (dev)
 
+* Fixed damage, misses, and versatile damage
+
 ## v0.4
 
-Updating to GMM v3
+* Updating to GMM v3
 
 ## v0.3
 
-Updated to Foundry v10, dnd5e 2.1+, GMM v2
+* Updated to Foundry v10, dnd5e 2.1+, GMM v2
