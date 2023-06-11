@@ -25,6 +25,7 @@ const GmmItem = (function () {
 		game.dnd5e.documents.Item5e.prototype.getSaveDC = _getSaveDC;
 		game.dnd5e.documents.Item5e.prototype.roll5eDamage = game.dnd5e.documents.Item5e.prototype.rollDamage;
 		game.dnd5e.documents.Item5e.prototype.rollDamage = _rollDamage;
+		game.dnd5e.documents.Item5e.prototype.rollFormula = _rollFormula;
 		game.dnd5e.documents.Item5e.prototype.prepareShortcodes = _prepareShortcodes;
 		game.dnd5e.documents.Item5e.prototype.getSheetId = _getItemSheetId;
 		game.dnd5e.documents.Item5e.prototype.getGmmActionBlueprint = _getGmmActionBlueprint;
@@ -266,7 +267,22 @@ const GmmItem = (function () {
 			});
 		}
 	}
-
+	function _rollFormula({ spellLevel = null} = {}) {
+		if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
+			return _rollActionDamage({
+				item: this,
+				critical: false,
+				event: null,
+				spellLevel: spellLevel,
+				versatile: null,
+				options: {}
+			});
+		} else {
+			return game.dnd5e.documents.Item5e.prototype.rollFormula.call(this, {
+				spellLevel: spellLevel
+			});
+		}
+	}
 	function _getActionAttackToHit(item) {
 		const itemData = item.system;
 		const rollData = item.getRollData();
