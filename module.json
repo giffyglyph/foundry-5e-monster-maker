@@ -5,7 +5,7 @@
 	"authors": [
 		{
 			"name": "Skyl3lazer",
-			"discord": "Skyl3lazer#8532",
+			"discord": "@skyl3lazer",
 			"twitter": "@skyl3lazer",
 			"reddit": "u/skyl3lazer"
 		},
@@ -20,7 +20,7 @@
 		}
 
 	],
-	"version": "0.4",
+	"version": "0.5",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "10"
@@ -68,11 +68,11 @@
 	},
 	"url": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued",
 	"manifest": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json",
-	"download": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/archive/refs/tags/0.4.zip",
+	"download": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/archive/refs/tags/0.5.zip",
 	"bugs": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues",
 	"readme": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/README.md",
 	"changelog": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/CHANGELOG.md",
-	"manifestPlusVersion": "0.4",
+	"manifestPlusVersion": "0.5",
 	"media": [
 		{
 			"type": "screenshot",
