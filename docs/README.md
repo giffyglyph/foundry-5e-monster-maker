@@ -32,6 +32,11 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 ## Installation
 
+### Dependencies
+
+* [libwrapper](https://foundryvtt.com/packages/lib-wrapper/) - Allows GGMMC to interact more nicely with other modules, such as MidiQOL.
+
+---
 You can install this Foundry module by copying a manifest URL into your Foundry setup:
 
 
@@ -44,6 +49,8 @@ You can install this Foundry module by copying a manifest URL into your Foundry 
 
 
 You can install multiple branches side-by-side, but you must activate only **one branch at a time**.
+
+
 
 ## Getting Started
 

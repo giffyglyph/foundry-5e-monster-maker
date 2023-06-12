@@ -9,6 +9,9 @@
 
 ## v0.7 (dev)
 
+* Fixed an issue with save DCs being null
+* Added libwrapper as a dependency, and implemented it to cover anything that we wrapped already
+
 ## v0.6
 
 * Fixed damage types

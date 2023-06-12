@@ -26,5 +26,5 @@
 
 ## Testing Stuff
 
-* Test attacking/rolling saves
 * MidiQOL / LMRTFY checks
+* libwrapper functionality + any issues we find from that
