@@ -20,8 +20,8 @@
 		}
 
 	],
-	"version": "0.7.1",
-	"manifestPlusVersion": "0.7.1",
+	"version": "0.7.2",
+	"manifestPlusVersion": "0.7.2",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "10"
@@ -63,6 +63,16 @@
 					"minimum": "2.1.5",
 					"verified": "2.1.5",
 					"maximum": "2.2.1"
+				}
+			}
+		],
+		"requires": [
+			{
+				"id": "lib-wrapper",
+				"type": "module",
+				"compatibility": {
+					"minimum": "1.0.0.0",
+					"verified": "1.12.6.0"
 				}
 			}
 		]

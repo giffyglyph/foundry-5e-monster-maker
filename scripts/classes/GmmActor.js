@@ -16,10 +16,27 @@ const GmmActor = (function () {
 	 * Patch the Foundry Actor5e entity to control how data is prepared based on the active sheet.
 	 */
 	function patchActor5e() {
+		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareBaseData', function (wrapped, ...args) {
+			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
+				wrapped(this);
+				_prepareMonsterBaseData(this);
+			} else {
+				wrapped(this);
+			}
+		}, 'WRAPPER');
+		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareDerivedData', function (wrapped, ...args) {
+			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
+				wrapped(this);
+				_prepareMonsterDerivedData(this);
+			} else {
+				wrapped(this);
+			}
+		}, 'WRAPPER');
+
 		game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData = game.dnd5e.documents.Actor5e.prototype.prepareBaseData;
-		game.dnd5e.documents.Actor5e.prototype.prepareBaseData = _prepareBaseData;
+		//game.dnd5e.documents.Actor5e.prototype.prepareBaseData = _prepareBaseData;
 		game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData = game.dnd5e.documents.Actor5e.prototype.prepareDerivedData;
-		game.dnd5e.documents.Actor5e.prototype.prepareDerivedData = _prepareDerivedData;
+		//game.dnd5e.documents.Actor5e.prototype.prepareDerivedData = _prepareDerivedData;
 		game.dnd5e.documents.Actor5e.prototype.getSheetId = _getActorSheetId;
 	}
 
@@ -27,6 +44,7 @@ const GmmActor = (function () {
 	 * Prepare any data which is actor-specific and does not depend on Items or Active Effects.
 	 * @private
 	 */
+	/*
 	function _prepareBaseData() {
 		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData.call(this);
@@ -34,12 +52,13 @@ const GmmActor = (function () {
 		} else {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData.call(this);
 		}
-	}
+	}*/
 
 	/**
 	 * Apply final transformations to the current actor after all effects have been applied.
 	 * @private
 	 */
+	/*
 	function _prepareDerivedData() {
 		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData.call(this);
@@ -47,7 +66,7 @@ const GmmActor = (function () {
 		} else {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData.call(this);
 		}
-	}
+	}*/
 
 	/**
 	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
