@@ -206,7 +206,7 @@ export default class MonsterSheet extends ActorSheet {
 	_rollItem(event) {
 		const li = event.currentTarget.closest(".item");
 		const item = this.actor.items.get(li.dataset.itemId);
-		return item.roll();
+		return item.use();
 	}
 
 	_editItem(event) {
