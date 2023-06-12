@@ -67,7 +67,8 @@
 		]
 	},
 	"url": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued",
-	"manifest": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json",
+	//"manifest": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json",
+	"manifest": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json",
 	//"download": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/archive/refs/heads/master.zip",
 	"download": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/archive/refs/heads/dev.zip",
 	"bugs": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues",
