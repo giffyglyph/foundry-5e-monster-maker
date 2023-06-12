@@ -228,7 +228,9 @@ export default class MonsterSheet extends ActorSheet {
 			type: type,
 			img: "icons/svg/clockwork.svg",
 			system: duplicate(header.dataset),
-			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
+			flags: {
+				"core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet`
+				}
 		};
 		delete itemData.system["type"];
 		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
