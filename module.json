@@ -20,8 +20,8 @@
 		}
 
 	],
-	"version": "0.7.2",
-	"manifestPlusVersion": "0.7.2",
+	"version": "0.7.3",
+	"manifestPlusVersion": "0.7.3",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "10"
