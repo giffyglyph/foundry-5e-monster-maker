@@ -20,7 +20,8 @@
 		}
 
 	],
-	"version": "0.7",
+	"version": "0.7.1",
+	"manifestPlusVersion": "0.7.1",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "10"
@@ -74,7 +75,6 @@
 	"bugs": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues",
 	"readme": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/README.md",
 	"changelog": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/CHANGELOG.md",
-	"manifestPlusVersion": "0.7",
 	"media": [
 		{
 			"type": "screenshot",
