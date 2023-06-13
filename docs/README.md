@@ -9,6 +9,7 @@
 
 
 This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x.
+(Also check out my (v3 updated Webapp!)(https://giffyglyphmonstermakerv3.azurewebsites.net/)
 
 **As of version 0.7.x**, I feel the module is in a good place to say you can start using it in live games. There will still be bugfixes obviously, but all of the basic features and integrations with Foundry v10 and dnd2.2.x are working.
 
@@ -94,6 +95,8 @@ If you notice a bug or have a feature suggestion, visit the **[issue board](http
 
 [![Support Giffy on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
+
+You can also see an updated GGMMv3 webapp I've created [here](https://giffyglyphmonstermakerv3.azurewebsites.net/)
 
 If you'd like to support the original creator of this module, please consider [becoming a patron](https://www.patreon.com/giffyglyph). You can also find more of Giffy's work at:
 
