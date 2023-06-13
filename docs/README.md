@@ -8,11 +8,11 @@
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
 
-This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x. Updated by Skyl3lazer.
+This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x.
 
 **As of version 0.7.x**, I feel the module is in a good place to say you can start using it in live games. There will still be bugfixes obviously, but all of the basic features and integrations with Foundry v10 and dnd2.2.x are working.
 
-**NOTE:** There are still signposting issues around! Not all tooltips, etc, have been updated. Many of the entried in the compendiums are built for v2 as well, so double check your monsters if you use compendium elements.
+**NOTE:** There are still signposting issues around! Not all tooltips, etc, have been updated. Many of the entries in the compendiums are built for v2 as well, so double check your monsters if you use compendium elements.
 
 If you find issues not already listed in [DEV_TODO](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/DEV_TODO.md) please leave an Issue here or contact me @Skyl3lazer on Discord.
 
@@ -22,8 +22,8 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 
 * A brand new monster sheet with customisable themes.
 * Fully-scaled monster stats for levels -5 to 50.
-* 4 monster roles—minion, standard, elite, and paragons.
-* 6 combat roles—controller, defender, lurker, skirmisher, striker, and supporter.
+* 4 monster roles — minion, standard, elite, and paragons.
+* 6 combat roles — controller, defender, lurker, skirmisher, striker, and supporter.
 * Change the level of any monster on-the-fly and watch their stats change.
 * A new scaling action sheet with fully-scaling attacks.
 * Easy-to-use shortcodes to make scaling features even easier.
@@ -47,8 +47,8 @@ You can install this Foundry module by copying a manifest URL into your Foundry 
   * This is probably what you want
 * **v3 Dev 0.8.x (May be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json
   * For the Brave
-* **MM v2 (Legacy):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/v2/module.json
-  * This is the original GGMM v2 module, only updated for Foundry v10 / dnd5e 2.1+. If you find bugs in it they may not get fixed unless I have a fix from other branches.
+* **MM v2 (Legacy, only for recovering monsters from old games):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/v2/module.json
+  * This is the original GGMM v2 module, only updated for Foundry v10 / dnd5e 2.1+. It won't be getting bugfixes, it's just for data recovery.
 
 
 You can install multiple branches side-by-side, but you must activate only **one branch at a time**.
@@ -58,21 +58,21 @@ You can install multiple branches side-by-side, but you must activate only **one
 ## Getting Started
 
 1. Install and activate the module.
-2. On the sidebar—under "Actors—you will see **"Create a Scaling Monster"**. Click it.
+2. On the sidebar under "Actors, you will see **"Create a Scaling Monster"**. Click it.
 3. Customise your monster by changing the level, rank, and role. See your monster's stats update live with each change.
-4. On the sidebar—under "Items"—you will see **"Create a Scaling Action"**. Click it.
-5. Customise your action by adding an attack—try a _"Melee Weapon Attack"_.
+4. On the sidebar under "Items", you will see **"Create a Scaling Action"**. Click it. You can also click the "Add" button next to the Actions section on your monster.
+5. Customise your action by adding an attack — try a _"Melee Weapon Attack"_!
 6. Now drag the scaling action onto your scaling monster, and watch the action's attack bonus automatically change to match your monster's bonuses.
 
 ### Converting an old Monster
 
-1. Open an existing monster—or import one from the SRD compendium.
+1. Open an existing monster, or import one from the SRD compendium.
 2. Change the active sheet to **"Giffyglyph's 5e Monster Maker"**.
 3. Change the monster's level, rank, and role to suit the expected encounter.
 
 ### Converting an old Action
 
-1. Open an existing item—such as a weapon, feature, or piece of loot.
+1. Open an existing item, such as a weapon, feature, or piece of loot.
 2. Change the active sheet to **"Giffyglyph's 5e Scaling Action"**.
 3. Customise the action with some scaling features and shortcodes.
 
@@ -80,7 +80,7 @@ You can install multiple branches side-by-side, but you must activate only **one
 
 ## Roadmap
 
-Currently this release can handle GGMMv3 functions as a standalone module, with some basic integrations working through other modules (MidiQOL, DAE)
+Currently this release can handle GGMMv3 functions as a standalone module, with some basic integrations working through other modules (MidiQOL, DAE). See [DEV_TODO](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/DEV_TODO.md) for what I'm looking at next.
 
 ## Thank Yous!
 
