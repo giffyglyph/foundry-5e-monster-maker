@@ -21,7 +21,8 @@ export const GMM_MONSTER_BLUEPRINT = {
 				value: null,
 				override: false
 			},
-			type: ""
+			type: "",
+			display: null
 		},
 		attack_bonus: {
 			modifier: {

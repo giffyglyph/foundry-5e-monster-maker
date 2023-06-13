@@ -26,6 +26,7 @@ const GmmActor = (function () {
 		}, 'WRAPPER');
 		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareDerivedData', function (wrapped, ...args) {
 			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
+				_preProcessAC(this);
 				wrapped(this);
 				_prepareMonsterDerivedData(this);
 			} else {
@@ -75,7 +76,16 @@ const GmmActor = (function () {
 	 */
 	function _prepareMonsterBaseData(actor) {
 	}
-
+	function _preProcessAC(actor) {
+		const actorData = actor.system;
+		const monsterBlueprint = MonsterBlueprint.createFromActor(actor);
+		const monsterArtifact = MonsterForge.createArtifact(monsterBlueprint);
+		const monsterData = monsterArtifact.data;
+		actorData.attributes.ac.calc = "natural";
+		actorData.attributes.ac.flat = monsterData.armor_class.value;
+		actorData.attributes.ac.base = monsterData.armor_class.value;
+		//actorData.attributes.ac.value = monsterData.armor_class.value + actorData.attributes.ac.bonus;
+	}
 	/**
 	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
 	 * @param {Object} actor - An Actor5e entity.
@@ -123,7 +133,12 @@ const GmmActor = (function () {
 			actorData.details.cr = monsterData.challenge_rating.value;
 			actorData.details.xp.value = monsterData.xp.value;
 			actorData.attributes.prof = monsterData.proficiency_bonus.value;
-			actorData.attributes.ac.value = monsterData.armor_class.value;
+			//actorData.attributes.ac.calc = "natural";
+			//actorData.attributes.ac.flat = monsterData.armor_class.value;
+			//actorData.attributes.ac.base = monsterData.armor_class.value;
+			//actorData.attributes.ac.value = monsterData.armor_class.value + actorData.attributes.ac.bonus;
+			monsterData.armor_class.display = actorData.attributes.ac.value;
+
 			if (!monsterData.hit_points.use_formula) {
 				actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
 			}

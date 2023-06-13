@@ -11,6 +11,7 @@
 
 * Fixed an issue with save DCs being null
 * Added libwrapper as a dependency, and implemented it to cover anything that we wrapped already
+* Updated AC processing to be affected by DAE and display correctly
 
 ## v0.6
 
