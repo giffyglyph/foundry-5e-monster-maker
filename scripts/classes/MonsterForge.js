@@ -65,7 +65,7 @@ const MonsterForge = (function() {
 				rank: monsterRank,
 				reactions: _parseReactions(derivedAttributes, blueprint.data.reactions, ignoreItemRequirements),
 				role: monsterRole,
-				saving_throws: _parseSavingThrows(blueprint.data.trained_saves, monsterProficiency, monsterAbilityModifiers),
+				saving_throws: _parseSavingThrows(blueprint.data.trained_saves, monsterProficiency, monsterAbilityModifiers, derivedAttributes.trainedSavingThrowCount),
 				senses: _parseSenses(blueprint.data.senses),
 				skills: monsterSkills,
 				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
@@ -251,14 +251,22 @@ const MonsterForge = (function() {
 		return ams;
 	}
 
-	function _parseSavingThrows(savingThrows, pb, abilityModifiers) {
+	function _parseSavingThrows(savingThrows, pb, abilityModifiers, tst) {
 		const sts = {};
+		let abilityRankings = Object.entries(abilityModifiers).sort((x, y) => y[1].value - x[1].value).map((x) => x[0]);
 		GMM_5E_ABILITIES.forEach(function (attrName) {
 			if (savingThrows[attrName]) {
 				sts[attrName] = new DerivedAttribute();
 				sts[attrName].value = 0;
-				if (savingThrows[attrName].trained) {
+				if (savingThrows.method === "custom" && savingThrows[attrName].trained) {
 					sts[attrName].applyModifier(pb.value, savingThrows[attrName].modifier.override);
+				} else if(savingThrows.method === "sync"){
+					if (abilityRankings.slice(0, tst).includes(attrName)) {
+						savingThrows[attrName].trained = true;
+						sts[attrName].applyModifier(pb.value, savingThrows[attrName].modifier.override);
+					} else {
+						savingThrows[attrName].trained = false;
+					}
 				}
 				sts[attrName].applyModifier(abilityModifiers[attrName].value, savingThrows[attrName].modifier.override);
 				if (savingThrows[attrName].modifier.value) {

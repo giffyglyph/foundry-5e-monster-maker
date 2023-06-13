@@ -312,7 +312,7 @@ export const GMM_MONSTER_BLUEPRINT = {
 			items: []
 		},
 		trained_saves: {
-			method: "custom",
+			method: "sync",
 			str: {
 				trained: false,
 				modifier: {

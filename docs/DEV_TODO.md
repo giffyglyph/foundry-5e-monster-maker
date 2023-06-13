@@ -7,7 +7,7 @@
 
 ## Data Entry
 
-* Ability Modifiers should be high/medium/low rather than ranking
+* Ability Modifiers should be high/medium/low rather than ranking, or at least display that way
 
 ## Compendiums
 
