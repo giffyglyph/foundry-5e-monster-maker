@@ -10,7 +10,9 @@
 
 This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x. Updated by Skyl3lazer.
 
-**THIS MODULE IS NOT YET FULLY WORKING, DO NOT USE IT FOR YOUR LIVE GAMES YET. IT IS IN ACTIVE DEVELOPMENT.**
+**As of version 0.7.x**, I feel the module is in a good place to say you can start using it in live games. There will still be bugfixes obviously, but all of the basic features and integrations with Foundry v10 and dnd2.2.x are working.
+
+**NOTE:** There are still signposting issues around! Not all tooltips, etc, have been updated. Many of the entried in the compendiums are built for v2 as well, so double check your monsters if you use compendium elements.
 
 If you find issues not already listed in [DEV_TODO](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/master/docs/DEV_TODO.md) please leave an Issue here or contact me @Skyl3lazer on Discord.
 
@@ -41,9 +43,9 @@ Want to build new monsters for your [Foundry VTT](https://foundryvtt.com/) D&D 5
 You can install this Foundry module by copying a manifest URL into your Foundry setup:
 
 
-* **v3 RC 0.6 (Main Release):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json	
+* **v3 RC 0.7.x (Main Release):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/master/module.json	
   * This is probably what you want
-* **v3 Dev 0.7 (May be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json
+* **v3 Dev 0.8.x (May be unstable):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/dev/module.json
   * For the Brave
 * **MM v2 (Legacy):** https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/v2/module.json
   * This is the original GGMM v2 module, only updated for Foundry v10 / dnd5e 2.1+. If you find bugs in it they may not get fixed unless I have a fix from other branches.
