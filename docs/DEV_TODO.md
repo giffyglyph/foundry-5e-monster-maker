@@ -21,7 +21,6 @@
 
 ## Known Bugs
 
-* Converting monsters to Scalers doesn't always work
 * Skins don't seem to work
 
 ## Testing Stuff

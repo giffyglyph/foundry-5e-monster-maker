@@ -51,19 +51,19 @@ const GmmItem = (function () {
             if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
                 return _rollActionDamage({
                     item: this,
-                    critical: critical,
-                    event: event,
-                    spellLevel: spellLevel,
-                    versatile: versatile,
-                    options: options
+                    critical: args[0]?.critical ?? false,
+                    event: args[0]?.event ?? null,
+                    spellLevel: args[0]?.spellLevel ?? null,
+                    versatile: args[0]?.versatile ?? false,
+                    options: args[0]?.options ?? {}
                 });
             } else {
                 return wrapped(this, {
-                    critical: critical,
-                    event: event,
-                    spellLevel: spellLevel,
-                    versatile: versatile,
-                    options: options
+                    critical: args[0]?.critical ?? false,
+                    event: args[0]?.event ?? null,
+                    spellLevel: args[0]?.spellLevel ?? null,
+                    versatile: args[0]?.versatile ?? false,
+                    options: args[0]?.options ?? {}
                 });
             }
         }, 'MIXED');
@@ -73,13 +73,13 @@ const GmmItem = (function () {
                     item: this,
                     critical: false,
                     event: null,
-                    spellLevel: spellLevel,
-                    versatile: null,
+                    spellLevel: args[0]?.spellLevel ?? null,
+                    versatile: false,
                     options: {}
                 });
             } else {
                 return wrapped(this, {
-                    spellLevel: spellLevel
+                    spellLevel: args[0]?.spellLevel ?? null
                 });
             }
         }, 'MIXED');
