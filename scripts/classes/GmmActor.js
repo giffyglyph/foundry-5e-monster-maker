@@ -16,10 +16,28 @@ const GmmActor = (function () {
 	 * Patch the Foundry Actor5e entity to control how data is prepared based on the active sheet.
 	 */
 	function patchActor5e() {
+		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareBaseData', function (wrapped, ...args) {
+			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
+				wrapped(this);
+				_prepareMonsterBaseData(this);
+			} else {
+				wrapped(this);
+			}
+		}, 'WRAPPER');
+		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareDerivedData', function (wrapped, ...args) {
+			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
+				wrapped(this);
+				_prepareMonsterDerivedData(this);
+				_postProcessData(this);
+			} else {
+				wrapped(this);
+			}
+		}, 'WRAPPER');
+
 		game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData = game.dnd5e.documents.Actor5e.prototype.prepareBaseData;
-		game.dnd5e.documents.Actor5e.prototype.prepareBaseData = _prepareBaseData;
+		//game.dnd5e.documents.Actor5e.prototype.prepareBaseData = _prepareBaseData;
 		game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData = game.dnd5e.documents.Actor5e.prototype.prepareDerivedData;
-		game.dnd5e.documents.Actor5e.prototype.prepareDerivedData = _prepareDerivedData;
+		//game.dnd5e.documents.Actor5e.prototype.prepareDerivedData = _prepareDerivedData;
 		game.dnd5e.documents.Actor5e.prototype.getSheetId = _getActorSheetId;
 	}
 
@@ -27,6 +45,7 @@ const GmmActor = (function () {
 	 * Prepare any data which is actor-specific and does not depend on Items or Active Effects.
 	 * @private
 	 */
+	/*
 	function _prepareBaseData() {
 		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData.call(this);
@@ -34,12 +53,13 @@ const GmmActor = (function () {
 		} else {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eBaseData.call(this);
 		}
-	}
+	}*/
 
 	/**
 	 * Apply final transformations to the current actor after all effects have been applied.
 	 * @private
 	 */
+	/*
 	function _prepareDerivedData() {
 		if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData.call(this);
@@ -47,16 +67,43 @@ const GmmActor = (function () {
 		} else {
 			game.dnd5e.documents.Actor5e.prototype.prepare5eDerivedData.call(this);
 		}
-	}
+	}*/
 
 	/**
-	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
+	 * Prepare any data which is actor-specific and does not depend on Items or Active Effects.
 	 * @param {Object} actor - An Actor5e entity.
 	 * @private
 	 */
 	function _prepareMonsterBaseData(actor) {
+		const actorData = actor.system;
+		const monsterBlueprint = MonsterBlueprint.createFromActor(actor);
+		const monsterArtifact = MonsterForge.createArtifact(monsterBlueprint);
+		const monsterData = monsterArtifact.data;
+		actorData.attributes.ac.calc = "natural";
+		actorData.attributes.ac.flat = monsterData.armor_class.value;
+		actorData.attributes.ac.base = monsterData.armor_class.value;
+		
 	}
-
+	function _postProcessData(actor) {
+		const actorData = actor.system;
+		const monsterBlueprint = actor.flags.gmm.blueprint;
+		const monsterArtifact = actor.flags.gmm.monster;
+		const monsterData = monsterArtifact.data;
+		GMM_5E_SKILLS.forEach((x) => {
+			let monsterSkill = monsterData.skills.find((y) => y.code == x.name);
+			if(monsterSkill)
+				monsterSkill.add(Number(actorData.skills[x.foundry].bonuses.check) ?? 0, "bonus");
+			if (x.name === "perception" && actorData.skills[x.foundry].bonuses.passive)
+				monsterData.passive_perception.add(Number(actorData.skills[x.foundry].bonuses.passive) ?? 0, "passive bonus");
+				
+		});
+		GMM_5E_ABILITIES.forEach((x) => {
+			monsterData.saving_throws[x].add(Number(actorData.abilities[x].bonuses.save) ?? 0, "bonus");
+			//TODO: Deprecated, split in to ability + check mod
+			//monsterData.ability_modifiers[x].setValue(actorData.abilities[x].mod, "bonus");
+		});
+		monsterData.initiative.applyModifier(actorData.attributes.init.bonus, false);
+	}
 	/**
 	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
 	 * @param {Object} actor - An Actor5e entity.
@@ -77,13 +124,17 @@ const GmmActor = (function () {
                 actorData.abilities[x].value = monsterData.ability_modifiers[x].score;
                 actorData.abilities[x].mod = monsterData.ability_modifiers[x].value;
                 actorData.abilities[x].proficient = false;
-                actorData.abilities[x].prof = 0;
-		actorData.abilities[x].saveProf = new Proficiency(0, 1);
-		actorData.abilities[x].checkProf = new Proficiency(0, 1);
-		actorData.abilities[x].bonuses.save = (monsterData.saving_throws[x].value - monsterData.ability_modifiers[x].value);
-                actorData.abilities[x].saveBonus = 0;
-                actorData.abilities[x].checkBonus = 0;
-                actorData.abilities[x].save = monsterData.saving_throws[x].value;
+                //actorData.abilities[x].prof = 0;
+				actorData.abilities[x].saveProf = new Proficiency(monsterBlueprint.data.trained_saves[x].trained ? 2 : 0, 1);
+				actorData.abilities[x].checkProf = new Proficiency(0, 1);
+				//actorData.abilities[x].bonuses.save = (monsterData.saving_throws[x].value - monsterData.ability_modifiers[x].value);
+                //actorData.abilities[x].saveBonus = 0;
+                //actorData.abilities[x].checkBonus = 0;
+				actorData.abilities[x].save = monsterData.saving_throws[x].value;
+				if (monsterBlueprint.data.trained_saves[x].trained) {
+					actorData.abilities[x].saveBonus = monsterData.proficiency_bonus.value;
+					actorData.abilities[x].proficient = true;
+				}
                 actorData.abilities[x].dc = 8 + monsterData.ability_modifiers[x].value;
             });
 
@@ -104,18 +155,23 @@ const GmmActor = (function () {
 			actorData.details.cr = monsterData.challenge_rating.value;
 			actorData.details.xp.value = monsterData.xp.value;
 			actorData.attributes.prof = monsterData.proficiency_bonus.value;
-			actorData.attributes.ac.value = monsterData.armor_class.value;
+			//actorData.attributes.ac.calc = "natural";
+			//actorData.attributes.ac.flat = monsterData.armor_class.value;
+			//actorData.attributes.ac.base = monsterData.armor_class.value;
+			//actorData.attributes.ac.value = monsterData.armor_class.value + actorData.attributes.ac.bonus;
+			monsterData.armor_class.display = actorData.attributes.ac.value;
+
 			if (!monsterData.hit_points.use_formula) {
 				actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
 			}
-			actorData.attributes.hp.formula = monsterData.hit_points.formula ? monsterData.hit_points.formula : '';
 			actorData.attributes.init = {
-				mod: 0,
-				prof: 0,
-            	value: 0,
-            	bonus: monsterData.initiative.value,
-            	total: monsterData.initiative.value
+				prof: new Proficiency(0, 1),
+				ability: monsterData.initiative.ability,
+				mod: monsterData.initiative.value,
+				bonus: actorData.attributes.init.bonus
 			};
+			actorData.attributes.hp.formula = monsterData.hit_points.formula ? monsterData.hit_points.formula : '';
+			
 			actorData.attributes.encumbrance = {
 				value: monsterData.inventory.weight.value,
 				max: monsterData.inventory.capacity.value,

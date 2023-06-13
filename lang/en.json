@@ -500,11 +500,13 @@
   "gmm.modal.info.bugs.title": "Report a Bug",
   "gmm.modal.info.bugs.intro": "If you've <strong>found a bug</strong> or have a <strong>feature request</strong>, please raise an issue on the project tracker.",
   "gmm.modal.info.about.kofi": "Make a Donation",
-  "gmm.modal.info.about.p.1": "Welcome to <strong>Giffyglyph's Monster Maker</strong>! This Foundry module pairs with <a href='{pdf}'>GIFFYGLYPH'S MONSTER MAKER (PDF)</a> to help you build monsters for D&amp;D 5e <i>real fast</i>.",
+  "gmm.modal.info.about.p.1": "Welcome to <strong>Giffyglyph's Monster Maker Continued</strong>, by Skyl3lazer! This Foundry module pairs with <a href='{pdf}'>GIFFYGLYPH'S MONSTER MAKER (PDF)</a> to help you build monsters for D&amp;D 5e <i>real fast</i>.",
   "gmm.modal.info.about.p.2": "If you like this module and want to see it grow, help out by becoming a patron or making a one-time donation.",
   "gmm.modal.info.about.patreon": "Become a Patron",
   "gmm.modal.info.about.support": "Support.",
-  "gmm.modal.info.about.title": "Giffyglyph's Monster Maker",
+  "gmm.modal.info.about.supportsubtitle": "All of these links go to Giffyglyph, the original creator of this system and module.",
+  "gmm.modal.info.about.title": "Giffyglyph's Monster Maker Continued",
+  "gmm.modal.info.about.subtitle": "by Skyl3lazer",
   "gmm.modal.info.modifiers.li.1": "<strong>Relative:</strong> Increase or decrease the automated value by an amount (i.e. av = av +/- x).",
   "gmm.modal.info.modifiers.li.2": "<strong>Absolute:</strong> Replace the automated value with a precise value (i.e. av = x).",
   "gmm.modal.info.modifiers.p.1": "To change an automated value (hit points, armor class, attack bonuses, etc), you can apply a positive or negative <i>modifier</i>.",
@@ -876,5 +878,5 @@
   "gmm.monster.errors.missing_blueprint": "Your configuration data is missing. Please try again.",
   "gmm.monster.errors.missing_monster": "Your monster data is missing. Please check your configuration settings and try again.",
   "gmm.sheet.action.label": "Giffyglyph's 5e Scaling Action",
-  "gmm.sheet.monster.label": "Giffyglyph's 5e Monster Maker"
+  "gmm.sheet.monster.label": "Giffyglyph's 5e Monster Maker Continued"
 }

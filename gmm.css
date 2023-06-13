@@ -2299,12 +2299,15 @@
   border-top: 0.5rem solid var(--color-primary-base);
   color: white;
   text-align: center;
-  padding: 1rem 1rem 3rem;
+  padding: 1rem 0.5rem 3rem;
   text-align: center;
   font-size: 2rem;
   letter-spacing: 0.5px;
   position: relative;
   font-family: "Londrina Solid";
+}
+.gmm-modal .modal__header .modal__subtitle {
+  font-size: 1.3rem;
 }
 .gmm-modal .modal__header .modal__close {
   background: none;

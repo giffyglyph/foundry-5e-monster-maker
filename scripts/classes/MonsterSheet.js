@@ -77,7 +77,6 @@ export default class MonsterSheet extends ActorSheet {
 	getData() {
 		const data = super.getData();
 		const actorData = data.actor.flags;
-
 		data.gmm = {
 			blueprint: actorData.gmm?.blueprint ? actorData.gmm.blueprint.data : null,
 			monster: actorData.gmm?.monster ? actorData.gmm.monster.data : null,
@@ -206,7 +205,7 @@ export default class MonsterSheet extends ActorSheet {
 	_rollItem(event) {
 		const li = event.currentTarget.closest(".item");
 		const item = this.actor.items.get(li.dataset.itemId);
-		return item.roll();
+		return item.use();
 	}
 
 	_editItem(event) {
@@ -228,7 +227,9 @@ export default class MonsterSheet extends ActorSheet {
 			type: type,
 			img: "icons/svg/clockwork.svg",
 			system: duplicate(header.dataset),
-			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
+			flags: {
+				"core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet`
+				}
 		};
 		delete itemData.system["type"];
 		return this.actor.createEmbeddedDocuments("Item", [ itemData]);

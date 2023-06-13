@@ -21,7 +21,8 @@ export const GMM_MONSTER_BLUEPRINT = {
 				value: null,
 				override: false
 			},
-			type: ""
+			type: "",
+			display: null
 		},
 		attack_bonus: {
 			modifier: {
@@ -311,7 +312,7 @@ export const GMM_MONSTER_BLUEPRINT = {
 			items: []
 		},
 		trained_saves: {
-			method: "custom",
+			method: "sync",
 			str: {
 				trained: false,
 				modifier: {

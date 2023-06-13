@@ -71,8 +71,8 @@
                         <div class="block__title" data-action="open-config" data-config="armor-class">{{localize 'gmm.monster.artifact.blocks.armor_class.title'}}</div>
                         <div class="block__contents">
                             <div class="block__content">
-                                <div class="block__value length-{{strlen gmm.monster.armor_class.value}}" title="{{{parseSources gmm.monster.armor_class.sources}}}">
-                                    <i class="fas fa-shield-alt"></i> {{gmm.monster.armor_class.value}}
+                                <div class="block__value length-{{strlen gmm.monster.armor_class.display}}" title="{{{parseSources gmm.monster.armor_class.sources}}}">
+                                    <i class="fas fa-shield-alt"></i> {{gmm.monster.armor_class.display}}
                                 </div>
                                 <div class="block__description">
                                     {{#if gmm.monster.armor_class.type}}
@@ -225,16 +225,18 @@
                             {{/each}}
                         </div>
                         <div class="monster__properties">
-                            {{#if gmm.monster.skills}}
+                            {{#if (modSkillsExist gmm.monster.skills)}}
                             <div class="monster__property property--wide">
                                 <div class="property__icon"><i class="fas fa-lightbulb fa-fw"></i></div>
                                 <div class="property__body">
                                     <div class="property__title" data-action="open-config" data-config="skills">{{localize 'gmm.monster.artifact.attributes.skills'}}</div>
                                     <div class="property__value">
                                         {{#each gmm.monster.skills as | skill |}}
+                                        {{#if skill.value includeZero=false}}
                                         <button class="button--text monster__skill" data-action="open-modal" data-modal="modal_ability_check" data-ability="{{skill.ability}}" data-skill="{{skill.code}}" title="{{{parseSources skill.sources}}}">
                                             {{skill.title}} {{numberFormat skill.value sign=true}}
                                         </button>
+                                        {{/if}}
                                         {{/each}}
                                     </div>
                                 </div>

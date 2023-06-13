@@ -64,6 +64,10 @@ const Templates = (function() {
 			}
 		});
 
+		Handlebars.registerHelper('modSkillsExist', function (skills) {
+			return (skills.find((x) => x.value > 0))
+		});
+
 		Handlebars.registerHelper('getSaveTrain', function (saves, code) {
 			return saves[code].trained;
 		});

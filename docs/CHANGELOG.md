@@ -7,7 +7,14 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
-## v0.6 (dev)
+## v0.7 (dev)
+
+* Fixed an issue with save DCs being null
+* Added libwrapper as a dependency, and implemented it to cover anything that we wrapped already
+* Updated processing for the following items to be affected by DAE and display correctly
+  *  AC, Skills (proficiency and check bonuses), Passive Perception, Saving Throws, Initiative (doesn't display right)
+
+## v0.6
 
 * Fixed damage types
 * Fixed occasional error with blank form fields causing errors

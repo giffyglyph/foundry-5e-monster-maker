@@ -65,7 +65,7 @@ const MonsterForge = (function() {
 				rank: monsterRank,
 				reactions: _parseReactions(derivedAttributes, blueprint.data.reactions, ignoreItemRequirements),
 				role: monsterRole,
-				saving_throws: _parseSavingThrows(blueprint.data.trained_saves, monsterProficiency, monsterAbilityModifiers),
+				saving_throws: _parseSavingThrows(blueprint.data.trained_saves, monsterProficiency, monsterAbilityModifiers, derivedAttributes.trainedSavingThrowCount),
 				senses: _parseSenses(blueprint.data.senses),
 				skills: monsterSkills,
 				speeds: _parseSpeeds(blueprint.data.speeds, derivedAttributes.role),
@@ -251,14 +251,22 @@ const MonsterForge = (function() {
 		return ams;
 	}
 
-	function _parseSavingThrows(savingThrows, pb, abilityModifiers) {
+	function _parseSavingThrows(savingThrows, pb, abilityModifiers, tst) {
 		const sts = {};
+		let abilityRankings = Object.entries(abilityModifiers).sort((x, y) => y[1].value - x[1].value).map((x) => x[0]);
 		GMM_5E_ABILITIES.forEach(function (attrName) {
 			if (savingThrows[attrName]) {
 				sts[attrName] = new DerivedAttribute();
 				sts[attrName].value = 0;
-				if (savingThrows[attrName].trained) {
+				if (savingThrows.method === "custom" && savingThrows[attrName].trained) {
 					sts[attrName].applyModifier(pb.value, savingThrows[attrName].modifier.override);
+				} else if(savingThrows.method === "sync"){
+					if (abilityRankings.slice(0, tst).includes(attrName)) {
+						savingThrows[attrName].trained = true;
+						sts[attrName].applyModifier(pb.value, savingThrows[attrName].modifier.override);
+					} else {
+						savingThrows[attrName].trained = false;
+					}
 				}
 				sts[attrName].applyModifier(abilityModifiers[attrName].value, savingThrows[attrName].modifier.override);
 				if (savingThrows[attrName].modifier.value) {
@@ -286,21 +294,21 @@ const MonsterForge = (function() {
 			if (monsterSkills[defaultSkill.name]) {
 				let proficiencyModifier = 0;
 				let proficiencyType = "";
-					switch (monsterSkills[defaultSkill.name]) {
-						case "half-proficient":
-							proficiencyModifier = Math.floor(proficiencyBonus / 2);
-							proficiencyType = game.i18n.format('gmm.common.derived_source.half_proficiency');
-							break;
-						case "proficient":
-							proficiencyModifier = proficiencyBonus;
-							proficiencyType = game.i18n.format('gmm.common.derived_source.proficiency');
-							break;
-						case "expert":
-							proficiencyModifier = proficiencyBonus * 2;
-							proficiencyType = game.i18n.format('gmm.common.derived_source.expertise');
-							break;
-					}
-				
+				switch (monsterSkills[defaultSkill.name]) {
+					case "half-proficient":
+						proficiencyModifier = Math.floor(proficiencyBonus / 2);
+						proficiencyType = game.i18n.format('gmm.common.derived_source.half_proficiency');
+						break;
+					case "proficient":
+						proficiencyModifier = proficiencyBonus;
+						proficiencyType = game.i18n.format('gmm.common.derived_source.proficiency');
+						break;
+					case "expert":
+						proficiencyModifier = proficiencyBonus * 2;
+						proficiencyType = game.i18n.format('gmm.common.derived_source.expertise');
+						break;
+				}
+
 
 
 				const skill = new DerivedAttribute();
@@ -318,6 +326,13 @@ const MonsterForge = (function() {
 				const skill = new DerivedAttribute();
 				skill.add(proficiencyModifier, proficiencyType);
 
+				skills.push($.extend(skill, {
+					code: defaultSkill.name,
+					ability: defaultSkill.ability,
+					title: game.i18n.format(`gmm.common.skill.${defaultSkill.name}`)
+				}));
+			} else {
+				const skill = new DerivedAttribute();
 				skills.push($.extend(skill, {
 					code: defaultSkill.name,
 					ability: defaultSkill.ability,
@@ -393,11 +408,9 @@ const MonsterForge = (function() {
 		percep.add(basePerc, game.i18n.format('gmm.common.derived_source.base'));
 
 		if (skills.find((x) => x.code == "perception")) {
-			const skillPerc = skills.find((x) => x.code == "perception").getValue();
-			percep.add(skillPerc, game.i18n.format('gmm.common.derived_source.perception'));
-		} else {
-			const wisPerc = abilityModifiers["wis"].getValue();
-			percep.add(wisPerc, game.i18n.format('gmm.common.derived_source.ability_modifier'));
+			const abilityPerc = skills.find((x) => x.code == "perception").ability;
+			const statBonus = abilityModifiers[abilityPerc].getValue();
+			percep.add(statBonus, game.i18n.format('gmm.common.derived_source.ability_modifier'));
 		}
 		
 		percep.applyModifier(passivePerception.modifier.value, passivePerception.modifier.override);

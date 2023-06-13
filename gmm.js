@@ -55,6 +55,12 @@ Hooks.once("init", function() {
 	console.log(`Giffyglyph's 5e Monster Maker Continued | Initialised`);
 });
 
+
+Hooks.once('ready', () => {
+	if (!game.modules.get('lib-wrapper')?.active && game.user.isGM)
+		ui.notifications.error("Module Giffyglyph's Monster Maker Continued requires the 'libWrapper' module. Please install and activate it.");
+});
+
 async function _hookActorDirectory(html) {
     let section = document.createElement("div");
     section.classList.add("header-actions", "action-buttons", "flexrow", "giffyglyph");

@@ -584,7 +584,7 @@
                             <div class="form-group">
                                 <div class="form-group__body">
                                     <div class="html-field">
-                                        {{editor content=gmm.blueprint.biography.text target='gmm.blueprint.biography.text' button=true owner=owner editable=editable}}
+                                        {{editor gmm.blueprint.biography.text target='gmm.blueprint.biography.text' button=true owner=owner editable=editable}}
                                     </div>
                                 </div>
                             </div>
@@ -1400,15 +1400,15 @@
                                     <span class="form-group__title">{{localize 'gmm.monster.blueprint.saving_throws.method.title'}}</span>
                                 </div>
                                 <div class="form-group__body">
-                                    <select name="gmm.blueprint.saving_throws.method">
-                                        {{#select gmm.blueprint.saving_throws.method}}
+                                    <select name="gmm.blueprint.trained_saves.method">
+                                        {{#select gmm.blueprint.trained_saves.method}}
                                         <option value="sync">{{localize 'gmm.monster.blueprint.saving_throws.method.sync'}}</option>
-                                        <option value="ranking">{{localize 'gmm.monster.blueprint.saving_throws.method.custom'}}</option>
+                                        <option value="custom">{{localize 'gmm.monster.blueprint.saving_throws.method.custom'}}</option>
                                         {{/select}}
                                     </select>
                                 </div>
                             </div>
-                            {{#if (eq gmm.blueprint.saving_throws.method 'ranking')}}
+                            {{#if (eq gmm.blueprint.trained_saves.method 'custom')}}
                             <div class="form-group">
                                 <div class="form-group__header">
                                     <div class="form-group__title">{{localize 'gmm.monster.blueprint.is_trained'}}</div>
