@@ -82,6 +82,7 @@ const GmmActor = (function () {
 		actorData.attributes.ac.calc = "natural";
 		actorData.attributes.ac.flat = monsterData.armor_class.value;
 		actorData.attributes.ac.base = monsterData.armor_class.value;
+		
 	}
 	function _postProcessData(actor) {
 		const actorData = actor.system;
@@ -101,6 +102,7 @@ const GmmActor = (function () {
 			//TODO: Deprecated, split in to ability + check mod
 			//monsterData.ability_modifiers[x].setValue(actorData.abilities[x].mod, "bonus");
 		});
+		monsterData.initiative.applyModifier(actorData.attributes.init.bonus, false);
 	}
 	/**
 	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
@@ -162,14 +164,14 @@ const GmmActor = (function () {
 			if (!monsterData.hit_points.use_formula) {
 				actorData.attributes.hp.max = monsterData.hit_points.maximum.value;
 			}
-			actorData.attributes.hp.formula = monsterData.hit_points.formula ? monsterData.hit_points.formula : '';
 			actorData.attributes.init = {
-				mod: 0,
-				prof: 0,
-            	value: 0,
-            	bonus: monsterData.initiative.value,
-            	total: monsterData.initiative.value
+				prof: new Proficiency(0, 1),
+				ability: monsterData.initiative.ability,
+				mod: monsterData.initiative.value,
+				bonus: actorData.attributes.init.bonus
 			};
+			actorData.attributes.hp.formula = monsterData.hit_points.formula ? monsterData.hit_points.formula : '';
+			
 			actorData.attributes.encumbrance = {
 				value: monsterData.inventory.weight.value,
 				max: monsterData.inventory.capacity.value,

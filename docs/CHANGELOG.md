@@ -12,7 +12,7 @@
 * Fixed an issue with save DCs being null
 * Added libwrapper as a dependency, and implemented it to cover anything that we wrapped already
 * Updated processing for the following items to be affected by DAE and display correctly
-  *  AC, Skills (proficiency and check bonuses), Passive Perception, Saving Throws
+  *  AC, Skills (proficiency and check bonuses), Passive Perception, Saving Throws, Initiative (doesn't display right)
 
 ## v0.6
 

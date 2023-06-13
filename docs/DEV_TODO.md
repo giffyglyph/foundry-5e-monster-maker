@@ -3,6 +3,7 @@
 ## Visual
 
 * Should proficiency show still under Attributes?
+* Initiative doesn't display right if affected by a DAE
 
 ## Data Entry
 
