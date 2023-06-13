@@ -3,7 +3,6 @@
 ## Visual
 
 * Should proficiency show still under Attributes?
-* Deprecation: Handlebars editor content
 
 ## Data Entry
 
