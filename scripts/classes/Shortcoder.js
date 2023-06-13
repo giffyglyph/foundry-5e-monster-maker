@@ -48,7 +48,7 @@ const Shortcoder = (function() {
 
 	function replaceShortcodesAndAddDamageType(text, monsterData, damageType){
 		let replaceText = replaceShortcodes(text, monsterData);
-		return replaceText.replace(/(\d[^\+\- ]*)[\+\- ]?/g, (token) => token.trim() + damageType ? `[${damageType}]` : "");
+		return replaceText.replace(/(\d[^\+\- ]*)[\+\- ]?/g, (token) => token.trim() + (damageType ? `[${damageType}]` : ""));
 	}
 
 
