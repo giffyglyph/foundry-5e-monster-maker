@@ -97,7 +97,7 @@ const GmmActor = (function () {
 				
 		});
 		GMM_5E_ABILITIES.forEach((x) => {
-			monsterData.saving_throws[x].add(actorData.abilities[x].saveBonus, "bonus");
+			monsterData.saving_throws[x].add(Number(actorData.abilities[x].bonuses.save) ?? 0, "bonus");
 			//TODO: Deprecated, split in to ability + check mod
 			//monsterData.ability_modifiers[x].setValue(actorData.abilities[x].mod, "bonus");
 		});
@@ -123,12 +123,16 @@ const GmmActor = (function () {
                 actorData.abilities[x].mod = monsterData.ability_modifiers[x].value;
                 actorData.abilities[x].proficient = false;
                 //actorData.abilities[x].prof = 0;
-				actorData.abilities[x].saveProf = new Proficiency(0, 1);
+				actorData.abilities[x].saveProf = new Proficiency(monsterBlueprint.data.trained_saves[x].trained ? 2 : 0, 1);
 				actorData.abilities[x].checkProf = new Proficiency(0, 1);
 				//actorData.abilities[x].bonuses.save = (monsterData.saving_throws[x].value - monsterData.ability_modifiers[x].value);
                 //actorData.abilities[x].saveBonus = 0;
                 //actorData.abilities[x].checkBonus = 0;
-                actorData.abilities[x].save = monsterData.saving_throws[x].value;
+				actorData.abilities[x].save = monsterData.saving_throws[x].value;
+				if (monsterBlueprint.data.trained_saves[x].trained) {
+					actorData.abilities[x].saveBonus = monsterData.proficiency_bonus.value;
+					actorData.abilities[x].proficient = true;
+				}
                 actorData.abilities[x].dc = 8 + monsterData.ability_modifiers[x].value;
             });
 
