@@ -26,9 +26,9 @@ const GmmActor = (function () {
 		}, 'WRAPPER');
 		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareDerivedData', function (wrapped, ...args) {
 			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
-				_preProcessAC(this);
 				wrapped(this);
 				_prepareMonsterDerivedData(this);
+				_postProcessData(this);
 			} else {
 				wrapped(this);
 			}
@@ -70,13 +70,11 @@ const GmmActor = (function () {
 	}*/
 
 	/**
-	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
+	 * Prepare any data which is actor-specific and does not depend on Items or Active Effects.
 	 * @param {Object} actor - An Actor5e entity.
 	 * @private
 	 */
 	function _prepareMonsterBaseData(actor) {
-	}
-	function _preProcessAC(actor) {
 		const actorData = actor.system;
 		const monsterBlueprint = MonsterBlueprint.createFromActor(actor);
 		const monsterArtifact = MonsterForge.createArtifact(monsterBlueprint);
@@ -84,7 +82,25 @@ const GmmActor = (function () {
 		actorData.attributes.ac.calc = "natural";
 		actorData.attributes.ac.flat = monsterData.armor_class.value;
 		actorData.attributes.ac.base = monsterData.armor_class.value;
-		//actorData.attributes.ac.value = monsterData.armor_class.value + actorData.attributes.ac.bonus;
+	}
+	function _postProcessData(actor) {
+		const actorData = actor.system;
+		const monsterBlueprint = actor.flags.gmm.blueprint;
+		const monsterArtifact = actor.flags.gmm.monster;
+		const monsterData = monsterArtifact.data;
+		GMM_5E_SKILLS.forEach((x) => {
+			let monsterSkill = monsterData.skills.find((y) => y.code == x.name);
+			if(monsterSkill)
+				monsterSkill.add(Number(actorData.skills[x.foundry].bonuses.check) ?? 0, "bonus");
+			if (x.name === "perception" && actorData.skills[x.foundry].bonuses.passive)
+				monsterData.passive_perception.add(Number(actorData.skills[x.foundry].bonuses.passive) ?? 0, "passive bonus");
+				
+		});
+		GMM_5E_ABILITIES.forEach((x) => {
+			monsterData.saving_throws[x].add(actorData.abilities[x].saveBonus, "bonus");
+			//TODO: Deprecated, split in to ability + check mod
+			//monsterData.ability_modifiers[x].setValue(actorData.abilities[x].mod, "bonus");
+		});
 	}
 	/**
 	 * Prepare any derived data which is actor-specific and does not depend on Items or Active Effects.
@@ -106,12 +122,12 @@ const GmmActor = (function () {
                 actorData.abilities[x].value = monsterData.ability_modifiers[x].score;
                 actorData.abilities[x].mod = monsterData.ability_modifiers[x].value;
                 actorData.abilities[x].proficient = false;
-                actorData.abilities[x].prof = 0;
-		actorData.abilities[x].saveProf = new Proficiency(0, 1);
-		actorData.abilities[x].checkProf = new Proficiency(0, 1);
-		actorData.abilities[x].bonuses.save = (monsterData.saving_throws[x].value - monsterData.ability_modifiers[x].value);
-                actorData.abilities[x].saveBonus = 0;
-                actorData.abilities[x].checkBonus = 0;
+                //actorData.abilities[x].prof = 0;
+				actorData.abilities[x].saveProf = new Proficiency(0, 1);
+				actorData.abilities[x].checkProf = new Proficiency(0, 1);
+				//actorData.abilities[x].bonuses.save = (monsterData.saving_throws[x].value - monsterData.ability_modifiers[x].value);
+                //actorData.abilities[x].saveBonus = 0;
+                //actorData.abilities[x].checkBonus = 0;
                 actorData.abilities[x].save = monsterData.saving_throws[x].value;
                 actorData.abilities[x].dc = 8 + monsterData.ability_modifiers[x].value;
             });

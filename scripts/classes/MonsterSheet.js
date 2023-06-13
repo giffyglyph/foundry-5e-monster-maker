@@ -77,7 +77,6 @@ export default class MonsterSheet extends ActorSheet {
 	getData() {
 		const data = super.getData();
 		const actorData = data.actor.flags;
-
 		data.gmm = {
 			blueprint: actorData.gmm?.blueprint ? actorData.gmm.blueprint.data : null,
 			monster: actorData.gmm?.monster ? actorData.gmm.monster.data : null,

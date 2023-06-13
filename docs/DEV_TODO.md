@@ -18,6 +18,7 @@
 * Remove unused localization entries referring to deprecated data
 * Rename localization entries based on new uses
 * Consolidate duplicate attack_bonus + proficiency modifiers
+* Deprecation: Update ability_modifiers to have ability + check
 
 ## Known Bugs
 
