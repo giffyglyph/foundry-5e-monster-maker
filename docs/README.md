@@ -78,7 +78,11 @@ You can install multiple branches side-by-side, but you must activate only **one
 
 ## Roadmap
 
-Currently this release can handle V2 on the updated Foundry platform, V3 is a work in progress.
+Currently this release can handle GGMMv3 functions as a standalone module, with some basic integrations working through other modules (MidiQOL, DAE)
+
+## Thank Yous!
+
+Big shoutout to **@krigsmaskine** on Discord for assistance with the [tsponey](https://github.com/tposney) modules and general testing
 
 ## Bugs and Feature Suggestions
 
