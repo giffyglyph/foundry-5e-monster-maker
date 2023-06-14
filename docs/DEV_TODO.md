@@ -5,6 +5,10 @@
 * Should proficiency show still under Attributes?
 * Initiative doesn't display right if affected by a DAE
 
+## Module Ecosystem
+
+* Custom DAE hooks for scalar stats
+
 ## Data Entry
 
 * Ability Modifiers should be high/medium/low rather than ranking, or at least display that way
@@ -27,5 +31,4 @@
 
 ## Testing Stuff
 
-* MidiQOL / LMRTFY checks
-* libwrapper functionality + any issues we find from that
+
