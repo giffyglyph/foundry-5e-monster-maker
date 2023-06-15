@@ -54,7 +54,9 @@ You can install this Foundry module by copying a manifest URL into your Foundry 
 
 You can install multiple branches side-by-side, but you must activate only **one branch at a time**.
 
+## Incompatibilities / Differences
 
+* RSR's "Quick Rolls for Items" feature doesn't like shortcodes
 
 ## Getting Started
 

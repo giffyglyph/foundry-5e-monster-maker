@@ -67,6 +67,15 @@ const GmmItem = (function () {
                 });
             }
         }, 'MIXED');
+        libWrapper.register('giffyglyph-monster-maker-continued', 'CONFIG.Item.documentClass.prototype.use', function (wrapped, ...args) {
+            if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
+                const gmmMonster = this.getOwningGmmMonster();
+                this.system.damage.parts = this.system.damage.parts.map((x) =>
+                    (gmmMonster) ? Shortcoder.replaceShortcodesAndAddDamageTypeDamageObject(x[0], gmmMonster, x[1]) : x[0]
+                );
+            }
+            wrapped(...args);
+        }, 'WRAPPER');
         libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Item5e.prototype.rollFormula', function (wrapped, ...args) {
             if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
                 return _rollActionDamage({
