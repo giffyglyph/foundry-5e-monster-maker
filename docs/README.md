@@ -56,7 +56,7 @@ You can install multiple branches side-by-side, but you must activate only **one
 
 ## Incompatibilities / Differences
 
-* RSR's "Quick Rolls for Items" feature doesn't like shortcodes
+* Some modules may have limited functionality with shortcodes in various fields. If you attempt to roll something and it doesn't roll, please submit an issue with your modlist.
 
 ## Getting Started
 
