@@ -11,6 +11,8 @@
 
 * Added a shortcoder to CONFIG.Item.documentClass.prototype.use to make the damage on the item get shortcoded in at use-time
   * This should make shortcodes integrate better to other mods like RSR
+* Fix for non-gmm shortcodes in descriptions breaking
+* Updated some missing strings
 
 ## v0.7
 

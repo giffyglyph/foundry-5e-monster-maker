@@ -27,7 +27,7 @@
 
 ## Known Bugs
 
-* Skins don't seem to work
+
 
 ## Testing Stuff
 
