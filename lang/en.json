@@ -110,6 +110,7 @@
   "gmm.action.labels.target.creature.all": "all creatures",
   "gmm.action.labels.target.cube": "{size} cube",
   "gmm.action.labels.target.cylinder": "{size} cylinder",
+  "gmm.action.labels.target.enemy.all": "all enemies",
   "gmm.action.labels.target.enemy.multiple": "{quantity} enemies",
   "gmm.action.labels.target.enemy.single": "1 enemy",
   "gmm.action.labels.target.line": "{area} line",
