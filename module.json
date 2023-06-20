@@ -20,14 +20,14 @@
 		}
 
 	],
-	"version": "0.8.1",
-	"manifestPlusVersion": "0.8.1",
+	"version": "0.8.2",
+	"manifestPlusVersion": "0.8.2",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "10"
 	},
 	"esmodules": [ "gmm.js" ],
-	"scripts": [ "scripts/vendors/math_js.9.3.2.min.js" ],
+	"scripts": [ "scripts/vendors/math.min.js" ],
 	"styles": [ "gmm.css" ],
 	"systems": [ "dnd5e" ],
 	"packs": [
