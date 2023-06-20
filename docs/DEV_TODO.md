@@ -4,6 +4,7 @@
 
 * Should proficiency show still under Attributes?
 * Initiative doesn't display right if affected by a DAE
+* Some of the wording of targeting is incorrect now with the field changes. Specifically "enemies within 5 feet", that sort of thing.
 
 ## Module Ecosystem
 
