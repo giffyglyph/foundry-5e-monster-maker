@@ -38,7 +38,9 @@ const Shortcoder = (function() {
 				}
 			});
 			try {
-				token = token.replace(/\[(.*?)(, *?d(\d+))?\]/g, (token, t1, t2, t3) => _numberToRandom(token, t1, t3));
+				try {
+					token = token.replace(/\[(.*?)(, *?d(\d+))?\]/g, (token, t1, t2, t3) => _numberToRandom(token, t1, t3));
+				} catch (err) { }
 			} catch (e) {
 				console.error(e);
 			}
