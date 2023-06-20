@@ -430,7 +430,7 @@ const GmmItem = (function () {
         const itemData = item.system;
 
         if (["save", "other"].includes(itemData.actionType) && itemData.save?.ability) {
-            let dc = (itemData.actionType == "save") ? "[dcPrimaryBonus]" : "";
+            let dc = "[dcPrimaryBonus]";
             if (itemData.attackBonus) {
                 dc += ` + ${itemData.attackBonus}`;
             }
