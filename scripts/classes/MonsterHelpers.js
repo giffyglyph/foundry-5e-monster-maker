@@ -22,7 +22,7 @@ const MonsterHelpers = (function () {
             attackBonus: _getMonsterAttackBonus(proficiencyBonus),
             attackDcs: _getMonsterAttackDcs(proficiencyBonus, abilityModifiers, rank, role),
             damagePerAction: _getMonsterDamagePerAction(clampedLevel, rank, role),
-            abilityModifiers: _getMonsterAbilityModifiers(abilityModifiers),
+            abilityModifiers: _getMonsterAbilityModifiers(abilityModifiers, rank),
             trainedSavingThrowCount: trainedSavingThrowCount,
             xp: monsterXp,
             challengeRating: _getMonsterChallengeRating(monsterXp.value)
@@ -142,10 +142,11 @@ const MonsterHelpers = (function () {
         return damage;
     }
 
-    function _getMonsterAbilityModifiers(abilityModifiers) {
+    function _getMonsterAbilityModifiers(abilityModifiers, rank) {
         return abilityModifiers.map((x) => {
             const am = new DerivedAttribute();
             am.setValue(x, game.i18n.format('gmm.common.derived_source.base'));
+            am.add(rank.modifiers.ability_bonus, game.i18n.format('gmm.common.derived_source.rank'));
             return am;
         });
     }
