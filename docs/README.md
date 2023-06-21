@@ -9,7 +9,7 @@
 
 
 This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x.
-(Also check out my [v3 updated Webapp!](https://giffyglyphmonstermakerv3.azurewebsites.net/)
+(Also check out my [v3 updated Webapp!](https://giffyglyphmonstermakerv3.azurewebsites.net/))
 
 **As of version 0.7.x**, I feel the module is in a good place to say you can start using it in live games. There will still be bugfixes obviously, but all of the basic features and integrations with Foundry v10 and dnd2.2.x are working.
 
@@ -54,7 +54,9 @@ You can install this Foundry module by copying a manifest URL into your Foundry 
 
 You can install multiple branches side-by-side, but you must activate only **one branch at a time**.
 
+## Incompatibilities / Differences
 
+* Some modules may have limited functionality with shortcodes in various fields. If you attempt to roll something and it doesn't roll, please submit an issue with your modlist.
 
 ## Getting Started
 

@@ -51,6 +51,11 @@ const Shortcoder = (function() {
 		return replaceText.replace(/(\d[^\+\- ]*)[\+\- ]?/g, (token) => token.trim() + (damageType ? `[${damageType}]` : ""));
 	}
 
+	function replaceShortcodesAndAddDamageTypeDamageObject(text, monsterData, damageType) {
+		let replaceText = replaceShortcodes(text, monsterData);
+		return [ replaceText, damageType ];
+	}
+
 
 	function _numberToRandom(token, value, die) {
 		try {
@@ -69,14 +74,16 @@ const Shortcoder = (function() {
 				return valueMath;
 			}
 		} catch (e) {
-			console.error(e);
+			if (!e.message.startsWith("Undefined symbol"))
+				console.error(e);
 			return token;
 		}
 	}
 
 	return {
 		replaceShortcodes: replaceShortcodes,
-		replaceShortcodesAndAddDamageType : replaceShortcodesAndAddDamageType
+		replaceShortcodesAndAddDamageType: replaceShortcodesAndAddDamageType,
+		replaceShortcodesAndAddDamageTypeDamageObject: replaceShortcodesAndAddDamageTypeDamageObject
 	};
 })();
 

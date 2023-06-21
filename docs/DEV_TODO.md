@@ -4,6 +4,11 @@
 
 * Should proficiency show still under Attributes?
 * Initiative doesn't display right if affected by a DAE
+* Some of the wording of targeting is incorrect now with the field changes. Specifically "enemies within 5 feet", that sort of thing.
+
+## Module Ecosystem
+
+* Custom DAE hooks for scalar stats
 
 ## Data Entry
 
@@ -23,9 +28,8 @@
 
 ## Known Bugs
 
-* Skins don't seem to work
+
 
 ## Testing Stuff
 
-* MidiQOL / LMRTFY checks
-* libwrapper functionality + any issues we find from that
+
