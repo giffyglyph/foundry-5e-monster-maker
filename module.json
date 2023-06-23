@@ -35,14 +35,14 @@
 			"name": "gmm-monster-powers",
 			"label": "GMM Monster Powers",
 			"path": "./packs/monster-powers.db",
-			"entity": "Item",
+			"type": "Item",
 			"system": "dnd5e"
 		},
 		{
 			"name": "gmm-monster-attacks",
 			"label": "GMM Monster Attacks",
 			"path": "./packs/monster-attacks.db",
-			"entity": "Item",
+			"type": "Item",
 			"system": "dnd5e"
 		}
 	],

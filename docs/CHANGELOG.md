@@ -10,7 +10,8 @@
 ## v0.9 (dev)
 
 * Fixed ability_bonus on rank not affecting creatures
-* Fixed some issue with libwrapper hooks doing unintended things to non GMM monsters
+* Fixed some issue with libwrapper hooks doing unintended things to non GMM monsters (specifically item rolls)
+* Updated pack deprecations. Note they still aren't all v3 abilities.
 
 ## v0.8
 
