@@ -18,19 +18,19 @@ const GmmActor = (function () {
 	function patchActor5e() {
 		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareBaseData', function (wrapped, ...args) {
 			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
-				wrapped(this);
+				wrapped(...args);
 				_prepareMonsterBaseData(this);
 			} else {
-				wrapped(this);
+				wrapped(...args);
 			}
 		}, 'WRAPPER');
 		libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Actor5e.prototype.prepareDerivedData', function (wrapped, ...args) {
 			if (this.type == "npc" && this.getSheetId() == `${GMM_MODULE_TITLE}.MonsterSheet`) {
-				wrapped(this);
+				wrapped(...args);
 				_prepareMonsterDerivedData(this);
 				_postProcessData(this);
 			} else {
-				wrapped(this);
+				wrapped(...args);
 			}
 		}, 'WRAPPER');
 
