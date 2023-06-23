@@ -10,6 +10,7 @@
 ## v0.9 (dev)
 
 * Fixed ability_bonus on rank not affecting creatures
+* Fixed some issue with libwrapper hooks doing unintended things to non GMM monsters
 
 ## v0.8
 
