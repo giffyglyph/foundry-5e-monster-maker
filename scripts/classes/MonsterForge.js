@@ -488,6 +488,14 @@ const MonsterForge = (function() {
 	}
 
 	function _parseParagonDefenses(rank, paragonDefenses, showLegendaryActions, level) {
+		//Retrofit for earlier bug
+		if (paragonDefenses.maximum === null)
+			paragonDefenses.maximum = {
+					modifier: {
+						value: 0,
+						override: false
+					}
+			};
 		let mx = new DerivedAttribute();
 		let maximum = rank.modifiers.paragon_defenses;
 		if (rank.modifiers.scale_with_players) {
