@@ -7,7 +7,9 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
-## v0.9 (dev)
+## v0.10 (dev)
+
+## v0.9
 
 * Fixed ability_bonus on rank not affecting creatures
 * Fixed some issue with libwrapper hooks doing unintended things to non GMM monsters (specifically item rolls)
