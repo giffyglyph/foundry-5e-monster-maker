@@ -36,7 +36,7 @@ const GmmItem = (function () {
             if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
                 return _getActionAttackToHit(this);
             } else {
-                return wrapped(this);
+                return wrapped(...args);
             }
         }, 'MIXED');
 
@@ -44,7 +44,7 @@ const GmmItem = (function () {
             if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
                 return _getActionSaveDC(this);
             } else {
-                return wrapped(this);
+                return wrapped(...args);
             }
         }, 'MIXED');
         libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Item5e.prototype.rollDamage', function (wrapped, ...args) {
@@ -58,13 +58,7 @@ const GmmItem = (function () {
                     options: args[0]?.options ?? {}
                 });
             } else {
-                return wrapped(this, {
-                    critical: args[0]?.critical ?? false,
-                    event: args[0]?.event ?? null,
-                    spellLevel: args[0]?.spellLevel ?? null,
-                    versatile: args[0]?.versatile ?? false,
-                    options: args[0]?.options ?? {}
-                });
+                return wrapped(...args);
             }
         }, 'MIXED');
         libWrapper.register('giffyglyph-monster-maker-continued', 'CONFIG.Item.documentClass.prototype.use', function (wrapped, ...args) {
@@ -87,9 +81,7 @@ const GmmItem = (function () {
                     options: {}
                 });
             } else {
-                return wrapped(this, {
-                    spellLevel: args[0]?.spellLevel ?? null
-                });
+                return wrapped(...args);
             }
         }, 'MIXED');
 

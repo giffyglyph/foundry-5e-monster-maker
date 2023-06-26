@@ -7,7 +7,15 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
-## v0.8 (dev)
+## v0.9 (dev)
+
+* Fixed ability_bonus on rank not affecting creatures
+* Fixed some issue with libwrapper hooks doing unintended things to non GMM monsters (specifically item rolls)
+* Updated pack deprecations. Note they still aren't all v3 abilities.
+* Added missing strings
+* Fixed paragon defenses reporting as action amount
+
+## v0.8
 
 * Added a shortcoder to CONFIG.Item.documentClass.prototype.use to make the damage on the item get shortcoded in at use-time
   * This should make shortcodes integrate better to other mods like RSR

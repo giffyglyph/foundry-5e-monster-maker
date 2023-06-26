@@ -20,8 +20,8 @@
 		}
 
 	],
-	"version": "0.8.2",
-	"manifestPlusVersion": "0.8.2",
+	"version": "0.9.2",
+	"manifestPlusVersion": "0.9.2",
 	"compatibility": {
 		"minimum": "10",
 		"verified": "10"
@@ -35,14 +35,14 @@
 			"name": "gmm-monster-powers",
 			"label": "GMM Monster Powers",
 			"path": "./packs/monster-powers.db",
-			"entity": "Item",
+			"type": "Item",
 			"system": "dnd5e"
 		},
 		{
 			"name": "gmm-monster-attacks",
 			"label": "GMM Monster Attacks",
 			"path": "./packs/monster-attacks.db",
-			"entity": "Item",
+			"type": "Item",
 			"system": "dnd5e"
 		}
 	],
