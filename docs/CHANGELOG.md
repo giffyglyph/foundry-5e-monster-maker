@@ -12,6 +12,8 @@
 * Fixed ability_bonus on rank not affecting creatures
 * Fixed some issue with libwrapper hooks doing unintended things to non GMM monsters (specifically item rolls)
 * Updated pack deprecations. Note they still aren't all v3 abilities.
+* Added missing strings
+* Fixed paragon defenses reporting as action amount
 
 ## v0.8
 

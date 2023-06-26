@@ -58,7 +58,7 @@ const MonsterForge = (function() {
 				level: _parseLevel(derivedAttributes.level),
 				name: _parseName(blueprint.data.description.name),
 				paragon_actions: _parseParagonActions(derivedAttributes.rank, blueprint.data.paragon_actions, showLegendaryActions),
-				paragon_defenses: _parseParagonDefenses(derivedAttributes.rank, blueprint.data.paragon_actions, showLegendaryActions, derivedAttributes.level),
+				paragon_defenses: _parseParagonDefenses(derivedAttributes.rank, blueprint.data.paragon_defenses, showLegendaryActions, derivedAttributes.level),
 				passive_perception: _parsePassivePerception(monsterSkills, monsterAbilityModifiers, derivedAttributes.rank, derivedAttributes.role, blueprint.data.passive_perception),
 				phase: _parsePhase(derivedAttributes.rank),
 				proficiency_bonus: monsterProficiency,
