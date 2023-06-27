@@ -68,7 +68,7 @@ const GmmItem = (function () {
                     (gmmMonster) ? Shortcoder.replaceShortcodesAndAddDamageTypeDamageObject(x[0], gmmMonster, x[1]) : x[0]
                 );
             }
-            wrapped(...args);
+            return wrapped(...args);
         }, 'WRAPPER');
         libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Item5e.prototype.rollFormula', function (wrapped, ...args) {
             if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
