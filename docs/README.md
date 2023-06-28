@@ -6,6 +6,8 @@
 [![Support Giffy on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dgiffyglyph%26type%3Dpatrons&style=flat-square)](https://patreon.com/giffyglyph)
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
+![Latest Release Download Count](https://img.shields.io/github/downloads/Skyl3lazer/giffyglyph-monster-maker-continued/archive/refs/heads/master.zip)
+![All Downloads](https://img.shields.io/github/downloads/Skyl3lazer/giffyglyph-monster-maker-continued/total)
 
 
 This is a continuation of the original module by Giffyglyph, with the goal of updating it to Foundry v10 and D&D 2.2.x.
