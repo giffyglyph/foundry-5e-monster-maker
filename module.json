@@ -20,11 +20,11 @@
 		}
 
 	],
-	"version": "0.10.0.1",
-	"manifestPlusVersion": "0.10.0.1",
+	"version": "0.10.0.2",
+	"manifestPlusVersion": "0.10.0.2",
 	"compatibility": {
-		"minimum": "10",
-		"verified": "10"
+		"minimum": "10.291",
+		"verified": "11.304"
 	},
 	"esmodules": [ "gmm.js" ],
 	"scripts": [ "scripts/vendors/math.min.js" ],
@@ -72,7 +72,7 @@
 				"type": "module",
 				"compatibility": {
 					"minimum": "1.0.0.0",
-					"verified": "1.12.6.0"
+					"verified": "1.12.12.1"
 				}
 			}
 		]
