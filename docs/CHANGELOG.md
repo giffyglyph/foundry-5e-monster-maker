@@ -10,6 +10,7 @@
 ## v0.10 (dev)
 
 * Fixed a small libwrapper issue that affected non-gmm item usage for some automations.
+* Testing/confirming v11 compatability
 
 ## v0.9
 
