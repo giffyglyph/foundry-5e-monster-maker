@@ -158,7 +158,6 @@ export default class Gui {
 
 		let checkedChecks = document.querySelectorAll(".tstCheckbox:checked");
 		let tst = event.currentTarget.closest("#monster__tst_count");
-		console.log(Number(tst.getAttribute("name")) + 1);
 		if (checkedChecks.length >= Number(tst.getAttribute("name")) + 1)
 			event.preventDefault();
 	}

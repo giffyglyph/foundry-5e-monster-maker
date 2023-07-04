@@ -7,9 +7,13 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
+## v0.10 (latest)
+
+* Testing/confirming v11 compatability
+
 ## v0.9.3
 
-* Fixed a small bug with libwrapper that was affecting midi.
+* Fixed a small libwrapper issue that affected non-gmm item usage for some automations.
 
 ## v0.9
 
