@@ -20,8 +20,8 @@
 		}
 
 	],
-	"version": "0.10.0.2",
-	"manifestPlusVersion": "0.10.0.2",
+	"version": "0.10.0.3",
+	"manifestPlusVersion": "0.10.0.3",
 	"compatibility": {
 		"minimum": "10.291",
 		"verified": "11.304"
@@ -61,8 +61,7 @@
 				"type": "system",
 				"compatibility": {
 					"minimum": "2.1.5",
-					"verified": "2.2.1",
-					"maximum": "2.2.1"
+					"verified": "2.2.1"
 				}
 			}
 		],
