@@ -9,7 +9,9 @@
 
 ## v0.11
 
+## v0.10.0.3
 
+* Fix to module manifest for dnd5e version compatability
 
 ## v0.10
 
