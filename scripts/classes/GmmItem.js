@@ -71,6 +71,16 @@ const GmmItem = (function () {
             }
             return wrapped(...args);
         }, 'WRAPPER');
+        libWrapper.register('giffyglyph-monster-maker-continued', 'CONFIG.Item.documentClass.prototype.displayCard', function (wrapped, ...args) {
+            if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
+                const gmmMonster = this.getOwningGmmMonster();
+                this.system.damage.parts = this.system.damage.parts.map((x) =>
+                    (gmmMonster) ? Shortcoder.replaceShortcodesAndAddDamageTypeDamageObject(x[0], gmmMonster, x[1]) : x[0]
+                );
+                this.system._source.description = this.system.description;
+            }
+            return wrapped(...args);
+        }, 'WRAPPER');
         libWrapper.register('giffyglyph-monster-maker-continued', 'game.dnd5e.documents.Item5e.prototype.rollFormula', function (wrapped, ...args) {
             if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet` && this.isOwnedByGmmMonster()) {
                 return _rollActionDamage({
@@ -497,7 +507,6 @@ const GmmItem = (function () {
         // Call the roll helper utility
         return damageRoll(mergeObject(rollConfig, options));
     }
-
     function _getSortingCategory() {
         if (this.getSheetId() == `${GMM_MODULE_TITLE}.ActionSheet`) {
             const gmmActionBlueprint = this.getGmmActionBlueprint();

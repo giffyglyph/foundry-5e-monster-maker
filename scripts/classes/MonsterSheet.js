@@ -62,6 +62,7 @@ export default class MonsterSheet extends ActorSheet {
 			$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
 			$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
 			$el.find('[data-action="roll-item"]').click(this._rollItem.bind(this));
+			$el.find('[data-action="display-item"]').click(this._displayItem.bind(this));
 			$el.find('[data-action="recharge-item"]').click(this._rechargeItem.bind(this));
 			$el.find('[data-action="update-item"]').change((e) => this._updateItem(e));
 			$el.find('[data-action="roll-hp"]').click((e) => this._rollHitPoints(e));
@@ -206,6 +207,15 @@ export default class MonsterSheet extends ActorSheet {
 		const li = event.currentTarget.closest(".item");
 		const item = this.actor.items.get(li.dataset.itemId);
 		return item.use();
+	}
+	async _displayItem(event) {
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.items.get(li.dataset.itemId);
+		const msg = await item.displayCard({ createMessage: false });
+		const DIV = document.createElement("DIV");
+		DIV.innerHTML = msg.content;
+		DIV.querySelector("div.card-buttons").remove();
+		return await ChatMessage.create({ content: DIV.innerHTML });
 	}
 
 	_editItem(event) {
