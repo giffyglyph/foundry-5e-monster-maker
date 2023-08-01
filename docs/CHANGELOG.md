@@ -10,6 +10,7 @@
 ## v0.11
 
 * Made the shortcoder work on item descriptions and chat output.
+* Made the 'chat' button on item cards display a description card instead of rolling the item. Thanks to @thatlonelybugbear from the Midi discord!
 
 ## v0.10.0.3
 
