@@ -9,6 +9,8 @@
 
 ## v0.11
 
+* Made the shortcoder work on item descriptions and chat output.
+
 ## v0.10.0.3
 
 * Fix to module manifest for dnd5e version compatability

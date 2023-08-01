@@ -67,6 +67,7 @@ const GmmItem = (function () {
                 this.system.damage.parts = this.system.damage.parts.map((x) =>
                     (gmmMonster) ? Shortcoder.replaceShortcodesAndAddDamageTypeDamageObject(x[0], gmmMonster, x[1]) : x[0]
                 );
+                this.system._source.description = this.system.description;
             }
             return wrapped(...args);
         }, 'WRAPPER');
@@ -240,7 +241,7 @@ const GmmItem = (function () {
                 break;
         }
         let desc = await this.getChatData({ secrets: this.actor?.isOwner });
-        labels.description = desc.description.value;
+        labels.description = Shortcoder.replaceShortcodes(desc.description.value, gmmMonster); ;
 
         if (this.hasLimitedUses) {
             labels.uses = {
