@@ -229,7 +229,7 @@ export default class MonsterSheet extends ActorSheet {
 		this.actor.deleteEmbeddedDocuments("Item", [ li.dataset.itemId] );
 	}
 
-	_addItem(event) {
+	async _addItem(event) {
 		const header = event.currentTarget;
 		const type = header.dataset.type;
 		const itemData = {
@@ -242,7 +242,11 @@ export default class MonsterSheet extends ActorSheet {
 				}
 		};
 		delete itemData.system["type"];
-		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
+		delete itemData.system["action"];
+		let item = await this.actor.createEmbeddedDocuments("Item", [itemData]);
+		itemData._id = item[0]._id;
+		this.actor.updateEmbeddedDocuments("Item", [itemData]);
+		return item;
 	}
 
 	_updateAbilityRanking(event) {
