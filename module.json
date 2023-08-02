@@ -61,7 +61,8 @@
 				"type": "system",
 				"compatibility": {
 					"minimum": "2.1.5",
-					"verified": "2.2.2"
+          "verified": "2.2.2"
+
 				}
 			}
 		],
