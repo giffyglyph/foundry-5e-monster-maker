@@ -7,6 +7,8 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
+## v0.12 (dev)
+
 ## v0.11.0.2 (latest)
 
 * Made the shortcoder work on item descriptions and chat output.
