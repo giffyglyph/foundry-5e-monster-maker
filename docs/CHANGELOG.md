@@ -7,10 +7,16 @@
 [![Twitter](https://img.shields.io/twitter/follow/skyl3lazer?color=%231DA1F2&style=flat-square)](http://twitter.com/skyl3lazer)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
-## v0.10.0.3 (latest)
+## v0.11.0.2 (latest)
+
+* Made the shortcoder work on item descriptions and chat output.
+* Made the 'chat' button on item cards display a description card instead of rolling the item. Thanks to @thatlonelybugbear from the Midi discord!
+* Monster items added to a master sheet will properly become the correct type.
+
+## v0.10.0.3
 
 * Fix to module manifest for dnd5e version compatability
-* 
+
 ## v0.10
 
 * Testing/confirming v11 compatability

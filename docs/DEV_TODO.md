@@ -28,7 +28,7 @@
 
 ## Known Bugs
 
-* Foundry 10.303 - Integration issues with DAE, Midi, and DCE
+
 
 ## Testing Stuff
 
