@@ -251,7 +251,7 @@ const GmmItem = (function () {
                 break;
         }
         let desc = await this.getChatData({ secrets: this.actor?.isOwner });
-        labels.description = Shortcoder.replaceShortcodes(desc.description.value, gmmMonster); ;
+        labels.description = Shortcoder.replaceShortcodes(desc.description.value, gmmMonster);
 
         if (this.hasLimitedUses) {
             labels.uses = {

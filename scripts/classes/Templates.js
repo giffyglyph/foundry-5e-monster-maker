@@ -21,7 +21,10 @@ const Templates = (function() {
 	};
 
 	function registerTemplateHelpers() {
-
+		//This is basically just to be able to output test data
+		Handlebars.registerHelper('json', function (context) {
+			return JSON.stringify(context);
+		});
 		Handlebars.registerHelper('concat', function(...args) {
 			return args.slice(0, -1).join('');
 		});

@@ -75,7 +75,7 @@ export default class MonsterSheet extends ActorSheet {
 		}
 	}
 
-	getData() {
+	async getData() {
 		const data = super.getData();
 		const actorData = data.actor.flags;
 		data.gmm = {
@@ -120,18 +120,18 @@ export default class MonsterSheet extends ActorSheet {
 		}
 
 		if (data.gmm.monster) {
-
 			// Beautify monster item data.
-			["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"].forEach((x) => {
-				let items = getProperty(data.gmm.monster, x);
-				if (items) {
-					setProperty(data.gmm.monster, x, items.map((y) => {
-						let item = this.actor.items.get(y.id);
-						item.gmmLabels = item.getGmmLabels();
-						return item;
-					}));
+			const actionTypes = ["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"];
+			
+			for (const type of actionTypes)
+			{ 
+				let promises = this._getItemMapping(type, data.gmm.monster);
+				if (promises) { 
+					await Promise.all(promises).then(function (results) {
+						setProperty(data.gmm.monster, type, results);
+					});
 				}
-			});
+			}
 
 			// Set maximum active spell level
 			let maximum_spell_level = 0;
@@ -161,7 +161,19 @@ export default class MonsterSheet extends ActorSheet {
 
 		return data;
 	}
+	_getItemMapping(type, monster) {
+		let items = getProperty(monster, type);
+		let mappedItems;
+		if (items) {
+			mappedItems = items.map(async (y) => {
+				let item = this.actor.items.get(y.id);
+				item.gmmLabels = await item.getGmmLabels();
+				return item;
+			});
 
+		}
+		return mappedItems;
+	}
 	async _onDropItemCreate(itemData) {
 		if (itemData.system) {
 			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.system[x]);
