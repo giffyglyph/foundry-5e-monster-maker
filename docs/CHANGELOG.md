@@ -8,7 +8,7 @@
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
 ## v0.12 (dev)
-* Fixed an issue with async data loading on monster sheets, bringing back foldout descriptions on items! #16
+* Fixed an issue with async data loading on monster sheets, bringing back foldout descriptions on items! [#16](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues/16)
 ![Patch Note Image](./img/AbilityDescriptionsBugfix.png)
 
 ## v0.11.0.2 (latest)
