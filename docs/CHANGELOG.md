@@ -8,6 +8,9 @@
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
 ## v0.12 (dev)
+
+* Shortcoder warning supression for roll commands.
+
 ##v0.11.0.3 (latest)
 
 * Fixed an issue with async data loading on monster sheets, bringing back foldout descriptions on items! [#16](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues/16)
