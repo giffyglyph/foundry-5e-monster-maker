@@ -74,7 +74,7 @@ const Shortcoder = (function() {
 				return valueMath;
 			}
 		} catch (e) {
-			if (!e.message.startsWith("Undefined symbol"))
+			if (!e.message.startsWith("Undefined symbol") && !e.message.startsWith("Value expected"))
 				console.error(e);
 			return token;
 		}
