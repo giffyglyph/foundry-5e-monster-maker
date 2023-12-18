@@ -66,7 +66,9 @@ const Templates = (function() {
 				return 0;
 			}
 		});
+		Handlebars.registerHelper('ifParagonShow', function () {
 
+		});
 		Handlebars.registerHelper('modSkillsExist', function (skills) {
 			return (skills.find((x) => x.value > 0))
 		});
