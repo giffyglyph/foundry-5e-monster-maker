@@ -10,6 +10,7 @@
 ## v0.12 (dev)
 
 * Shortcoder warning supression for roll commands.
+* Fixes for paragon defense modifications and display
 
 ##v0.11.0.3 (latest)
 
