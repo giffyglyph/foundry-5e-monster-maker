@@ -7,7 +7,12 @@
 [![BlueSky](https://img.shields.io/badge/%40Skyl3lazer_on_BlueSky-grey?logo=bluesky&logoColor=%230285FF&labelColor=grey)](https://bsky.app/profile/skyl3lazer.bsky.social)
 [![Discord](https://img.shields.io/badge/contact-me-blue?logo=discord&logoColor=white)](https://discord.com/channels/@skyl3lazer)
 
-## v0.11.0.3 (latest)
+## v0.12.0.2 (latest)
+
+* Shortcoder warning supression for roll commands.
+* Fixes for paragon defense modifications and display
+
+##v0.11.0.3
 
 * Fixed an issue with async data loading on monster sheets, bringing back foldout descriptions on items! [#16](https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues/16)
 ![Patch Note Image](./img/AbilityDescriptionsBugfix.png)

@@ -816,7 +816,7 @@
   "gmm.monster.blueprint.paragon_actions.title": "Paragon Actions",
   "gmm.monster.blueprint.paragon_defenses.always_show": "Always Show",
   "gmm.monster.blueprint.paragon_defenses.current": "Current",
-  "gmm.monster.blueprint.paragon_defenses.maximum": "Maximum",
+  "gmm.monster.blueprint.paragon_defenses.maximum": "Modify Max",
   "gmm.monster.blueprint.paragon_defenses.modifier": "Modifier",
   "gmm.monster.blueprint.paragon_defenses.title": "Paragon Defenses",
   "gmm.monster.blueprint.passive_perception.modifier": "Modifier",
