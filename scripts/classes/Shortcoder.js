@@ -5,7 +5,6 @@ const Shortcoder = (function() {
 		{ code: "attackBonus", data: "attack_bonus.value" },
 		{ code: "damage", data: "damage_per_action.value" },
 		{ code: "dcPrimaryBonus", data: "attack_dcs.primary.value" },
-		{ code: "dcSecondaryBonus", data: "attack_dcs.secondary.value" },
 		{ code: "strMod", data: "ability_modifiers.str.value" },
 		{ code: "dexMod", data: "ability_modifiers.dex.value" },
 		{ code: "conMod", data: "ability_modifiers.con.value" },
@@ -47,6 +46,17 @@ const Shortcoder = (function() {
 		});
 	}
 
+	function replaceShortcodesAndAddDamageType(text, monsterData, damageType){
+		let replaceText = replaceShortcodes(text, monsterData);
+		return replaceText.replace(/(\d[^\+\- ]*)[\+\- ]?/g, (token) => token.trim() + (damageType ? `[${damageType}]` : ""));
+	}
+
+	function replaceShortcodesAndAddDamageTypeDamageObject(text, monsterData, damageType) {
+		let replaceText = replaceShortcodes(text, monsterData);
+		return [ replaceText, damageType ];
+	}
+
+
 	function _numberToRandom(token, value, die) {
 		try {
 			let valueMath = math.evaluate(value);
@@ -64,13 +74,16 @@ const Shortcoder = (function() {
 				return valueMath;
 			}
 		} catch (e) {
-			console.error(e);
+			if (!e.message.startsWith("Undefined symbol") && !e.message.startsWith("Value expected"))
+				console.error(e);
 			return token;
 		}
 	}
 
 	return {
-		replaceShortcodes: replaceShortcodes
+		replaceShortcodes: replaceShortcodes,
+		replaceShortcodesAndAddDamageType: replaceShortcodesAndAddDamageType,
+		replaceShortcodesAndAddDamageTypeDamageObject: replaceShortcodesAndAddDamageTypeDamageObject
 	};
 })();
 

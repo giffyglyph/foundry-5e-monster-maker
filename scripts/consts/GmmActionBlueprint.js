@@ -44,13 +44,13 @@ export const GMM_ACTION_BLUEPRINT = {
 			units: null,
 		},
 		duration: {
-			value: null,
-			units: null
+			value: "",
+			units: ""
 		},
 		uses: {
-			value: null,
-			maximum: null,
-			per: null
+			value: "",
+			maximum: "",
+			per: ""
 		},
 		resource_consumption: {
 			type: null,
@@ -69,7 +69,8 @@ export const GMM_ACTION_BLUEPRINT = {
 				formula: null,
 				type: null
 			},
-			message: null
+			message: null,
+			related_stat: "str"
 		}
 	}
 };

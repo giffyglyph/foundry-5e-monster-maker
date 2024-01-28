@@ -4,7 +4,7 @@
   "img": "{{Icon}}",
   "flags": {
     "core": {
-      "sheetClass": "giffyglyphs-5e-monster-maker.ActionSheet"
+      "sheetClass": "giffyglyph-monster-maker-continued.ActionSheet"
     }
   },
   "data": {

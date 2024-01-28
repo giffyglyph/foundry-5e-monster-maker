@@ -13,7 +13,7 @@ import { GMM_MODULE_TITLE } from "./scripts/consts/GmmModuleTitle.js";
 /* -------------------------------------------- */
 
 Hooks.once("init", function() {
-	console.log(`Giffyglyph's 5e Monster Maker | Initialising`);
+	console.log(`Giffyglyph's 5e Monster Maker Continued | Initialising`);
 
 	Actors.registerSheet(GMM_MODULE_TITLE, MonsterSheet, {
 		types: ["npc"],
@@ -52,7 +52,13 @@ Hooks.once("init", function() {
 
 	_registerSettings();
 
-	console.log(`Giffyglyph's 5e Monster Maker | Initialised`);
+	console.log(`Giffyglyph's 5e Monster Maker Continued | Initialised`);
+});
+
+
+Hooks.once('ready', () => {
+	if (!game.modules.get('lib-wrapper')?.active && game.user.isGM)
+		ui.notifications.error("Module Giffyglyph's Monster Maker Continued requires the 'libWrapper' module. Please install and activate it.");
 });
 
 async function _hookActorDirectory(html) {
@@ -66,16 +72,20 @@ async function _hookActorDirectory(html) {
 			</div>
 		`
     );
-	section.querySelector("[data-action='create-scaling-monster']").addEventListener("click", (ev) => {
+	section.querySelector("[data-action='create-scaling-monster']").addEventListener("click", async (ev) => {
 		Actor.create({
 			name: "New Scaling Monster",
 			type: "npc",
 			img: "icons/svg/eye.svg",
 			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.MonsterSheet` },
-			data: {
-				"details.alignment": "unaligned",
-				"details.type.value": "humanoid",
-				"details.xp.value": 50
+			system: {
+				details: {
+					"alignment": "unaligned",
+					"type": {
+						"value": "humanoid"
+					},
+					"cr": 1
+				}
 			},
 		});
 	});

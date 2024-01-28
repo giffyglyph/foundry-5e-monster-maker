@@ -21,7 +21,10 @@ const Templates = (function() {
 	};
 
 	function registerTemplateHelpers() {
-
+		//This is basically just to be able to output test data
+		Handlebars.registerHelper('json', function (context) {
+			return JSON.stringify(context);
+		});
 		Handlebars.registerHelper('concat', function(...args) {
 			return args.slice(0, -1).join('');
 		});
@@ -54,13 +57,24 @@ const Templates = (function() {
 			}
 		});
 
-		Handlebars.registerHelper('getSkillProficiency', function(skills, code) {
+		Handlebars.registerHelper('getSkillProficiency', function(skills, code, role) {
 			if (skills) {
-				const skill = skills.find((x) => x.code == code);
+				let skill = skills.find((x) => x.code == code);
+				//if (!skill) skill = role.skill_prof.find((x) => x.code == code);
 				return (skill) ? skill.value : 0;
 			} else {
 				return 0;
 			}
+		});
+		Handlebars.registerHelper('ifParagonShow', function () {
+
+		});
+		Handlebars.registerHelper('modSkillsExist', function (skills) {
+			return (skills.find((x) => x.value > 0))
+		});
+
+		Handlebars.registerHelper('getSaveTrain', function (saves, code) {
+			return saves[code].trained;
 		});
 
 		Handlebars.registerHelper('formatChallengeRating', function(cr) {
@@ -86,6 +100,11 @@ const Templates = (function() {
 
 		Handlebars.registerHelper('getTemplate', function(path) {
 			return getRelativePath(path);
+		});
+
+		Handlebars.registerHelper('getTstCount', function (maxTst) {
+			var checkedChecks = document.querySelectorAll(".tstCheckbox:checked");
+			return checkedChecks.length > maxTst;
 		});
 
 		Handlebars.registerHelper({

@@ -1,1 +1,1 @@
-export const GMM_MODULE_TITLE = "giffyglyphs-5e-monster-maker";
+export const GMM_MODULE_TITLE = "giffyglyph-monster-maker-continued";

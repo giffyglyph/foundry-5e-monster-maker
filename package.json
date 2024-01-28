@@ -1,17 +1,20 @@
 {
   "name": "foundry_5e_gmm",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "directories": {
+    "doc": "docs"
   },
-  "author": "Giffyglyph",
+  "scripts": {
+    "test": "echo \"hi\""
+  },
+  "author": "Skyl3lazer",
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-using": "^0.1.1"
+    "gulp-sass": "^5.1.0",
+    "gulp-using": "^0.1.1",
+    "sass": "^1.63.3"
   }
 }

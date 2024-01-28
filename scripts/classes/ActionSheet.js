@@ -57,7 +57,7 @@ export default class ActionSheet extends ItemSheet {
 
 	_addDamage(event) {
 		event.preventDefault();
-		const damage = this.item.data.data.damage;
+		const damage = this.item.system.damage;
 		return this.item.update({"data.damage.parts": damage.parts.concat([["", ""]])});
 	}
 
@@ -65,14 +65,14 @@ export default class ActionSheet extends ItemSheet {
 		event.preventDefault();
 		const a = event.currentTarget;
 		const li = a.closest(".form-group--damage");
-		const damage = duplicate(this.item.data.data.damage);
+		const damage = duplicate(this.item.system.damage);
 		damage.parts.splice(Number(li.dataset.index), 1);
 		return this.item.update({"data.damage.parts": damage.parts});
 	}
 
-	getData() {
+	async getData() {
 		const data = super.getData();
-		const itemData = data.item.data.data;
+		const itemData = data.item.flags;
 
 		data.gmm = {
 			blueprint: itemData.gmm?.blueprint ? itemData.gmm.blueprint.data : null,
@@ -109,14 +109,14 @@ export default class ActionSheet extends ItemSheet {
 		};
 
 		if (data.gmm.action) {
-			data.gmm.action.gmmLabels = this.item.getGmmLabels();
+			data.gmm.action.gmmLabels = await this.item.getGmmLabels();
 		}
 
 		return data;
 	}
 
 	_getActionConsumptionTargets(item) {
-		const consume = item.data.data.consume || {};
+		const consume = item.system.consume || {};
 		if ( !consume.type ) {
 			return [];
 		}
@@ -128,13 +128,13 @@ export default class ActionSheet extends ItemSheet {
 		// Ammunition
 		if ( consume.type === "ammo" ) {
 			return actor.itemTypes.consumable.reduce((ammo, i) =>  {
-				if ( i.data.data.consumableType === "ammo" ) {
-					ammo[i.id] = `${i.name} (${i.data.data.quantity})`;
+				if ( i.system.consumableType === "ammo" ) {
+					ammo[i.id] = `${i.name} (${i.system.quantity})`;
 				}
 				return ammo;
-			}, {[item.id]: `${item.name} (${item.data.data.quantity})`});
+			}, {[item.id]: `${item.name} (${item.system.quantity})`});
 		} else if ( consume.type === "attribute" ) {
-			const attributes = TokenDocument.getTrackedAttributes(actor.data.data);
+			const attributes = TokenDocument.getTrackedAttributes(actor.system);
 			attributes.bar.forEach(a => a.push("value"));
 			return attributes.bar.concat(attributes.value).reduce((obj, a) => {
 				let k = a.join(".");
@@ -143,21 +143,21 @@ export default class ActionSheet extends ItemSheet {
 			}, {});
 		} else if ( consume.type === "material" ) {
 			return actor.items.contents.reduce((obj, i) => {
-				if ( ["consumable", "loot"].includes(i.data.type) && !i.data.data.activation ) {
-					obj[i.id] = `${i.name} (${i.data.data.quantity})`;
+				if ( ["consumable", "loot"].includes(i.data.type) && !i.system.activation ) {
+					obj[i.id] = `${i.name} (${i.system.quantity})`;
 				}
 				return obj;
 			}, {});
 		} else if ( consume.type === "charges" ) {
 			return actor.items.contents.reduce((obj, i) => {
-				const uses = i.data.data.uses || {};
+				const uses = i.system.uses || {};
 				if ( uses.per && uses.max ) {
 					const label = uses.per === "charges" ?
 					` (${game.i18n.format("DND5E.AbilityUseChargesLabel", {value: uses.value})})` :
 					` (${game.i18n.format("DND5E.AbilityUseConsumableLabel", {max: uses.max, per: uses.per})})`;
 					obj[i.id] = i.name + label;
 				}
-				const recharge = i.data.data.recharge || {};
+				const recharge = i.system.recharge || {};
 				if ( recharge.value ) {
 					obj[i.id] = `${i.name} (${game.i18n.format("DND5E.Recharge")})`;
 				}
@@ -174,17 +174,25 @@ export default class ActionSheet extends ItemSheet {
 		if (event && event.currentTarget) {
 			this._gui.updateFrom(event.currentTarget.closest(".gmm-window"));
 		}
-
 		let formData = expandObject(form);
+
+		//Messy but new validation makes this weird with dropdowns
+		if(formData.gmm.blueprint.duration.value === null)
+			formData.gmm.blueprint.duration.value = "";
+		else
+			formData.gmm.blueprint.duration.value = `${formData.gmm.blueprint.duration.value}`
+		if(formData.gmm.blueprint.uses.max === null)
+			formData.gmm.blueprint.uses.max = "";
+
 		if (hasProperty(formData, "gmm.blueprint")) {
-			setProperty(formData, "data.gmm.blueprint", {
+			setProperty(formData, "flags.gmm.blueprint", {
 				vid: 1,
 				type: "action",
 				data: getProperty(formData, "gmm.blueprint")
 			});
-			delete formData.gmm.blueprint;
+			delete formData.gmm;
 
-			$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formData.data.gmm.blueprint));
+			$.extend(true, formData, ActionBlueprint.getItemDataFromBlueprint(formData.flags.gmm.blueprint));
 		}
 
 		return this.document.update(formData);

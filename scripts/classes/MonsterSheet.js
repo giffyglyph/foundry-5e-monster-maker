@@ -62,6 +62,7 @@ export default class MonsterSheet extends ActorSheet {
 			$el.find('[data-action="delete-item"]').click(this._deleteItem.bind(this));
 			$el.find('[data-action="add-item"]').click(this._addItem.bind(this));
 			$el.find('[data-action="roll-item"]').click(this._rollItem.bind(this));
+			$el.find('[data-action="display-item"]').click(this._displayItem.bind(this));
 			$el.find('[data-action="recharge-item"]').click(this._rechargeItem.bind(this));
 			$el.find('[data-action="update-item"]').change((e) => this._updateItem(e));
 			$el.find('[data-action="roll-hp"]').click((e) => this._rollHitPoints(e));
@@ -74,10 +75,9 @@ export default class MonsterSheet extends ActorSheet {
 		}
 	}
 
-	getData() {
+	async getData() {
 		const data = super.getData();
-		const actorData = data.actor.data.data;
-
+		const actorData = data.actor.flags;
 		data.gmm = {
 			blueprint: actorData.gmm?.blueprint ? actorData.gmm.blueprint.data : null,
 			monster: actorData.gmm?.monster ? actorData.gmm.monster.data : null,
@@ -120,18 +120,18 @@ export default class MonsterSheet extends ActorSheet {
 		}
 
 		if (data.gmm.monster) {
-
 			// Beautify monster item data.
-			["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"].forEach((x) => {
-				let items = getProperty(data.gmm.monster, x);
-				if (items) {
-					setProperty(data.gmm.monster, x, items.map((y) => {
-						let item = this.actor.items.get(y.id);
-						item.gmmLabels = item.getGmmLabels();
-						return item;
-					}));
+			const actionTypes = ["bonus_actions.items", "actions.items", "reactions.items", "lair_actions.items", "legendary_actions.items", "traits.items", "inventory.items", "spellbook.spells.0", "spellbook.spells.1", "spellbook.spells.2", "spellbook.spells.3", "spellbook.spells.4", "spellbook.spells.5", "spellbook.spells.6", "spellbook.spells.7", "spellbook.spells.8", "spellbook.spells.9", "spellbook.spells.other"];
+			
+			for (const type of actionTypes)
+			{ 
+				let promises = this._getItemMapping(type, data.gmm.monster);
+				if (promises) { 
+					await Promise.all(promises).then(function (results) {
+						setProperty(data.gmm.monster, type, results);
+					});
 				}
-			});
+			}
 
 			// Set maximum active spell level
 			let maximum_spell_level = 0;
@@ -161,10 +161,22 @@ export default class MonsterSheet extends ActorSheet {
 
 		return data;
 	}
+	_getItemMapping(type, monster) {
+		let items = getProperty(monster, type);
+		let mappedItems;
+		if (items) {
+			mappedItems = items.map(async (y) => {
+				let item = this.actor.items.get(y.id);
+				item.gmmLabels = await item.getGmmLabels();
+				return item;
+			});
 
+		}
+		return mappedItems;
+	}
 	async _onDropItemCreate(itemData) {
-		if ( itemData.data ) {
-			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.data[x]);
+		if (itemData.system) {
+			["attunement", "equipped", "proficient", "prepared"].forEach((x) => delete itemData.system[x]);
 		}
 		return super._onDropItemCreate(itemData);
 	}
@@ -174,14 +186,14 @@ export default class MonsterSheet extends ActorSheet {
 		item.classList.toggle("expanded");
 	}
 
-	_rollHitPoints(event) {
+	async _rollHitPoints(event) {
 		const button = event.currentTarget.closest("button");
 		const roll = new Roll(button.dataset.formula);
-		roll.roll();
+		await roll.roll();
 		AudioHelper.play({src: CONFIG.sounds.dice});
 		this.actor.update({
-			[`data.attributes.hp.value`]: Math.max(1, roll.total),
-			[`data.attributes.hp.max`]: Math.max(1, roll.total),
+			[`system.attributes.hp.value`]: Math.max(1, roll.total),
+			[`system.attributes.hp.max`]: Math.max(1, roll.total),
 		});
 	}
 
@@ -206,7 +218,16 @@ export default class MonsterSheet extends ActorSheet {
 	_rollItem(event) {
 		const li = event.currentTarget.closest(".item");
 		const item = this.actor.items.get(li.dataset.itemId);
-		return item.roll();
+		return item.use();
+	}
+	async _displayItem(event) {
+		const li = event.currentTarget.closest(".item");
+		const item = this.actor.items.get(li.dataset.itemId);
+		const msg = await item.displayCard({ createMessage: false });
+		const DIV = document.createElement("DIV");
+		DIV.innerHTML = msg.content;
+		DIV.querySelector("div.card-buttons").remove();
+		return await ChatMessage.create({ content: DIV.innerHTML });
 	}
 
 	_editItem(event) {
@@ -220,18 +241,24 @@ export default class MonsterSheet extends ActorSheet {
 		this.actor.deleteEmbeddedDocuments("Item", [ li.dataset.itemId] );
 	}
 
-	_addItem(event) {
+	async _addItem(event) {
 		const header = event.currentTarget;
 		const type = header.dataset.type;
 		const itemData = {
 			name: game.i18n.format(`gmm.monster.artifact.add.${header.dataset["activation.type"] ? header.dataset["activation.type"] : "trait"}`),
 			type: type,
 			img: "icons/svg/clockwork.svg",
-			data: duplicate(header.dataset),
-			flags: { "core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet` }
+			system: duplicate(header.dataset),
+			flags: {
+				"core.sheetClass": `${GMM_MODULE_TITLE}.ActionSheet`
+				}
 		};
-		delete itemData.data["type"];
-		return this.actor.createEmbeddedDocuments("Item", [ itemData]);
+		delete itemData.system["type"];
+		delete itemData.system["action"];
+		let item = await this.actor.createEmbeddedDocuments("Item", [itemData]);
+		itemData._id = item[0]._id;
+		this.actor.updateEmbeddedDocuments("Item", [itemData]);
+		return item;
 	}
 
 	_updateAbilityRanking(event) {
@@ -280,7 +307,7 @@ export default class MonsterSheet extends ActorSheet {
 		return this.actor.updateEmbeddedDocuments("Item", updateData);
 	}
 
-	_updateObject(event, form) {
+	async _updateObject(event, form) {
 		if (event && event.currentTarget && event.currentTarget.closest(".gmm-modal") != null) {
 			return null;
 		}
@@ -291,7 +318,7 @@ export default class MonsterSheet extends ActorSheet {
 
 		let formData = expandObject(form);
 		if (hasProperty(formData, "gmm.blueprint")) {
-			setProperty(formData, "data.gmm.blueprint", {
+			setProperty(formData, "flags.gmm.blueprint", {
 				vid: 1,
 				type: "monster",
 				data: getProperty(formData, "gmm.blueprint")
@@ -301,19 +328,18 @@ export default class MonsterSheet extends ActorSheet {
 			if (event && event.currentTarget) {
 				switch (event.currentTarget.name) {
 					case "gmm.blueprint.combat.rank.type":
-						formData.data.gmm.blueprint.data.combat.rank.custom_name = null;
-						formData.data.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
+						formData.flags.gmm.blueprint.data.combat.rank.custom_name = null;
+						formData.flags.gmm.blueprint.data.combat.rank.modifiers = GMM_MONSTER_RANKS[event.currentTarget.value];
 						break;
 					case "gmm.blueprint.combat.role.type":
-						formData.data.gmm.blueprint.data.combat.role.custom_name = null;
-						formData.data.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
+						formData.flags.gmm.blueprint.data.combat.role.custom_name = null;
+						formData.flags.gmm.blueprint.data.combat.role.modifiers = GMM_MONSTER_ROLES[event.currentTarget.value];
 						break;
 				}
 			}
 
-			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.data.gmm.blueprint));
+			$.extend(true, formData, MonsterBlueprint.getActorDataFromBlueprint(formData.flags.gmm.blueprint));
 		}
-
-		this.document.update(formData);
+		await this.document.update(formData);
 	}
 }
