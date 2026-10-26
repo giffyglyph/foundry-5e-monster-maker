@@ -1,0 +1,30 @@
+name: Exposed
+type: base
+_id: tK8lciUDv0zrAxsa
+img: icons/skills/targeting/crosshair-mark-rough-pink.webp
+description: >-
+  <p><strong>Common Condition</strong></p><ul><li><p>Monsters attacking you have
+  their critical threshold reduced by 1.</p></li></ul><p><em>AC5e
+  automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.exposed
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: flags.automated-conditions-5e.grants.attack.criticalThreshold
+      _id: VLF5RefXYD3Up9pL
+      type: ac5e
+      value: threshold=-1
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!tK8lciUDv0zrAxsa'

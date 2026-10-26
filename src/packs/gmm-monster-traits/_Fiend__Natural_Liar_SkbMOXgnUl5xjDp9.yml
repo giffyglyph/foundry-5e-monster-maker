@@ -1,0 +1,185 @@
+name: (Fiend) Natural Liar
+type: feat
+img: icons/magic/control/mouth-smile-deception-purple.webp
+system:
+  description:
+    value: >-
+      <p>You have advantage on all Charisma (Deception) checks and any Wisdom
+      (Insight) check made to spot deception.+</p><p><em>+ Midi
+      automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Fiend) Natural Liar
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects:
+  - _id: OXgnUl5xjDp9SkbM
+    name: Natural Liar
+    img: icons/magic/control/mouth-smile-deception-purple.webp
+    type: base
+    disabled: false
+    transfer: true
+    description: ''
+    system:
+      changes:
+        - key: flags.midi-qol.advantage.skill.dec
+          _id: OneoK9THp8xP8Ogd
+          type: custom
+          value: '1'
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!SkbMOXgnUl5xjDp9.OXgnUl5xjDp9SkbM'
+folder: hgnohyDtSml3Virp
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Fiend) Natural Liar
+          image: icons/magic/control/mouth-smile-deception-purple.webp
+          text: >-
+            <p>You have advantage on all Charisma (Deception) checks and any
+            Wisdom (Insight) check made to spot deception.+</p><p><em>+ Midi
+            automation</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712259933513
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: SkbMOXgnUl5xjDp9
+sort: 600000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!SkbMOXgnUl5xjDp9'

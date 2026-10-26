@@ -1,0 +1,191 @@
+name: (Construct) Backlash
+type: feat
+img: icons/magic/fire/flame-burning-fist-strike.webp
+system:
+  description:
+    value: >-
+      <p>When you are reduced to 0 hit points, each creature within 10 ft. must
+      succeed on a DC [featureDc] Dexterity saving throw or take 75%
+      ([round(damage*0.75), damageDie]) force damage.*</p><p><em>* Core
+      automation (roll it when the trigger fires)</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: save
+      name: (Construct) Backlash
+      sort: 0
+      activation:
+        type: special
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: radius
+          size: '10'
+          width: '0'
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: ''
+          formula: 0 + 0
+      damage:
+        onSave: none
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - force
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      effects: []
+effects: []
+folder: pxm2WHPkmmMEun1n
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Construct) Backlash
+          image: icons/magic/fire/flame-burning-fist-strike.webp
+          text: >-
+            <p>When you are reduced to 0 hit points, each creature within 10 ft.
+            must succeed on a DC [featureDc] Dexterity saving throw or take 75%
+            ([round(damage*0.75), damageDie]) force damage.*</p><p><em>* Core
+            automation (roll it when the trigger fires)</em></p>
+        activation:
+          type: special
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: save
+          related_stat: max
+          bonus: ''
+          defense: dex
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*0.75), damageDie]'
+                type: force
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: self
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: emanation
+          units: ft
+          value: 10
+          width: 0
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712254817946
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: S8ETkSALv5tvJWOB
+sort: 1100000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!S8ETkSALv5tvJWOB'

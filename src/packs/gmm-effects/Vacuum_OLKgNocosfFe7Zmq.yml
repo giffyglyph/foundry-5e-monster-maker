@@ -1,0 +1,27 @@
+name: Vacuum
+type: base
+_id: OLKgNocosfFe7Zmq
+img: systems/dnd5e/icons/svg/statuses/suffocation.svg
+description: >-
+  <p><strong>Rare Terrain Modifier</strong></p><ul><li><p>You can't
+  breathe.</p></li></ul><p><em>Applies to a creature in the
+  area.</em></p><p><em>Marks the creature suffocating. No automation.</em></p>
+disabled: false
+transfer: false
+statuses:
+  - suffocation
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: rare
+    terrain: vacuum
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!OLKgNocosfFe7Zmq'

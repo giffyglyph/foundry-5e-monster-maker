@@ -1,0 +1,206 @@
+name: (C) Hit Me
+type: feat
+img: icons/skills/melee/unarmed-punch-fist-yellow-red.webp
+system:
+  description:
+    value: >-
+      <p>The creature is marked.* A marked creature has disadvantage on any
+      attack roll that doesn't include you.^</p><p><em>* Core
+      automation</em></p><p><em>^ AC5e automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties:
+    - concentration
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (C) Hit Me
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: true
+        special: ''
+        override: false
+        value: '1'
+        units: hour
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: melee
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: 1v9karsoajFS9vDn
+effects:
+  - _id: 1v9karsoajFS9vDn
+    name: Marked
+    img: systems/dnd5e/icons/svg/statuses/marked.svg
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes:
+        - key: flags.automated-conditions-5e.attack.disadvantage
+          _id: koSqumqyACJ8w6T1
+          type: ac5e
+          value: >-
+            effectOriginActor.uuid !== effectActor.uuid && opponentActorUuid !==
+            effectOriginActor.uuid
+    flags:
+      dae:
+        stackable: noneName
+    statuses:
+      - marked
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!9vDn1v9karsoajFS.1v9karsoajFS9vDn'
+folder: zrWoCiSJhQY5KH6q
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (C) Hit Me
+          image: icons/skills/melee/unarmed-punch-fist-yellow-red.webp
+          text: >-
+            <p>The creature is marked.* A marked creature has disadvantage on
+            any attack roll that doesn't include you.^</p><p><em>* Core
+            automation</em></p><p><em>^ AC5e automation</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: mwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: timed
+          units: hour
+          value: '1'
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: true
+        rarity: common
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048842465
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: 9vDn1v9karsoajFS
+sort: 0
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!9vDn1v9karsoajFS'

@@ -1,0 +1,214 @@
+name: (U) Flare
+type: feat
+img: icons/magic/light/explosion-glow-spiral-yellow.webp
+system:
+  description:
+    value: >-
+      <p>The target is outlined in a dim light until the end of your next turn.
+      While outlined, attack rolls against the target have advantage if the
+      attacker can see it,+ and the target can't turn invisible.</p><p><em>+
+      Midi automation</em></p><p><em>Neither the line of sight nor the
+      invisibility clause is checked.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (U) Flare
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: 1
+        units: round
+      range:
+        value: 60
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: ranged
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: GZvigfvyVjTZE4PD
+effects:
+  - _id: GZvigfvyVjTZE4PD
+    name: Flare
+    img: icons/magic/light/explosion-star-glow-yellow.webp
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes:
+        - key: flags.midi-qol.grants.advantage.attack.all
+          _id: FtBYAmBX6uDo7AJX
+          type: custom
+          value: '1'
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!E4PDGZvigfvyVjTZ.GZvigfvyVjTZE4PD'
+folder: J8E4I6WUVdsFmJFl
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (U) Flare
+          image: icons/magic/light/explosion-glow-spiral-yellow.webp
+          text: >-
+            <p>The target is outlined in a dim light until the end of your next
+            turn. While outlined, attack rolls against the target have advantage
+            if the attacker can see it,+ and the target can't turn
+            invisible.</p><p><em>+ Midi automation</em></p><p><em>Neither the
+            line of sight nor the invisibility clause is checked.</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: rwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: end_of_your_turn
+          units: ''
+          value: ''
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 60
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+        rarity: uncommon
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048945672
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: E4PDGZvigfvyVjTZ
+sort: 100000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!E4PDGZvigfvyVjTZ'

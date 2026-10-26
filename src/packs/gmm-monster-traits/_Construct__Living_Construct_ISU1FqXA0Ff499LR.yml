@@ -1,0 +1,187 @@
+name: (Construct) Living Construct
+type: feat
+img: icons/commodities/tech/tube-chamber-lightning.webp
+system:
+  description:
+    value: >-
+      <p>You are immune to disease. You don't need to eat, drink, or breathe.
+      You don't need to sleep or suffer the effects of exhaustion due to lack of
+      rest. Magic effects can't put you to sleep.*</p><p><em>* Core
+      automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Construct) Living Construct
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects:
+  - _id: FqXA0Ff499LRISU1
+    name: Living Construct
+    img: icons/commodities/tech/tube-chamber-lightning.webp
+    type: base
+    disabled: false
+    transfer: true
+    description: ''
+    system:
+      changes:
+        - key: system.traits.ci.value
+          _id: rewwasqn35P8nFla
+          type: add
+          value: diseased
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!ISU1FqXA0Ff499LR.FqXA0Ff499LRISU1'
+folder: pxm2WHPkmmMEun1n
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Construct) Living Construct
+          image: icons/commodities/tech/tube-chamber-lightning.webp
+          text: >-
+            <p>You are immune to disease. You don't need to eat, drink, or
+            breathe. You don't need to sleep or suffer the effects of exhaustion
+            due to lack of rest. Magic effects can't put you to
+            sleep.*</p><p><em>* Core automation</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712254919794
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: ISU1FqXA0Ff499LR
+sort: 200000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!ISU1FqXA0Ff499LR'

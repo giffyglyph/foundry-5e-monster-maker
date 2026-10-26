@@ -16,6 +16,7 @@ const ActionForge = (function() {
 				activation_cost: _parseActivationCost(blueprint.data.resource_consumption),
 				target: _parseTarget(blueprint.data.target),
 				range: _parseRange(blueprint.data.range),
+				rarity: _parseRarity(blueprint.data.rarity),
 				duration: _parseDuration(blueprint.data.duration),
 				uses: _parseUses(blueprint.data.uses),
 				attack: _parseAttack(blueprint.data.attack),
@@ -33,6 +34,10 @@ const ActionForge = (function() {
 		return game.i18n.format(`gmm.action.artifact.action_type.${!type || type == "none" ? "trait" : type}`);
 	}
 
+	function _parseRarity(rarity) {
+		if (!rarity) rarity = "common";
+		return game.i18n.format(`gmm.common.rarity.${rarity}`);
+	}
 	function _parseLevelRequirement(min, max) {
 		if (min === null && max === null) {
 			return game.i18n.format(`gmm.common.level.any`);
@@ -131,19 +136,24 @@ const ActionForge = (function() {
 		}
 	}
 
+	/* An instant effect is the assumption. It prints nothing, as the rulebook does. */
 	function _parseDuration(duration) {
-		if (duration.units) {
-			switch (duration.units) {
-				case "perm":
-				case "spec":
-				case "inst":
-					return game.i18n.format(`gmm.action.artifact.duration.${duration.units}`);
-				default:
-					return game.i18n.format(`gmm.action.artifact.duration.${duration.units}.${duration.value > 1 ? "multiple" : "single"}`, { quantity: duration.value});
-			}
-		} else {
-			return "";
-		}
+		const type = duration?.type ?? (duration?.units ? "timed" : "instant");
+		if (type === "instant") return "";
+
+		const span = (duration.units && duration.value)
+			? game.i18n.format(`gmm.action.artifact.duration.${duration.units}.${duration.value > 1 ? "multiple" : "single"}`, { quantity: duration.value })
+			: "";
+		if (type === "timed") return span;
+
+		const label = game.i18n.localize(`gmm.common.duration_type.${type}`).toLowerCase();
+		const save = (duration.save?.ability && (type === "ongoing" || type === "save_ends"))
+			? game.i18n.format("gmm.action.artifact.duration.save", {
+				ability: game.i18n.localize(`gmm.common.ability.${duration.save.ability}.code`)
+			})
+			: "";
+		const detail = [label, save].filter(x => x).join(", ");
+		return span ? `${span} (${detail})` : detail;
 	}
 
 	function _parseUses(uses) {
@@ -184,10 +194,6 @@ const ActionForge = (function() {
 			case "save":
 				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, {
 					dc: `[dcPrimaryBonus]${attack.bonus ? ` + ${attack.bonus}` : ``}`
-				});
-			case "other":
-				return game.i18n.format(`gmm.action.artifact.attack.dc.${attack.defense}`, {
-					dc: `[dcSecondaryBonus]${attack.bonus ? ` + ${attack.bonus}` : ``}`
 				});
 			default:
 				return "";

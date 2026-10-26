@@ -1,3 +1,20 @@
 # Node Modules
 node_modules/
-package-lock.json
+/.vs
+CLAUDE.md
+.cursor/
+.claude/
+CONTEXT.md
+CONTEXT-MAP.md
+
+# GMMC-Docs is a separate repository checked out here.
+/development_docs/
+
+# Compiled LevelDB packs - built from src/packs via `npm run pack`; source of truth is the yml.
+# Anchored: an unanchored `packs/` also swallows src/packs, hiding new pack sources from git.
+/packs/
+
+# Type-hint scaffolding - foundry/ is junctions into a local Foundry install,
+# and the config holding those machine-specific paths.
+foundry-config.yaml
+/foundry/

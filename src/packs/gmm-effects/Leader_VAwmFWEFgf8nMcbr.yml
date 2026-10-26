@@ -1,0 +1,25 @@
+name: Leader
+type: base
+_id: VAwmFWEFgf8nMcbr
+img: icons/magic/symbols/fleur-de-lis-yellow.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>You can spend your reaction to
+  make a basic attack against a target of the empowerer's
+  choice.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>No automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!VAwmFWEFgf8nMcbr'

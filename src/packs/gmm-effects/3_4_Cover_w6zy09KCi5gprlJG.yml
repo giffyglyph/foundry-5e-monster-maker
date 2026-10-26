@@ -1,0 +1,27 @@
+name: 3/4 Cover
+type: base
+_id: w6zy09KCi5gprlJG
+img: systems/dnd5e/icons/svg/statuses/cover-three-quarters.svg
+description: >-
+  <p><strong>Uncommon Terrain Modifier</strong></p><ul><li><p>+5 bonus to AC and
+  DEX saving throws.</p></li></ul><p><em>Applies to a creature in the
+  area.</em></p><p><em>Core automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - coverThreeQuarters
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+    terrain: three_quarters_cover
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!w6zy09KCi5gprlJG'

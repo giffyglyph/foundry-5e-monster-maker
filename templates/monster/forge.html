@@ -39,8 +39,8 @@
 	</div>
 	<div class="forge__options">
 		<div class="forge__id">
-			<span class="id">{{actor.id}}</span>
-			<span class="name">Giffyglyph's 5e Monster Maker</span>
+			<span class="id">{{actor.id}} - {{gmm.version}}</span>
+			<span class="name">Giffyglyph's 5e Monster Maker Continued</span>
 		</div>
 		<nav class="forge__controls" data-group="primary">
 			<button type="button" data-action="open-modal" data-modal="modal_bugs"><i class="fas fa-bug"></i></button>
@@ -54,10 +54,10 @@
 				<div class="modal__icon"><i class="fas fa-dice-d20"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.ability_check.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
-					<form class="modal__form">
+					<div class="modal__form">
 						<div class="form-group form-group--abilities">
 							<div class="form-group__header">
 								<span class="form-group__title">{{localize 'gmm.modal.ability_check.ability_bonus'}}</span>
@@ -67,6 +67,7 @@
 									<label class="radio ability">
 										<input type="radio" class="radio--str" name="ability" value="str" checked/>
 										<input type="hidden" name="ability_str" value="{{gmm.monster.ability_modifiers.str.value}}"/>
+										<input type="hidden" name="check_str" value="{{gmm.monster.check_modifiers.str.value}}"/>
 										<span>
 											<span class="ability__name">{{localize 'gmm.common.ability.str.code'}}</span>
 											<span class="ability__value">{{numberFormat gmm.monster.ability_modifiers.str.value sign=true}}</span>
@@ -75,6 +76,7 @@
 									<label class="radio ability">
 										<input type="radio" class="radio--dex" name="ability" value="dex"/>
 										<input type="hidden" name="ability_dex" value="{{gmm.monster.ability_modifiers.dex.value}}"/>
+										<input type="hidden" name="check_dex" value="{{gmm.monster.check_modifiers.dex.value}}"/>
 										<span>
 											<span class="ability__name">{{localize 'gmm.common.ability.dex.code'}}</span>
 											<span class="ability__value">{{numberFormat gmm.monster.ability_modifiers.dex.value sign=true}}</span>
@@ -83,6 +85,7 @@
 									<label class="radio ability">
 										<input type="radio" class="radio--con" name="ability" value="con"/>
 										<input type="hidden" name="ability_con" value="{{gmm.monster.ability_modifiers.con.value}}"/>
+										<input type="hidden" name="check_con" value="{{gmm.monster.check_modifiers.con.value}}"/>
 										<span>
 											<span class="ability__name">{{localize 'gmm.common.ability.con.code'}}</span>
 											<span class="ability__value">{{numberFormat gmm.monster.ability_modifiers.con.value sign=true}}</span>
@@ -91,6 +94,7 @@
 									<label class="radio ability">
 										<input type="radio" class="radio--int" name="ability" value="int"/>
 										<input type="hidden" name="ability_int" value="{{gmm.monster.ability_modifiers.int.value}}"/>
+										<input type="hidden" name="check_int" value="{{gmm.monster.check_modifiers.int.value}}"/>
 										<span>
 											<span class="ability__name">{{localize 'gmm.common.ability.int.code'}}</span>
 											<span class="ability__value">{{numberFormat gmm.monster.ability_modifiers.int.value sign=true}}</span>
@@ -99,6 +103,7 @@
 									<label class="radio ability">
 										<input type="radio" class="radio--wis" name="ability" value="wis"/>
 										<input type="hidden" name="ability_wis" value="{{gmm.monster.ability_modifiers.wis.value}}"/>
+										<input type="hidden" name="check_wis" value="{{gmm.monster.check_modifiers.wis.value}}"/>
 										<span>
 											<span class="ability__name">{{localize 'gmm.common.ability.wis.code'}}</span>
 											<span class="ability__value">{{numberFormat gmm.monster.ability_modifiers.wis.value sign=true}}</span>
@@ -107,6 +112,7 @@
 									<label class="radio ability">
 										<input type="radio" class="radio--cha" name="ability" value="cha"/>
 										<input type="hidden" name="ability_cha" value="{{gmm.monster.ability_modifiers.cha.value}}"/>
+										<input type="hidden" name="check_cha" value="{{gmm.monster.check_modifiers.cha.value}}"/>
 										<span>
 											<span class="ability__name">{{localize 'gmm.common.ability.cha.code'}}</span>
 											<span class="ability__value">{{numberFormat gmm.monster.ability_modifiers.cha.value sign=true}}</span>
@@ -121,9 +127,9 @@
 							</div>
 							<div class="form-group__body">
 								<select class="select--skill" name="skill">
-									<option value="" selected="">—</option>
+									<option value="" selected="">&mdash;</option>
 									{{#each gmm.enums.skills}}
-										<option value="{{.}}">{{localize (concat 'gmm.common.skill.' .)}} {{#if (getSkillProficiency ../gmm.monster.skills .)}}({{numberFormat (getSkillProficiency ../gmm.monster.skills .) sign=true}}){{/if}}</option>
+										<option value="{{.}}">{{localize (concat 'gmm.common.skill.' .)}} {{#if (getSkillProficiency ../gmm.monster.skills . ../gmm.monster.role)}}({{numberFormat (getSkillProficiency ../gmm.monster.skills .) sign=true}}){{/if}}</option>
 									{{/each}}
 								</select>
 								{{#each gmm.enums.skills}}
@@ -152,12 +158,12 @@
 								</select>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 				<div class="modal__footer">
-					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
-					<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
-					<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
+					<button type="button" class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button type="button" class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
+					<button type="button" class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
 				</div>
 			</div>
 		</div>
@@ -166,12 +172,14 @@
 				<div class="modal__icon"><i class="fas fa-question"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.info.about.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<div class="modal__subtitle">{{localize 'gmm.modal.info.about.subtitle'}}</div>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
 					<p class="intro">{{{localize 'gmm.modal.info.about.p.1' pdf='https://giffyglyph.com/monstermaker'}}}</p>
 					<div class="support">
 						<p class="support__title">{{localize 'gmm.modal.info.about.support'}}</p>
+						<p class="support__title">{{localize 'gmm.modal.info.about.supportsubtitle'}}</p>
 						<p>{{{localize 'gmm.modal.info.about.p.2'}}}</p>
 						<ul class="support__links">
 							<li><a class="patreon" href="https://www.patreon.com/bePatron?u=12684623"><i class="fab fa-fw fa-patreon"></i> {{{localize 'gmm.modal.info.about.patreon'}}}</a></li>
@@ -216,16 +224,16 @@
 				<div class="modal__icon"><i class="fas fa-crosshairs"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.basic_attack_ac.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
-					<form class="modal__form">
+					<div class="modal__form">
 						<div class="form-group">
 							<div class="form-group__header">
 								<span class="form-group__title">{{localize 'gmm.modal.basic_attack_ac.bonus'}}</span>
 							</div>
 							<div class="form-group__body">
-								<input name="bonus" value="{{numberFormat gmm.monster.attack_bonus.value sign=true}}" readonly/>
+								<input name="bonus" value="{{numberFormat gmm.monster.attack_bonus.display sign=true}}" readonly/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -249,12 +257,12 @@
 								</select>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 				<div class="modal__footer">
-					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
-					<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
-					<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
+					<button type="button" class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button type="button" class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
+					<button type="button" class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
 				</div>
 			</div>
 		</div>
@@ -263,10 +271,10 @@
 				<div class="modal__icon"><i class="fas fa-bullseye"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.basic_attack_save.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
-					<form class="modal__form">
+					<div class="modal__form">
 						<div class="form-group">
 							<div class="form-group__header">
 								<span class="form-group__title">{{localize 'gmm.modal.basic_attack_save.attack'}}</span>
@@ -280,15 +288,7 @@
 											<span class="attack__title">{{localize 'gmm.modal.basic_attack_save.primary'}}</span>
 										</span>
 									</label>
-									<label class="radio attack">
-										<input type="radio" name="attack" value="secondary" class="radio--secondary"/>
-										<span>
-											<span class="attack__dc">DC {{gmm.monster.attack_dcs.secondary.value}}</span>
-											<span class="attack__title">{{localize 'gmm.modal.basic_attack_save.secondary'}}</span>
-										</span>
-									</label>
 									<input type="hidden" name="primary" value="{{gmm.monster.attack_dcs.primary.value}}"/>
-									<input type="hidden" name="secondary" value="{{gmm.monster.attack_dcs.secondary.value}}"/>
 								</div>
 							</div>
 						</div>
@@ -346,10 +346,10 @@
 								</select>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 				<div class="modal__footer">
-					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button type="button" class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
 				</div>
 			</div>
 		</div>
@@ -358,10 +358,10 @@
 				<div class="modal__icon"><i class="fas fa-fire"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.basic_damage.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
-					<form class="modal__form">
+					<div class="modal__form">
 						<div class="form-group">
 							<div class="form-group__header">
 								<span class="form-group__title">{{localize 'gmm.modal.basic_damage.bonus'}}</span>
@@ -371,19 +371,19 @@
 									<label class="radio damage">
 										<input type="radio" name="bonus" value="static" class="radio--static" checked/>
 										<span>
-											<span class="damage__value">{{gmm.monster.damage_per_action.value}}</span>
+											<span class="damage__value">{{gmm.monster.damage_per_action.display}}</span>
 											<span class="damage__title">{{localize 'gmm.modal.basic_damage.static'}}</span>
 										</span>
 									</label>
 									<label class="radio damage">
 										<input type="radio" name="bonus" value="random" class="radio--random"/>
 										<span>
-											<span class="damage__value">{{gmm.monster.damage_per_action.dice}}</span>
+											<span class="damage__value">{{gmm.monster.damage_per_action.display_dice}}</span>
 											<span class="damage__title">{{localize 'gmm.modal.basic_damage.random'}}</span>
 										</span>
 									</label>
-									<input type="hidden" name="static" value="{{gmm.monster.damage_per_action.value}}"/>
-									<input type="hidden" name="random" value="{{gmm.monster.damage_per_action.dice}}"/>
+									<input type="hidden" name="static" value="{{gmm.monster.damage_per_action.display}}"/>
+									<input type="hidden" name="random" value="{{gmm.monster.damage_per_action.display_dice}}"/>
 								</div>
 							</div>
 						</div>
@@ -408,11 +408,11 @@
 								</select>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 				<div class="modal__footer">
-					<button class="modal__button" data-action="roll-critical"><i class="fas fa-skull"></i> {{localize 'gmm.modal.common.button.critical'}}</button>
-					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button type="button" class="modal__button" data-action="roll-critical"><i class="fas fa-skull"></i> {{localize 'gmm.modal.common.button.critical'}}</button>
+					<button type="button" class="modal__button" data-action="roll-normal"><i class="fas fa-dice"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
 				</div>
 			</div>
 		</div>
@@ -421,11 +421,11 @@
 				<div class="modal__icon"><i class="fas fa-bug"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.info.bugs.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
 					<p class="intro">{{{localize 'gmm.modal.info.bugs.intro'}}}</p>
-					<a class="github" href="https://github.com/giffyglyph/foundry-5e-monster-maker/issues"><i class="fab fa-github fa-fw"></i> github.com/giffyglyph</a>
+					<a class="github" href="https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues"><i class="fab fa-github fa-fw"></i> github.com/skyl3lazer</a>
 				</div>
 			</div>
 		</div>
@@ -434,7 +434,7 @@
 				<div class="modal__icon"><i class="fas fa-pen"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.info.modifiers.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
 					<p>{{{localize 'gmm.modal.info.modifiers.p.1'}}}</p>
@@ -451,7 +451,7 @@
 				<div class="modal__icon"><i class="fas fa-pen"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.info.modifying_abilities.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
 					<p>{{{localize 'gmm.modal.info.modifying_abilities.p.1'}}}</p>
@@ -467,7 +467,7 @@
 				<div class="modal__icon"><i class="fas fa-sort-numeric-down"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.info.ranked_abilities.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
 					<p>{{localize 'gmm.modal.info.ranked_abilities.p.1'}}</p>
@@ -484,10 +484,10 @@
 				<div class="modal__icon"><i class="fas fa-shield-alt"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.saving_throw.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
-					<form class="modal__form">
+					<div class="modal__form">
 						<div class="form-group form-group--saves">
 							<div class="form-group__header">
 								<span class="form-group__title">{{localize 'gmm.modal.saving_throw.ability_bonus'}}</span>
@@ -566,12 +566,12 @@
 								</select>
 							</div>
 						</div>
-					</form>
+					</div>
 				</div>
 				<div class="modal__footer">
-					<button class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
-					<button class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
-					<button class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
+					<button type="button" class="modal__button" data-action="roll-normal"><i class="fas fa-dice-d20"></i> {{localize 'gmm.modal.common.button.roll'}}</button>
+					<button type="button" class="modal__button" data-action="roll-disadvantage"><i class="fas fa-arrow-circle-down"></i> {{localize 'gmm.modal.common.button.disadvantage'}}</button>
+					<button type="button" class="modal__button" data-action="roll-advantage"><i class="fas fa-arrow-circle-up"></i> {{localize 'gmm.modal.common.button.advantage'}}</button>
 				</div>
 			</div>
 		</div>
@@ -580,7 +580,7 @@
 				<div class="modal__icon"><i class="fas fa-tag"></i></div>
 				<div class="modal__header">
 					<div class="modal__title">{{localize 'gmm.modal.info.tags.title'}}</div>
-					<button class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
+					<button type="button" class="modal__close" data-action="close-modal"><i class="fas fa-times"></i></button>
 				</div>
 				<div class="modal__body">
 					<p>{{{localize 'gmm.modal.info.tags.p.1'}}}</p>

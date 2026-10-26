@@ -1,0 +1,29 @@
+name: Resistor
+type: base
+_id: TRa1KUyYHut7PGMM
+img: icons/magic/defensive/armor-stone-skin.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>You gain resistance to one
+  damage type.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>Core automation</em></p><p><em>Set the value of the
+  Damage Resistance change to a damage type.</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: system.traits.dr.value
+      _id: Fn4XecEXFjsOEy0B
+      type: add
+      value: ''
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!TRa1KUyYHut7PGMM'

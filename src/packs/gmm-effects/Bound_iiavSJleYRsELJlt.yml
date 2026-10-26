@@ -1,0 +1,27 @@
+name: Bound
+type: base
+_id: iiavSJleYRsELJlt
+img: icons/commodities/cloth/yarn-skein-white-red.webp
+description: >-
+  <p><strong>Uncommon Condition</strong></p><ul><li><p>You can't use your
+  hands.</p></li><li><p>You automatically fail any ability check that requires
+  you to make precise movements with your hands.</p></li><li><p>You drop
+  anything you are carrying.</p></li></ul><p><em>No automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.bound
+folder: gmmConditions000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!iiavSJleYRsELJlt'

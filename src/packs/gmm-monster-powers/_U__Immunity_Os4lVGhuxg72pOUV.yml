@@ -1,0 +1,202 @@
+name: (U) Immunity
+type: feat
+img: icons/magic/life/ankh-gold-blue.webp
+system:
+  description:
+    value: >-
+      <p>You are immune to one damage type* or one condition* of your choice
+      until the end of your next turn.</p><p><em>* Core
+      automation</em></p><p><em>Set one of the two changes to your choice and
+      delete the other.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (U) Immunity
+      sort: 0
+      activation:
+        type: bonus
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: 1
+        units: round
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects:
+        - _id: VGhuxg72pOUVOs4l
+effects:
+  - _id: VGhuxg72pOUVOs4l
+    name: Immunity
+    img: icons/magic/defensive/shield-barrier-glowing-blue.webp
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes:
+        - key: system.traits.di.value
+          _id: lWD8K7cCcoXTSmlC
+          type: add
+          value: ''
+        - key: system.traits.ci.value
+          _id: cx49ZuuEDRwq3Dvh
+          type: add
+          value: ''
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!Os4lVGhuxg72pOUV.VGhuxg72pOUVOs4l'
+folder: S3EEbaut6Bd4J1U8
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (U) Immunity
+          image: icons/magic/life/ankh-gold-blue.webp
+          text: >-
+            <p>You are immune to one damage type* or one condition* of your
+            choice until the end of your next turn.</p><p><em>* Core
+            automation</em></p><p><em>Set one of the two changes to your choice
+            and delete the other.</em></p>
+        activation:
+          type: bonus
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: end_of_your_turn
+          units: ''
+          value: ''
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+        rarity: uncommon
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048820384
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: Os4lVGhuxg72pOUV
+sort: 100000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!Os4lVGhuxg72pOUV'

@@ -6,5 +6,13 @@ export const GMM_5E_UNITS = [
     {
 		name: "miles",
 		foundry: "mi"
+	},
+	{
+		name: "meters",
+		foundry: "m"
+	},
+	{
+		name: "kilometers",
+		foundry: "km"
 	}
 ];

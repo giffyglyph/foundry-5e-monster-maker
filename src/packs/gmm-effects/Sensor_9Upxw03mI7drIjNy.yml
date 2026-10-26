@@ -1,0 +1,30 @@
+name: Sensor
+type: base
+_id: 9Upxw03mI7drIjNy
+img: icons/magic/perception/eye-ringed-green.webp
+description: >-
+  <p><strong>Uncommon Boon</strong></p><ul><li><p>You gain a new
+  sense.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>Core automation</em></p><p><em>Set the value of the
+  Darkvision change to a range, or replace the change with Blindsight,
+  Tremorsense or Truesight.</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: system.attributes.senses.ranges.darkvision
+      _id: b94ODTpkpLyY13UD
+      type: add
+      value: '0'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!9Upxw03mI7drIjNy'

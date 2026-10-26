@@ -1,0 +1,29 @@
+name: Uncomfortable
+type: base
+_id: K5cPpBaWegzaArTw
+img: icons/skills/wounds/injury-body-pain-gray.webp
+description: >-
+  <p><strong>Common Terrain Modifier</strong></p><ul><li><p>Disadvantage on
+  Concentration saving throws.</p></li></ul><p><em>Applies to a creature in the
+  area.</em></p><p><em>Core automation</em></p>
+disabled: false
+transfer: false
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes:
+    - key: system.attributes.concentration.roll.mode
+      _id: CZCuLD976A4lJJHz
+      type: add
+      value: '-1'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+    terrain: uncomfortable
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!K5cPpBaWegzaArTw'

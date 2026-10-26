@@ -1,17 +1,32 @@
 {
   "name": "foundry_5e_gmm",
-  "version": "0.0.1",
+  "version": "2.1.0.2",
   "description": "",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "directories": {
+    "doc": "docs"
   },
-  "author": "Giffyglyph",
+  "scripts": {
+    "test": "echo \"hi\"",
+    "unpack": "node tools/packs.mjs unpack",
+    "pack": "node tools/packs.mjs pack",
+    "forge-packs": "node tools/forge-pack-activities.mjs",
+    "stamp-ids": "node tools/stamp-change-ids.mjs",
+    "postinstall": "node tools/packs.mjs pack && npm run symlinks",
+    "prepare": "git config core.hooksPath .githooks",
+    "symlinks": "node tools/create-symlinks.mjs",
+    "foundry:v13": "node tools/create-symlinks.mjs v13",
+    "foundry:v14": "node tools/create-symlinks.mjs v14"
+  },
+  "author": "Skyl3lazer",
   "license": "ISC",
   "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.4",
+    "eslint": "^9.3.0",
     "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-using": "^0.1.1"
+    "gulp-sass": "^5.1.0",
+    "gulp-using": "^0.1.1",
+    "js-yaml": "^4.1.0",
+    "sass": "^1.63.3"
   }
 }

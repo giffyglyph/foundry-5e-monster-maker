@@ -1,0 +1,30 @@
+name: Unstable
+type: base
+_id: R9kVBRTNa7T9weUq
+img: icons/environment/wilderness/terrain-rocky-ground.webp
+description: >-
+  <p><strong>Common Terrain Modifier</strong></p><ul><li><p>When a creature ends
+  their turn within the area, they fall prone.</p></li></ul><p><em>Applies to a
+  creature in the area.</em></p><p><em>Midi automation</em></p>
+disabled: false
+transfer: false
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes:
+    - key: flags.midi-qol.OverTime
+      _id: DxMOJcHsXy9KEnEP
+      type: custom
+      value: turn=end,label=Unstable,macro=function.gmmc.conditions.unstable
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+    terrain: unstable
+    condition: unstable
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!R9kVBRTNa7T9weUq'

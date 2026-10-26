@@ -1,0 +1,28 @@
+<div class="gmm-deferral chat-card">
+	{{#if dooming}}
+	<p>{{localize 'gmm.deferral.resolution.doom_intro' name=name}}</p>
+	<p class="supplement"><strong>{{localize 'gmm.deferral.resolution.doomed'}}:</strong> {{#each targets}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+	{{else}}
+	<p>{{localize 'gmm.deferral.resolution.intro' name=name}}</p>
+	{{#if hasTargets}}
+	<p class="supplement"><strong>{{localize 'gmm.deferral.resolution.targets'}}:</strong> {{#each targets}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+	{{else if unread}}
+	<p class="supplement"><em>{{localize 'gmm.deferral.resolution.unread'}}</em></p>
+	{{else if hasArea}}
+	<p class="supplement"><em>{{localize 'gmm.deferral.resolution.no_targets'}}</em></p>
+	{{/if}}
+	{{/if}}
+	{{#if cancel}}
+	<p class="supplement"><em>{{localize 'gmm.common.deferral.cancel'}}: {{cancel}}</em></p>
+	{{/if}}
+	<div class="card-buttons">
+		<button type="button" data-gmm-deferral="resolve">
+			<i class="fa-solid fa-burst" inert></i>
+			{{localize 'gmm.deferral.resolution.resolve'}}
+		</button>
+		<button type="button" data-gmm-deferral="cancel">
+			<i class="fa-solid fa-ban" inert></i>
+			{{localize 'gmm.deferral.resolution.cancel'}}
+		</button>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+name: Silenced
+type: base
+_id: WZXgPJl7c12SScCM
+img: icons/svg/silenced.svg
+description: >-
+  <p><strong>Common Condition</strong></p><ul><li><p>You can't
+  speak.</p></li><li><p>You automatically fail any ability check that requires
+  you to make a vocal sound.</p></li></ul><p><em>No automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.silenced
+folder: gmmConditions000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!WZXgPJl7c12SScCM'

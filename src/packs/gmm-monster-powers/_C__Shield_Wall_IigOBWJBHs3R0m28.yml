@@ -1,0 +1,187 @@
+name: (C) Shield Wall
+type: feat
+img: icons/skills/melee/shield-block-gray-yellow.webp
+system:
+  description:
+    value: >-
+      <p>You grant an adjacent target total cover+ until the start of your next
+      turn. You must remain adjacent to the target to maintain this
+      cover.</p><p><em>+ Midi automation</em></p><p><em>Adjacency is not
+      tracked.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (C) Shield Wall
+      sort: 0
+      activation:
+        type: bonus
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects:
+        - _id: BWJBHs3R0m28IigO
+effects:
+  - _id: BWJBHs3R0m28IigO
+    name: Total Cover
+    img: systems/dnd5e/icons/svg/statuses/cover-total.svg
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes: []
+    flags:
+      dae:
+        stackable: noneName
+    statuses:
+      - coverTotal
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!IigOBWJBHs3R0m28.BWJBHs3R0m28IigO'
+folder: zrWoCiSJhQY5KH6q
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (C) Shield Wall
+          image: icons/skills/melee/shield-block-gray-yellow.webp
+          text: >-
+            <p>You grant an adjacent target total cover+ until the start of your
+            next turn. You must remain adjacent to the target to maintain this
+            cover.</p><p><em>+ Midi automation</em></p><p><em>Adjacency is not
+            tracked.</em></p>
+        activation:
+          type: bonus
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+        rarity: common
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048836771
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: IigOBWJBHs3R0m28
+sort: 100000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!IigOBWJBHs3R0m28'

@@ -1,0 +1,183 @@
+name: (Common) Ranged Save Attack, Strong
+type: feat
+img: icons/magic/lightning/bolt-strike-blue.webp
+effects: []
+folder: JPEHab7zdvYJ1DzZ
+sort: 2000000
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Common) Ranged Save Attack, Strong
+          image: icons/magic/lightning/bolt-strike-blue.webp
+          text: <p>You attack all targets within range.</p>
+        activation:
+          type: action
+          cost: 0
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: save
+          related_stat: max
+          bonus: ''
+          defense: dex
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*0.75), damageDie]'
+                type: piercing
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+        range:
+          units: self
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: emanation
+          units: ft
+          value: 30
+          width: null
+        uses:
+          value: 0
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: common
+_id: ZWW2d4KRrWugBT06
+system:
+  description:
+    value: <p>You attack all targets within range.</p>
+    chat: ''
+    unidentified: ''
+  source: ''
+  cover: null
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: save
+      name: (Common) Ranged Save Attack, Strong
+      sort: 0
+      activation:
+        type: action
+        value: 0
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: radius
+          size: '30'
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: ''
+          formula: 0 + 0
+      damage:
+        onSave: none
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - piercing
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      effects: []
+ownership:
+  default: 0
+  9KqczVLBJ56sdiTI: 3
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1686232662663
+  modifiedTime: 1716048296859
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: Compendium.world.gmm-dev-monster-attacks.LlyOVpZsuUPcQr5X
+  duplicateSource: null
+  exportSource: null
+_key: '!items!ZWW2d4KRrWugBT06'

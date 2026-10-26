@@ -1,0 +1,15 @@
+<div class="effect draggable" data-effect-id="{{effect.id}}" {{#if effect.parentId}}data-parent-id="{{effect.parentId}}"{{/if}} draggable="true">
+    <div class="item__icon"><img src="{{effect.img}}" /></div>
+    <div class="item__title">{{effect.name}}</div>
+    <div class="item__actions item-controls effect-controls">
+        <button type="button" data-action="toggle" data-tooltip="{{#if effect.disabled}}gmm.common.effect.enable{{else}}gmm.common.effect.disable{{/if}}"><i class="fas fa-fw {{#if effect.disabled}}fa-check{{else}}fa-times{{/if}}"></i></button>
+        {{#if effect.gmmCanToggleMode}}
+        <button type="button" data-action="toggle-effect-mode"
+                data-tooltip="{{#if effect.gmmAlwaysMode}}gmm.common.effect_mode.always{{else}}gmm.common.effect_mode.on_use{{/if}}">
+            <i class="fas fa-fw {{#if effect.gmmAlwaysMode}}fa-user{{else}}fa-bullseye{{/if}}"></i>
+        </button>
+        {{/if}}
+        <button type="button" data-action="edit" data-tooltip="gmm.common.effect.edit"><i class="fas fa-fw fa-edit"></i></button>
+        <button type="button" data-action="delete" data-tooltip="gmm.common.effect.delete"><i class="fas fa-fw fa-trash"></i></button>
+    </div>
+</div>

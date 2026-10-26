@@ -1,0 +1,16 @@
+name: Giant
+sorting: a
+folder: null
+type: Item
+_id: xPY1v6QbenBje2wG
+sort: 0
+color: null
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.1
+  coreVersion: '11.315'
+  createdTime: 1712161984326
+  modifiedTime: 1712161984326
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!xPY1v6QbenBje2wG'

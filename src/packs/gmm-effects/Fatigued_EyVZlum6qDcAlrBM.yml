@@ -1,0 +1,27 @@
+name: Fatigued
+type: base
+_id: EyVZlum6qDcAlrBM
+img: icons/skills/trades/mining-pickaxe-stone-cart.webp
+description: >-
+  <p><strong>Uncommon Condition</strong></p><ul><li><p>Temporarily increase your
+  level of exhaustion by 1.</p></li><li><p>For every additional 24 hours you go
+  without sufficient sleep, increase this penalty by 1.</p></li></ul><p><em>No
+  automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.fatigued
+folder: gmmConditions000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!EyVZlum6qDcAlrBM'

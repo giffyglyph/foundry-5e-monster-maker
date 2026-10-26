@@ -41,18 +41,23 @@
 			padding-top: 2rem;
 		}
 	}
-	
+
 	.modal__header {
 		background: var(--color-primary-shade-2);
 		border-top: 0.5rem solid var(--color-primary-base);
 		color: white;
 		text-align: center;
-		padding: 1rem 1rem 3rem;
+		padding: 1rem .5rem 3rem;
 		text-align: center;
 		font-size: 2rem;
 		letter-spacing: 0.5px;
 		position: relative;
 		font-family: 'Londrina Solid';
+
+		.modal__subtitle {
+			font-size: 1.3rem;
+		}
+
 
 		.modal__close {
 			background: none;
@@ -284,7 +289,7 @@
 							background: var(--color-secondary-base);
 							border-color: var(--color-secondary-base);
 							color: white;
-	
+
 							i {
 								color: white;
 							}

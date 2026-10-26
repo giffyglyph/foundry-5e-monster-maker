@@ -1,0 +1,4 @@
+#!/bin/sh
+root="$(git rev-parse --show-toplevel)"
+node "$root/.githooks/check-version-changelog.mjs" || exit 1
+exec node "$root/.githooks/check-packs.mjs"

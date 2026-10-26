@@ -1,0 +1,43 @@
+name: Swarmed
+type: base
+_id: quNNDdLgddY73Sgx
+img: icons/creatures/invertebrates/spider-dotted-green.webp
+description: >-
+  <p><strong>Uncommon Condition</strong></p><ul><li><p>You move as if in
+  difficult terrain.</p></li><li><p>Attack rolls against you have advantage, and
+  your attack rolls have disadvantage.^+</p></li></ul><p><em>^+ Midi or AC5e
+  automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.swarmed
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: flags.automated-conditions-5e.grants.attack.advantage
+      _id: bGwPdTB1jcsUFZ3G
+      type: ac5e
+      value: '1'
+    - key: flags.automated-conditions-5e.attack.disadvantage
+      _id: 2HuJkO8WPkpRQ5v2
+      type: ac5e
+      value: '1'
+    - key: flags.midi-qol.grants.advantage.attack.all
+      _id: mIh485ioytfsD82t
+      type: custom
+      value: '1'
+    - key: flags.midi-qol.disadvantage.attack.all
+      _id: ak6KAStCTmRAAZ6k
+      type: custom
+      value: '1'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!quNNDdLgddY73Sgx'

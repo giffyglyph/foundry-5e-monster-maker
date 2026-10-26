@@ -1,0 +1,33 @@
+name: Lightly Obscured
+type: base
+_id: bwMM4nrjkfoOASBS
+img: icons/magic/air/fog-gas-smoke-gray.webp
+description: >-
+  <p><strong>Common Terrain Modifier</strong></p><ul><li><p>Disadvantage on
+  Wisdom (Perception) checks that rely on sight.</p></li></ul><p><em>Applies to
+  a creature in the area.</em></p><p><em>Core automation</em></p><p><em>The
+  change reaches every Perception check, not only the ones that rely on sight.
+  Nothing in a Perception roll states which sense it used, so drop the
+  disadvantage by hand where the creature is listening or feeling for
+  something.</em></p>
+disabled: false
+transfer: false
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes:
+    - key: system.skills.prc.roll.mode
+      _id: xyRyp70umIGdIkJu
+      type: add
+      value: '-1'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+    terrain: lightly_obscured
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!bwMM4nrjkfoOASBS'

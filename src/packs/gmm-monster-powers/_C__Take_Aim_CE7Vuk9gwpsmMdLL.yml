@@ -1,0 +1,187 @@
+name: (C) Take Aim
+type: feat
+img: icons/skills/targeting/crosshair-pointed-orange.webp
+system:
+  description:
+    value: >-
+      <p>You can't move during your turn. Make your next attack roll with
+      advantage.^</p><p><em>^ AC5e automation</em></p><p><em>Nothing enforces
+      standing still.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (C) Take Aim
+      sort: 0
+      activation:
+        type: bonus
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects:
+        - _id: uk9gwpsmMdLLCE7V
+effects:
+  - _id: uk9gwpsmMdLLCE7V
+    name: Take Aim
+    img: icons/skills/ranged/target-bullseye-arrow-blue.webp
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes:
+        - key: flags.automated-conditions-5e.attack.advantage
+          _id: pBvcr9iX7tKjmpd7
+          type: ac5e
+          value: 1; once
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!CE7Vuk9gwpsmMdLL.uk9gwpsmMdLLCE7V'
+folder: Tnf0D7n9MHPnMz8r
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (C) Take Aim
+          image: icons/skills/targeting/crosshair-pointed-orange.webp
+          text: >-
+            <p>You can't move during your turn. Make your next attack roll with
+            advantage.^</p><p><em>^ AC5e automation</em></p><p><em>Nothing
+            enforces standing still.</em></p>
+        activation:
+          type: bonus
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+        rarity: common
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716049014682
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: CE7Vuk9gwpsmMdLL
+sort: 400000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!CE7Vuk9gwpsmMdLL'

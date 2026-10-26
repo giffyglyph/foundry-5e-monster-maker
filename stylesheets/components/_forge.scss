@@ -10,6 +10,11 @@
 	grid-template-rows: 1fr auto;
 	grid-column-gap: 0;
 	pointer-events: none;
+	// Foundry V14's `.application .window-content` is `display:
+	// flex
+	flex: 1 1 auto;
+	min-height: 0;
+	height: 100%;
 
 	> * {
 		pointer-events: all;

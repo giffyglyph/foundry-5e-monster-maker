@@ -1,0 +1,192 @@
+name: (Rare) Melee Save Attack
+type: feat
+img: icons/weapons/axes/axe-broad-chipped-glow-yellow.webp
+effects: []
+folder: Xu0gwcuFy6NMHm0f
+sort: 1000000
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Rare) Melee Save Attack
+          image: icons/weapons/axes/axe-broad-chipped-glow-yellow.webp
+          text: <p>You attack a target within reach.</p>
+        activation:
+          type: action
+          cost: 0
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: save
+          related_stat: max
+          bonus: ''
+          defense: str
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*2), damageDie]'
+                type: slashing
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+        range:
+          units: ft
+          value: 5
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: 1
+          width: 0
+        uses:
+          value: 1
+          max: 1
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: rare
+_id: CkVJMUj6NFu1oMEj
+system:
+  description:
+    value: <p>You attack a target within reach.</p>
+    chat: ''
+    unidentified: ''
+  source: ''
+  cover: null
+  uses:
+    spent: 0
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: save
+      name: (Rare) Melee Save Attack
+      sort: 0
+      activation:
+        type: action
+        value: 0
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: 5
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      save:
+        ability:
+          - str
+        dc:
+          calculation: ''
+          formula: 0 + 0
+      damage:
+        onSave: none
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - slashing
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      effects: []
+ownership:
+  default: 0
+  9KqczVLBJ56sdiTI: 3
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1686232662634
+  modifiedTime: 1716048421199
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: Compendium.world.gmm-dev-monster-attacks.xv3T7idXy4MKcMy4
+  duplicateSource: null
+  exportSource: null
+_key: '!items!CkVJMUj6NFu1oMEj'

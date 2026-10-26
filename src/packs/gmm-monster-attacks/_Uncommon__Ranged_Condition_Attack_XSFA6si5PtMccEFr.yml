@@ -1,0 +1,261 @@
+name: (Uncommon) Ranged Condition Attack
+type: feat
+img: icons/weapons/polearms/spear-ice-crystal-blue.webp
+effects:
+  - changes:
+      - key: flags.midi-qol.disadvantage.attack.all
+        _id: jUNF68uYPiM5wVCq
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.disadvantage.ability.check.all
+        _id: 0F38vf3j0whu2MrY
+        mode: 0
+        value: '1'
+        priority: null
+    description: >-
+      - A frightened creature has disadvantage on ability checks and attack
+      rolls while the source of its fear is within line of sight.<br />- The
+      creature can't willingly move closer to the source of its fear.
+    disabled: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: null
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+    name: Frightened
+    origin: Compendium.world.gmm-monster-attacks-dev.Item.XSFA6si5PtMccEFr
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - frightened
+    _id: 7O4SZ4zAov2hac4j
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: modules/dfreds-convenient-effects/images/frightened.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!XSFA6si5PtMccEFr.7O4SZ4zAov2hac4j'
+folder: PCq12hdhmUnNMCak
+sort: 1300000
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Uncommon) Ranged Condition Attack
+          image: icons/weapons/polearms/spear-ice-crystal-blue.webp
+          text: >-
+            <p>The target is <em>Frightened</em> of you. The target can make a
+            Charisma saving throw (DC [durationSaveDc]) at the end of their
+            turns to remove this condition.</p><p><em>Midi automation</em></p>
+        activation:
+          type: action
+          cost: 0
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: rwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: save_ends
+          units: ''
+          value: ''
+          save:
+            ability: cha
+          reapplies: ''
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+        range:
+          units: ft
+          value: 60
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: 1
+          width: 0
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: uncommon
+  midi-qol:
+    fumbleThreshold: null
+    rollAttackPerTarget: default
+    removeAttackDamageButtons: default
+    itemCondition: ''
+    effectCondition: ''
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    concentration: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+_id: XSFA6si5PtMccEFr
+system:
+  description:
+    value: >-
+      <p>The target is <em>Frightened</em> of you. The target can make a
+      Charisma saving throw (DC [durationSaveDc]) at the end of their turns to
+      remove this condition.</p><p><em>Midi automation</em></p>
+    chat: ''
+    unidentified: ''
+  source: ''
+  cover: null
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (Uncommon) Ranged Condition Attack
+      sort: 0
+      activation:
+        type: action
+        value: 0
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: 60
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: ranged
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: 7O4SZ4zAov2hac4j
+ownership:
+  default: 0
+  9KqczVLBJ56sdiTI: 3
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '13.351'
+  createdTime: 1686232662659
+  modifiedTime: 1716215971906
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: Compendium.world.gmm-dev-monster-attacks.7F8Q9UiowS7gQ3bk
+  duplicateSource: null
+  exportSource: null
+_key: '!items!XSFA6si5PtMccEFr'

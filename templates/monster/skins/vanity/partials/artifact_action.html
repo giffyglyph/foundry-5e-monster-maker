@@ -1,80 +1,109 @@
-<div class="item item--action" data-item-id="{{item.id}}" draggable="true">
-    <div class="item__icon" data-action="roll-item">
+<div class="item item--action draggable" data-item-id="{{item.id}}" draggable="true">
+    <div class="item__icon item__icon__border__{{item.gmmLabels.bpRarity}}" data-action="roll-item">
         {{#if item.img}}
-            <img src="{{item.img}}"/>
+        <img src="{{item.img}}" />
         {{/if}}
-        <button data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
+        <button type="button" data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
     </div>
     <div class="item__body">
-        <div class="item__title">
+        <div class="item__title item__title__rarity__{{item.gmmLabels.bpRarity}}">
             <div class="item__title__body">
                 <div class="item__name"><i class="{{item.gmmLabels.icon}}"></i> {{item.name}}</div>
                 {{#if item.gmmLabels.legendary_cost}}
-                    <div class="item__cost">({{localize 'gmm.monster.artifact.legendary_actions.cost' cost=item.gmmLabels.legendary_cost}})</div>
+                <div class="item__cost">({{localize 'gmm.monster.artifact.legendary_actions.cost' cost=item.gmmLabels.legendary_cost}})</div>
                 {{/if}}
-                {{#if item.gmmLabels.recharge}}
-                    <div class="item__recharge {{#if item.recharge.charged}}charged{{/if}}">
-                        {{#if item.gmmLabels.recharge.charged}}
-                            (charged)
-                        {{else}}
-                            <button class="button--text" data-action="recharge-item"><i class="fas fa-dice-d6"></i> recharge {{item.gmmLabels.recharge.value}}</button>
-                        {{/if}}
-                    </div>
+                {{#if (or item.gmmLabels.deferral item.gmmLabels.recharge item.gmmLabels.uses)}}
+                {{#unless (or item.gmmLabels.recharge item.gmmLabels.uses)}}
+                <div class="item__recharge">
+                    ({{item.gmmLabels.deferral.type}} {{item.gmmLabels.deferral.timer}})
+                </div>
                 {{else}}
-                    {{#if item.gmmLabels.uses}}
-                        <div class="item__uses">
-                            <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="data.uses.value" data-type="number"/>
-                            <span class="value">({{item.gmmLabels.uses.current}}, {{item.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.gmmLabels.uses.per)}})</span>
-                        </div>
+                {{#if item.gmmLabels.recharge}}
+                <div class="item__recharge {{#if item.recharge.charged}}charged{{/if}}">
+                    {{#if item.gmmLabels.recharge.charged}}
+                    (charged{{#if (and item.gmmLabels.recharge.charged item.gmmLabels.deferral)}}, {{/if}}{{#if item.gmmLabels.deferral}}{{item.gmmLabels.deferral.type}} {{item.gmmLabels.deferral.timer}}{{/if}})
+                    {{else}}
+                    <button type="button" class="button--text" data-action="recharge-item"><i class="fas fa-dice-d6"></i> recharge {{item.gmmLabels.recharge.value}}{{#if item.gmmLabels.deferral}}, {{item.gmmLabels.deferral.type}} {{item.gmmLabels.deferral.timer}}{{/if}}</button>
                     {{/if}}
+                </div>
+                {{else}}
+                {{#if item.gmmLabels.uses}}
+                <div class="item__uses">
+                    {{#if item.gmmLabels.uses}}
+                    <input class="input--uses" data-action="update-item" data-target="{{item.id}}" data-field="system.uses.value" data-type="number" />
+                    {{/if}}
+                    <span class="">(<span class="value">{{#if item.gmmLabels.uses}}{{item.gmmLabels.uses.current}}, {{item.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' item.gmmLabels.uses.per)}}{{/if}}</span>{{#if (and item.gmmLabels.uses item.gmmLabels.deferral)}}, {{/if}}{{#if item.gmmLabels.deferral}}{{item.gmmLabels.deferral.type}} {{item.gmmLabels.deferral.timer}}{{/if}})</span>
+                </div>
+                {{/if}}
+                {{/if}}
+                {{/unless}}
                 {{/if}}
             </div>
         </div>
         <div class="item__details">
-            {{#if (or item.gmmLabels.attack item.gmmLabels.damage_hit item.gmmLabels.damage_versatile item.gmmLabels.damage_miss)}}
-                <div class="item__attackdmg">
-                    {{#if item.gmmLabels.attack}}
-                        <span class="item__attack">
-                            <span class="attack__title"><i>{{item.gmmLabels.attack}}:</i></span>
-                            {{#if item.gmmLabels.to_hit}}
-                                <span>{{item.gmmLabels.to_hit}}</span>
-                            {{/if}}
-                            {{#if item.gmmLabels.range}}
-                                <span>{{item.gmmLabels.range}}</span>
-                            {{/if}}
-                            {{#if item.gmmLabels.target}}
-                                <span>{{item.gmmLabels.target}}</span>
-                            {{/if}}
-                        </span>
+            {{#if (or item.gmmLabels.damage_hit item.gmmLabels.damage_versatile item.gmmLabels.damage_miss item.gmmLabels.to_hit item.gmmLabels.range item.gmmLabels.target)}}
+            <div class="item__attackdmg">
+                {{#if item.gmmLabels.attack}}
+                {{#if (or item.gmmLabels.to_hit item.gmmLabels.range item.gmmLabels.target)}}
+                <span class="item__attack">
+                    <span class="attack__title"><i>{{item.gmmLabels.attack}}:</i></span>
+                    {{#if item.gmmLabels.to_hit}}
+                    <span>{{item.gmmLabels.to_hit}}</span>
                     {{/if}}
-                    {{#if item.gmmLabels.damage_hit}}
-                        <span class="item__damage">
-                            <span class="attack__title"><i>{{#if item.gmmLabels.isHealing}}{{localize 'gmm.common.attack.heal'}}{{else}}{{localize 'gmm.common.attack.hit'}}{{/if}}:</i></span>
-                            <span>{{item.gmmLabels.damage_hit}}</span>
-                        </span>
+                    {{#if item.gmmLabels.range}}
+                    <span>{{item.gmmLabels.range}}</span>
                     {{/if}}
-                    {{#if item.gmmLabels.damage_versatile}}
-                        <span class="item__damage">
-                            <span class="attack__title"><i>{{localize 'gmm.common.attack.versatile'}}:</i></span>
-                            <span>{{item.gmmLabels.damage_versatile}}</span>
-                        </span>
+                    {{#if item.gmmLabels.target}}
+                    <span>{{item.gmmLabels.target}}</span>
                     {{/if}}
-                    {{#if item.gmmLabels.damage_miss}}
-                        <span class="item__damage">
-                            <span class="attack__title"><i>{{localize 'gmm.common.attack.miss'}}:</i></span>
-                            <span>{{item.gmmLabels.damage_miss}}</span>
-                        </span>
-                    {{/if}}
-                </div>
+                </span>
+                {{/if}}
+                {{/if}}
+                {{#if item.gmmLabels.damage_hit}}
+                <span class="item__damage">
+                    <span class="attack__title"><i>{{localize (concat 'gmm.common.attack.' item.gmmLabels.hitClause)}}:</i></span>
+                    <span>{{item.gmmLabels.damage_hit}}</span>
+                </span>
+                {{/if}}
+                {{#if item.gmmLabels.damage_versatile}}
+                <span class="item__damage">
+                    <span class="attack__title"><i>{{localize 'gmm.common.attack.versatile'}}:</i></span>
+                    <span>{{item.gmmLabels.damage_versatile}}</span>
+                </span>
+                {{/if}}
+                {{#if item.gmmLabels.damage_miss}}
+                <span class="item__damage">
+                    <span class="attack__title"><i>{{localize 'gmm.common.attack.miss'}}:</i></span>
+                    <span>{{item.gmmLabels.damage_miss}}</span>
+                </span>
+                {{/if}}
+                {{#if item.gmmLabels.deferral.cancel}}
+                <span class="item__damage">
+                    <span class="attack__title"><i>{{localize 'gmm.common.deferral.cancel'}}:</i></span>
+                    <span>{{item.gmmLabels.deferral.cancel}}</span>
+                </span>
+                {{/if}}
+            </div>
             {{/if}}
             {{#if item.gmmLabels.description}}
-                <div class="item__description">{{{item.gmmLabels.description}}}</div>
+            <div class="item__description">{{{item.gmmLabels.description}}}</div>
             {{/if}}
+            <div class="item__pills">
+                {{#if item.gmmLabels.isConcentration}}
+                <div class="item__pill-sm">Concentration</div>
+                {{/if}}
+                {{#if item.gmmLabels.duration}}
+                <div class="item__pill-sm">{{item.gmmLabels.duration}}</div>
+                {{/if}}
+                {{#if item.gmmLabels.condition}}
+                <div class="item__pill-sm">{{item.gmmLabels.condition}}</div>
+                {{/if}}
+            </div>
         </div>
         <div class="item__actions">
-            <button data-action="roll-item"><i class="fas fa-fw fa-comments"></i></button>
-            <button data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>
-            <button data-action="delete-item"><i class="fas fa-fw fa-trash"></i></button>
+            <button type="button" data-action="display-item"><i class="fas fa-fw fa-comments"></i></button>
+            <button type="button" data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>
+            <button type="button" data-action="delete-item"><i class="fas fa-fw fa-trash"></i></button>
         </div>
     </div>
 </div>

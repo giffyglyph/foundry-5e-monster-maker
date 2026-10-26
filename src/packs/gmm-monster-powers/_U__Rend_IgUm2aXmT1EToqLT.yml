@@ -1,0 +1,203 @@
+name: (U) Rend
+type: feat
+img: icons/skills/melee/blood-slash-foam-red.webp
+system:
+  description:
+    value: >-
+      <p>At the start of each of the creature's turns, the target makes a saving
+      throw (DC [durationSaveDc]). On a failed save, the target takes this
+      damage again.</p><p><em>Midi automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (U) Rend
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: 5
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: melee
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types: []
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      effects: []
+effects: []
+folder: EjqZPJ9sccgXUfgK
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (U) Rend
+          image: icons/skills/melee/blood-slash-foam-red.webp
+          text: >-
+            <p>At the start of each of the creature's turns, the target makes a
+            saving throw (DC [durationSaveDc]). On a failed save, the target
+            takes this damage again.</p><p><em>Midi automation</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: mwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*1.25), damageDie]'
+                type: ''
+        duration:
+          type: ongoing
+          units: ''
+          value: ''
+          save:
+            ability: con
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 5
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+        rarity: uncommon
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048991640
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: IgUm2aXmT1EToqLT
+sort: 400000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!IgUm2aXmT1EToqLT'

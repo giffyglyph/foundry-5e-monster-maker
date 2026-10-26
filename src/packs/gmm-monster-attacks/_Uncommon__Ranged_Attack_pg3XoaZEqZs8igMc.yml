@@ -1,0 +1,196 @@
+name: (Uncommon) Ranged Attack
+type: feat
+img: icons/skills/ranged/arrow-flying-broadhead-metal.webp
+effects: []
+folder: PCq12hdhmUnNMCak
+sort: 1200000
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Uncommon) Ranged Attack
+          image: icons/skills/ranged/arrow-flying-broadhead-metal.webp
+        activation:
+          type: action
+          cost: 0
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: rwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          hit:
+            damage:
+              '0':
+                formula: '[damage * 1.5, damageDie]'
+                type: piercing
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+        range:
+          units: ft
+          value: 60
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: 1
+          width: 0
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: uncommon
+_id: pg3XoaZEqZs8igMc
+system:
+  description:
+    value: You attack a target within range.
+    chat: ''
+    unidentified: ''
+  source: ''
+  cover: null
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (Uncommon) Ranged Attack
+      sort: 0
+      activation:
+        type: action
+        value: 0
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: 60
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: ranged
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - piercing
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      effects: []
+ownership:
+  default: 0
+  9KqczVLBJ56sdiTI: 3
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1686232662687
+  modifiedTime: 1716048492478
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: Compendium.world.gmm-dev-monster-attacks.rBwtkAoMZhRbIuf9
+  duplicateSource: null
+  exportSource: null
+_key: '!items!pg3XoaZEqZs8igMc'

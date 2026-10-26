@@ -1,0 +1,25 @@
+name: Cooler
+type: base
+_id: JrtX1rlyclCc2rVK
+img: icons/magic/symbols/cog-glowing-green.webp
+description: >-
+  <p><strong>Uncommon Boon</strong></p><ul><li><p>You may reduce the cooldown
+  of any one feature by 1, or reroll a recharge
+  feature.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>No automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!JrtX1rlyclCc2rVK'

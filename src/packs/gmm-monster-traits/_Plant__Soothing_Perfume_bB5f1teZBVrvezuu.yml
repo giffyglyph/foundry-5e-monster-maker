@@ -1,0 +1,179 @@
+name: (Plant) Soothing Perfume
+type: feat
+img: icons/magic/nature/mushroom-glow-red.webp
+system:
+  description:
+    value: >-
+      <p>At the start of your turn, each creature within 30 ft. of you must
+      succeed on a DC [featureDc] Constitution saving throw or fall unconscious.
+      This effect ends after 1 minute or if the creature takes damage. If the
+      saving throw succeeds by 5 or more, the creature is immune to your perfume
+      until it finishes a long rest.*</p><p><em>* Core automation (roll it when
+      the trigger fires)</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: save
+      name: (Plant) Soothing Perfume
+      sort: 0
+      activation:
+        type: special
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: '1'
+        units: minute
+      range:
+        value: null
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: radius
+          size: '30'
+          width: '0'
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      save:
+        ability:
+          - con
+        dc:
+          calculation: ''
+          formula: 0 + 0
+      damage:
+        onSave: none
+        parts: []
+      effects: []
+effects: []
+folder: ZEHTn8E3FLwrgqGr
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Plant) Soothing Perfume
+          image: icons/magic/nature/mushroom-glow-red.webp
+          text: >-
+            <p>At the start of your turn, each creature within 30 ft. of you
+            must succeed on a DC [featureDc] Constitution saving throw or fall
+            unconscious. This effect ends after 1 minute or if the creature
+            takes damage. If the saving throw succeeds by 5 or more, the
+            creature is immune to your perfume until it finishes a long
+            rest.*</p><p><em>* Core automation (roll it when the trigger
+            fires)</em></p>
+        activation:
+          type: special
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: save
+          related_stat: max
+          bonus: ''
+          defense: con
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: timed
+          units: minute
+          value: '1'
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: self
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: emanation
+          units: ft
+          value: 30
+          width: 0
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712264680359
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: bB5f1teZBVrvezuu
+sort: 0
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!bB5f1teZBVrvezuu'

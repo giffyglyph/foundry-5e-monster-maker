@@ -1,0 +1,259 @@
+name: (Uncommon) Ranged Delayed Save Attack
+type: feat
+img: icons/skills/ranged/archery-bow-attack-yellow.webp
+system:
+  description:
+    value: >-
+      <p>Following the sound of your familiar's call, you ready a special
+      arrow.</p>
+
+      <p><em>Adding a condition and a deferral allows this feature to deal more
+      damage. (See GMM pdf p.45)</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Uncommon) Ranged Delayed Save Attack
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: Your familiar cries out above a location
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: spec
+      range:
+        value: null
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: line
+          size: '60'
+          width: '10'
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+    gmmdeferred00000:
+      _id: gmmdeferred00000
+      type: save
+      name: (Uncommon) Ranged Delayed Save Attack
+      sort: 1
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: ''
+          formula: 0 + 0
+      damage:
+        onSave: none
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - thunder
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      midiProperties:
+        automationOnly: true
+        otherActivityCompatible: false
+      effects: []
+effects: []
+folder: PCq12hdhmUnNMCak
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Uncommon) Ranged Delayed Save Attack
+          image: icons/skills/ranged/archery-bow-attack-yellow.webp
+          text: >-
+            <p>Following the sound of your familiar's call, you ready a special
+            arrow.</p>
+
+            <p><em>Adding a condition and a deferral allows this feature to deal
+            more damage. (See GMM pdf p.45)</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: Your familiar cries out above a location
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: save
+          related_stat: max
+          bonus: ''
+          defense: dex
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*1.75), damageDie]'
+                type: thunder
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: self
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: line
+          units: ft
+          value: 60
+          width: 10
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: uncommon
+        deferral:
+          type: delayed
+          timer: 1
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716244116718
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: H6e99wl5726WrWnl
+sort: 50000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!H6e99wl5726WrWnl'

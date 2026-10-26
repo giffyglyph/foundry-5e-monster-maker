@@ -1,0 +1,29 @@
+name: Feeble
+type: base
+_id: KOZyjWWkwTm21Q1d
+img: icons/magic/death/hand-withered-gray.webp
+description: >-
+  <p><strong>Common Condition</strong></p><ul><li><p>Whenever you deal damage,
+  reduce it by half.</p></li></ul><p><em>AC5e automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.feeble
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: flags.automated-conditions-5e.damage.modifier
+      _id: FTCaPhTNVMi715tL
+      type: ac5e
+      value: modifier=/2; addTo=all
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!KOZyjWWkwTm21Q1d'

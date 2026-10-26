@@ -1,0 +1,16 @@
+name: Supporter
+sorting: a
+folder: null
+type: Item
+_id: ikmSE8RFDofxomeD
+sort: 500000
+color: null
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.1
+  coreVersion: '11.315'
+  createdTime: 1712180525831
+  modifiedTime: 1712242171641
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!ikmSE8RFDofxomeD'

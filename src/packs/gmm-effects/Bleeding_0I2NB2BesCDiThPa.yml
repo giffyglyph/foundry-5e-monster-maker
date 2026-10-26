@@ -1,0 +1,32 @@
+name: Bleeding
+type: base
+_id: 0I2NB2BesCDiThPa
+img: icons/skills/wounds/blood-drip-droplet-red.webp
+description: >-
+  <p><strong>Uncommon Condition</strong></p><ul><li><p>At the end of your turn,
+  you lose 1 unspent hit die.+</p></li><li><p>While you have no hit die,
+  temporarily increase your level of exhaustion by 1.</p></li></ul><p><em>+ Midi
+  automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.bleeding
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: flags.midi-qol.OverTime
+      _id: t9C0TDxG0rdaye8O
+      type: custom
+      value: turn=end,label=Bleeding,macro=function.gmmc.conditions.bleeding
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+    condition: bleeding
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!0I2NB2BesCDiThPa'

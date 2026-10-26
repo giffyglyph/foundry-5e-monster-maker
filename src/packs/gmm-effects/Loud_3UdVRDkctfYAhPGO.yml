@@ -1,0 +1,27 @@
+name: Loud
+type: base
+_id: 3UdVRDkctfYAhPGO
+img: systems/dnd5e/icons/svg/statuses/deafened.svg
+description: >-
+  <p><strong>Common Terrain Modifier</strong></p><ul><li><p>Deafened while
+  within the area.</p></li></ul><p><em>Applies to a creature in the
+  area.</em></p><p><em>Marks the creature deafened. No automation.</em></p>
+disabled: false
+transfer: false
+statuses:
+  - deafened
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+    terrain: loud
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!3UdVRDkctfYAhPGO'

@@ -1,0 +1,25 @@
+name: Recharger
+type: base
+_id: U4ZxoWQ9geYticOw
+img: icons/magic/symbols/cog-shield-white-blue.webp
+description: >-
+  <p><strong>Rare Boon</strong></p><ul><li><p>You may immediately regain one
+  exhausted uncommon feature, or gain 1 charge on a charged uncommon
+  feature.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>No automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: rare
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!U4ZxoWQ9geYticOw'

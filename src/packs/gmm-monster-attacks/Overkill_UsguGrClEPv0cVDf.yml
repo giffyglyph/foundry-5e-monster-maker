@@ -1,0 +1,16 @@
+name: Overkill
+sorting: a
+folder: null
+type: Item
+_id: UsguGrClEPv0cVDf
+sort: 243750
+color: null
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.2
+  coreVersion: '11.315'
+  createdTime: 1712336952335
+  modifiedTime: 1716048595447
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!UsguGrClEPv0cVDf'

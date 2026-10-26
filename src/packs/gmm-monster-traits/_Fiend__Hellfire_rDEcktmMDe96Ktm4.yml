@@ -1,0 +1,191 @@
+name: (Fiend) Hellfire
+type: feat
+img: icons/magic/fire/barrier-wall-explosion-orange.webp
+system:
+  description:
+    value: >-
+      <p>When you are reduced to 0 hit points, each creature within 10 ft. of
+      you must succeed on a DC [featureDc] Dexterity saving throw or take 75%
+      ([round(damage*0.75), damageDie]) fire damage.*</p><p><em>* Core
+      automation (roll it when the trigger fires)</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: save
+      name: (Fiend) Hellfire
+      sort: 0
+      activation:
+        type: special
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: radius
+          size: '10'
+          width: '0'
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      save:
+        ability:
+          - dex
+        dc:
+          calculation: ''
+          formula: 0 + 0
+      damage:
+        onSave: none
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - fire
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      effects: []
+effects: []
+folder: hgnohyDtSml3Virp
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Fiend) Hellfire
+          image: icons/magic/fire/barrier-wall-explosion-orange.webp
+          text: >-
+            <p>When you are reduced to 0 hit points, each creature within 10 ft.
+            of you must succeed on a DC [featureDc] Dexterity saving throw or
+            take 75% ([round(damage*0.75), damageDie]) fire damage.*</p><p><em>*
+            Core automation (roll it when the trigger fires)</em></p>
+        activation:
+          type: special
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: save
+          related_stat: max
+          bonus: ''
+          defense: dex
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*0.75), damageDie]'
+                type: fire
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: self
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: emanation
+          units: ft
+          value: 10
+          width: 0
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712259878941
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: rDEcktmMDe96Ktm4
+sort: 500000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!rDEcktmMDe96Ktm4'

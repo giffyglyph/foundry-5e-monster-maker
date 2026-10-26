@@ -1,0 +1,28 @@
+name: Speedster
+type: base
+_id: mwkwkdae2eV3atlE
+img: icons/magic/movement/acceleration-speed-tech-blue.webp
+description: >-
+  <p><strong>Uncommon Boon</strong></p><ul><li><p>Your speed increases by 10
+  feet.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>Core automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: system.attributes.movement.walk
+      _id: uLrYiIRx9wTPYVA7
+      type: add
+      value: '+10'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!mwkwkdae2eV3atlE'

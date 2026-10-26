@@ -8,7 +8,6 @@ export default class Gui {
 	}
 
 	activateListeners($el) {
-		$el.find('.gmm-accordion .accordion-section__header button').click((e) => e.stopPropagation() );
 		$el.find('.gmm-accordion .accordion-section__header').click((e) => this._toggleAccordionCollapse(e));
 		$el.find('.gmm-panel.panel--collapsible .panel__header').click((e) => this._togglePanelCollapse(e));
 		$el.find('button.move-up').click((e) => this._moveUp(e));
@@ -20,8 +19,8 @@ export default class Gui {
 		$el.find('input[data-action="update-field"]').change((e) => this._updateField(e));
 		$el.find('[data-track-scrollbars="true"]').scroll((e) => this._updateScrollbar(e));
 		$el.find('.form-fieldset__header').click((e) => this._toggleFormFieldset(e));
-		$el.find('.form-fieldset__header button').click((e) => e.stopPropagation());
 		$el.find('[data-action="open-config"]').click((e) => this._openConfig(e));
+		$el.find('input.tstCheckbox').click((e) => this._limitTst(e));
 	}
 
 	applyTo($el) {
@@ -58,6 +57,11 @@ export default class Gui {
 				this._expandWindow(event);
 			}
 			const section = forge.querySelector(`.gmm-blueprint [data-section="${target}"]`);
+			// Above the loop, which would otherwise close every open section before the deref throws.
+			if (!section) {
+				console.warn(`GMM | no blueprint section matches data-config="${target}"`);
+				return;
+			}
 			const accordion = forge.querySelectorAll(`.gmm-blueprint .accordion-section`);
 			[...accordion].forEach((x) => {
 				x.classList.remove("opened");
@@ -151,7 +155,18 @@ export default class Gui {
 		event.currentTarget.closest(".gmm-forge").classList.remove("open-modal");
 	}
 
+	_limitTst(event) {
+		const checkbox = event.currentTarget;
+		if (!checkbox.checked) return;
+
+		const group = checkbox.closest("#monster__tst_count");
+		if (group.querySelectorAll(".tstCheckbox:checked").length > Number(group.getAttribute("name"))) {
+			event.preventDefault();
+		}
+	}
+
 	_toggleAccordionCollapse(event) {
+		if (event.target.closest("button, a")) return;
 		const accordion = event.currentTarget.closest(".gmm-accordion");
 		const section = event.currentTarget.closest(".accordion-section");
 		if (accordion.getAttribute("data-accordion-mode") == "single") {
@@ -188,6 +203,7 @@ export default class Gui {
 	}
 
 	_toggleFormFieldset(event) {
+		if (event.target.closest("button, a")) return;
 		let fieldset = event.currentTarget.closest(".form-fieldset");
 		fieldset.classList.add("collapsing");
 		$(fieldset.querySelector(".form-fieldset__body")).slideToggle(100, function() {

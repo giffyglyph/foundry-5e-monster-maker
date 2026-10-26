@@ -1,0 +1,256 @@
+name: (U) Zone of Pain
+type: feat
+img: icons/magic/control/debuff-chains-red.webp
+system:
+  description:
+    value: >-
+      <p>When a creature enters or starts their turn within the area, they take
+      damage equal to your combat level ([level]).</p>
+
+      <p>When a creature ends their turn within the area, they fall
+      prone.</p><p><em>Midi automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties:
+    - concentration
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (U) Zone of Pain
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: true
+        special: ''
+        override: false
+        value: '10'
+        units: minute
+      range:
+        value: 50
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: sphere
+          size: '10'
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+    gmmzone000000000:
+      _id: gmmzone000000000
+      type: damage
+      name: (U) Zone of Pain
+      sort: 2
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: '10'
+        units: minute
+      range:
+        value: 50
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      damage:
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types: []
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      midiProperties:
+        automationOnly: true
+        otherActivityCompatible: false
+      effects: []
+effects: []
+folder: OHtso37ZN76ffUvi
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (U) Zone of Pain
+          image: icons/magic/control/debuff-chains-red.webp
+          text: >-
+            <p>When a creature enters or starts their turn within the area, they
+            take damage equal to your combat level ([level]).</p>
+
+            <p>When a creature ends their turn within the area, they fall
+            prone.</p><p><em>Midi automation</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: util
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              - formula: '[level]'
+                type: ''
+        duration:
+          type: timed
+          units: minute
+          value: '10'
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 50
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: sphere
+          units: ft
+          value: 10
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        zone:
+          terrain:
+            - category: damaging
+              custom: ''
+            - category: unstable
+              custom: ''
+          rules: []
+          audience: any
+          once_per_turn: true
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: true
+        rarity: uncommon
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048767966
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: qimWNwUNnOnRtwxj
+sort: 200000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!qimWNwUNnOnRtwxj'

@@ -1,0 +1,179 @@
+name: (R) Zone of Darkness
+type: feat
+img: icons/magic/perception/shadow-stealth-eyes-purple.webp
+system:
+  description:
+    value: >-
+      <p>The area is filled with magical darkness.</p><p><em>Core
+      automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties:
+    - concentration
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (R) Zone of Darkness
+      sort: 0
+      activation:
+        type: bonus
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: true
+        special: ''
+        override: false
+        value: '10'
+        units: minute
+      range:
+        value: 50
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: sphere
+          size: '10'
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects: []
+folder: OHtso37ZN76ffUvi
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (R) Zone of Darkness
+          image: icons/magic/perception/shadow-stealth-eyes-purple.webp
+          text: >-
+            <p>The area is filled with magical darkness.</p><p><em>Core
+            automation</em></p>
+        activation:
+          type: bonus
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: util
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: timed
+          units: minute
+          value: '10'
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 50
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: sphere
+          units: ft
+          value: 10
+          width: null
+        uses:
+          value: 1
+          max: 1
+          per: lr
+        zone:
+          terrain:
+            - category: magical_darkness
+              custom: ''
+          rules: []
+          audience: any
+          once_per_turn: true
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: true
+        rarity: rare
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048770973
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: cL3RpbyuJ8QerwQP
+sort: 300000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!cL3RpbyuJ8QerwQP'

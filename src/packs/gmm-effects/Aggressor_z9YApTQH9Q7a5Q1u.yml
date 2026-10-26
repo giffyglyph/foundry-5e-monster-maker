@@ -1,0 +1,28 @@
+name: Aggressor
+type: base
+_id: z9YApTQH9Q7a5Q1u
+img: icons/skills/targeting/crosshair-bars-yellow.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>Your critical hit range
+  increases by 1.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>AC5e automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: flags.automated-conditions-5e.attack.criticalThreshold
+      _id: 24xQ3evhAymOL9Ug
+      type: ac5e
+      value: threshold=-1
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!z9YApTQH9Q7a5Q1u'

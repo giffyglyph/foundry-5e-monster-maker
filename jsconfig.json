@@ -1,0 +1,33 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"target": "ES2022",
+		"moduleResolution": "bundler",
+		"checkJs": false,
+		"paths": {
+			"@client/*": ["./foundry/client/*"],
+			"@common/*": ["./foundry/common/*"],
+			"@dnd5e/*": ["./foundry/dnd5e/*"]
+		}
+	},
+	"exclude": [
+		"node_modules",
+		"**/node_modules/*",
+		"scripts/vendors",
+		"src",
+		"packs",
+		"development_docs"
+	],
+	"include": [
+		"gmm.js",
+		"scripts/**/*.js",
+		"tools/**/*.mjs",
+		"types/**/*.d.ts",
+		"foundry/client/client.mjs",
+		"foundry/client/global.d.mts",
+		"foundry/common/global.d.mts"
+	],
+	"typeAcquisition": {
+		"include": ["jquery"]
+	}
+}

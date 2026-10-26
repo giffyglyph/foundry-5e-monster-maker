@@ -1,0 +1,198 @@
+name: (U) Always on Duty
+type: feat
+img: icons/skills/targeting/crosshair-mark-rough-pink.webp
+system:
+  description:
+    value: >-
+      <p>You can't be surprised and hidden creatures don't gain advantage on
+      attack rolls against you.+</p><p><em>+ Midi automation</em></p><p><em>The
+      surprise clause is not automated.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties:
+    - concentration
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (U) Always on Duty
+      sort: 0
+      activation:
+        type: bonus
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: true
+        special: ''
+        override: false
+        value: '10'
+        units: minute
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects:
+        - _id: TLiY4cvq8jxa7m8y
+effects:
+  - _id: TLiY4cvq8jxa7m8y
+    name: Always on Duty
+    img: icons/magic/perception/eye-ringed-glow-angry-small-red.webp
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes:
+        - key: flags.midi-qol.grants.noAdvantage.attack.all
+          _id: aUrAYEmPL6J6GSsl
+          type: custom
+          value: '1'
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!7m8yTLiY4cvq8jxa.TLiY4cvq8jxa7m8y'
+folder: J8E4I6WUVdsFmJFl
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (U) Always on Duty
+          image: icons/skills/targeting/crosshair-mark-rough-pink.webp
+          text: >-
+            <p>You can't be surprised and hidden creatures don't gain advantage
+            on attack rolls against you.+</p><p><em>+ Midi
+            automation</em></p><p><em>The surprise clause is not
+            automated.</em></p>
+        activation:
+          type: bonus
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: timed
+          units: minute
+          value: '10'
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: true
+        rarity: uncommon
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048947691
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: 7m8yTLiY4cvq8jxa
+sort: 400000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!7m8yTLiY4cvq8jxa'

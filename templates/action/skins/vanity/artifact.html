@@ -1,77 +1,106 @@
 <div class="gmm-artifact artifact--action artifact--action--vanity">
-	<div class="artifact__header action__header">
-		<div class="action__icon" data-action="open-config" data-config="title"><img src="{{gmm.action.image}}"></div>
-		<div class="action__title" data-action="open-config" data-config="title">{{gmm.action.name}}</div>
-		<div class="action__type" data-action="open-config" data-config="action-type">{{gmm.action.type}}</div>
-		<div class="action__requirements">
-			<div class="level" data-action="open-config" data-config="requirements"><i class="fas fa-crown"></i> {{gmm.action.level_requirement}}</div>
-			<div class="rank" data-action="open-config" data-config="requirements"><i class="fas fa-star"></i> {{gmm.action.rank_requirement}}</div>
-			<div class="role" data-action="open-config" data-config="requirements"><i class="fas fa-dice-d6"></i> {{gmm.action.role_requirement}}</div>
-		</div>
-	</div>
-	<div class="artifact__body action__body" data-track-scrollbars="true" id="action-body">
-		<div class="gmm-panel">
-			<div class="panel__body">
-				<div class="item__title">
-					<div class="item__name" data-action="open-config" data-config="title"><i class="{{gmm.action.gmmLabels.icon}}"></i> {{gmm.action.name}}</div>
-					{{#if gmm.action.gmmLabels.legendary_cost}}
-						<div class="item__cost" data-action="open-config" data-config="action-type">({{localize 'gmm.monster.artifact.legendary_actions.cost' cost=gmm.action.gmmLabels.legendary_cost}})</div>
-					{{/if}}
-					{{#if gmm.action.gmmLabels.recharge}}
-						<div class="item__recharge {{#if gmm.action.recharge.charged}}charged{{/if}}" data-action="open-config" data-config="recharge">
-							{{#if gmm.action.gmmLabels.recharge.charged}}
-								(charged)
-							{{else}}
-								<button class="button--text">(recharge {{gmm.action.gmmLabels.recharge.value}})</button>
-							{{/if}}
-						</div>
-					{{else}}
-						{{#if gmm.action.gmmLabels.uses}}
-							<div class="item__uses" data-action="open-config" data-config="uses">
-								<input class="input--uses" data-action="update-item" data-target="{{gmm.action.id}}" data-field="data.uses.value" data-type="number"/>
-								<div class="value">({{gmm.action.gmmLabels.uses.current}}, {{gmm.action.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' gmm.action.gmmLabels.uses.per)}})</div>
-							</div>
-						{{/if}}
-					{{/if}}
-				</div>
-				<div class="item__details">
-					{{#if gmm.action.gmmLabels.attack}}
-						<span class="item__attack">
-							<span class="attack__title" data-action="open-config" data-config="attack"><i>{{gmm.action.gmmLabels.attack}}:</i></span>
-							{{#if gmm.action.gmmLabels.to_hit}}
-								<span data-action="open-config" data-config="attack">{{gmm.action.gmmLabels.to_hit}}</span>
-							{{/if}}
-							{{#if gmm.action.gmmLabels.range}}
-								<span data-action="open-config" data-config="range">{{gmm.action.gmmLabels.range}}</span>
-							{{/if}}
-							{{#if gmm.action.gmmLabels.target}}
-								<span data-action="open-config" data-config="target">{{gmm.action.gmmLabels.target}}</span>
-							{{/if}}
-						</span>
-					{{/if}}
-					{{#if gmm.action.gmmLabels.damage_hit}}
-						<span class="item__damage" data-action="open-config" data-config="damage">
-							<span class="attack__title"><i>{{#if gmm.action.gmmLabels.isHealing}}{{localize 'gmm.common.attack.heal'}}{{else}}{{localize 'gmm.common.attack.hit'}}{{/if}}:</i></span>
-							<span>{{gmm.action.gmmLabels.damage_hit}}</span>
-						</span>
-					{{/if}}
-					{{#if gmm.action.gmmLabels.damage_versatile}}
-						<span class="item__damage" data-action="open-config" data-config="damage">
-							<span class="attack__title"><i>{{localize 'gmm.common.attack.versatile'}}:</i></span>
-							<span>{{gmm.action.gmmLabels.damage_versatile}}</span>
-						</span>
-					{{/if}}
-					{{#if gmm.action.gmmLabels.damage_miss}}
-						<span class="item__damage" data-action="open-config" data-config="damage">
-							<span class="attack__title"><i>{{localize 'gmm.common.attack.miss'}}:</i></span>
-							<span>{{gmm.action.gmmLabels.damage_miss}}</span>
-						</span>
-					{{/if}}
-					{{#if gmm.action.gmmLabels.description}}
-						<span class="item__description" data-action="open-config" data-config="description">{{{gmm.action.gmmLabels.description}}}</span>
-					{{/if}}
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="artifact__header action__header artifact__header__rarity__{{gmm.action.gmmLabels.bpRarity}}">
+        <div class="action__icon" data-action="open-config" data-config="title"><img src="{{gmm.action.image}}"></div>
+        <div class="action__title" data-action="open-config" data-config="title">{{gmm.action.name}}</div>
+        <div class="action__type" data-action="open-config" data-config="action-type">{{gmm.action.gmmLabels.rarity}} {{gmm.action.type}}</div>
+        <div class="action__requirements">
+            <div class="level" data-action="open-config" data-config="requirements"><i class="fas fa-crown"></i> {{gmm.action.level_requirement}}</div>
+            <div class="rank" data-action="open-config" data-config="requirements"><i class="fas fa-star"></i> {{gmm.action.rank_requirement}}</div>
+            <div class="role" data-action="open-config" data-config="requirements"><i class="fas fa-dice-d6"></i> {{gmm.action.role_requirement}}</div>
+        </div>
+    </div>
+    <div class="artifact__body action__body" data-track-scrollbars="true" id="action-body">
+        <div class="gmm-panel">
+            <div class="panel__body">
+                <div class="item__title">
+                    <div class="item__name" data-action="open-config" data-config="title"><i class="{{gmm.action.gmmLabels.icon}}"></i> {{gmm.action.name}}</div>
+                    {{#if gmm.action.gmmLabels.legendary_cost}}
+                    <div class="item__cost" data-action="open-config" data-config="action-type">({{localize 'gmm.monster.artifact.legendary_actions.cost' cost=gmm.action.gmmLabels.legendary_cost}})</div>
+                    {{/if}}
+                    {{#if (or gmm.action.gmmLabels.deferral gmm.action.gmmLabels.recharge gmm.action.gmmLabels.uses)}}
+                    {{#unless (or gmm.action.gmmLabels.recharge gmm.action.gmmLabels.uses)}}
+                    <div class="item__recharge" data-action="open-config" data-config="deferral">
+                        ({{gmm.action.gmmLabels.deferral.type}} {{gmm.action.gmmLabels.deferral.timer}})
+                    </div>
+                    {{else}}
+                    {{#if gmm.action.gmmLabels.recharge}}
+                    <div class="item__recharge {{#if gmm.action.recharge.charged}}charged{{/if}}" data-action="open-config" data-config="recharge">
+                        {{#if gmm.action.gmmLabels.recharge.charged}}
+                        (charged{{#if (and gmm.action.gmmLabels.recharge.charged gmm.action.gmmLabels.deferral)}}, {{/if}}{{#if gmm.action.gmmLabels.deferral}}{{gmm.action.gmmLabels.deferral.type}} {{gmm.action.gmmLabels.deferral.timer}}{{/if}})
+                        {{else}}
+                        <button type="button" class="button--text">(recharge {{gmm.action.gmmLabels.recharge.value}}{{#if gmm.action.gmmLabels.deferral}}, {{gmm.action.gmmLabels.deferral.type}} {{gmm.action.gmmLabels.deferral.timer}}{{/if}})</button>
+                        {{/if}}
+
+                    </div>
+                    {{else}}
+                    {{#if gmm.action.gmmLabels.uses}}
+                    <div class="item__uses" data-action="open-config" data-config="uses">
+                        <span class="">(<span class="value">{{#if gmm.action.gmmLabels.uses}}{{gmm.action.gmmLabels.uses.current}}, {{gmm.action.gmmLabels.uses.maximum}}/{{localize (concat 'gmm.common.use_period.' gmm.action.gmmLabels.uses.per)}}{{/if}}</span>{{#if (and gmm.action.gmmLabels.uses gmm.action.gmmLabels.deferral)}}, {{/if}}{{#if gmm.action.gmmLabels.deferral}}{{gmm.action.gmmLabels.deferral.type}} {{gmm.action.gmmLabels.deferral.timer}}{{/if}})</span>
+                    </div>
+                    {{/if}}
+                    {{/if}}
+                    {{/unless}}
+                    {{/if}}
+                </div>
+                <div class="item__details">
+                    {{#if gmm.action.gmmLabels.attack}}
+                    <span class="item__attack">
+                        {{#if (or gmm.action.gmmLabels.range gmm.action.gmmLabels.to_hit gmm.action.gmmLabels.target)}}
+                        <span class="attack__title" data-action="open-config" data-config="attack"><i>{{gmm.action.gmmLabels.attack}}:</i></span>
+                        {{#if gmm.action.gmmLabels.to_hit}}
+                        <span data-action="open-config" data-config="attack">{{gmm.action.gmmLabels.to_hit}}</span>
+                        {{/if}}
+                        {{#if gmm.action.gmmLabels.range}}
+                        <span data-action="open-config" data-config="range">{{gmm.action.gmmLabels.range}}</span>
+                        {{/if}}
+                        {{#if gmm.action.gmmLabels.target}}
+                        <span data-action="open-config" data-config="target">{{gmm.action.gmmLabels.target}}</span>
+                        {{/if}}
+                        {{else}}
+                        <span class="attack__title" data-action="open-config" data-config="attack"><i>{{gmm.action.gmmLabels.attack}}</i></span>
+                        {{/if}}
+                    </span>
+                    {{/if}}
+                    {{#if gmm.action.gmmLabels.damage_hit}}
+                    <span class="item__damage" data-action="open-config" data-config="damage">
+                        <span class="attack__title"><i>{{localize (concat 'gmm.common.attack.' gmm.action.gmmLabels.hitClause)}}:</i></span>
+                        <span>{{gmm.action.gmmLabels.damage_hit}}</span>
+                    </span>
+                    {{/if}}
+                    {{#if gmm.action.gmmLabels.damage_versatile}}
+                    <span class="item__damage" data-action="open-config" data-config="damage">
+                        <span class="attack__title"><i>{{localize 'gmm.common.attack.versatile'}}:</i></span>
+                        <span>{{gmm.action.gmmLabels.damage_versatile}}</span>
+                    </span>
+                    {{/if}}
+                    {{#if gmm.action.gmmLabels.damage_miss}}
+                    <span class="item__damage" data-action="open-config" data-config="damage">
+                        <span class="attack__title"><i>{{localize 'gmm.common.attack.miss'}}:</i></span>
+                        <span>{{gmm.action.gmmLabels.damage_miss}}</span>
+                    </span>
+                    {{/if}}
+                    {{#if gmm.action.gmmLabels.deferral.cancel}}
+                    <span class="item__damage" data-action="open-config" data-config="deferral">
+                        <span class="attack__title"><i>{{localize 'gmm.common.deferral.cancel'}}:</i></span>
+                        <span>{{gmm.action.gmmLabels.deferral.cancel}}</span>
+                    </span>
+                    {{/if}}
+                    {{#if gmm.action.gmmLabels.description}}
+                    <span class="item__description" data-action="open-config" data-config="description">{{{gmm.action.gmmLabels.description}}}</span>
+                    {{/if}}
+                    <div class="item__pills">
+                        {{#if gmm.action.gmmLabels.isConcentration}}
+                        <div class="item__pill-sm">Concentration</div>
+                        {{/if}}
+                        {{#if gmm.action.gmmLabels.duration}}
+                        <div class="item__pill-sm" data-action="open-config" data-config="duration">{{gmm.action.gmmLabels.duration}}</div>
+                        {{/if}}
+                        {{#if gmm.action.gmmLabels.condition}}
+                        <div class="item__pill-sm" data-action="open-config" data-config="action-type">{{gmm.action.gmmLabels.condition}}</div>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

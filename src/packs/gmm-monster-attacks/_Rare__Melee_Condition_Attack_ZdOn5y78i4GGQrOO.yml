@@ -1,0 +1,345 @@
+name: (Rare) Melee Condition Attack
+type: feat
+img: icons/magic/perception/eye-tendrils-web-purple.webp
+effects:
+  - changes:
+      - key: flags.midi-qol.grants.advantage.attack.mwak
+        _id: f6SOPi6bvR41MH85
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.grants.advantage.attack.msak
+        _id: fZRRQpj4wFXc69xJ
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.grants.disadvantage.attack.rwak
+        _id: FAVN6bD6W4E2VHBw
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.grants.disadvantage.attack.rsak
+        _id: E8ZydIljjgdQVDUf
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.disadvantage.attack.all
+        _id: gj1b7aGviiPirRtb
+        mode: 0
+        value: '1'
+        priority: null
+      - key: system.attributes.movement.all
+        _id: NAqN0GThZ0ffdqTb
+        mode: 0
+        value: '*0.5'
+        priority: 25
+    description: >-
+      - A prone creature's only movement option is to crawl, unless it stands up
+      and thereby ends the condition.<br />- The creature has disadvantage on
+      attack rolls.<br />- An attack roll against the creature has advantage if
+      the attacker is within 5 feet of the creature. Otherwise, the attack roll
+      has disadvantage.
+    disabled: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: null
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+    name: Prone
+    origin: Compendium.world.gmm-monster-attacks-dev.Item.ZdOn5y78i4GGQrOO
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - prone
+    _id: CAomRcaSRA0lL5Gh
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: modules/dfreds-convenient-effects/images/prone.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!ZdOn5y78i4GGQrOO.CAomRcaSRA0lL5Gh'
+  - changes:
+      - key: flags.midi-qol.fail.ability.save.dex
+        _id: nyOjTb1isTXVzfsZ
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.fail.ability.save.str
+        _id: 6JzN3kBbqSLPxQWO
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.grants.advantage.attack.all
+        _id: XMTQDNDHGS8ro97D
+        mode: 0
+        value: '1'
+        priority: null
+    description: >-
+      - A stunned creature is incapacitated (see the condition), can't move, and
+      can speak only falteringly.<br />- The creature automatically fails
+      Strength and Dexterity saving throws.<br />- Attack rolls against the
+      creature have advantage.
+    disabled: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: null
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+    name: Stunned
+    origin: Compendium.world.gmm-monster-attacks-dev.Item.ZdOn5y78i4GGQrOO
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - stunned
+      - incapacitated
+    _id: WAwutDbmvD1c7pyV
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: modules/dfreds-convenient-effects/images/stunned.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!ZdOn5y78i4GGQrOO.WAwutDbmvD1c7pyV'
+folder: Xu0gwcuFy6NMHm0f
+sort: 300000
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Rare) Melee Condition Attack
+          image: icons/magic/perception/eye-tendrils-web-purple.webp
+          text: >-
+            <p>The target is knocked prone and <em>Stunned</em> until the end of
+            its next turn.</p><p><em>Midi automation</em></p>
+        activation:
+          type: action
+          cost: 0
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: mwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: end_of_target_turn
+          units: ''
+          value: ''
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+        range:
+          units: ft
+          value: 5
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: 1
+          width: 0
+        uses:
+          value: 1
+          max: 1
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: rare
+  midi-qol:
+    fumbleThreshold: null
+    rollAttackPerTarget: default
+    removeAttackDamageButtons: default
+    itemCondition: ''
+    effectCondition: ''
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    concentration: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+_id: ZdOn5y78i4GGQrOO
+system:
+  description:
+    value: >-
+      <p>The target is knocked prone and <em>Stunned</em> until the end of its
+      next turn.</p><p><em>Midi automation</em></p>
+    chat: ''
+    unidentified: ''
+  source: ''
+  cover: null
+  uses:
+    spent: 0
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (Rare) Melee Condition Attack
+      sort: 0
+      activation:
+        type: action
+        value: 0
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: 1
+        units: round
+      range:
+        value: 5
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: melee
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: CAomRcaSRA0lL5Gh
+        - _id: WAwutDbmvD1c7pyV
+ownership:
+  default: 0
+  9KqczVLBJ56sdiTI: 3
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '13.351'
+  createdTime: 1686232662664
+  modifiedTime: 1716215848593
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: Compendium.world.gmm-dev-monster-attacks.WGyqbzNQKbQ2WWtk
+  duplicateSource: null
+  exportSource: null
+_key: '!items!ZdOn5y78i4GGQrOO'

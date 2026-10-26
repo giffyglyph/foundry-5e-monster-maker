@@ -1,0 +1,30 @@
+name: Marker
+type: base
+_id: VJj2o5EYKPxcY6QU
+img: icons/skills/targeting/crosshair-arrowhead-blue.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>You make your next attack roll
+  with advantage.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>Midi automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: flags.midi-qol.advantage.attack.all
+      _id: cTMYxYSqy4nEKJhS
+      type: custom
+      value: '1'
+flags:
+  dae:
+    stackable: noneName
+    specialDuration:
+      - 1Attack
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!VJj2o5EYKPxcY6QU'

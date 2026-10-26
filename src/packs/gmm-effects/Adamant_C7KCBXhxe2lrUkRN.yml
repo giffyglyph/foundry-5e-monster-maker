@@ -1,0 +1,32 @@
+name: Adamant
+type: base
+_id: C7KCBXhxe2lrUkRN
+img: icons/magic/defensive/shield-barrier-deflect-gold.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>Any critical hit made against
+  you becomes a normal hit.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>Midi or AC5e automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: flags.midi-qol.grants.noCritical.all
+      _id: mEcCmZsZc1wu99fG
+      type: custom
+      value: '1'
+    - key: flags.automated-conditions-5e.grants.attack.noCritical
+      _id: tZCRvfSawAydoVdh
+      type: ac5e
+      value: '1'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!C7KCBXhxe2lrUkRN'

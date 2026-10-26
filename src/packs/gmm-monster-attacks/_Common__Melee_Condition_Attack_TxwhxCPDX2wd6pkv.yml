@@ -1,0 +1,244 @@
+name: (Common) Melee Condition Attack
+type: feat
+img: icons/magic/perception/eye-tendrils-web-purple.webp
+effects:
+  - changes:
+      - key: system.attributes.movement.all
+        _id: Fba9Pfk25Pm7yyks
+        mode: 0
+        value: '0'
+        priority: 25
+    description: >-
+      - A grappled creature's speed becomes 0, and it can't benefit from any
+      bonus to its speed.<br />- The condition ends if the grappler is
+      incapacitated.<br />- The condition also ends if an effect removes the
+      grappled creature from the reach of the grappler or grappling effect.
+    disabled: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: null
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+    name: Grappled
+    origin: Compendium.world.gmm-monster-attacks-dev.Item.TxwhxCPDX2wd6pkv
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - grappled
+    _id: crzjYsHNN88w4s4a
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: modules/dfreds-convenient-effects/images/grappled.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!TxwhxCPDX2wd6pkv.crzjYsHNN88w4s4a'
+folder: JPEHab7zdvYJ1DzZ
+sort: 300000
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Common) Melee Condition Attack
+          image: icons/magic/perception/eye-tendrils-web-purple.webp
+          text: >-
+            <p>The target is <em>Grappled&nbsp;</em>until the end of its next
+            turn.</p>
+        activation:
+          type: action
+          cost: 0
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: mwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: end_of_target_turn
+          units: ''
+          value: ''
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+        range:
+          units: ft
+          value: 5
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: 1
+          width: 0
+        uses:
+          value: 0
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: common
+  midi-qol:
+    fumbleThreshold: null
+    rollAttackPerTarget: default
+    removeAttackDamageButtons: default
+    itemCondition: ''
+    effectCondition: ''
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    concentration: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+_id: TxwhxCPDX2wd6pkv
+system:
+  description:
+    value: "<p>The target is <em>Grappled\_</em>until the end of its next turn.</p>"
+    chat: ''
+    unidentified: ''
+  source: ''
+  cover: null
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (Common) Melee Condition Attack
+      sort: 0
+      activation:
+        type: action
+        value: 0
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: 1
+        units: round
+      range:
+        value: 5
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: melee
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: crzjYsHNN88w4s4a
+ownership:
+  default: 0
+  9KqczVLBJ56sdiTI: 3
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '13.351'
+  createdTime: 1686232662653
+  modifiedTime: 1716215959691
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: Compendium.world.gmm-dev-monster-attacks.kYvcsdBw3bcpJdR7
+  duplicateSource: null
+  exportSource: null
+_key: '!items!TxwhxCPDX2wd6pkv'

@@ -1,0 +1,186 @@
+name: (C) Distracting Noise
+type: feat
+img: icons/magic/sonic/bell-alarm-red-purple.webp
+system:
+  description:
+    value: >-
+      <p>Creatures in the area have disadvantage on Concentration saving
+      throws.</p><p><em>Core automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties:
+    - concentration
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (C) Distracting Noise
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: true
+        special: ''
+        override: false
+        value: '10'
+        units: minute
+      range:
+        value: 50
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: sphere
+          size: '10'
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects:
+        - _id: FBhI3HTH6ocSxLCd
+effects:
+  - _id: FBhI3HTH6ocSxLCd
+    name: Distracting Noise
+    img: icons/magic/sonic/scream-wail-shout-teal.webp
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes:
+        - key: system.attributes.concentration.roll.mode
+          _id: mZsadMQoBFBPyfWu
+          type: add
+          value: '-1'
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!xLCdFBhI3HTH6ocS.FBhI3HTH6ocSxLCd'
+folder: OHtso37ZN76ffUvi
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (C) Distracting Noise
+          image: icons/magic/sonic/bell-alarm-red-purple.webp
+          text: >-
+            <p>Creatures in the area have disadvantage on Concentration saving
+            throws.</p><p><em>Core automation</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: util
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: timed
+          units: minute
+          value: '10'
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 50
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: sphere
+          units: ft
+          value: 10
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: true
+        rarity: common
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048781013
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: xLCdFBhI3HTH6ocS
+sort: 500000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!xLCdFBhI3HTH6ocS'

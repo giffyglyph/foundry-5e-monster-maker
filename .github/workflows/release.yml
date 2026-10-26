@@ -1,0 +1,85 @@
+name: Release
+
+# Publish a Foundry-installable release whenever a version tag is pushed.
+#   git tag 2.0.0.2 && git push origin 2.0.0.2
+# The tagged commit must be on main; the workflow fails immediately otherwise.
+# It then stamps module.json (version from the tag, versioned download URL,
+# releases/latest manifest URL), splits off a Foundry v13 build (module-v13.json/.zip),
+# uploads all four as release assets, and publishes both builds to the Foundry package release API.
+
+on:
+  push:
+    tags:
+      - "*"      # any version tag (e.g. 2.0.0.2)
+      - "!dev*"   # except the rolling dev pre-release tag (handled by dev-release.yml)
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # full history so we can test whether the tag is on main
+
+      - name: Require the tagged commit to be on main
+        run: |
+          git fetch origin main --quiet
+          if git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "Tagged commit $GITHUB_SHA is on main."
+          else
+            echo "::error::Release tag '$GITHUB_REF_NAME' points at $GITHUB_SHA, which is not on main. Merge to main first, then tag the merged commit."
+            exit 1
+          fi
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build stylesheets (scss -> gmm.css)
+        run: |
+          npm install --no-audit --no-fund
+          npx gulp build
+
+      - name: Build compendium packs (src/packs -> packs)
+        run: npm run pack
+
+      - name: Stamp module.json for this release
+        run: |
+          node -e "const fs=require('fs');const tag=process.env.GITHUB_REF_NAME;const repo=process.env.GITHUB_REPOSITORY;const m=JSON.parse(fs.readFileSync('module.json','utf8'));m.version=tag.replace(/^v/,'');m.manifest='https://github.com/'+repo+'/releases/latest/download/module.json';m.download='https://github.com/'+repo+'/releases/download/'+tag+'/module.zip';['manifestProd','manifestDev','downloadProd','downloadDev'].forEach(k=>delete m[k]);fs.writeFileSync('module.json',JSON.stringify(m,null,'\t')+'\n');const fMaj=(m.compatibility&&m.compatibility.minimum||'').split('.')[0];const dnd=((m.relationships&&m.relationships.systems)||[]).find(s=>s.id==='dnd5e');const dMin=(dnd&&dnd.compatibility&&dnd.compatibility.minimum||'').split('.').slice(0,2).join('.');const relName=m.version+' - GMMv3 / D&D'+dMin+'.x+ / Foundry v'+fMaj+'+';fs.appendFileSync(process.env.GITHUB_ENV,'RELEASE_NAME='+relName+'\n');console.log('Release name:',relName);"
+
+      - name: Split off the Foundry v13 manifest
+        run: node .github/scripts/split-v13.mjs
+
+      - name: Build module.zip and module-v13.zip
+        run: |
+          zip -r module.zip . \
+            -x ".git/*" ".github/*" "node_modules/*" ".claude/*" ".cursor/*" \
+               "src/*" "tools/*" ".githooks/*" "stylesheets/*" "docs/*" \
+               "package.json" "package-lock.json" "gulpfile.js" ".gitignore" \
+               ".eslintrc.json" ".jsbeautifyrc" "module.zip" "module-v13.json"
+          mkdir -p "$RUNNER_TEMP/v13"
+          cp module-v13.json "$RUNNER_TEMP/v13/module.json"
+          cp module.zip module-v13.zip
+          (cd "$RUNNER_TEMP/v13" && zip "$GITHUB_WORKSPACE/module-v13.zip" module.json)
+
+      - name: Publish GitHub release with assets
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ env.RELEASE_NAME }}
+          files: |
+            module.json
+            module.zip
+            module-v13.json
+            module-v13.zip
+
+      - name: Publish to the Foundry package release API
+        env:
+          FOUNDRY_PACKAGE_RELEASE_TOKEN: ${{ secrets.FOUNDRY_PACKAGE_RELEASE_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF_NAME: ${{ github.ref_name }}
+        run: node .github/scripts/publish-foundry.mjs

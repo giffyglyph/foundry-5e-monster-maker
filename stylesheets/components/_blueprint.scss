@@ -109,6 +109,9 @@
 	.blueprint__form {
 
 		.form-group {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
 			margin: 0;
 			position: relative;
 			align-items: normal;
@@ -130,13 +133,14 @@
 			text-align: right;
 			color: var(--color-primary-shade-4);
 			width: 8rem;
-			flex: unset;
-			white-space: nowrap;
-			overflow: hidden;
+			flex: 0 0 8rem;
+			/*white-space: nowrap;
+			overflow: hidden;*/
 			text-overflow: ellipsis;
 		}
 
 		.form-group__body {
+			flex: 1 1 auto;
 			min-height: 1.5rem;
 			overflow: hidden;
 
@@ -184,7 +188,42 @@
 			}
 
 			.html-field {
-				
+				display: flex;
+				flex-direction: column;
+				flex: 1 1 auto;
+				min-height: 18rem;
+
+				prose-mirror {
+					--min-height: 18rem;
+					--menu-background: var(--color-primary-tint-3);
+					--dropdown-background: var(--color-primary-tint-5);
+					--dropdown-border: var(--color-primary-tint-4);
+					--dialog-background: var(--color-primary-tint-5);
+					--dialog-border: var(--color-primary-tint-4);
+					--color-control-hover: var(--color-primary-tint-4);
+					--color-form-label-hover: var(--color-primary-shade-1);
+					--button-text-color: var(--color-primary-shade-1);
+					flex: 1 1 auto;
+					color: var(--color-primary-shade-1);
+					background: var(--color-primary-tint-5);
+					border: 1px solid var(--color-primary-tint-4);
+					border-radius: 0.25rem;
+					padding: 0.5rem;
+				}
+
+				prose-mirror .editor-content {
+					color: var(--color-primary-shade-1);
+					background: transparent;
+				}
+
+				prose-mirror .ProseMirror {
+					min-height: inherit;
+					color: inherit;
+					background: transparent;
+					outline: none;
+				}
+
+				.editor,
 				.editor-content {
 					padding: 0.5rem;
 					min-height: 4rem;
@@ -290,7 +329,7 @@
 
 			.checkboxes {
 				padding: 0.5rem;
-		
+
 				.checkbox {
 					display: inline-flex;
 					width: 100%;
@@ -299,11 +338,11 @@
 					align-items: flex-start;
 					padding: 0;
 					line-height: 1rem;
-		
+
 					&:hover {
 						cursor: pointer;
 					}
-					
+
 					input {
 						margin: 0;
 						top: 0;
@@ -312,7 +351,7 @@
 						height: 1rem;
 						width: 1rem;
 					}
-		
+
 					&:not(:last-child) {
 						margin-bottom: 0.25rem;
 					}
@@ -410,7 +449,7 @@
 				&::after {
 					content: "\f07c";
 					-webkit-font-smoothing: antialiased;
-					font-family: "Font Awesome 5 Free";
+					font-family: var(--font-awesome, "Font Awesome 7 Pro");
 					font-weight: bold;
 					display: inline-block;
 					font-style: normal;
@@ -446,11 +485,11 @@
 					font-size: inherit;
 					align-self: center;
 					margin: 0;
-	
+
 					i {
 						margin: 0;
 					}
-	
+
 					&:hover {
 						box-shadow: none;
 						background: var(--color-primary-base);
@@ -578,7 +617,9 @@
 				margin: 0;
 				line-height: 1;
 			}
-		};
+		}
+
+		;
 
 		.accordion-section__body {
 			padding: 0;

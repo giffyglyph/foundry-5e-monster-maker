@@ -1,0 +1,30 @@
+name: Transformed
+type: base
+_id: dkhvgUDUeK79xF8J
+img: icons/svg/paralysis.svg
+description: >-
+  <p><strong>Rare Condition</strong></p><ul><li><p>You are physically changed
+  into a new form.</p></li><li><p>Your hit points and attributes are
+  unchanged.</p></li><li><p>Your form dictates the actions you can take. You
+  can't speak, cast spells, or take actions that require
+  hands.</p></li><li><p>Your gear melds into your new form. You can't activate,
+  use, wield, or benefit from your equipment.</p></li></ul><p><em>No
+  automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.transformed
+folder: gmmConditions000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: rare
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!dkhvgUDUeK79xF8J'

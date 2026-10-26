@@ -1,0 +1,30 @@
+name: Slowed
+type: base
+_id: rGKzFfVxiNHt5hOS
+img: icons/creatures/invertebrates/snail-movement-tan.webp
+description: >-
+  <p><strong>Common Condition</strong></p><ul><li><p>Your speed is reduced to 10
+  ft.*</p></li><li><p>You can't take reactions.</p></li></ul><p><em>* Core
+  automation</em></p><p><em>Walk speed only.</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.slowed
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: system.attributes.movement.walk
+      _id: mZc9AXPpjtq8TeXQ
+      type: downgrade
+      value: '10'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!rGKzFfVxiNHt5hOS'

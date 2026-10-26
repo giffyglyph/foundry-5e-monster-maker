@@ -1,0 +1,24 @@
+name: Mover
+type: base
+_id: wegLom2j0KT34pAL
+img: icons/equipment/feet/boots-armored-banded-steel.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>You are unaffected by
+  difficult terrain.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>No automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!wegLom2j0KT34pAL'

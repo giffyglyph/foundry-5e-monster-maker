@@ -1,0 +1,18 @@
+# Copy this file to foundry-config.yaml and point it at your own installs.
+# foundry-config.yaml is gitignored because these paths differ from device to device.
+#
+# Run `npm run symlinks` after editing it. That builds the gitignored foundry/
+# folder that jsconfig.json reads for type hints.
+
+# Which generation the foundry/ links point at. Override for one run with
+# `npm run foundry:v13` / `npm run foundry:v14`.
+active: v14
+
+# Each entry is the root of a Foundry install. For an Electron install give the
+# folder holding resources/app; the script finds the nested sources itself.
+installs:
+  v13: "C:/Program Files/Foundry Virtual Tabletop/Version 13"
+  v14: "C:/Program Files/Foundry Virtual Tabletop/Version 14"
+
+# Optional. Root of a dnd5e checkout, for hints on the global dnd5e namespace.
+systemPath: "C:/Users/you/foundrydata/Data/systems/dnd5e"

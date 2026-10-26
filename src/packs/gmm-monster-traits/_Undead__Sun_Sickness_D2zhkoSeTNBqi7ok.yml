@@ -1,0 +1,192 @@
+name: (Undead) Sun Sickness
+type: feat
+img: icons/magic/death/skeleton-glow-yellow-black.webp
+system:
+  description:
+    value: >-
+      <p>While in sunlight, you have disadvantage on ability checks, attack
+      rolls, and saving throws. You die if you spend more than 1 hour in direct
+      sunlight.+</p><p><em>+ Midi automation, unfinished</em></p><p><em>Nothing
+      here reads the light level. Set disadvantage.all to 1 and apply the effect
+      by hand while the creature stands in sunlight. The one-hour death clause
+      is not automated.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Undead) Sun Sickness
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects:
+  - _id: koSeTNBqi7okD2zh
+    name: Sun Sickness
+    img: icons/magic/death/skeleton-glow-yellow-black.webp
+    type: base
+    disabled: false
+    transfer: true
+    description: ''
+    system:
+      changes:
+        - key: flags.midi-qol.disadvantage.all
+          _id: zztBBXpWwBAoXUOo
+          type: custom
+          value: ''
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!D2zhkoSeTNBqi7ok.koSeTNBqi7okD2zh'
+folder: eIquczNX8Uw4LNGE
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Undead) Sun Sickness
+          image: icons/magic/death/skeleton-glow-yellow-black.webp
+          text: >-
+            <p>While in sunlight, you have disadvantage on ability checks,
+            attack rolls, and saving throws. You die if you spend more than 1
+            hour in direct sunlight.+</p><p><em>+ Midi automation,
+            unfinished</em></p><p><em>Nothing here reads the light level. Set
+            disadvantage.all to 1 and apply the effect by hand while the
+            creature stands in sunlight. The one-hour death clause is not
+            automated.</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712265033947
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: D2zhkoSeTNBqi7ok
+sort: 500000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!D2zhkoSeTNBqi7ok'

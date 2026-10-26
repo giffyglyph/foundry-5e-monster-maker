@@ -1,9 +1,9 @@
-<div class="item item--spell" data-item-id="{{item.id}}" draggable="true">
+<div class="item item--spell draggable" data-item-id="{{item.id}}" draggable="true">
     <div class="item__icon" data-action="roll-item">
         {{#if item.img}}
             <img src="{{item.img}}"/>
         {{/if}}
-        <button data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
+        <button type="button" data-action="roll-item"><i class="fas fa-dice-d20"></i></button>
     </div>
     <div class="item__body">
         <div class="item__title">
@@ -13,7 +13,7 @@
         </div>
         <div class="item__details">
             <ul class="item__tags">
-                <li class="item__components">{{item.labels.components}}</li>
+                <li class="item__components">{{item.labels.components.vsm}}</li>
                 <li class="item__school">{{item.labels.school}}</li>
                 <li class="item__activation">{{item.labels.activation}}</li>
                 <li class="item__target">{{item.labels.target}}</li>
@@ -23,9 +23,9 @@
             {{/if}}
         </div>
         <div class="item__actions">
-            <button data-action="roll-item"><i class="fas fa-fw fa-comments"></i></button>
-            <button data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>
-            <button data-action="delete-item"><i class="fas fa-fw fa-trash"></i></button>
+            <button type="button" data-action="roll-item"><i class="fas fa-fw fa-comments"></i></button>
+            <button type="button" data-action="edit-item"><i class="fas fa-fw fa-edit"></i></button>
+            <button type="button" data-action="delete-item"><i class="fas fa-fw fa-trash"></i></button>
         </div>
     </div>
 </div>

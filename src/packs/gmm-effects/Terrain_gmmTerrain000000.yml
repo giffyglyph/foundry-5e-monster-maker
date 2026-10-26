@@ -1,0 +1,10 @@
+name: Terrain
+type: ActiveEffect
+_id: gmmTerrain000000
+description: ''
+folder: null
+sorting: a
+sort: 100000
+color: null
+flags: {}
+_key: '!folders!gmmTerrain000000'

@@ -1,0 +1,31 @@
+name: Dazed
+type: base
+_id: fxh0FikX71rUYlzv
+img: icons/svg/stoned.svg
+description: >-
+  <p><strong>Uncommon Condition</strong></p><ul><li><p>During your turn, you can
+  move <em>or</em> take an action (not both).</p></li><li><p>You can't take
+  reactions.</p></li><li><p>You have disadvantage on concentration
+  checks.*</p></li></ul><p><em>* Core automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.dazed
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: system.attributes.concentration.roll.mode
+      _id: Is0Ba2JqP5NS1IAr
+      type: add
+      value: '-1'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!fxh0FikX71rUYlzv'

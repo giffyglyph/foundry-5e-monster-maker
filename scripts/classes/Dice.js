@@ -6,7 +6,7 @@ const Dice = (function() {
 		let modifier = average - Math.floor(dice * scale);
 
 		if (dice > 0) {
-			return dice + "d" + dieSize + ((modifier != 0) ? (" " + ((modifier > 0) ? "+ " : "− ") + Math.abs(modifier)) : "");
+			return dice + "d" + dieSize + ((modifier != 0) ? (" " + ((modifier > 0) ? "+ " : "- ") + Math.abs(modifier)) : "");
 		} else {
 			return null;
 		}

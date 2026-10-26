@@ -1,0 +1,61 @@
+name: Dev Release
+
+# Publishes a rolling pre-release on every push to the dev branch, so testers can install
+# once from releases/download/dev-latest/module.json (module-v13.json on Foundry v13) and auto-update.
+
+on:
+  push:
+    branches:
+      - dev
+
+permissions:
+  contents: write
+
+jobs:
+  dev-release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Build stylesheets (scss -> gmm.css)
+        run: |
+          npm install --no-audit --no-fund
+          npx gulp build
+
+      - name: Build compendium packs (src/packs -> packs)
+        run: npm run pack
+
+      - name: Stamp module.json for the dev channel
+        run: |
+          node -e "const fs=require('fs');const repo=process.env.GITHUB_REPOSITORY;const m=JSON.parse(fs.readFileSync('module.json','utf8'));m.manifest='https://github.com/'+repo+'/releases/download/dev-latest/module.json';m.download='https://github.com/'+repo+'/releases/download/dev-latest/module.zip';['manifestProd','manifestDev','downloadProd','downloadDev'].forEach(k=>delete m[k]);fs.writeFileSync('module.json',JSON.stringify(m,null,'\t')+'\n');console.log('Dev build',m.id,m.version);"
+          echo "MODULE_VERSION=$(node -p "require('./module.json').version")" >> "$GITHUB_ENV"
+
+      - name: Split off the Foundry v13 manifest
+        run: node .github/scripts/split-v13.mjs
+
+      - name: Build module.zip and module-v13.zip
+        run: |
+          zip -r module.zip . \
+            -x ".git/*" ".github/*" "node_modules/*" ".claude/*" ".cursor/*" \
+               "src/*" "tools/*" ".githooks/*" "stylesheets/*" "docs/*" \
+               "package.json" "package-lock.json" "gulpfile.js" ".gitignore" \
+               ".eslintrc.json" ".jsbeautifyrc" "module.zip" "module-v13.json"
+          mkdir -p "$RUNNER_TEMP/v13"
+          cp module-v13.json "$RUNNER_TEMP/v13/module.json"
+          cp module.zip module-v13.zip
+          (cd "$RUNNER_TEMP/v13" && zip "$GITHUB_WORKSPACE/module-v13.zip" module.json)
+
+      - name: Publish / refresh the rolling dev pre-release
+        run: |
+          NOTES="Dev build $MODULE_VERSION - rolling build of the dev branch. Install manifest: https://github.com/$GITHUB_REPOSITORY/releases/download/dev-latest/module.json (Foundry v13: https://github.com/$GITHUB_REPOSITORY/releases/download/dev-latest/module-v13.json)"
+          gh release delete dev-latest --cleanup-tag --yes 2>/dev/null || true
+          gh release create dev-latest module.json module.zip module-v13.json module-v13.zip --prerelease --target "$GITHUB_SHA" \
+            --title "Dev build $MODULE_VERSION" \
+            --notes "$NOTES"

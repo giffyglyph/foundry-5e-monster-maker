@@ -1,0 +1,297 @@
+name: (Uncommon) Melee Dooming Attack
+type: feat
+img: icons/weapons/maces/mace-cube-spiked-steel.webp
+system:
+  description:
+    value: >-
+      <p>You ready your hammer to deal a powerful blow to a fallen foe.</p>
+
+      <p><strong>Hit:</strong> the target is doomed 1 as the blow lands but the
+      bones have yet to give.</p>
+
+      <p><strong>Doom:</strong> the damage catches up with the target.</p>
+
+      <p><em>Adding a condition and a deferral allows this feature to deal more
+      damage. (See GMM pdf p.45)</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (Uncommon) Melee Dooming Attack
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: A prone foe is nearby
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: spec
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: melee
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: gmmdoomclock0000
+    gmmdeferred00000:
+      _id: gmmdeferred00000
+      type: damage
+      name: (Uncommon) Melee Dooming Attack
+      sort: 1
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      damage:
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - bludgeoning
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      midiProperties:
+        automationOnly: true
+        otherActivityCompatible: false
+      effects: []
+effects:
+  - _id: gmmdoomclock0000
+    name: (Uncommon) Melee Dooming Attack (doomed 1)
+    img: icons/weapons/maces/mace-cube-spiked-steel.webp
+    description: '<p>Dispelled by: The target moves away</p>'
+    transfer: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    showIcon: 2
+    flags:
+      dnd5e:
+        isTemporary: false
+      giffyglyph-monster-maker-continued:
+        deferral:
+          kind: dooming
+          name: (Uncommon) Melee Dooming Attack
+          timer: 1
+          remaining: 1
+          cancel: The target moves away
+    _key: '!items.effects!3lOWLx0uCT25TmyJ.gmmdoomclock0000'
+folder: PCq12hdhmUnNMCak
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Uncommon) Melee Dooming Attack
+          image: icons/weapons/maces/mace-cube-spiked-steel.webp
+          text: >-
+            <p>You ready your hammer to deal a powerful blow to a fallen
+            foe.</p>
+
+            <p><strong>Hit:</strong> the target is doomed 1 as the blow lands
+            but the bones have yet to give.</p>
+
+            <p><strong>Doom:</strong> the damage catches up with the target.</p>
+
+            <p><em>Adding a condition and a deferral allows this feature to deal
+            more damage. (See GMM pdf p.45)</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: A prone foe is nearby
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: mwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*2), damageDie]'
+                type: bludgeoning
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: uncommon
+        deferral:
+          type: dooming
+          timer: 1
+          cancel: The target moves away
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716241631195
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: 3lOWLx0uCT25TmyJ
+sort: 0
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!3lOWLx0uCT25TmyJ'

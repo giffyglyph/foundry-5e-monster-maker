@@ -1,0 +1,32 @@
+name: Cloaker
+type: base
+_id: U7ZOJUZOBLww9kvb
+img: icons/magic/perception/shadow-stealth-eyes-purple.webp
+description: >-
+  <p><strong>Rare Boon</strong></p><ul><li><p>You are
+  invisible.</p></li><li><p>This ends if you attack or cast a
+  spell.+</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>+ Midi automation</em></p><p><em>Marks you
+  invisible. dnd5e alone gives only advantage on initiative, leaving the
+  attack rules to midi-qol or AC5e.</em></p>
+disabled: false
+transfer: false
+statuses:
+  - invisible
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+    specialDuration:
+      - 1Attack
+      - 1Spell
+  gmm:
+    rarity: rare
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!U7ZOJUZOBLww9kvb'

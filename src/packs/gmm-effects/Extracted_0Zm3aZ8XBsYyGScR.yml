@@ -1,0 +1,26 @@
+name: Extracted
+type: base
+_id: 0Zm3aZ8XBsYyGScR
+img: icons/magic/movement/portal-vortex-orange.webp
+description: >-
+  <p><strong>Rare Boon</strong></p><ul><li><p>You are
+  banished.</p></li><li><p>When this boon ends, you reappear in an unoccupied
+  space of the empowerer's choice within 30 feet of
+  them.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>No automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: rare
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!0Zm3aZ8XBsYyGScR'

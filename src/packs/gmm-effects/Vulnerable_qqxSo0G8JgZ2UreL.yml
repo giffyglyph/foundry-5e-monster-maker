@@ -1,0 +1,33 @@
+name: Vulnerable
+type: base
+_id: qqxSo0G8JgZ2UreL
+img: icons/skills/targeting/crosshair-ringed-gray.webp
+description: >-
+  <p><strong>Uncommon Condition</strong></p><ul><li><p>You gain vulnerability to
+  a particular damage type or, if you have immunity, it is reduced to
+  resistance.*</p></li></ul><p><em>* Core automation</em></p><p><em>Set the
+  value of the Damage Vulnerability change to a damage type. If the target is
+  immune instead, replace it with Damage Immunity (Subtract) and Damage
+  Resistance (Add) for that type.</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.vulnerable
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: system.traits.dv.value
+      _id: UzawAuMrzPR3RrX1
+      type: add
+      value: ''
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!qqxSo0G8JgZ2UreL'

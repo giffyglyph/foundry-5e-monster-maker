@@ -1,0 +1,16 @@
+name: Mender
+sorting: a
+folder: ikmSE8RFDofxomeD
+type: Item
+_id: cU1VnJwFDRnonko7
+sort: 300000
+color: null
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.1
+  coreVersion: '11.315'
+  createdTime: null
+  modifiedTime: 1712180664391
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!cU1VnJwFDRnonko7'

@@ -1,0 +1,16 @@
+name: Normal Common
+sorting: a
+folder: null
+type: Item
+_id: JPEHab7zdvYJ1DzZ
+sort: 150000
+color: '#1c922c'
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.2
+  coreVersion: '11.315'
+  createdTime: 1712336833401
+  modifiedTime: 1716048584258
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!JPEHab7zdvYJ1DzZ'

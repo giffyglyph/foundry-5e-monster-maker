@@ -1,14 +1,13 @@
 import Shortcoder from '../classes/Shortcoder.js';
 import RollFormula from '../classes/RollFormula.js';
+import CompatibilityHelpers from '../classes/CompatibilityHelpers.js';
 
-const ModalBasicAttackAc = (function() {
+const ModalBasicAttackSave = (function() {
 
-	function activateListeners(html, actor, id) {
-		this.actor = actor;
-		this.id = id;
-		html.find('#modal_basic_attack_save .modal__footer button').click(_submitForm.bind(this));
-		html.find('.button--primary-dc').click(_setPrimary.bind(this));
-		html.find('.button--secondary-dc').click(_setSecondary.bind(this));
+	function activateListeners(html, actor) {
+		const ctx = { actor };
+		html.find('#modal_basic_attack_save .modal__footer button').click(_submitForm.bind(ctx));
+		html.find('.button--primary-dc').click(_setPrimary.bind(ctx));
 	}
 
 	function _setPrimary(event) {
@@ -16,18 +15,14 @@ const ModalBasicAttackAc = (function() {
 		modal.querySelector("#modal_basic_attack_save .radio--primary").checked = true;
 	}
 
-	function _setSecondary(event) {
-		const modal = event.currentTarget.closest(".gmm-window");
-		modal.querySelector("#modal_basic_attack_save .radio--secondary").checked = true;
-	}
-
     function _submitForm(event) {
 		const modal = event.currentTarget.closest(".gmm-modal");
-		const form = new FormData(modal.querySelector("form"));
+		const form = CompatibilityHelpers.readInputs(modal.querySelector(".modal__form"));
 		const bonus = form.get(form.get("attack"));
 
 		const rollParts = [];
 		const messageParts = [];
+		rollParts.push("1d20");
 		rollParts.push(bonus);
 		messageParts.push(game.i18n.format('gmm.modal.basic_attack_save.message', {
 			defence: game.i18n.format(`gmm.common.ability.${form.get("defence")}.name`)
@@ -35,18 +30,17 @@ const ModalBasicAttackAc = (function() {
 		let rollString = rollParts.join(" + ");
 
 		if (form.get("modifiers")) {
-			rollString = `${rollParts.length > 1 ? `(${rollString})` : rollString} + ${Shortcoder.replaceShortcodes(form.get("modifiers"), this.actor?.data?.data?.gmm?.monster?.data).trim()}`;
+			rollString = `${rollParts.length > 1 ? `(${rollString})` : rollString} + ${Shortcoder.replaceShortcodes(form.get("modifiers"), this.actor?.flags?.gmm?.monster?.data).trim()}`;
 		}
 
 		try {
-			const asyncRoll = new Roll(RollFormula.getRollFormula(rollString)).roll();
+			const asyncRoll = new CONFIG.Dice.D20Roll(RollFormula.getRollFormula(rollString), {}, { configured: true }).roll();
 			asyncRoll.then(completedRoll => {
 				completedRoll.toMessage({
 					speaker: ChatMessage.getSpeaker({actor: this.actor}),
 					flavor: messageParts.join(" "),
-					messageData: {"flags.dnd5e.roll": {type: "other", itemId: this.id }},
-					rollMode: form.get("mode")
-				})
+					...CompatibilityHelpers.genericMessageData()
+				}, CompatibilityHelpers.rollMessageOptions(form.get("mode")));
 			});
 			modal.querySelector("[data-action='close-modal']").click();
 		} catch(err) {
@@ -61,4 +55,4 @@ const ModalBasicAttackAc = (function() {
 	};
 })();
 
-export default ModalBasicAttackAc;
+export default ModalBasicAttackSave;

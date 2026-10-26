@@ -1,0 +1,29 @@
+name: Deflector
+type: base
+_id: eotv6B7vn7B7ONkf
+img: icons/magic/defensive/barrier-shield-dome-deflect-teal.webp
+description: >-
+  <p><strong>Rare Boon</strong></p><ul><li><p>The first time you are reduced
+  to 0 hit points, you are reduced to 1 instead.</p></li></ul><p><em>Applies
+  to a creature you empower.</em></p><p><em>Midi automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: flags.midi-qol.onUseMacroName
+      _id: 6bQJOMTNgMiLIcK2
+      type: custom
+      value: function.gmmc.boons.deflector,preTargetDamageApplication
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: rare
+    boon: deflector
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!eotv6B7vn7B7ONkf'

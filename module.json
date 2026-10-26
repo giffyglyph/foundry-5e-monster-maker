@@ -1,62 +1,133 @@
 {
-  "name": "giffyglyphs-5e-monster-maker",
-  "title": "Giffyglyph's 5e Monster Maker",
-  "description": "Create new monsters in seconds using monster levels and templates.",
-  "version": "1.0.1",
-  "author": "Giffyglyph",
-  "authors": [
-    {
-      "name": "Giffyglyph",
-      "email": "giffyglyph@gmail.com",
-      "url": "https://www.giffyglyph.com",
-      "discord": "Giffyglyph#7632",
-      "twitter": "@giffyglyph",
-      "patreon": "giffyglyph",
-      "reddit": "u/giffyglyph"
-    }
-  ],
-  "esmodules": ["gmm.js"],
-  "scripts": ["./scripts/vendors/math_js.9.3.2.min.js"],
-  "styles": ["gmm.css"],
-  "systems": ["dnd5e"],
-  "packs": [
-    {
-      "name": "gmm-monster-powers",
-      "label": "GMM Monster Powers",
-      "path": "./packs/monster-powers.db",
-      "entity": "Item"
-    },
-    {
-      "name": "gmm-monster-attacks",
-      "label": "GMM Monster Attacks",
-      "path": "./packs/monster-attacks.db",
-      "entity": "Item"
-    }
-  ],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
-  ],
-  "minimumCoreVersion": "9.238",
-  "compatibleCoreVersion": "9.249",
-  "url": "https://github.com/giffyglyph/foundry_5e_monster_maker",
-  "manifest": "https://raw.githubusercontent.com/giffyglyph/foundry_5e_monster_maker/master/module.json",
-  "download": "https://github.com/giffyglyph/foundry_5e_monster_maker/archive/refs/tags/v1.0.1.zip",
-  "bugs": "https://github.com/giffyglyph/foundry_5e_monster_maker/issues",
-  "readme": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/README.md",
-  "changelog": "https://github.com/giffyglyph/foundry_5e_monster_maker/blob/master/docs/CHANGELOG.md",
-  "manifestPlusVersion": "1.0.1",
-  "media": [
-    {
-      "type": "screenshot",
-      "url": "https://raw.githubusercontent.com/giffyglyph/foundry-5e-monster-maker/master/docs/img/scaling-monster-level.gif"
-    },
-    {
-      "type": "cover",
-      "url": "https://raw.githubusercontent.com/giffyglyph/foundry-5e-monster-maker/master/docs/img/fire-elemental.png"
-    }
-  ]
+	"id": "giffyglyph-monster-maker-continued",
+	"title": "Giffyglyph's 5e Monster Maker Continued",
+	"description": "Create new monsters in seconds using monster levels and templates.",
+	"authors": [
+		{
+			"name": "Skyl3lazer",
+			"discord": "@skyl3lazer",
+			"flags": {
+				"twitter": "@skyl3lazer",
+				"reddit": "u/skyl3lazer"
+			}
+		},
+		{
+			"name": "Giffyglyph",
+			"email": "giffyglyph@gmail.com",
+			"url": "https://www.giffyglyph.com",
+			"discord": "Giffyglyph#7632",
+			"flags": {
+				"twitter": "@giffyglyph",
+				"patreon": "giffyglyph",
+				"reddit": "u/giffyglyph"
+			}
+		}
+
+	],
+	"version": "2.1.0.2",
+
+	"compatibility": {
+		"minimum": "13.347",
+		"verified": "14.365"
+	},
+	"esmodules": [ "gmm.js" ],
+	"scripts": [ "scripts/vendors/math.min.js" ],
+	"styles": [ "gmm.css" ],
+	"packs": [
+		{
+			"name": "gmm-monster-powers",
+			"label": "GMM Monster Powers",
+			"path": "packs/gmm-monster-powers",
+			"type": "Item",
+			"system": "dnd5e",
+			"module": "giffyglyph-monster-maker-continued"
+		},
+		{
+			"name": "gmm-monster-attacks",
+			"label": "GMM Monster Attacks",
+			"path": "packs/gmm-monster-attacks",
+			"type": "Item",
+			"system": "dnd5e",
+			"module": "giffyglyph-monster-maker-continued"
+		},
+		{
+			"name": "gmm-monster-traits",
+			"label": "GMM Monster Traits",
+			"path": "packs/gmm-monster-traits",
+			"type": "Item",
+			"system": "dnd5e",
+			"module": "giffyglyph-monster-maker-continued"
+		},
+		{
+			"name": "gmm-effects",
+			"label": "GMM Effects",
+			"path": "packs/gmm-effects",
+			"type": "ActiveEffect",
+			"system": "dnd5e",
+			"module": "giffyglyph-monster-maker-continued"
+		},
+		{
+			"name": "gmm-conditions",
+			"label": "GMM Conditions (Legacy)",
+			"path": "packs/gmm-conditions",
+			"type": "Actor",
+			"system": "dnd5e",
+			"module": "giffyglyph-monster-maker-continued"
+		}
+	],
+	"packFolders": [
+		{
+			"name": "Giffyglyph's Monster Maker",
+			"color": "#4e943d",
+			"sorting": "a",
+			"packs": [ "gmm-monster-traits", "gmm-monster-attacks", "gmm-monster-powers", "gmm-effects", "gmm-conditions" ]
+		}
+	],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+
+	"relationships": {
+		"systems": [
+			{
+				"id": "dnd5e",
+				"type": "system",
+				"compatibility": {
+					"minimum": "5.3.2",
+					"verified": "5.3.3",
+					"maximum": "6.0.999"
+				}
+			}
+		],
+		"requires": [
+			{
+				"id": "lib-wrapper",
+				"type": "module",
+				"compatibility": {
+					"minimum": "1.0.0.0",
+					"verified": "1.13.4.0"
+				}
+			}
+		]
+	},
+	"url": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued",
+	"manifest": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/releases/latest/download/module.json",
+	"download": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/releases/latest/download/module.zip",
+	"bugs": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/issues",
+	"readme": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/main/docs/README.md",
+	"changelog": "https://github.com/Skyl3lazer/giffyglyph-monster-maker-continued/blob/main/docs/CHANGELOG.md",
+	"media": [
+		{
+			"type": "screenshot",
+			"url": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/main/docs/img/scaling-monster-level.gif"
+		},
+		{
+			"type": "cover",
+			"url": "https://raw.githubusercontent.com/Skyl3lazer/giffyglyph-monster-maker-continued/main/docs/img/fire-elemental.png"
+		}
+	]
 }

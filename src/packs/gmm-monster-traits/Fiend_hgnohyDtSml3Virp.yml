@@ -1,0 +1,16 @@
+name: Fiend
+sorting: a
+folder: null
+type: Item
+_id: hgnohyDtSml3Virp
+sort: 0
+color: null
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.1
+  coreVersion: '11.315'
+  createdTime: 1712161771170
+  modifiedTime: 1712161771170
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!hgnohyDtSml3Virp'

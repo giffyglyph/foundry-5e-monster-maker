@@ -1,0 +1,30 @@
+name: Immuniser
+type: base
+_id: DOqNtqTQEZJnLl5S
+img: icons/magic/defensive/barrier-shield-dome-blue-purple.webp
+description: >-
+  <p><strong>Uncommon Boon</strong></p><ul><li><p>You are immune to one damage
+  type or condition.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>Core automation</em></p><p><em>Set the value of the
+  Damage Immunity change to a damage type, or replace the change with
+  Condition Immunity for a condition.</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: system.traits.di.value
+      _id: jGKuKzMjizN9gFc3
+      type: add
+      value: ''
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!DOqNtqTQEZJnLl5S'

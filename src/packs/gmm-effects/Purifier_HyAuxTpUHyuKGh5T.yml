@@ -1,0 +1,24 @@
+name: Purifier
+type: base
+_id: HyAuxTpUHyuKGh5T
+img: icons/magic/holy/chalice-glowing-gold.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>You may reroll a failed saving
+  throw against an ongoing effect.</p></li></ul><p><em>Applies to a creature
+  you empower.</em></p><p><em>No automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!HyAuxTpUHyuKGh5T'

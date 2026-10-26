@@ -1,0 +1,1522 @@
+name: GGMMC Conditions
+type: npc
+_id: wBCyTykvR2Nb2bna
+img: icons/containers/bags/coinpouch-gold-red.webp
+system:
+  currency:
+    pp: 0
+    gp: 0
+    ep: 0
+    sp: 0
+    cp: 0
+  abilities:
+    str:
+      value: 10
+      proficient: 0
+      max: null
+      bonuses:
+        check: ''
+        save: ''
+    dex:
+      value: 10
+      proficient: 0
+      max: null
+      bonuses:
+        check: ''
+        save: ''
+    con:
+      value: 10
+      proficient: 0
+      max: null
+      bonuses:
+        check: ''
+        save: ''
+    int:
+      value: 10
+      proficient: 0
+      max: null
+      bonuses:
+        check: ''
+        save: ''
+    wis:
+      value: 10
+      proficient: 0
+      max: null
+      bonuses:
+        check: ''
+        save: ''
+    cha:
+      value: 10
+      proficient: 0
+      max: null
+      bonuses:
+        check: ''
+        save: ''
+  bonuses:
+    mwak:
+      attack: ''
+      damage: ''
+    rwak:
+      attack: ''
+      damage: ''
+    msak:
+      attack: ''
+      damage: ''
+    rsak:
+      attack: ''
+      damage: ''
+    abilities:
+      check: ''
+      save: ''
+      skill: ''
+    spell:
+      dc: ''
+  skills:
+    acr:
+      ability: dex
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    ani:
+      ability: wis
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    arc:
+      ability: int
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    ath:
+      ability: str
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    dec:
+      ability: cha
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    his:
+      ability: int
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    ins:
+      ability: wis
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    itm:
+      ability: cha
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    inv:
+      ability: int
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    med:
+      ability: wis
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    nat:
+      ability: int
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    prc:
+      ability: wis
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    prf:
+      ability: cha
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    per:
+      ability: cha
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    rel:
+      ability: int
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    slt:
+      ability: dex
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    ste:
+      ability: dex
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+    sur:
+      ability: wis
+      roll:
+        min: null
+        max: null
+        mode: 0
+      value: 0
+      bonuses:
+        check: ''
+        passive: ''
+  tools: {}
+  spells:
+    spell1:
+      value: 0
+      override: null
+    spell2:
+      value: 0
+      override: null
+    spell3:
+      value: 0
+      override: null
+    spell4:
+      value: 0
+      override: null
+    spell5:
+      value: 0
+      override: null
+    spell6:
+      value: 0
+      override: null
+    spell7:
+      value: 0
+      override: null
+    spell8:
+      value: 0
+      override: null
+    spell9:
+      value: 0
+      override: null
+    pact:
+      value: 0
+      override: null
+  attributes:
+    init:
+      ability: ''
+      roll:
+        min: null
+        max: null
+        mode: 0
+      bonus: ''
+    movement:
+      burrow: null
+      climb: null
+      fly: null
+      swim: null
+      walk: null
+      units: null
+      hover: false
+    attunement:
+      max: 3
+    senses:
+      darkvision: null
+      blindsight: null
+      tremorsense: null
+      truesight: null
+      units: null
+      special: ''
+    spellcasting: int
+    exhaustion: 0
+    concentration:
+      ability: ''
+      roll:
+        min: null
+        max: null
+        mode: 0
+      bonuses:
+        save: ''
+      limit: 1
+    ac:
+      flat: null
+      calc: default
+    hp:
+      value: 10
+      max: 10
+      temp: 0
+      tempmax: 0
+      formula: ''
+    death:
+      ability: ''
+      roll:
+        min: null
+        max: null
+        mode: 0
+      success: 0
+      failure: 0
+  details:
+    biography:
+      value: ''
+      public: ''
+    alignment: ''
+    race: null
+    type: {}
+    environment: ''
+    cr: 1
+    spellLevel: 0
+    source: {}
+  resources:
+    legact:
+      value: 0
+      max: 0
+    legres:
+      value: 0
+      max: 0
+    lair:
+      value: false
+      initiative: null
+  traits:
+    size: med
+    di:
+      bypasses: []
+      value: []
+      custom: ''
+    dr:
+      bypasses: []
+      value: []
+      custom: ''
+    dv:
+      bypasses: []
+      value: []
+      custom: ''
+    dm:
+      amount: {}
+      bypasses: []
+    ci:
+      value: []
+      custom: ''
+    languages:
+      value: []
+      custom: ''
+prototypeToken:
+  name: GGMMC Conditions
+  displayName: 0
+  actorLink: false
+  appendNumber: false
+  prependAdjective: false
+  texture:
+    src: icons/containers/bags/coinpouch-gold-red.webp
+    scaleX: 1
+    scaleY: 1
+    offsetX: 0
+    offsetY: 0
+    rotation: 0
+    tint: '#ffffff'
+    anchorX: 0.5
+    anchorY: 0.5
+    fit: contain
+    alphaThreshold: 0.75
+  width: 1
+  height: 1
+  lockRotation: false
+  rotation: 0
+  alpha: 1
+  disposition: -1
+  displayBars: 0
+  bar1:
+    attribute: attributes.hp
+  bar2:
+    attribute: null
+  light:
+    alpha: 0.5
+    angle: 360
+    bright: 0
+    coloration: 1
+    dim: 0
+    attenuation: 0.5
+    luminosity: 0.5
+    saturation: 0
+    contrast: 0
+    shadows: 0
+    animation:
+      type: null
+      speed: 5
+      intensity: 5
+      reverse: false
+    darkness:
+      min: 0
+      max: 1
+    color: null
+    negative: false
+    priority: 0
+  sight:
+    enabled: false
+    range: 0
+    angle: 360
+    visionMode: basic
+    attenuation: 0.1
+    brightness: 0
+    saturation: 0
+    contrast: 0
+    color: null
+  detectionModes: []
+  flags:
+    dnd5e: {}
+  randomImg: false
+  ring:
+    enabled: false
+    colors:
+      ring: null
+      background: null
+    effects: 1
+    subject:
+      texture: null
+      scale: 1
+  occludable:
+    radius: 0
+  turnMarker:
+    mode: 1
+    animation: null
+    src: null
+    disposition: false
+  movementAction: null
+items: []
+effects:
+  - changes: []
+    description: >-
+      <ul><li><p>You are banished to a harmless plane of
+      existence</p></li><li><p>When this condition ends, you reappear in either
+      a) the space you left or b) the nearest unoccupied space.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Banished
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.banished
+    _id: JHNr3itUhD45Hv4k
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.JzYUN2YpNNemBPei
+      duplicateSource: null
+      exportSource: null
+    img: icons/magic/movement/abstract-ribbons-red-orange.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.JHNr3itUhD45Hv4k'
+  - changes: []
+    description: >-
+      <ul><li><p>At the end of your turn, you lose 1 unspent hit
+      die.</p></li><li><p>While you have no hit die, temporarily increase your
+      level of exhaustion by 1.</p><p></p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Bleeding
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.bleeding
+    _id: 0I2NB2BesCDiThPa
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.lTWURj7l779UfN6T
+      duplicateSource: null
+      exportSource: null
+    img: icons/skills/wounds/blood-drip-droplet-red.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.0I2NB2BesCDiThPa'
+  - changes: []
+    description: >-
+      <ul><li><p>You can't use your hands.</p></li><li><p>You automatically fail
+      any ability check that requires you to make precise movements with your
+      hands.</p></li><li><p>You drop anything you are carrying.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Bound
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.bound
+    _id: iiavSJleYRsELJlt
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.hvUQXjK8grGAoh2u
+      duplicateSource: null
+      exportSource: null
+    img: icons/commodities/cloth/yarn-skein-white-red.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.iiavSJleYRsELJlt'
+  - changes: []
+    description: <ul><li><p> If you are reduced to 0 hit points, you die.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Cursed
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.cursed
+    _id: g7LyXcLjXceFvCBX
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.Et0NH8rMc4Wh7kjQ
+      duplicateSource: null
+      exportSource: null
+    img: icons/magic/death/weapon-scythe-rune-green.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.g7LyXcLjXceFvCBX'
+  - changes: []
+    description: >-
+      <ul><li><p>During your turn, you can move <em>or</em> take an action (not
+      both).</p></li><li><p>You can't take reactions.</p></li><li><p>You have
+      disadvantage on concentration checks.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Dazed
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.dazed
+    _id: fxh0FikX71rUYlzv
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.6Zsiv5gKn7taVX5c
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/stoned.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.fxh0FikX71rUYlzv'
+  - changes:
+      - key: system.traits.dm.midi.heal
+        _id: GKr51IdlBC9Ht0o1
+        mode: 1
+        value: '0'
+        priority: 20
+    description: >-
+      <ul><li><p>You can't regain hit points through any
+      means.</p><p></p></li></ul><p><em>Midi automation</em></p>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Decaying
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.decaying
+    _id: ZVQDeDs58sBQzyVK
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.qzfD6F39Ec5C9DJ7
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/biohazard.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.ZVQDeDs58sBQzyVK'
+  - changes: []
+    description: >-
+      <ul><li><p>Temporarily increase your level of exhaustion by
+      1.</p></li><li><p>For every additional 24 hours you go without sufficient
+      water, increase this penalty by 1.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Dehydrated
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.dehydrated
+    _id: Cex1KAt2nasQKb9K
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.LQAb0LwbOWHUMV8r
+      duplicateSource: null
+      exportSource: null
+    img: icons/magic/water/water-drop-swirl-blue.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.Cex1KAt2nasQKb9K'
+  - changes:
+      - key: system.bonuses.All-Attacks
+        _id: ta2BQQEcG5Ra7xJJ
+        mode: 2
+        value: '-1d4'
+        priority: 20
+      - key: system.bonuses.abilities.check
+        _id: aQ39iBF636SisvHj
+        mode: 2
+        value: '-1d4'
+        priority: 20
+      - key: system.bonuses.abilities.save
+        _id: 68iRIBnQJIQnEO03
+        mode: 2
+        value: '-1d4'
+        priority: 20
+    description: >-
+      <ul><li><p>Whenever you make an attack roll, ability check, or a saving
+      throw, roll a d4 and subtract that number.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Disoriented
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.disoriented
+    _id: mIFF9s60nRXu2uiI
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.UUWWKVme4fATPwHL
+      duplicateSource: null
+      exportSource: null
+    img: icons/skills/trades/academics-astronomy-navigation-purple.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.mIFF9s60nRXu2uiI'
+  - changes: []
+    description: >-
+      <ul><li><p>Temporarily increase your level of exhaustion by
+      1.</p></li><li><p>For every additional 24 hours you go without sufficient
+      sleep, increase this penalty by 1.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Fatigued
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.fatigued
+    _id: EyVZlum6qDcAlrBM
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.lxm4Xu5tElJMtD9h
+      duplicateSource: null
+      exportSource: null
+    img: icons/skills/trades/mining-pickaxe-stone-cart.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.EyVZlum6qDcAlrBM'
+  - changes: []
+    description: <ul><li><p>Whenever you deal damage, reduce it by half.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Feeble
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.feeble
+    _id: KOZyjWWkwTm21Q1d
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.5sKOd5qVAmh8ugjb
+      duplicateSource: null
+      exportSource: null
+    img: icons/magic/death/hand-withered-gray.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.KOZyjWWkwTm21Q1d'
+  - changes: []
+    description: >-
+      <ul><li><p>You can't speak.</p></li><li><p>You automatically fail any
+      ability check that requires you to make a vocal sound.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Silenced
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.silenced
+    _id: WZXgPJl7c12SScCM
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.2cD2sQMBEjVAPiui
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/silenced.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.WZXgPJl7c12SScCM'
+  - changes:
+      - key: system.attributes.movement.walk
+        _id: oL0jrubxq22duTwY
+        mode: 5
+        value: '10'
+        priority: 20
+    description: >-
+      <ul><li><p>Your speed is reduced to 10 ft.</p></li><li><p>You can't take
+      reactions.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Slowed
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.slowed
+    _id: rGKzFfVxiNHt5hOS
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.O9tZ2N3T5isuSRrh
+      duplicateSource: null
+      exportSource: null
+    img: icons/creatures/invertebrates/snail-movement-tan.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.rGKzFfVxiNHt5hOS'
+  - changes: []
+    description: >-
+      <ul><li><p>Temporarily increase your level of exhaustion by
+      1.</p></li><li><p>For every additional 24 hours you go without sufficient
+      food, increase this penalty by 1.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Starving
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.starving
+    _id: Z02kV14M6zsWwtSx
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.bzVUFLkQO0ZuMhSV
+      duplicateSource: null
+      exportSource: null
+    img: icons/consumables/food/soup-broth-bowl-wooden-yellow.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.Z02kV14M6zsWwtSx'
+  - changes:
+      - key: flags.midi-qol.disadvantage.concentration
+        _id: EiUprgLIWUEDV6L0
+        mode: 0
+        value: '1'
+        priority: 20
+    description: >-
+      <ul><li><p>You have disadvantage on concentration checks and any ability
+      check to interact socially.</p></li></ul><p></p><p><em>Midi
+      automation</em></p>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Stinking
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.stinking
+    _id: DEvGvmpnBXmDXzB8
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.mlCJN1a4VPU0QlKR
+      duplicateSource: null
+      exportSource: null
+    img: icons/consumables/food/cheese-wedge-swiss-white.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.DEvGvmpnBXmDXzB8'
+  - changes:
+      - key: flags.midi-qol.grants.advantage.attack.all
+        _id: bQDkgQ3UuC3GFx1O
+        mode: 0
+        value: '1'
+        priority: 20
+      - key: flags.midi-qol.disadvantage.attack.all
+        _id: oBAhwrefo3bUERb9
+        mode: 0
+        value: '1'
+        priority: 20
+    description: >-
+      <ul><li><p>You move as if in difficult terrain.</p></li><li><p>Attack
+      rolls against you have advantage, and your attack rolls have
+      disadvantage.</p></li></ul><p></p><p><em>Midi automation</em></p>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Swarmed
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.swarmed
+    _id: quNNDdLgddY73Sgx
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.ZVrRvH1Qi4RYkOkK
+      duplicateSource: null
+      exportSource: null
+    img: icons/creatures/invertebrates/spider-dotted-green.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.quNNDdLgddY73Sgx'
+  - changes: []
+    description: >-
+      <ul><li><p>You are physically changed into a new form.</p></li><li><p>Your
+      hit points and attributes are unchanged.</p></li><li><p>Your form dictates
+      the actions you can take. You can't speak, cast spells, or take actions
+      that require hands.</p></li><li><p>Your gear melds into your new form. You
+      can't activate, use, wield, or benefit from your equipment.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Transformed
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.transformed
+    _id: dkhvgUDUeK79xF8J
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.tOfw4eEp3FSKOoem
+      duplicateSource: null
+      exportSource: null
+    img: icons/svg/paralysis.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.dkhvgUDUeK79xF8J'
+  - changes: []
+    description: >-
+      <ul><li><p>You gain vulnerability to a particular damage type or, if you
+      have immunity, it is reduced to resistance.</p></li></ul><p></p>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Vulnerable
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.vulnerable
+    _id: qqxSo0G8JgZ2UreL
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.75xycpxErLw9XX0q
+      duplicateSource: null
+      exportSource: null
+    img: icons/skills/targeting/crosshair-ringed-gray.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.qqxSo0G8JgZ2UreL'
+  - changes: []
+    description: >-
+      <ul><li><p>Monsters attacking you have their critical threshold reduced by
+      1.</p></li></ul>
+    disabled: true
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: 0
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+      dae:
+        disableIncapacitated: false
+        selfTarget: false
+        selfTargetAlways: false
+        dontApply: false
+        stackable: noneName
+        showIcon: false
+        durationExpression: ''
+        specialDuration: []
+      core: {}
+    name: Exposed
+    origin: Item.ag7tr15kLZzMVmm0
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - gmm.exposed
+    _id: tK8lciUDv0zrAxsa
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: ActiveEffect.Wkp9QnLW6wERxCmm
+      duplicateSource: null
+      exportSource: null
+    img: icons/skills/targeting/crosshair-mark-rough-pink.webp
+    type: base
+    system: {}
+    sort: 0
+    _key: '!actors.effects!wBCyTykvR2Nb2bna.tK8lciUDv0zrAxsa'
+folder: null
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.2
+  coreVersion: '13.351'
+  createdTime: 1716210536422
+  modifiedTime: 1716215669643
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!actors!wBCyTykvR2Nb2bna'

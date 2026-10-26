@@ -1,0 +1,29 @@
+name: Decaying
+type: base
+_id: ZVQDeDs58sBQzyVK
+img: icons/svg/biohazard.svg
+description: >-
+  <p><strong>Rare Condition</strong></p><ul><li><p>You can't regain hit points
+  through any means.</p></li></ul><p><em>Core automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.decaying
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: system.traits.di.value
+      _id: xyP9DXKWC2Ary6ML
+      type: add
+      value: healing
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: rare
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!ZVQDeDs58sBQzyVK'

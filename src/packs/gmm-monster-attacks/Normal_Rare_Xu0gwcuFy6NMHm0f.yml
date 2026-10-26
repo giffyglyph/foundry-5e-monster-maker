@@ -1,0 +1,16 @@
+name: Normal Rare
+sorting: a
+folder: null
+type: Item
+_id: Xu0gwcuFy6NMHm0f
+sort: 228125
+color: '#941212'
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.2
+  coreVersion: '11.315'
+  createdTime: 1712336838795
+  modifiedTime: 1716048651181
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!Xu0gwcuFy6NMHm0f'

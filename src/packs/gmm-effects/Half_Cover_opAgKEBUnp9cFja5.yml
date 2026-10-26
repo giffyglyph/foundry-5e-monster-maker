@@ -1,0 +1,27 @@
+name: Half Cover
+type: base
+_id: opAgKEBUnp9cFja5
+img: systems/dnd5e/icons/svg/statuses/cover-half.svg
+description: >-
+  <p><strong>Common Terrain Modifier</strong></p><ul><li><p>+2 bonus to AC and
+  DEX saving throws.</p></li></ul><p><em>Applies to a creature in the
+  area.</em></p><p><em>Core automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - coverHalf
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+    terrain: half_cover
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!opAgKEBUnp9cFja5'

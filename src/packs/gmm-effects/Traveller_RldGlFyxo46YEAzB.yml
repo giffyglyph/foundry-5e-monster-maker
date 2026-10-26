@@ -1,0 +1,30 @@
+name: Traveller
+type: base
+_id: RldGlFyxo46YEAzB
+img: icons/magic/control/buff-flight-wings-blue.webp
+description: >-
+  <p><strong>Uncommon Boon</strong></p><ul><li><p>You gain a new form of
+  movement.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>Core automation</em></p><p><em>Set the value of the
+  Fly change to +30 or another speed, keeping the plus, or replace the change
+  with Burrow, Climb or Swim.</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes:
+    - key: system.attributes.movement.fly
+      _id: i01PzAFNC6M7ucxb
+      type: add
+      value: '+0'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!RldGlFyxo46YEAzB'

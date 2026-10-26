@@ -1,0 +1,170 @@
+name: (Ooze) Corrosive
+type: feat
+img: icons/creatures/slimes/slime-face-melting-green.webp
+system:
+  description:
+    value: >-
+      <p>Any nonmagical weapon made of metal or wood that hits you is corroded.
+      After dealing damage, the weapon takes a permanent and cumulative &minus;1
+      penalty to damage rolls. If the penalty drops to &minus;5, the weapon is
+      destroyed. Any nonmagical ammunition made of metal or wood that hits you
+      is destroyed after dealing damage. You can eat through 2-inch- thick,
+      nonmagical wood or metal in 1 round.</p><p><em>No automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Ooze) Corrosive
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects: []
+folder: Ufs5zJIug1CEB6LB
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Ooze) Corrosive
+          image: icons/creatures/slimes/slime-face-melting-green.webp
+          text: >-
+            <p>Any nonmagical weapon made of metal or wood that hits you is
+            corroded. After dealing damage, the weapon takes a permanent and
+            cumulative &minus;1 penalty to damage rolls. If the penalty drops to
+            &minus;5, the weapon is destroyed. Any nonmagical ammunition made of
+            metal or wood that hits you is destroyed after dealing damage. You
+            can eat through 2-inch- thick, nonmagical wood or metal in 1
+            round.</p><p><em>No automation</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712263326267
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: CTrzcfEqz8BRpx6n
+sort: 800000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!CTrzcfEqz8BRpx6n'

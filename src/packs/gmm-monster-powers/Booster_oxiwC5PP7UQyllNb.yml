@@ -1,0 +1,16 @@
+name: Booster
+sorting: a
+folder: ikmSE8RFDofxomeD
+type: Item
+_id: oxiwC5PP7UQyllNb
+sort: 100000
+color: null
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.1
+  coreVersion: '11.315'
+  createdTime: null
+  modifiedTime: 1712180664391
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!oxiwC5PP7UQyllNb'

@@ -1,0 +1,194 @@
+name: (Monstrosity) Light Sensitivity
+type: feat
+img: icons/magic/light/explosion-star-glow-orange.webp
+system:
+  description:
+    value: >-
+      <p>While in bright light, you have disadvantage on all attack rolls and
+      any Wisdom (Perception) check which relies on sight.+</p><p><em>+ Midi
+      automation, unfinished</em></p><p><em>Nothing here reads the light level.
+      Set both changes to 1 and apply the effect by hand while the creature
+      stands in bright light.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Monstrosity) Light Sensitivity
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects:
+  - _id: ojy6en9wyzKqslW8
+    name: Light Sensitivity
+    img: icons/magic/light/explosion-star-glow-orange.webp
+    type: base
+    disabled: false
+    transfer: true
+    description: ''
+    system:
+      changes:
+        - key: flags.midi-qol.disadvantage.attack.all
+          _id: oBozR6tnsdNog5DQ
+          type: custom
+          value: ''
+        - key: flags.midi-qol.disadvantage.skill.prc
+          _id: AeCIlNBq0C1p6s1A
+          type: custom
+          value: ''
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!slW8ojy6en9wyzKq.ojy6en9wyzKqslW8'
+folder: SKPk0rmQdeY9GIXd
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Monstrosity) Light Sensitivity
+          image: icons/magic/light/explosion-star-glow-orange.webp
+          text: >-
+            <p>While in bright light, you have disadvantage on all attack rolls
+            and any Wisdom (Perception) check which relies on
+            sight.+</p><p><em>+ Midi automation,
+            unfinished</em></p><p><em>Nothing here reads the light level. Set
+            both changes to 1 and apply the effect by hand while the creature
+            stands in bright light.</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712262185770
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: slW8ojy6en9wyzKq
+sort: 1100000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!slW8ojy6en9wyzKq'

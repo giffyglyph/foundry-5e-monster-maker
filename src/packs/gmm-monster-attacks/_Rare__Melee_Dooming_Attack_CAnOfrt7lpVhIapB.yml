@@ -1,0 +1,320 @@
+name: (Rare) Melee Dooming Attack
+type: feat
+img: icons/magic/death/hand-undead-skeleton-fire-pink.webp
+system:
+  description:
+    value: >-
+      <p>You begin draining the life out of a nearby foe.</p>
+
+      <p><strong>Hit:</strong> the target is doomed 1.</p>
+
+      <p><strong>Doom:</strong> the target becomes &amp;reference[Frightened] of
+      you, and makes a DC [durationSaveDc] Wisdom save at the end of each of
+      their turns to end that fright.</p>
+
+      <p><em>Adding a deferral allows this feature to deal more damage and apply
+      a condition. (See GMM pdf p.45)</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (Rare) Melee Dooming Attack
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: spec
+      range:
+        value: 10
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: melee
+          classification: spell
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: gmmdoomclock0000
+    gmmdeferred00000:
+      _id: gmmdeferred00000
+      type: damage
+      name: (Rare) Melee Dooming Attack
+      sort: 1
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: 10
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      damage:
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - necrotic
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      midiProperties:
+        automationOnly: true
+        otherActivityCompatible: false
+      effects:
+        - _id: frt7lpVhIapBCAnO
+effects:
+  - _id: frt7lpVhIapBCAnO
+    name: Frightened
+    img: systems/dnd5e/icons/svg/statuses/frightened.svg
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    statuses:
+      - frightened
+    system:
+      changes: []
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!CAnOfrt7lpVhIapB.frt7lpVhIapBCAnO'
+  - _id: gmmdoomclock0000
+    name: (Rare) Melee Dooming Attack (doomed 1)
+    img: icons/magic/death/hand-undead-skeleton-fire-pink.webp
+    description: '<p>Dispelled by: The target moves farther than 10 feet from you</p>'
+    transfer: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    showIcon: 2
+    flags:
+      dnd5e:
+        isTemporary: false
+      giffyglyph-monster-maker-continued:
+        deferral:
+          kind: dooming
+          name: (Rare) Melee Dooming Attack
+          timer: 1
+          remaining: 1
+          cancel: The target moves farther than 10 feet from you
+    _key: '!items.effects!CAnOfrt7lpVhIapB.gmmdoomclock0000'
+folder: Xu0gwcuFy6NMHm0f
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Rare) Melee Dooming Attack
+          image: icons/magic/death/hand-undead-skeleton-fire-pink.webp
+          text: >-
+            <p>You begin draining the life out of a nearby foe.</p>
+
+            <p><strong>Hit:</strong> the target is doomed 1.</p>
+
+            <p><strong>Doom:</strong> the target becomes
+            &amp;reference[Frightened] of you, and makes a DC [durationSaveDc]
+            Wisdom save at the end of each of their turns to end that
+            fright.</p>
+
+            <p><em>Adding a deferral allows this feature to deal more damage and
+            apply a condition. (See GMM pdf p.45)</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: msak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*1.75), damageDie]'
+                type: necrotic
+        duration:
+          type: save_ends
+          units: ''
+          value: ''
+          save:
+            ability: wis
+          reapplies: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 10
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 1
+          max: 1
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: rare
+        deferral:
+          type: dooming
+          timer: 1
+          cancel: The target moves farther than 10 feet from you
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716244126624
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: CAnOfrt7lpVhIapB
+sort: 0
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!CAnOfrt7lpVhIapB'

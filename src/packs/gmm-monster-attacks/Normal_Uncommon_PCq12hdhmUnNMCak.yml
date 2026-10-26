@@ -1,0 +1,16 @@
+name: Normal Uncommon
+sorting: a
+folder: null
+type: Item
+_id: PCq12hdhmUnNMCak
+sort: 212500
+color: '#b29403'
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.2
+  coreVersion: '11.315'
+  createdTime: 1712336836693
+  modifiedTime: 1716048633500
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!PCq12hdhmUnNMCak'

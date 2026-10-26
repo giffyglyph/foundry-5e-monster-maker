@@ -5,7 +5,7 @@ export const GMM_ACTION_BLUEPRINT = {
 		description: {
 			image: "icons/svg/clockwork.svg",
 			name: "Scaling Action",
-			text: null
+			text: ""
 		},
 		display: {
 			layout: "",
@@ -32,25 +32,57 @@ export const GMM_ACTION_BLUEPRINT = {
 			condition: null
 		},
 		cover: null,
+		deferral: {
+			type: null,
+			timer: null,
+			cancel: null
+		},
+		effects: {
+			always_show: false
+		},
 		target: {
 			value: null,
 			units: null,
-			type: null,
-			width: null
+			type: "creature",
+			width: null,
+			affects_self: false
+		},
+		// Top-level rather than inside `target`, which round-trips to the activity and would drop it.
+		zone: {
+			terrain: [],
+			rules: [],
+			audience: "any",
+			once_per_turn: true
 		},
 		range: {
 			value: null,
 			long: null,
 			units: null,
 		},
+		rarity: "common",
 		duration: {
-			value: null,
-			units: null
+			type: "instant",
+			value: "",
+			units: "",
+			save: {
+				ability: "",
+				modifier: {
+					value: "",
+					override: false
+				}
+			},
+			reapplies: "",
+			cancel: ""
 		},
 		uses: {
-			value: null,
-			maximum: null,
-			per: null
+			value: "",
+			maximum: "",
+			per: ""
+		},
+		properties: {
+			concentration: {
+				checked: false
+			}
 		},
 		resource_consumption: {
 			type: null,
@@ -69,7 +101,11 @@ export const GMM_ACTION_BLUEPRINT = {
 				formula: null,
 				type: null
 			},
-			message: null
+			miss: {
+				percentage: null
+			},
+			message: null,
+			related_stat: "max"
 		}
 	}
 };

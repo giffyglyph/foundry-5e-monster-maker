@@ -1,0 +1,25 @@
+name: Piercing
+type: base
+_id: upHzljA4FoCQnnyk
+img: icons/skills/melee/blade-tip-orange.webp
+description: >-
+  <p><strong>Common Boon</strong></p><ul><li><p>Your attacks ignore resistance
+  to one damage type and treat immunity to it as
+  resistance.</p></li></ul><p><em>Applies to a creature you
+  empower.</em></p><p><em>No automation</em></p>
+disabled: false
+transfer: false
+folder: gmmBoons00000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!upHzljA4FoCQnnyk'

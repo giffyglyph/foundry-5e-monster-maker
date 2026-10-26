@@ -1,0 +1,16 @@
+name: Generic Attack Features
+sorting: a
+folder: null
+type: Item
+_id: ioREHNA3OVlvYiu9
+sort: 100000
+color: '#241164'
+flags: {}
+_stats:
+  systemId: dnd5e
+  systemVersion: 3.1.2
+  coreVersion: '11.315'
+  createdTime: 1712336821039
+  modifiedTime: 1716241212193
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+_key: '!folders!ioREHNA3OVlvYiu9'

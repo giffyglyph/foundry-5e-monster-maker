@@ -1,0 +1,178 @@
+name: (Aberration) Horrifying Sight
+type: feat
+img: icons/magic/death/skull-weapon-staff-glow-pink.webp
+system:
+  description:
+    value: >-
+      <p>At the start of your turn, each creature within 30 ft. of you that can
+      see you must succeed on a DC [featureDc] Intelligence saving throw or be
+      restrained until the end of its next turn. If the saving throw succeeds by
+      5 or more, the creature is immune to your sight until it finishes a long
+      rest.*</p><p><em>* Core automation (roll it when the trigger
+      fires)</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: save
+      name: (Aberration) Horrifying Sight
+      sort: 0
+      activation:
+        type: special
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: 1
+        units: round
+      range:
+        value: null
+        units: self
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: radius
+          size: '30'
+          width: '0'
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      save:
+        ability:
+          - int
+        dc:
+          calculation: ''
+          formula: 0 + 0
+      damage:
+        onSave: none
+        parts: []
+      effects: []
+effects: []
+folder: ovdj4g064I0mjIWa
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Aberration) Horrifying Sight
+          image: icons/magic/death/skull-weapon-staff-glow-pink.webp
+          text: >-
+            <p>At the start of your turn, each creature within 30 ft. of you
+            that can see you must succeed on a DC [featureDc] Intelligence
+            saving throw or be restrained until the end of its next turn. If the
+            saving throw succeeds by 5 or more, the creature is immune to your
+            sight until it finishes a long rest.*</p><p><em>* Core automation
+            (roll it when the trigger fires)</em></p>
+        activation:
+          type: special
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: save
+          related_stat: max
+          bonus: ''
+          defense: int
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: end_of_target_turn
+          units: ''
+          value: ''
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        range:
+          units: self
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: emanation
+          units: ft
+          value: 30
+          width: 0
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712253775518
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: TD0NFhGCG7l1hhCG
+sort: 112500
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!TD0NFhGCG7l1hhCG'

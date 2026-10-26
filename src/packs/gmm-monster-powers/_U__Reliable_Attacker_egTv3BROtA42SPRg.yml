@@ -1,0 +1,209 @@
+name: (U) Reliable Attacker
+type: feat
+img: icons/commodities/treasure/totem-wooden-glowing-yellow.webp
+system:
+  description:
+    value: >-
+      <p>When you make an attack roll, treat it as a natural 11.+ You may decide
+      this after seeing the initial result.</p><p><em>+ Midi
+      automation</em></p><p><em>Shown when the attack misses on a die below
+      11.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (U) Reliable Attacker
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects:
+  - _id: 3BROtA42SPRgegTv
+    name: Reliable Attacker
+    img: icons/commodities/treasure/totem-wooden-glowing-yellow.webp
+    type: base
+    disabled: false
+    transfer: true
+    description: ''
+    system:
+      changes:
+        - key: flags.midi-qol.optional.ReliableAttacker.attack.fail.all
+          _id: Ti5nvP4OzqwAB1tn
+          type: custom
+          value: function.gmmc.rolls.reliableAttacker
+        - key: flags.midi-qol.optional.ReliableAttacker.activation
+          _id: lKof2UsVe4shws0Z
+          type: custom
+          value: workflow.diceRoll < 11
+        - key: flags.midi-qol.optional.ReliableAttacker.count
+          _id: CW41mt1skkAy802Y
+          type: custom
+          value: ItemUses.exactNameMatch.(U) Reliable Attacker
+        - key: flags.midi-qol.optional.ReliableAttacker.label
+          _id: 8TGB0ZYfgFf0gabi
+          type: custom
+          value: Reliable Attacker
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!egTv3BROtA42SPRg.3BROtA42SPRgegTv'
+folder: Tnf0D7n9MHPnMz8r
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (U) Reliable Attacker
+          image: icons/commodities/treasure/totem-wooden-glowing-yellow.webp
+          text: >-
+            <p>When you make an attack roll, treat it as a natural 11.+ You may
+            decide this after seeing the initial result.</p><p><em>+ Midi
+            automation</em></p><p><em>Shown when the attack misses on a die
+            below 11.</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+        rarity: uncommon
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716049006247
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: egTv3BROtA42SPRg
+sort: 100000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!egTv3BROtA42SPRg'

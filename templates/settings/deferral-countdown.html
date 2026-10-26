@@ -1,0 +1,79 @@
+<div class="gmm-countdown-form">
+	<div class="form-group">
+		<label>{{localize 'gmm.settings.deferral_countdown.enabled.name'}}</label>
+		<div class="form-fields">
+			<input type="checkbox" name="enabled" {{checked config.enabled}} />
+		</div>
+		<p class="hint">{{localize 'gmm.settings.deferral_countdown.enabled.hint'}}</p>
+	</div>
+
+	<div class="form-group">
+		<label>{{localize 'gmm.settings.deferral_countdown.vertical.name'}}</label>
+		<div class="form-fields">
+			<select name="vertical">
+				{{#each vertical}}
+				<option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>{{localize 'gmm.settings.deferral_countdown.horizontal.name'}}</label>
+		<div class="form-fields">
+			<select name="horizontal">
+				{{#each horizontal}}
+				<option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>{{localize 'gmm.settings.deferral_countdown.font.name'}}</label>
+		<div class="form-fields">
+			<select name="font">
+				{{#each fonts}}
+				<option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.label}}</option>
+				{{/each}}
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>{{localize 'gmm.settings.deferral_countdown.size.name'}}</label>
+		<div class="form-fields">
+			<input type="number" name="size" data-dtype="Number" min="5" max="100" step="1" value="{{config.size}}" />
+		</div>
+		<p class="hint">{{localize 'gmm.settings.deferral_countdown.size.hint'}}</p>
+	</div>
+
+	<div class="form-group">
+		<label>{{localize 'gmm.settings.deferral_countdown.color.name'}}</label>
+		<div class="form-fields">
+			<color-picker name="color" value="{{config.color}}"></color-picker>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label>{{localize 'gmm.settings.deferral_countdown.due_color.name'}}</label>
+		<div class="form-fields">
+			<color-picker name="dueColor" value="{{config.dueColor}}"></color-picker>
+		</div>
+		<p class="hint">{{localize 'gmm.settings.deferral_countdown.due_color.hint'}}</p>
+	</div>
+
+	<fieldset class="gmm-countdown-preview">
+		<legend>{{localize 'gmm.settings.deferral_countdown.preview.name'}}</legend>
+		<div class="form-fields">
+			<figure>
+				<canvas data-gmm-preview="counting" width="120" height="120"></canvas>
+				<figcaption>{{localize 'gmm.settings.deferral_countdown.preview.counting'}}</figcaption>
+			</figure>
+			<figure>
+				<canvas data-gmm-preview="due" width="120" height="120"></canvas>
+				<figcaption>{{localize 'gmm.settings.deferral_countdown.preview.due'}}</figcaption>
+			</figure>
+		</div>
+	</fieldset>
+</div>

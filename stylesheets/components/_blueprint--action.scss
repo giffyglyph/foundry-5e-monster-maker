@@ -1,6 +1,14 @@
 .gmm-blueprint.blueprint--action {
 
 	&.blueprint--action--vanity {
+		.gmm_prose-editor {
+			min-height: 15rem;
+
+			.editor {
+				min-height: 15rem;
+			}
+		}
+
 
 		.form-group--image {
 
@@ -36,7 +44,7 @@
 						cursor: pointer;
 					}
 
-					
+
 					input {
 						margin: 0;
 						top: 0;
@@ -44,6 +52,44 @@
 						margin-right: 0.25rem;
 					}
 				}
+			}
+		}
+
+		.form-group--duration {
+
+			.form-group__body {
+				display: flex;
+
+				input {
+					flex: 0 0 5rem;
+				}
+
+				select {
+					flex: 1 1 auto;
+				}
+			}
+		}
+
+		.form-group__body--suffixed {
+			display: flex;
+			align-items: center;
+
+			input {
+				flex: 0 0 5rem;
+			}
+
+			.form-group__suffix {
+				padding-left: 0.5rem;
+				color: var(--color-primary-shade-2);
+			}
+		}
+
+		.form-group--note {
+
+			.form-group__body {
+				padding: 0.5rem;
+				font-style: italic;
+				color: var(--color-primary-shade-2);
 			}
 		}
 
@@ -69,6 +115,114 @@
 						box-shadow: none;
 						color: var(--color-secondary-base);
 						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		.form-group--terrain,
+		.form-group--zone-rule {
+
+			+ .form-group--terrain,
+			+ .form-group--zone-rule {
+				border-top: 1px solid var(--color-tint-1);
+			}
+
+			.zone-row {
+				display: flex;
+
+				button {
+					background: none;
+					padding: 0;
+					margin: 0;
+					border: none;
+					width: 2rem;
+					text-align: center;
+					color: var(--color-primary-base);
+
+					&:hover {
+						box-shadow: none;
+						color: var(--color-secondary-base);
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		.items {
+
+			.item {
+				display: flex;
+				padding: 0.25rem 0.5rem;
+				align-items: center;
+
+				&:not(:last-child) {
+					border-bottom: 1px dotted var(--color-primary-tint-3);
+				}
+			}
+
+			.effect {
+				display: flex;
+				padding: 0.25rem 0.5rem;
+				align-items: center;
+
+				&:not(:last-child) {
+					border-bottom: 1px dotted var(--color-primary-tint-3);
+				}
+			}
+
+			.item__icon {
+				margin: -0.25rem 6px -0.25rem -0.5rem;
+				width: 26px;
+				height: 26px;
+				background: black;
+				flex: 0 0 26px;
+
+				img {
+					max-width: 100%;
+					max-height: 100%;
+					border: none;
+					display: block;
+				}
+			}
+
+			.item__title {
+				flex-grow: 1;
+				min-width: 0;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				margin-right: 1rem;
+			}
+
+			.item__actions {
+				display: flex;
+				flex-shrink: 0;
+				margin-right: -0.25rem;
+				margin-top: -0.25rem;
+				margin-bottom: -0.25rem;
+
+				button {
+					background: none;
+					color: var(--color-primary-tint-3);
+					border: none;
+					font-weight: bold;
+					line-height: 1.5;
+					padding: 0;
+					cursor: pointer;
+					text-align: center;
+
+					i {
+						margin: 0;
+					}
+
+					+ * {
+						margin-left: 0.5rem;
+					}
+
+					&:hover {
+						box-shadow: none;
+						color: var(--color-primary-base);
 					}
 				}
 			}

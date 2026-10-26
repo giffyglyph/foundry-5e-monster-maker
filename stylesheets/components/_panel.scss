@@ -72,7 +72,7 @@
 			&::after {
 				content: "\f077";
 				-webkit-font-smoothing: antialiased;
-				font-family: "Font Awesome 5 Free";
+				font-family: var(--font-awesome, "Font Awesome 7 Pro");
 				font-weight: 900;
 				display: inline-block;
 				font-style: normal;

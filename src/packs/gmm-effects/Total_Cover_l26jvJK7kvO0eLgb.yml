@@ -1,0 +1,30 @@
+name: Total Cover
+type: base
+_id: l26jvJK7kvO0eLgb
+img: systems/dnd5e/icons/svg/statuses/cover-total.svg
+description: >-
+  <p><strong>Rare Terrain Modifier</strong></p><ul><li><p>Can't be targeted
+  directly by an attack or a spell.</p></li></ul><p><em>Applies to a creature in
+  the area.</em></p><p><em>Midi automation</em></p><p><em>Midi answers an attack
+  against the creature with an unreachable AC and a spell against it with an
+  automatic save. Without midi the status only hides the creature's AC from the
+  attack card.</em></p>
+disabled: false
+transfer: false
+statuses:
+  - coverTotal
+folder: gmmTerrain000000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: rare
+    terrain: total_cover
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!l26jvJK7kvO0eLgb'

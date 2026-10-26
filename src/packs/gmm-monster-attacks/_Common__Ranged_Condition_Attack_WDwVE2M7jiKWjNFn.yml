@@ -1,0 +1,245 @@
+name: (Common) Ranged Condition Attack
+type: feat
+img: icons/weapons/polearms/spear-ice-crystal-blue.webp
+effects:
+  - changes:
+      - key: flags.midi-qol.disadvantage.attack.all
+        _id: essn0nuV5rt1ILvM
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.disadvantage.ability.check.all
+        _id: syYkDdKSl8vEPStU
+        mode: 0
+        value: '1'
+        priority: null
+    description: '- A poisoned creature has disadvantage on attack rolls and ability checks.'
+    disabled: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: null
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+    name: Poisoned
+    origin: Compendium.world.gmm-monster-attacks-dev.Item.WDwVE2M7jiKWjNFn
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - poisoned
+    _id: 9wtYVK34hDv65pHc
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: modules/dfreds-convenient-effects/images/poisoned.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!WDwVE2M7jiKWjNFn.9wtYVK34hDv65pHc'
+folder: JPEHab7zdvYJ1DzZ
+sort: 1300000
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Common) Ranged Condition Attack
+          image: icons/weapons/polearms/spear-ice-crystal-blue.webp
+          text: >-
+            <p>The target is <em>Poisoned&nbsp;</em>until the end of its next
+            turn.</p><p><em>Midi automation</em></p>
+        activation:
+          type: action
+          cost: 0
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: rwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          type: end_of_target_turn
+          units: ''
+          value: ''
+          save:
+            ability: ''
+          reapplies: ''
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+        range:
+          units: ft
+          value: 30
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: 1
+          width: 0
+        uses:
+          value: 0
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: common
+  midi-qol:
+    fumbleThreshold: null
+    rollAttackPerTarget: default
+    removeAttackDamageButtons: default
+    itemCondition: ''
+    effectCondition: ''
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    concentration: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+_id: WDwVE2M7jiKWjNFn
+system:
+  description:
+    value: "<p>The target is <em>Poisoned\_</em>until the end of its next turn.</p><p><em>Midi automation</em></p>"
+    chat: ''
+    unidentified: ''
+  source: ''
+  cover: null
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: attack
+      name: (Common) Ranged Condition Attack
+      sort: 0
+      activation:
+        type: action
+        value: 0
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: 1
+        units: round
+      range:
+        value: 30
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: '1'
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: ranged
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts: []
+      effects:
+        - _id: 9wtYVK34hDv65pHc
+ownership:
+  default: 0
+  9KqczVLBJ56sdiTI: 3
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '13.351'
+  createdTime: 1686232662657
+  modifiedTime: 1716215918890
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: Compendium.world.gmm-dev-monster-attacks.CICD2MTVmws72nJV
+  duplicateSource: null
+  exportSource: null
+_key: '!items!WDwVE2M7jiKWjNFn'

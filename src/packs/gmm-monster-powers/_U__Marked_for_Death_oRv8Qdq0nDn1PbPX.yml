@@ -1,0 +1,200 @@
+name: (U) Marked for Death
+type: feat
+img: icons/magic/acid/dissolve-bone-skull.webp
+system:
+  description:
+    value: >-
+      <p>Whenever you hit a creature within 30' that has 50% hp or more, that
+      creature is <em>Marked for Death</em>.* While marked, if the creature is
+      reduced to 0 hit points it suffers instant death.*</p><p><em>* Core
+      automation</em></p><p><em>Use it when you hit a target above half hit
+      points.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '3'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (U) Marked for Death
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: 30
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects:
+        - _id: Qdq0nDn1PbPXoRv8
+effects:
+  - _id: Qdq0nDn1PbPXoRv8
+    name: Marked for Death
+    img: icons/magic/acid/dissolve-bone-skull.webp
+    type: base
+    disabled: false
+    transfer: false
+    description: ''
+    system:
+      changes: []
+    flags:
+      dae:
+        stackable: noneName
+      gmm:
+        condition: cursed
+    statuses:
+      - marked
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!oRv8Qdq0nDn1PbPX.Qdq0nDn1PbPXoRv8'
+folder: oCn6YWsz0qjuGvFL
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (U) Marked for Death
+          image: icons/magic/acid/dissolve-bone-skull.webp
+          text: >-
+            <p>Whenever you hit a creature within 30' that has 50% hp or more,
+            that creature is <em>Marked for Death</em>.* While marked, if the
+            creature is reduced to 0 hit points it suffers instant
+            death.*</p><p><em>* Core automation</em></p><p><em>Use it when you
+            hit a target above half hit points.</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: util
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 30
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: creature
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: 3
+          max: 3
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+        rarity: uncommon
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1716048878322
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: oRv8Qdq0nDn1PbPX
+sort: 0
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!oRv8Qdq0nDn1PbPX'

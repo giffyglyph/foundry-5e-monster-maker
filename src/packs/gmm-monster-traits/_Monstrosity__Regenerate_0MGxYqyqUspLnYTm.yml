@@ -1,0 +1,194 @@
+name: (Monstrosity) Regenerate
+type: feat
+img: icons/magic/life/heart-cross-strong-flame-purple-orange.webp
+system:
+  description:
+    value: >-
+      <p>At the start of your turn, you regain 10% ([round(hpMax*0.1)]) of your
+      maximum hit points. If you take variable damage, this trait doesn't
+      function at the start of your next turn. You die only if you start your
+      turn with 0 hit points and can't regenerate.+</p><p><em>+ Midi
+      automation</em></p><p><em>Only the healing is automated. Neither the
+      suppression after its variable damage type nor the death clause is
+      implemented.</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: ''
+    recovery: []
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Monstrosity) Regenerate
+      sort: 0
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: null
+        units: ''
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: ''
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+effects:
+  - _id: YqyqUspLnYTm0MGx
+    name: Regenerate
+    img: icons/magic/life/heart-cross-strong-flame-purple-orange.webp
+    type: base
+    disabled: false
+    transfer: true
+    description: ''
+    system:
+      changes:
+        - key: flags.midi-qol.OverTime
+          _id: EURUc9G7zwPM1204
+          type: custom
+          value: >-
+            turn=start,label=Regenerate,rollType=damage,damageRoll=floor(@attributes.hp.max*0.1),damageType=healing
+    flags:
+      dae:
+        stackable: noneName
+    sort: 0
+    duration:
+      value: null
+      units: turns
+      expiry: null
+    _key: '!items.effects!0MGxYqyqUspLnYTm.YqyqUspLnYTm0MGx'
+folder: SKPk0rmQdeY9GIXd
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Monstrosity) Regenerate
+          image: icons/magic/life/heart-cross-strong-flame-purple-orange.webp
+          text: >-
+            <p>At the start of your turn, you regain 10% ([round(hpMax*0.1)]) of
+            your maximum hit points. If you take variable damage, this trait
+            doesn't function at the start of your next turn. You die only if you
+            start your turn with 0 hit points and can't regenerate.+</p><p><em>+
+            Midi automation</em></p><p><em>Only the healing is automated.
+            Neither the suppression after its variable damage type nor the death
+            clause is implemented.</em></p>
+        activation:
+          type: ''
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: ''
+          related_stat: str
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: null
+          versatile:
+            damage: ''
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ''
+          value: null
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: ''
+          units: ''
+          value: null
+          width: null
+        uses:
+          value: null
+          max: ''
+          per: ''
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        properties:
+          concentration:
+            checked: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '14.364'
+  createdTime: 1712154346132
+  modifiedTime: 1712262668270
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: 0MGxYqyqUspLnYTm
+sort: 100000
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!0MGxYqyqUspLnYTm'

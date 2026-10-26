@@ -1,0 +1,11 @@
+<div class="effect condition{{#unless condition.disabled}} condition--active{{/unless}}" data-condition-id="{{condition.id}}">
+    <div class="item__icon condition__icon"><dnd5e-icon src="{{condition.img}}"></dnd5e-icon></div>
+    <div class="item__title">{{condition.name}}</div>
+    <div class="item__actions item-controls effect-controls">
+        {{#if condition.level includeZero=true}}
+        <button type="button" data-action="toggleCondition" data-tooltip="gmm.common.condition_control.adjust_level"><span class="condition__level">{{condition.level}}</span></button>
+        {{else}}
+        <button type="button" data-action="toggleCondition" data-tooltip="{{#if condition.disabled}}gmm.common.condition_control.apply{{else}}gmm.common.condition_control.remove{{/if}}"><i class="fas fa-fw fa-toggle-{{#if condition.disabled}}off{{else}}on{{/if}}"></i></button>
+        {{/if}}
+    </div>
+</div>

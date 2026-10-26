@@ -1,0 +1,27 @@
+name: Starving
+type: base
+_id: Z02kV14M6zsWwtSx
+img: icons/consumables/food/soup-broth-bowl-wooden-yellow.webp
+description: >-
+  <p><strong>Uncommon Condition</strong></p><ul><li><p>Temporarily increase your
+  level of exhaustion by 1.</p></li><li><p>For every additional 24 hours you go
+  without sufficient food, increase this penalty by 1.</p></li></ul><p><em>No
+  automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.starving
+folder: gmmConditions000
+sort: 0
+system:
+  changes: []
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: uncommon
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!Z02kV14M6zsWwtSx'

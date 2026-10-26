@@ -1,0 +1,371 @@
+name: (Rare) Ranged Delayed Attack
+type: feat
+img: icons/magic/holy/projectiles-blades-salvo-yellow.webp
+system:
+  description:
+    value: >-
+      <p>You call a cadre of angelic creatures to descend upon your enemies and
+      wreak havoc. Enemies take [round(damage*1.25), damageDie] radiant damage
+      on a hit and are knocked &amp;reference[prone]. On a miss, they take half
+      of that damage and are not knocked prone.</p>
+
+      <p><em>Adding a deferral allows this feature to deal more damage and apply
+      an effect. (See GMM pdf p.45)</em></p><p><em>Midi automation</em></p>
+    chat: ''
+  source: {}
+  cover: null
+  crewed: false
+  uses:
+    spent: 0
+    max: '1'
+    recovery:
+      - period: lr
+        type: recoverAll
+        formula: ''
+  type:
+    value: monster
+    subtype: ''
+  properties: []
+  requirements: ''
+  activities:
+    gmmprimary000000:
+      _id: gmmprimary000000
+      type: utility
+      name: (Rare) Ranged Delayed Attack
+      sort: 0
+      activation:
+        type: action
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets:
+          - type: itemUses
+            target: ''
+            value: '1'
+            scaling:
+              mode: ''
+              formula: ''
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: spec
+      range:
+        value: 120
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: sphere
+          size: '10'
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: creature
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      effects: []
+    gmmdeferred00000:
+      _id: gmmdeferred00000
+      type: attack
+      name: (Rare) Ranged Delayed Attack
+      sort: 1
+      activation:
+        type: ''
+        value: null
+        condition: ''
+        override: false
+      consumption:
+        targets: []
+        scaling:
+          allowed: false
+          max: ''
+        spellSlot: false
+      duration:
+        concentration: false
+        special: ''
+        override: false
+        value: null
+        units: inst
+      range:
+        value: 120
+        units: ft
+        special: ''
+        override: false
+      target:
+        template:
+          count: ''
+          contiguous: false
+          stationary: false
+          type: ''
+          size: ''
+          width: ''
+          height: ''
+          units: ft
+        affects:
+          count: ''
+          type: ''
+          choice: false
+          special: '-self'
+        prompt: true
+        override: false
+      uses:
+        spent: 0
+        max: ''
+        recovery: []
+      attack:
+        ability: max
+        bonus: ''
+        critical:
+          threshold: null
+        flat: true
+        type:
+          value: ranged
+          classification: weapon
+      damage:
+        critical:
+          bonus: ''
+        includeBase: false
+        parts:
+          - number: null
+            denomination: null
+            bonus: ''
+            types:
+              - radiant
+            custom:
+              enabled: true
+              formula: '0'
+            scaling:
+              mode: ''
+              number: 1
+              formula: ''
+      midiProperties:
+        automationOnly: true
+        otherActivityCompatible: false
+      effects:
+        - _id: KOIkUHzkD0vrYhnQ
+effects:
+  - changes:
+      - key: flags.midi-qol.grants.advantage.attack.mwak
+        _id: bXJW3MVeilqW8a8u
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.grants.advantage.attack.msak
+        _id: 4Z4JWQCfULFT79Tq
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.grants.disadvantage.attack.rwak
+        _id: HbAXbnmRyUQsbLbv
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.grants.disadvantage.attack.rsak
+        _id: X9EDs9rfX20HdQnf
+        mode: 0
+        value: '1'
+        priority: null
+      - key: flags.midi-qol.disadvantage.attack.all
+        _id: fLLwQVEGcO2vfNU7
+        mode: 0
+        value: '1'
+        priority: null
+      - key: system.attributes.movement.all
+        _id: 3CJDYM9K1LIWV9Yu
+        mode: 0
+        value: '*0.5'
+        priority: 25
+    description: >-
+      - A prone creature's only movement option is to crawl, unless it stands up
+      and thereby ends the condition.<br />- The creature has disadvantage on
+      attack rolls.<br />- An attack roll against the creature has advantage if
+      the attacker is within 5 feet of the creature. Otherwise, the attack roll
+      has disadvantage.
+    disabled: false
+    duration:
+      value: null
+      units: turns
+      expiry: null
+      rounds: null
+      seconds: null
+      turns: null
+      startTime: null
+      combat: null
+      startRound: null
+      startTurn: null
+    flags:
+      dfreds-convenient-effects:
+        isConvenient: true
+        isDynamic: false
+        isViewable: true
+        nestedEffects: []
+        subEffects: []
+    name: Prone
+    origin: Compendium.world.gmm-monster-attacks-dev.Item.rs7lb7zlK3ehTA9x
+    tint: '#ffffff'
+    transfer: false
+    statuses:
+      - prone
+    _id: KOIkUHzkD0vrYhnQ
+    _stats:
+      coreVersion: '13.351'
+      systemId: null
+      systemVersion: null
+      createdTime: null
+      modifiedTime: null
+      lastModifiedBy: null
+      compendiumSource: null
+      duplicateSource: null
+      exportSource: null
+    img: modules/dfreds-convenient-effects/images/prone.svg
+    type: base
+    system: {}
+    sort: 0
+    _key: '!items.effects!rs7lb7zlK3ehTA9x.KOIkUHzkD0vrYhnQ'
+folder: Xu0gwcuFy6NMHm0f
+flags:
+  core:
+    sheetClass: giffyglyph-monster-maker-continued.ActionSheet
+  gmm:
+    blueprint:
+      vid: 1
+      type: action
+      data:
+        description:
+          name: (Rare) Ranged Delayed Attack
+          image: icons/magic/holy/projectiles-blades-salvo-yellow.webp
+          text: >-
+            <p>You call a cadre of angelic creatures to descend upon your
+            enemies and wreak havoc. Enemies take [round(damage*1.25),
+            damageDie] radiant damage on a hit and are knocked
+            &amp;reference[prone]. On a miss, they take half of that damage and
+            are not knocked prone.</p>
+
+            <p><em>Adding a deferral allows this feature to deal more damage and
+            apply an effect. (See GMM pdf p.45)</em></p><p><em>Midi
+            automation</em></p>
+        activation:
+          type: action
+          cost: null
+          condition: ''
+        requirements:
+          level:
+            min: null
+            max: null
+          rank: ''
+          role: ''
+        resource_consumption:
+          type: ''
+          target: ''
+          amount: null
+        attack:
+          type: rwak
+          related_stat: max
+          bonus: ''
+          defense: ''
+          miss:
+            percentage: 60
+          versatile:
+            damage: ''
+          hit:
+            damage:
+              '0':
+                formula: '[round(damage*1.25), damageDie]'
+                type: radiant
+        duration:
+          units: ''
+          value: ''
+          type: instant
+          reapplies: ''
+          save:
+            ability: ''
+          cancel: ''
+        range:
+          units: ft
+          value: 120
+          long: null
+        recharge:
+          value: null
+          is_charged: false
+        target:
+          type: sphere
+          units: ft
+          value: 10
+          width: null
+        uses:
+          value: 1
+          max: 1
+          per: lr
+        display:
+          layout: ''
+          skin:
+            artifact: ''
+            blueprint: ''
+          color:
+            primary: ''
+            secondary: ''
+        rarity: rare
+        deferral:
+          type: delayed
+          timer: 2
+          cancel: ''
+        properties:
+          concentration:
+            checked: false
+  midi-qol:
+    fumbleThreshold: null
+    AoETargetType: any
+    AoETargetTypeIncludeSelf: true
+    autoTarget: default
+    rollAttackPerTarget: default
+    removeAttackDamageButtons: default
+    itemCondition: ''
+    otherCondition: ''
+    effectCondition: ''
+  midiProperties:
+    confirmTargets: default
+    autoFailFriendly: false
+    autoSaveFriendly: false
+    critOther: false
+    offHandWeapon: false
+    magicdam: false
+    magiceffect: false
+    concentration: false
+    noConcentrationCheck: false
+    toggleEffect: false
+    ignoreTotalCover: false
+_stats:
+  systemId: dnd5e
+  systemVersion: 5.3.2
+  coreVersion: '13.351'
+  createdTime: 1712154346132
+  modifiedTime: 1716244141903
+  lastModifiedBy: x5I9e6ueO5h4cZXY
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+_id: rs7lb7zlK3ehTA9x
+sort: 0
+ownership:
+  default: 0
+  x5I9e6ueO5h4cZXY: 3
+_key: '!items!rs7lb7zlK3ehTA9x'

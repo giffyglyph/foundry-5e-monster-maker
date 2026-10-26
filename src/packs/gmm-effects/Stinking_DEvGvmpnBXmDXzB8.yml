@@ -1,0 +1,46 @@
+name: Stinking
+type: base
+_id: DEvGvmpnBXmDXzB8
+img: icons/consumables/food/cheese-wedge-swiss-white.webp
+description: >-
+  <p><strong>Common Condition</strong></p><ul><li><p>You have disadvantage on
+  concentration checks and any ability check to interact
+  socially.</p></li></ul><p><em>Core automation</em></p>
+disabled: false
+transfer: false
+statuses:
+  - gmm.stinking
+folder: gmmConditions000
+sort: 0
+system:
+  changes:
+    - key: system.attributes.concentration.roll.mode
+      _id: 7HFfxkzB3YOInwVm
+      type: add
+      value: '-1'
+    - key: system.skills.dec.roll.mode
+      _id: 9XoZo8i8Rw75is5y
+      type: add
+      value: '-1'
+    - key: system.skills.itm.roll.mode
+      _id: 4x3kK2LOMvGPf0CW
+      type: add
+      value: '-1'
+    - key: system.skills.prf.roll.mode
+      _id: 7BDy925JT8JIe2sD
+      type: add
+      value: '-1'
+    - key: system.skills.per.roll.mode
+      _id: DsifFoqP6ghIBIxE
+      type: add
+      value: '-1'
+flags:
+  dae:
+    stackable: noneName
+  gmm:
+    rarity: common
+duration:
+  value: null
+  units: turns
+  expiry: null
+_key: '!effects!DEvGvmpnBXmDXzB8'
